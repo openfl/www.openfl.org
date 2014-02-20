@@ -1,0 +1,29 @@
+---
+layout: post
+status: publish
+published: true
+title: NME 3.3.0 RC1 Release
+author: admin
+author_login: admin
+author_email: joshua@joshuagranick.com
+wordpress_id: 81
+wordpress_url: http://www.haxenme.org/blog/?p=81
+date: 2012-03-20 01:57:33.000000000 -07:00
+---
+Five weeks ago, we released the best version of NME to date -- NME 3.2 added support for SWF assets, joystick and gamepad support, better integration for IDEs and many more improvements to our favorite framework.
+
+We plan to release NME 3.3 soon, which builds on our previous release with better shape rendering, improved stability, support for armv6 and armv7 builds on iOS and Android, and perhaps the most exciting, a new native target -- BlackBerry.
+
+This release candidate includes over than 40 fixes and improvements, and is recommended for anyone currently using NME. Please help us test this release before it officially goes on haxelib and becomes the standard installer.
+
+If you haven't seen it yet, we have a new issue tracking system at <a href="https:&#47;&#47;haxenme.atlassian.net&#47;secure&#47;IssueNavigator.jspa?mode=hide&amp;requestId=10100" target="_blank">https:&#47;&#47;haxenme.atlassian.net&#47;secure&#47;IssueNavigator.jspa<&#47;a>. If you do encounter problems with this release (especially if you find any regressions), please file an issue there.
+
+<h3>Installers<&#47;h3>
+
+<a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;4313&#47;3220&#47;7400&#47;NME-3.3.0-Windows.exe">NME-3.3.0-Windows.exe<&#47;a>
+<a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;5413&#47;3220&#47;7400&#47;NME-3.3.0-Mac.zip">NME-3.3.0-Mac.zip<&#47;a>
+
+<h3>Archives<&#47;h3>
+
+<a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;9913&#47;3220&#47;7400&#47;nme-330.zip">nme-3,3,0.zip<&#47;a>
+<a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;9213&#47;3220&#47;7400&#47;hxcpp-2083.zip">hxcpp-2,08,3.zip<&#47;a>
