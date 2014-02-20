@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
+    <script src="/javascripts/respond.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -32,7 +32,21 @@
       <section>
         <div id="title">
           <h1>{{ site.name }}</h1>
-          <p>A fast, open-source, native implementation of the Flash API</p>
+          <p>Creative expression for desktop, mobile, web and console platforms</p>
+          <p>
+          <ul>
+            {% for weight in (1..10) %}
+              {% for p in site.pages %}
+                {% if p.weight == weight %}
+                  <li>
+                    <a {% if p.url == page.url %}class="active"{% endif %} href="{{ p.url }}">
+                      {{ p.title }}
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </ul></p>
           <hr>
           <span class="credits left">Project maintained by <a href="https://github.com/openfl">openfl</a></span>
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
