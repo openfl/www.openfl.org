@@ -1,0 +1,115 @@
+body { color: #4f4f4f; }
+a { color: #24afc4; }
+a:hover, a:focus { color: #1e90a0; }
+.navbar { border-top: solid 3px #24afc4; padding-top: 17px; }
+.navbar .navbar-logo { float: left; padding: 5px 22px 14px 10px; }
+.navbar-default { background-color: #fcfcfc; margin-bottom: 0; }
+.navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:focus { color: #555; } 
+.navbar-default .navbar-nav li a { color: #999; }
+.jumbotron { margin-bottom: 0; }
+.container-full { margin: 0 auto; width: 100%; }
+.container-full.grey { background-color: #f8f8f8; border-top: solid 1px #e7e7e7; }
+.container-full h2 {   font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px; font-size: 20px; text-transform: uppercase; }
+.centered { text-align: center; }
+.container.cta { padding: 20px; }
+
+.btn-primary {
+  background-color: #ff5b18;
+  border-color: #dc4100;
+}
+
+.btn-default {
+  background-color: #cccccc;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    background-color: #f04600;
+    border-color: #dc4100;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    background-color: #aaaaaa;
+}
+
+
+/* Pad the edges of the mobile views a bit */
+.marketing {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+
+@media (min-width: 768px) {
+
+  /* Remove the edge padding needed for mobile */
+  .marketing {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left:  15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left:  0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}

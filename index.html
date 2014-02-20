@@ -1,0 +1,104 @@
+---
+layout: wrapper
+title: Home
+weight: 0
+---
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Hello, world!</h1>
+    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+    <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+  </div>
+</div>
+
+<div class="container cta">
+	<div class="row">
+		<div class="col-sm-6 centered">
+			<h4>Ready to begin? <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span>
+ Get started now!</button></h4>
+		</div>
+		<div class="col-sm-6 centered">
+			<h4>Want to know more? <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-film"></span> See how it works</button></div></h4>
+		</div>
+	</div>
+</div>
+
+<div class="container-full grey">
+
+<div class="container">
+	  
+	<!-- Example row of columns -->
+	<div class="row">
+	<div class="col-md-4">
+	  <h2>Developer Spotlight</h2>
+	  <p>{% for post in site.categories["spotlight"] limit:1 %}
+	  <img src="{{ site.url }}/{{ post.image }}" />
+	  <p>{{ post.tagline }}</p>
+	  {% endfor %}</p>
+	  <p><a class="btn btn-default" href="{{ post.url }}" role="button"><span class="glyphicon glyphicon-file"></span> Read more</a></p>
+	</div>
+	<div class="col-sm-4">
+	  <h2>Showcase</h2>
+	  <p>{% for showcase in site.data.showcase limit:4 %}
+	  <p>{{ showcase.title }}</p>
+	  {% endfor %}</p>
+	  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+	</div>
+	<div class="col-sm-4">
+	  <h2>Latest Updates</h2>
+	  <p>{% for post in site.posts limit:5 %}
+	  <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+	{% endfor %}</p>
+	  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+	</div>
+	</div>
+
+ </div>
+ </div>
+
+<div class="container">
+
+	<hr class="featurette-divider">
+
+	      <div class="row featurette">
+	        <div class="col-md-7">
+	          <h2 class="featurette-heading">Cross-Platform<!-- <span class="text-muted">It'll blow your mind.</span>--></h2>
+	          <p class="lead">Build games and applications for almost every platform imaginable -- Windows, Mac, iOS, Android, BlackBerry, Tizen, Flash and even HTML5. Bring your creative vision to life, on desktops, tablets, phones, even consoles. Publish to Steam, Amazon, OUYA... almost anywhere.</p>
+	        </div>
+	        <div class="col-md-5">
+	          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+	        </div>
+	      </div>
+
+	      <hr class="featurette-divider">
+
+	      <div class="row featurette">
+	        <div class="col-md-5">
+	          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+	        </div>
+	        <div class="col-md-7">
+	          <h2 class="featurette-heading">Open-Source <!-- <span class="text-muted">See for yourself.</span>--></h2>
+	          <p class="lead">Unlock potential with an open, hackable platform that is 100% free and open-source, backed by a passionate and responsive developer community. Delve deep when you want the power or flexibility of native codebase, but keep your hands clean when you are focused on content.
+	</p>
+	        </div>
+	      </div>
+
+	      <hr class="featurette-divider">
+
+	      <div class="row featurette">
+	        <div class="col-md-7">
+	          <h2 class="featurette-heading">Easy-to-Use <!-- <span class="text-muted">Checkmate.</span> --></h2>
+	          <p class="lead">Accelerate your workflow with the fast, easy-to-use Flash API, as well as integrated support for SWF file assets, allowing use of the Flash editing environment directly. Build content in weeks instead of months, using a powerful and flexible programming language.</p>
+	        </div>
+	        <div class="col-md-5">
+	          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+	        </div>
+	      </div>
+
+	      <hr class="featurette-divider">
+	    
+	 
+	
+
+</div>
