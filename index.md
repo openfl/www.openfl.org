@@ -4,6 +4,24 @@ title: Home
 weight: 0
 ---
 
+### Developer Spotlight
+
+{% for post in site.categories["spotlight"] limit:4 %}
+  <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+
+### Showcase
+
+{% for showcase in site.data.showcase limit:1 %}
+  <p>{{ showcase.title }}</p>
+{% endfor %}
+
+### Latest Updates
+
+{% for post in site.posts limit:5 %}
+  <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+
 ## Cross-Platform
 
 Build games and applications for almost every platform imaginable -- Windows, Mac, iOS, Android, BlackBerry, Tizen, Flash and even HTML5. Bring your creative vision to life, on desktops, tablets, phones, even consoles. Publish to Steam, Amazon, OUYA... almost anywhere.
