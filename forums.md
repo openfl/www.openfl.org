@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: wrapper
 title: Forums
 weight: 3
 permalink: forums/

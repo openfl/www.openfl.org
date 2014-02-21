@@ -12,7 +12,7 @@ weight: 0
   </div>
 </div>
 
-<div class="container cta">
+<!-- <div class="container cta">
 	<div class="row">
 		<div class="col-sm-6 centered">
 			<h4>Ready to begin? <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span>
@@ -22,7 +22,7 @@ weight: 0
 			<h4>Want to know more? <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-film"></span> See how it works</button></div></h4>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <div class="container-full grey">
 
@@ -34,7 +34,7 @@ weight: 0
 	  <h2>Spotlight</h2>
 	  <p>{% for post in site.categories["spotlight"] limit:1 %}
 	  <!-- <img src="{{ site.url }}/{{ post.image }}" /> -->
-	  <img class="featurette-image img-responsive" data-src="holder.js/240x110/auto" alt="Generic placeholder image">
+	  <img class="featurette-image img-responsive" data-src="holder.js/280x110/auto" alt="Generic placeholder image">
 	  <p>{{ post.tagline }}</p>
 	  {% endfor %}</p>
 	  <p><a class="btn btn-default" href="{{ post.url }}" role="button"><span class="glyphicon glyphicon-file"></span> Read more</a></p>
