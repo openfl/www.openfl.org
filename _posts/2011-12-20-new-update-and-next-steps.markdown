@@ -12,7 +12,7 @@ date: 2011-12-20 21:03:50.000000000 -08:00
 ---
 We've got a brand new release of NME for you, just in time for the holidays!
 
-<a href="http:&#47;&#47;www.haxenme.org&#47;developers&#47;get-started">http:&#47;&#47;www.haxenme.org&#47;developers&#47;get-started<&#47;a>
+<a href="http://www.haxenme.org/developers/get-started">http://www.haxenme.org/developers/get-started</a>
 
 NME 3.1.1 fixes a regression in graphics.drawTriangles, and adds a few improvements in the last week. The preloader class has been updated to look nicer, and is now enabled for Flash as well as HTML5. It is available for all targets, so you can use it manually for C++ targets, if you like, or you can extend it with your own design.
 

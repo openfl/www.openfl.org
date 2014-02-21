@@ -20,7 +20,7 @@ In version 1.1.0 of OpenFL, we have some major changes coming to the way assets 
 
 First, openfl.Assets is being upgraded to multiple "asset libraries."
 
-An asset library can provide BitmapData, ByteArray, Font, MovieClip, Sound or String instances, just as openfl.Assets has done to-date. Now you can provide your own implementation of where your files come from.<a id="more"></a><a id="more-188"></a>
+An asset library can provide BitmapData, ByteArray, Font, MovieClip, Sound or String instances, just as openfl.Assets has done to-date. Now you can provide your own implementation of where your files come from.<!--more--><a id="more-188"></a>
 
 For example, you could wrap a JSON data file, turning it into an asset library. Now you can use "Assets.getBitmapData ('mydata:myimage.png');" instead of doing the loads by hand. Bitmap caching has also been turned into a smarter "asset cache", allowing simple clearing of a single or all data.
 
@@ -29,8 +29,8 @@ Asset libraries are going to have the ability to access synchronous as well as a
 Even further, OpenFL is getting a new system for "library handlers." Simply put, a library file could be a SWF, XFL, or any other complex data structure. Instead of anticipating each new format, the OpenFL tools are going to support custom third-party handlers, to process and return the asset structure, defines and other data needed to support that data type at runtime.
 
 Here is an example:
-<pre><haxelib name="swf" &#47;>
-<library path="assets&#47;library.swf" &#47;><&#47;pre>
+<pre><haxelib name="swf" />
+<library path="assets/library.swf" /></pre>
 If the "swf" library were to register itself as a handler for *.swf library types, it has an opportunity to be called during the OpenFL tools build process, and tell OpenFL how to handle the file, seamlessly.
 
 Accessing the library in the project would then be this simple:
@@ -38,5 +38,5 @@ Accessing the library in the project would then be this simple:
 &nbsp; &nbsp;
 &nbsp; &nbsp;addChild (Assets.getMovieClip ("library:MySymbol"));
 &nbsp; &nbsp;
-});<&#47;pre>
+});</pre>
 We look forward to finishing these features and sharing them with you soon :)

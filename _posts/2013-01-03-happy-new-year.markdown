@@ -22,7 +22,7 @@ The Mayans were wrong. Welcome to 2013!
 
 We appreciate your support during 2012. In the last 12 months, NME gained the BlackBerry and HTML5 targets, and grew tremendously in feature and stability improvements.
 
-Soon we will be releasing details for upcoming paid services, such as corporate support, training and consulting. We believe that NME is a leader in cross-platform game and application development, so we are increasing our investment to make sure that NME can provide for all of your needs, as an independent game developer, a small production house or a large studio.<a id="more"></a><a id="more-139"></a>
+Soon we will be releasing details for upcoming paid services, such as corporate support, training and consulting. We believe that NME is a leader in cross-platform game and application development, so we are increasing our investment to make sure that NME can provide for all of your needs, as an independent game developer, a small production house or a large studio.<!--more--><a id="more-139"></a>
 
 We have no intention of charging licensing fees, so you will be able to use NME for free, just as you already do today. What we are doing is exploring how we can best serve the needs of both the independent and enterprise communities, and finding how we can put more of our resources into making NME the very best platform.
 

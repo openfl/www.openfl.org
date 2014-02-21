@@ -18,7 +18,7 @@ date: 2013-10-03 21:18:28.000000000 -07:00
 ---
 Similar to other native platforms, OpenFL supports C and C++ native extensions for Android.
 
-In order to take advantage of certain SDKs or Android platform features, however, you may need to extend your AndroidManifest.xml, place hooks into the Activity events, or post callbacks to the native thread (where your Haxe code is running). These conspire to make Android (hands-down) the most complicated platform for native extensions.<a id="more"></a><a id="more-208"></a>
+In order to take advantage of certain SDKs or Android platform features, however, you may need to extend your AndroidManifest.xml, place hooks into the Activity events, or post callbacks to the native thread (where your Haxe code is running). These conspire to make Android (hands-down) the most complicated platform for native extensions.<!--more--><a id="more-208"></a>
 
 We are excited to announce there are improvements coming to the Android Extension API.
 

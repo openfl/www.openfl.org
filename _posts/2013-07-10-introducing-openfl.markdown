@@ -14,4 +14,4 @@ We are very excited to announce OpenFL!
 
 Here is the original presentation from WWX in Paris:
 
-<iframe src="&#47;&#47;www.youtube.com&#47;embed&#47;6AtmdGbQkTQ" height="315" width="420" allowfullscreen="" frameborder="0"><&#47;iframe>
+<iframe src="//www.youtube.com/embed/6AtmdGbQkTQ" height="315" width="420" allowfullscreen="" frameborder="0"></iframe>

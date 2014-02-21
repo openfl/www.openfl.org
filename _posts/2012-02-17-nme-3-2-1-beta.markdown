@@ -24,13 +24,13 @@ This also means that if you use iOS 4.x or 5.x features in your application, suc
 
 Version 1.08 of the SWF library was recently released, adding initial support for buttons. This update for NME improves our generation of SWF classes to create both MovieClip and SimpleButton classes automatically, and addresses API changes which took place because of the upgrade.
 
-The waxe library has been posted to haxelib, and this version of NME resolves some minor issues which prevented you from compiling certain kinds of projects using the NME command-line tools. Believe it or not, the NME command-line tools do not require that you build an NME application. If <haxelib name="nme" &#47;> is included in your waxe project, NME will create an NME window (like normal) but you will be able to access additional UI elements like dialogs, windows, panels and buttons. On the the other hand, if the NME haxelib is not included in your NMML, you will be able to configure your own native OS window yourself.
+The waxe library has been posted to haxelib, and this version of NME resolves some minor issues which prevented you from compiling certain kinds of projects using the NME command-line tools. Believe it or not, the NME command-line tools do not require that you build an NME application. If <haxelib name="nme" /> is included in your waxe project, NME will create an NME window (like normal) but you will be able to access additional UI elements like dialogs, windows, panels and buttons. On the the other hand, if the NME haxelib is not included in your NMML, you will be able to configure your own native OS window yourself.
 
 We will be talking about waxe more in the future, and exploring how NME and waxe can continue to work together to improve application development.
-<h2>Download<&#47;h2>
+<h2>Download</h2>
 <ul>
-	<li><a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;8313&#47;2950&#47;5098&#47;NME-3.2.1-Windows.exe">Windows<&#47;a> (EXE -- 12.1 MB)<&#47;li>
-	<li><a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;2213&#47;2950&#47;5498&#47;NME-3.2.1-Mac.zip">Mac<&#47;a> (PKG -- 18.9 MB)<&#47;li>
-	<li><a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;8313&#47;2950&#47;5408&#47;NME-3.2.1-Linux.tar.gz">Linux<&#47;a> (SH -- 1 KB)<&#47;li>
-<&#47;ul>
-<em>If you&nbsp;would prefer&nbsp;to install packages manually, you can download this version of <a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;8413&#47;2950&#47;5137&#47;nme-321.zip">NME<&#47;a> and <a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;7913&#47;2950&#47;5114&#47;hxcpp-2082.zip">HXCPP<&#47;a>, and install from a command-line or terminal using the "haxelib test" command<&#47;em>
+	<li><a href="http://www.haxenme.org/files/8313/2950/5098/NME-3.2.1-Windows.exe">Windows</a> (EXE -- 12.1 MB)</li>
+	<li><a href="http://www.haxenme.org/files/2213/2950/5498/NME-3.2.1-Mac.zip">Mac</a> (PKG -- 18.9 MB)</li>
+	<li><a href="http://www.haxenme.org/files/8313/2950/5408/NME-3.2.1-Linux.tar.gz">Linux</a> (SH -- 1 KB)</li>
+</ul>
+<em>If you&nbsp;would prefer&nbsp;to install packages manually, you can download this version of <a href="http://www.haxenme.org/files/8413/2950/5137/nme-321.zip">NME</a> and <a href="http://www.haxenme.org/files/7913/2950/5114/hxcpp-2082.zip">HXCPP</a>, and install from a command-line or terminal using the "haxelib test" command</em>

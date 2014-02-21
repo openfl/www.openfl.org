@@ -10,7 +10,7 @@ wordpress_id: 42
 wordpress_url: http://www.haxenme.org/blog/?p=42
 date: 2011-12-08 02:37:53.000000000 -08:00
 ---
-We have a new version of NME ready to install. You can download the automated installer from the <a href="http:&#47;&#47;www.haxenme.org&#47;developers&#47;get-started" target="_blank">Get Started<&#47;a> page, or follow the instructions for <a href="http:&#47;&#47;www.haxenme.org&#47;developers&#47;get-started&#47;manual-install" target="_blank">installing manually<&#47;a>.
+We have a new version of NME ready to install. You can download the automated installer from the <a href="http://www.haxenme.org/developers/get-started" target="_blank">Get Started</a> page, or follow the instructions for <a href="http://www.haxenme.org/developers/get-started/manual-install" target="_blank">installing manually</a>.
 
 NME 3.1 RC4 includes numerous small fixes for using the accelerometer on Android, embedding fonts on iOS, accessing text assets on HTML5, using Matrix3D and graphics.drawTriangles, as well as other useful improvements.
 

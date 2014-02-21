@@ -12,7 +12,7 @@ date: 2011-11-23 09:08:23.000000000 -08:00
 ---
 We have another release for you!
 
-<a href="http:&#47;&#47;www.haxenme.org&#47;developers&#47;get-started&#47;">http:&#47;&#47;www.haxenme.org&#47;developers&#47;get-started&#47;&nbsp;<&#47;a>
+<a href="http://www.haxenme.org/developers/get-started/">http://www.haxenme.org/developers/get-started/&nbsp;</a>
 
 This is primarily a maintenance release -- it addresses some bugs that were found in the previous release when targeting Windows or when compiling for iOS. If you have experienced any issues with the previous release, please update and comment on the forums if you experience any new issues.
 

@@ -12,22 +12,22 @@ date: 2012-08-16 21:42:38.000000000 -07:00
 ---
 Hello again,
 
-We are happy to share the newest and greatest version of NME so far, <a href="http:&#47;&#47;www.haxenme.org&#47;download">NME 3.4.1<&#47;a>.
+We are happy to share the newest and greatest version of NME so far, <a href="http://www.haxenme.org/download">NME 3.4.1</a>.
 
 Here are some of the highlights:
 <ul>
-	<li>Added initial support for Apache Cordova<&#47;li>
-	<li>Added initial support for Adobe AIR<&#47;li>
-	<li>Added initial support for BlackBerry OS (HTML5)<&#47;li>
-	<li>Improved trace consistency for native platforms<&#47;li>
-	<li>Improved HTML5 rendering to use CSS3 transforms<&#47;li>
-	<li>Added noise(), getBounds() and getRect() for native targets<&#47;li>
-	<li>NME is now an extension (more on that in a moment)<&#47;li>
-	<li>Added stage FOCUS_IN and FOCUS_Out events<&#47;li>
-	<li>Fixed URLLoader for BlackBerry<&#47;li>
-	<li>Fixed the build and launch process for some OS X systems<&#47;li>
-	<li>Added unit tests for bitmaps, display objects and graphics<&#47;li>
-<&#47;ul>
+	<li>Added initial support for Apache Cordova</li>
+	<li>Added initial support for Adobe AIR</li>
+	<li>Added initial support for BlackBerry OS (HTML5)</li>
+	<li>Improved trace consistency for native platforms</li>
+	<li>Improved HTML5 rendering to use CSS3 transforms</li>
+	<li>Added noise(), getBounds() and getRect() for native targets</li>
+	<li>NME is now an extension (more on that in a moment)</li>
+	<li>Added stage FOCUS_IN and FOCUS_Out events</li>
+	<li>Fixed URLLoader for BlackBerry</li>
+	<li>Fixed the build and launch process for some OS X systems</li>
+	<li>Added unit tests for bitmaps, display objects and graphics</li>
+</ul>
 We are evolving the command-line tools in NME to make the NME framework optional. It may seem like a strange idea, but we found that we missed the simplicity of the NME build process when working on web projects or when migrating projects for AIR.
 
 NME 3.4.1 introduces beta support for Apache Cordova and Adobe AIR publishing. They can be accessed by specifying a target like normal, but adding either "-html5" or "-air" when building.
@@ -36,7 +36,7 @@ One of the things we enjoy most about Haxe and NME are the options they provide.
 
 Cordova builds have been tested on iOS, Android and BlackBerry, and AIR builds have been tested for the desktop. It now is possible to deploy NME applications to BlackBerry OS 6 and 7, using HTML5. We continue to support native builds for the BlackBerry PlayBook and upcoming BlackBerry 10 platform.
 
-As strange as it may sound, we have updated NME so that it behaves like a native extension. This means that including <haxelib name="nme" &#47;> in your project is all that is necessary to include the boilerplate native binaries.
+As strange as it may sound, we have updated NME so that it behaves like a native extension. This means that including <haxelib name="nme" /> in your project is all that is necessary to include the boilerplate native binaries.
 
 This also means that the command-line tools are maturing to allow builds for more kinds of projects, such as a Flash project, Haxe Javascript project or even a traditional Javascript project.
 
@@ -44,4 +44,4 @@ We are in the process of writing unit tests to ensure the stability of NME acros
 
 There are many more changes in this release. Feel free to view them all at:
 
-https:&#47;&#47;github.com&#47;jgranick&#47;NME&#47;blob&#47;master&#47;changes.md
+https://github.com/jgranick/NME/blob/master/changes.md

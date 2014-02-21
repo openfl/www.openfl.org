@@ -18,6 +18,6 @@ Now there is an installer for NME, based on the Haxe installer, which will insta
 
 Once NME has been installed, you should be able to access the NME command-line tools by running "nme" from a command-prompt or terminal. You can use "nme setup <target>" to automatically download and install supporting tools for the desired target.
 
-For more informated, please visit the <a href="http:&#47;&#47;www.haxenme.org&#47;developers&#47;get-started" target="_blank">Get Started<&#47;a> page. If you encounter any issues with the installer or the "nme setup" command, please open an issue on the forums. We want to make sure these are solid for the next release.
+For more informated, please visit the <a href="http://www.haxenme.org/developers/get-started" target="_blank">Get Started</a> page. If you encounter any issues with the installer or the "nme setup" command, please open an issue on the forums. We want to make sure these are solid for the next release.
 
 If you would prefer not to use the automated installer, there is also an archive available to set up the RC2 release manually.

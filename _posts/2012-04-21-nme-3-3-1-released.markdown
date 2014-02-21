@@ -14,7 +14,7 @@ It's been a few weeks in coming, but NME 3.3.1 is finally out. There's nothing m
 
 Most notable are improvements for Haxe 2.09, the BlackBerry target and some minor issues that affected the iOS and HTML5 targets. There have also been improvements in the accelerometer behavior and in URLLoader.
 <ul>
-	<li><a href="http:&#47;&#47;www.haxenme.org&#47;download_file&#47;view&#47;288&#47;3371&#47;">Windows<&#47;a><&#47;li>
-	<li><a href="http:&#47;&#47;www.haxenme.org&#47;download_file&#47;view&#47;287&#47;3371&#47;">Mac<&#47;a><&#47;li>
-	<li><a href="http:&#47;&#47;www.haxenme.org&#47;download_file&#47;view&#47;286&#47;3371&#47;">Linux<&#47;a><&#47;li>
-<&#47;ul>
+	<li><a href="http://www.haxenme.org/download_file/view/288/3371/">Windows</a></li>
+	<li><a href="http://www.haxenme.org/download_file/view/287/3371/">Mac</a></li>
+	<li><a href="http://www.haxenme.org/download_file/view/286/3371/">Linux</a></li>
+</ul>

@@ -24,5 +24,5 @@ haxelib run nme test MyProject.nmml ios -simulator
 haxelib run nme test MyProject.nmml webos
 haxelib run nme test MyProject.nmml android
 haxelib run nme test MyProject.nmml flash
-haxelib run nme test MyProject.nmml html5<&#47;pre>
+haxelib run nme test MyProject.nmml html5</pre>
 I hope that you are as excited as we are, while we prepare for the next release of NME.

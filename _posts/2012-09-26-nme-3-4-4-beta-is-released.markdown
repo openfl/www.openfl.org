@@ -20,4 +20,4 @@ NME 3.4.4 adds full support for BlackBerry 10. We have also fixed issues that ap
 
 There are also changes that help improve compatibility with Xbox 360 and PlayStation 3 controllers, that help expose low-level GL functionality from Haxe, and also the stability and quality of NME overall.
 
-You can <a href="http:&#47;&#47;www.haxenme.org&#47;download">download the installer<&#47;a> for Windows, Mac or Linux.
+You can <a href="http://www.haxenme.org/download">download the installer</a> for Windows, Mac or Linux.

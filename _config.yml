@@ -2,3 +2,4 @@ name: OpenFL
 markdown: redcarpet
 pygments: true
 url: ""
+excerpt_separator: "<!--more-->"

@@ -17,9 +17,9 @@ The RC1 installers had an issue that left haxelib wondering which version of HXC
 This release also includes haptic feedback for Android and music improvements. If you're using the "sqlite" library, note that it also has been updated to work with NME 3.3.0, adding support for armv6 and armv7 builds of iOS as well as BlackBerry.
 
 Let us know if you find any regressions. We want to move quickly to a final 3.3.0 release, as it includes important fixes for compatibility with the latest Android SDK and XCode, and we are excited to share our brand-new BlackBerry target!
-<h3>Installers<&#47;h3>
-<a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;9913&#47;3237&#47;4766&#47;NME-3.3.0-Windows.exe">NME-3.3.0-Windows.exe<&#47;a>
-<a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;6713&#47;3237&#47;4766&#47;NME-3.3.0-Mac.zip">NME-3.3.0-Mac.zip<&#47;a>
-<h3>Archives<&#47;h3>
-<a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;6213&#47;3237&#47;4765&#47;nme-3.3.0.zip">nme-3.3.0.zip<&#47;a>
-<a href="http:&#47;&#47;www.haxenme.org&#47;files&#47;1613&#47;3237&#47;4766&#47;hxcpp-2.08.3.zip">hxcpp-2.08.3.zip<&#47;a>
+<h3>Installers</h3>
+<a href="http://www.haxenme.org/files/9913/3237/4766/NME-3.3.0-Windows.exe">NME-3.3.0-Windows.exe</a>
+<a href="http://www.haxenme.org/files/6713/3237/4766/NME-3.3.0-Mac.zip">NME-3.3.0-Mac.zip</a>
+<h3>Archives</h3>
+<a href="http://www.haxenme.org/files/6213/3237/4765/nme-3.3.0.zip">nme-3.3.0.zip</a>
+<a href="http://www.haxenme.org/files/1613/3237/4766/hxcpp-2.08.3.zip">hxcpp-2.08.3.zip</a>

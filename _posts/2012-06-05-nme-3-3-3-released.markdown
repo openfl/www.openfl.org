@@ -22,4 +22,4 @@ HTML5 has had a variety of minor improvements, including updates to our ByteArra
 
 drawTiles now has support for 2x2 transforms, which should help extend what is possible using the API.
 
-NME 3.3.3 has many more fixes and improvements. We hope you like it! You can <a href="http:&#47;&#47;www.haxenme.org&#47;download">download<&#47;a> the NME installer for your platform or open a shell and run "haxelib upgrade" if you have NME 3.3.1 or greater installed on your machine already.
+NME 3.3.3 has many more fixes and improvements. We hope you like it! You can <a href="http://www.haxenme.org/download">download</a> the NME installer for your platform or open a shell and run "haxelib upgrade" if you have NME 3.3.1 or greater installed on your machine already.

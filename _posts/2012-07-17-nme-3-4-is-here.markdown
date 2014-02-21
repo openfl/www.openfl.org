@@ -12,24 +12,24 @@ date: 2012-07-17 05:40:06.000000000 -07:00
 ---
 It has been a busy day (or two days, depending on your timezone).
 
-Haxe 2.10 was <a href="http:&#47;&#47;haxe.org&#47;doc&#47;release&#47;2.10" target="_blank">just released<&#47;a>. In addition to improvements across the board, it introduces beta support for C# and Java output. The wheels are turning for how we can put these to use with NME in the future.
+Haxe 2.10 was <a href="http://haxe.org/doc/release/2.10" target="_blank">just released</a>. In addition to improvements across the board, it introduces beta support for C# and Java output. The wheels are turning for how we can put these to use with NME in the future.
 
 We are very happy to share the latest version of NME to date. Here are some of the highlights:
-<h3>Improved BlackBerry support<&#47;h3>
+<h3>Improved BlackBerry support</h3>
 We have improved our support for the BlackBerry tablet and upcoming BlackBerry 10 platforms. In addition to the device, NME now supports the BlackBerry simulator. "nme setup blackberry" has been expanded to help automate the certificate process as well, to help you hit the ground running more quickly.
 
 NME now supports multi-touch for BlackBerry devices, and the toolchain has been future-proofed against the current tablet SDK as well as the beta BlackBerry 10 developer tools.
-<h3>Improved iOS Support<&#47;h3>
+<h3>Improved iOS Support</h3>
 We have improved NME to work naturally with the latest versions of Xcode for Lion, and to work properly using OS X Mountain Lion and the next stable release of the Xcode tools.
 
 The most exciting addition to our iOS support is a new direct-to-device method for installing and running your applications on an iOS device. You can still run Xcode manually if you want, but now the "build" and "run" commands are implemented for iOS devices as they are for our other supported targets. We hope this will greatly help with iteration when testing on a device.
-<h3>Improved HTML5 Support<&#47;h3>
+<h3>Improved HTML5 Support</h3>
 Thanks to improvements in Haxe 2.10, the output for the HTML5 target is much smaller. To further improve the file size for HTML5 applications, we have integrated Google Closure and YUI Compressor into the NME build process using the new "-minify" flag.
 
 We have added orientation and accelerometer support for HTML5, as well as other fixes and improvements to make the target stronger.
-<h3>Other Improvements<&#47;h3>
+<h3>Other Improvements</h3>
 We have increased the supported icon sizes for Windows and Mac, improved the Mac build process for newer versions of Xcode and OS X, expanded the documentation for NME, introduced launch image support for iOS, and more.
 
-We hope you enjoy NME 3.4. It is available for <a href="http:&#47;&#47;www.haxenme.org&#47;download" target="_blank">download now<&#47;a>.
+We hope you enjoy NME 3.4. It is available for <a href="http://www.haxenme.org/download" target="_blank">download now</a>.
 
 More is still to come. Please feel free to continue to give us feedback as we make NME better than ever.
