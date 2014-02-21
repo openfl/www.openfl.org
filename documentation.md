@@ -2,6 +2,7 @@
 layout: default
 title: Docs
 weight: 3
+permalink: documentation/
 ---
 
 ### [☰]({{ site.url }}/documentation/1.-Setup.html) 1. Setup.md
