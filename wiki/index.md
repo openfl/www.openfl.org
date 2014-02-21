@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Docs
+title: Wiki
 weight: 4
 ---
 
