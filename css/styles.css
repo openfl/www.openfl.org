@@ -5,7 +5,7 @@ html, body { height: 100%; }
 }
 #main {
   overflow:auto;
-  padding-bottom:200px; /* this needs to be bigger than footer height*/
+  padding-bottom:120px; /* this needs to be bigger than footer height*/
 }
 a { color: #24afc4; }
 a:hover, a:focus { color: #1e90a0; }
@@ -28,8 +28,8 @@ a:hover, a:focus { color: #1e90a0; }
   width: 100%;
   background-color: #2e2e2e; border-top: solid 2px #444444; 
   position: relative;
-  margin-top: -160px; /* negative value of footer height - padding */
-  height: 160px;
+  margin-top: -80px; /* negative value of footer height - padding */
+  height: 80px;
   clear:both;
   padding-top:20px;
 }
