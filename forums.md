@@ -1,5 +1,5 @@
 ---
-layout: wrapper
+layout: full-width
 title: Forums
 permalink: forums/
 head: '<link rel="stylesheet" type="text/css" href="//cdn.moot.it/1/moot.css">
