@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Wiki
-weight: 4
+weight: 3
 ---
 
 ### [☰]({{ site.url }}/documentation/1.-Setup.html) 1. Setup.md
