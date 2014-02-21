@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Documentation
+title: Docs
 weight: 4
 ---
 
@@ -23,8 +23,8 @@ weight: 4
 0. [Create New Project]({{ site.url }}/documentation/2.-Projects/2.1.-Create-New-Project.html)
 0. [Samples]({{ site.url }}/documentation/2.-Projects/2.2.-Samples.html)
 0. [Project Files]({{ site.url }}/documentation/2.-Projects/2.3.-Project-Files.html)
-    0. [[XML Format]({{ site.url }}/documentation/2.-Projects/2.3.-Project-Files/2.3.1.-XML-Format.html)
-    0. [[HXP Format]({{ site.url }}/documentation/2.-Projects/2.3.-Project-Files/2.3.2.-HXP-Format.html)
+    0. [XML Format]({{ site.url }}/documentation/2.-Projects/2.3.-Project-Files/2.3.1.-XML-Format.html)
+    0. [HXP Format]({{ site.url }}/documentation/2.-Projects/2.3.-Project-Files/2.3.2.-HXP-Format.html)
 
 ### [☰]({{ site.url }}/documentation/3.-Command-Line-Tools.html) 3. Command-Line-Tools.md
 0. [Basic Commands]({{ site.url }}/documentation/3.-Command-Line-Tools/3.1.-Basic-Commands.html)
