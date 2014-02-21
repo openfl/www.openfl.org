@@ -6,23 +6,13 @@ title: OpenFL Meets Lime
 author: admin
 author_login: admin
 author_email: joshua@joshuagranick.com
-excerpt: ! "Years ago, we worked on a project that many of you know, called NME. The
-  goal of NME was to build a way to make it simple to use Haxe for native mobile and
-  desktop applications. Over time, NME continued to develop better platform support,
-  new features and more intelligent command-line tools, even crossing the line to
-  unify C++, Flash and JavaScript builds under the same API.\r\n\r\nIn May of this
-  year, we introduced OpenFL, the next evolution of these goals. Similar to NME (and
-  leveraging the same codebase), OpenFL was designed to bring high-quality games and
-  applications to the web, mobile and desktop. Unlike NME, OpenFL was designed for
-  greater emphasis on the Flash API (which NME already mirrored), as well as a renewed
-  focus on maintaining feature parity and stability across each platform."
 wordpress_id: 261
 wordpress_url: http://www.openfl.org/blog2/?p=261
 date: 2013-12-18 20:25:38.000000000 -08:00
 ---
 Years ago, we worked on a project that many of you know, called NME. The goal of NME was to build a way to make it simple to use Haxe for native mobile and desktop applications. Over time, NME continued to develop better platform support, new features and more intelligent command-line tools, even crossing the line to unify C++, Flash and JavaScript builds under the same API.
 
-In May of this year, we introduced OpenFL, the next evolution of these goals. Similar to NME (and leveraging the same codebase), OpenFL was designed to bring high-quality games and applications to the web, mobile and desktop. Unlike NME, OpenFL was designed for greater emphasis on the Flash API (which NME already mirrored), as well as a renewed focus on maintaining feature parity and stability across each platform.<!--more--><a id="more-261"></a>
+In May of this year, we introduced OpenFL, the next evolution of these goals. Similar to NME (and leveraging the same codebase), OpenFL was designed to bring high-quality games and applications to the web, mobile and desktop. Unlike NME, OpenFL was designed for greater emphasis on the Flash API (which NME already mirrored), as well as a renewed focus on maintaining feature parity and stability across each platform.<!--more-->
 
 Though the majority of developers have been excited about OpenFL, some have been hesitant because although they loved NME, it was not because it mirrored the Flash API.
 
