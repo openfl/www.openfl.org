@@ -4,10 +4,10 @@ pygments: true
 url: "/_site"
 excerpt_separator: "<!--more-->"
 paginate: 5
-paginate_path: "news/page/:num"
+paginate_path: "blog/page/:num"
 navigation:
-- title: News
-  url: /news/
+- title: Blog
+  url: /blog/
 - title: Showcase
   url: /showcase/
 - title: Docs
