@@ -14,3 +14,4 @@ navigation:
   url: /documentation/
 - title: Forums
   url: /forums/
+permalink: /:year/:month/:day/:title
