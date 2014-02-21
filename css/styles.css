@@ -2,8 +2,9 @@ body { color: #4f4f4f; }
 a { color: #24afc4; }
 a:hover, a:focus { color: #1e90a0; }
 .navbar { border-top: solid 3px #24afc4; padding-top: 17px; }
-.navbar .navbar-logo { float: left; padding: 5px 22px 14px 10px; }
-.navbar-default { background-color: #fcfcfc; margin-bottom: 0; }
+.navbar .navbar-logo { float: left; padding: 5px 22px 14px 0px; }
+@media (max-width: 767px) { .navbar .navbar-logo { float: left; padding: 5px 22px 14px 0px; }
+.navbar-default { background-color: #fcfcfc; border-bottom: solid 1px #f8f8f8; margin-bottom: 0; }
 .navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:focus { color: #555; } 
 .navbar-default .navbar-nav li a { color: #999; }
 .jumbotron { margin-bottom: 0; }
