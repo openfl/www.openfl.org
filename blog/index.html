@@ -7,25 +7,27 @@ weight: 1
 <h1>Blog</h1>
 
 <div class="row">
-<div class="col-md-9">
+<div class="col-md-8">
 
 {% for post in paginator.posts %}
 <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
-<div>{{ post.excerpt }}</div>
+{% if post.excerpt != null and post.excerpt != "" %}
+<div>{{ post.excerpt }} <a href="{{ site.url }}{{ post.url }}">Read more</a></div>
+{% else %}
+<div>{{ post.content }}</div>
+{% endif %}
 <h5>{{ post.date | date: "%B %-d, %Y" }}</h5>
 {% endfor %}
 
 
 {% if paginator.total_pages > 1 %}
-<div class="row">
-<div class="col-md-2">
+<div style="text-align: center; vertical-align: middle">
 
 
-{% if paginator.previous_page %}<h4><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&lsaquo; Previous</a></h4>{% endif %}
+{% if paginator.previous_page %}<h4 style="float: left"><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&lsaquo; Newer Posts</a></h4>{% endif %}
 
+{% if paginator.next_page %}<h4 style="float: right;"><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rsaquo;</a></h4>{% endif %}
 
-</div>
-<div class="col-md-8" style="text-align: center; padding-top: 4px;">
 <h5>
 {% for page in (1..paginator.total_pages) %}
     {% if page == paginator.page %}
@@ -37,23 +39,20 @@ weight: 1
     {% endif %}
   {% endfor %}
   </h5>
-</div>
-<div class="col-md-2" style="text-align: right">
-{% if paginator.next_page %}<h4><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &rsaquo;</a></h4>{% endif %}
-</div>
+
 </div>
 {% endif %}
 
 
 </div>
+<div class="col-md-1"></div>
 <div class="col-md-3">
 
 
-<ul class="posts">
-{% for post in site.posts %}
-  <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
-{% endfor %}
-</ul>
+    <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/Open_FL"  data-widget-id="436939058351067136">Tweets by @Open_FL</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
 
 </div>
 </div>
