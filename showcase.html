@@ -1,0 +1,39 @@
+---
+layout: default
+title: Showcase
+permalink: showcase/
+---
+
+<h1>Showcase</h1>
+
+{% for showcase in site.data.showcase %}
+{% if showcase.featured %}
+{% cycle '<div class="row">', '' %}
+<div class="col-md-6">
+	<h2>{{ showcase.title }}</h2>
+	<p><a href="{{ showcase.url }}"><img src="{{ site.url }}/images/showcase/large/{{ showcase.image }}" /></a></p>
+	<p>
+	{% if showcase.ios %}<a href="{{ showcase.ios }}"><img src="{{ site.url }}/images/showcase/platforms/enabled/Apple.png"></a>{% else %}<img src="{{ site.url }}/images/showcase/platforms/disabled/Apple.png">{% endif %}
+	{% if showcase.android %}<a href="{{ showcase.android }}"><img src="{{ site.url }}/images/showcase/platforms/enabled/Android.png"></a>{% else %}<img src="{{ site.url }}/images/showcase/platforms/disabled/Android.png">{% endif %}
+	{% if showcase.blackberry %}<a href="{{ showcase.blackberry }}"><img src="{{ site.url }}/images/showcase/platforms/enabled/BlackBerry.png"></a>{% else %}<img src="{{ site.url }}/images/showcase/platforms/disabled/BlackBerry.png">{% endif %}
+	{% if showcase.windows %}<a href="{{ showcase.windows }}"><img src="{{ site.url }}/images/showcase/platforms/enabled/Windows.png"></a>{% else %}<img src="{{ site.url }}/images/showcase/platforms/disabled/Windows.png">{% endif %}
+	{% if showcase.mac %}<a href="{{ showcase.mac }}"><img src="{{ site.url }}/images/showcase/platforms/enabled/Apple.png"></a>{% else %}<img src="{{ site.url }}/images/showcase/platforms/disabled/Apple.png">{% endif %}
+	{% if showcase.linux %}<a href="{{ showcase.linux }}"><img src="{{ site.url }}/images/showcase/platforms/enabled/Linux.png"></a>{% else %}<img src="{{ site.url }}/images/showcase/platforms/disabled/Linux.png">{% endif %}
+	{% if showcase.flash %}<a href="{{ showcase.flash }}"><img src="{{ site.url }}/images/showcase/platforms/enabled/Flash.png"></a>{% else %}<img src="{{ site.url }}/images/showcase/platforms/disabled/Flash.png">{% endif %}
+	{% if showcase.html5 %}<a href="{{ showcase.html5 }}"><img src="{{ site.url }}/images/showcase/platforms/enabled/HTML5.png"></a>{% else %}<img src="{{ site.url }}/images/showcase/platforms/disabled/HTML5.png">{% endif %}
+	</p>
+</div>
+{% cycle '', '</div>' %}
+{% endif %}
+{% endfor %}
+
+{% for showcase in site.data.showcase %}
+{% unless showcase.featured %}
+{% cycle '<div class="row">', '', '', '' %}
+<div class="col-md-3">
+	<h3>{{ showcase.title }}</h3>
+	<p><a href="{{ showcase.url }}"><img src="{{ site.url }}/images/showcase/small/{{ showcase.image }}" /></a></p>
+</div>
+{% cycle '', '', '', '</div>' %}
+{% endunless %}
+{% endfor %}
