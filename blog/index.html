@@ -48,8 +48,11 @@ title: Blog
 <div class="col-md-3">
 
     <h2>Categories</h2>
-    {% for category in site.categories %}
-    {{ category.title }}
-    {% endfor %}
+    <ul>
+      {% for category in site.categories %}
+      <li>{{ category | first }}</li>
+      {% endfor %}
+    </ul>
+    
 </div>
 </div>
