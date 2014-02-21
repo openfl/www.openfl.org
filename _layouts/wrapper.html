@@ -50,7 +50,7 @@
               {% for p in site.pages %}
                 {% if p.weight == weight %}
                   <li>
-                    <a {% if p.url == page.url %}class="active"{% endif %} href="{{ p.url }}">
+                    <a {% if p.url == page.url %}class="active"{% endif %} href="{{ site.url }}/{{ p.url }}">
                       {{ p.title | upcase }}
                     </a>
                   </li>
