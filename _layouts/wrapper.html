@@ -49,17 +49,9 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                {% for weight in (1..10) %}
-                  {% for p in site.pages %}
-                    {% if p.weight == weight %}
-                      <li>
-                        <a {% if p.url == page.url %}class="active"{% endif %} href="{{ site.url }}{{ p.url }}">
-                          {{ p.title | upcase }}
-                        </a>
-                      </li>
-                    {% endif %}
-                  {% endfor %}
-                {% endfor %}
+                {% for weight in (1..10) %}{% for p in site.pages %}{% if p.weight == weight %}
+                <li><a {% if p.url == page.url %}class="active"{% endif %} href="{{ site.url }}{{ p.url }}">{{ p.title | upcase }}</a></li>
+                {% endif %}{% endfor %}{% endfor %}
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ site.url }}/download"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span>
