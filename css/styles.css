@@ -1,7 +1,7 @@
 body { color: #4f4f4f; }
 a { color: #24afc4; }
 a:hover, a:focus { color: #1e90a0; }
-.navbar { border-top: solid 3px #24afc4; padding-top: 17px; }
+.navbar { border-top: solid 3px #24afc4; padding-top: 17px; margin-bottom: 0; }
 .navbar .navbar-logo { float: left; padding: 5px 22px 14px 0px; }
 @media (max-width: 767px) { .navbar .navbar-logo { float: left; padding: 5px 22px 14px 0px; }
 .navbar-default { background-color: #fcfcfc; border-bottom: solid 1px #f8f8f8; margin-bottom: 0; }
