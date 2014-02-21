@@ -3,3 +3,14 @@ markdown: redcarpet
 pygments: true
 url: ""
 excerpt_separator: "<!--more-->"
+paginate: 5
+paginate_path: "blog/page/:num"
+navigation:
+- title: Blog
+  url: /blog/
+- title: Showcase
+  url: /showcase/
+- title: Docs
+  url: /documentation/
+- title: Forums
+  url: /forums/

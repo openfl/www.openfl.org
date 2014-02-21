@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Showcase
-weight: 2
 permalink: showcase/
 ---
 

@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Docs
-weight: 3
 permalink: documentation/
 ---
 
