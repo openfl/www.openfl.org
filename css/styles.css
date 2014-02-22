@@ -32,6 +32,7 @@ a:hover, a:focus { color: #1e90a0; }
   height: 80px;
   clear:both;
   padding-top:20px;
+  font-size: 12px;
 }
 
 .btn-primary {
