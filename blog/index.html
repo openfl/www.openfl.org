@@ -11,11 +11,12 @@ title: Blog
 {% for post in paginator.posts %}
 <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
 {% if post.excerpt != null and post.excerpt != "" %}
-<div>{{ post.excerpt }} <a href="{{ site.url }}{{ post.url }}">Read more</a></div>
+{{ post.excerpt | split:"</p>" | first }}
+<a href="{{ site.url }}{{ post.url }}">Read more</a></p>
 {% else %}
 <div>{{ post.content }}</div>
 {% endif %}
-<h5>{{ post.date | date: "%B %-d, %Y" }}</h5>
+<h4>{{ post.date | date: "%B %-d, %Y" }}</h4>
 {% endfor %}
 
 
