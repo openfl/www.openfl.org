@@ -83,7 +83,7 @@ class ImportDocumentation {
 			var outputPath = PathHelper.combine (destination, targetPath);
 			var title = titles[i];
 			
-			Sys.println (outputPath);
+			Sys.println ("Copying \"" + outputPath + "\"");
 			PathHelper.mkdir (Path.directory (outputPath));
 			
 			var content = File.getContent (sourcePath);
