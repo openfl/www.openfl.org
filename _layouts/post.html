@@ -1,9 +1,18 @@
 ---
 layout: default
 ---
+
+<div class="row">
+<div class="col-md-8">
+
 <h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
+<!-- <p class="meta">{{ page.date | date_to_string }}</p> -->
 
 <div class="post">
-{{ content }}
+{{ content | replace: '&lt;!--more--&gt;','' }}
+</div>
+
+<h4>{{ page.date | date: "%B %-d, %Y" }}</h4>
+
+</div>
 </div>
