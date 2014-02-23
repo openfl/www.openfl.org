@@ -1,3 +1,9 @@
+---
+layout: default
+title: Privacy Policy
+permalink: privacy/
+---
+
 # Privacy Policy
 
 _Effective April 1, 2013_
