@@ -34,7 +34,7 @@ permalink: showcase/
 {% unless showcase.featured %}
 {% cycle '<div class="row">', '', '', '' %}
 <div class="col-md-3">
-	<h3>{{ showcase.title }}</h3>
+	<h3 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ showcase.title }}</h3>
 	<p><a href="{{ showcase.url }}"><img src="{{ site.url }}/images/showcase/small/{{ showcase.image }}" /></a></p>
 	<p style="text-decoration: none !important; color: #dddddd; font-size: 15px;">
 		{% if showcase.windows %}<a href="{{ showcase.windows }}">{% endif %}<span class="icon-windows"></span>{% if showcase.windows %}</a>{% endif %}

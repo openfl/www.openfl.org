@@ -1,8 +1,21 @@
-- title: Half Inch Heist
-  developer: Mutant Labs
-  image: HalfInchHeist.png
-  url: http://halfinchheist.com/
-  ios: https://itunes.apple.com/us/app/half-inch-heist/id559787622?mt=8
+- title: "Papers, Please"
+  developer: "3909"
+  image: PapersPlease.png
+  url: http://papersplea.se/
+  windows: http://papersplea.se/
+  mac: http://papersplea.se/
+  linux: http://papersplea.se/
+  featured: true
+
+- title: rymdkapsel
+  developer: grapefrukt
+  image: rymdkapsel.png
+  url: http://rymdkapsel.com/
+  windows: http://store.steampowered.com/app/253790
+  mac: http://store.steampowered.com/app/253790
+  linux: http://store.steampowered.com/app/253790
+  ios: "https://itunes.apple.com/us/app/rymdkapsel/id663547503?ls=1&mt=8"
+  android: http://play.google.com/store/apps/details?id=com.grapefrukt.games.rymdkapsel1
   featured: true
 
 - title: Rune Raiders
@@ -17,14 +30,6 @@
   flash: http://www.amazon.com/Retro64-Inc-Rune-Raiders/dp/B0087OYB42
   featured: true
 
-- title: Jingle Out of My Way
-  developer: GamePill
-  image: JingleOutOfMyWay.jpg
-  url: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
-  flash: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
-  html5: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
-  featured: true
-
 - title: Bouncy Seed
   developer: Mybo Game
   image: BouncySeed.jpg
@@ -33,15 +38,18 @@
   android: https://play.google.com/store/apps/details?id=com.mybogame.bouncyseed
   featured: true
 
-- title: rymdkapsel
-  developer: grapefrukt
-  image: rymdkapsel.png
-  url: http://rymdkapsel.com/
-  windows: http://store.steampowered.com/app/253790
-  mac: http://store.steampowered.com/app/253790
-  linux: http://store.steampowered.com/app/253790
-  ios: "https://itunes.apple.com/us/app/rymdkapsel/id663547503?ls=1&mt=8"
-  android: http://play.google.com/store/apps/details?id=com.grapefrukt.games.rymdkapsel1
+- title: Half Inch Heist
+  developer: Mutant Labs
+  image: HalfInchHeist.png
+  url: http://halfinchheist.com/
+  ios: https://itunes.apple.com/us/app/half-inch-heist/id559787622?mt=8
+
+- title: Jingle Out of My Way
+  developer: GamePill
+  image: JingleOutOfMyWay.jpg
+  url: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
+  flash: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
+  html5: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
 
 - title: Letter Rush
   developer: Proletariat
@@ -81,10 +89,3 @@
   url: http://grapefrukt.com/mrs-dad-vs-korv/
   ouya: https://www.ouya.tv/game/Mrs-Dad-vs-Korv/
 
-- title: "Papers, Please"
-  developer: "3909"
-  image: PapersPlease.png
-  url: http://papersplea.se/
-  windows: http://papersplea.se/
-  mac: http://papersplea.se/
-  linux: http://papersplea.se/
