@@ -37,21 +37,30 @@
   developer: grapefrukt
   image: rymdkapsel.png
   url: http://rymdkapsel.com/
+  windows: http://store.steampowered.com/app/253790
+  mac: http://store.steampowered.com/app/253790
+  linux: http://store.steampowered.com/app/253790
+  ios: "https://itunes.apple.com/us/app/rymdkapsel/id663547503?ls=1&mt=8"
+  android: http://play.google.com/store/apps/details?id=com.grapefrukt.games.rymdkapsel1
 
 - title: Letter Rush
   developer: Proletariat
   image: LetterRush.png
   url: http://www.letterrush.com/
+  ios: http://appstore.com/letterrush
 
 - title: Starry Nuts
   developer: Mybo Game
   image: StarryNuts.png
   url: http://www.mybogame.com/more_game/
+  ios: "http://itunes.apple.com/us/app/starry-nuts/id538252355?ls=1&mt=8"
+  android: https://play.google.com/store/apps/details?id=com.mybo.nuts
 
 - title: Sophie's Drawings
   developer: Emibap
   image: SophiesDrawings.png
   url: http://sophiesdrawings.emibap.com/
+  ios: "https://itunes.apple.com/us/app/sophies-drawings/id577807370?mt=8&ign-mpt=uo%3D4"
 
 - title: Make a Scene
   developer: Innivo
@@ -62,13 +71,20 @@
   developer: HyperFiction
   image: Arkeon.png
   url: http://www.hyperfiction.fr/
+  ios: https://itunes.apple.com/us/app/id582670054?mt=8
+  android: "https://play.google.com/store/apps/details?id=fr.hyperfiction.arkeon&hl=en"
+  blackberry: https://appworld.blackberry.com/webstore/content/19227952/?lang=en
 
-- title: "mrs dad vs. körv"
+- title: "Mrs. Dad vs. Körv"
   developer: grapefrukt
   image: MrsDad.png
   url: http://grapefrukt.com/mrs-dad-vs-korv/
+  ouya: https://www.ouya.tv/game/Mrs-Dad-vs-Korv/
 
 - title: "Papers, Please"
   developer: "3909"
   image: PapersPlease.png
   url: http://papersplea.se/
+  windows: http://papersplea.se/
+  mac: http://papersplea.se/
+  linux: http://papersplea.se/
