@@ -11,19 +11,19 @@ permalink: showcase/
 {% cycle '<div class="row">', '' %}
 <div class="col-md-6">
 	<h2>{{ showcase.title }}</h2>
-	<p><a href="{{ showcase.url }}"><img src="{{ site.url }}/images/showcase/large/{{ showcase.image }}" /></a></p>
+	<p><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.url }}/images/showcase/large/{{ showcase.image }}" /></a></p>
 	<p style="text-decoration: none; color: #dddddd; font-size: 20px;">
-		{% if showcase.windows %}<a href="{{ showcase.windows }}">{% endif %}<span class="icon-windows"></span>{% if showcase.windows %}</a>{% endif %}
-		{% if showcase.mac %}<a href="{{ showcase.mac }}">{% endif %}<span class="icon-apple"></span>{% if showcase.mac %}</a>{% endif %}
-		{% if showcase.linux %}<a href="{{ showcase.linux }}">{% endif %}<span class="icon-linux"></span>{% if showcase.linux %}</a>{% endif %}
-		{% if showcase.ios %}<a href="{{ showcase.ios }}">{% endif %}<span class="icon-apple"></span>{% if showcase.ios %}</a>{% endif %}
-		{% if showcase.android %}<a href="{{ showcase.android }}">{% endif %}<span class="icon-android"></span>{% if showcase.android %}</a>{% endif %}
-		{% if showcase.blackberry %}<a href="{{ showcase.blackberry }}">{% endif %}<span class="icon-blackberry"></span>{% if showcase.blackberry %}</a>{% endif %}
-		{% if showcase.tizen %}<a href="{{ showcase.tizen }}">{% endif %}<span class="icon-tizen"></span>{% if showcase.tizen %}</a>{% endif %}
-		{% if showcase.amazon %}<a href="{{ showcase.amazon }}">{% endif %}<span class="icon-amazon"></span>{% if showcase.amazon %}</a>{% endif %}
-		{% if showcase.flash %}<a href="{{ showcase.flash }}">{% endif %}<span class="icon-flash"></span>{% if showcase.flash %}</a>{% endif %}
-		{% if showcase.html5 %}<a href="{{ showcase.html5 }}">{% endif %}<span class="icon-html5"></span>{% if showcase.html5 %}</a>{% endif %}
-		{% if showcase.ouya %}<a href="{{ showcase.ouya }}">{% endif %}<span class="icon-ouya"></span>{% if showcase.ouya %}</a>{% endif %}
+		{% if showcase.windows %}<a href="{{ showcase.windows }}" target="_blank">{% endif %}<span class="icon-windows"></span>{% if showcase.windows %}</a>{% endif %}
+		{% if showcase.mac %}<a href="{{ showcase.mac }}" target="_blank">{% endif %}<span class="icon-apple"></span>{% if showcase.mac %}</a>{% endif %}
+		{% if showcase.linux %}<a href="{{ showcase.linux }}" target="_blank">{% endif %}<span class="icon-linux"></span>{% if showcase.linux %}</a>{% endif %}
+		{% if showcase.ios %}<a href="{{ showcase.ios }}" target="_blank">{% endif %}<span class="icon-apple"></span>{% if showcase.ios %}</a>{% endif %}
+		{% if showcase.android %}<a href="{{ showcase.android }}" target="_blank">{% endif %}<span class="icon-android"></span>{% if showcase.android %}</a>{% endif %}
+		{% if showcase.blackberry %}<a href="{{ showcase.blackberry }}" target="_blank">{% endif %}<span class="icon-blackberry"></span>{% if showcase.blackberry %}</a>{% endif %}
+		{% if showcase.tizen %}<a href="{{ showcase.tizen }}" target="_blank">{% endif %}<span class="icon-tizen"></span>{% if showcase.tizen %}</a>{% endif %}
+		{% if showcase.amazon %}<a href="{{ showcase.amazon }}" target="_blank">{% endif %}<span class="icon-amazon"></span>{% if showcase.amazon %}</a>{% endif %}
+		{% if showcase.flash %}<a href="{{ showcase.flash }}" target="_blank">{% endif %}<span class="icon-flash"></span>{% if showcase.flash %}</a>{% endif %}
+		{% if showcase.html5 %}<a href="{{ showcase.html5 }}" target="_blank">{% endif %}<span class="icon-html5"></span>{% if showcase.html5 %}</a>{% endif %}
+		{% if showcase.ouya %}<a href="{{ showcase.ouya }}" target="_blank">{% endif %}<span class="icon-ouya"></span>{% if showcase.ouya %}</a>{% endif %}
 	</p>
 </div>
 {% cycle '', '</div>' %}
@@ -35,19 +35,19 @@ permalink: showcase/
 {% cycle '<div class="row">', '', '', '' %}
 <div class="col-md-3">
 	<h3 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ showcase.title }}</h3>
-	<p><a href="{{ showcase.url }}"><img src="{{ site.url }}/images/showcase/small/{{ showcase.image }}" /></a></p>
+	<p><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.url }}/images/showcase/small/{{ showcase.image }}" /></a></p>
 	<p style="text-decoration: none !important; color: #dddddd; font-size: 15px;">
-		{% if showcase.windows %}<a href="{{ showcase.windows }}">{% endif %}<span class="icon-windows"></span>{% if showcase.windows %}</a>{% endif %}
-		{% if showcase.mac %}<a href="{{ showcase.mac }}">{% endif %}<span class="icon-apple"></span>{% if showcase.mac %}</a>{% endif %}
-		{% if showcase.linux %}<a href="{{ showcase.linux }}">{% endif %}<span class="icon-linux"></span>{% if showcase.linux %}</a>{% endif %}
-		{% if showcase.ios %}<a href="{{ showcase.ios }}">{% endif %}<span class="icon-apple"></span>{% if showcase.ios %}</a>{% endif %}
-		{% if showcase.android %}<a href="{{ showcase.android }}">{% endif %}<span class="icon-android"></span>{% if showcase.android %}</a>{% endif %}
-		{% if showcase.blackberry %}<a href="{{ showcase.blackberry }}">{% endif %}<span class="icon-blackberry"></span>{% if showcase.blackberry %}</a>{% endif %}
-		{% if showcase.tizen %}<a href="{{ showcase.tizen }}">{% endif %}<span class="icon-tizen"></span>{% if showcase.tizen %}</a>{% endif %}
-		{% if showcase.amazon %}<a href="{{ showcase.amazon }}">{% endif %}<span class="icon-amazon"></span>{% if showcase.amazon %}</a>{% endif %}
-		{% if showcase.flash %}<a href="{{ showcase.flash }}">{% endif %}<span class="icon-flash"></span>{% if showcase.flash %}</a>{% endif %}
-		{% if showcase.html5 %}<a href="{{ showcase.html5 }}">{% endif %}<span class="icon-html5"></span>{% if showcase.html5 %}</a>{% endif %}
-		{% if showcase.ouya %}<a href="{{ showcase.ouya }}">{% endif %}<span class="icon-ouya"></span>{% if showcase.ouya %}</a>{% endif %}
+		{% if showcase.windows %}<a href="{{ showcase.windows }}" target="_blank">{% endif %}<span class="icon-windows"></span>{% if showcase.windows %}</a>{% endif %}
+		{% if showcase.mac %}<a href="{{ showcase.mac }}" target="_blank">{% endif %}<span class="icon-apple"></span>{% if showcase.mac %}</a>{% endif %}
+		{% if showcase.linux %}<a href="{{ showcase.linux }}" target="_blank">{% endif %}<span class="icon-linux"></span>{% if showcase.linux %}</a>{% endif %}
+		{% if showcase.ios %}<a href="{{ showcase.ios }}" target="_blank">{% endif %}<span class="icon-apple"></span>{% if showcase.ios %}</a>{% endif %}
+		{% if showcase.android %}<a href="{{ showcase.android }}" target="_blank">{% endif %}<span class="icon-android"></span>{% if showcase.android %}</a>{% endif %}
+		{% if showcase.blackberry %}<a href="{{ showcase.blackberry }}" target="_blank">{% endif %}<span class="icon-blackberry"></span>{% if showcase.blackberry %}</a>{% endif %}
+		{% if showcase.tizen %}<a href="{{ showcase.tizen }}" target="_blank">{% endif %}<span class="icon-tizen"></span>{% if showcase.tizen %}</a>{% endif %}
+		{% if showcase.amazon %}<a href="{{ showcase.amazon }}" target="_blank">{% endif %}<span class="icon-amazon"></span>{% if showcase.amazon %}</a>{% endif %}
+		{% if showcase.flash %}<a href="{{ showcase.flash }}" target="_blank">{% endif %}<span class="icon-flash"></span>{% if showcase.flash %}</a>{% endif %}
+		{% if showcase.html5 %}<a href="{{ showcase.html5 }}" target="_blank">{% endif %}<span class="icon-html5"></span>{% if showcase.html5 %}</a>{% endif %}
+		{% if showcase.ouya %}<a href="{{ showcase.ouya }}" target="_blank">{% endif %}<span class="icon-ouya"></span>{% if showcase.ouya %}</a>{% endif %}
 	</p>
 </div>
 {% cycle '', '', '', '</div>' %}
