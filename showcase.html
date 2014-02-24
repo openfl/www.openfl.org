@@ -26,7 +26,7 @@ permalink: showcase/
 		{% if showcase.ouya %}<a href="{{ showcase.ouya }}" target="_blank">{% endif %}<span class="icon-ouya"></span>{% if showcase.ouya %}</a>{% endif %}
 	</p>
 </div>
-{% cycle '', '</div>' %}
+{% cycle '', '</div><hr />' %}
 {% endif %}
 {% endfor %}
 
@@ -50,6 +50,6 @@ permalink: showcase/
 		{% if showcase.ouya %}<a href="{{ showcase.ouya }}" target="_blank">{% endif %}<span class="icon-ouya"></span>{% if showcase.ouya %}</a>{% endif %}
 	</p>
 </div>
-{% cycle '', '', '', '</div>' %}
+{% cycle '', '', '', '</div><hr />' %}
 {% endunless %}
 {% endfor %}

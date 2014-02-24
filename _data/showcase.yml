@@ -44,12 +44,14 @@
   url: http://www.mybogame.com/more_game/
   ios: http://itunes.apple.com/app/bouncy-paul/id456848110?mt=8
   android: https://play.google.com/store/apps/details?id=com.mybogame.bouncyseed
+  featured: true
 
 - title: Sophie's Drawings
   developer: Emibap
-  image: SophiesDrawings.png
+  image: SophiesDrawings.jpg
   url: http://sophiesdrawings.emibap.com/
   ios: "https://itunes.apple.com/us/app/sophies-drawings/id577807370?mt=8&ign-mpt=uo%3D4"
+  featured: true
 
 - title: What's This?
   developer: Mybo
@@ -57,18 +59,21 @@
   url: https://play.google.com/store/apps/details?id=com.mybo.shadow
   ios: https://itunes.apple.com/us/app/whats-this-!/id647013699?mt=8
   android: https://play.google.com/store/apps/details?id=com.mybo.shadow
+  featured: true
 
 - title: TEN
   developer: Sennep
   image: TEN.png
   url: http://tengame.info/
   ios: https://itunes.apple.com/gb/app/ten/id669964112?mt=8
+  featured: true
 
 - title: Half Inch Heist
   developer: Mutant Labs
   image: HalfInchHeist.png
   url: http://halfinchheist.com/
   ios: https://itunes.apple.com/us/app/half-inch-heist/id559787622?mt=8
+  featured: true
 
 - title: My Little Story Factory
   developer: Éditions Autrement
@@ -77,19 +82,22 @@
   mac: "http://itunes.apple.com/us/app/my-little-story-factory/id637433662?ls=1&mt=12"
   ios: "http://itunes.apple.com/us/app/my-little-story-factory/id623878071?ls=1&mt=8"
   android: https://play.google.com/store/apps/details?id=com.etoileseditions.mpfh5
+  featured: true
 
 - title: Starry Nuts
   developer: Mybo
-  image: StarryNuts.png
+  image: StarryNuts.jpg
   url: http://www.mybogame.com/more_game/
   ios: "http://itunes.apple.com/us/app/starry-nuts/id538252355?ls=1&mt=8"
   android: https://play.google.com/store/apps/details?id=com.mybo.nuts
+  featured: true
 
 - title: "Mrs. Dad vs. Körv"
   developer: grapefrukt
-  image: MrsDad.png
+  image: MrsDad.jpg
   url: http://grapefrukt.com/mrs-dad-vs-korv/
   ouya: https://www.ouya.tv/game/Mrs-Dad-vs-Korv/
+  featured: true
 
 - title: Lightbot
   developer: Lightbot
@@ -119,6 +127,12 @@
   url: https://itunes.apple.com/us/app/pearl-ball-hd/id590815666?mt=8
   ios: https://itunes.apple.com/us/app/pearl-ball-hd/id590815666?mt=8
   flash: http://freegameshome.net/games/pearl-ball-hd.html
+
+- title: Silent Submarine
+  developer: Kid Games Galaxy
+  image: SilentSubmarine.jpg
+  url: https://play.google.com/store/apps/details?id=com.webstunning.convoyhunter
+  android: https://play.google.com/store/apps/details?id=com.webstunning.convoyhunter
 
 - title: Vampire Volleyball
   developer: Retro64
