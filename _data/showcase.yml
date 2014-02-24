@@ -18,25 +18,51 @@
   android: http://play.google.com/store/apps/details?id=com.grapefrukt.games.rymdkapsel1
   featured: true
 
+- title: "Flying Dodo: Wilbur's Fun Ride"
+  developer: Double Duck
+  image: FlyingDodo.jpg
+  url: http://www.doubleduck.co/games/flying-dodo/
+  ios: https://itunes.apple.com/us/app/flying-dodo/id777233419
+  android: "https://play.google.com/store/apps/details?id=co.doubleduck.dodo"
+  featured: true
+
 - title: Rune Raiders
   developer: Retro64
   image: RuneRaiders.jpg
-  url: http://www.retro64.com/rune_raiders.php
-  ios: http://www.amazon.com/Retro64-Inc-Rune-Raiders/dp/B0087OYB42
-  android: http://www.amazon.com/Retro64-Inc-Rune-Raiders/dp/B0087OYB42
-  blackberry: http://www.amazon.com/Retro64-Inc-Rune-Raiders/dp/B0087OYB42
+  url: http://www.retro64.com/runeraiders.php
+  ios: https://itunes.apple.com/app/rune-raiders/id497702195
+  android: https://play.google.com/store/apps/details?id=com.retro64.runeraiders
+  blackberry: http://appworld.blackberry.com/webstore/content/133724
   amazon: http://www.amazon.com/Retro64-Inc-Rune-Raiders/dp/B0087OYB42
-  windows: http://www.amazon.com/Retro64-Inc-Rune-Raiders/dp/B0087OYB42
-  flash: http://www.amazon.com/Retro64-Inc-Rune-Raiders/dp/B0087OYB42
+  windows: "https://secure.bmtmicro.com/servlets/Orders.ShoppingCart?CID=768&CLR=0&PRODUCTID=7680018&AID=683227"
+  flash: http://www.retro64.com/runeraiders_online.php
   featured: true
 
 - title: Bouncy Seed
-  developer: Mybo Game
+  developer: Mybo
   image: BouncySeed.jpg
   url: http://www.mybogame.com/more_game/
   ios: http://itunes.apple.com/app/bouncy-paul/id456848110?mt=8
   android: https://play.google.com/store/apps/details?id=com.mybogame.bouncyseed
-  featured: true
+
+- title: Sophie's Drawings
+  developer: Emibap
+  image: SophiesDrawings.png
+  url: http://sophiesdrawings.emibap.com/
+  ios: "https://itunes.apple.com/us/app/sophies-drawings/id577807370?mt=8&ign-mpt=uo%3D4"
+
+- title: What's This?
+  developer: Mybo
+  image: WhatsThis.jpg
+  url: https://play.google.com/store/apps/details?id=com.mybo.shadow
+  ios: https://itunes.apple.com/us/app/whats-this-!/id647013699?mt=8
+  android: https://play.google.com/store/apps/details?id=com.mybo.shadow
+
+- title: TEN
+  developer: Sennep
+  image: TEN.png
+  url: http://tengame.info/
+  ios: https://itunes.apple.com/gb/app/ten/id669964112?mt=8
 
 - title: Half Inch Heist
   developer: Mutant Labs
@@ -44,12 +70,34 @@
   url: http://halfinchheist.com/
   ios: https://itunes.apple.com/us/app/half-inch-heist/id559787622?mt=8
 
-- title: Jingle Out of My Way
-  developer: GamePill
-  image: JingleOutOfMyWay.jpg
-  url: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
-  flash: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
-  html5: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
+- title: My Little Story Factory
+  developer: Éditions Autrement
+  image: MyLittleStoryFactory.png
+  url: http://www.etoiles-editions.com/en/collection/my-little-story-factory-2
+  mac: "http://itunes.apple.com/us/app/my-little-story-factory/id637433662?ls=1&mt=12"
+  ios: "http://itunes.apple.com/us/app/my-little-story-factory/id623878071?ls=1&mt=8"
+  android: https://play.google.com/store/apps/details?id=com.etoileseditions.mpfh5
+
+- title: Starry Nuts
+  developer: Mybo
+  image: StarryNuts.png
+  url: http://www.mybogame.com/more_game/
+  ios: "http://itunes.apple.com/us/app/starry-nuts/id538252355?ls=1&mt=8"
+  android: https://play.google.com/store/apps/details?id=com.mybo.nuts
+
+- title: "Mrs. Dad vs. Körv"
+  developer: grapefrukt
+  image: MrsDad.png
+  url: http://grapefrukt.com/mrs-dad-vs-korv/
+  ouya: https://www.ouya.tv/game/Mrs-Dad-vs-Korv/
+
+- title: Lightbot
+  developer: Lightbot
+  image: Lightbot.jpg
+  url: http://www.light-bot.com/
+  ios: https://itunes.apple.com/us/app/light-bot/id657638474
+  android: https://play.google.com/store/apps/details?id=com.lightbot.lightbot
+  flash: http://www.light-bot.com/hocflash.html
 
 - title: Letter Rush
   developer: Proletariat
@@ -57,18 +105,37 @@
   url: http://www.letterrush.com/
   ios: http://appstore.com/letterrush
 
-- title: Starry Nuts
-  developer: Mybo Game
-  image: StarryNuts.png
-  url: http://www.mybogame.com/more_game/
-  ios: "http://itunes.apple.com/us/app/starry-nuts/id538252355?ls=1&mt=8"
-  android: https://play.google.com/store/apps/details?id=com.mybo.nuts
+- title: Strange Masks
+  developer: ThinkSlow
+  image: StrangeMasks.jpg
+  url: http://www.strangemasks.com
+  windows: http://www.desura.com/games/strange-masks
+  mac: http://www.desura.com/games/strange-masks
+  linux: http://www.desura.com/games/strange-masks 
 
-- title: Sophie's Drawings
-  developer: Emibap
-  image: SophiesDrawings.png
-  url: http://sophiesdrawings.emibap.com/
-  ios: "https://itunes.apple.com/us/app/sophies-drawings/id577807370?mt=8&ign-mpt=uo%3D4"
+- title: Pearl Ball
+  developer: Tang WeiChun
+  image: PearlBall.jpg
+  url: https://itunes.apple.com/us/app/pearl-ball-hd/id590815666?mt=8
+  ios: https://itunes.apple.com/us/app/pearl-ball-hd/id590815666?mt=8
+  flash: http://freegameshome.net/games/pearl-ball-hd.html
+
+- title: Vampire Volleyball
+  developer: Retro64
+  image: VampireVolleyball.jpg
+  url: http://www.retro64.com/vampirevolleyball.php
+  windows: http://www.retro64.com/downloads/vampire_volleyball_windows.zip
+  mac: http://www.retro64.com/downloads/vampire_volleyball_mac.zip
+  linux: http://www.retro64.com/downloads/vampire_volleyball_linux.tar.gz
+  ios: "https://itunes.apple.com/us/app/vampire-volleyball/id722265007?ls=1&mt=8"
+  android: https://play.google.com/store/apps/details?id=com.retro64.vampirevolleyball
+
+- title: Jingle Out of My Way
+  developer: GamePill
+  image: JingleOutOfMyWay.jpg
+  url: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
+  flash: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
+  html5: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
 
 - title: Make a Scene
   developer: Innivo
@@ -83,9 +150,161 @@
   android: "https://play.google.com/store/apps/details?id=fr.hyperfiction.arkeon&hl=en"
   blackberry: https://appworld.blackberry.com/webstore/content/19227952/?lang=en
 
-- title: "Mrs. Dad vs. Körv"
-  developer: grapefrukt
-  image: MrsDad.png
-  url: http://grapefrukt.com/mrs-dad-vs-korv/
-  ouya: https://www.ouya.tv/game/Mrs-Dad-vs-Korv/
+- title: Fatty Cow
+  developer: Mybo
+  image: FattyCow.jpg
+  url: https://play.google.com/store/apps/details?id=com.mybo.cow
+  android: https://play.google.com/store/apps/details?id=com.mybo.cow
 
+- title: Toddler Puzzles 2
+  developer: Genius Donkeys
+  image: ToddlerPuzzles2.jpg
+  url: https://play.google.com/store/apps/details?id=com.geniusdonkeys.toddlerpuzzles.boysandgirls
+  mac: http://itunes.apple.com/be/app/toddler-puzzles-2/id645666478?mt=12
+  windows: http://apps.microsoft.com/windows/en-us/app/04e6e202-e533-410a-8b27-16ebe01e2270
+  android: https://play.google.com/store/apps/details?id=com.geniusdonkeys.toddlerpuzzles.boysandgirls
+  html5: http://apps.microsoft.com/windows/en-us/app/04e6e202-e533-410a-8b27-16ebe01e2270
+
+- title: Ponon! Deluxe
+  developer: Mybo
+  image: Ponon.jpg
+  url: http://mybogame.com/m/
+  ios: http://itunes.apple.com/us/app/ponon-deluxe/id402642577?mt=8
+  android: https://play.google.com/store/apps/details?id=com.mybogame.ponon
+
+- title: Zombies Don't Ride
+  developer: Retro64
+  image: ZombiesDontRide.jpg
+  url: http://www.retro64.com/zombiesdontride.php
+  ios: https://itunes.apple.com/us/app/zombies-dont-ride/id554998271
+  blackberry: http://appworld.blackberry.com/webstore/content/134694/
+  flash: http://www.retro64.com/zombiesdontride_online.php
+
+- title: Terrible Teeth
+  developer: Vile Media
+  image: TerribleTeeth.jpg
+  url: http://www.vilemedia.com/games/terrible-teeth/
+  ios: https://itunes.apple.com/app/id776445995
+  android: https://play.google.com/store/apps/details?id=com.vilemedia.terribleteeth
+  flash: http://www.kongregate.com/games/BgroupProduction/terrible-teeth-demo
+
+- title: Slice the Box
+  developer: Armor Games
+  image: SliceTheBox.jpg
+  url: https://play.google.com/store/apps/details?id=com.qzix13.slicethebox
+  android: https://play.google.com/store/apps/details?id=com.qzix13.slicethebox
+  flash: http://armorgames.com/play/14864/slice-the-box
+
+- title: Forest Bubbles
+  developer: dynax
+  image: ForestBubbles.jpg
+  ios: https://itunes.apple.com/us/app/forest-bubbles/id697790522
+  android: https://play.google.com/store/apps/details?id=hedgehoggames.ForestBubbles
+  blackberry: http://appworld.blackberry.com/webstore/content/35439891/
+
+- title: Piranha Chase
+  developer: Retro64
+  image: PiranhaChase.jpg
+  ios: https://itunes.apple.com/us/app/piranha-chase/id509293154
+  flash: http://www.retro64.com/piranhachase_online.php
+
+- title: My Pear
+  developer: e-Toiles editions
+  image: MyPear.jpg
+  url: http://www.etoiles-editions.com/en/collection/my-pear
+  ios: https://itunes.apple.com/us/app/my-pear/id565940958?mt=8
+
+- title: Monster Puzzle Saga
+  developer: CodeZyabra
+  image: MonsterPuzzleSaga.jpg
+  url: https://play.google.com/store/apps/details?id=com.codezyabra.piratepuzzle
+  android: https://play.google.com/store/apps/details?id=com.codezyabra.piratepuzzle
+
+- title: "Animaths: Fun math for kids"
+  developer: ERCS Creative
+  image: Animaths.jpg
+  url: https://play.google.com/store/apps/details?id=com.ERCSCreative.Animaths
+  android: https://play.google.com/store/apps/details?id=com.ERCSCreative.Animaths
+
+- title: Maidan the Game
+  developer: nibb13
+  image: Maidan.jpg
+  url: http://maidan.mominmy.tk/
+  android: http://maidan.mominmy.tk/maidan.apk
+  flash: http://maidan.mominmy.tk/
+  html5: http://maidan.mominmy.tk/html5/
+
+- title: Sea Frenzy
+  developer: jjwallace games
+  image: SeaFrenzy.png
+  url: https://play.google.com/store/apps/details?id=seafrenzy.Source
+  android: https://play.google.com/store/apps/details?id=seafrenzy.Source
+
+- title: Hard-shell Hockey
+  developer: Pixel Pounce
+  image: HardShellHockey.jpg
+  url: http://www.pixelpounce.com/app/hard-shell-hockey/
+  android: https://play.google.com/store/apps/details?id=com.pixelpounce.hardshellhockey
+
+- title: Chip-8 Emulator
+  developer: AfBu
+  image: Chip-8.jpg
+  url: https://github.com/AfBu/haxe-chip-8-emulator
+  windows: http://bit.ly/chip8emu
+
+- title: Sky Hounds
+  developer: ZeroCreativity
+  image: SkyHounds.jpg
+  url: http://www.kongregate.com/games/ZeroCreativity1/sky-hounds
+  flash: http://www.kongregate.com/games/ZeroCreativity1/sky-hounds
+
+- title: Prank Pack
+  developer: Ugly Pixels
+  image: PrankPack.jpg
+  url: https://play.google.com/store/apps/details?id=com.uglypixels.prankpack
+  android: https://play.google.com/store/apps/details?id=com.uglypixels.prankpack
+
+- title: Math Paths Puzzle
+  developer: Bearline Development
+  image: MathPaths.jpg
+  url: https://play.google.com/store/apps/details?id=com.bearlinedevelopment.mathpaths
+  android: https://play.google.com/store/apps/details?id=com.bearlinedevelopment.mathpaths
+
+- title: The Tale of Ladybird
+  developer: RealyUniqueName
+  image: TheTaleOfLadybird.jpg
+  url: http://stablex.ru/ladybird/
+  flash: http://stablex.ru/ladybird/
+  html5: http://stablex.ru/ladybird/
+
+- title: Little Nemo's Bedtime Stories
+  developer: Zhenuity
+  image: LittleNemo.jpg
+  url: https://play.google.com/store/apps/details?id=com.zhenuity.littlenemolite
+  android: https://play.google.com/store/apps/details?id=com.zhenuity.littlenemolite
+
+- title: Gorilla Defense
+  developer: MonsterFace Games
+  image: GorillaDefense.jpg
+  url: https://play.google.com/store/apps/details?id=com.monsterface.gordef
+  android: https://play.google.com/store/apps/details?id=com.monsterface.gordef
+
+- title: Beetle Bots
+  developer: Pixel Pounce
+  image: BeetleBots.jpg
+  url: http://www.pixelpounce.com/app/beetle-bots/
+  ios: https://itunes.apple.com/us/app/beetle-bots/id663201690
+  android: https://play.google.com/store/apps/details?id=com.pixelpounce.beetlebotsfree 
+
+- title: Escape the Office
+  developer: Afro-Ninja Productions
+  image: EscapeTheOffice.jpg
+  url: http://www.afro-ninja.com/game/71
+  android: https://play.google.com/store/apps/details?id=com.afroninja.escape7
+  flash: http://www.addictinggames.com/puzzle-games/escape-the-office-game.jsp
+
+- title: Stockholm
+  developer: Zenkman Games
+  image: Stockholm.jpg
+  url: http://www.epiclemming.com/action/stockholm
+  flash: http://www.epiclemming.com/action/stockholm
