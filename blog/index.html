@@ -16,7 +16,7 @@ title: Blog
 {% else %}
 <div>{{ post.content }}</div>
 {% endif %}
-<h4>{{ post.date | date: "%B %-d, %Y" }} | <a href="{{ site.url }}{{ post.url }}#disqus_thread" data-disqus-identifier="%IDENTIFIER%">View Comments</a></h4>
+<h4>{{ post.date | date: "%B %-d, %Y" }} | <a href="{{ site.url }}{{ post.url }}#disqus_thread">View Comments</a></h4>
 {% endfor %}
 
 
