@@ -99,11 +99,6 @@
   ouya: https://www.ouya.tv/game/Mrs-Dad-vs-Korv/
   featured: true
 
-- title: Make a Scene
-  developer: Innivo
-  image: MakeAScene.png
-  url: http://www.makeasceneapp.com/
-
 - title: Vampire Volleyball
   developer: Retro64
   image: VampireVolleyball.jpg
@@ -113,6 +108,27 @@
   linux: http://www.retro64.com/downloads/vampire_volleyball_linux.tar.gz
   ios: "https://itunes.apple.com/us/app/vampire-volleyball/id722265007?ls=1&mt=8"
   android: https://play.google.com/store/apps/details?id=com.retro64.vampirevolleyball
+  featured: true
+
+- title: Bosses Forever 2.Bro
+  developer: tooDX
+  image: BossesForever.jpg
+  url: http://www.bossesforever.com/
+  windows: http://www.bossesforever.com/builds/BOSSES_FOREVER_2_BRO_WINDOWS.zip
+  mac: http://www.bossesforever.com/builds/BOSSES_FOREVER_2_BRO_MAC.zip
+  ouya: http://www.ouya.tv/game/BOSSES-FOREVER-2BRO/
+  featured: true
+
+
+- title: Don't Move
+  developer: Steve Richey
+  image: DontMove.jpg
+  url: http://steverichey.com/dontmove/
+  windows: http://steverichey.com/dontmove/
+  mac: http://steverichey.com/dontmove/
+  linux: http://steverichey.com/dontmove/
+  android: https://play.google.com/store/apps/details?id=com.steverichey.dontmove
+  amazon: http://www.amazon.com/STVR-Dont-Move/dp/B00HSZ4YMU/
 
 - title: Lightbot
   developer: Lightbot
@@ -127,6 +143,18 @@
   image: LetterRush.png
   url: http://www.letterrush.com/
   ios: http://appstore.com/letterrush
+
+- title: Gorilla Go!
+  developer: Igniter Games
+  image: GorillaGo.jpg
+  url: https://play.google.com/store/apps/details?id=com.ignitergames.gorilla
+  ios: https://itunes.apple.com/app/gorilla-go!/id786971906
+  android: https://play.google.com/store/apps/details?id=com.ignitergames.gorilla
+
+- title: Make a Scene
+  developer: Innivo
+  image: MakeAScene.png
+  url: http://www.makeasceneapp.com/
 
 - title: Arkeon
   developer: HyperFiction
@@ -165,6 +193,14 @@
   ios: https://itunes.apple.com/app/id776445995
   android: https://play.google.com/store/apps/details?id=com.vilemedia.terribleteeth
   flash: http://www.kongregate.com/games/BgroupProduction/terrible-teeth-demo
+
+- title: Mr. Nibbles
+  developer: Artificial Games
+  image: MrNibbles.jpg
+  url: http://www.mr-nibbles.com/
+  ios: http://itunes.apple.com/gb/app/mr-nibbles/id552109003?mt=8
+  android: https://play.google.com/store/apps/details?id=uk.co.mikecann.MrNibbles
+  blackberry: http://appworld.blackberry.com/webstore/content/133542/
 
 - title: Fatty Cow
   developer: Mybo
@@ -213,6 +249,16 @@
   android: http://play.google.com/store/apps/details?id=com.apodidae.RuneCryption
   blackberry: http://appworld.blackberry.com/webstore/content/17843174/
   amazon: http://amzn.to/Sq8uuc
+
+- title: Pakkuman's Defense
+  developer: tametick
+  image: PakkumansDefense.jpg
+  url: http://tametick.com/pd/
+  flash: http://tametick.com/pd/
+  ios: http://itunes.apple.com/us/app/pakkumansdefense/id560453722?ls=1
+  android: https://play.google.com/store/apps/details?id=air.tametick.pakkuman
+  blackberry: https://appworld.blackberry.com/webstore/content/133926/
+  amazon: http://www.amazon.com/gp/product/B0093N88I6
 
 - title: Pearl Ball
   developer: Tang WeiChun
@@ -318,6 +364,15 @@
   url: https://play.google.com/store/apps/details?id=com.monsterface.gordef
   android: https://play.google.com/store/apps/details?id=com.monsterface.gordef
 
+- title: Am Skater
+  developer: surfvey
+  image: AmSkater.jpg
+  url: http://surfvey.com/games/am-skater-for-iphone/
+  ios: http://itunes.apple.com/us/app/am-skater/id498398859
+  android: https://play.google.com/store/apps/details?id=com.surfvey.amskater
+  blackberry: http://appworld.blackberry.com/webstore/content/19288330/
+  flash: http://surfvey.com/playground/am-skater/
+
 - title: Beetle Bots
   developer: Pixel Pounce
   image: BeetleBots.jpg
@@ -350,3 +405,4 @@
   url: http://stablex.ru/ladybird/
   flash: http://stablex.ru/ladybird/
   html5: http://stablex.ru/ladybird/
+
