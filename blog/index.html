@@ -16,7 +16,7 @@ title: Blog
 {% else %}
 <div>{{ post.content }}</div>
 {% endif %}
-<h4>{{ post.date | date: "%B %-d, %Y" }} | <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}/#disqus_thread">View Comments</a></h4>
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">{{ post.date | date: "%B %-d, %Y" }} | <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}/#disqus_thread">View Comments</a></h5>
 {% endfor %}
 
 {% if paginator.total_pages > 1 %}
