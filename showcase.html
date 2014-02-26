@@ -11,7 +11,7 @@ permalink: showcase/
 {% cycle '<div class="row">', '' %}
 <div class="col-md-6">
 	<h2>{{ showcase.title }}</h2>
-	<p><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.url }}/images/showcase/large/{{ showcase.image }}" /></a></p>
+	<p><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.baseurl }}images/showcase/large/{{ showcase.image }}" /></a></p>
 	<p style="text-decoration: none; color: #dddddd; font-size: 20px;">
 		{% if showcase.windows %}<a href="{{ showcase.windows }}" target="_blank">{% endif %}<span class="icon-windows"></span>{% if showcase.windows %}</a>{% endif %}
 		{% if showcase.mac %}<a href="{{ showcase.mac }}" target="_blank">{% endif %}<span class="icon-apple"></span>{% if showcase.mac %}</a>{% endif %}
@@ -36,7 +36,7 @@ permalink: showcase/
 {% cycle '<div class="row">', '', '', '' %}
 <div class="col-md-3">
 	<h3 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ showcase.title }}</h3>
-	<p><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.url }}/images/showcase/small/{{ showcase.image }}" /></a></p>
+	<p><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.baseurl }}images/showcase/small/{{ showcase.image }}" /></a></p>
 	<p style="text-decoration: none !important; color: #dddddd; font-size: 15px;">
 		{% if showcase.windows %}<a href="{{ showcase.windows }}" target="_blank">{% endif %}<span class="icon-windows"></span>{% if showcase.windows %}</a>{% endif %}
 		{% if showcase.mac %}<a href="{{ showcase.mac }}" target="_blank">{% endif %}<span class="icon-apple"></span>{% if showcase.mac %}</a>{% endif %}

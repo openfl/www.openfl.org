@@ -7,7 +7,7 @@ title: "OpenFL - Creative expression for desktop, mobile, web and console platfo
   <div class="container">
     <h1>Your vision, everywhere</h1>
     <p>Creative expression for desktop, mobile, web and console platforms: Windows, Mac, Linux, iOS, Android, BlackBerry, Tizen, Flash, HTML5 and more.</p>
-    <p><a href="{{ site.url }}/documentation/setup/install-haxe" class="btn btn-primary btn-lg" role="button">Get Started &raquo;</a></p>
+    <p><a href="{{ site.baseurl }}documentation/setup/install-haxe" class="btn btn-primary btn-lg" role="button">Get Started &raquo;</a></p>
   </div>
 </div>
 
@@ -46,7 +46,7 @@ title: "OpenFL - Creative expression for desktop, mobile, web and console platfo
 	<div class="col-sm-4">
 	  <h2>Updates</h2>
 	  <p>{% for post in site.posts limit:5 %}
-	  <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.url}}{{ post.url }}">{{ post.title }}</a></li>
+	  <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
 	{% endfor %}</p>
 	  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
 	</div>

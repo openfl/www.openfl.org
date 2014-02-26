@@ -12,15 +12,15 @@
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="{{ site.url }}/js/bootstrap.min.js"></script>
+    <script src="{{ site.baseurl }}js/bootstrap.min.js"></script>
     
     {{ page.head }}
     
     <!-- Bootstrap core CSS -->
-    <link href="{{ site.url }}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ site.url }}/css/styles.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}css/styles.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -31,7 +31,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <!-- <script src="{{ site.url }}/js/holder.js"></script> -->
+    <!-- <script src="{{ site.baseurl }}js/holder.js"></script> -->
     
   </head>
 
@@ -49,16 +49,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-logo" href="{% if site.url != "" %}{{ site.url }}{% else %}/{% endif %}"><img src="{{ site.url }}/images/logo.png" /></a>
+              <a class="navbar-logo" href="{% if site.baseurl != "" %}{{ site.baseurl }}{% else %}/{% endif %}"><img src="{{ site.baseurl }}images/logo.png" /></a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 {% for p in site.navigation %}
-                <li><a {% if p.url == page.url %}class="active"{% endif %} href="{{ site.url }}{{ p.url }}">{{ p.title | upcase }}</a></li>
+                <li><a {% if p.url == page.url %}class="active"{% endif %} href="{{ p.url | prepend: site.baseurl | replace: '//', '/' }}">{{ p.title | upcase }}</a></li>
                 {% endfor %}
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ site.url }}/documentation/setup/install-haxe"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span>
+                <li><a href="{{ site.baseurl }}documentation/setup/install-haxe"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span>
      Download</button></a></li>
               </ul>
               <!-- <ul class="nav navbar-nav navbar-right">
