@@ -11,7 +11,7 @@ import sys.FileSystem;
 class ImportDocumentation {
 	
 	
-	private static var wikiLinks:EReg = ~/\[\[(.+)\]\]/g;
+	private static var wikiLinks:EReg = ~/\[\[(.+?)\]\]/g;
 	
 	
 	public static function main () {
@@ -156,6 +156,14 @@ class ImportDocumentation {
 			}
 			
 			var replacement = "[" + title + "](/documentation/)";
+			
+			if (target.indexOf ("Create") > -1) {
+			
+			Sys.println ("---");
+			Sys.println (names);
+			Sys.println (target);
+			
+			}
 			
 			for (i in 0...names.length) {
 				
