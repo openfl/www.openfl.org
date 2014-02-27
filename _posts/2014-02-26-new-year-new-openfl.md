@@ -12,7 +12,7 @@ We have opened everything.
 
 The website you are on is open-source. The project is open-source. The workflow and roadmap are open. The documentation (wiki) is open-source. Our contributors chat room, the libraries and supporting tools are open.
 
-The SWF library, in-app purchase and GameCenter support are now open, but most importantly, we want to work with you to make OpenFL incredible, even more incredible than it is now. Together, let's build something extraordinary, let's open more doors, let's take our content to the world.
+The [SWF library](https://github.com/openfl/swf), [in-app purchase](https://github.com/openfl/iap) and [GameCenter](https://github.com/openfl/gamecenter) support are now open, but most importantly, we want to work with you to make OpenFL incredible, even more incredible than it is now. Together, let's build something extraordinary, let's open more doors, let's take our content to the world.
 
 When we created OpenFL, it was a promise to create something that democratized the development workflow. We believe in carrying the vision forward, but together, we can do so much more. Together, we can build the best platform, with an extremely high level of quality.
 
