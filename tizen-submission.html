@@ -1,0 +1,76 @@
+---
+layout: default
+title: Tizen App Submission
+permalink: tizen-submission/
+---
+
+<h1>Tizen App Submission</h1>
+
+<div class="container">
+		<div class="row">
+			<div class="col-10">
+				<div class='well'>
+					<form role="form" method="POST" enctype="multipart/form-data" action="tizen-send.php">
+						<fieldset>
+							<!-- <h1 class="text-center">&#x2665 Tizen Submission Form &#x2665 </h1>
+							<br> -->
+							<div class="form-group has-feedback">
+								<div class="input-group">
+									<span class="input-group-addon">@</span>
+									<input type="email" class="form-control" id='email' name="email" placeholder="Developer Email Address" required>
+								</div>
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon">App</span>
+								<input type="text" class="form-control" name="app_name" placeholder="Name (optional)" optional>
+							</div>
+							<br>
+							<div class="input-group">
+								<span class="input-group-addon">Http://</span>
+								<input type="url" class="form-control" name="app_url" placeholder="url (optional)" optional>
+							</div>
+							<br>
+							<div class="form-group">
+								<label for="type-select">App Type</label>
+								<select class="form-control" id="type-select" name="type">
+									<option value="intelDraft">Tizen Final (.tpk or .wgt)</option>
+									<option value="intelFinal">Tizen Draft (.tpk or .wgt)</option>
+									<!-- <option value="iOSFile">iOS (.ipa)</option>
+									<option value="AndroidFile">Android (.apk)</option> -->
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputFile">Upload App</label>
+								<input type="file" id="exampleInputFile" name="file" accept=".tpk">
+								<p class="help-block">Must be correct app format</p>
+							</div>
+							<input type="hidden" name="apiKey" value="openFL">
+							<div class="text-center">
+								<button type="submit" class="btn btn-primary">Submit</button><button type="reset" class="btn btn-default">Reset</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	(function( jQuery ) {
+   
+    jQuery.each( ("input contextmenu invalid").split(" "), function( i, name ) {
+    
+        jQuery.fn[ name ] = function( data, fn ) {
+            if ( fn == null ) {
+                fn = data;
+                data = null;
+            }
+    
+            return arguments.length > 0 ?
+                this.bind( name, data, fn ) :
+                this.trigger( name );
+        };
+    });
+
+})( jQuery );  
+		$('input').invalid(function () { console.log('booya')});
+	</script>
