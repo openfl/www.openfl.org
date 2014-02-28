@@ -92,15 +92,21 @@
   ios: http://itunes.apple.com/app/bouncy-paul/id456848110?mt=8
   android: https://play.google.com/store/apps/details?id=com.mybogame.bouncyseed
 
-- title: Vampire Volleyball
-  developer: Retro64
-  image: VampireVolleyball.jpg
-  url: http://www.retro64.com/vampirevolleyball.php
-  windows: http://www.retro64.com/downloads/vampire_volleyball_windows.zip
-  mac: http://www.retro64.com/downloads/vampire_volleyball_mac.zip
-  linux: http://www.retro64.com/downloads/vampire_volleyball_linux.tar.gz
-  ios: "https://itunes.apple.com/us/app/vampire-volleyball/id722265007?ls=1&mt=8"
-  android: https://play.google.com/store/apps/details?id=com.retro64.vampirevolleyball
+- title: Sudoku Puzzle Challenge
+  developer: Inertia Software
+  image: SudokuChallenge.jpg
+  url: https://itunes.apple.com/us/app/sudoku-puzzle-challenge/id814341951?mt=8
+  ios: https://itunes.apple.com/us/app/sudoku-puzzle-challenge/id814341951?mt=8
+  android: "https://play.google.com/store/apps/details?id=com.inertiasoftware.sudokupuzzlechallenge&hl=en_GB"
+  amazon: http://www.amazon.com/Inertiasoft-ltd-Sudoku-Puzzle-Challenge/dp/B00I9DW6HA
+
+- title: Escape from Darkmoor Manor
+  developer: Inertia Software
+  image: Darkmoor.jpg
+  url: https://itunes.apple.com/us/app/darkmoor-manor-free-version/id646793963?mt=8
+  ios: https://itunes.apple.com/us/app/darkmoor-manor-free-version/id646793963?mt=8
+  android: https://play.google.com/store/apps/details?id=com.inertiasoftware.darkmoorpaid
+  amazon: http://www.amazon.com/Inertiasoft-ltd-Darkmoor-Manor/dp/B00DRGBANK
 
 - title: Gorilla Go!
   developer: Igniter Games
@@ -108,7 +114,6 @@
   url: https://play.google.com/store/apps/details?id=com.ignitergames.gorilla
   ios: https://itunes.apple.com/app/gorilla-go!/id786971906
   android: https://play.google.com/store/apps/details?id=com.ignitergames.gorilla
-
 
 - title: Half Inch Heist
   developer: Mutant Labs
@@ -124,23 +129,12 @@
   ios: "http://itunes.apple.com/us/app/my-little-story-factory/id623878071?ls=1&mt=8"
   android: https://play.google.com/store/apps/details?id=com.etoileseditions.mpfh5
 
-- title: Bosses Forever 2.Bro
-  developer: tooDX
-  image: BossesForever.jpg
-  url: http://www.bossesforever.com/
-  windows: http://www.bossesforever.com/builds/BOSSES_FOREVER_2_BRO_WINDOWS.zip
-  mac: http://www.bossesforever.com/builds/BOSSES_FOREVER_2_BRO_MAC.zip
-  ouya: http://www.ouya.tv/game/BOSSES-FOREVER-2BRO/
-
-- title: Don't Move
-  developer: Steve Richey
-  image: DontMove.jpg
-  url: http://steverichey.com/dontmove/
-  windows: http://steverichey.com/dontmove/
-  mac: http://steverichey.com/dontmove/
-  linux: http://steverichey.com/dontmove/
-  android: https://play.google.com/store/apps/details?id=com.steverichey.dontmove
-  amazon: http://www.amazon.com/STVR-Dont-Move/dp/B00HSZ4YMU/
+- title: Ponon! Deluxe
+  developer: Mybo
+  image: Ponon.jpg
+  url: http://mybogame.com/m/
+  ios: http://itunes.apple.com/us/app/ponon-deluxe/id402642577?mt=8
+  android: https://play.google.com/store/apps/details?id=com.mybogame.ponon
 
 - title: Lightbot
   developer: Lightbot
@@ -156,6 +150,12 @@
   url: http://www.letterrush.com/
   ios: http://appstore.com/letterrush
 
+- title: Foxtrot!
+  image: Foxtrot.jpg
+  url: http://www.pieandmash.me/foxtrot/
+  ios: "https://itunes.apple.com/gb/app/id797114536?mt=8"
+  android: "https://play.google.com/store/apps/details?id=me.pieandmash.foxtrot"
+
 - title: The Froggies Game
   developer: Sempai Games
   image: FroggiesGame.jpg
@@ -165,6 +165,16 @@
   blackberry: http://appworld.blackberry.com/webstore/content/23206878/
   amazon: http://www.amazon.com/Sempai-Games-The-Froggies-Game/dp/B007VPADYA
   flash: http://www.sempaigames.com/froggies
+
+- title: Vampire Volleyball
+  developer: Retro64
+  image: VampireVolleyball.jpg
+  url: http://www.retro64.com/vampirevolleyball.php
+  windows: http://www.retro64.com/downloads/vampire_volleyball_windows.zip
+  mac: http://www.retro64.com/downloads/vampire_volleyball_mac.zip
+  linux: http://www.retro64.com/downloads/vampire_volleyball_linux.tar.gz
+  ios: "https://itunes.apple.com/us/app/vampire-volleyball/id722265007?ls=1&mt=8"
+  android: https://play.google.com/store/apps/details?id=com.retro64.vampirevolleyball
 
 - title: Puralax
   developer: Luis Federico Bricker
@@ -183,83 +193,15 @@
   blackberry: http://appworld.blackberry.com/webstore/content/125479/
   amazon: http://www.amazon.com/Innivo-Make-a-Scene-Farmyard/dp/B00CJK032E
 
-- title: "Make a Scene: Fairy Tales"
-  developer: Innivo
-  image: MakeASceneFairyTales.jpg
-  url: http://www.makeasceneapp.com/app/fairy-tales/
-  ios: https://itunes.apple.com/us/app/make-scene-princess-fairy/id573157439?mt=8
-  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.fairytales
-  blackberry: http://appworld.blackberry.com/webstore/content/127804/?lang=en
-  amazon: http://www.amazon.com/Make-Scene-Princess-Fairy-Tales/dp/B00CJJPCFI
-
-- title: "Make a Scene: Dinosaurs"
-  developer: Innivo
-  image: MakeASceneDinosaurs.jpg
-  url: http://www.makeasceneapp.com/app/dinosaurs/
-  ios: https://itunes.apple.com/us/app/make-a-scene-dinosaurs/id573155344
-  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.dinosaurs
-  blackberry: http://appworld.blackberry.com/webstore/content/17843860/?lang=en
-  amazon: http://www.amazon.com/Innivo-Make-a-Scene-Dinosaurs/dp/B00CJJUG36
-
-- title: "Make a Scene: Outer Space"
-  developer: Innivo
-  image: MakeASceneOuterSpace.jpg
-  url: http://www.makeasceneapp.com/app/outer-space/
-  ios: http://itunes.apple.com/us/app/make-a-scene-outer-space/id501646563
-  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.outerspace
-  blackberry: http://appworld.blackberry.com/webstore/content/125484/
-  amazon: http://www.amazon.com/Make-a-Scene-Outer-Space/dp/B00CLCH67K
-
-- title: "Make a Scene: Christmas"
-  developer: Innivo
-  image: MakeASceneChristmas.jpg
-  url: http://www.makeasceneapp.com/app/christmas/
-  ios: https://itunes.apple.com/us/app/make-a-scene-christmas/id501638267?mt=8
-  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.christmas
-  blackberry: http://appworld.blackberry.com/webstore/content/17843853/?lang=en
-  amazon: http://www.amazon.co.uk/Innivo-Make-a-Scene-Christmas/dp/B00FP232C6
-
-- title: "Make a Scene: Polar Adventure"
-  developer: Innivo
-  image: MakeAScenePolarAdventure.jpg
-  url: http://www.makeasceneapp.com/app/polar-adventure/
-  ios: http://itunes.apple.com/us/app/make-a-scene-polar-adventure/id501640642?mt=8
-  blackberry: http://appworld.blackberry.com/webstore/content/127802/?lang=en
-
-- title: "Make a Scene: Under the Sea"
-  developer: Innivo
-  image: MakeASceneUnderTheSea.jpg
-  url: http://www.makeasceneapp.com/app/under-the-sea/
-  ios: http://itunes.apple.com/us/app/make-a-scene-under-the-sea/id501636551
-  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.underthesea
-  blackberry: http://appworld.blackberry.com/webstore/content/125481/
-  amazon: http://www.amazon.com/Make-Scene-Under-The-Sea/dp/B00CJJSFSE
-
-- title: "Make a Scene: Jungle"
-  developer: Innivo
-  image: MakeASceneJungle.jpg
-  url: http://www.makeasceneapp.com/app/jungle/
-  ios: http://itunes.apple.com/us/app/make-a-scene-jungle/id501639931?mt=8
-  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.jungle
-  blackberry: http://appworld.blackberry.com/webstore/content/127798/?lang=en
-  amazon: http://www.amazon.com/Innivo-Make-a-Scene-Jungle/dp/B00CJJY7SQ
-
-- title: "Make a Scene: Safari"
-  developer: Innivo
-  image: MakeASceneSafari.jpg
-  url: http://www.makeasceneapp.com/app/safari/
-  ios: http://itunes.apple.com/us/app/make-a-scene-safari/id501641857
-  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.safari
-  blackberry: http://appworld.blackberry.com/webstore/content/125480/
-  amazon: http://www.amazon.com/Innivo-Make-a-Scene-Safari/dp/B00CJJKO7O
-
-- title: Arkeon
-  developer: HyperFiction
-  image: Arkeon.png
-  url: http://www.hyperfiction.fr/
-  ios: https://itunes.apple.com/us/app/id582670054?mt=8
-  android: "https://play.google.com/store/apps/details?id=fr.hyperfiction.arkeon&hl=en"
-  blackberry: https://appworld.blackberry.com/webstore/content/19227952/?lang=en
+- title: Don't Move
+  developer: Steve Richey
+  image: DontMove.jpg
+  url: http://steverichey.com/dontmove/
+  windows: http://steverichey.com/dontmove/
+  mac: http://steverichey.com/dontmove/
+  linux: http://steverichey.com/dontmove/
+  android: https://play.google.com/store/apps/details?id=com.steverichey.dontmove
+  amazon: http://www.amazon.com/STVR-Dont-Move/dp/B00HSZ4YMU/
 
 - title: Mole Word
   developer: Ancient Sheep
@@ -269,6 +211,14 @@
   ios: http://itunes.apple.com/us/app/mole-word/id518069710?mt=8
   android: https://play.google.com/store/apps/details?id=com.ancientsheep.moleword
   amazon: http://www.amazon.com/Ancient-Sheep-Mole-Word/dp/B007ZT5D5Q
+
+- title: Arkeon
+  developer: HyperFiction
+  image: Arkeon.png
+  url: http://www.hyperfiction.fr/
+  ios: https://itunes.apple.com/us/app/id582670054?mt=8
+  android: "https://play.google.com/store/apps/details?id=fr.hyperfiction.arkeon&hl=en"
+  blackberry: https://appworld.blackberry.com/webstore/content/19227952/?lang=en
 
 - title: Tiny Guns
   developer: Adventureislands
@@ -283,12 +233,31 @@
   flash: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
   html5: http://www.nick.com/games/the-fairly-oddparents-jingle-out-of-my-way.html
 
-- title: Ponon! Deluxe
-  developer: Mybo
-  image: Ponon.jpg
-  url: http://mybogame.com/m/
-  ios: http://itunes.apple.com/us/app/ponon-deluxe/id402642577?mt=8
-  android: https://play.google.com/store/apps/details?id=com.mybogame.ponon
+- title: "Make a Scene: Fairy Tales"
+  developer: Innivo
+  image: MakeASceneFairyTales.jpg
+  url: http://www.makeasceneapp.com/app/fairy-tales/
+  ios: https://itunes.apple.com/us/app/make-scene-princess-fairy/id573157439?mt=8
+  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.fairytales
+  blackberry: http://appworld.blackberry.com/webstore/content/127804/?lang=en
+  amazon: http://www.amazon.com/Make-Scene-Princess-Fairy-Tales/dp/B00CJJPCFI
+
+- title: Bosses Forever 2.Bro
+  developer: tooDX
+  image: BossesForever.jpg
+  url: http://www.bossesforever.com/
+  windows: http://www.bossesforever.com/builds/BOSSES_FOREVER_2_BRO_WINDOWS.zip
+  mac: http://www.bossesforever.com/builds/BOSSES_FOREVER_2_BRO_MAC.zip
+  ouya: http://www.ouya.tv/game/BOSSES-FOREVER-2BRO/
+
+- title: "Make a Scene: Dinosaurs"
+  developer: Innivo
+  image: MakeASceneDinosaurs.jpg
+  url: http://www.makeasceneapp.com/app/dinosaurs/
+  ios: https://itunes.apple.com/us/app/make-a-scene-dinosaurs/id573155344
+  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.dinosaurs
+  blackberry: http://appworld.blackberry.com/webstore/content/17843860/?lang=en
+  amazon: http://www.amazon.com/Innivo-Make-a-Scene-Dinosaurs/dp/B00CJJUG36
 
 - title: KRIZL
   developer: rekim
@@ -320,11 +289,34 @@
   url: https://play.google.com/store/apps/details?id=com.mybo.cow
   android: https://play.google.com/store/apps/details?id=com.mybo.cow
 
+- title: Jigsaw World
+  developer: Inertia Software
+  image: JigsawWorld.jpg
+  url: https://itunes.apple.com/us/app/jigsaw-world/id490953349?mt=8
+  ios: https://itunes.apple.com/us/app/jigsaw-world/id490953349?mt=8
+  android: https://play.google.com/store/apps/details?id=com.inertiasoftware.jigsawworld
+  amazon: http://www.amazon.com/Inertiasoft-ltd-Jigsaw-World/dp/B00E4MCCF6
+
 - title: Sky Hounds
   developer: ZeroCreativity
   image: SkyHounds.jpg
   url: http://www.kongregate.com/games/ZeroCreativity1/sky-hounds
   flash: http://www.kongregate.com/games/ZeroCreativity1/sky-hounds
+
+- title: Voodoo Zombie
+  developer: Lunch Money Games
+  image: VoodooZombie.jpg
+  url: http://www.voodoo-zombie.com
+  ios: https://itunes.apple.com/ca/app/voodoo-zombie/id665324931
+
+- title: "Make a Scene: Outer Space"
+  developer: Innivo
+  image: MakeASceneOuterSpace.jpg
+  url: http://www.makeasceneapp.com/app/outer-space/
+  ios: http://itunes.apple.com/us/app/make-a-scene-outer-space/id501646563
+  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.outerspace
+  blackberry: http://appworld.blackberry.com/webstore/content/125484/
+  amazon: http://www.amazon.com/Make-a-Scene-Outer-Space/dp/B00CLCH67K
 
 - title: Strange Masks
   developer: ThinkSlow
@@ -368,6 +360,22 @@
   blackberry: http://appworld.blackberry.com/webstore/content/17843174/
   amazon: http://amzn.to/Sq8uuc
 
+- title: "Make a Scene: Christmas"
+  developer: Innivo
+  image: MakeASceneChristmas.jpg
+  url: http://www.makeasceneapp.com/app/christmas/
+  ios: https://itunes.apple.com/us/app/make-a-scene-christmas/id501638267?mt=8
+  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.christmas
+  blackberry: http://appworld.blackberry.com/webstore/content/17843853/?lang=en
+  amazon: http://www.amazon.co.uk/Innivo-Make-a-Scene-Christmas/dp/B00FP232C6
+
+- title: AstroRush
+  developer: Inertia Software
+  image: AstroRush.jpg
+  url: "https://play.google.com/store/apps/details?id=com.inertiasoftware.astrorush&hl=en_GB"
+  ios: "https://play.google.com/store/apps/details?id=com.inertiasoftware.astrorush&hl=en_GB"
+  amazon: http://www.amazon.com/Inertiasoft-ltd-AstroRush/dp/B00IDCG36C
+
 - title: Pakkuman's Defense
   developer: tametick
   image: PakkumansDefense.jpg
@@ -378,12 +386,28 @@
   blackberry: https://appworld.blackberry.com/webstore/content/133926/
   amazon: http://www.amazon.com/gp/product/B0093N88I6
 
+- title: "Make a Scene: Polar Adventure"
+  developer: Innivo
+  image: MakeAScenePolarAdventure.jpg
+  url: http://www.makeasceneapp.com/app/polar-adventure/
+  ios: http://itunes.apple.com/us/app/make-a-scene-polar-adventure/id501640642?mt=8
+  blackberry: http://appworld.blackberry.com/webstore/content/127802/?lang=en
+
 - title: Pearl Ball
   developer: Tang WeiChun
   image: PearlBall.jpg
   url: https://itunes.apple.com/us/app/pearl-ball-hd/id590815666?mt=8
   ios: https://itunes.apple.com/us/app/pearl-ball-hd/id590815666?mt=8
   flash: http://freegameshome.net/games/pearl-ball-hd.html
+
+- title: "Make a Scene: Under the Sea"
+  developer: Innivo
+  image: MakeASceneUnderTheSea.jpg
+  url: http://www.makeasceneapp.com/app/under-the-sea/
+  ios: http://itunes.apple.com/us/app/make-a-scene-under-the-sea/id501636551
+  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.underthesea
+  blackberry: http://appworld.blackberry.com/webstore/content/125481/
+  amazon: http://www.amazon.com/Make-Scene-Under-The-Sea/dp/B00CJJSFSE
 
 - title: Castle Siege
   developer: Lubos Lenco
@@ -420,6 +444,15 @@
   android: https://play.google.com/store/apps/details?id=hedgehoggames.ForestBubbles
   blackberry: http://appworld.blackberry.com/webstore/content/35439891/
 
+- title: "Make a Scene: Jungle"
+  developer: Innivo
+  image: MakeASceneJungle.jpg
+  url: http://www.makeasceneapp.com/app/jungle/
+  ios: http://itunes.apple.com/us/app/make-a-scene-jungle/id501639931?mt=8
+  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.jungle
+  blackberry: http://appworld.blackberry.com/webstore/content/127798/?lang=en
+  amazon: http://www.amazon.com/Innivo-Make-a-Scene-Jungle/dp/B00CJJY7SQ
+
 - title: Monster Puzzle Saga
   developer: CodeZyabra
   image: MonsterPuzzleSaga.jpg
@@ -449,6 +482,15 @@
   image: Chip-8.jpg
   url: https://github.com/AfBu/haxe-chip-8-emulator
   windows: http://bit.ly/chip8emu
+
+- title: "Make a Scene: Safari"
+  developer: Innivo
+  image: MakeASceneSafari.jpg
+  url: http://www.makeasceneapp.com/app/safari/
+  ios: http://itunes.apple.com/us/app/make-a-scene-safari/id501641857
+  android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.safari
+  blackberry: http://appworld.blackberry.com/webstore/content/125480/
+  amazon: http://www.amazon.com/Innivo-Make-a-Scene-Safari/dp/B00CJJKO7O
 
 - title: Maidan the Game
   developer: nibb13
