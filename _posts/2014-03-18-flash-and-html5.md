@@ -28,15 +28,15 @@ Since Apple and other manufacturers have not added WebGL support yet, canvas is 
 
 18 months ago, the winner of the Ludum Dare "Evolution" compo was Nicolas Cannasse, the creator of Haxe (and an awesome game developer). We have brought this to HTML5 using our new backend. The same code compiles to Flash, like the original, but thanks to OpenFL, compiles also to C++ and HTML5:
 
-http://www.openfl.org/samples/evoland
+[http://www.openfl.org/samples/evoland](http://www.openfl.org/samples/evoland)
 
 You can find the original here:
 
-http://evoland.shirogames.com/classic
+[http://evoland.shirogames.com/classic](http://evoland.shirogames.com/classic)
 
 If you would like to test the current canvas performance, try this bunny sample:
 
-http://www.openfl.org/samples/bunny
+[http://www.openfl.org/samples/bunny](http://www.openfl.org/samples/bunny)
 
 OpenFL 1.3 is now released, and the new backend, "openfl-html5", is now enabled by default. To use the older backend, use <set name="html5-backend" value="openfl-html5-dom" /> before <haxelib name="openfl" /> in your project file.
 
