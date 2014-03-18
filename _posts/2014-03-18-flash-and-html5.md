@@ -38,7 +38,7 @@ If you would like to test the current canvas performance, try this bunny sample:
 
 [http://www.openfl.org/samples/bunny](http://www.openfl.org/samples/bunny)
 
-OpenFL 1.3 is now released, and the new backend, "openfl-html5", is now enabled by default. To use the older backend, use <set name="html5-backend" value="openfl-html5-dom" /> before <haxelib name="openfl" /> in your project file.
+OpenFL 1.3 is now released, and the new backend, "openfl-html5", is now enabled by default. To use the older backend, use `<set name="html5-backend" value="openfl-html5-dom" />` before `<haxelib name="openfl" />` in your project file.
 
 OpenFL 1.3 introduces a new platform target: Firefox OS. You can use "lime build firefoxos" to build for Firefox OS instead of traditional HTML5. This will use the new HTML5 target, and can be installed using the Firefox App Manager (Mozilla does not have any official command-line install tools, yet).
 
