@@ -20,9 +20,9 @@ Two of these are here to stay, but one is not to last. Critics of Flash Player m
 
 ...but what about the workflow?
 
-We believe that Flash is an amazing workflow, but we also believe that in order to deliver the projects you want to deliver, you need more than a plugin. OpenFL provides native implementations of the Flash Player API, so you can deliver true C++/OpenGL for Steam, iOS, Android and other markets, and today, we are announcing a new OpenFL HTML5 backend, based around [pixi.js](https://github.com/goodboydigital/pixi.js).
+We believe that Flash is an amazing workflow, but we also believe that in order to deliver the projects you want to deliver, you need more than a plugin. OpenFL provides native implementations of the Flash Player API, so you can deliver true C++/OpenGL titles for Steam, iOS, Android and other markets, and today, we are announcing a new OpenFL HTML5 backend, based around [pixi.js](https://github.com/goodboydigital/pixi.js).
 
-pixi.js is a "super fast HTML5 2D rendering engine that uses webGL with canvas fallback," and happens to be based on the Flash API, to a small scale. We believe that a lot of value comes from the ability to leverage a fuller API, and is not tied directly to bloat. In our testing, we have exceeded pixi's canvas performance by 40% on some systems, and thanks to Haxe's dead-code eimination feature, a BunnyMark sample is only 22KB (gzipped). 
+pixi.js is a "super fast HTML5 2D rendering engine that uses webGL with canvas fallback," and happens to be based on the Flash API, though to a small scale. We believe that a lot of value comes from the ability to leverage a fuller API, and is not tied directly to bloat. In our testing, we have exceeded pixi's canvas performance by 40% on some systems, and thanks to Haxe's dead-code elimination feature, a BunnyMark sample is only 22KB (gzipped). 
 
 Since Apple and other manufacturers have not added WebGL support yet, canvas is a necessity. For this beta release, canvas is our first priority, and WebGL will soon follow.
 
@@ -42,4 +42,4 @@ OpenFL 1.3 is now released, and the new backend, "openfl-html5", is now enabled 
 
 OpenFL 1.3 introduces a new platform target: Firefox OS. You can use "lime build firefoxos" to build for Firefox OS instead of traditional HTML5. This will use the new HTML5 target, and can be installed using the Firefox App Manager (Mozilla does not have any official command-line install tools, yet).
 
-We are very excited, and encourage you to get involved, [show your support on Patreon](http://patreon.com/openfl), [collaborate](https://github.com/openfl/openfl-html5) and help us build the next generation Flash C++ and HTML5 games!
+We are very excited, and encourage you to get involved, [show your support on Patreon](http://patreon.com/openfl), [collaborate](https://github.com/openfl/openfl-html5) and help us build the next generation of Flash C++ and HTML5 games!
