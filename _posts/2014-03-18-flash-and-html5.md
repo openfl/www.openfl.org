@@ -16,7 +16,7 @@ Historically, "Flash" has meant at least three things:
  * A polarizing browser plugin
  * A fast superhero
 
-Two of these are here to stay, but one is not to last. Critics of Flash Player may forget what the web was like before. Plugins were created to solve a problem, not make them. Flash was the "web plugin victorious," it is the conqueror of a diverse (and unstable) universe of plugins for MIDIs, chat and all sorts of interactive could not itself deliver. Flash is one of the last-remaining plugins, it is coming time that content is not delivering with a plugin anymore.
+Two of these are here to stay, but one is not to last. Critics of Flash Player may forget what the web was like before. Plugins were created to solve a problem, not make them. Flash was the "web plugin victorious," it is the conqueror of a diverse (and unstable) universe of plugins for MIDIs, chat and all sorts of features the browser itself could not deliver. Flash is one of the few-remaining plugins, and most content does not need a plugin anymore.
 
 ...but what about the workflow?
 
