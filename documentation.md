@@ -15,6 +15,7 @@ permalink: documentation/
     0. [Setup iOS](/documentation/setup/platforms/setup-ios)
     0. [Setup Android](/documentation/setup/platforms/setup-android)
     0. [Setup BlackBerry](/documentation/setup/platforms/setup-blackberry)
+    0. [Setup Firefox OS](/documentation/setup/platforms/setup-firefox-os)
     0. [Setup Tizen](/documentation/setup/platforms/setup-tizen)
     0. [Setup Flash](/documentation/setup/platforms/setup-flash)
     0. [Setup HTML5](/documentation/setup/platforms/setup-html5)
