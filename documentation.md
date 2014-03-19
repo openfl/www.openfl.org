@@ -41,3 +41,5 @@ permalink: documentation/
     0. [Timers](/documentation/basics/animation/timers)
 0. [Events](/documentation/basics/events)
     0. [Mouse Events](/documentation/basics/events/mouse-events)
+
+### [☰](/documentation/api) 5. API
