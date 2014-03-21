@@ -43,4 +43,4 @@ permalink: documentation/
 0. [Events](/documentation/basics/events)
     0. [Mouse Events](/documentation/basics/events/mouse-events)
 
-### [☰](/documentation/api) 5. API
+### [☰ 5. API](/documentation/api) 
