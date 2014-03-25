@@ -4,6 +4,7 @@ pygments: true
 excerpt_separator: "<!--more-->"
 paginate: 5
 paginate_path: "blog/page/:num"
+url: http://www.openfl.org
 navigation:
 - title: Blog
   url: /blog/
@@ -14,3 +15,4 @@ navigation:
 - title: Forums
   url: /forums/
 permalink: /blog/:year/:month/:day/:title
+rss_post_limit: 10
