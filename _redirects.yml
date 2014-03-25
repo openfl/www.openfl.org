@@ -1,0 +1,4 @@
+docs : /documentation/
+download : /documentation/setup/install-haxe/
+api : /documentation/api/
+blog/feed : /blog/rss.xml

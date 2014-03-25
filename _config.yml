@@ -15,4 +15,5 @@ navigation:
 - title: Forums
   url: /forums/
 permalink: /blog/:year/:month/:day/:title
+rss_path: /blog/
 rss_post_limit: 10
