@@ -10,5 +10,5 @@ head: '<link rel="stylesheet" type="text/css" href="//cdn.moot.it/1/moot.css">
     <strong>Looking for an old topic?</strong> You can find archived posts from the old forums, <a href="/archive/community"><strong>here</strong></a>.
   </div>
 
-<a class="moot" href="https://moot.it/i/openfl">
+<a class="moot" href="/forums/i/openfl">
    OpenFL forums</a>
