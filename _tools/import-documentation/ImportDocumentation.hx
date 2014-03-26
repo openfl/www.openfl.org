@@ -157,14 +157,6 @@ class ImportDocumentation {
 			
 			var replacement = "[" + title + "](/documentation/)";
 			
-			if (target.indexOf ("Create") > -1) {
-			
-			Sys.println ("---");
-			Sys.println (names);
-			Sys.println (target);
-			
-			}
-			
 			for (i in 0...names.length) {
 				
 				if (target == names[i]) {
@@ -172,7 +164,7 @@ class ImportDocumentation {
 					var path = targetPaths[i];
 					path = path.substr (0, path.lastIndexOf ("/"));
 					
-					replacement = "[" + title + "](/documentation/" + path + ")";
+					replacement = "[" + title + "](/documentation/" + path + "/)";
 					break;
 					
 				}
