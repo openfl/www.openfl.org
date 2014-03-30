@@ -2,7 +2,7 @@
 layout: full-width
 title: Forums
 permalink: forums/
-head: '<link rel="stylesheet" type="text/css" href="//cdn.moot.it/1/moot.css">
+head: '<meta name="fragment" content="!"><link rel="stylesheet" type="text/css" href="//cdn.moot.it/1/moot.css">
         <script src="//cdn.moot.it/1/moot.min.js"></script>'
 ---
 
