@@ -158,6 +158,13 @@
   ios: https://itunes.apple.com/us/app/slots-rush-free-slot-machine/id813574962?mt=8
   android: https://play.google.com/store/apps/details?id=co.doubleduck.slotsblitz
 
+- title: Evoland Classic
+  developer: Nicolas Cannasse
+  image: EvolandClassic.jpg
+  url: http://evoland.shirogames.com/classic
+  flash: http://evoland.shirogames.com/classic
+  html5: http://www.openfl.org/samples/evoland
+
 - title: Ponon! Deluxe
   developer: Mybo
   image: Ponon.jpg
@@ -190,6 +197,13 @@
   image: LazaKnitez.jpg
   url: http://lazaknitez.com/
   ouya: https://www.ouya.tv/game/laza-knitez/
+
+- title: Super Hot Asteroid
+  developer: fserb
+  image: SuperHotAsteroid.jpg
+  url: http://fserb.com/vault/post/super-hot-asteroid.html
+  flash: http://fserb.com/vault/super-hot-asteroid.html
+  html5: http://fserb.com/vault/super-hot-asteroid.html
 
 - title: The Froggies Game
   developer: Sempai Games
@@ -234,6 +248,15 @@
   android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.farm
   blackberry: http://appworld.blackberry.com/webstore/content/125479/
   amazon: http://www.amazon.com/Innivo-Make-a-Scene-Farmyard/dp/B00CJK032E
+
+- title: Cubus Velox
+  developer: CodinSoft
+  image: CubusVelox.jpg
+  url: http://codinsoft.de/about/cubus-velox/
+  ios: https://itunes.apple.com/us/app/cubus-velox/id613448076?ls=1
+  android: https://play.google.com/store/apps/details?id=de.codinsoft.cubusVelox
+  flash: http://www.kongregate.com/games/knarrenheinz/cubus-velox
+  amazon: http://amazon.com/gp/mas/dl/android?p=de.codinsoft.cubusVelox
 
 - title: Don't Move
   developer: Steve Richey
@@ -291,6 +314,13 @@
   windows: http://www.bossesforever.com/builds/BOSSES_FOREVER_2_BRO_WINDOWS.zip
   mac: http://www.bossesforever.com/builds/BOSSES_FOREVER_2_BRO_MAC.zip
   ouya: http://www.ouya.tv/game/BOSSES-FOREVER-2BRO/
+
+- title: Amaze
+  developer: fserb
+  image: Amaze.jpg
+  url: http://fserb.com/vault/post/amaze.html
+  flash: http://fserb.com/vault/amaze.html
+  html5: http://fserb.com/vault/amaze.html
 
 - title: "Make a Scene: Dinosaurs"
   developer: Innivo
