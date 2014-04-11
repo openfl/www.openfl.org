@@ -19,19 +19,19 @@
   playstation: "http://p0.dl.playstation.net/p0/psns/psnschk.htm?a=psns%3Abrowse%3Fproduct%3DUM0135-NPNA00111_00-0000000000000000&type=psm"
   featured: true
 
-- title: "Flying Dodo: Wilbur's Fun Ride"
-  developer: Double Duck
-  image: FlyingDodo.jpg
-  url: http://www.doubleduck.co/games/flying-dodo/
-  ios: https://itunes.apple.com/us/app/flying-dodo/id777233419
-  android: "https://play.google.com/store/apps/details?id=co.doubleduck.dodo"
-  featured: true
-
 - title: Zuki's Quest
   developer: Tinytouchtales
   image: ZukisQuest.jpg
   url: http://www.zukisquest.com/
   ios: https://itunes.apple.com/us/app/zukis-quest-turn-based-puzzle/id687112608
+  featured: true
+
+- title: Fly Catbug Fly!
+  developer: Cartoon Hangover
+  image: FlyCatbugFly.jpg
+  url: http://cartoonhangover.com/flycatbugfly/
+  ios: https://itunes.apple.com/us/app/fly-catbug-fly!/id812663886?ls=1
+  android: https://play.google.com/store/apps/details?id=com.frederator.catbug
   featured: true
 
 - title: Rune Raiders
@@ -46,19 +46,35 @@
   flash: http://www.retro64.com/runeraiders_online.php
   featured: true
 
+- title: Cardinal Quest 2
+  developer: randomnine
+  image: CardinalQuest2.jpg
+  url: http://cardinalquest2.com/
+  ios: https://itunes.apple.com/app/id732353646
+  featured: true
+
+- title: "Flying Dodo: Wilbur's Fun Ride"
+  developer: Double Duck
+  image: FlyingDodo.jpg
+  url: http://www.doubleduck.co/games/flying-dodo/
+  ios: https://itunes.apple.com/us/app/flying-dodo/id777233419
+  android: "https://play.google.com/store/apps/details?id=co.doubleduck.dodo"
+  featured: true
+
+- title: Sweet Slide
+  developer: Double Duck
+  image: SweetSlide.jpg
+  url: http://www.doubleduck.co/games/sweet-slide/
+  ios: https://itunes.apple.com/us/app/sweet-slide-cute-brain-teaser/id828415664?ls=1
+  android: https://play.google.com/store/apps/details?id=co.doubleduck.sweetslide
+  featured: true
+
 - title: Starry Nuts
   developer: Mybo
   image: StarryNuts.jpg
   url: http://www.mybogame.com/more_game/
   ios: "http://itunes.apple.com/us/app/starry-nuts/id538252355?ls=1&mt=8"
   android: https://play.google.com/store/apps/details?id=com.mybo.nuts
-  featured: true
-
-- title: "Mrs. Dad vs. Körv"
-  developer: grapefrukt
-  image: MrsDad.jpg
-  url: http://grapefrukt.com/mrs-dad-vs-korv/
-  ouya: https://www.ouya.tv/game/Mrs-Dad-vs-Korv/
   featured: true
 
 - title: What's This?
@@ -108,6 +124,12 @@
   android: https://play.google.com/store/apps/details?id=com.inertiasoftware.darkmoorpaid
   amazon: http://www.amazon.com/Inertiasoft-ltd-Darkmoor-Manor/dp/B00DRGBANK
 
+- title: "Mrs. Dad vs. Körv"
+  developer: grapefrukt
+  image: MrsDad.jpg
+  url: http://grapefrukt.com/mrs-dad-vs-korv/
+  ouya: https://www.ouya.tv/game/Mrs-Dad-vs-Korv/
+
 - title: Gorilla Go!
   developer: Igniter Games
   image: GorillaGo.jpg
@@ -128,6 +150,13 @@
   mac: "http://itunes.apple.com/us/app/my-little-story-factory/id637433662?ls=1&mt=12"
   ios: "http://itunes.apple.com/us/app/my-little-story-factory/id623878071?ls=1&mt=8"
   android: https://play.google.com/store/apps/details?id=com.etoileseditions.mpfh5
+
+- title: Slots Rush
+  developer: Double Duck
+  image: SlotsRush.jpg
+  url: http://www.doubleduck.co/games/slots-rush/
+  ios: https://itunes.apple.com/us/app/slots-rush-free-slot-machine/id813574962?mt=8
+  android: https://play.google.com/store/apps/details?id=co.doubleduck.slotsblitz
 
 - title: Ponon! Deluxe
   developer: Mybo
@@ -156,6 +185,12 @@
   ios: "https://itunes.apple.com/gb/app/id797114536?mt=8"
   android: "https://play.google.com/store/apps/details?id=me.pieandmash.foxtrot"
 
+- title: Laza Knitez!
+  developer: glitchnap
+  image: LazaKnitez.jpg
+  url: http://lazaknitez.com/
+  ouya: https://www.ouya.tv/game/laza-knitez/
+
 - title: The Froggies Game
   developer: Sempai Games
   image: FroggiesGame.jpg
@@ -183,6 +218,13 @@
   ios: https://itunes.apple.com/app/id781705529
   android: https://play.google.com/store/apps/details?id=com.puralax
   flash: http://www.puralax.com/
+
+- title: Eye Awake
+  developer: Dakina Games
+  image: EyeAwake.png
+  url: http://www.dakinagames.com
+  ios: https://itunes.apple.com/us/app/eyeawakesmartlightsout/id812400345?mt=8
+  android: https://play.google.com/store/apps/details?id=com.dakinagames.eyeawake
 
 - title: "Make a Scene: Farmyard"
   developer: Innivo
@@ -352,6 +394,12 @@
   url: https://play.google.com/store/apps/details?id=com.webstunning.convoyhunter
   android: https://play.google.com/store/apps/details?id=com.webstunning.convoyhunter
 
+- title: Ultimate U Antivirus
+  developer: MrPaul
+  image: UltimateUAntivirus.jpg
+  url: https://play.google.com/store/apps/details?id=com.ap.uAntivirus
+  android: https://play.google.com/store/apps/details?id=com.ap.uAntivirus
+
 - title: Runecryption
   developer: Apodidae
   image: Runecryption.jpg
@@ -385,6 +433,13 @@
   android: https://play.google.com/store/apps/details?id=air.tametick.pakkuman
   blackberry: https://appworld.blackberry.com/webstore/content/133926/
   amazon: http://www.amazon.com/gp/product/B0093N88I6
+
+- title: Flappy Bat
+  developer: Dakina Games
+  image: FlapTheBat.jpg
+  url: http://www.dakinagames.com
+  ios: https://itunes.apple.com/us/app/flapthebat/id817818894?ls=1
+  android: https://play.google.com/store/apps/details?id=com.dakinagames.flappybatfree
 
 - title: "Make a Scene: Polar Adventure"
   developer: Innivo
