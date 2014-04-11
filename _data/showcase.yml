@@ -14,7 +14,7 @@
   windows: http://store.steampowered.com/app/253790
   mac: http://store.steampowered.com/app/253790
   linux: http://store.steampowered.com/app/253790
-  ios: "https://itunes.apple.com/us/app/rymdkapsel/id663547503?ls=1&mt=8"
+  ios: https://itunes.apple.com/us/app/rymdkapsel/id663547503
   android: http://play.google.com/store/apps/details?id=com.grapefrukt.games.rymdkapsel1
   playstation: "http://p0.dl.playstation.net/p0/psns/psnschk.htm?a=psns%3Abrowse%3Fproduct%3DUM0135-NPNA00111_00-0000000000000000&type=psm"
   featured: true
@@ -30,7 +30,7 @@
   developer: Cartoon Hangover
   image: FlyCatbugFly.jpg
   url: http://cartoonhangover.com/flycatbugfly/
-  ios: https://itunes.apple.com/us/app/fly-catbug-fly!/id812663886?ls=1
+  ios: https://itunes.apple.com/us/app/fly-catbug-fly!/id812663886
   android: https://play.google.com/store/apps/details?id=com.frederator.catbug
   featured: true
 
@@ -65,7 +65,7 @@
   developer: Double Duck
   image: SweetSlide.jpg
   url: http://www.doubleduck.co/games/sweet-slide/
-  ios: https://itunes.apple.com/us/app/sweet-slide-cute-brain-teaser/id828415664?ls=1
+  ios: https://itunes.apple.com/us/app/sweet-slide-cute-brain-teaser/id828415664
   android: https://play.google.com/store/apps/details?id=co.doubleduck.sweetslide
   featured: true
 
@@ -73,7 +73,7 @@
   developer: Mybo
   image: StarryNuts.jpg
   url: http://www.mybogame.com/more_game/
-  ios: "http://itunes.apple.com/us/app/starry-nuts/id538252355?ls=1&mt=8"
+  ios: http://itunes.apple.com/us/app/starry-nuts/id538252355
   android: https://play.google.com/store/apps/details?id=com.mybo.nuts
   featured: true
 
@@ -81,7 +81,7 @@
   developer: Mybo
   image: WhatsThis.jpg
   url: https://play.google.com/store/apps/details?id=com.mybo.shadow
-  ios: https://itunes.apple.com/us/app/whats-this-!/id647013699?mt=8
+  ios: https://itunes.apple.com/us/app/whats-this-!/id647013699
   android: https://play.google.com/store/apps/details?id=com.mybo.shadow
   featured: true
 
@@ -89,38 +89,44 @@
   developer: Emibap
   image: SophiesDrawings.jpg
   url: http://sophiesdrawings.emibap.com/
-  ios: "https://itunes.apple.com/us/app/sophies-drawings/id577807370?mt=8&ign-mpt=uo%3D4"
+  ios: https://itunes.apple.com/us/app/sophies-drawings/id577807370
   featured: true
 
 - title: TEN
   developer: Sennep
   image: TEN.png
   url: http://tengame.info/
-  ios: https://itunes.apple.com/gb/app/ten/id669964112?mt=8
+  ios: https://itunes.apple.com/gb/app/ten/id669964112
   featured: true
 
 ####################
+
+- title: Square
+  developer: Sharpener Games
+  image: Square.jpg
+  url: http://sharpenergames.de/
+  android: https://play.google.com/store/apps/details?id=de.sharpenergames.square
 
 - title: Bouncy Seed
   developer: Mybo
   image: BouncySeed.jpg
   url: http://www.mybogame.com/more_game/
-  ios: http://itunes.apple.com/app/bouncy-paul/id456848110?mt=8
+  ios: http://itunes.apple.com/app/bouncy-paul/id456848110
   android: https://play.google.com/store/apps/details?id=com.mybogame.bouncyseed
 
 - title: Sudoku Puzzle Challenge
   developer: Inertia Software
   image: SudokuChallenge.jpg
-  url: https://itunes.apple.com/us/app/sudoku-puzzle-challenge/id814341951?mt=8
-  ios: https://itunes.apple.com/us/app/sudoku-puzzle-challenge/id814341951?mt=8
+  url: https://itunes.apple.com/us/app/sudoku-puzzle-challenge/id814341951
+  ios: https://itunes.apple.com/us/app/sudoku-puzzle-challenge/id814341951
   android: "https://play.google.com/store/apps/details?id=com.inertiasoftware.sudokupuzzlechallenge&hl=en_GB"
   amazon: http://www.amazon.com/Inertiasoft-ltd-Sudoku-Puzzle-Challenge/dp/B00I9DW6HA
 
 - title: Escape from Darkmoor Manor
   developer: Inertia Software
   image: Darkmoor.jpg
-  url: https://itunes.apple.com/us/app/darkmoor-manor-free-version/id646793963?mt=8
-  ios: https://itunes.apple.com/us/app/darkmoor-manor-free-version/id646793963?mt=8
+  url: https://itunes.apple.com/us/app/darkmoor-manor-free-version/id646793963
+  ios: https://itunes.apple.com/us/app/darkmoor-manor-free-version/id646793963
   android: https://play.google.com/store/apps/details?id=com.inertiasoftware.darkmoorpaid
   amazon: http://www.amazon.com/Inertiasoft-ltd-Darkmoor-Manor/dp/B00DRGBANK
 
@@ -141,21 +147,21 @@
   developer: Mutant Labs
   image: HalfInchHeist.png
   url: http://halfinchheist.com/
-  ios: https://itunes.apple.com/us/app/half-inch-heist/id559787622?mt=8
+  ios: https://itunes.apple.com/us/app/half-inch-heist/id559787622
 
 - title: My Little Story Factory
   developer: Éditions Autrement
   image: MyLittleStoryFactory.png
   url: http://www.etoiles-editions.com/en/collection/my-little-story-factory-2
-  mac: "http://itunes.apple.com/us/app/my-little-story-factory/id637433662?ls=1&mt=12"
-  ios: "http://itunes.apple.com/us/app/my-little-story-factory/id623878071?ls=1&mt=8"
+  mac: http://itunes.apple.com/us/app/my-little-story-factory/id637433662
+  ios: http://itunes.apple.com/us/app/my-little-story-factory/id623878071
   android: https://play.google.com/store/apps/details?id=com.etoileseditions.mpfh5
 
 - title: Slots Rush
   developer: Double Duck
   image: SlotsRush.jpg
   url: http://www.doubleduck.co/games/slots-rush/
-  ios: https://itunes.apple.com/us/app/slots-rush-free-slot-machine/id813574962?mt=8
+  ios: https://itunes.apple.com/us/app/slots-rush-free-slot-machine/id813574962
   android: https://play.google.com/store/apps/details?id=co.doubleduck.slotsblitz
 
 - title: Evoland Classic
@@ -169,7 +175,7 @@
   developer: Mybo
   image: Ponon.jpg
   url: http://mybogame.com/m/
-  ios: http://itunes.apple.com/us/app/ponon-deluxe/id402642577?mt=8
+  ios: http://itunes.apple.com/us/app/ponon-deluxe/id402642577
   android: https://play.google.com/store/apps/details?id=com.mybogame.ponon
 
 - title: Lightbot
@@ -189,7 +195,7 @@
 - title: Foxtrot!
   image: Foxtrot.jpg
   url: http://www.pieandmash.me/foxtrot/
-  ios: "https://itunes.apple.com/gb/app/id797114536?mt=8"
+  ios: https://itunes.apple.com/gb/app/id797114536
   android: "https://play.google.com/store/apps/details?id=me.pieandmash.foxtrot"
 
 - title: Laza Knitez!
@@ -209,11 +215,18 @@
   developer: Sempai Games
   image: FroggiesGame.jpg
   url: http://www.sempaigames.com/froggies/en
-  ios: http://itunes.apple.com/us/app/the-froggies-game/id513913013?mt=8
+  ios: http://itunes.apple.com/us/app/the-froggies-game/id513913013
   android: https://market.android.com/details?id=com.sempaigames.froggies
   blackberry: http://appworld.blackberry.com/webstore/content/23206878/
   amazon: http://www.amazon.com/Sempai-Games-The-Froggies-Game/dp/B007VPADYA
   flash: http://www.sempaigames.com/froggies
+
+- title: Kitten Getaway
+  developer: Shark Punch
+  image: KittenGetaway.jpg
+  url: http://kittengetaway.com/
+  ios: https://itunes.apple.com/us/app/kitten-getaway/id854559964
+  android: https://play.google.com/store/apps/details?id=com.sharkpunch.kitten
 
 - title: Vampire Volleyball
   developer: Retro64
@@ -222,7 +235,7 @@
   windows: http://www.retro64.com/downloads/vampire_volleyball_windows.zip
   mac: http://www.retro64.com/downloads/vampire_volleyball_mac.zip
   linux: http://www.retro64.com/downloads/vampire_volleyball_linux.tar.gz
-  ios: "https://itunes.apple.com/us/app/vampire-volleyball/id722265007?ls=1&mt=8"
+  ios: "https://itunes.apple.com/us/app/vampire-volleyball/id722265007"
   android: https://play.google.com/store/apps/details?id=com.retro64.vampirevolleyball
 
 - title: Puralax
@@ -237,7 +250,7 @@
   developer: Dakina Games
   image: EyeAwake.png
   url: http://www.dakinagames.com
-  ios: https://itunes.apple.com/us/app/eyeawakesmartlightsout/id812400345?mt=8
+  ios: https://itunes.apple.com/us/app/eyeawakesmartlightsout/id812400345
   android: https://play.google.com/store/apps/details?id=com.dakinagames.eyeawake
 
 - title: "Make a Scene: Farmyard"
@@ -253,7 +266,7 @@
   developer: CodinSoft
   image: CubusVelox.jpg
   url: http://codinsoft.de/about/cubus-velox/
-  ios: https://itunes.apple.com/us/app/cubus-velox/id613448076?ls=1
+  ios: https://itunes.apple.com/us/app/cubus-velox/id613448076
   android: https://play.google.com/store/apps/details?id=de.codinsoft.cubusVelox
   flash: http://www.kongregate.com/games/knarrenheinz/cubus-velox
   amazon: http://amazon.com/gp/mas/dl/android?p=de.codinsoft.cubusVelox
@@ -272,8 +285,8 @@
   developer: Ancient Sheep
   image: MoleWord.jpg
   url: https://play.google.com/store/apps/details?id=com.ancientsheep.moleword
-  mac: http://itunes.apple.com/us/app/mole-word/id523179556?mt=12
-  ios: http://itunes.apple.com/us/app/mole-word/id518069710?mt=8
+  mac: http://itunes.apple.com/us/app/mole-word/id523179556
+  ios: http://itunes.apple.com/us/app/mole-word/id518069710
   android: https://play.google.com/store/apps/details?id=com.ancientsheep.moleword
   amazon: http://www.amazon.com/Ancient-Sheep-Mole-Word/dp/B007ZT5D5Q
 
@@ -281,7 +294,7 @@
   developer: HyperFiction
   image: Arkeon.png
   url: http://www.hyperfiction.fr/
-  ios: https://itunes.apple.com/us/app/id582670054?mt=8
+  ios: https://itunes.apple.com/us/app/id582670054
   android: "https://play.google.com/store/apps/details?id=fr.hyperfiction.arkeon&hl=en"
   blackberry: https://appworld.blackberry.com/webstore/content/19227952/?lang=en
 
@@ -302,7 +315,7 @@
   developer: Innivo
   image: MakeASceneFairyTales.jpg
   url: http://www.makeasceneapp.com/app/fairy-tales/
-  ios: https://itunes.apple.com/us/app/make-scene-princess-fairy/id573157439?mt=8
+  ios: https://itunes.apple.com/us/app/make-scene-princess-fairy/id573157439
   android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.fairytales
   blackberry: http://appworld.blackberry.com/webstore/content/127804/?lang=en
   amazon: http://www.amazon.com/Make-Scene-Princess-Fairy-Tales/dp/B00CJJPCFI
@@ -351,7 +364,7 @@
   developer: Artificial Games
   image: MrNibbles.jpg
   url: http://www.mr-nibbles.com/
-  ios: http://itunes.apple.com/gb/app/mr-nibbles/id552109003?mt=8
+  ios: http://itunes.apple.com/gb/app/mr-nibbles/id552109003
   android: https://play.google.com/store/apps/details?id=uk.co.mikecann.MrNibbles
   blackberry: http://appworld.blackberry.com/webstore/content/133542/
 
@@ -364,8 +377,8 @@
 - title: Jigsaw World
   developer: Inertia Software
   image: JigsawWorld.jpg
-  url: https://itunes.apple.com/us/app/jigsaw-world/id490953349?mt=8
-  ios: https://itunes.apple.com/us/app/jigsaw-world/id490953349?mt=8
+  url: https://itunes.apple.com/us/app/jigsaw-world/id490953349
+  ios: https://itunes.apple.com/us/app/jigsaw-world/id490953349
   android: https://play.google.com/store/apps/details?id=com.inertiasoftware.jigsawworld
   amazon: http://www.amazon.com/Inertiasoft-ltd-Jigsaw-World/dp/B00E4MCCF6
 
@@ -410,7 +423,7 @@
   developer: e-Toiles editions
   image: MyPear.jpg
   url: http://www.etoiles-editions.com/en/collection/my-pear
-  ios: https://itunes.apple.com/us/app/my-pear/id565940958?mt=8
+  ios: https://itunes.apple.com/us/app/my-pear/id565940958
 
 - title: Super Pangaroo
   developer: Majavro Games
@@ -442,7 +455,7 @@
   developer: Innivo
   image: MakeASceneChristmas.jpg
   url: http://www.makeasceneapp.com/app/christmas/
-  ios: https://itunes.apple.com/us/app/make-a-scene-christmas/id501638267?mt=8
+  ios: https://itunes.apple.com/us/app/make-a-scene-christmas/id501638267
   android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.christmas
   blackberry: http://appworld.blackberry.com/webstore/content/17843853/?lang=en
   amazon: http://www.amazon.co.uk/Innivo-Make-a-Scene-Christmas/dp/B00FP232C6
@@ -459,7 +472,7 @@
   image: PakkumansDefense.jpg
   url: http://tametick.com/pd/
   flash: http://tametick.com/pd/
-  ios: http://itunes.apple.com/us/app/pakkumansdefense/id560453722?ls=1
+  ios: http://itunes.apple.com/us/app/pakkumansdefense/id560453722
   android: https://play.google.com/store/apps/details?id=air.tametick.pakkuman
   blackberry: https://appworld.blackberry.com/webstore/content/133926/
   amazon: http://www.amazon.com/gp/product/B0093N88I6
@@ -468,21 +481,21 @@
   developer: Dakina Games
   image: FlapTheBat.jpg
   url: http://www.dakinagames.com
-  ios: https://itunes.apple.com/us/app/flapthebat/id817818894?ls=1
+  ios: https://itunes.apple.com/us/app/flapthebat/id817818894
   android: https://play.google.com/store/apps/details?id=com.dakinagames.flappybatfree
 
 - title: "Make a Scene: Polar Adventure"
   developer: Innivo
   image: MakeAScenePolarAdventure.jpg
   url: http://www.makeasceneapp.com/app/polar-adventure/
-  ios: http://itunes.apple.com/us/app/make-a-scene-polar-adventure/id501640642?mt=8
+  ios: http://itunes.apple.com/us/app/make-a-scene-polar-adventure/id501640642
   blackberry: http://appworld.blackberry.com/webstore/content/127802/?lang=en
 
 - title: Pearl Ball
   developer: Tang WeiChun
   image: PearlBall.jpg
-  url: https://itunes.apple.com/us/app/pearl-ball-hd/id590815666?mt=8
-  ios: https://itunes.apple.com/us/app/pearl-ball-hd/id590815666?mt=8
+  url: https://itunes.apple.com/us/app/pearl-ball-hd/id590815666
+  ios: https://itunes.apple.com/us/app/pearl-ball-hd/id590815666
   flash: http://freegameshome.net/games/pearl-ball-hd.html
 
 - title: "Make a Scene: Under the Sea"
@@ -500,7 +513,7 @@
   url: http://luboslenco.com/post/8146576053/castle-siege-i-love-this-game-its-genuinely
   mac: https://itunes.apple.com/us/app/castle-siege-fantasy-battles/id631564393
   windows: http://gum.co/castlesiege
-  ios: http://itunes.apple.com/us/app/castle-siege-free/id522940766?ls=1
+  ios: http://itunes.apple.com/us/app/castle-siege-free/id522940766
   android: https://play.google.com/store/apps/details?id=com.luboslenco.castlesiegefree
   blackberry: http://appworld.blackberry.com/webstore/content/117459/
   amazon: http://www.amazon.com/gp/product/B00823P6CE
@@ -510,7 +523,7 @@
   developer: Genius Donkeys
   image: ToddlerPuzzles2.jpg
   url: https://play.google.com/store/apps/details?id=com.geniusdonkeys.toddlerpuzzles.boysandgirls
-  mac: http://itunes.apple.com/be/app/toddler-puzzles-2/id645666478?mt=12
+  mac: http://itunes.apple.com/be/app/toddler-puzzles-2/id645666478
   windows: http://apps.microsoft.com/windows/en-us/app/04e6e202-e533-410a-8b27-16ebe01e2270
   android: https://play.google.com/store/apps/details?id=com.geniusdonkeys.toddlerpuzzles.boysandgirls
   html5: http://apps.microsoft.com/windows/en-us/app/04e6e202-e533-410a-8b27-16ebe01e2270
@@ -533,7 +546,7 @@
   developer: Innivo
   image: MakeASceneJungle.jpg
   url: http://www.makeasceneapp.com/app/jungle/
-  ios: http://itunes.apple.com/us/app/make-a-scene-jungle/id501639931?mt=8
+  ios: http://itunes.apple.com/us/app/make-a-scene-jungle/id501639931
   android: https://play.google.com/store/apps/details?id=air.com.innivo.makeascene.jungle
   blackberry: http://appworld.blackberry.com/webstore/content/127798/?lang=en
   amazon: http://www.amazon.com/Innivo-Make-a-Scene-Jungle/dp/B00CJJY7SQ
@@ -549,6 +562,13 @@
   image: PiranhaChase.jpg
   ios: https://itunes.apple.com/us/app/piranha-chase/id509293154
   flash: http://www.retro64.com/piranhachase_online.php
+
+- title: Times Ninja Adventure
+  developer: Netforza
+  image: TimesNinjaAdventure.jpg
+  ios: https://itunes.apple.com/us/app/times-ninja-adventure/id843878585
+  android: https://play.google.com/store/apps/details?id=com.netforza.timesninjademo
+  amazon: http://www.amazon.com/Netforza-Times-Ninja-Adventure/dp/B00J4KRA7S/
 
 - title: "Animaths: Fun math for kids"
   developer: ERCS Creative
@@ -626,6 +646,14 @@
   url: http://www.pixelpounce.com/app/beetle-bots/
   ios: https://itunes.apple.com/us/app/beetle-bots/id663201690
   android: https://play.google.com/store/apps/details?id=com.pixelpounce.beetlebotsfree 
+
+- title: Albanian Money
+  developer: Bank of Albania
+  image: AlbanianMoney.jpg
+  url: http://www.bankofalbania.org/web/Aplikacioni_Albanian_Money_versioni_web_7030_1.php
+  ios: https://itunes.apple.com/us/app/albanian-money/id820876557
+  android: https://play.google.com/store/apps/details?id=al.boa.AlbanianMoney
+  flash: http://www.bankofalbania.org/web/Aplikacioni_Albanian_Money_versioni_web_7030_1.php
 
 - title: Math Paths Puzzle
   developer: Bearline Development
