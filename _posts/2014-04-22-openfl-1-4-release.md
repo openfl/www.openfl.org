@@ -1,4 +1,7 @@
-#OpenFL 1.4 Release
+---
+layout: post
+title: OpenFL 1.4 Release
+---
 
 We have a brand-new OpenFL (and kin) release for you today. If you have already updated to Haxe 3.1.3, this resolves some C++ incompatibilities that were introduced.
 
