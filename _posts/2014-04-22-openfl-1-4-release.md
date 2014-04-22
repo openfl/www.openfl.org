@@ -71,6 +71,21 @@ If you are interested in being a source-code contributor to OpenFL, please check
 
 We also want to take this opportunity to give a **HUGE** thank you to all of our supporters, who have contributed a total of $516.08 since February to help OpenFL grow. You guys are all awesome! If you are not a supporter yet, please consider giving to help [supporting the project](http://www.patreon.com/openfl). Thank you!
 
+## Getting the Update
+
+If you have not installed OpenFL yet, follow the [install instructions](http://www.openfl.org/download) to get started!
+
+If you are upgrading from a recent OpenFL release, you can use "lime upgrade" to get the latest release:
+
+    lime upgrade openfl
+
+If you have an older version of OpenFL installed, you can try these commands:
+
+    haxelib update lime
+    haxelib update lime-tools
+    lime upgrade openfl
+
+If you encounter any problems while your upgrading, or installing for the first time, please comment here so that we can help!
 
 ## Changes
 
