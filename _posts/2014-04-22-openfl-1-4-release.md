@@ -17,7 +17,7 @@ As a user, this will not have a tangible impact, other than stronger and better 
 
 Although the new HTML5 backend is in beta, we have already seen amazing results so far. In this release, the HTML5 backend has many, many, MANY improvements across the board. You can expect a more consistent Flash experience, now with automated webfont support!
 
-We have had it mind to develop a separate DOM-based backend for HTML5, in order to best support applications, as well as games. Upon a technical review, we realized that the best result for a DOM backend looked much closer to the existing HTML5 backend than we thought. Using "-Ddom" while compiling (or \<haxedef name="dom" /\> in your project) you can target the DOM instead of a single canvas.
+We have had it in mind to develop a separate DOM-based backend for HTML5, in order to best support applications, as well as games. Upon a technical review, we realized that the best result for a DOM backend looked much closer to the existing HTML5 backend than we thought. Using "-Ddom" while compiling (or \<haxedef name="dom" /\> in your project) you can target the DOM instead of a single canvas.
 
 The default canvas behavior is the fastest result for desktop and mobile targets for games that are blitting the fullscreen each frame. The DOM renderer is faster for certain older or low-feature devices (such as a smart TV) and may be a better match for applications that do not need to render each frame, would benefit from DOM-based text, or any project that would prefer to use canvas elements sparingly.
 
