@@ -121,7 +121,7 @@ __Version: 1.4.0-beta__
  * Changed flash.display.DisplayObject to allow override of more core properties
  * Skipped creation of a canvas for flash.display.Graphics with a size of zero
  * Improved the "transform.matrix" property for flash.display.DisplayObject
- * Created a DOM render path (use -Ddom while compiling or <haxedef name="dom" /\>)
+ * Created a DOM render path (use -Ddom while compiling or \<haxedef name="dom" /\>)
  * Silenced keyLocation warnings on certain browsers
  * Toggling canvas smoothing based upon "smoothing" value of flash.display.Bitmap
  * Added "unload" to flash.net.Loader and "invalidate" to flash.display.Stage
