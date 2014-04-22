@@ -17,7 +17,7 @@ As a user, this will not have a tangible impact, other than stronger and better 
 
 Although the new HTML5 backend is in beta, we have already seen amazing results so far. In this release, the HTML5 backend has many, many, MANY improvements across the board. You can expect a more consistent Flash experience, now with automated webfont support!
 
-We have had it mind to develop a separate DOM-based backend for HTML5, in order to best support applications, as well as games. Upon a technical review, we realized that the best result for a DOM backend looked much closer to the existing HTML5 backend than we thought. Using "-Ddom" while compiling (or <haxedef name="dom" /\> in your project) you can target the DOM instead of a single canvas.
+We have had it mind to develop a separate DOM-based backend for HTML5, in order to best support applications, as well as games. Upon a technical review, we realized that the best result for a DOM backend looked much closer to the existing HTML5 backend than we thought. Using "-Ddom" while compiling (or \<haxedef name="dom" /\> in your project) you can target the DOM instead of a single canvas.
 
 The default canvas behavior is the fastest result for desktop and mobile targets for games that are blitting the fullscreen each frame. The DOM renderer is faster for certain older or low-feature devices (such as a smart TV) and may be a better match for applications that do not need to render each frame, would benefit from DOM-based text, or any project that would prefer to use canvas elements sparingly.
 
@@ -100,7 +100,7 @@ __Version: 1.4.0__
 
 __Version: 1.4.0__
 
- * Now openfl.gl.GL accepts both Array<Float\> and Float32Array values, where appropriate
+ * Now openfl.gl.GL accepts both Array\<Float\> and Float32Array values, where appropriate
  * Implemented "cullFace" in openfl.gl.GL, as well as other minor fixes
  * Fixed lime\_bitmap\_data\_set\_flags to use the right number of parameters 
  * Fixed a position offset error in openfl.utils.UInt8Array
@@ -125,7 +125,7 @@ __Version: 1.4.0-beta__
  * Silenced keyLocation warnings on certain browsers
  * Toggling canvas smoothing based upon "smoothing" value of flash.display.Bitmap
  * Added "unload" to flash.net.Loader and "invalidate" to flash.display.Stage
- * Fixed issue when using "drawTiles" with tiles with a width or height <= 0
+ * Fixed issue when using "drawTiles" with tiles with a width or height \<= 0
  * Fixed "rect" for flash.display.BitmapData
  * Switched from Howler.js to SoundJS for audio backend
  * Implemented support for automatically embedding of webfonts
@@ -177,7 +177,7 @@ __Version: 1.4.0__
  * Improved "lime upgrade" to manage updates from both GIT and haxelib
  * Improved "lime upgrade" to also handle dependencies that are specific to dev versions
  * Added support for generating SVG, EOT and WOFF web fonts automatically
- * Improved embedding to support native C++ targets, using <assets path="" embed="true" /\>
- * Added internal support for targeting a specific display, using <window display="" /\>
- * Added internal support for setting up multiple windows, using <window id="" /\>
+ * Improved embedding to support native C++ targets, using \<assets path="" embed="true" /\>
+ * Added internal support for targeting a specific display, using \<window display="" /\>
+ * Added internal support for setting up multiple windows, using \<window id="" /\>
  * Moving DefaultAssetLibrary out of tools, into "openfl"
