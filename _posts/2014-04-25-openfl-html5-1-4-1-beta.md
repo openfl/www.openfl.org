@@ -32,4 +32,4 @@ __Version: 1.4.1-beta__
  * Fixed z-ordering for DOM rendered projects
  * Optimized flash.display.Graphics to not render when a fill is fully transparent
  * Improved HTML text when using DOM renderering
- * Other fixes and improvements
+ * No longer keep events queue, allow events to dispatch immediately
