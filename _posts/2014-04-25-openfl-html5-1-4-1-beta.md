@@ -8,9 +8,9 @@ In this release, we've addressed cases where "world transform" information could
 
 It may seem funny that we are investing in DOM support, in addition to canvas support. Certain older devices do not handle canvas very well, but also, the DOM rendering is designed not to update the page unless it has changed, making it more ideal for applications and other content that does not need to blit on the screen constantly.
 
-Actually, the DOM render path will still use canvas if you A.) modify the pixels in a BitmapData, B.) call "bitmapData.draw", or C.) use "graphics" on a Sprite or Shape
+Actually, the DOM render path will still use canvas if you A.) modify the pixels in a BitmapData, B.) call "bitmapData.draw", or C.) use "graphics" on a Sprite or Shape.
 
-If you would benefit from DOM-based text-rendering, or using multiple layers (such as a static image background, plus a more constantly updated canvas for game content, etc) the DOM render path may actually be what you are looking for. 
+If you would like to benefit from DOM-based text-rendering, or to use multiple layers (such as a static image background, plus a more constantly updated canvas for game content, etc), the DOM render path may actually be what you are looking for. 
 
 The single-canvas approach is still used by default, as we believe it is still the closest (until we also have WebGL ready for you) to the familiar Flash plugin behavior.
 
