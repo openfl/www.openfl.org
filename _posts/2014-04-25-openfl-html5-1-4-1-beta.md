@@ -1,6 +1,6 @@
 ---
 layout: post
-title: OpenFL HTML5 (1.4.1 Beta) Update
+title: OpenFL HTML5 1.4.1 Beta
 ---
 Although we just released OpenFL 1.4, we have a new update of the beta HTML5 target -- it's too hard to wait for a big release!
 
