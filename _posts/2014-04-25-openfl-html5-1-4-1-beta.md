@@ -6,7 +6,7 @@ Although we just released OpenFL 1.4, we have a new update of the beta HTML5 tar
 
 In this release, we've addressed cases where "world transform" information could be out-of-date, which is important for size, scale and position in "getBounds" or "globalToLocal" APIs. In the process, we have improved the performance of DOM rendering, caching additional properties so that the DOM is modified only when an object is changed.
 
-It may seem funny that we are investing in DOM support, in addition to canvas support. Certain older devices do not handle canvas very well, but also, the DOM rendering is designed not to update the page unless it has changed, making it more ideal for applications and other content that does not to blit on the screen constantly.
+It may seem funny that we are investing in DOM support, in addition to canvas support. Certain older devices do not handle canvas very well, but also, the DOM rendering is designed not to update the page unless it has changed, making it more ideal for applications and other content that does not need to blit on the screen constantly.
 
 Actually, the DOM render path will still use canvas if you A.) modify the pixels in a BitmapData, B.) call "bitmapData.draw", or C.) use "graphics" on a Sprite or Shape
 
