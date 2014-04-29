@@ -2,9 +2,7 @@
 layout: post
 title: OpenFL HTML5 1.4.2 Beta
 ---
-Hey folks!
-
-Go get the best release ever of "openfl-html5" -- available now! Open your command-line or terminal and use "lime upgrade openfl", [go here](http://www.openfl.org/download) if you haven't installed OpenFL yet.
+Hey folks! Go get the best release ever of "openfl-html5" -- available now! Open your command-line or terminal and use "lime upgrade openfl", or [go here](http://www.openfl.org/download) if you haven't installed OpenFL yet.
 
 This release has a new-and-much-improved version of the "dirty transform" behavior introduced in the past release. In the first release of this new backend, we updated "world transforms" once before rendering, similar to pixi.js. This is efficient, but unfortunately, it does not allow for accurate "localToGlobal", "globalToLocal" or bounds calculation (such as the width or height of a Sprite) in all cases. In the previous release, we enabled a flag to make sure that transform data is up-to-date, but in some circumstances, it could perform very poorly.
 
