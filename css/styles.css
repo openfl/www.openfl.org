@@ -5,7 +5,7 @@ html, body { height: 100%; }
 }
 #main {
   overflow:auto;
-  padding-bottom:120px; /* this needs to be bigger than footer height*/
+  padding-bottom:220px; /* this needs to be bigger than footer height*/
 }
 a { color: #24afc4; }
 a:hover, a:focus { color: #1e90a0; }
@@ -26,13 +26,22 @@ a:hover, a:focus { color: #1e90a0; }
 .container.cta { padding: 20px; }
 .footer {
   width: 100%;
-  background-color: #2e2e2e; border-top: solid 2px #444444; 
   position: relative;
-  margin-top: -80px; /* negative value of footer height - padding */
-  height: 80px;
+  background-color: #2e2e2e;
+  margin-top: -180px; /* negative value of footer height - padding */
+  height: 180px;
   clear:both;
-  padding-top:20px;
   font-size: 12px;
+}
+.footer .logos {
+  background-color:#f9f9f9;
+  border-top:1px solid #f0f0f0;
+  margin-bottom: 30px;
+  border-bottom: solid 2px #444444;
+  padding: 14px 20px 14px 25px;
+}
+.footer .logos img {
+  margin: 0 auto;
 }
 
 .btn-primary {
@@ -117,7 +126,12 @@ a:hover, a:focus { color: #1e90a0; }
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
-    text-shadow: black 0.3em 0.3em 0.3em;
+    text-shadow: 
+      -1px -1px 0 #666666,
+      1px -1px 0 #666666,
+      -1px 1px 0 #666666,
+      1px 1px 0 #666666,
+      2px 2px 5px rgba(0,0,0,0.8);
 }
 
 .jumbotron .btn {
