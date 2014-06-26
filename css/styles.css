@@ -38,7 +38,7 @@ a:hover, a:focus { color: #1e90a0; }
   border-top:1px solid #f0f0f0;
   margin-bottom: 30px;
   border-bottom: solid 2px #444444;
-  padding: 14px 20px 14px 25px;
+  padding: 14px 20px 14px 20px;
 }
 .footer .logos img {
   margin: 0 auto;
