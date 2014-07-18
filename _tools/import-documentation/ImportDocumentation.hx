@@ -95,7 +95,7 @@ class ImportDocumentation {
 			output.writeString ("title: " + title + "\n");
 			output.writeString ("---\n\n");
 			output.writeString ("# " + title);
-			output.writeString (' <a href="https://github.com/openfl/openfl/wiki/${names[i]}/_edit" class="btn btn-primary pull-right" role="button"><span class="glyphicon glyphicon-pencil"></span></a>');
+			output.writeString (' <a href="https://github.com/openfl/openfl/wiki/${names[i]}/_edit" class="btn btn-default pull-right" role="button"><span class="glyphicon glyphicon-pencil"></span></a>');
 			output.writeString ("\n\n");
 			output.writeString (content);
 			
