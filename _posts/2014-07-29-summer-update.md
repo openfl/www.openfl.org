@@ -6,7 +6,7 @@ The best version of OpenFL ever is in development, as well as a new version of L
 
 ## Lime
 
-We want back to the drawing board on Lime "next", and are excited about the new doors it is opening up.
+We went back to the drawing board on Lime "next", and are excited about the new doors it is opening up.
 
 Lime is now a self-contained library, designed to provide platform support for DOM, Canvas, GL and Flash projects. Historically, getting platform support was handled in OpenFL, but we want to make this more agnostic, and more accessible.
 
