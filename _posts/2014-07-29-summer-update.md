@@ -6,7 +6,7 @@ The best version of OpenFL ever is in development, as well as a new version of L
 
 ## Lime
 
-We want back to the drawing board on Lime "next", and are excited about the new doors it is opening up.
+We went back to the drawing board on Lime "next", and are excited about the new doors it is opening up.
 
 Lime is now a self-contained library, designed to provide platform support for DOM, Canvas, GL and Flash projects. Historically, getting platform support was handled in OpenFL, but we want to make this more agnostic, and more accessible.
 
@@ -28,7 +28,7 @@ We would also like to (re)introduce Aether.
 
 Some of you may remember when we used "hxtools" with OpenFL, struggling to find a name that was suitably generic. From the start, the command-line tools we develop have not been designed only for OpenFL, or even Lime. As more projects are emerging which may benefit from our command-line process, we have decided to come up with a new name that properly establishes the tools on their own.
 
-We believe that the quality of IDE support for Haxe projects improves, the less that new projects use separate keywords and distinct processes, but we know that Haxe development needs more than the Haxe compiler. In order to properly support multiple varying platform types, particularly mobile, there is a huge benefit to tools which understand assets, library dependencies and other complex relationships to deliver working projects on devices.
+We believe the quality of IDE support improves when each new library does not use its own new command-line tools. Haxe development more than just the Haxe compiler, in order to properly support multiple target platforms, particularly mobile, there is a big benefit to have tools that understand the asset pipeline, project dependencies and other complex relationships.
 
 Why "Aether"? Aether was a word chosen in old cultures to describe the "upper" sky, or heavens. It was also used to describe the mythic "fifth element" that could build powerful other-worldly items. We also realized after choosing the name that "the Aether" plays a central role in the "Thor: The Dark World" movie, as well as appearing as "ether" in many video games, of course. 
 
@@ -48,7 +48,7 @@ The plan is to release limited alpha versions of OpenFL and Lime fairly soon, af
 
 ## What About Consoles?
 
-Console support is one reason for the Lime "next" architecture. In the future, expect a "console" render context that supports the upcoming console platform targets. Aether has already been updated with support for external platform targets, to enable the build code to remain safely under NDA, in accordance with platform-holder agreements.
+Console support (Wii U, PS4, XBox One, etc) is one reason for the Lime "next" architecture. In the future, expect a "console" render context that supports the upcoming console platform targets. Aether has already been updated with support for external platform targets, to enable the build code to remain safely under NDA, in accordance with platform-holder agreements.
 
 As we continue to make strides in this area, the flexibility of the Lime API will be essential. For example, 3DS and Wii U support will require multiple windows, and other console features will find their way into Lime, and as appropriate, OpenFL will have Flash metaphors for them (though the Lime API will always be available directly).
 
