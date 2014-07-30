@@ -18,7 +18,7 @@ We are now using Lime directly underneath OpenFL, instead of bypassing Lime's Ha
 
 We are planning on unifying OpenFL as a single Haxe-based library, with no native component. This may seem dramatic, but so far, it has had a surprising boost both to productivity, and quality. We believe that Haxe development is much faster than C++ development in general, and as we are all Haxe developers, it exposes OpenFL for more contribution.
 
-Our largest concern was performance, but we have been surprised to find that we have been able to increase the performance over OpenFL (as much as nine times for some APIs) and reduce the memory footprint at the same time. The Haxe C++ target has continued to improve over time, and has an increasing amount of "magic" functions we can use to optimize performance critical segments of code.
+Our largest concern was performance, but we have been surprised to find that we have been able to increase the performance over the previous version of OpenFL (as much as nine times for some APIs) and reduce the memory footprint at the same time. The Haxe C++ target has continued to improve over time, and has an increasing amount of "magic" functions we can use to optimize performance critical segments of code.
 
 By combinining OpenFL into a single backend, every fix that is made benefits every target platform. The library is also becoming simpler, as we continue to rely on Lime. For example, we have had difficulty integrating features that do not exist inside the Flash API already. By using Lime, we can add features there immediately, and integrate a Flash metaphor where it makes sense. Otherwise, you will be able to access both layers directly.
 
