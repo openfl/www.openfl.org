@@ -1,6 +1,6 @@
 name: OpenFL
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 excerpt_separator: "<!--more-->"
 paginate: 5
 paginate_path: "blog/page/:num"
