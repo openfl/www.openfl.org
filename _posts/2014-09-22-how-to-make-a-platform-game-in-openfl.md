@@ -19,7 +19,7 @@ Let's get started.
 
 ## Initialization
 
-<Create a new OpenFL project using FlashDevelep. If you're using a different IDE, just make sure that you have the application.xml manifest file and a Main class in your project.
+Create a new OpenFL project using FlashDevelep. If you're using a different IDE, just make sure that you have the application.xml manifest file and a Main class in your project.
 
 Set the background color of your window to light gray, and the size to 600x400. This is done in the application.xml file:
 
