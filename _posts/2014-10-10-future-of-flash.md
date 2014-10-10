@@ -18,9 +18,9 @@ To many users, "Flash" still is a browser plugin, but for designers, developers 
 
 With the Flash CC Custom Platform SDK, using Flash for animation, layout and design is going to remain viable. I applaud Adobe for making Flash Professional more useful to us as we cannot use Flash Player for all target environments.
 
-## The Promise of the Open Screen Project
+## The Promise of the "Open Screen Project"
 
-    Adobe is committed to enabling developers and designers to deliver the richest experiences to the widest audience. With a consistent runtime environment deployed broadly across all devices, developers and designers will be able to distribute content to consumers worldwide, on any device, much more easily than they can today.
+ > Adobe is committed to enabling developers and designers to deliver the richest experiences to the widest audience. With a consistent runtime environment deployed broadly across all devices, developers and designers will be able to distribute content to consumers worldwide, on any device, much more easily than they can today.
 
 The promise of the Open Screen Project remains -- imagine delivering the "richest" experience to the "widest" audience. So long as it is "rich" and "wide", I think most of us would agree.
 
