@@ -32,7 +32,7 @@ This is the same in technology. No one mechanism is perfectly suitable (whether 
 
 The other half of the equation is the code. In addition to a unified art pipeline, we need a unified development pipeline to reduce the time to market, and increase the level of innovation in our work. It may sound "out there," but this is possible.
 
-I can create an API that works on Flash, on JavaScript and C++. Where available, it will utilize all the value Adobe poured into the Flash runtime. When it is not, it runs as fast, minimal JavaScript, and when native, it blows runtime performance out of the water compiled to binary and not interpreted. I took a renderer from JavaScript, and tried bringing it to a portable language. After compiling back to JavaScript, it performed 10% faster. Machines like machine code sometimes. The C++ performed _much_ faster.
+I can create an API that works on Flash, on JavaScript and C++. Where available, it will utilize all the value Adobe poured into the Flash runtime. When it is not, it runs as fast, minimal JavaScript, and when native, it runs even faster as compiled code. I took a renderer from JavaScript, and tried bringing it to a portable language. After compiling back to JavaScript, it performed 10% faster. Machines like machine code sometimes. The C++ performed _much_ faster.
 
 It makes sense to "take your code with you" when a project demands a new target environment.
 
@@ -58,7 +58,7 @@ I volunteer to work on OpenFL because I want to put it into the hands of people 
 
 If you believe in this goal of a unified environment for development, similar to how Adobe has been unifying the art asset pipeline, let me know. If you have other ideas beyond the Flash API, feel free to explain why.
 
-If you like the Flash API, and you believe we should be able to freely distribute to multiple platforms and technologies, OpenFL has been a way of making this a reality, but it isn't the only way to go about it. I'm open to your thoughts or ideas how we can unify more of the community to help build one great Flash implementation rather than a lot of "half" implementations elsewhere.
+If you like the Flash API, and you believe we should be able to freely distribute to multiple platforms and technologies, OpenFL has been a way of making this a reality, but it isn't the only way to go about it. I'm open to your thoughts or ideas how we can unify more of the community to help build one great Flash implementation rather than a lot of partial implementations elsewhere.
 
 If you are interested in the OpenFL project, it is quite robust, but not yet perfect. We can use help with documentation, with code, or you can help support the project by giving to us on [Patreon](http://patreon.com/openfl). OpenFL has been used to build the critically-acclaimed, "Game of the Year" Papers, Please. TiVo uses OpenFL to power set-top boxes, Smart TVs and other devices to great user satisfaction, and games using OpenFL have been downloaded millions of times on almost every platform.
 
