@@ -10,7 +10,10 @@ Ajay Shukla, Senior Product Manager for Flash Professional, let me help present 
 Ajay and his team added support for "custom platforms," which is very exciting! I demonstrated OpenFL publishing Flash assets from Flash Professional to C++, Flash and HTML5 targets.
 
 ![Flash Professional]({{ site.baseurl }}/blog/assets/Flash-Pakka.png)
+
 ![FlashDevelop]({{ site.baseurl }}/blog/assets/FD-Pakka.png)
+
+_Thanks again to [Pakka Pets](http://pakkapets.com) for use of their assets for the demo!_
 
 ## Flash is Not Flash Player
 
