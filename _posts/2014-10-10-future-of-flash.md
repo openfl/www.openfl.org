@@ -19,7 +19,7 @@ _Thanks again to [Pakka Pets](http://pakkapets.com) for use of their assets for 
 
 To many users, "Flash" still is a browser plugin, but for designers, developers and creative studios, Flash has always been a rich animation/layout tool, as well as (for us ActionScript developers) a fast development workflow. The _method of delivery_ has changed over time, but our demand for tools has not changed.
 
-With the Flash CC Custom Platform SDK, using Flash for animation, layout and design is going to remain viable. I applaud Adobe for making Flash Professional more useful to us as we cannot use Flash Player for all target environments.
+With the Flash CC Custom Platform SDK, using Flash for animation, layout and design is going to remain viable. I applaud Adobe for making Flash Professional more useful to everyone, since we cannot use Flash Player for all target environments.
 
 ## The Promise of the "Open Screen Project"
 
