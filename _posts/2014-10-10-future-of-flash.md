@@ -27,7 +27,7 @@ With the Flash CC Custom Platform SDK, using Flash for animation, layout and des
 
 The promise of the Open Screen Project remains -- imagine delivering the "richest" experience to the "widest" audience. So long as it is "rich" and "wide", I think most of us would agree that is exciting.
 
-The problem? No single runtime can fully realize the goal. In a supply chain, they use a combinations of men, trucks, boats, airplines and other tools to ship packages across the world. No one mechanism is perfectly suitable for reaching every customer.
+The problem? No single runtime can fully realize the goal. In a supply chain, they use a combination of men, trucks, boats, airplines and other tools to ship packages across the world. No one mechanism is perfectly suitable for reaching every customer.
 
 This is the same in technology. No one mechanism is perfectly suitable (whether Flash Player, HTML5, native code, virtual machines) because there are limitations -- especially if you want to deliver the "richest" experience.
 
@@ -35,7 +35,7 @@ This is the same in technology. No one mechanism is perfectly suitable (whether 
 
 The other half of the equation is the code. In addition to a unified art pipeline, we need a unified development pipeline to reduce the time to market, and increase the level of innovation in our work. It may sound "out there," but this is possible.
 
-We can create an API that works on Flash, on JavaScript and C++. Where available, it will utilize all the value Adobe poured into the Flash runtime. When it is not, it runs as fast, minimal JavaScript, and when native, it runs even faster as compiled code. I took a renderer from JavaScript, and tried bringing it to a portable language. After compiling back to JavaScript, it performed 10% faster. Machines like machine code sometimes. The C++ performed _much_ faster.
+We can create an API that works on Flash, on JavaScript and C++. Where available, it will utilize all the value Adobe poured into the Flash runtime. When it is not, it runs as fast, minimal JavaScript, and when native, it runs even faster as compiled code. For example, I took a renderer from JavaScript, and tried bringing it to a portable language. After compiling back to JavaScript, it performed 10% faster. Machines like machine code sometimes. The C++ performed _much_ faster.
 
 It makes sense to "take your code with you" when a project demands a new target environment.
 
