@@ -5,7 +5,7 @@ title: An Open Letter on the Future of Flash
 
 ## This Week at Adobe MAX
 
-Ajay Shukla, Senior Product Manager for Flash Professional, let me help present "What's New and Upcoming in Flash Professional CC". If you were not able to hear the session, you can stream it [here](http://max.adobe.com/sessions/max-online/#/video/567).
+Ajay Shukla, Senior Product Manager for Flash Professional, let me help present "What's New and Upcoming in Flash Professional CC". If you were not able to hear the session, you can stream it [here](http://max.adobe.com/sessions/max-online/#/video/567) (I come on at 25:36 if you really want to skip).
 
 Ajay and his team added support for "custom platforms," which is very exciting! I demonstrated OpenFL publishing Flash assets from Flash Professional to C++, Flash and HTML5 targets.
 
