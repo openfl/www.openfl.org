@@ -25,7 +25,7 @@ With the Flash CC Custom Platform SDK, using Flash for animation, layout and des
 
  > Adobe is committed to enabling developers and designers to deliver the richest experiences to the widest audience. With a consistent runtime environment deployed broadly across all devices, developers and designers will be able to distribute content to consumers worldwide, on any device, much more easily than they can today.
 
-The promise of the Open Screen Project remains -- imagine delivering the "richest" experience to the "widest" audience. So long as it is "rich" and "wide", I think most of us would agree.
+The promise of the Open Screen Project remains -- imagine delivering the "richest" experience to the "widest" audience. So long as it is "rich" and "wide", I think most of us would agree that is exciting.
 
 The problem? No single runtime can fully realize the goal. In a supply chain, they use a combinations of men, trucks, boats, airplines and other tools to ship packages across the world. No one mechanism is perfectly suitable for reaching every customer.
 
