@@ -27,7 +27,7 @@ With the Flash CC Custom Platform SDK, using Flash for animation, layout and des
 
 The promise of the Open Screen Project remains -- imagine delivering the "richest" experience to the "widest" audience. So long as it is "rich" and "wide", I think most of us would agree that is exciting.
 
-The problem? No single runtime can fully realize the goal. In a supply chain, they use a combination of men, trucks, boats, airplines and other tools to ship packages across the world. No one mechanism is perfectly suitable for reaching every customer.
+The problem? No single runtime can fully realize the goal. In a supply chain, they use a combination of men, trucks, boats, airplanes and other tools to ship packages across the world. No one mechanism is perfectly suitable for reaching every customer.
 
 This is the same in technology. No one mechanism is perfectly suitable (whether Flash Player, HTML5, native code, virtual machines) because there are limitations -- especially if you want to deliver the "richest" experience.
 
@@ -63,6 +63,6 @@ If you believe in this goal of a unified environment for development, similar to
 
 If you like the Flash API, and you believe we should be able to freely distribute to multiple platforms and technologies, OpenFL has been a way of making this a reality, but it isn't the only way to go about it. I'm open to your thoughts or ideas how we can unify more of the community to help build one great Flash implementation rather than a lot of partial implementations elsewhere.
 
-If you are interested in the OpenFL project, it is quite robust, but not yet perfect. We can use help with documentation, with code, or you can help support the project by giving to us on [Patreon](http://patreon.com/openfl). OpenFL has been used to build the critically-acclaimed, "Game of the Year" Papers, Please. TiVo uses OpenFL to power set-top boxes, Smart TVs and other devices to great user satisfaction, and games using OpenFL have been downloaded millions of times on almost every platform.
+If you are interested in the OpenFL project, it is quite robust, but not yet perfect. We can use help with documentation, with code, or you can help support the project by giving to us on [Patreon](http://patreon.com/openfl). OpenFL has been used to build the critically-acclaimed, "Game of the Year" [Papers, Please](http://www.papersplea.se). TiVo uses OpenFL to power set-top boxes, Smart TVs and other devices to great user satisfaction, and games using OpenFL have been downloaded millions of times on almost every platform.
 
 We're on the same team, guys. Let's do something awesome together.
