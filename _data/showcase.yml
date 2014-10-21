@@ -181,10 +181,12 @@
 - title: Lightbot
   developer: Lightbot
   image: Lightbot.jpg
-  url: http://www.light-bot.com/
+  url: http://www.lightbot.com/
+  mac: https://itunes.apple.com/us/app/lightbot-programming-puzzles/id924624572
   ios: https://itunes.apple.com/us/app/light-bot/id657638474
   android: https://play.google.com/store/apps/details?id=com.lightbot.lightbot
-  flash: http://www.light-bot.com/hocflash.html
+  flash: http://www.lightbot.com/hocflash2014.html
+  amazon: http://www.amazon.com/Lightbot-Inc-Programming-Puzzles/dp/B00LVDC27Y
 
 - title: Letter Rush
   developer: Proletariat
