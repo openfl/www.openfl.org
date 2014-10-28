@@ -3,9 +3,9 @@ layout: post
 title: Developer Spotlight&#58; Thomas Uster
 ---
 
-![Developer Spotlight]({{ site.baseurl }}/images/spotlight/DeveloperSpotlight.png)
-
 _The Developer Spotlight is a new, regular series of posts where we interview developers in the OpenFL community. This time, we chat with Thomas Uster from Proto Games, who is co-developing Pakka Pets, an adorable Tamagotchi-like game for mobile._
+
+![Developer Spotlight]({{ site.baseurl }}/images/spotlight/DeveloperSpotlight.png)
 
 <span style="font-size: 120%">**Tell us a bit about yourself Thomas, how long have you been programming? What got you started?**</span>
 
