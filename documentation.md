@@ -29,6 +29,7 @@ permalink: documentation/
 
 ### [☰](/documentation/command-line-tools) 3. Command-Line-Tools
 0. [Basic Commands](/documentation/command-line-tools/basic-commands)
+0. [Publish Command](/documentation/command-line-tools/publish-command)
 
 ### [☰](/documentation/basics) 4. Basics
 0. [Bitmaps](/documentation/basics/bitmaps)
