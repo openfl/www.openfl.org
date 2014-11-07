@@ -3,8 +3,6 @@ layout: post
 title: Migrating to New Community Forums
 ---
 
-Hello everyone!
-
 We are migrating to a new community forum. If you have been around for a while, you may be looking for an older post. You can find archives of the older forums by looking under one of these links:
 
 [https://muut.com/i/openfl](https://muut.com/i/openfl)
