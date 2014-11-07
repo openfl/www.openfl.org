@@ -8,6 +8,7 @@ Hello everyone!
 We are migrating to a new community forum. If you have been around for a while, you may be looking for an older post. You can find archives of the older forums by looking under one of these links:
 
 [https://muut.com/i/openfl](https://muut.com/i/openfl)
+
 [http://www.openfl.org/archive/community](http://www.openfl.org/archive/community)
 
 In a nutshell, we have learned a lot about what we are looking for when it comes to forums. Our first system worked well as an integration to our site, with a single-sign-on and integrated style, but I ran into problems both in maintaining it over time, and struggled with features I wanted to see, such as as the ability to sign in through other accounts (Facebook, Twitter), issues in responding by email, and adequate support for mobile browsers.
