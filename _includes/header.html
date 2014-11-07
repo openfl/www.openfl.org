@@ -56,14 +56,15 @@
               <a class="navbar-logo" href="{% if site.baseurl != "" %}{{ site.baseurl }}{% else %}/{% endif %}"><img src="{{ site.baseurl }}/images/logo.png" /></a>
             </div>
             <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+              <ul class="nav navbar-nav pull-left">
                 {% for p in site.navigation %}
                 <li><a {% if p.url == page.url %}class="active"{% endif %} href="{{ p.url | prepend: site.baseurl | replace: '//', '/' }}">{{ p.title | upcase }}</a></li>
                 {% endfor %}
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
               </ul>
-              <ul class="nav navbar-nav navbar-right">
+              <ul class="nav navbar-nav navbar-right pull-right">
                 <li><a href="{{ site.baseurl }}/documentation/setup/install-haxe/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span>
-     Download</button></a></li>
+     </button></a></li>
               </ul>
               <!-- <ul class="nav navbar-nav navbar-right">
                 <li><a href="../navbar/">Default</a></li>
