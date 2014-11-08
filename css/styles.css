@@ -7,6 +7,7 @@ html, body { height: 100%; }
   overflow:auto;
   padding-bottom:220px; /* this needs to be bigger than footer height*/
 }
+img { max-width: 100%; }
 a { color: #24afc4; }
 a:hover, a:focus { color: #1e90a0; }
 .navbar { border-top: solid 3px #24afc4; padding-top: 17px; margin-bottom: 0; }
