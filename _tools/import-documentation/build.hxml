@@ -1,3 +1,4 @@
 -main ImportDocumentation
 -neko import.n
--lib lime-tools
+-lib lime
+--macro lime.system.System.includeTools()
