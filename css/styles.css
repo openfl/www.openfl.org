@@ -140,6 +140,20 @@ a:hover, a:focus { color: #1e90a0; }
   text-shadow: none;
 }
 
+li.list-checkbox {
+  
+  list-style: none;
+  line-height: 1.6;
+  
+}
+
+li.list-checkbox input {
+  
+  margin: 6px 0 0 -20px;
+  float: left;
+  
+}
+
 
 @charset "UTF-8";
 
