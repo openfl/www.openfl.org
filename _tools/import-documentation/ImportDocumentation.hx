@@ -7,11 +7,7 @@ import sys.io.File;
 import sys.FileSystem;
 
 
-
 class ImportDocumentation {
-	
-	
-	private static var wikiLinks:EReg = ~/\[\[(.+?)\]\]/g;
 	
 	
 	public static function main () {
@@ -127,8 +123,13 @@ class ImportDocumentation {
 			PathHelper.mkdir (Path.directory (outputPath));
 			
 			var content = File.getContent (PathHelper.combine (source, sourcePath));
-			//content = replaceWikiLinks (content, names, targetPaths);
 			content = replaceLinks (content, sourcePaths, targetPaths);
+			
+			if (StringTools.startsWith (content, "# ")) {
+				
+				title = content.substring (2, content.indexOf ("\n"));
+				
+			}
 			
 			var output = File.write (outputPath, false);
 			output.writeString ("---\n");
@@ -139,29 +140,6 @@ class ImportDocumentation {
 			output.writeString (' <a href="https://github.com/openfl/openfl-documentation/edit/master/${sourcePaths[i]}" class="btn btn-default pull-right" style="margin-top: 16px" role="button" target="_blank"><span class="glyphicon glyphicon-pencil"></span></a>');
 			output.writeString ("\n\n");
 			output.writeString (content);
-			
-			/*var components = sourcePath.split ("/");
-			var foundSidebar = false;
-			
-			while (!foundSidebar && components.length > 1) {
-				
-				components.pop ();
-				var sidebarPath = components.copy ().join ("/") + "/_sidebar.md";
-				
-				if (FileSystem.exists (sidebarPath)) {
-					
-					foundSidebar = true;
-					output.writeString ("\n\n{% sidebar %}");
-					
-					var sidebar = File.getContent (sidebarPath);
-					sidebar = replaceWikiLinks (sidebar, names, targetPaths);
-					
-					output.writeString (sidebar);
-					output.writeString ("{% endsidebar %}");
-					
-				}
-				
-			}*/
 			
 			output.writeString ("\n\n{% sidebar %}");
 			output.writeString ("<br />\n\n");
@@ -239,59 +217,6 @@ class ImportDocumentation {
 				content = StringTools.replace (content, sourcePath, targetPath);
 					
 			}
-			
-		}
-		
-		return content;
-		
-	}
-	
-	
-	private static function replaceWikiLinks (content:String, names:Array<String>, targetPaths:Array<String>):String {
-		
-		while (wikiLinks.match (content)) {
-			
-			var link = wikiLinks.matched (0);
-			link = link.substr (2, link.length - 4);
-			var components = link.split ("|");
-			
-			var title = "";
-			var target = "";
-			
-			if (components.length > 1) {
-				
-				title = components[0];
-				target = components[1];
-				
-			} else {
-				
-				title = target = components[0];
-				
-			}
-			
-			if (StringTools.endsWith (target, ".md")) {
-				
-				target = target.substr (0, target.length - 3);
-				
-			}
-			
-			var replacement = "[" + title + "](/documentation/)";
-			
-			for (i in 0...names.length) {
-				
-				if (target == names[i]) {
-					
-					var path = targetPaths[i];
-					path = path.substr (0, path.lastIndexOf ("/"));
-					
-					replacement = "[" + title + "](/documentation/" + path + "/)";
-					break;
-					
-				}
-				
-			}
-			
-			content = wikiLinks.matchedLeft () + replacement + wikiLinks.matchedRight ();
 			
 		}
 		

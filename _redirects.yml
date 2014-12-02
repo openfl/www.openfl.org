@@ -1,5 +1,5 @@
 docs : /documentation/
-download : "/documentation/getting-started/installing-openfl/"
+download : /documentation/getting-started/installing-openfl/
 api : /documentation/api/
 blog/feed : /blog/rss.xml
-"documentation/setup/install-haxe" : "/documentation/getting-started/installing-openfl/"
+"documentation/setup/install-haxe" : /documentation/getting-started/installing-openfl/
