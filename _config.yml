@@ -1,7 +1,7 @@
 name: OpenFL
 markdown: redcarpet
 redcarpet:
-  extensions: ["strikethrough"]
+  extensions: ["strikethrough", "no_intra_emphasis", "autolink"]
 highlighter: pygments
 excerpt_separator: "<!--more-->"
 paginate: 5
