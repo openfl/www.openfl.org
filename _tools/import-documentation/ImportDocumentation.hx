@@ -124,6 +124,7 @@ class ImportDocumentation {
 			
 			var content = File.getContent (PathHelper.combine (source, sourcePath));
 			content = replaceLinks (content, sourcePaths, targetPaths);
+			content = fixHighlighting (content);
 			
 			if (StringTools.startsWith (content, "# ")) {
 				
@@ -187,6 +188,20 @@ class ImportDocumentation {
 			output.close ();
 			
 		}
+		
+	}
+	
+	
+	private static function fixHighlighting (content:String):String {
+		
+		// TODO: regex?
+		
+		content = StringTools.replace (content, "\n```haxe\n", "\n{% highlight haxe %}\n");
+		content = StringTools.replace (content, "\n```Haxe\n", "\n{% highlight haxe %}\n");
+		content = StringTools.replace (content, "\n```bash\n", "\n{% highlight bash %}\n");
+		content = StringTools.replace (content, "\n```\n", "\n{% endhighlight %}\n");
+		
+		return content;
 		
 	}
 	
