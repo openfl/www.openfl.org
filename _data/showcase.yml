@@ -1,14 +1,3 @@
-- title: Bronko Blue
-  developer: bytecombo
-  image: BronkoBlue.png
-  url: http://bronko.bytecombo.com/
-  ios: https://itunes.apple.com/en/app/bronko-blue-the-kitten-copter/id897069572
-  android: https://play.google.com/store/apps/details?id=com.bytecombo.bronko
-  amazon: http://www.amazon.com/gp/product/B00LSRLPHQ
-  blackberry: http://appworld.blackberry.com/webstore/content/59109841
-  flash: http://www.kongregate.com/games/bytecombo/bronko-blue-the-kitten-copter
-  featured: true
-
 - title: "Papers, Please"
   developer: "3909"
   image: PapersPlease.png
@@ -342,6 +331,16 @@
   windows: http://www.bossesforever.com/builds/BOSSES_FOREVER_2_BRO_WINDOWS.zip
   mac: http://www.bossesforever.com/builds/BOSSES_FOREVER_2_BRO_MAC.zip
   ouya: http://www.ouya.tv/game/BOSSES-FOREVER-2BRO/
+
+- title: Bronko Blue
+  developer: bytecombo
+  image: BronkoBlue.png
+  url: http://bronko.bytecombo.com/
+  ios: https://itunes.apple.com/en/app/bronko-blue-the-kitten-copter/id897069572
+  android: https://play.google.com/store/apps/details?id=com.bytecombo.bronko
+  amazon: http://www.amazon.com/gp/product/B00LSRLPHQ
+  blackberry: http://appworld.blackberry.com/webstore/content/59109841
+  flash: http://www.kongregate.com/games/bytecombo/bronko-blue-the-kitten-copter
 
 - title: Amaze
   developer: fserb
