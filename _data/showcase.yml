@@ -61,6 +61,13 @@
   android: "https://play.google.com/store/apps/details?id=co.doubleduck.dodo"
   featured: true
 
+- title: "Bubble Twist"
+  developer: playhub.com
+  image: BubbleTwist.png
+  url: https://play.google.com/store/apps/details?id=com.prize.BubbleTwist
+  android: https://play.google.com/store/apps/details?id=com.prize.BubbleTwist
+  featured: true
+
 - title: Sweet Slide
   developer: Double Duck
   image: SweetSlide.jpg
@@ -92,14 +99,13 @@
   ios: https://itunes.apple.com/us/app/sophies-drawings/id577807370
   featured: true
 
+####################
+
 - title: TEN
   developer: Sennep
   image: TEN.png
   url: http://tengame.info/
   ios: https://itunes.apple.com/gb/app/ten/id669964112
-  featured: true
-
-####################
 
 - title: Square
   developer: Sharpener Games
@@ -331,6 +337,16 @@
   windows: http://www.bossesforever.com/builds/BOSSES_FOREVER_2_BRO_WINDOWS.zip
   mac: http://www.bossesforever.com/builds/BOSSES_FOREVER_2_BRO_MAC.zip
   ouya: http://www.ouya.tv/game/BOSSES-FOREVER-2BRO/
+
+- title: Bronko Blue
+  developer: bytecombo
+  image: BronkoBlue.png
+  url: http://bronko.bytecombo.com/
+  ios: https://itunes.apple.com/en/app/bronko-blue-the-kitten-copter/id897069572
+  android: https://play.google.com/store/apps/details?id=com.bytecombo.bronko
+  amazon: http://www.amazon.com/gp/product/B00LSRLPHQ
+  blackberry: http://appworld.blackberry.com/webstore/content/59109841
+  flash: http://www.kongregate.com/games/bytecombo/bronko-blue-the-kitten-copter
 
 - title: Amaze
   developer: fserb
@@ -620,7 +636,9 @@
   developer: Ugly Pixels
   image: PrankPack.jpg
   url: https://play.google.com/store/apps/details?id=com.uglypixels.prankpack
+  ios: https://itunes.apple.com/us/app/prank-pack/id944173486
   android: https://play.google.com/store/apps/details?id=com.uglypixels.prankpack
+  amazon: http://www.amazon.com/gp/product/B00RP27U7W
 
 - title: Little Nemo's Bedtime Stories
   developer: Zhenuity
@@ -698,3 +716,9 @@
   url: http://stablex.ru/ladybird/
   flash: http://stablex.ru/ladybird/
   html5: http://stablex.ru/ladybird/
+
+- title: Glitch Lab
+  developer: Nazywam
+  image: GlitchLab.jpg
+  url: http://armorgames.com/play/16042/glitch-lab
+  flash: http://armorgames.com/play/16042/glitch-lab

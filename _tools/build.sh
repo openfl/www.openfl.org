@@ -12,7 +12,7 @@ cd ../../
 rm -r -f documentation
 mkdir documentation
 
-neko _tools/import-documentation/import.n ../openfl.wiki documentation
+neko _tools/import-documentation/import.n ../openfl-documentation documentation
 
 # Rebuild site
 

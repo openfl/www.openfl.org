@@ -7,11 +7,7 @@ import sys.io.File;
 import sys.FileSystem;
 
 
-
 class ImportDocumentation {
-	
-	
-	private static var wikiLinks:EReg = ~/\[\[(.+?)\]\]/g;
 	
 	
 	public static function main () {
@@ -21,15 +17,41 @@ class ImportDocumentation {
 		var source = args[0];
 		var destination = args[1];
 		
-		var sourcePaths = PathHelper.readDirectory (source, [ ".git" ]);
+		var sourcePaths = PathHelper.readDirectory (source, [ ".git", "_book" ]);
 		var targetPaths = [];
 		var names = [];
 		var titles = [];
+		var summary = [];
+		
+		for (i in 0...sourcePaths.length) {
+			
+			sourcePaths[i] = sourcePaths[i].substr (source.length + 1);
+			
+		}
+		
+		try {
+			
+			var input = File.read (source + "/SUMMARY.md", false);
+			
+			summary.push ("* [Introduction](/documentation/)");
+			
+			while (true) {
+				
+				var line = input.readLine ();
+				
+				if (line != null && !StringTools.startsWith (line, "#") && StringTools.trim (line).length > 0) {
+					
+					summary.push (line);
+					
+				}
+				
+			}
+			
+		} catch (e:Dynamic) {}
 		
 		for (sourcePath in sourcePaths) {
 			
-			var path = sourcePath.substr (source.length);
-			var components = path.split ("/");
+			var components = sourcePath.split ("/");
 			var targetPath = "";
 			var name = "";
 			var title = "";
@@ -37,14 +59,10 @@ class ImportDocumentation {
 			for (i in 0...components.length - 1) {
 				
 				var component = components[i];
-				var index = component.lastIndexOf (".-");
 				
-				if (index > -1) {
+				if (component != "") {
 					
-					targetPath += component.substr (index + 2).toLowerCase () + "/";
-					
-				} else if (component != "") {
-					
+					component = StringTools.replace (component, "_", "-");
 					targetPath += component + "/";
 					
 				}
@@ -52,31 +70,49 @@ class ImportDocumentation {
 			}
 			
 			var lastComponent = components[components.length - 1];
-			var index = lastComponent.lastIndexOf (".-");
-			name = lastComponent.substr (0, lastComponent.length - 3);
 			
-			if (index > -1) {
+			if (Path.extension (lastComponent) == "md") {
 				
-				var trim = name.substr (index + 2);
-				title = StringTools.replace (trim, "-", " ");
-				targetPath += trim.toLowerCase () + "/index.md";
+				name = lastComponent.substr (0, lastComponent.length - 3);
+				
+				title = StringTools.replace (name, "_", " ");
+				name = StringTools.replace (name, "_", "-");
+				
+				if (name.toLowerCase () == "readme") {
+					
+					targetPath += "index.md";
+					
+				} else {
+					
+					targetPath += PathHelper.combine (name, "index.md");
+					
+				}
+				
+				targetPaths.push (targetPath);
+				names.push (name);
+				titles.push (title);
 				
 			} else {
 				
-				title = StringTools.replace (lastComponent, "-", " ");
-				targetPath += lastComponent;
+				targetPaths.push (null);
+				names.push (null);
+				titles.push (null);
 				
 			}
 			
-			targetPaths.push (targetPath);
-			names.push (name);
-			titles.push (title);
+		}
+		
+		for (i in 0...summary.length) {
+			
+			summary[i] = replaceLinks (summary[i], sourcePaths, targetPaths);
 			
 		}
 		
 		for (i in 0...targetPaths.length) {
 			
-			if (names[i] == "_sidebar") continue;
+			if (targetPaths[i] == null) continue;
+			if (names[i] == "SUMMARY") continue;
+			//if (names[i] == "_sidebar") continue;
 			
 			var sourcePath = sourcePaths[i];
 			var targetPath = targetPaths[i];
@@ -86,42 +122,69 @@ class ImportDocumentation {
 			Sys.println ("Copying \"" + outputPath + "\"");
 			PathHelper.mkdir (Path.directory (outputPath));
 			
-			var content = File.getContent (sourcePath);
-			content = replaceWikiLinks (content, names, targetPaths);
+			var content = File.getContent (PathHelper.combine (source, sourcePath));
+			content = replaceLinks (content, sourcePaths, targetPaths);
+			content = fixHighlighting (content);
+			
+			if (StringTools.startsWith (content, "# ")) {
+				
+				title = content.substring (2, content.indexOf ("\n"));
+				
+			}
 			
 			var output = File.write (outputPath, false);
 			output.writeString ("---\n");
 			output.writeString ("layout: documentation\n");
 			output.writeString ("title: " + title + "\n");
 			output.writeString ("---\n\n");
-			output.writeString ("# " + title);
-			output.writeString (' <a href="https://github.com/openfl/openfl/wiki/${names[i]}/_edit" class="btn btn-default pull-right" role="button"><span class="glyphicon glyphicon-pencil"></span></a>');
+			//output.writeString ("# " + title);
+			output.writeString (' <a href="https://github.com/openfl/openfl-documentation/edit/master/${sourcePaths[i]}" class="btn btn-default pull-right" style="margin-top: 16px" role="button" target="_blank"><span class="glyphicon glyphicon-pencil"></span></a>');
 			output.writeString ("\n\n");
 			output.writeString (content);
 			
-			var components = sourcePath.split ("/");
-			var foundSidebar = false;
+			output.writeString ("\n\n{% sidebar %}");
+			output.writeString ("<br />\n\n");
 			
-			while (!foundSidebar && components.length > 1) {
+			var pageComponents = targetPath.split ("/");
+			pageComponents.pop ();
+			
+			for (link in summary) {
 				
-				components.pop ();
-				var sidebarPath = components.copy ().join ("/") + "/_sidebar.md";
+				if (link.indexOf ("<!--") > -1) continue;
 				
-				if (FileSystem.exists (sidebarPath)) {
+				var index = link.indexOf ("](");
+				
+				if (index > -1) {
 					
-					foundSidebar = true;
-					output.writeString ("\n\n{% sidebar %}");
+					var targetPath = link.substring (index + 3, link.lastIndexOf (")") - 1);
+					var targetComponents = targetPath.split ("/");
+					targetComponents.shift ();
 					
-					var sidebar = File.getContent (sidebarPath);
-					sidebar = replaceWikiLinks (sidebar, names, targetPaths);
-					
-					output.writeString (sidebar);
-					output.writeString ("{% endsidebar %}");
+					if (targetComponents.length <= 1 || pageComponents[0] == targetComponents[0]) {
+						
+						if (pageComponents.join ("/") == targetComponents.join ("/")) {
+							
+							var leftIndex = link.indexOf ("* [") + 3;
+							var rightIndex = link.indexOf ("](");
+							
+							var link = link.substring (0, leftIndex) + "__" + link.substring (leftIndex, rightIndex) + "__" + link.substr (rightIndex);
+							output.writeString (link);
+							
+						} else {
+							
+							output.writeString (link);
+							
+						}
+						
+						output.writeString ("\n");
+						
+					}
 					
 				}
 				
 			}
 			
+			output.writeString ("{% endsidebar %}");
 			output.close ();
 			
 		}
@@ -129,51 +192,46 @@ class ImportDocumentation {
 	}
 	
 	
-	private static function replaceWikiLinks (content:String, names:Array<String>, targetPaths:Array<String>):String {
+	private static function fixHighlighting (content:String):String {
 		
-		while (wikiLinks.match (content)) {
+		// TODO: regex?
+		
+		content = StringTools.replace (content, "\n```haxe\n", "\n{% highlight haxe %}\n");
+		content = StringTools.replace (content, "\n```Haxe\n", "\n{% highlight haxe %}\n");
+		content = StringTools.replace (content, "\n```bash\n", "\n{% highlight bash %}\n");
+		content = StringTools.replace (content, "\n```\n", "\n{% endhighlight %}\n");
+		
+		return content;
+		
+	}
+	
+	
+	private static function replaceLinks (content:String, sourcePaths:Array<String>, targetPaths:Array<String>):String {
+		
+		for (i in 0...sourcePaths.length) {
 			
-			var link = wikiLinks.matched (0);
-			link = link.substr (2, link.length - 4);
-			var components = link.split ("|");
+			var sourcePath = sourcePaths[i];
+			var targetPath = targetPaths[i];
 			
-			var title = "";
-			var target = "";
-			
-			if (components.length > 1) {
+			if (targetPath != null && targetPath.indexOf ("/") > -1) {
 				
-				title = components[0];
-				target = components[1];
-				
-			} else {
-				
-				title = target = components[0];
-				
-			}
-			
-			if (StringTools.endsWith (target, ".md")) {
-				
-				target = target.substr (0, target.length - 3);
-				
-			}
-			
-			var replacement = "[" + title + "](/documentation/)";
-			
-			for (i in 0...names.length) {
-				
-				if (target == names[i]) {
+				if (StringTools.endsWith (targetPath, ".md")) {
 					
-					var path = targetPaths[i];
-					path = path.substr (0, path.lastIndexOf ("/"));
-					
-					replacement = "[" + title + "](/documentation/" + path + "/)";
-					break;
+					targetPath = targetPath.substring (0, targetPath.length - 3) + ".html";
 					
 				}
 				
+				targetPath = "/documentation/" + targetPath;
+				
+				if (StringTools.endsWith (targetPath, "/index.html")) {
+					
+					targetPath = targetPath.substring (0, targetPath.length - 10);
+					
+				}
+				
+				content = StringTools.replace (content, sourcePath, targetPath);
+					
 			}
-			
-			content = wikiLinks.matchedLeft () + replacement + wikiLinks.matchedRight ();
 			
 		}
 		

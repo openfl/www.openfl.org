@@ -8,7 +8,7 @@ permalink: privacy/
 
 _Effective April 1, 2013_
 
-This page sets forth the privacy policies and practices of OpenFL Technologies, LLC ("OpenFL") corporate site [www.openfl.org](http://www.openfl.org). Please read this Privacy Policy carefully since by visiting this site and sharing information with OpenFL you agree to be bound by the terms and conditions of this Privacy Policy.
+This page sets forth the privacy policies and practices of OpenFL community site [www.openfl.org](http://www.openfl.org). Please read this Privacy Policy carefully since by visiting this site and sharing information with OpenFL you agree to be bound by the terms and conditions of this Privacy Policy.
 
 ## I. Information We Collect, Consumer Choice and Access
 
@@ -18,7 +18,7 @@ Primarily, we will use your personal information to administer your inquiries, a
 
 ## II. Information Management
 
-OpenFL Technologies, LLC may share information with its affiliated entities for or in connection with the sale, merger, consolidation, change in control, transfer of substantial asset, reorganization or liquidation of any of the OpenFL companies. OpenFL also may release information when we believe release is appropriate to respond to a subpoena or otherwise comply with the law; enforce or apply our agreements; or protect the rights, property, or safety of OpenFL or others. This includes exchanging information with other companies and organizations for fraud protection.
+OpenFL may share information with its affiliated entities for or in connection with the sale, merger, consolidation, change in control, transfer of substantial asset, reorganization or liquidation of any of the OpenFL companies. OpenFL also may release information when we believe release is appropriate to respond to a subpoena or otherwise comply with the law; enforce or apply our agreements; or protect the rights, property, or safety of OpenFL or others. This includes exchanging information with other companies and organizations for fraud protection.
 
 ## III. Security
 
