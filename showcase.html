@@ -12,8 +12,8 @@ permalink: showcase/
 {% cycle '<div class="row">', '' %}
 <div class="col-md-6">
 	<h2>{{ showcase.title }}</h2>
-	<p><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}" style="width: 100%; max-width: 460px; margin: 6px auto 0 auto;" /></a></p>
-	<p style="text-decoration: none; color: #dddddd; font-size: 28px; padding: 8px 0 16px 0">
+	<p><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}" class="showcase-image" /></a></p>
+	<p class="showcase-icons">
 		{% if showcase.windows %}<a href="{{ showcase.windows }}" target="_blank">{% endif %}<span class="icon-windows"></span>{% if showcase.windows %}</a>{% endif %}
 		{% if showcase.mac %}<a href="{{ showcase.mac }}" target="_blank">{% endif %}<span class="icon-apple"></span>{% if showcase.mac %}</a>{% endif %}
 		{% if showcase.linux %}<a href="{{ showcase.linux }}" target="_blank">{% endif %}<span class="icon-linux"></span>{% if showcase.linux %}</a>{% endif %}

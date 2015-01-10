@@ -155,6 +155,28 @@ li.list-checkbox input {
   
 }
 
+.showcase-image {
+  
+  width: 100%;
+  max-width: 460px;
+  margin: 6px auto 0 auto;
+  
+}
+
+.showcase-icons {
+  
+  color: #dddddd;
+  font-size: 28px;
+  padding: 8px 0 16px 0;
+  
+}
+
+.showcase-icons a {
+  
+  text-decoration: none;
+  
+}
+
 
 @charset "UTF-8";
 
