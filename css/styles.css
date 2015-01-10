@@ -168,6 +168,8 @@ li.list-checkbox input {
   color: #dddddd;
   font-size: 28px;
   padding: 8px 0 16px 0;
+  text-align: center;
+  max-width: 460px;
   
 }
 
