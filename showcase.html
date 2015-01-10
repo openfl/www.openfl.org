@@ -12,8 +12,8 @@ permalink: showcase/
 {% cycle '<div class="row">', '' %}
 <div class="col-md-6">
 	<h2>{{ showcase.title }}</h2>
-	<p><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}" style="width: 100%; max-width: 460px; margin: 0 auto;" /></a></p>
-	<p style="text-decoration: none; color: #dddddd; font-size: 20px;">
+	<p><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}" style="width: 100%; max-width: 460px; margin: 6px auto 0 auto;" /></a></p>
+	<p style="text-decoration: none; color: #dddddd; font-size: 28px; padding: 8px 0 16px 0">
 		{% if showcase.windows %}<a href="{{ showcase.windows }}" target="_blank">{% endif %}<span class="icon-windows"></span>{% if showcase.windows %}</a>{% endif %}
 		{% if showcase.mac %}<a href="{{ showcase.mac }}" target="_blank">{% endif %}<span class="icon-apple"></span>{% if showcase.mac %}</a>{% endif %}
 		{% if showcase.linux %}<a href="{{ showcase.linux }}" target="_blank">{% endif %}<span class="icon-linux"></span>{% if showcase.linux %}</a>{% endif %}
@@ -21,7 +21,7 @@ permalink: showcase/
 		{% if showcase.android %}<a href="{{ showcase.android }}" target="_blank">{% endif %}<span class="icon-android"></span>{% if showcase.android %}</a>{% endif %}
 		{% if showcase.blackberry %}<a href="{{ showcase.blackberry }}" target="_blank">{% endif %}<span class="icon-blackberry"></span>{% if showcase.blackberry %}</a>{% endif %}
 		{% if showcase.firefoxos %}<a href="{{ showcase.firefoxos }}" target="_blank">{% endif %}<span class="icon-firefox"></span>{% if showcase.firefoxos %}</a>{% endif %}
-		{% if showcase.tizen %}<a href="{{ showcase.tizen }}" target="_blank">{% endif %}<span class="icon-tizen"></span>{% if showcase.tizen %}</a>{% endif %}
+		<!-- {% if showcase.tizen %}<a href="{{ showcase.tizen }}" target="_blank">{% endif %}<span class="icon-tizen"></span>{% if showcase.tizen %}</a>{% endif %} -->
 		{% if showcase.amazon %}<a href="{{ showcase.amazon }}" target="_blank">{% endif %}<span class="icon-amazon"></span>{% if showcase.amazon %}</a>{% endif %}
 		{% if showcase.flash %}<a href="{{ showcase.flash }}" target="_blank">{% endif %}<span class="icon-flash"></span>{% if showcase.flash %}</a>{% endif %}
 		{% if showcase.html5 %}<a href="{{ showcase.html5 }}" target="_blank">{% endif %}<span class="icon-html5"></span>{% if showcase.html5 %}</a>{% endif %}
@@ -29,14 +29,14 @@ permalink: showcase/
 		{% if showcase.playstation %}<a href="{{ showcase.playstation }}" target="_blank"><span class="icon-playstation"></span></a>{% endif %}
 	</p>
 </div>
-{% cycle '', '</div><hr />' %}
+{% cycle '', '</div>' %}
 {% capture count %}{{ forloop.index }}{% endcapture %}
 {% endif %}
 {% endfor %}
 
 {% capture remainder %}{{ count | modulo: 2 }}{% endcapture %}
 {% if remainder != "0" %}
-</div><hr />
+</div>
 {% endif %}
 
 
