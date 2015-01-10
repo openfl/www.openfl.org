@@ -8,7 +8,7 @@ permalink: showcase/
 
 {% assign count = 0 %}
 {% for showcase in site.data.showcase %}
-{% if showcase.featured %}
+{% if true || showcase.featured %}
 {% cycle '<div class="row">', '' %}
 <div class="col-md-6">
 	<h2>{{ showcase.title }}</h2>
@@ -40,12 +40,14 @@ permalink: showcase/
 {% endif %}
 
 
+{% comment %}
+
 {% assign count = 0 %}
 {% for showcase in site.data.showcase %}
 {% unless showcase.featured %}
-{% cycle '<div class="row">', '', '', '' %}
-<div class="col-md-3 col-sm-6">
-	<h3 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ showcase.title }}</h3>
+{% cycle '<div class="row">', '', '' %}
+<div class="col-md-4 col-sm-12">
+	<h3 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 280px;">{{ showcase.title }}</h3>
 	<p><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/small/{{ showcase.image }}" style="width: 100%; max-width: 280px; margin: 0 auto;"/></a></p>
 	<p style="text-decoration: none !important; color: #dddddd; font-size: 14px;">
 		{% if showcase.windows %}<a href="{{ showcase.windows }}" target="_blank">{% endif %}<span class="icon-windows"></span>{% if showcase.windows %}</a>{% endif %}
@@ -63,7 +65,7 @@ permalink: showcase/
 		{% if showcase.playstation %}<a href="{{ showcase.playstation }}" target="_blank"><span class="icon-playstation"></span></a>{% endif %}
 	</p>
 </div>
-{% cycle '', '', '', '</div><hr />' %}
+{% cycle '', '', '</div><hr />' %}
 {% capture count %}{{ forloop.index }}{% endcapture %}
 {% endunless %}
 {% endfor %}
@@ -72,3 +74,5 @@ permalink: showcase/
 {% if remainder != "0" %}
 </div><hr />
 {% endif %}
+
+{% endcomment %}

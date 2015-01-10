@@ -103,25 +103,23 @@
 
 ####################
 
-- title: Window Cleaner
-  developer: Geepers Interactive Ltd
-  image: WindowCleaner.jpg
-  url: http://geepersinteractive.co.uk/#!/windowcleaner
-  ios: https://itunes.apple.com/gb/app/windowcleaner/id929962276
-  android: https://play.google.com/store/apps/details?id=com.geepers.WindowCleaner
-
 - title: TEN
   developer: Sennep
   image: TEN.png
   url: http://tengame.info/
   ios: https://itunes.apple.com/gb/app/ten/id669964112
 
-- title: Run 3
-  developer: player_03
-  image: Run3.jpg
-  url: http://www.kongregate.com/games/player_03/run-3
-  flash: http://www.kongregate.com/games/player_03/run-3
-  android: https://play.google.com/store/apps/details?id=com.kongregate.mobile.run.google
+- title: Lightbot
+  developer: Lightbot Inc
+  image: Lightbot.jpg
+  url: http://www.lightbot.com/
+  windows: http://apps.microsoft.com/windows/en-us/app/lightbot/2ce0b5fd-633e-45f7-8366-8677c8ac023c
+  mac: https://itunes.apple.com/us/app/lightbot-programming-puzzles/id924624572
+  ios: https://itunes.apple.com/us/app/lightbot-programming-puzzles/id657638474
+  android: https://play.google.com/store/apps/details?id=com.lightbot.lightbot
+  flash: http://www.lightbot.com/hocflash2014.html
+  amazon: http://www.amazon.com/Lightbot-Inc-Programming-Puzzles/dp/B00LVDC27Y
+  html5: http://apps.microsoft.com/windows/en-us/app/lightbot/2ce0b5fd-633e-45f7-8366-8677c8ac023c
 
 - title: Square
   developer: Sharpener Games
@@ -165,6 +163,13 @@
   ios: https://itunes.apple.com/app/gorilla-go!/id786971906
   android: https://play.google.com/store/apps/details?id=com.ignitergames.gorilla
 
+- title: Window Cleaner
+  developer: Geepers Interactive Ltd
+  image: WindowCleaner.jpg
+  url: "http://geepersinteractive.co.uk/#!/windowcleaner"
+  ios: https://itunes.apple.com/gb/app/windowcleaner/id929962276
+  android: https://play.google.com/store/apps/details?id=com.geepers.WindowCleaner
+
 - title: Half Inch Heist
   developer: Mutant Labs
   image: HalfInchHeist.png
@@ -200,21 +205,16 @@
   ios: http://itunes.apple.com/us/app/ponon-deluxe/id402642577
   android: https://play.google.com/store/apps/details?id=com.mybogame.ponon
 
-- title: Lightbot
-  developer: Lightbot Inc
-  image: Lightbot.jpg
-  url: http://www.lightbot.com/
-  windows: http://apps.microsoft.com/windows/en-us/app/lightbot/2ce0b5fd-633e-45f7-8366-8677c8ac023c
-  mac: https://itunes.apple.com/us/app/lightbot-programming-puzzles/id924624572
-  ios: https://itunes.apple.com/us/app/lightbot-programming-puzzles/id657638474
-  android: https://play.google.com/store/apps/details?id=com.lightbot.lightbot
-  flash: http://www.lightbot.com/hocflash2014.html
-  amazon: http://www.amazon.com/Lightbot-Inc-Programming-Puzzles/dp/B00LVDC27Y
-  html5: http://apps.microsoft.com/windows/en-us/app/lightbot/2ce0b5fd-633e-45f7-8366-8677c8ac023c
+- title: Run 3
+  developer: player_03
+  image: Run3.jpg
+  url: http://www.kongregate.com/games/player_03/run-3
+  flash: http://www.kongregate.com/games/player_03/run-3
+  android: https://play.google.com/store/apps/details?id=com.kongregate.mobile.run.google
 
 - title: Letter Rush
   developer: Proletariat
-  image: LetterRush.png
+  image: LetterRush.jpg
   url: http://www.letterrush.com/
   ios: http://appstore.com/letterrush
 
@@ -318,7 +318,7 @@
 
 - title: Arkeon
   developer: HyperFiction
-  image: Arkeon.png
+  image: Arkeon.jpg
   url: http://www.hyperfiction.fr/
   ios: https://itunes.apple.com/us/app/id582670054
   android: "https://play.google.com/store/apps/details?id=fr.hyperfiction.arkeon&hl=en"
