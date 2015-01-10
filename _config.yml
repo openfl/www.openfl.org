@@ -12,8 +12,8 @@ navigation:
   url: /blog/
 - title: Showcase
   url: /showcase/
-- title: Documentation
-  url: /documentation/
+- title: Learning
+  url: /learning/
 #- title: Community
 #  url: http://community.openfl.org
 permalink: /blog/:year/:month/:day/:title
