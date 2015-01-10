@@ -223,6 +223,7 @@ li.list-checkbox input {
 }
 .icon-android:before {
   content: "n";
+  vertical-align: 1px;
 }
 .icon-linux:before {
   content: "l";
