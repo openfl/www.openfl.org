@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Learning
+title: Learn
 ---
 
-# Learning
+# Learn
 
 ## Documentation
 
