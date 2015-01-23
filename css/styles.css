@@ -12,11 +12,13 @@ a { color: #24afc4; }
 a:hover, a:focus { color: #1e90a0; }
 .navbar { border-top: solid 3px #24afc4; padding-top: 17px; margin-bottom: 0; }
 .navbar .navbar-nav button { margin-top: -8px; }
-.navbar .navbar-logo { float: left; margin: 5px 22px 14px 0px; }
-@media (max-width: 768px) { .navbar .navbar-logo { margin-left: 18px; } }
+.navbar .navbar-logo { float: left; margin: 5px 14px 14px 0px; }
+@media (max-width: 767px) { .navbar .navbar-logo { margin-left: 18px; } }
 .navbar-default { background-color: #f9f9f9; border-bottom: solid 1px #f0f0f0; margin-bottom: 0; }
 .navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:focus { color: #555; } 
 .navbar-default .navbar-nav li a { color: #999; }
+.navbar-default .navbar-right li:first-child a { padding-left: 0; padding-right: 0 }
+.navbar-default .navbar-right li:last-child a { padding-left: 6px; padding-right: 4px }
 .jumbotron { margin-bottom: 0; }
 .container-full { margin: 0 auto; width: 100%; }
 .container-full.grey { background-color: #f8f8f8; border-top: solid 1px #e7e7e7; }
@@ -44,10 +46,23 @@ a:hover, a:focus { color: #1e90a0; }
 .footer .logos img {
   margin: 0 auto;
 }
+.footer .icons {
+  float: right !important;
+  font-size: 26px !important;
+  margin-top: -5px
+}
+.footer .icons a {
+  text-decoration: none !important;
+}
 
 .btn-primary {
   background-color: #ff5b18;
-  border-color: #dc4100;
+  border-color: #EF4C00;
+}
+
+.btn-info {
+  background-color: #24afc4;
+  border-color: #1F9DB2;
 }
 
 .btn-default {
@@ -55,8 +70,13 @@ a:hover, a:focus { color: #1e90a0; }
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
-    background-color: #f04600;
-    border-color: #dc4100;
+    background-color: #EF4C00;
+    border-color: #BC3700;
+}
+
+.btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open .dropdown-toggle.btn-info {
+    background-color: #1F9DB2;
+    border-color: #158BA0;
 }
 
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {

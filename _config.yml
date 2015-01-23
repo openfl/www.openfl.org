@@ -8,12 +8,12 @@ paginate: 5
 paginate_path: "blog/page/:num"
 url: http://www.openfl.org
 navigation:
-- title: Blog
-  url: /blog/
 - title: Showcase
   url: /showcase/
-- title: Learning
-  url: /learning/
+- title: Blog
+  url: /blog/
+- title: Learn
+  url: /learn/
 #- title: Community
 #  url: http://community.openfl.org
 permalink: /blog/:year/:month/:day/:title
