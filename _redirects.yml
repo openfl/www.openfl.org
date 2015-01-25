@@ -1,3 +1,5 @@
-api : /documentation/api/
+api : http://docs.openfl.org
 blog/feed : /blog/rss.xml
-"documentation/setup/install-haxe" : /documentation/getting-started/installing-openfl/
+"documentation/setup/install-haxe" : /download
+"documentation/getting-started/installing-openfl/" : /download
+documentation/api : http://docs.openfl.org
