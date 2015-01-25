@@ -17,8 +17,8 @@ a:hover, a:focus { color: #1e90a0; }
 .navbar-default { background-color: #f9f9f9; border-bottom: solid 1px #f0f0f0; margin-bottom: 0; }
 .navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:focus { color: #555; } 
 .navbar-default .navbar-nav li a { color: #999; }
-@media (min-width: 768px) .navbar-default .navbar-right li:first-child a { padding-left: 0; padding-right: 0 }
-@media (min-width: 768px) .navbar-default .navbar-right li:last-child a { padding-left: 6px; padding-right: 4px }
+@media (min-width: 768px) { .navbar-default .navbar-right li:first-child a { padding-left: 0; padding-right: 0 } }
+@media (min-width: 768px) { .navbar-default .navbar-right li:last-child a { padding-left: 6px; padding-right: 4px } }
 .jumbotron { margin-bottom: 0; }
 .container-full { margin: 0 auto; width: 100%; }
 .container-full.grey { background-color: #f8f8f8; border-top: solid 1px #e7e7e7; }
