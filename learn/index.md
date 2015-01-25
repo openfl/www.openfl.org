@@ -7,11 +7,9 @@ title: Learn
 
 ## Documentation
 
-There are many things you can do with OpenFL. For reference documentation on the classes available in OpenFL, visit <a href="http://docs.openfl.org" target="_blank">docs.openfl.org</a>.
+For documentation on the classes available in Lime and OpenFL, please visit <a href="http://docs.openfl.org" target="_blank">docs.openfl.org</a>.
 
 ## Tutorials
-
-A great way to learn how to use OpenFL is to follow a tutorial, here are some to get you started:
 
 <style>.glyphicon-new-window { color: #DDD; }</style>
 
