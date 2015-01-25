@@ -63,6 +63,36 @@ These are several blogs and resources that provide helpful tutorials on how to b
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=76" target="_blank">Accordians in HaxeUI</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=77" target="_blank">ListView in HaxeUI</a>
 
+## Resources
+
+ * [Choosing a Code Editor](/learn/resources/choosing-a-code-editor/)
+ * [Core Architecture](/learn/resources/core-architecture/)
+ * [Feature Matrix](/learn/resources/feature-matrix/)
+
+### Command-Line Tools
+
+ * [Basic Commands](/learn/resources/command-line-tools/basic-commands/)
+ * [Create New Project](/learn/resources/command-line-tools/create-new-project/)
+ * [Samples](/learn/resources/command-line-tools/samples/)
+ * [XML Project Files](/learn/resources/command-line-tools/project-files/xml-format/)
+ * [HXP Project Files](/learn/resources/command-line-tools/project-files/hxp-format/)
+
+### Platform Setup
+
+ * [Windows](/learn/resources/advanced-setup/windows/)
+ * [Mac](/learn/resources/advanced-setup/mac/)
+ * [Linux](/learn/resources/advanced-setup/linux/)
+ * [iOS](/learn/resources/advanced-setup/ios/)
+ * [Android](/learn/resources/advanced-setup/android/)
+ * [BlackBerry](/learn/resources/advanced-setup/blackberry/)
+ * [Firefox OS](/learn/resources/advanced-setup/firefox-os/)
+ * [Flash](/learn/resources/advanced-setup/flash/)
+ * [HTML5](/learn/resources/advanced-setup/html5/)
+
+### Contributors
+
+ * [Roadmap](/learn/resources/contributors/roadmap/)
+
 ## Forums
 
 If you still have questions, or are having trouble with OpenFL, please visit our friendly [community forums](http://community.openfl.org), we'd be happy to help you!

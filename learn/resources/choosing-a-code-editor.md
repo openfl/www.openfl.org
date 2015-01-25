@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Choosing a Code Editor
-permalink: learn/choosing-a-code-editor/
+permalink: learn/resources/choosing-a-code-editor/
 ---
 
 # Choosing a Code Editor

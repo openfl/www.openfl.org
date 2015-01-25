@@ -29,4 +29,4 @@ To confirm that OpenFL is installed and working properly, try running the "openf
 
 ## Next Steps
 
-Now that OpenFL is installed, you can [choose a code editor](/learn/choosing-a-code-editor/) or learn more in the [learn](/learn/) section!
+Now that OpenFL is installed, you can [choose a code editor](/learn/resources/choosing-a-code-editor/) or [pick a tutorial](/learn/) and get started!
