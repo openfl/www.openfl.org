@@ -43,7 +43,7 @@ These are several blogs and resources that provide helpful tutorials on how to b
 #### HaxeFlixel
 
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=44" target="_blank">HaxeFlixel Tutorial: Getting Started</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxeflixel.com/documentation/tutorials/" target="_blank">HaxeFlixel Tutorial</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxeflixel.com/documentation/tutorials/" target="_blank">HaxeFlixel Tutorials</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=45" target="_blank">HaxeFlixel RPG Tutorial</a>
 
 #### HaxePunk
