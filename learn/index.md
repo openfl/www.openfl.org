@@ -7,11 +7,11 @@ title: Learn
 
 ## Documentation
 
-Information about how you can [get started with OpenFL](/documentation/getting-started/), details about the [command-line tools](/documentation/command-line-tools) and more are available under the [OpenFL Documentation](/documentation/).
+There are many things you can do with OpenFL. For reference documentation on the classes available in OpenFL, visit <a href="http://docs.openfl.org" target="_blank">docs.openfl.org</a>.
 
 ## Tutorials
 
-These are several blogs and resources that provide helpful tutorials on how to build OpenFL projects:
+A great way to learn how to use OpenFL is to follow a tutorial, here are some to get you started:
 
 <style>.glyphicon-new-window { color: #DDD; }</style>
 
