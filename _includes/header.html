@@ -56,7 +56,7 @@
               <a class="navbar-logo" href="{% if site.baseurl != "" %}{{ site.baseurl }}{% else %}/{% endif %}"><img src="{{ site.baseurl }}/images/logo.png" /></a>
             </div>
             <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav pull-left">
+              <ul class="nav navbar-nav">
                 {% for p in site.navigation %}
                 <li><a {% if p.url == page.url %}class="active"{% endif %} href="{{ p.url | prepend: site.baseurl | replace: '//', '/' }}">{{ p.title | upcase }}</a></li>
                 {% endfor %}
