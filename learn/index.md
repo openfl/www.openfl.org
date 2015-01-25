@@ -17,6 +17,7 @@ These are several blogs and resources that provide helpful tutorials on how to b
 
 ### Beginner
 
+ * [Your First Project](/learn/your-first-project/)
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=9" target="_blank">Getting Started with Haxe</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=14" target="_blank">How to Make a Pong Game in Haxe and OpenFL</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=19" target="_blank">Keyboard Events in Haxe using OpenFL</a>
