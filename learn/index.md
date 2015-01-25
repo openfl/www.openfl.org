@@ -13,47 +13,54 @@ Information about how you can [get started with OpenFL](/documentation/getting-s
 
 These are several blogs and resources that provide helpful tutorials on how to build OpenFL projects:
 
+<style>.glyphicon-new-window { color: #DDD; }</style>
+
 ### Beginner
 
- * [Getting Started with Haxe](http://haxecoder.com/post.php?id=9) <span class="glyphicon glyphicon-new-window"></span>
- * [How to Make a Pong Game in Haxe and OpenFL](http://haxecoder.com/post.php?id=14) <span class="glyphicon glyphicon-new-window"></span>
- * [Keyboard Events in Haxe using OpenFL](http://haxecoder.com/post.php?id=19) <span class="glyphicon glyphicon-new-window"></span>
- * [Assets in OpenFL](http://haxecoder.com/post.php?id=20) <span class="glyphicon glyphicon-new-window"></span>
- * [Depth-Sorting in OpenFL](http://haxecoder.com/post.php?id=66) <span class="glyphicon glyphicon-new-window"></span>
- * [Toggle Fullscreen in OpenFL](http://haxecoder.com/post.php?id=67) <span class="glyphicon glyphicon-new-window"></span>
- * [Embedding Fonts in OpenFL](http://haxecoder.com/post.php?id=69) <span class="glyphicon glyphicon-new-window"></span>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=9" target="_blank">Getting Started with Haxe</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=14" target="_blank">How to Make a Pong Game in Haxe and OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=19" target="_blank">Keyboard Events in Haxe using OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=20" target="_blank">Assets in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=66" target="_blank">Depth-Sorting in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=67" target="_blank">Toggle Fullscreen in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=69" target="_blank">Embedding Fonts in OpenFL</a>
 
 ### Intermediate
 
- * [Fast 2D Rendering Using Tilesheets in OpenFL](http://haxecoder.com/post.php?id=21) <span class="glyphicon glyphicon-new-window"></span>
- * [Displaying FPS and Memory Usage in OpenFL](http://haxecoder.com/post.php?id=24) <span class="glyphicon glyphicon-new-window"></span>
- * [Tile-Based Game Tutorial using Haxe and OpenFL](http://haxecoder.com/post.php?id=25) <span class="glyphicon glyphicon-new-window"></span>
- * [Particle System in OpenFL](http://haxecoder.com/post.php?id=68) <span class="glyphicon glyphicon-new-window"></span>
- * [OpenFL Template Basics: Overriding AndroidManifest.xml](http://player03.com/2014/08/14/template-basics/) <span class="glyphicon glyphicon-new-window"></span>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=21" target="_blank">Fast 2D Rendering Using Tilesheets in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=24" target="_blank">Displaying FPS and Memory Usage in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=25" target="_blank">Tile-Based Game Tutorial using Haxe and OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=68" target="_blank">Particle System in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://player03.com/2014/08/14/template-basics/" target="_blank">OpenFL Template Basics: Overriding AndroidManifest.xml</a>
 
 ### Advanced
 
- * [OpenFL Extensions](http://player03.com/2014/08/09/openfl-extensions/) <span class="glyphicon glyphicon-new-window"></span>
- * [HXP Projects and Template Directories](http://player03.com/2014/08/24/hxp/) <span class="glyphicon glyphicon-new-window"></span>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://player03.com/2014/08/09/openfl-extensions/" target="_blank">OpenFL Extensions</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://player03.com/2014/08/24/hxp/" target="_blank">HXP Projects and Template Directories</a>
 
 ### Third-Party Frameworks
 
- * [HaxeFlixel Tutorial: Getting Started](http://haxecoder.com/post.php?id=44) <span class="glyphicon glyphicon-new-window"></span>
- * [HaxeFlixel Tutorial](http://haxeflixel.com/documentation/tutorials/) <span class="glyphicon glyphicon-new-window"></span>
- * [HaxeFlixel RPG Tutorial](http://haxecoder.com/post.php?id=45) <span class="glyphicon glyphicon-new-window"></span>
- * [HaxePunk Tutorial: Getting Started](http://haxecoder.com/post.php?id=31) <span class="glyphicon glyphicon-new-window"></span>
- * [HaxePunk Shooting Game Tutorial](http://haxecoder.com/post.php?id=32) <span class="glyphicon glyphicon-new-window"></span>
- * [Introduction to HaxeUI](http://haxecoder.com/post.php?id=70) <span class="glyphicon glyphicon-new-window"></span>
- * [Using XML Layouts in HaxeUI](http://haxecoder.com/post.php?id=71) <span class="glyphicon glyphicon-new-window"></span>
- * [IDs and Event Listeners in HaxeUI](http://haxecoder.com/post.php?id=72) <span class="glyphicon glyphicon-new-window"></span>
- * [Popups in HaxeUI](http://haxecoder.com/post.php?id=73) <span class="glyphicon glyphicon-new-window"></span>
- * [Styling in HaxeUI](http://haxecoder.com/post.php?id=74) <span class="glyphicon glyphicon-new-window"></span>
- * [HaxeUI Roots](http://haxecoder.com/post.php?id=75) <span class="glyphicon glyphicon-new-window"></span>
- * [Accordians in HaxeUI](http://haxecoder.com/post.php?id=76) <span class="glyphicon glyphicon-new-window"></span>
- * [ListView in HaxeUI](http://haxecoder.com/post.php?id=77) <span class="glyphicon glyphicon-new-window"></span>
- * [Extending the StablexUI Library - Grid Widget](http://xenizogames.com/blog/2014/09/adding-grid-widget-stablexui/) <span class="glyphicon glyphicon-new-window"></span>
- * [Creating a Simple Particle Generator for Barrage to Generate Awesome Bullet Patterns](http://xenizogames.com/blog/2014/11/creating-simple-particle-generator-and-barrage-generate-awesome-bullet-patterns/)  <span class="glyphicon glyphicon-new-window"></span>
- * [Nape and Barrage Integration for Bullet Collision and Ricochet](http://xenizogames.com/blog/2014/12/nape-and-barrage-physics-enabled-bullet-patterns/)
+#### HaxeFlixel
+
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=44" target="_blank">HaxeFlixel Tutorial: Getting Started</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxeflixel.com/documentation/tutorials/" target="_blank">HaxeFlixel Tutorial</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=45" target="_blank">HaxeFlixel RPG Tutorial</a>
+
+#### HaxePunk
+ 
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=31" target="_blank">HaxePunk Tutorial: Getting Started</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=32" target="_blank">HaxePunk Shooting Game Tutorial</a>
+
+#### HaxeUI
+
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=70" target="_blank">Introduction to HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=71" target="_blank">Using XML Layouts in HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=72" target="_blank">IDs and Event Listeners in HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=73" target="_blank">Popups in HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=74" target="_blank">Styling in HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=75" target="_blank">HaxeUI Roots</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=76" target="_blank">Accordians in HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=77" target="_blank">ListView in HaxeUI</a>
 
 ## Forums
 
