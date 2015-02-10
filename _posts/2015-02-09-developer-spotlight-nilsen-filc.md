@@ -4,7 +4,7 @@ title: Developer Spotlight&#58; Nilsen Filc
 date: 2015-02-10 10:00:00.000000000 -08:00
 ---
 
-_Today in the Developer Spotlight, we chat with Nilsen Filc, the creator of _Yummy Circus_, an awesome cross-platform multiplayer arcade action-puzzle game._
+_Today in the Developer Spotlight, we chat with Nilsen Filc, the creator of Yummy Circus, an awesome cross-platform multiplayer arcade action-puzzle game._
 
 ![Developer Spotlight]({{ site.baseurl }}/images/spotlight/DeveloperSpotlight.png)
 
