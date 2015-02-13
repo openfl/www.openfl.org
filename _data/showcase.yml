@@ -238,16 +238,6 @@
   flash: http://fserb.com/vault/super-hot-asteroid.html
   html5: http://fserb.com/vault/super-hot-asteroid.html
 
-- title: The Froggies Game
-  developer: Sempai Games
-  image: FroggiesGame.jpg
-  url: http://www.sempaigames.com/froggies/en
-  ios: http://itunes.apple.com/us/app/the-froggies-game/id513913013
-  android: https://market.android.com/details?id=com.sempaigames.froggies
-  blackberry: http://appworld.blackberry.com/webstore/content/23206878/
-  amazon: http://www.amazon.com/Sempai-Games-The-Froggies-Game/dp/B007VPADYA
-  flash: http://www.sempaigames.com/froggies
-
 - title: Kitten Getaway
   developer: Shark Punch
   image: KittenGetaway.jpg
@@ -264,15 +254,6 @@
   linux: http://www.retro64.com/downloads/vampire_volleyball_linux.tar.gz
   ios: "https://itunes.apple.com/us/app/vampire-volleyball/id722265007"
   android: https://play.google.com/store/apps/details?id=com.retro64.vampirevolleyball
-
-- title: Puralax
-  developer: Luis Federico Bricker
-  image: Puralax.jpg
-  url: http://www.puralax.com/
-  ios: https://itunes.apple.com/app/id781705529
-  android: https://play.google.com/store/apps/details?id=com.puralax
-  blackberry: http://appworld.blackberry.com/webstore/content/44447897/
-  html5: http://www.puralax.com/
 
 - title: Eye Awake
   developer: Dakina Games
@@ -627,6 +608,15 @@
   url: https://github.com/AfBu/haxe-chip-8-emulator
   windows: http://bit.ly/chip8emu
 
+- title: 90 Grados
+  developer: AVK Games
+  image: 90grados.jpg
+  url: http://www.avkgames.com/90grados/
+  android: https://play.google.com/store/apps/details?id=avk.grados
+  ios: https://itunes.apple.com/us/app/90-grados/id839532895
+  amazon: http://www.amazon.com/avkgames-90-Grados/dp/B00IXWOL4S/
+  blackberry: http://appworld.blackberry.com/webstore/content/50571904/
+
 - title: "Make a Scene: Safari"
   developer: Innivo
   image: MakeASceneSafari.jpg
@@ -740,3 +730,29 @@
   image: GlitchLab.jpg
   url: http://armorgames.com/play/16042/glitch-lab
   flash: http://armorgames.com/play/16042/glitch-lab
+
+- title: Daktylos
+  developer: Sempai Games
+  image: Daktylos.jpg
+  url: http://www.sempaigames.com/daktylos
+  ios: https://itunes.apple.com/us/app/daktylos/id952785273
+  android: https://play.google.com/store/apps/details?id=com.sempaigames.daktylos
+
+- title: The Froggies Game
+  developer: Sempai Games
+  image: FroggiesGame.jpg
+  url: http://www.sempaigames.com/froggies/en
+  ios: http://itunes.apple.com/us/app/the-froggies-game/id513913013
+  android: https://market.android.com/details?id=com.sempaigames.froggies
+  blackberry: http://appworld.blackberry.com/webstore/content/23206878/
+  amazon: http://www.amazon.com/Sempai-Games-The-Froggies-Game/dp/B007VPADYA
+  flash: http://www.sempaigames.com/froggies
+
+- title: Puralax
+  developer: Luis Federico Bricker
+  image: Puralax.jpg
+  url: http://www.puralax.com/
+  ios: https://itunes.apple.com/app/id781705529
+  android: https://play.google.com/store/apps/details?id=com.puralax
+  blackberry: http://appworld.blackberry.com/webstore/content/44447897/
+  html5: http://www.puralax.com/
