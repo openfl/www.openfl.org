@@ -757,9 +757,8 @@
   blackberry: http://appworld.blackberry.com/webstore/content/44447897/
   html5: http://www.puralax.com/
 
-  - title: TimeScope
+- title: TimeScope
   developer: Toggle Games
   image: TimeScope.jpg
   url: http://tg.typhex.com/timescope/
   android: https://play.google.com/store/apps/details?id=com.togglegames.timeScope
-  
