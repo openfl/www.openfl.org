@@ -56,13 +56,6 @@
   android: https://play.google.com/store/apps/details?id=com.kongregate.mobile.cardinalquest.google
   featured: true
 
-- title: Demonition
-  developer: Ezelia
-  image: Demonition.jpg
-  url: http://ezelia.com/en/
-  android: https://play.google.com/store/apps/details?id=com.ezelia.demonition
-  featured: true
-
 - title: "Flying Dodo: Wilbur's Fun Ride"
   developer: Double Duck
   image: FlyingDodo.jpg
@@ -769,3 +762,9 @@
   image: TimeScope.jpg
   url: http://tg.typhex.com/timescope/
   android: https://play.google.com/store/apps/details?id=com.togglegames.timeScope
+
+- title: Demonition
+  developer: Ezelia
+  image: Demonition.jpg
+  url: http://ezelia.com/en/
+  android: https://play.google.com/store/apps/details?id=com.ezelia.demonition
