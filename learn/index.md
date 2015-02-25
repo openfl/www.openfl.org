@@ -5,6 +5,11 @@ title: Learn
 
 # Learn
 
+## Fundamentals
+OpenFL is a port of ActionScript 3 for the Haxe programming language.
+This means that OpenFL mirrors ActionScript's classes and behaviours.
+So, for a better understanding of how things work, you can rely on <a href="http://help.adobe.com/en_US/as3/dev/index.html" target="_blank">ActionScript 3.0 Developer’s Guide</a>.
+
 ## Documentation
 
 For documentation on the classes available in Lime and OpenFL, please visit <a href="http://docs.openfl.org" target="_blank">docs.openfl.org</a>.
@@ -46,7 +51,7 @@ For documentation on the classes available in Lime and OpenFL, please visit <a h
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=45" target="_blank">HaxeFlixel RPG Tutorial</a>
 
 #### HaxePunk
- 
+
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=31" target="_blank">HaxePunk Tutorial: Getting Started</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=32" target="_blank">HaxePunk Shooting Game Tutorial</a>
 
