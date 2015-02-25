@@ -209,24 +209,22 @@ BlackBerry does not use the `alias` or `alias-password` attributes.
 
     <certificate path="to/certificate.crt" password="1234" alias="my-alias" alias-password="4321" />
 
-### `<ios />`
+### `<config:ios />`
 
 Control iOS-specific values when compiling.
 
-The `deployment` attribute can set the minimum iOS version you wish to target. The `binaries` attribute can be "armv6", "armv7" or "fat". The `devices` attribute can specify "ipad", "iphone" or "universal".
+The `deployment` attribute can set the minimum iOS version you wish to target. The `prerendered-icon` attribute can help control the style of your icon.
 
-If you select a device, it can set the binaries. For example, if you only want to target the iPad, only armv7 will be required, or if you wish to target both, it will create a universal binary by default.
+    <config:ios deployment="5.1" />
+    <config:ios prerendered-icon="false" />
 
-    <ios deployment="5" binaries="armv7" devices="universal" />
-    <ios linker-flags="" prerendered-icon="false" />
+### `<config:android />`
 
-### `<android />`
+Use `<config:android />` tags to set Android-specific values:
 
-Use `<android />` tags to set Android-specific values:
-
-    <android install-location="preferExternal" />
-    <android permission="com.android.vending.BILLING" />
-    <android target-sdk-version="16" />
+    <config:android install-location="preferExternal" />
+    <config:android permission="com.android.vending.BILLING" />
+    <config:android target-sdk-version="16" />
 
 ### `<architecture />`
 
