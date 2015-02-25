@@ -6,9 +6,8 @@ title: Learn
 # Learn
 
 ## Fundamentals
-OpenFL is a port of ActionScript 3 for the Haxe programming language.
-This means that OpenFL mirrors ActionScript's classes and behaviours.
-So, for a better understanding of how things work, you can rely on <a href="http://help.adobe.com/en_US/as3/dev/index.html" target="_blank">ActionScript 3.0 Developer’s Guide</a>.
+
+If you are already familiar with the fundamentals of ActionScript/Flash development, go on ahead! If you have never developed using ActionScript before, OpenFL builds on many of the same concepts, so looking at the <a href="http://help.adobe.com/en_US/as3/dev/index.html" target="_blank">ActionScript 3.0 Developer’s Guide</a> will provide a good introduction to using some of the key classes and APIs.
 
 ## Documentation
 
