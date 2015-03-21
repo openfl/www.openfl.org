@@ -29,7 +29,7 @@ The new OpenFL now consists of 100% Haxe code. Not only is this super-portable, 
 
 Lime 2 is a brand-new API in OpenFL development.
 
-While Lime has previously been used to power the command-line tools and provide native binaries, Lime can now be used directly as a distinct framework beneath OpenFL. This has some amazing benefits. First, getting Lime up and running on a platform is much simpler to implement than the full OpenFL stack. Second, you can control the whole lifecycle of an application in Lime, and create/destroy an OpenFL stage at will to step in or out of a the Flash development workflow. 
+While Lime has previously been used to power the command-line tools and provide native binaries, Lime can now be used directly as a distinct framework beneath OpenFL. This has some amazing benefits. First, getting Lime up and running on a platform is much simpler to implement than the full OpenFL stack. Second, you can control the whole lifecycle of an application in Lime, and create/destroy an OpenFL stage at will to step in or out of the Flash development workflow. 
 
 And even when you don't work directly at the Lime level, the APIs provide features like nuanced gamepad support, complex text layout, and direct access to sound APIs. By pushing the OpenFL renderer up and away from the low-level platform layer, we gain clarity, stability, and pave the way for new features, such as upcoming support for custom shaders in OpenFL. 
 
