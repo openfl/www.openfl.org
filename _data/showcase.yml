@@ -768,3 +768,233 @@
   image: Demonition.jpg
   url: http://ezelia.com/en/
   android: https://play.google.com/store/apps/details?id=com.ezelia.demonition
+
+- title: Origami Crush
+  developer: Red Potion
+  image: OrigamiCrush.png
+  url: https://play.google.com/store/apps/details?id=com.redpotion.shootemup.origamicrush
+  android: https://play.google.com/store/apps/details?id=com.redpotion.shootemup.origamicrush
+
+- title: One Tap Robot Uprising!
+  developer: The Code Zone
+  image: OneTapRobotUprising.jpg
+  url: http://thecodezone.com/game/onetaprobotuprising.html
+  ios: http://itunes.apple.com/us/app/one-tap-robot-uprising/id935328169
+  android: http://play.google.com/store/apps/details?id=com.thecodezone.games.OneTapRobotUprising
+  amazon: http://www.amazon.com/gp/product/B00ORVU0EY
+  nook: http://search.barnesandnoble.com/books/e/2940147236598
+
+- title: One Tap Insect Invasion!
+  developer: The Code Zone
+  image: OneTapInsectInvasion.jpg
+  url: http://thecodezone.com/game/onetapinsectinvasion.html
+  ios: http://itunes.apple.com/us/app/one-tap-insect-invasion/id932447187
+  android: http://play.google.com/store/apps/details?id=com.thecodezone.games.OneTapInsectInvasion
+  amazon: http://www.amazon.com/gp/product/B00OQI4X5A
+  nook: http://search.barnesandnoble.com/books/e/2940147233214
+
+- title: One Tap Space Adventure!
+  developer: The Code Zone
+  image: OneTapSpaceAdventure.jpg
+  url: http://thecodezone.com/game/onetapspaceadventure.html
+  ios: http://itunes.apple.com/us/app/one-tap-space-adventure/id935408125
+  android: http://play.google.com/store/apps/details?id=com.thecodezone.games.OneTapSpaceAdventure
+  amazon: http://www.amazon.com/gp/product/B00OTTLTQC
+  nook: http://search.barnesandnoble.com/books/e/2940147236604
+
+- title: Lookebox!
+  developer: TMO Game Studio
+  image: Lookebox.jpg
+  url: https://itunes.apple.com/us/app/lookebox!/id940867017
+  ios: https://itunes.apple.com/us/app/lookebox!/id940867017
+  blackberry: https://appworld.blackberry.com/webstore/content/24214881/?countrycode=US&countrycode=US&lang=en
+
+- title: Who Lives in a Tree?
+  developer: Gemioli
+  image: WhoLivesInATree.jpg
+  url: http://www.gemioli.com
+  ios: http://itunes.apple.com/us/app/who-lives-in-tree-interactive/id893959393?mt=8
+  android: http://play.google.com/store/apps/details?id=com.gemioli.tree&hl=en
+
+- title: Rainbow Lines
+  developer: Pozirk Games
+  image: RainbowLines.jpg
+  url: http://www.pozirk.com/rainbow-lines-online-game/
+  windows: http://www.amazon.com/Pozirk-Games-Rainbow-Lines-Download/dp/B00O85FGP2/
+  ios: https://itunes.apple.com/us/app/rainbow-lines/id922665108
+  android: https://play.google.com/store/apps/details?id=com.pozirk.Rainbow
+  amazon: http://www.amazon.com/Pozirk-Games-Rainbow-Lines/dp/B00NLIIKF0/
+  nook: http://www.barnesandnoble.com/w/rainbow-lines-pozirk-games/1120372212
+  blackberry: http://appworld.blackberry.com/webstore/content/59939916/?lang=en
+  flash: http://www.pozirk.com/rainbow-lines-online-game/
+
+- title: Running Snake
+  developer: Phyziko
+  image: RunningSnake.jpg
+  url: http://phyziko.com/portfolio/runningsnake/
+  android: https://play.google.com/store/apps/details?id=com.phyziko.runningsnake
+
+- title: Memotion
+  developer: Sugema Productions
+  image: Memotion.png
+  url: https://play.google.com/store/apps/details?id=com.sugemapro.memotion
+  android: https://play.google.com/store/apps/details?id=com.sugemapro.memotion
+
+- title: Gravity Trek
+  developer: Z3LF
+  image: GravityTrek.png
+  url: https://play.google.com/store/apps/details?id=com.z3lf.gravitytrek
+  android: https://play.google.com/store/apps/details?id=com.z3lf.gravitytrek
+
+- title: Catch Color
+  developer: Afla Games
+  image: CatchColor.jpg
+  url: http://www.aflagames.com/catchcolor/
+  ios: https://itunes.apple.com/en/app/catch-color/id949171712
+  android: https://play.google.com/store/apps/details?id=com.aflagames.catchcolor
+
+- title: Dead Alliance
+  developer: Texelr Games
+  image: DeadAlliance.jpg
+  url: https://itunes.apple.com/app/id960572813?ls=1&mt=8
+  ios: https://itunes.apple.com/app/id960572813?ls=1&mt=8
+
+- title: Abstract Pixel Run
+  developer: Abstract Pixel Games
+  image: AbstractPixelRun.png
+  url: http://www.abstractpixelgames.com/#abstractpixel-run
+  windows: http://www.abstractpixelgames.com/#get-it-free
+  mac: http://www.abstractpixelgames.com/#get-it-free
+
+- title: 4080 Puzzle
+  developer: Z3LF
+  image: 4080Puzzle.png
+  url: https://play.google.com/store/apps/details?id=com.z3lf.fortyeighty
+  android: https://play.google.com/store/apps/details?id=com.z3lf.fortyeighty
+
+- title: Deer Sprint
+  developer: Six Socks Software
+  image: DeerSprint.jpg
+  url: http://www.kongregate.com/games/nibb13/deer-sprint
+  windows: http://www.amazon.com/gp/product/B00UF1TR12
+  amazon: http://www.amazon.com/gp/product/B00U61GXL8
+  flash: http://www.kongregate.com/games/nibb13/deer-sprint
+
+- title: Coloring
+  developer: RevoluGame
+  image: Coloring.png
+  url: http://revolugame.com/coloring.html
+  android: https://play.google.com/store/apps/details?id=com.revolugame.coloring
+  flash: http://revolugame.itch.io/coloring
+
+- title: Lentil Hunter Map
+  developer: Confidant Communications
+  image: LentilHunterMap.jpg
+  url: http://www.lentils.ca/lentilhunter/
+  html5: http://www.lentils.ca/lentilhunter/
+
+- title: Sushi Cat-a-pult
+  developer: Massive Monster
+  image: SushiCat-a-pult.jpg
+  url: http://armorgames.com/play/17614/sushi-cat-a-pult
+  flash: http://armorgames.com/play/17614/sushi-cat-a-pult
+
+- title: Stack Pack
+  developer: Dumb Luck Interactive
+  image: StackPack.png
+  url: https://play.google.com/store/apps/details?id=com.dmblck.stackpack
+  android: https://play.google.com/store/apps/details?id=com.dmblck.stackpack
+
+- title: A Good Snowman is Hard to Build
+  developer: Draknek
+  image: AGoodSnowmanIsHardToBuild.jpg
+  url: http://agoodsnowman.com
+  windows: http://store.steampowered.com/app/316610/
+  mac: http://store.steampowered.com/app/316610/
+  linux: http://store.steampowered.com/app/316610/
+
+- title: The Masterplan
+  developer: Shark Punch
+  image: TheMasterplan.jpg
+  url: http://playfield.io/themasterplan
+  windows: http://store.steampowered.com/app/313080/
+  mac: http://store.steampowered.com/app/313080/
+  linux: http://store.steampowered.com/app/313080/
+
+- title: Ghost Splash
+  developer: No Human Studio
+  image: GhostSplash.jpg
+  url: http://www.nohuman.com/en/jeux/ghostsplash-1.html
+  flash: https://apps.facebook.com/ghostsplash/
+
+- title: Sploder Arcade Creator
+  developer: Sploder.com
+  image: SploderArcadeCreator.jpg
+  url: http://www.sploder.com/free-arcade-game-maker.php
+  ios: https://itunes.apple.com/us/app/sploder-arcade-creator/id897669842?ls=1&mt=8
+  android: https://play.google.com/store/apps/details?id=com.sploder.arcadecreator
+  amazon: http://www.amazon.com/gp/product/B00LWFWFVY/ref=mas_pm_sploder_arcade_creator
+  flash: http://www.sploder.com/free-arcade-game-maker.php
+
+- title: Fluff Eaters
+  developer: Fiery Squirrel
+  image: FluffEaters.jpg
+  url: http://fluffeaters.com
+  android: https://play.google.com/store/apps/details?id=com.fs.fluffeaters.FluffEaters
+
+- title: Collow
+  developer: Fiery Squirrel
+  image: Collow.png
+  url: http://fierysquirrel.com/collow/
+  android: https://play.google.com/store/apps/details?id=com.fs.collow.Collow
+
+- title: Try Harder
+  developer: Adult Swim Games
+  image: TryHarder.png
+  url: http://games.adultswim.com/try-harder-action-online-game.html
+  flash: http://games.adultswim.com/try-harder-action-online-game.html
+
+- title: The Enchanted Cave 2
+  developer: Dustin Auxier
+  image: TheEnchantedCave2.png
+  url: http://dustinauxier.com/the-enchanted-cave-2
+  flash: http://www.kongregate.com/games/DustinAux/the-enchanted-cave-2
+
+- title: Polaritron
+  developer: Leonardo Cavaletti
+  image: Polaritron.png
+  url: http://leongotgame.itch.io/polaritron
+  android: https://play.google.com/store/apps/details?id=com.leongame.polaritron
+  windows: http://leongotgame.itch.io/polaritron
+  mac: http://leongotgame.itch.io/polaritron
+  linux: http://leongotgame.itch.io/polaritron
+  flash: https://dl.dropboxusercontent.com/u/12543308/polaritron/flash-demo/index.html
+
+- title: Viking Warfare
+  developer: Junjo
+  image: VikingWarfare.jpg
+  url: http://www.kongregate.com/games/Junjo/viking-warfare
+  flash: http://www.kongregate.com/games/Junjo/viking-warfare
+
+- title: Idle Farmer
+  developer: Junjo
+  image: IdleFarmer.png
+  url: http://www.kongregate.com/games/junjo/idle-farmer
+  flash: http://www.kongregate.com/games/junjo/idle-farmer
+
+- title: Pewma
+  developer: Chimango Games
+  image: Pewma.jpg
+  url: http://www.chimangogames.com
+  ios: https://itunes.apple.com/us/app/pewma-gold/id920337765?mt=8
+  android: https://play.google.com/store/apps/details?id=com.chimango.pewmaGold
+  amazon: http://www.amazon.com/gp/product/B00OBXGHZO
+  blackberry: http://appworld.blackberry.com/webstore/content/59942022/
+
+- title: Saving Alley Cats!
+  developer: Vigeo Games
+  image: SavingAlleyCats.png
+  url: https://play.google.com/store/apps/details?id=pl.vigeo.saving.alley.cats
+  ios: https://itunes.apple.com/us/app/saving-alley-cats!/id886296405?mt=8
+  android: https://play.google.com/store/apps/details?id=pl.vigeo.saving.alley.cats
+  amazon: http://www.amazon.com/Vigeo-Games-Saving-Alley-Cats/dp/B00JULB8XS
