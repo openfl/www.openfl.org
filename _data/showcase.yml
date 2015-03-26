@@ -20,20 +20,21 @@
   playstation: "http://p0.dl.playstation.net/p0/psns/psnschk.htm?a=psns%3Abrowse%3Fproduct%3DUM0135-NPNA00111_00-0000000000000000&type=psm"
   featured: true
 
-- title: Zuki's Quest
-  developer: Tinytouchtales
-  image: ZukisQuest.jpg
-  url: http://www.zukisquest.com/
-  ios: https://itunes.apple.com/us/app/zukis-quest-turn-based-puzzle/id687112608
-  featured: true
+- title: A Good Snowman is Hard to Build
+  developer: Draknek
+  image: AGoodSnowmanIsHardToBuild.jpg
+  url: http://agoodsnowman.com
+  windows: http://store.steampowered.com/app/316610/
+  mac: http://store.steampowered.com/app/316610/
+  linux: http://store.steampowered.com/app/316610/
 
-- title: Fly Catbug Fly!
-  developer: Cartoon Hangover
-  image: FlyCatbugFly.jpg
-  url: http://cartoonhangover.com/flycatbugfly/
-  ios: https://itunes.apple.com/us/app/fly-catbug-fly!/id812663886
-  android: https://play.google.com/store/apps/details?id=com.frederator.catbug
-  featured: true
+- title: The Masterplan
+  developer: Shark Punch
+  image: TheMasterplan.jpg
+  url: http://playfield.io/themasterplan
+  windows: http://store.steampowered.com/app/313080/
+  mac: http://store.steampowered.com/app/313080/
+  linux: http://store.steampowered.com/app/313080/
 
 - title: Rune Raiders
   developer: Retro64
@@ -47,6 +48,27 @@
   flash: http://www.retro64.com/runeraiders_online.php
   featured: true
 
+
+
+
+
+
+- title: Fly Catbug Fly!
+  developer: Cartoon Hangover
+  image: FlyCatbugFly.jpg
+  url: http://cartoonhangover.com/flycatbugfly/
+  ios: https://itunes.apple.com/us/app/fly-catbug-fly!/id812663886
+  android: https://play.google.com/store/apps/details?id=com.frederator.catbug
+  featured: true
+
+- title: Try Harder
+  developer: Adult Swim Games
+  image: TryHarder.png
+  url: http://games.adultswim.com/try-harder-action-online-game.html
+  flash: http://games.adultswim.com/try-harder-action-online-game.html
+
+
+
 - title: Cardinal Quest 2
   developer: randomnine
   image: CardinalQuest2.jpg
@@ -55,6 +77,13 @@
   ios: https://itunes.apple.com/app/id732353646
   android: https://play.google.com/store/apps/details?id=com.kongregate.mobile.cardinalquest.google
   featured: true
+
+- title: Werewolf Tycoon
+  developer: Joe Williamson
+  image: WerewolfTycoon.png
+  url: http://joecreates.co.uk/werewolftycoon/
+  ios: http://appstore.com/werewolftycoon
+  android: https://play.google.com/store/apps/details?id=uk.co.joecreates.werewolftycoon
 
 - title: "Flying Dodo: Wilbur's Fun Ride"
   developer: Double Duck
@@ -71,6 +100,25 @@
   android: https://play.google.com/store/apps/details?id=com.prize.BubbleTwist
   featured: true
 
+- title: Sushi Cat-a-pult
+  developer: Massive Monster
+  image: SushiCat-a-pult.jpg
+  url: http://armorgames.com/play/17614/sushi-cat-a-pult
+  flash: http://armorgames.com/play/17614/sushi-cat-a-pult
+
+- title: Fluff Eaters
+  developer: Fiery Squirrel
+  image: FluffEaters.jpg
+  url: http://fluffeaters.com
+  android: https://play.google.com/store/apps/details?id=com.fs.fluffeaters.FluffEaters
+
+- title: Zuki's Quest
+  developer: Tinytouchtales
+  image: ZukisQuest.jpg
+  url: http://www.zukisquest.com/
+  ios: https://itunes.apple.com/us/app/zukis-quest-turn-based-puzzle/id687112608
+  featured: true
+
 - title: Sweet Slide
   developer: Double Duck
   image: SweetSlide.jpg
@@ -78,7 +126,7 @@
   ios: https://itunes.apple.com/us/app/sweet-slide-cute-brain-teaser/id828415664
   android: https://play.google.com/store/apps/details?id=co.doubleduck.sweetslide
   featured: true
- 
+
 - title: Starry Nuts
   developer: Mybo
   image: StarryNuts.jpg
@@ -135,6 +183,12 @@
   ios: http://itunes.apple.com/app/bouncy-paul/id456848110
   android: https://play.google.com/store/apps/details?id=com.mybogame.bouncyseed
 
+- title: Ghost Splash
+  developer: No Human Studio
+  image: GhostSplash.jpg
+  url: http://www.nohuman.com/en/jeux/ghostsplash-1.html
+  flash: https://apps.facebook.com/ghostsplash/
+
 - title: Sudoku Puzzle Challenge
   developer: Inertia Software
   image: SudokuChallenge.jpg
@@ -150,6 +204,12 @@
   ios: https://itunes.apple.com/us/app/darkmoor-manor-free-version/id646793963
   android: https://play.google.com/store/apps/details?id=com.inertiasoftware.darkmoorpaid
   amazon: http://www.amazon.com/Inertiasoft-ltd-Darkmoor-Manor/dp/B00DRGBANK
+
+- title: Stack Pack
+  developer: Dumb Luck Interactive
+  image: StackPack.png
+  url: https://play.google.com/store/apps/details?id=com.dmblck.stackpack
+  android: https://play.google.com/store/apps/details?id=com.dmblck.stackpack
 
 - title: "Mrs. Dad vs. Körv"
   developer: grapefrukt
@@ -199,6 +259,14 @@
   flash: http://evoland.shirogames.com/classic
   html5: http://www.openfl.org/samples/evoland
 
+- title: Deer Sprint
+  developer: Six Socks Software
+  image: DeerSprint.jpg
+  url: http://www.kongregate.com/games/nibb13/deer-sprint
+  windows: http://www.amazon.com/gp/product/B00UF1TR12
+  amazon: http://www.amazon.com/gp/product/B00U61GXL8
+  flash: http://www.kongregate.com/games/nibb13/deer-sprint
+
 - title: Ponon! Deluxe
   developer: Mybo
   image: Ponon.jpg
@@ -218,6 +286,22 @@
   image: LetterRush.jpg
   url: http://www.letterrush.com/
   ios: http://appstore.com/letterrush
+
+- title: Abstract Pixel Run
+  developer: Abstract Pixel Games
+  image: AbstractPixelRun.png
+  url: http://www.abstractpixelgames.com/#abstractpixel-run
+  windows: http://www.abstractpixelgames.com/#get-it-free
+  mac: http://www.abstractpixelgames.com/#get-it-free
+
+- title: Sploder Arcade Creator
+  developer: Sploder.com
+  image: SploderArcadeCreator.jpg
+  url: http://www.sploder.com/free-arcade-game-maker.php
+  ios: https://itunes.apple.com/us/app/sploder-arcade-creator/id897669842
+  android: https://play.google.com/store/apps/details?id=com.sploder.arcadecreator
+  amazon: http://www.amazon.com/gp/product/B00LWFWFVY/ref=mas_pm_sploder_arcade_creator
+  flash: http://www.sploder.com/free-arcade-game-maker.php
 
 - title: Foxtrot!
   image: Foxtrot.jpg
@@ -307,11 +391,23 @@
   android: "https://play.google.com/store/apps/details?id=fr.hyperfiction.arkeon&hl=en"
   blackberry: https://appworld.blackberry.com/webstore/content/19227952/?lang=en
 
+- title: Lentil Hunter Map
+  developer: Confidant Communications
+  image: LentilHunterMap.jpg
+  url: http://www.lentils.ca/lentilhunter/
+  html5: http://www.lentils.ca/lentilhunter/
+
 - title: Tiny Guns
   developer: Adventureislands
   image: TinyGuns.jpg
   url: http://www.stencyl.com/game/play/20094
   flash: http://www.stencyl.com/game/play/20094
+
+- title: The Enchanted Cave 2
+  developer: Dustin Auxier
+  image: TheEnchantedCave2.png
+  url: http://dustinauxier.com/the-enchanted-cave-2
+  flash: http://www.kongregate.com/games/DustinAux/the-enchanted-cave-2
 
 - title: Jingle Out of My Way
   developer: GamePill
@@ -370,6 +466,12 @@
   ios: https://itunes.apple.com/gb/app/krizl/id563667430
   android: https://play.google.com/store/apps/details?id=com.rekim.krizl
   blackberry: https://appworld.blackberry.com/webstore/content/17842282/?lang=en
+
+- title: Gravity Trek
+  developer: Z3LF
+  image: GravityTrek.png
+  url: https://play.google.com/store/apps/details?id=com.z3lf.gravitytrek
+  android: https://play.google.com/store/apps/details?id=com.z3lf.gravitytrek
 
 - title: Terrible Teeth
   developer: Vile Media
@@ -470,6 +572,15 @@
   blackberry: http://appworld.blackberry.com/webstore/content/17843174/
   amazon: http://amzn.to/Sq8uuc
 
+- title: Pewma
+  developer: Chimango Games
+  image: Pewma.jpg
+  url: http://www.chimangogames.com
+  ios: https://itunes.apple.com/us/app/pewma-gold/id920337765?mt=8
+  android: https://play.google.com/store/apps/details?id=com.chimango.pewmaGold
+  amazon: http://www.amazon.com/gp/product/B00OBXGHZO
+  blackberry: http://appworld.blackberry.com/webstore/content/59942022/
+
 - title: "Make a Scene: Christmas"
   developer: Innivo
   image: MakeASceneChristmas.jpg
@@ -479,12 +590,34 @@
   blackberry: http://appworld.blackberry.com/webstore/content/17843853/?lang=en
   amazon: http://www.amazon.co.uk/Innivo-Make-a-Scene-Christmas/dp/B00FP232C6
 
+- title: Polaritron
+  developer: Leonardo Cavaletti
+  image: Polaritron.png
+  url: http://leongotgame.itch.io/polaritron
+  android: https://play.google.com/store/apps/details?id=com.leongame.polaritron
+  windows: http://leongotgame.itch.io/polaritron
+  mac: http://leongotgame.itch.io/polaritron
+  linux: http://leongotgame.itch.io/polaritron
+  flash: https://dl.dropboxusercontent.com/u/12543308/polaritron/flash-demo/index.html
+
 - title: AstroRush
   developer: Inertia Software
   image: AstroRush.jpg
   url: "https://play.google.com/store/apps/details?id=com.inertiasoftware.astrorush&hl=en_GB"
   ios: "https://play.google.com/store/apps/details?id=com.inertiasoftware.astrorush&hl=en_GB"
   amazon: http://www.amazon.com/Inertiasoft-ltd-AstroRush/dp/B00IDCG36C
+
+- title: Rainbow Lines
+  developer: Pozirk Games
+  image: RainbowLines.jpg
+  url: http://www.pozirk.com/rainbow-lines-online-game/
+  windows: http://www.amazon.com/Pozirk-Games-Rainbow-Lines-Download/dp/B00O85FGP2/
+  ios: https://itunes.apple.com/us/app/rainbow-lines/id922665108
+  android: https://play.google.com/store/apps/details?id=com.pozirk.Rainbow
+  amazon: http://www.amazon.com/Pozirk-Games-Rainbow-Lines/dp/B00NLIIKF0/
+  nook: http://www.barnesandnoble.com/w/rainbow-lines-pozirk-games/1120372212
+  blackberry: http://appworld.blackberry.com/webstore/content/59939916/?lang=en
+  flash: http://www.pozirk.com/rainbow-lines-online-game/
 
 - title: Pakkuman's Defense
   developer: tametick
@@ -509,6 +642,26 @@
   url: http://www.makeasceneapp.com/app/polar-adventure/
   ios: http://itunes.apple.com/us/app/make-a-scene-polar-adventure/id501640642
   blackberry: http://appworld.blackberry.com/webstore/content/127802/?lang=en
+
+- title: Dead Alliance
+  developer: Texelr Games
+  image: DeadAlliance.jpg
+  url: https://itunes.apple.com/app/id960572813
+  ios: https://itunes.apple.com/app/id960572813
+
+- title: Who Lives in a Tree?
+  developer: Gemioli
+  image: WhoLivesInATree.jpg
+  url: http://www.gemioli.com
+  ios: http://itunes.apple.com/us/app/who-lives-in-tree-interactive/id893959393?mt=8
+  android: http://play.google.com/store/apps/details?id=com.gemioli.tree&hl=en
+
+- title: Lookebox!
+  developer: TMO Game Studio
+  image: Lookebox.jpg
+  url: https://itunes.apple.com/us/app/lookebox!/id940867017
+  ios: https://itunes.apple.com/us/app/lookebox!/id940867017
+  blackberry: https://appworld.blackberry.com/webstore/content/24214881/?countrycode=US&countrycode=US&lang=en
 
 - title: Pearl Ball
   developer: Tang WeiChun
@@ -802,32 +955,6 @@
   amazon: http://www.amazon.com/gp/product/B00OTTLTQC
   nook: http://search.barnesandnoble.com/books/e/2940147236604
 
-- title: Lookebox!
-  developer: TMO Game Studio
-  image: Lookebox.jpg
-  url: https://itunes.apple.com/us/app/lookebox!/id940867017
-  ios: https://itunes.apple.com/us/app/lookebox!/id940867017
-  blackberry: https://appworld.blackberry.com/webstore/content/24214881/?countrycode=US&countrycode=US&lang=en
-
-- title: Who Lives in a Tree?
-  developer: Gemioli
-  image: WhoLivesInATree.jpg
-  url: http://www.gemioli.com
-  ios: http://itunes.apple.com/us/app/who-lives-in-tree-interactive/id893959393?mt=8
-  android: http://play.google.com/store/apps/details?id=com.gemioli.tree&hl=en
-
-- title: Rainbow Lines
-  developer: Pozirk Games
-  image: RainbowLines.jpg
-  url: http://www.pozirk.com/rainbow-lines-online-game/
-  windows: http://www.amazon.com/Pozirk-Games-Rainbow-Lines-Download/dp/B00O85FGP2/
-  ios: https://itunes.apple.com/us/app/rainbow-lines/id922665108
-  android: https://play.google.com/store/apps/details?id=com.pozirk.Rainbow
-  amazon: http://www.amazon.com/Pozirk-Games-Rainbow-Lines/dp/B00NLIIKF0/
-  nook: http://www.barnesandnoble.com/w/rainbow-lines-pozirk-games/1120372212
-  blackberry: http://appworld.blackberry.com/webstore/content/59939916/?lang=en
-  flash: http://www.pozirk.com/rainbow-lines-online-game/
-
 - title: Running Snake
   developer: Phyziko
   image: RunningSnake.jpg
@@ -840,12 +967,6 @@
   url: https://play.google.com/store/apps/details?id=com.sugemapro.memotion
   android: https://play.google.com/store/apps/details?id=com.sugemapro.memotion
 
-- title: Gravity Trek
-  developer: Z3LF
-  image: GravityTrek.png
-  url: https://play.google.com/store/apps/details?id=com.z3lf.gravitytrek
-  android: https://play.google.com/store/apps/details?id=com.z3lf.gravitytrek
-
 - title: Catch Color
   developer: Afla Games
   image: CatchColor.jpg
@@ -853,32 +974,11 @@
   ios: https://itunes.apple.com/en/app/catch-color/id949171712
   android: https://play.google.com/store/apps/details?id=com.aflagames.catchcolor
 
-- title: Dead Alliance
-  developer: Texelr Games
-  image: DeadAlliance.jpg
-  url: https://itunes.apple.com/app/id960572813?ls=1&mt=8
-  ios: https://itunes.apple.com/app/id960572813?ls=1&mt=8
-
-- title: Abstract Pixel Run
-  developer: Abstract Pixel Games
-  image: AbstractPixelRun.png
-  url: http://www.abstractpixelgames.com/#abstractpixel-run
-  windows: http://www.abstractpixelgames.com/#get-it-free
-  mac: http://www.abstractpixelgames.com/#get-it-free
-
 - title: 4080 Puzzle
   developer: Z3LF
   image: 4080Puzzle.png
   url: https://play.google.com/store/apps/details?id=com.z3lf.fortyeighty
   android: https://play.google.com/store/apps/details?id=com.z3lf.fortyeighty
-
-- title: Deer Sprint
-  developer: Six Socks Software
-  image: DeerSprint.jpg
-  url: http://www.kongregate.com/games/nibb13/deer-sprint
-  windows: http://www.amazon.com/gp/product/B00UF1TR12
-  amazon: http://www.amazon.com/gp/product/B00U61GXL8
-  flash: http://www.kongregate.com/games/nibb13/deer-sprint
 
 - title: Coloring
   developer: RevoluGame
@@ -887,94 +987,11 @@
   android: https://play.google.com/store/apps/details?id=com.revolugame.coloring
   flash: http://revolugame.itch.io/coloring
 
-- title: Lentil Hunter Map
-  developer: Confidant Communications
-  image: LentilHunterMap.jpg
-  url: http://www.lentils.ca/lentilhunter/
-  html5: http://www.lentils.ca/lentilhunter/
-
-- title: Sushi Cat-a-pult
-  developer: Massive Monster
-  image: SushiCat-a-pult.jpg
-  url: http://armorgames.com/play/17614/sushi-cat-a-pult
-  flash: http://armorgames.com/play/17614/sushi-cat-a-pult
-
-- title: Stack Pack
-  developer: Dumb Luck Interactive
-  image: StackPack.png
-  url: https://play.google.com/store/apps/details?id=com.dmblck.stackpack
-  android: https://play.google.com/store/apps/details?id=com.dmblck.stackpack
-
-- title: A Good Snowman is Hard to Build
-  developer: Draknek
-  image: AGoodSnowmanIsHardToBuild.jpg
-  url: http://agoodsnowman.com
-  windows: http://store.steampowered.com/app/316610/
-  mac: http://store.steampowered.com/app/316610/
-  linux: http://store.steampowered.com/app/316610/
-
-- title: The Masterplan
-  developer: Shark Punch
-  image: TheMasterplan.jpg
-  url: http://playfield.io/themasterplan
-  windows: http://store.steampowered.com/app/313080/
-  mac: http://store.steampowered.com/app/313080/
-  linux: http://store.steampowered.com/app/313080/
-
-- title: Ghost Splash
-  developer: No Human Studio
-  image: GhostSplash.jpg
-  url: http://www.nohuman.com/en/jeux/ghostsplash-1.html
-  flash: https://apps.facebook.com/ghostsplash/
-
-- title: Sploder Arcade Creator
-  developer: Sploder.com
-  image: SploderArcadeCreator.jpg
-  url: http://www.sploder.com/free-arcade-game-maker.php
-  ios: https://itunes.apple.com/us/app/sploder-arcade-creator/id897669842?ls=1&mt=8
-  android: https://play.google.com/store/apps/details?id=com.sploder.arcadecreator
-  amazon: http://www.amazon.com/gp/product/B00LWFWFVY/ref=mas_pm_sploder_arcade_creator
-  flash: http://www.sploder.com/free-arcade-game-maker.php
-
-- title: Fluff Eaters
-  developer: Fiery Squirrel
-  image: FluffEaters.jpg
-  url: http://fluffeaters.com
-  android: https://play.google.com/store/apps/details?id=com.fs.fluffeaters.FluffEaters
-
 - title: Collow
   developer: Fiery Squirrel
   image: Collow.png
   url: http://fierysquirrel.com/collow/
   android: https://play.google.com/store/apps/details?id=com.fs.collow.Collow
-
-- title: Try Harder
-  developer: Adult Swim Games
-  image: TryHarder.png
-  url: http://games.adultswim.com/try-harder-action-online-game.html
-  flash: http://games.adultswim.com/try-harder-action-online-game.html
-
-- title: The Enchanted Cave 2
-  developer: Dustin Auxier
-  image: TheEnchantedCave2.png
-  url: http://dustinauxier.com/the-enchanted-cave-2
-  flash: http://www.kongregate.com/games/DustinAux/the-enchanted-cave-2
-
-- title: Polaritron
-  developer: Leonardo Cavaletti
-  image: Polaritron.png
-  url: http://leongotgame.itch.io/polaritron
-  android: https://play.google.com/store/apps/details?id=com.leongame.polaritron
-  windows: http://leongotgame.itch.io/polaritron
-  mac: http://leongotgame.itch.io/polaritron
-  linux: http://leongotgame.itch.io/polaritron
-  flash: https://dl.dropboxusercontent.com/u/12543308/polaritron/flash-demo/index.html
-
-- title: Viking Warfare
-  developer: Junjo
-  image: VikingWarfare.jpg
-  url: http://www.kongregate.com/games/Junjo/viking-warfare
-  flash: http://www.kongregate.com/games/Junjo/viking-warfare
 
 - title: Idle Farmer
   developer: Junjo
@@ -982,14 +999,11 @@
   url: http://www.kongregate.com/games/junjo/idle-farmer
   flash: http://www.kongregate.com/games/junjo/idle-farmer
 
-- title: Pewma
-  developer: Chimango Games
-  image: Pewma.jpg
-  url: http://www.chimangogames.com
-  ios: https://itunes.apple.com/us/app/pewma-gold/id920337765?mt=8
-  android: https://play.google.com/store/apps/details?id=com.chimango.pewmaGold
-  amazon: http://www.amazon.com/gp/product/B00OBXGHZO
-  blackberry: http://appworld.blackberry.com/webstore/content/59942022/
+- title: Viking Warfare
+  developer: Junjo
+  image: VikingWarfare.jpg
+  url: http://www.kongregate.com/games/Junjo/viking-warfare
+  flash: http://www.kongregate.com/games/Junjo/viking-warfare
 
 - title: Saving Alley Cats!
   developer: Vigeo Games
@@ -999,9 +1013,3 @@
   android: https://play.google.com/store/apps/details?id=pl.vigeo.saving.alley.cats
   amazon: http://www.amazon.com/Vigeo-Games-Saving-Alley-Cats/dp/B00JULB8XS
 
-- title: Werewolf Tycoon
-  developer: Joe Williamson
-  image: WerewolfTycoon.png
-  url: http://joecreates.co.uk/werewolftycoon/
-  ios: http://appstore.com/werewolftycoon
-  android: https://play.google.com/store/apps/details?id=uk.co.joecreates.werewolftycoon
