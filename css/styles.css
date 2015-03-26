@@ -175,6 +175,13 @@ li.list-checkbox input {
   
 }
 
+.showcase-title {
+  
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+}
+
 .showcase-image {
   
   width: 100%;
