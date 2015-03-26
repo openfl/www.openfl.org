@@ -17,6 +17,6 @@ Use the following command to update to the latest version:
 lime upgrade openfl
 ```
 
-If you are testing Haxe 3.2, be sure you have the latest haxelib client in order to avoid possible issues.
+If you are testing Haxe 3.2, be sure you have the latest haxelib client in order to avoid possible install issues.
 
 The [showcase](/showcase) has also been updated with over 30 new games. [Check it out](/showcase)!
