@@ -11,7 +11,7 @@ Lime now has added iOS support, including support now for a proper "run" command
 
 Lime also has Mouse.lock, Mouse.warp and onMouseMoveRelative support, Timer and HTTP server improvements.
 
-Use the following to upgrade to the latest version:
+Use the following command to update to the latest version:
 
 ```bash
 lime upgrade openfl
