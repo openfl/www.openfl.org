@@ -11,7 +11,7 @@ permalink: showcase/
 {% if true || showcase.featured %}
 {% cycle '<div class="row">', '' %}
 <div class="col-md-6">
-	<h2>{{ showcase.title }}</h2>
+	<h2 class="showcase-title">{{ showcase.title }}</h2>
 	<p><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}" class="showcase-image" /></a></p>
 	<p class="showcase-icons">
 		{% if showcase.windows %}<a href="{{ showcase.windows }}" target="_blank">{% endif %}<span class="icon-windows"></span>{% if showcase.windows %}</a>{% endif %}
