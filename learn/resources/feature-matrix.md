@@ -32,12 +32,12 @@ permalink: learn/resources/feature-matrix/
 | copyChannel | yes | yes | yes | yes |
 | copyPixels | yes | yes | yes | yes |
 | dispose | yes | yes | yes | yes |
-| draw | yes | yes | yes* | planned |
+| draw | yes | yes | yes* | partial |
 | encode | yes | planned | yes | planned |
 | fillRect | yes | yes | yes | yes |
 | floodFill | yes | yes | yes | yes |
 | generateFilterRect | yes | ignored | ignored | ignored |
-| getColorBoundsRect | yes | ignored | ignored | ignored |
+| getColorBoundsRect | yes | ignored | ignored | yes |
 | getPixel | yes | yes | yes | yes |
 | getPixel32 | yes | yes | yes | yes |
 | getPixels | yes | yes | yes | yes |
@@ -1120,12 +1120,12 @@ permalink: learn/resources/feature-matrix/
 | embedFonts | yes | ignored | ignored | ignored |
 | gridFitType | yes | ignored | ignored | ignored |
 | htmlText | yes | partial | partial | planned |
-| length | yes | yes | yes | planned |
+| length | yes | yes | yes | yes |
 | maxChars | yes | ignored | ignored | ignored |
 | maxScrollH | yes | ignored | ignored | ignored |
 | maxScrollV | yes | ignored | ignored | ignored |
 | multiline | yes | yes | yes | planned |
-| numLines | yes | yes | yes | planned |
+| numLines | yes | yes | yes | yes |
 | restrict | yes | ignored | ignored | ignored |
 | scrollH | yes | ignored | ignored | ignored |
 | scrollV | yes | ignored | ignored | ignored |
@@ -1133,22 +1133,22 @@ permalink: learn/resources/feature-matrix/
 | selectionBeginIndex | yes | ignored | ignored | ignored |
 | selectionEndIndex | yes | ignored | ignored | ignored |
 | sharpness | yes | ignored | ignored | ignored |
-| text | yes | yes | yes | planned |
-| textColor | yes | yes | yes | planned |
-| textHeight | yes | yes | yes | planned |
-| textWidth | yes | yes | yes | planned |
+| text | yes | yes | yes | yes |
+| textColor | yes | yes | yes | yes |
+| textHeight | yes | yes | yes | yes |
+| textWidth | yes | yes | yes | yes |
 | type | yes | yes | yes | planned |
 | wordWrap | yes | yes | yes | planned |
 | appendText | yes | yes | yes | planned |
 | getCharBoundaries | yes | ignored | ignored | ignored |
 | getCharIndexAtPoint | yes | ignored | ignored | ignored |
 | getLineIndexAtPoint | yes | ignored | ignored | ignored |
-| getLineMetrics | yes | ignored | ignored | ignored |
+| getLineMetrics | yes | ignored | ignored | yes |
 | getLineOffset | yes | ignored | ignored | ignored |
 | getLineText | yes | ignored | ignored | ignored |
-| getTextFormat | yes | yes | yes | planned |
+| getTextFormat | yes | yes | yes | yes |
 | setSelection | yes | ignored | ignored | ignored |
-| setTextFormat | yes | yes | yes | planned |
+| setTextFormat | yes | yes | yes | yes |
 
 ### TextFormat
 
