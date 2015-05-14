@@ -62,6 +62,14 @@
   url: http://games.adultswim.com/try-harder-action-online-game.html
   flash: http://games.adultswim.com/try-harder-action-online-game.html
 
+- title: Cursed Treasure 2
+  developer: IriySoft
+  image: CursedTreasure2.jpg
+  url: http://armorgames.com/play/14412/cursed-treasure-2
+  flash: http://armorgames.com/play/14412/cursed-treasure-2
+  ios: https://itunes.apple.com/us/app/cursed-treasure-2/id670189358
+  android: 
+
 - title: Cardinal Quest 2
   developer: randomnine
   image: CardinalQuest2.jpg
@@ -209,6 +217,16 @@
   image: MrsDad.jpg
   url: http://grapefrukt.com/mrs-dad-vs-korv/
   ouya: https://www.ouya.tv/game/Mrs-Dad-vs-Korv/
+
+- title: Mimic Rush
+  developer: Akifox Studio
+  image: MimicRush.jpg
+  url: http://akifox.com/mimicrush/
+  windows: http://akifox.com/mimicrush/get/?p=windows
+  mac: http://akifox.com/mimicrush/get/?p=mac
+  linux: http://akifox.com/mimicrush/#download
+  ios: https://itunes.apple.com/us/app/mimic-rush/id978482657
+  android: https://play.google.com/store/apps/details?id=com.akifox.mimicrush
 
 - title: Gorilla Go!
   developer: Igniter Games
@@ -693,6 +711,13 @@
   android: https://play.google.com/store/apps/details?id=com.geniusdonkeys.toddlerpuzzles.boysandgirls
   html5: http://apps.microsoft.com/windows/en-us/app/04e6e202-e533-410a-8b27-16ebe01e2270
 
+- title: Goumy Sticks
+  developer: 
+  image: GoumySticks.jpg
+  url: http://goumysticks.tikids-studio.com
+  ios: https://itunes.apple.com/us/app/goumy-sticks/id966169188
+  android: https://play.google.com/store/apps/details?id=com.tikids.toddlerstairs.unlimited
+
 - title: Slice the Box
   developer: Armor Games
   image: SliceTheBox.jpg
@@ -735,6 +760,17 @@
   android: https://play.google.com/store/apps/details?id=com.netforza.timesninjademo
   amazon: http://www.amazon.com/Netforza-Times-Ninja-Adventure/dp/B00J4KRA7S/
   flash: http://netforza.com/play/times-ninja-adventure/
+
+- title: Match Jong
+  developer: Pozirk Games
+  image: MatchJong.jpg
+  url: http://www.pozirk.com/match-jong-online-game/
+  ios: https://itunes.apple.com/us/app/match-jong/id975582785
+  android: https://play.google.com/store/apps/details?id=com.pozirk.matchjong
+  blackberry: http://appworld.blackberry.com/webstore/content/59953542/
+  amazon: http://www.amazon.com/Pozirk-Games-Match-Jong/dp/B00U6EKC9E/
+  nook: http://www.barnesandnoble.com/w/match-jong-pozirk-games/1121341347
+  flash: http://www.pozirk.com/match-jong-online-game/
 
 - title: "Animaths: Fun math for kids"
   developer: ERCS Creative
