@@ -19,26 +19,6 @@ Using any version of Flash Professional, you can publish SWF assets to be used b
 
 Certain features that rely on ActionScript, such as frame scripts, the Text Layout Framework or inverse kinematics are not supported. The current releases of Flash Professional include an "Export as Bitmap" feature, which is useful for certain types of rendering.
 
-## Embedding SWF Libraries
-
-When you have created a SWF 
-
-
-Unsupported features include Flash 3D features, Text Layout Framework, Inverse Kinematics, 
-
-OpenFL is compatible with the "swf" haxelib. When added to a project, the SWF library it can enable the use of many features from Flash SWF assets. This is still a "beta" feature so expect support to continue to improve over time.
-
-The SWF library supports two types 
-
-
-It enables use of Flash SWF content 
-
-_If you are are not familiar with creating an OpenFL project, please visit [Your First Project](/learn/tutorials/your-first-project/)._
-
-## Creating SWF Content
-
-OpenFL is capable is rendering 
-
 ## Embedding a SWF Library
 
 If you do not already have a project created, you can use a command like the following:
