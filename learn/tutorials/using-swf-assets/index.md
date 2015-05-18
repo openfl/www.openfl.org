@@ -57,6 +57,7 @@ There are a couple beta embed features available as well. Added a `preload` attr
 
 ```xml
 <library path="to/my.swf" preload="true" generate="true" />
+```
 
 ## Loading a SWF Library
 
