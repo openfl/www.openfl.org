@@ -46,7 +46,7 @@ If you must lock in hybrid for a project, add the following before `<haxelib nam
 
 ## New Releases
 
-New versions of OpenFL and Lime are available. Some (newer) versions of haxelib install only "stable" versions of libraries. Unfortunately this means that Lime 2.3 was being installed with OpenFL 2.2, which are not compatible. As we continue to develop the newer OpenFL 3 APIs, we are changing the version number to a stable "3.0.0" in to ensure that Lime 2.3 is installed along with OpenFL 3, and to avoid setup bugs.
+New versions of OpenFL and Lime are available. Some (newer) versions of haxelib install only "stable" versions of libraries. Unfortunately this means that Lime 2.3 was being installed with OpenFL 2.2, which are not compatible. As we continue to develop the newer OpenFL 3 APIs, we are changing the version number to a stable "3.0.0" in order to ensure that Lime 2.3 is installed along with OpenFL 3 and to avoid setup bugs.
 
 Upgrade using the following command:
 
