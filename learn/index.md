@@ -24,6 +24,7 @@ For documentation on the classes available in Lime and OpenFL, please visit <a h
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=14" target="_blank">How to Make a Pong Game in Haxe and OpenFL</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=19" target="_blank">Keyboard Events in Haxe using OpenFL</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=20" target="_blank">Assets in OpenFL</a>
+ * [Using SWF Assets](/learn/tutorials/using-swf-assets/)
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=66" target="_blank">Depth-Sorting in OpenFL</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=67" target="_blank">Toggle Fullscreen in OpenFL</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=69" target="_blank">Embedding Fonts in OpenFL</a>
