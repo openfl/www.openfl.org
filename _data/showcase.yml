@@ -159,6 +159,12 @@
   url: http://tengame.info/
   ios: https://itunes.apple.com/gb/app/ten/id669964112
 
+- title: HexaWay
+  developer: Molotov Studios
+  image: hexaway.jpg
+  url: https://play.google.com/store/apps/details?id=com.molotovstudios.games.HexaWay
+  android: https://play.google.com/store/apps/details?id=com.molotovstudios.games.HexaWay
+
 - title: Lightbot
   developer: Lightbot Inc
   image: Lightbot.jpg
