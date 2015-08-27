@@ -32,12 +32,12 @@ permalink: learn/resources/feature-matrix/
 | copyChannel | yes | yes | yes | yes |
 | copyPixels | yes | yes | yes | yes |
 | dispose | yes | yes | yes | yes |
-| draw | yes | yes | yes* | planned |
+| draw | yes | yes | yes* | yes |
 | encode | yes | planned | yes | planned |
 | fillRect | yes | yes | yes | yes |
 | floodFill | yes | yes | yes | yes |
 | generateFilterRect | yes | ignored | ignored | ignored |
-| getColorBoundsRect | yes | ignored | ignored | ignored |
+| getColorBoundsRect | yes | ignored | ignored | yes |
 | getPixel | yes | yes | yes | yes |
 | getPixel32 | yes | yes | yes | yes |
 | getPixels | yes | yes | yes | yes |
@@ -462,12 +462,12 @@ permalink: learn/resources/feature-matrix/
 
 | Feature | Flash | HTML5 | Native | Native (Next) |
 | ------- |:-----:|:-----:|:------:|:-------------:|
-| axis | no | planned | yes | planned |
-| device | no | planned | yes | planned |
-| id | no | planned | yes | planned |
-| x | no | planned | yes | planned |
-| y | no | planned | yes | planned |
-| z | no | planned | yes | planned |
+| axis | no | planned | yes | yes |
+| device | no | planned | yes | yes |
+| id | no | planned | yes | yes |
+| x | no | planned | yes | yes |
+| y | no | planned | yes | yes |
+| z | no | planned | yes | yes |
 
 ### KeyboardEvent
 
@@ -529,7 +529,7 @@ permalink: learn/resources/feature-matrix/
 
 | Feature | Flash | HTML5 | Native | Native (Next) |
 | ------- |:-----:|:-----:|:------:|:-------------:|
-| text | yes | yes | yes | planned |
+| text | yes | yes | yes | yes |
 
 ### TimerEvent
 
@@ -975,12 +975,12 @@ permalink: learn/resources/feature-matrix/
 
 | Feature | Flash | HTML5 | Native | Native (Next) |
 | ------- |:-----:|:-----:|:------:|:-------------:|
-| bytesLoaded | yes | yes | yes | planned |
-| bytesTotal | yes | yes | yes | planned |
-| data | yes | yes | yes | planned |
-| dataFormat | yes | yes | yes | planned |
+| bytesLoaded | yes | yes | yes | yes |
+| bytesTotal | yes | yes | yes | yes |
+| data | yes | yes | yes | yes |
+| dataFormat | yes | yes | yes | yes |
 | close | yes | ignored | ignored | ignored |
-| load | yes | yes | yes | planned |
+| load | yes | yes | yes | yes |
 
 ### URLRequest
 
@@ -1044,11 +1044,11 @@ permalink: learn/resources/feature-matrix/
 | Feature | Flash | HTML5 | Native | Native (Next) |
 | ------- |:-----:|:-----:|:------:|:-------------:|
 | hasAccessibility | yes | ignored | ignored | ignored |
-| pixelAspectRatio | yes | yes | yes | planned |
+| pixelAspectRatio | yes | yes | yes | yes |
 | screenDPI | yes | yes | yes | planned |
-| screenResolutionX | yes | yes | yes | planned |
-| screenResolutionY | yes | yes | yes | planned |
-| language | yes | yes | yes | planned |
+| screenResolutionX | yes | yes | yes | yes |
+| screenResolutionY | yes | yes | yes | yes |
+| language | yes | yes | yes | yes |
 
 ### LoaderContext
 
