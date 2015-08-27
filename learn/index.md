@@ -68,7 +68,7 @@ For documentation on the classes available in Lime and OpenFL, please visit <a h
 
 ### Video Tutorials
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xR329GUZTn0?list=PLF1S8k0g8YOU31vqHtZSpGY64DEbh0dr3&showinfo=1&listType=playlist" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLF1S8k0g8YOU31vqHtZSpGY64DEbh0dr3" frameborder="0" allowfullscreen></iframe>
 
 ## Resources
 
