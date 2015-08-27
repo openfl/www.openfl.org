@@ -8,7 +8,7 @@ _Today in the Developer Spotlight, we chat with Nilsen Filc, the creator of Yumm
 
 ![Developer Spotlight]({{ site.baseurl }}/images/spotlight/DeveloperSpotlight.png)
 
-<span style="font-size: 120%">**Tell us a bit about yourself Nilsen. What is your background, what got your started in game development?**</span>
+<span style="font-size: 120%">**Tell us a bit about yourself Nilsen. What is your background, what got you started in game development?**</span>
 
 My father offered me a _Game & Watch_ device when I was just a kid. I really liked it and it engaged my passion for video games. I was lucky enough to start programming in Basic at school on [Thomson MO5](http://en.wikipedia.org/wiki/Thomson_MO5) machines: it was 1985, and only a few schools would provide access to those machines and teach us kids how to drive them.
 
