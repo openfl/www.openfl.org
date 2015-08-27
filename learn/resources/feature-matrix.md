@@ -8,6 +8,20 @@ permalink: learn/resources/feature-matrix/
 
 <style>th:not(:first-child) { text-align: center; }</style>
 
+## openfl.desktop
+
+### Clipboard
+
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| formats | yes | yes | yes | no |
+| clear | yes | yes | yes | no |
+| clearData | yes | yes | yes | no |
+| getData | yes | partial | partial | no |
+| hasFormat | yes | yes | yes | no |
+| setData | yes | yes | yes | no |
+| setDataHandler | yes | ignored | ignored | no |
+
 ## openfl.display
 
 ### Bitmap
@@ -320,9 +334,10 @@ permalink: learn/resources/feature-matrix/
 | Feature | Flash | HTML5 | Native | Native (Legacy) |
 | ------- |:-----:|:-----:|:------:|:---------------:|
 | align | yes | no | no | partial |
+| allowsFullscren | yes | ignored | ignored | no |
 | color | yes | yes | yes | yes |
 | displayState | yes | partial | yes | yes |
-| focus | yes | partial | partial | partial |
+| focus | yes | yes | yes | partial |
 | frameRate | yes | yes | yes | yes |
 | invalidate | yes | yes | yes | yes |
 | quality | yes | ignored | ignored | partial |
@@ -1039,6 +1054,19 @@ permalink: learn/resources/feature-matrix/
 | connectWithProto | yes | partial | ignored | ignored |
 | send | yes | yes | yes | yes |
 
+## openfl.profiler
+
+### Telemetry
+
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| connected | yes | yes | yes | yes |
+| spanMarker | yes | ignored | ignored | ignored |
+| registerCommandHandler | yes | ignored | ignored | ignored |
+| sendMetric | yes | ignored | ignored | ignored |
+| sendSpanMetric | yes | ignored | ignored | ignored |
+| unregisterCommandHandler | yes | ignored | ignored | ignored |
+
 ## openfl.sensors
 
 ### Accelerometer
@@ -1055,21 +1083,47 @@ permalink: learn/resources/feature-matrix/
 
 | Feature | Flash | HTML5 | Native | Native (Legacy) |
 | ------- |:-----:|:-----:|:------:|:---------------:|
-| currentDomain | yes | ignored | ignored | ignored |
-| parentDomain | yes | ignored | ignored | ignored |
-| getDefinition | yes | ignored | ignored | ignored |
-| hasDefinition | yes | ignored | ignored | ignored |
+| currentDomain | yes | partial | partial | ignored |
+| parentDomain | yes | partial | partial | ignored |
+| getDefinition | yes | partial | partial | ignored |
+| hasDefinition | yes | partial | partial | ignored |
 
 ### Capabilities
 
 | Feature | Flash | HTML5 | Native | Native (Legacy) |
 | ------- |:-----:|:-----:|:------:|:---------------:|
+| avHardwareDisabled | yes | yes | yes | no |
+| cpuArchitecture | yes | yes | yes | no |
 | hasAccessibility | yes | ignored | ignored | ignored |
+| hasAudio | yes | yes | yes | no |
+| hasAudioEncoder | yes | yes | yes | no |
+| hasEmbeddedVideo | yes | yes | yes | no |
+| hasMP3 | yes | yes | yes | no |
+| hasPrinting | yes | yes | yes | no |
+| hasScreenBroadcast | yes | yes | yes | no |
+| hasScreenPlayback | yes | yes | yes | no |
+| hasStreamingAudio | yes | yes | yes | no |
+| hasTLS | yes | yes | yes | no |
+| hasVideoEncoder | yes | yes | yes | no |
+| isDebugger | yes | yes | yes | no |
+| isEmbeddedInAcrobat | yes | yes | yes | no |
+| language | yes | yes | yes | no |
+| localFileReadDisable | yes | yes | yes | no |
+| manufacturer | yes | yes | yes | no |
+| maxLevelIDC | yes | yes | yes | no |
+| os | yes | yes | yes | no |
 | pixelAspectRatio | yes | yes | yes | yes |
+| playerType | yes | yes | yes | no |
+| screenColor | yes | yes | yes | no |
 | screenDPI | yes | yes | yes | yes |
 | screenResolutionX | yes | yes | yes | yes |
 | screenResolutionY | yes | yes | yes | yes |
-| language | yes | yes | yes | yes |
+| serverString | yes | yes | yes | no |
+| supports32BitProcesses | yes | yes | yes | no |
+| supports64BitProcesses | yes | yes | yes | no |
+| touchscreenType | yes | yes | yes | no |
+| version | yes | yes | yes | no |
+| hasMultiChannelAudio | yes | yes | yes | no |
 
 ### LoaderContext
 
@@ -1102,14 +1156,14 @@ permalink: learn/resources/feature-matrix/
 
 | Feature | Flash | HTML5 | Native | Native (Legacy) |
 | ------- |:-----:|:-----:|:------:|:---------------:|
-| totalMemory | yes | ignored | planned | yes |
-| useCodePage | yes | ignored | ignored | ignored |
-| vmVersion | yes | ignored | ignored | ignored |
-| exit | no | no | yes | yes |
-| gc | no | no | no | yes |
-| pause | no | no | no | yes |
+| totalMemory | yes | yes | yes | yes |
+| useCodePage | yes | ignored | ignored | no |
+| vmVersion | yes | ignored | ignored | no |
+| exit | no | ignored | yes | yes |
+| gc | no | ignored | yes | yes |
+| pause | no | no | no | no |
 | resume | no | no | no | yes |
-| setClipboard | yes | no | no | no |
+| setClipboard | yes | yes | yes | no |
 
 ## openfl.text
 
@@ -1213,6 +1267,38 @@ permalink: learn/resources/feature-matrix/
 
 ## openfl.ui
 
+### GameInput
+
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| isSupported | yes | planned | yes | no |
+| numDevices | yes | planned | yes | no |
+| getDeviceAt | yes | planned | yes | no |
+
+### GameInputControl
+
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| device | yes | planned | yes | no |
+| id | yes | planned | yes | no |
+| maxValue | yes | planned | yes | no |
+| minValue | yes | planned | yes | no |
+| value | yes | planned | yes | no |
+
+### GameInputDevice
+
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| enabled | yes | planned | yes | no |
+| id | yes | planned | yes | no |
+| name | yes | planned | yes | no |
+| numControls | yes | planned | yes | no |
+| sampleInterval | yes | ignored | ignored | no |
+| getCachedSamples | yes | ignored | ignored | no |
+| getControlAt | yes | planned | yes | no |
+| startCachingSamples | yes | ignored | ignored | no |
+| stopCachingSamples | yes | ignored | ignored | no |
+
 ### Keyboard
 
 | Feature | Flash | HTML5 | Native | Native (Legacy) |
@@ -1234,8 +1320,8 @@ permalink: learn/resources/feature-matrix/
 | ------- |:-----:|:-----:|:------:|:---------------:|
 | inputMode | yes | partial | partial | partial |
 | maxTouchPoints | yes | ignored | ignored | ignored |
-| supportedGestures | yes | ignored | ignored | ignored |
-| supportsGestureEvents | yes | ignored | ignored | ignored |
+| supportedGestures | yes | yes | yes | ignored |
+| supportsGestureEvents | yes | yes | yes | ignored |
 | supportsTouchEvents | yes | yes | yes | yes |
 
 ## openfl.utils
@@ -1325,7 +1411,6 @@ permalink: learn/resources/feature-matrix/
 | registerLibrary | yes | yes | yes | yes |
 | removeEventListener | yes | yes | yes | yes |
 | unloadLibrary | yes | yes | yes | yes |
-| cache | yes | yes | yes | yes |
 
 ### Lib
 
@@ -1359,9 +1444,10 @@ permalink: learn/resources/feature-matrix/
 
 | Feature | Flash | HTML5 | Native | Native (Legacy) |
 | ------- |:-----:|:-----:|:------:|:---------------:|
-| length | yes | yes | yes | yes |
 | fixed | yes | yes | yes | yes |
+| length | yes | yes | yes | yes |
 | concat | yes | yes | yes | yes |
+| copy | yes | yes | yes | yes |
 | convert | yes | yes | yes | yes |
 | copy | yes | yes | yes | yes |
 | indexOf | yes | yes | yes | yes |
@@ -1378,4 +1464,5 @@ permalink: learn/resources/feature-matrix/
 | toArray | yes | yes | yes | yes |
 
 _* Implemented using software rendering instead of hardware rendering_
+
 _** When including the "format" haxelib library_
