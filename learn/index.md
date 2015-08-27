@@ -3,8 +3,6 @@ layout: default
 title: Learn
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xR329GUZTn0?list=PLF1S8k0g8YOU31vqHtZSpGY64DEbh0dr3&showinfo=1" frameborder="0" allowfullscreen></iframe>
-
 # Learn
 
 ## Fundamentals
@@ -67,6 +65,10 @@ For documentation on the classes available in Lime and OpenFL, please visit <a h
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=75" target="_blank">HaxeUI Roots</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=76" target="_blank">Accordians in HaxeUI</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=77" target="_blank">ListView in HaxeUI</a>
+
+### Video Tutorials
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xR329GUZTn0?list=PLF1S8k0g8YOU31vqHtZSpGY64DEbh0dr3&showinfo=1" frameborder="0" allowfullscreen></iframe>
 
 ## Resources
 
