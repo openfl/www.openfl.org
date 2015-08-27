@@ -12,16 +12,16 @@ permalink: learn/resources/feature-matrix/
 
 ### Bitmap
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | bitmapData | yes | yes | yes | yes |
 | pixelSnapping | yes | ignored | ignored | ignored |
 | smoothing | yes | yes | yes | yes |
 
 ### BitmapData
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | height | yes | yes | yes | yes |
 | rect | yes | yes | yes | yes |
 | transparent | yes | yes | yes | yes |
@@ -29,26 +29,28 @@ permalink: learn/resources/feature-matrix/
 | applyFilter | yes | partial | partial | planned |
 | clone | yes | yes | yes | yes |
 | colorTransform | yes | yes | yes | yes |
+| compare | yes | yes | yes | no |
 | copyChannel | yes | yes | yes | yes |
 | copyPixels | yes | yes | yes | yes |
 | dispose | yes | yes | yes | yes |
-| draw | yes | yes | yes* | yes |
-| encode | yes | planned | yes | planned |
+| draw | yes | yes | yes* | yes* |
+| encode | yes | yes** | yes | yes |
 | fillRect | yes | yes | yes | yes |
 | floodFill | yes | yes | yes | yes |
 | generateFilterRect | yes | ignored | ignored | ignored |
-| getColorBoundsRect | yes | ignored | ignored | yes |
+| getColorBoundsRect | yes | yes | yes | yes |
 | getPixel | yes | yes | yes | yes |
 | getPixel32 | yes | yes | yes | yes |
 | getPixels | yes | yes | yes | yes |
 | getVector | yes | yes | yes | yes |
 | histogram | yes | yes | yes | yes |
-| hitTest | yes | planned | no | planned |
+| hitTest | yes | yes | yes | no |
 | lock | yes | yes | yes | yes |
-| noise | yes | planned | yes | planned |
+| merge | yes | yes | yes | no |
+| noise | yes | planned | planned | yes |
 | paletteMap | yes | yes | yes | yes |
-| perlinNoise | yes | no | partial | no |
-| scroll | yes | planned | yes | planned |
+| perlinNoise | yes | no | no | partial |
+| scroll | yes | yes | yes | yes |
 | setPixel | yes | yes | yes | yes |
 | setPixel32 | yes | yes | yes | yes |
 | setPixels | yes | yes | yes | yes |
@@ -58,19 +60,21 @@ permalink: learn/resources/feature-matrix/
 
 ### DisplayObject
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | alpha | yes | yes | yes | yes |
-| blendMode | yes | ignored | yes* | partial |
-| cacheAsBitmap | yes | yes | yes* | planned |
-| filters | yes | yes | yes | yes |
+| blendMode | yes | ignored | partial | yes* |
+| cacheAsBitmap | yes | planned | planned | yes* |
+| filters | yes | partial | planned | yes |
+| height | yes | yes | yes | yes |
 | loaderInfo | yes | yes | yes | yes |
+| mask | yes | yes | yes | yes |
 | mouseX | yes | yes | yes | yes |
 | mouseY | yes | yes | yes | yes |
 | name | yes | yes | yes | yes |
-| opaqueBackground | yes | planned | yes | planned |
+| opaqueBackground | yes | planned | planned | yes |
 | parent | yes | yes | yes | yes |
-| root | yes | planned | partial | planned |
+| root | yes | partial | partial | partial |
 | rotation | yes | yes | yes | yes |
 | scale9Grid | yes | ignored | ignored | ignored |
 | scaleX | yes | yes | yes | yes |
@@ -85,8 +89,8 @@ permalink: learn/resources/feature-matrix/
 
 ### DisplayObjectContainer
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | mouseChildren | yes | yes | yes | yes |
 | numChildren | yes | yes | yes | yes |
 | tabChildren | yes | ignored | ignored | ignored |
@@ -107,42 +111,42 @@ permalink: learn/resources/feature-matrix/
 
 ### FrameLabel
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | frame | yes | yes | yes | yes |
 | name | yes | yes | yes | yes |
 
 ### Graphics
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | beginBitmapFill | yes | yes | yes | yes |
 | beginFill | yes | yes | yes | yes |
-| beginGradientFill | yes | no | partial | no |
+| beginGradientFill | yes | yes | yes | partial |
 | clear | yes | yes | yes | yes |
-| copyFrom | yes | yes | no | yes |
-| cubicCurveTo | yes | yes | no | yes |
+| copyFrom | yes | yes | yes | no |
+| cubicCurveTo | yes | yes | yes | no |
 | curveTo | yes | yes | yes | yes |
 | drawCircle | yes | yes | yes | yes |
 | drawEllipse | yes | yes | yes | yes |
-| drawGraphicsData | yes | no | yes | no |
-| drawPath | yes | no | yes | no |
+| drawGraphicsData | yes | yes | yes | no |
+| drawPath | yes | yes | yes | yes |
 | drawRect | yes | yes | yes | yes |
 | drawRoundRect | yes | yes | yes | yes |
 | drawRoundRectComplex | yes | no | no | no |
 | drawTiles | yes | yes | yes | yes |
 | drawTriangles | yes | yes | yes | yes |
 | endFill | yes | yes | yes | yes |
-| lineBitmapStyle | yes | no | partial | no |
-| lineGradientStyle | yes | no | partial | no |
+| lineBitmapStyle | yes | no | no | partial |
+| lineGradientStyle | yes | no | no | partial |
 | lineStyle | yes | partial | partial | partial |
 | lineTo | yes | yes | yes | yes |
 | moveTo | yes | yes | yes | yes |
 
 ### GraphicsBitmapFill
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | bitmapData | yes | yes | yes | yes |
 | matrix | yes | yes | yes | yes |
 | repeat | yes | yes | yes | yes |
@@ -150,14 +154,14 @@ permalink: learn/resources/feature-matrix/
 
 ### GraphicsEndFill
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | (available) | yes | yes | yes | yes |
 
 ### GraphicsGradientFill
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | alphas | yes | yes | yes | yes |
 | colors | yes | yes | yes | yes |
 | focalPointRatio | yes | yes | yes | yes |
@@ -169,8 +173,8 @@ permalink: learn/resources/feature-matrix/
 
 ### GraphicsPath
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | commands | yes | yes | yes | yes |
 | data | yes | yes | yes | yes |
 | winding | yes | yes | yes | yes |
@@ -182,15 +186,15 @@ permalink: learn/resources/feature-matrix/
 
 ### GraphicsSolidFill
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | alpha | yes | yes | yes | yes |
 | color | yes | yes | yes | yes |
 
 ### GraphicsStroke
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | caps | yes | yes | yes | yes |
 | fill | yes | yes | yes | yes |
 | joints | yes | yes | yes | yes |
@@ -201,20 +205,26 @@ permalink: learn/resources/feature-matrix/
 
 ### InteractiveObject
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | doubleClickEnabled | yes | ignored | ignored | ignored |
 | focusRect | yes | ignored | ignored | ignored |
-| mouseEnabled | yes | yes | yes | yes |
-| needsSoftKeyboard | yes | ignored | partial | ignored |
+| mouseEnabled | yes | yes | yes | partial |
+| needsSoftKeyboard | yes | ignored | ignored | partial |
 | softKeyboardInputAreaOfInterest | yes | ignored | ignored | ignored |
-| tabEnabled | yes | ignored | ignored | ignored |
+| tabEnabled | yes | partial | partial | ignored |
 | tabIndex | yes | ignored | ignored | ignored |
+
+### JPEGEncoderOptions
+
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| quality | yes | yes | yes | yes |
 
 ### Loader
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | content | yes | yes | yes | yes |
 | contentLoaderInfo | yes | yes | yes | yes |
 | close | yes | no | no | no |
@@ -225,8 +235,8 @@ permalink: learn/resources/feature-matrix/
 
 ### LoaderInfo
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | applicationDomain | yes | ignored | ignored | ignored |
 | bytes | yes | yes | yes | yes |
 | bytesLoaded | yes | yes | yes | yes |
@@ -247,8 +257,8 @@ permalink: learn/resources/feature-matrix/
 
 ### MovieClip
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | currentFrame | yes | yes | yes | yes |
 | currentFrameLabel | yes | yes | yes | yes |
 | currentLabel | yes | yes | yes | yes |
@@ -265,21 +275,27 @@ permalink: learn/resources/feature-matrix/
 
 ### OpenGLView
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | isSupported | yes | yes | yes | yes |
 | render | ignored | yes | yes | yes |
 
+### PNGEncoderOptions
+
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| fastCompression | yes | ignored | ignored | ignored |
+
 ### Shape
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | graphics | yes | yes | yes | yes |
 
 ### SimpleButton
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | downState | yes | yes | yes | yes |
 | enabled | yes | yes | yes | yes |
 | hitTestState | yes | yes | yes | yes |
@@ -287,38 +303,48 @@ permalink: learn/resources/feature-matrix/
 | soundTransform | yes | ignored | ignored | ignored |
 | trackAsMenu | yes | ignored | ignored | ignored |
 | upState | yes | yes | yes | yes |
-| useHandCursor | yes | yes | ignored | ignored |
+| useHandCursor | yes | yes | yes | ignored |
 
 ### Sprite
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| buttonMode | yes | yes | ignored | ignored |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| buttonMode | yes | yes | yes | ignored |
 | graphics | yes | yes | yes | yes |
-| useHandCursor | yes | yes | ignored | ignored |
+| useHandCursor | yes | yes | yes | ignored |
 | startDrag | yes | yes | yes | yes |
 | stopDrag | yes | yes | yes | yes |
 
 ### Stage
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| align | yes | no | partial | no |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| align | yes | no | no | partial |
 | color | yes | yes | yes | yes |
 | displayState | yes | partial | yes | yes |
 | focus | yes | partial | partial | partial |
-| frameRate | yes | ignored | yes | yes |
-| quality | yes | ignored | partial | ignored |
+| frameRate | yes | yes | yes | yes |
+| invalidate | yes | yes | yes | yes |
+| quality | yes | ignored | ignored | partial |
+| stage3ds | yes | yes | yes | yes |
 | stageFocusRect | yes | ignored | ignored | ignored |
-| scaleMode | yes | no | partial | no |
+| scaleMode | yes | no | no | partial |
 | stageHeight | yes | yes | yes | yes |
 | stageWidth | yes | yes | yes | yes |
-| invalidate | yes | yes | yes | yes |
+
+### Stage3D
+
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| context3D | yes | yes | yes | yes |
+| visible | yes | yes | yes | yes |
+| x | yes | yes | yes | yes |
+| y | yes | yes | yes | yes |
 
 ### Tilesheet
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | addTileRect | yes | yes | yes | yes |
 | drawTiles | yes | yes | yes | yes |
 
@@ -326,20 +352,20 @@ permalink: learn/resources/feature-matrix/
 
 ### ArgumentError
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | (available) | yes | yes | yes | yes |
 
 ### EOFError
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | (available) | yes | yes | yes | yes |
 
 ### Error
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | errorID | yes | yes | yes | yes |
 | message | yes | yes | yes | yes |
 | name | yes | yes | yes | yes |
@@ -347,74 +373,74 @@ permalink: learn/resources/feature-matrix/
 
 ### IllegalOperationError
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | (available) | yes | yes | yes | yes |
 
 ### IOError
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | (available) | yes | yes | yes | yes |
 
 ### RangeError
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | (available) | yes | yes | yes | yes |
 
 ### SecurityError
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | (available) | yes | yes | yes | yes |
 
 ### TypeError
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | (available) | yes | yes | yes | yes |
 
 ## openfl.events
 
 ### AccelerometerEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| accelerationX | yes | yes | yes | yes |
-| accelerationY | yes | yes | yes | yes |
-| accelerationZ | yes | yes | yes | yes |
-| timestamp | yes | yes | yes | yes |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| accelerationX | yes | planned | planned | yes |
+| accelerationY | yes | planned | planned | yes |
+| accelerationZ | yes | planned | planned | yes |
+| timestamp | yes | planned | planned | yes |
 
 ### AsyncErrorEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | error | yes | yes | yes | yes |
 
 ### ContextMenuEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | contextMenuOwner | yes | ignored | ignored | ignored |
 | mouseTarget | yes | ignored | ignored | ignored |
 
 ### DataEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | data | yes | yes | yes | yes |
 
 ### ErrorEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | errorID | yes | yes | yes | yes |
 
 ### Event
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | bubbles | yes | yes | yes | yes |
 | cancelable | yes | yes | yes | yes |
 | currentTarget | yes | yes | yes | yes |
@@ -423,13 +449,14 @@ permalink: learn/resources/feature-matrix/
 | type | yes | yes | yes | yes |
 | clone | yes | yes | yes | yes |
 | isDefaultPrevented | yes | yes | yes | yes |
+| preventDefault | yes | yes | yes | yes |
 | stopImmediatePropagation | yes | yes | yes | yes |
 | stopPropagation | yes | yes | yes | yes |
 
 ### EventDispatcher
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | addEventListener | yes | yes | yes | yes |
 | dispatchEvent | yes | yes | yes | yes |
 | hasEventListener | yes | yes | yes | yes |
@@ -438,41 +465,36 @@ permalink: learn/resources/feature-matrix/
 
 ### FocusEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | keyCode | yes | yes | yes | yes |
 | relatedObject | yes | yes | yes | yes |
 | shiftKey | yes | yes | yes | yes |
 
+### GameInputEvent
+
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| device | yes | planned | yes | no |
+
 ### HTTPStatusEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | responseHeaders | yes | yes | yes | yes |
 | responseURL | yes | yes | yes | yes |
 | status | yes | yes | yes | yes |
 
 ### IOErrorEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | (available) | yes | yes | yes | yes |
-
-### JoystickEvent
-
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| axis | no | planned | yes | yes |
-| device | no | planned | yes | yes |
-| id | no | planned | yes | yes |
-| x | no | planned | yes | yes |
-| y | no | planned | yes | yes |
-| z | no | planned | yes | yes |
 
 ### KeyboardEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | altKey | yes | yes | yes | yes |
 | charCode | yes | yes | yes | yes |
 | ctrlKey | yes | yes | yes | yes |
@@ -484,8 +506,8 @@ permalink: learn/resources/feature-matrix/
 
 ### MouseEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | altKey | yes | yes | yes | yes |
 | buttonDown | yes | yes | yes | yes |
 | commandKey | yes | yes | yes | yes |
@@ -501,46 +523,46 @@ permalink: learn/resources/feature-matrix/
 
 ### NetStatusEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | info | yes | yes | yes | yes |
 
 ### ProgressEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | bytesLoaded | yes | yes | yes | yes |
 | bytesTotal | yes | yes | yes | yes |
 
 ### SampleDataEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| data | yes | planned | yes | planned |
-| position | yes | planned | yes | planned |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| data | yes | planned | planned | yes |
+| position | yes | planned | planned | yes |
 
 ### SecurityErrorEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | (available) | yes | yes | yes | yes |
 
 ### TextEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | text | yes | yes | yes | yes |
 
 ### TimerEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | (available) | yes | yes | yes | yes |
 
 ### TouchEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | altKey | yes | yes | yes | yes |
 | buttonDown | yes | yes | yes | yes |
 | commandKey | yes | yes | yes | yes |
@@ -549,7 +571,7 @@ permalink: learn/resources/feature-matrix/
 | isPrimaryTouchPoint | yes | yes | yes | yes |
 | localX | yes | yes | yes | yes |
 | localY | yes | yes | yes | yes |
-| pressure | yes | ignored | ignored | ignored |
+| pressure | yes | yes | yes | ignored |
 | relatedObject | yes | yes | yes | yes |
 | shiftKey | yes | yes | yes | yes |
 | sizeX | yes | ignored | ignored | ignored |
@@ -560,22 +582,22 @@ permalink: learn/resources/feature-matrix/
 
 ### UncaughtErrorEvent
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | error | yes | yes | yes | yes |
 
 ### UncaughtErrorEvents
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | (available) | yes | yes | yes | yes |
 
 ## openfl.external
 
 ### ExternalInterface
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | available | yes | yes | ignored | ignored |
 | marshallExceptions | yes | ignored | ignored | ignored |
 | objectID | yes | ignored | ignored | ignored |
@@ -584,59 +606,59 @@ permalink: learn/resources/feature-matrix/
 
 ### BitmapFilter
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | clone | yes | yes | yes | yes |
 
 ### BlurFilter
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| blurX | yes | ignored | yes | ignored |
-| blurY | yes | ignored | yes | ignored |
-| quality | yes | ignored | yes | ignored |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| blurX | yes | planned | planned | yes |
+| blurY | yes | planned | planned | yes |
+| quality | yes | planned | planned | yes |
 
 ### ColorMatrixFilter
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| matrix | yes | yes | yes | planned |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| matrix | yes | yes | planned | yes |
 
 ### DropShadowFilter
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| alpha | yes | ignored | yes | ignored |
-| angle | yes | ignored | yes | ignored |
-| blurX | yes | ignored | yes | ignored |
-| blurY | yes | ignored | yes | ignored |
-| color | yes | ignored | yes | ignored |
-| distance | yes | ignored | yes | ignored |
-| hideObject | yes | ignored | yes | ignored |
-| inner | yes | ignored | yes | ignored |
-| knockout | yes | ignored | yes | ignored |
-| quality | yes | ignored | yes | ignored |
-| strength | yes | ignored | yes | ignored |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| alpha | yes | planned | planned | yes |
+| angle | yes | planned | planned | yes |
+| blurX | yes | planned | planned | yes |
+| blurY | yes | planned | planned | yes |
+| color | yes | planned | planned | yes |
+| distance | yes | planned | planned | yes |
+| hideObject | yes | planned | planned | yes |
+| inner | yes | planned | planned | yes |
+| knockout | yes | planned | planned | yes |
+| quality | yes | planned | planned | yes |
+| strength | yes | planned | planned | yes |
 
 ### GlowFilter
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| alpha | yes | ignored | yes | ignored |
-| blurX | yes | ignored | yes | ignored |
-| blurY | yes | ignored | yes | ignored |
-| color | yes | ignored | yes | ignored |
-| inner | yes | ignored | yes | ignored |
-| knockout | yes | ignored | yes | ignored |
-| quality | yes | ignored | yes | ignored |
-| strength | yes | ignored | yes | ignored |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| alpha | yes | planned | planned | yes |
+| blurX | yes | planned | planned | yes |
+| blurY | yes | planned | planned | yes |
+| color | yes | planned | planned | yes |
+| inner | yes | planned | planned | yes |
+| knockout | yes | planned | planned | yes |
+| quality | yes | planned | planned | yes |
+| strength | yes | planned | planned | yes |
 
 ## openfl.geom
 
 ### ColorTransform
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | alphaMultiplier | yes | yes | yes | yes |
 | alphaOffset | yes | yes | yes | yes |
 | blueMultiplier | yes | yes | yes | yes |
@@ -650,8 +672,8 @@ permalink: learn/resources/feature-matrix/
 
 ### Matrix
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | a | yes | yes | yes | yes |
 | b | yes | yes | yes | yes |
 | c | yes | yes | yes | yes |
@@ -667,11 +689,10 @@ permalink: learn/resources/feature-matrix/
 | copyRowTo | yes | yes | yes | yes |
 | createBox | yes | yes | yes | yes |
 | createGradientBox | yes | yes | yes | yes |
-| equals | yes | yes | yes | yes |
 | deltaTransformPoint | yes | yes | yes | yes |
+| equals | yes | yes | yes | yes |
 | identity | yes | yes | yes | yes |
 | invert | yes | yes | yes | yes |
-| mult | yes | yes | yes | yes |
 | rotate | yes | yes | yes | yes |
 | scale | yes | yes | yes | yes |
 | setRotation | yes | yes | yes | yes |
@@ -681,8 +702,8 @@ permalink: learn/resources/feature-matrix/
 
 ### Matrix3D
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | determinant | yes | yes | yes | yes |
 | position | yes | yes | yes | yes |
 | rawData | yes | yes | yes | yes |
@@ -721,8 +742,8 @@ permalink: learn/resources/feature-matrix/
 
 ### PerspectiveProjection
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | fieldOfView | yes | yes | yes | yes |
 | focalLength | yes | yes | yes | yes |
 | projectionCenter | yes | yes | yes | yes |
@@ -730,8 +751,8 @@ permalink: learn/resources/feature-matrix/
 
 ### Point
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | length | yes | yes | yes | yes |
 | x | yes | yes | yes | yes |
 | y | yes | yes | yes | yes |
@@ -748,8 +769,8 @@ permalink: learn/resources/feature-matrix/
 
 ### Rectangle
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | bottom | yes | yes | yes | yes |
 | bottomRight | yes | yes | yes | yes |
 | height | yes | yes | yes | yes |
@@ -781,24 +802,24 @@ permalink: learn/resources/feature-matrix/
 
 ### Transform
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| colorTransform | yes | yes | yes | yes |
-| concatenatedColorTransform | yes | yes | yes | yes |
-| concatenatedMatrix | yes | yes | yes | yes |
-| matrix | yes | yes | yes | yes |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| colorTransform | yes | partial | yes | yes |
+| concatenatedColorTransform | partial | yes | yes | yes |
+| concatenatedMatrix | yes | partial | partial | yes |
+| matrix | yes | partial | partial | yes |
 | pixelBounds | yes | ignored | ignored | ignored |
 
 ### Utils3D
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | projectVector | yes | yes | yes | yes |
 
 ### Vector3D
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | length | yes | yes | yes | yes |
 | lengthSquared | yes | yes | yes | yes |
 | w | yes | yes | yes | yes |
@@ -827,8 +848,8 @@ permalink: learn/resources/feature-matrix/
 
 ### ID3Info
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | album | yes | ignored | ignored | ignored |
 | artist | yes | ignored | ignored | ignored |
 | comment | yes | ignored | ignored | ignored |
@@ -839,8 +860,8 @@ permalink: learn/resources/feature-matrix/
 
 ### Sound
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | bytesLoaded | yes | yes | yes | yes |
 | bytesTotal | yes | yes | yes | yes |
 | id3 | yes | ignored | ignored | ignored |
@@ -848,15 +869,15 @@ permalink: learn/resources/feature-matrix/
 | length | yes | yes | yes | yes |
 | url | yes | yes | yes | yes |
 | close | yes | yes | yes | yes |
-| load | yes | yes | partial | partial |
-| loadCompressedDataFromByteArray | yes | no | yes | partial |
-| loadPCMFromByteArray | yes | no | yes | partial |
-| play | yes | yes | yes | partial |
+| load | yes | yes | yes | partial |
+| loadCompressedDataFromByteArray | yes | no | partial | partial |
+| loadPCMFromByteArray | yes | no | partial | partial |
+| play | yes | yes | yes | yes |
 
 ### SoundChannel
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | leftPeak | yes | ignored | ignored | ignored |
 | position | yes | yes | yes | yes |
 | rightPeak | yes | ignored | ignored | ignored |
@@ -865,15 +886,15 @@ permalink: learn/resources/feature-matrix/
 
 ### SoundLoaderContext
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | bufferTime | yes | ignored | ignored | ignored |
 | checkPolicyFile | yes | ignored | ignored | ignored |
 
 ### SoundTransform
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | leftToLeft | yes | yes | yes | yes |
 | leftToRight | yes | yes | yes | yes |
 | pan | yes | yes | yes | yes |
@@ -884,8 +905,8 @@ permalink: learn/resources/feature-matrix/
 
 ### Video
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | deblocking | yes | ignored | ignored | ignored |
 | smoothing | yes | ignored | ignored | ignored |
 | attachNetStream | yes | yes | no | no |
@@ -895,14 +916,14 @@ permalink: learn/resources/feature-matrix/
 
 ### NetConnection
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | connect | yes | yes | ignored | ignored |
 
 ### NetStream
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | audioCodec | yes | ignored | ignored | ignored |
 | bufferLength | yes | ignored | ignored | ignored |
 | bufferTime | yes | ignored | ignored | ignored |
@@ -924,8 +945,8 @@ permalink: learn/resources/feature-matrix/
 
 ### SharedObject
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | data | yes | yes | yes | yes |
 | size | yes | yes | yes | yes |
 | clear | yes | yes | yes | yes |
@@ -935,8 +956,8 @@ permalink: learn/resources/feature-matrix/
 
 ### Socket
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | bytesAvailable | yes | yes | yes | yes |
 | bytesPending | yes | yes | yes | yes |
 | timeout | yes | yes | yes | yes |
@@ -973,8 +994,8 @@ permalink: learn/resources/feature-matrix/
 
 ### URLLoader
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | bytesLoaded | yes | yes | yes | yes |
 | bytesTotal | yes | yes | yes | yes |
 | data | yes | yes | yes | yes |
@@ -984,56 +1005,56 @@ permalink: learn/resources/feature-matrix/
 
 ### URLRequest
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| contentType | yes | yes | yes | planned |
-| data | yes | yes | yes | planned |
-| method | yes | yes | yes | planned |
-| requestHeaders | yes | yes | yes | planned |
-| url | yes | yes | yes | planned |
-| userAgent | yes | no | partial | planned |
-| formatRequestHeaders | yes | yes | yes | planned |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| contentType | yes | yes | yes | yes |
+| data | yes | yes | yes | yes |
+| method | yes | yes | yes | yes |
+| requestHeaders | yes | yes | yes | yes |
+| url | yes | yes | yes | yes |
+| userAgent | yes | no | partial | partial |
+| formatRequestHeaders | yes | yes | yes | yes |
 
 ### URLRequestHeader
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | name | yes | yes | yes | yes |
 | value | yes | yes | yes | yes |
 
 ### URLVariables
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | decode | yes | yes | yes | yes |
 
 ### XMLSocket
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| connected | yes | yes | yes | ignored |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| connected | yes | yes | yes | yes |
 | timeout | yes | ignored | ignored | ignored |
-| close | yes | yes | yes | ignored |
-| connect | yes | yes | yes | ignored |
-| connectWithProto | yes | partial | no | ignored |
-| send | yes | yes | yes | ignored |
+| close | yes | yes | yes | yes |
+| connect | yes | yes | yes | yes |
+| connectWithProto | yes | partial | ignored | ignored |
+| send | yes | yes | yes | yes |
 
 ## openfl.sensors
 
 ### Accelerometer
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| isSupported | yes | ignored | yes | ignored |
-| muted | yes | ignored | yes | ignored |
-| setRequestedUpdateInterval | yes | ignored | yes | ignored |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| isSupported | yes | planned | planned | yes |
+| muted | yes | planned | planned | yes |
+| setRequestedUpdateInterval | yes | planned | planned | yes |
 
 ## openfl.system
 
 ### ApplicationDomain
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | currentDomain | yes | ignored | ignored | ignored |
 | parentDomain | yes | ignored | ignored | ignored |
 | getDefinition | yes | ignored | ignored | ignored |
@@ -1041,19 +1062,19 @@ permalink: learn/resources/feature-matrix/
 
 ### Capabilities
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | hasAccessibility | yes | ignored | ignored | ignored |
 | pixelAspectRatio | yes | yes | yes | yes |
-| screenDPI | yes | yes | yes | planned |
+| screenDPI | yes | yes | yes | yes |
 | screenResolutionX | yes | yes | yes | yes |
 | screenResolutionY | yes | yes | yes | yes |
 | language | yes | yes | yes | yes |
 
 ### LoaderContext
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | allowCodeImport | yes | ignored | ignored | ignored |
 | allowLoadBytesCodeExecution | yes | ignored | ignored | ignored |
 | applicationDomain | yes | ignored | ignored | ignored |
@@ -1062,8 +1083,8 @@ permalink: learn/resources/feature-matrix/
 
 ### Security
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | disableAVM1Loading | yes | ignored | ignored | ignored |
 | exactSettings | yes | ignored | ignored | ignored |
 | sandboxType | yes | ignored | ignored | ignored |
@@ -1073,87 +1094,92 @@ permalink: learn/resources/feature-matrix/
 
 ### SecurityDomain
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | currentDomain | yes | ignored | ignored | ignored |
 
 ### System
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| totalMemory | yes | ignored | yes | planned |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| totalMemory | yes | ignored | planned | yes |
 | useCodePage | yes | ignored | ignored | ignored |
 | vmVersion | yes | ignored | ignored | ignored |
-| exit | no | no | yes | planned |
-| gc | no | no | yes | no |
-| pause | no | no | yes | planned |
-| resume | no | no | yes | planned |
-| setClipboard | yes | no | no | planned |
+| exit | no | no | yes | yes |
+| gc | no | no | no | yes |
+| pause | no | no | no | yes |
+| resume | no | no | no | yes |
+| setClipboard | yes | no | no | no |
 
 ## openfl.text
 
 ### Font
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | fontName | yes | yes | yes | yes |
 | fontStyle | yes | ignored | ignored | ignored |
 | fontType | yes | ignored | ignored | ignored |
-| enumerateFonts | yes | partial | yes | partial |
-| registerFont | yes | ignored | yes | yes |
+| enumerateFonts | yes | partial | partial | partial |
+| registerFont | yes | yes | yes | yes |
 
 ### TextField
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| antiAliasType | yes | ignored | ignored | ignored |
-| autoSize | yes | partial | partial | planned |
-| background | yes | yes | yes | planned |
-| backgroundColor | yes | yes | yes | planned |
-| border | yes | yes | yes | planned |
-| borderColor | yes | yes | yes | planned |
-| bottomScrollV | yes | ignored | ignored | ignored |
-| caretIndex | yes | ignored | ignored | ignored |
-| caretPos | yes | ignored | ignored | ignored |
-| defaultTextFormat | yes | yes | yes | planned |
-| displayAsPassword | yes | no | yes | planned |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| antiAliasType | yes | partial | partial | ignored |
+| autoSize | yes | yes | yes | partial |
+| background | yes | yes | yes | yes |
+| backgroundColor | yes | yes | yes | yes |
+| border | yes | yes | yes | yes |
+| borderColor | yes | yes | yes | yes |
+| bottomScrollV | yes | yes | yes | ignored |
+| caretIndex | yes | yes | yes | ignored |
+| defaultTextFormat | yes | yes | yes | yes |
+| displayAsPassword | yes | planned | planned | yes |
 | embedFonts | yes | ignored | ignored | ignored |
-| gridFitType | yes | ignored | ignored | ignored |
-| htmlText | yes | partial | partial | planned |
-| length | yes | yes | yes | planned |
-| maxChars | yes | ignored | ignored | ignored |
-| maxScrollH | yes | ignored | ignored | ignored |
-| maxScrollV | yes | ignored | ignored | ignored |
-| multiline | yes | yes | yes | planned |
-| numLines | yes | yes | yes | planned |
-| restrict | yes | ignored | ignored | ignored |
-| scrollH | yes | ignored | ignored | ignored |
-| scrollV | yes | ignored | ignored | ignored |
-| selectable | yes | yes | yes | planned |
-| selectionBeginIndex | yes | ignored | ignored | ignored |
-| selectionEndIndex | yes | ignored | ignored | ignored |
+| gridFitType | yes | partial | partial | ignored |
+| htmlText | yes | partial | partial | partial |
+| length | yes | yes | yes | yes |
+| maxChars | yes | planned | planned | ignored |
+| maxScrollH | yes | yes | yes | ignored |
+| maxScrollV | yes | yes | yes | ignored |
+| multiline | yes | yes | yes | yes |
+| numLines | yes | yes | yes | yes |
+| restrict | yes | planned | planned | ignored |
+| scrollH | yes | yes | yes | ignored |
+| scrollV | yes | yes | yes | ignored |
+| selectable | yes | yes | yes | yes |
+| selectionBeginIndex | yes | yes | yes | ignored |
+| selectionEndIndex | yes | yes | yes | ignored |
 | sharpness | yes | ignored | ignored | ignored |
-| text | yes | yes | yes | planned |
-| textColor | yes | yes | yes | planned |
-| textHeight | yes | yes | yes | planned |
-| textWidth | yes | yes | yes | planned |
-| type | yes | yes | yes | planned |
-| wordWrap | yes | yes | yes | planned |
-| appendText | yes | yes | yes | planned |
-| getCharBoundaries | yes | ignored | ignored | ignored |
-| getCharIndexAtPoint | yes | ignored | ignored | ignored |
-| getLineIndexAtPoint | yes | ignored | ignored | ignored |
-| getLineMetrics | yes | ignored | ignored | ignored |
-| getLineOffset | yes | ignored | ignored | ignored |
-| getLineText | yes | ignored | ignored | ignored |
-| getTextFormat | yes | yes | yes | planned |
-| setSelection | yes | ignored | ignored | ignored |
-| setTextFormat | yes | yes | yes | planned |
+| text | yes | yes | yes | yes |
+| textColor | yes | yes | yes | yes |
+| textHeight | yes | yes | yes | yes |
+| textWidth | yes | yes | yes | yes |
+| type | yes | yes | yes | yes |
+| wordWrap | yes | yes | yes | yes |
+| appendText | yes | yes | yes | yes |
+| getCharBoundaries | yes | yes | yes | ignored |
+| getCharIndexAtPoint | yes | yes | yes | ignored |
+| getFirstCharInParagraph | yes | yes | yes | ignored |
+| getLineIndexAtPoint | yes | yes | yes | ignored |
+| getLineIndexOfChar | yes | yes | yes | ignored |
+| getLineLength | yes | yes | yes | ignored |
+| getLineMetrics | yes | yes | yes | ignored |
+| getLineOffset | yes | yes | yes | ignored |
+| getLineText | yes | yes | yes | ignored |
+| getParagraphLength | yes | yes | yes | ignored |
+| getTextFormat | yes | partial | partial | partial |
+| replaceSelectedText | yes | yes | yes | ignored |
+| replaceText | yes | yes | yes | ignored |
+| setSelection | yes | yes | yes | ignored |
+| setTextFormat | yes | yes | yes | yes |
 
 ### TextFormat
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | align | yes | yes | yes | yes |
 | blockIndent | yes | yes | yes | yes |
 | bold | yes | yes | yes | yes |
@@ -1176,8 +1202,8 @@ permalink: learn/resources/feature-matrix/
 
 ### TextLineMetrics
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | ascent | yes | yes | yes | yes |
 | descent | yes | yes | yes | yes |
 | height | yes | yes | yes | yes |
@@ -1189,23 +1215,23 @@ permalink: learn/resources/feature-matrix/
 
 ### Keyboard
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | capsLock | yes | yes | yes | yes |
 | numLock | yes | yes | yes | yes |
 | isAccessible | yes | ignored | ignored | ignored |
 
 ### Mouse
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| hide | yes | planned | yes | planned |
-| show | yes | planned | yes | planned |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| hide | yes | yes | yes | yes |
+| show | yes | yes | yes | yes |
 
 ### Multitouch
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | inputMode | yes | partial | partial | partial |
 | maxTouchPoints | yes | ignored | ignored | ignored |
 | supportedGestures | yes | ignored | ignored | ignored |
@@ -1216,8 +1242,8 @@ permalink: learn/resources/feature-matrix/
 
 ### ByteArray
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | bytesAvailable | yes | yes | yes | yes |
 | endian | yes | yes | yes | yes |
 | objectEncoding | yes | ignored | ignored | ignored |
@@ -1256,8 +1282,8 @@ permalink: learn/resources/feature-matrix/
 
 ### Timer
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | currentCount | yes | yes | yes | yes |
 | delay | yes | yes | yes | yes |
 | repeatCount | yes | yes | yes | yes |
@@ -1270,8 +1296,8 @@ permalink: learn/resources/feature-matrix/
 
 ### Assets
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | cache | yes | yes | yes | yes |
 | addEventListener | yes | yes | yes | yes |
 | dispatchEvent | yes | yes | yes | yes |
@@ -1303,20 +1329,20 @@ permalink: learn/resources/feature-matrix/
 
 ### Lib
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
-| application | yes | yes | no | yes |
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
+| application | yes | yes | yes | no |
 | current | yes | yes | yes | yes |
 | embed | no | yes | no | no |
 | getTimer | yes | yes | yes | yes |
-| getURL | yes | yes | yes | planned |
+| getURL | yes | yes | planned | yes |
 | notImplemented | yes | yes | yes | yes |
 | trace | yes | yes | yes | yes |
 
 ### Memory
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | getByte | yes | yes | yes | yes |
 | getDouble | yes | yes | yes | yes |
 | getFloat | yes | yes | yes | yes |
@@ -1331,8 +1357,8 @@ permalink: learn/resources/feature-matrix/
 
 ### Vector
 
-| Feature | Flash | HTML5 | Native | Native (Next) |
-| ------- |:-----:|:-----:|:------:|:-------------:|
+| Feature | Flash | HTML5 | Native | Native (Legacy) |
+| ------- |:-----:|:-----:|:------:|:---------------:|
 | length | yes | yes | yes | yes |
 | fixed | yes | yes | yes | yes |
 | concat | yes | yes | yes | yes |
@@ -1352,3 +1378,4 @@ permalink: learn/resources/feature-matrix/
 | toArray | yes | yes | yes | yes |
 
 _* Implemented using software rendering instead of hardware rendering_
+_** When including the "format" haxelib library_
