@@ -3,6 +3,8 @@ layout: default
 title: Learn
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xR329GUZTn0?list=PLF1S8k0g8YOU31vqHtZSpGY64DEbh0dr3" frameborder="0" allowfullscreen></iframe>
+
 # Learn
 
 ## Fundamentals
