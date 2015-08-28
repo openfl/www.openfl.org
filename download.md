@@ -27,6 +27,8 @@ To confirm that OpenFL is installed and working properly, try running the "openf
 
     openfl
 
+If you are upgrading, you can find more information about changes <a href="https://github.com/openfl/lime/blob/master/CHANGELOG.md" target="_blank">here</a> and <a href="https://github.com/openfl/openfl/blob/master/CHANGELOG.md" target="_blank">here</a>.
+
 ## Next Steps
 
 Now that OpenFL is installed, you can [choose a code editor](/learn/resources/choosing-a-code-editor/) or [pick a tutorial](/learn/) and get started!
