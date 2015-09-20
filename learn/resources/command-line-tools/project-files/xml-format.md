@@ -10,6 +10,19 @@ permalink: learn/resources/command-line-tools/project-files/xml-format/
 
 Usually a simple project file is all you need to build projects using OpenFL, but it can be extended based on your needs. Here is a reference of what you can do.
 
+### XML Schema
+
+If you are using an XSD aware XML editor you can use the following declaration to enable XML validation and type hinting/auto completion.
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <project
+        xmlns="http://openfl.org/project/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://openfl.org/project/1.0.0 http://project.openfl.org/xsd/project-1.0.0.xsd"
+    >
+
+    </project>
+
 ### Conditionals
 
 First, every node in the project file format supports `if` and `unless` attributes. These are conditional values to help you customize your build process, based upon a number of values. Here are some of the default values:

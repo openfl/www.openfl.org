@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://openfl.org/project/1.0.0" xmlns:tns="http://openfl.org/project/1.0.0"
+	elementFormDefault="qualified" version="1.0.0">
+
+	<element name="project">
+		<annotation>
+			<documentation>Root element of the OpenFL project descriptor.</documentation>
+		</annotation>
+		<complexType>
+			<choice minOccurs="0" maxOccurs="unbounded">
+				<element name="meta">
+					<complexType>
+						<attribute name="title" type="string" />
+						<attribute name="package" type="string" />
+						<attribute name="version" type="string" />
+						<attribute name="company" type="string" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="app">
+					<complexType>
+						<attribute name="main" type="string" />
+						<attribute name="file" type="string" />
+						<attribute name="path" type="string" />
+						<attribute name="preloader" type="string" />
+						<attribute name="swf-version" type="tns:natural-number" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="window">
+					<complexType>
+						<attribute name="width" type="tns:natural-number" />
+						<attribute name="height" type="tns:natural-number" />
+						<attribute name="fps" type="tns:natural-number">
+							<annotation>
+								<documentation>There is a special fps="0" value for HTML5, which is default, which uses "requestAnimationFrame" instead of forcing a
+									frame rate
+								</documentation>
+							</annotation>
+						</attribute>
+						<attribute name="antialiasing" type="tns:natural-number" />
+						<attribute name="background" type="string" />
+						<attribute name="hardware" type="boolean" />
+						<attribute name="allow-shaders" type="boolean" />
+						<attribute name="require-shaders" type="boolean" />
+						<attribute name="depth-buffer" type="boolean" />
+						<attribute name="stencil-buffer" type="boolean" />
+						<attribute name="fullscreen" type="boolean" />
+						<attribute name="resizable" type="boolean" />
+						<attribute name="borderless" type="boolean" />
+						<attribute name="vsync" type="boolean" />
+						<attribute name="orientation" default="auto">
+							<simpleType>
+								<restriction base="string">
+									<enumeration value="auto">
+										<annotation>
+											<documentation>Allows the operating system to decide which orientation to use</documentation>
+										</annotation>
+									</enumeration>
+									<enumeration value="portrait" />
+									<enumeration value="landscape" />
+								</restriction>
+							</simpleType>
+						</attribute>
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="source">
+					<complexType>
+						<attribute name="path" type="tns:string-min-len-1" use="required" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="haxelib">
+					<complexType>
+						<attribute name="name" type="tns:string-min-len-1" use="required" />
+						<attribute name="version" type="string" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="ndll">
+					<complexType>
+						<attribute name="name" type="tns:string-min-len-1" use="required" />
+						<attribute name="haxelib" type="string" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="include">
+					<complexType>
+						<attribute name="path" type="tns:string-min-len-1" use="required" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="icon">
+					<complexType>
+						<attribute name="path" type="tns:string-min-len-1" use="required" />
+						<attribute name="width" type="tns:natural-number" />
+						<attribute name="height" type="tns:natural-number" />
+						<attribute name="size" type="tns:natural-number" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="assets">
+					<complexType>
+						<choice minOccurs="0" maxOccurs="unbounded">
+							<element name="binary" type="tns:asset" />
+							<element name="font" type="tns:asset" />
+							<element name="image" type="tns:asset" />
+							<element name="music" type="tns:asset" />
+							<element name="sound" type="tns:asset" />
+							<element name="template" type="tns:asset" />
+							<element name="text" type="tns:asset" />
+						</choice>
+						<attribute name="path" type="tns:string-min-len-1" use="required" />
+						<attribute name="include" type="string" default="*" />
+						<attribute name="rename" type="string" />
+						<attribute name="exclude" type="string" />
+						<attribute name="type">
+							<simpleType>
+								<restriction base="string">
+									<enumeration value="binary" />
+									<enumeration value="font" />
+									<enumeration value="image" />
+									<enumeration value="music" />
+									<enumeration value="sound" />
+									<enumeration value="template" />
+									<enumeration value="text" />
+								</restriction>
+							</simpleType>
+						</attribute>
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="template">
+					<complexType>
+						<attribute name="path" type="tns:string-min-len-1" use="required" />
+						<attribute name="rename" type="string" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="haxeflag">
+					<complexType>
+						<attribute name="name" type="tns:string-min-len-1" use="required" />
+						<attribute name="value" type="string" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="haxedef">
+					<complexType>
+						<attribute name="name" type="tns:string-min-len-1" use="required" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="setenv">
+					<complexType>
+						<attribute name="name" type="tns:string-min-len-1" use="required" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="java">
+					<annotation>
+						<documentation>Adds Java classes to the project when targeting Android.</documentation>
+					</annotation>
+					<complexType>
+						<attribute name="path" type="tns:string-min-len-1" use="required">
+							<annotation>
+								<documentation>path to Java classes</documentation>
+							</annotation>
+						</attribute>
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="certificate">
+					<annotation>
+						<documentation>Used to add a keystore for release signing.</documentation>
+					</annotation>
+					<complexType>
+						<attribute name="path" type="tns:string-min-len-1" use="required" />
+						<attribute name="password" type="string" />
+						<attribute name="alias" type="string" />
+						<attribute name="alias-password" type="string" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="ios">
+					<complexType>
+						<attribute name="deployment" type="string">
+							<annotation>
+								<documentation>minimum iOS target version</documentation>
+							</annotation>
+						</attribute>
+						<attribute name="binaries">
+							<simpleType>
+								<restriction base="string">
+									<enumeration value="armv6" />
+									<enumeration value="armv7" />
+									<enumeration value="fat" />
+								</restriction>
+							</simpleType>
+						</attribute>
+						<attribute name="devices">
+							<simpleType>
+								<restriction base="string">
+									<enumeration value="iphone" />
+									<enumeration value="ipad" />
+									<enumeration value="universal" />
+								</restriction>
+							</simpleType>
+						</attribute>
+						<attribute name="linker-flags" type="string" />
+						<attribute name="prerendered-icon" type="boolean" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="android">
+					<complexType>
+						<attribute name="install-location" type="string" />
+						<attribute name="permission" type="string" />
+						<attribute name="target-sdk-version" type="string" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="architecture">
+					<complexType>
+						<attribute name="name" type="tns:string-min-len-1" use="required" />
+						<attribute name="exclude" type="string" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="dependency">
+					<annotation>
+						<documentation>
+							Native framework or reference that is required to compile your project, or additional library you need copied.
+						</documentation>
+					</annotation>
+					<complexType>
+						<attribute name="name" type="tns:string-min-len-1" use="required" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+				<element name="path">
+					<annotation>
+						<documentation>Adds a directory to your system's PATH environment variable</documentation>
+					</annotation>
+					<complexType>
+						<attribute name="value" type="tns:string-min-len-1" use="required" />
+						<attributeGroup ref="tns:conditional" />
+						<anyAttribute processContents="lax" />
+					</complexType>
+				</element>
+			</choice>
+		</complexType>
+	</element>
+
+	<attributeGroup name="conditional">
+		<attribute type="string" name="if"></attribute>
+		<attribute type="string" name="unless"></attribute>
+	</attributeGroup>
+
+	<complexType name="asset">
+		<attribute name="path" type="tns:string-min-len-1" use="required" />
+		<attribute name="id" type="string" />
+	</complexType>
+
+	<simpleType name="natural-number">
+		<restriction base="string">
+			<pattern value="[0-9]+" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="string-min-len-1">
+		<restriction base="string">
+			<minLength value="1" />
+		</restriction>
+	</simpleType>
+</schema>
