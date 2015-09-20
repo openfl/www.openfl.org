@@ -18,7 +18,7 @@ If you are using an XSD aware XML editor you can use the following declaration t
     <project
         xmlns="http://openfl.org/project/1.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://openfl.org/project/1.0.0 http://project.openfl.org/xsd/project-1.0.0.xsd"
+        xsi:schemaLocation="http://openfl.org/project/1.0.0 http://openfl.org/xsd/project-1.0.0.xsd"
     >
 
     </project>
