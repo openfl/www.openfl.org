@@ -270,8 +270,6 @@ Now the SWFLite supports animation, so we expect things to get even more excitin
 
 The summer was packed with new improvements, and fall looks to be no exception. We are excited about OpenFL, Lime, SWF and other features coming. Thank to all of our [Patreon](https://patreon.com/openfl) sponsors. Your monthly support provides for the ongoing cost of running the OpenFL website, build servers, Github and other business aspects of keeping the project going. Thank you so much. If you would like to support OpenFL, you can help on the [forums](http://community.openfl.org/), contribute on [Github](https://github.com/openfl) and give on [Patreon](https://patreon.com/openfl).
 
-### And Just One More Thing
+_and just one more thing..._
 
-Have you seen the console videos yet? :)
-
-[YouTube](https://www.youtube.com/watch?v=rnJ3qkwzcqw&list=PLF1S8k0g8YOXhS0d0JnPDg9Cn9CSATudc&index=4)
+Have you seen the [console demo videos](https://www.youtube.com/watch?v=rnJ3qkwzcqw&list=PLF1S8k0g8YOXhS0d0JnPDg9Cn9CSATudc&index=4) yet? :)
