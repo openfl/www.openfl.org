@@ -94,7 +94,7 @@ Joystick.onConnect.add (function (joystick) {
 });
 ```
 
-If you are using a real joystick (with a hat or trackball) then Joystick provides clear access to these features. Also, for other game controllers, `Joystick` provides you with the raw hardware event values, buttons and axes are dispatched using the real hardware IDs rather than named axis or button values. This may particularly help with creating or modifying Lime Gamepad mappings.
+If you are using a real joystick (with a hat or trackball) then `Joystick` provides clear access to these features. Also, for other game controllers, `Joystick` provides you with the raw hardware event values, buttons and axes are dispatched using the real hardware IDs rather than named axis or button values. This may particularly help with creating or modifying Lime Gamepad mappings.
 
 The old `JoystickEvent` has been deprecated, I hope that you enjoy the new `Gamepad` or `Joystick` API, or use the `GameInput` API for Flash compatibility. OpenFL Legacy will continue to use only `JoystickEvent`.
 
@@ -127,7 +127,7 @@ Clipboard.text = "Hello";
 
 ### BackgroundWorker/ThreadPool
 
-For simpler use of threads, Lime has added the `BackgroundWorker` class. This allows you to start an asynchronous on another thread, or where threads are not supported, it will operate inline.
+For simpler use of threads, Lime has added the `BackgroundWorker` class. This allows you to start an asynchronous task on another thread, or where threads are not supported, it will operate inline.
 
 ```haxe
 var worker = new BackgroundWorker ();
@@ -170,7 +170,7 @@ A Future has the added benefit (as well) that an `onComplete` can be registered 
 
 ### Sensor
 
-Lime now has support accelerometer sensors, and the ground-work to help support new types of sensors in the future.
+Lime now has support for accelerometer sensors, and the ground-work to help support new types of sensors in the future.
 
 ```haxe
 var sensors = Sensor.getSensors (SensorType.ACCELEROMETER);
