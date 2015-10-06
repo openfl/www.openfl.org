@@ -272,6 +272,4 @@ The summer was packed with new improvements, and fall looks to be no exception. 
 
 _and just one more thing..._
 
-Have you seen the [console demo videos](https://www.youtube.com/watch?v=rnJ3qkwzcqw&list=PLF1S8k0g8YOXhS0d0JnPDg9Cn9CSATudc&index=4) yet? :)
-
-
+Have you seen the [console demo videos](https://www.youtube.com/watch?v=rnJ3qkwzcqw&list=PLF1S8k0g8YOXhS0d0JnPDg9Cn9CSATudc&index=10) yet? :)
