@@ -235,3 +235,9 @@ addChild (tilemap);
 ```
 
 I would love to discuss input and feedback and creating a powerful, flexible and suitable tile API.
+
+## Maturing OpenFL
+
+In the past few months, there have been [over 140 changes](https://github.com/openfl/openfl/blob/master/CHANGELOG.md) to OpenFL, too many to discuss! Each step along the way, OpenFL gets more mature, more consistent and more powerful.
+
+## SWF Improvements
