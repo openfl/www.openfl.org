@@ -244,9 +244,9 @@ In the past few months, there have been [over 140 changes](https://github.com/op
 
 Starting today, a new OpenFL plug-in for Flash Professional CC is available from Adobe Add-ons.
 
-Now, you can create a new OpenFL FLA for use with your projects. If you publish yoor FLA inside of an asset path for your project (such as the "Assets" folder) it will be immediately available without any changes to your project.xml. OpenFL will automatically include the SWF library, and use the options used in the FLA publish settings.
+Now, you can create a new OpenFL FLA for use with your projects. If you publish your FLA inside of an asset path for your project (such as the "Assets" folder) it will be immediately available without any changes to your project.xml. OpenFL will automatically include the SWF library, and use the options used in the FLA publish settings.
 
-OpenFL supports two SWF types, SWF and SWFLite. Type SWF is used on Flash for the native SWF `Loader`, and SWFLite is elsewhere by default. Type "swf" uses runtime code to process SWF assets, but SWFLite processes at compile-time, enjoys better performance and works with HTML5. SWFLite decodes your SWF into meta-data (such as where to `beginFill` or `curveTo`) and flat images of any JPEG, PNG or JPEG + alpha images from the SWF. Vector types are preserved, though it is expected that you embed any fonts used separately (to use existing font/webfont pipeline in OpenFL)
+OpenFL supports two SWF types, SWF and SWFLite. Type SWF is used on Flash for the native SWF `Loader`, and SWFLite is elsewhere by default. Type SWF uses runtime code to process SWF assets, but type SWFLite processes at compile-time, enjoys better performance and works with HTML5. SWFLite decodes your SWF into meta-data (such as where to `beginFill` or `curveTo`) and flat images of any JPEG, PNG or JPEG + alpha images from the SWF. Vector types are preserved, though it is expected that you embed any fonts used separately (to use existing font/webfont pipeline in OpenFL).
 
 "Export for ActionScript" symbols create Haxe classes by default. This means that these symbols can be created on-the-fly, or even extended. The generated Haxe classes even make references to named child objects.
 
