@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Development Update
-published: false
 ---
 
 The past several months have been filled with new updates to Lime and OpenFL, there are so many things to discuss, I will try and choose some of my favorites and some of the highlights since the last development update on the blog.
@@ -242,7 +241,7 @@ In the past few months, there have been [over 140 changes](https://github.com/op
 
 ## SWF Improvements
 
-Starting today, a new OpenFL plug-in for Flash Professional CC is available from Adobe Add-ons.
+Starting today, a new [OpenFL plug-in for Flash Professional CC](https://creative.adobe.com/addons/products/12931) is available from Adobe Add-ons.
 
 Now, you can create a new OpenFL FLA for use with your projects. If you publish your FLA inside of an asset path for your project (such as the "Assets" folder) it will be immediately available without any changes to your project.xml. OpenFL will automatically include the SWF library, and use the options used in the FLA publish settings.
 
