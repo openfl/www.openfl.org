@@ -1,0 +1,197 @@
+---
+layout: post
+title: Development Update
+published: false
+---
+
+The past several months have been filled with new updates to Lime and OpenFL, there are so many things to discuss, I will try and choose some of my favorites and some of the highlights since the last development update on the blog.
+
+## Joystick and Gamepad Support
+
+Previous releases of OpenFL used `JoystickEvent` to get access to game devices. This was never a part of the Flash API specification, since it was created years before AIR or Flash Player supported game input publicly.
+
+OpenFL no longer supports `JoystickEvent`, but instead benefits from three new APIs designed to provide more (and better!) options for game input support.
+
+Using Lime directly, you have access to either lower-level Joystick or higher-level Gamepad support.
+
+```haxe
+Gamepad.onConnect.add (function (gamepad) {
+  
+  trace ("Connected Gamepad: " + gamepad.name);
+  
+  gamepad.onAxisMove.add (function (axis:GamepadAxis, value:Float) {
+    trace ("Moved Axis " + axis + ": " + value);
+  });
+  
+  gamepad.onButtonDown.add (function (button:GamepadButton) {
+    trace ("Pressed Button: " + button);
+  });
+  
+  gamepad.onButtonUp.add (function (button:GamepadButton) {
+    trace ("Released Button: " + button);
+  });
+  
+  gamepad.onDisconnect.add (function () {
+    trace ("Disconnected Gamepad");
+  });
+  
+});
+```
+
+Unlike the older API, Lime Joystick and Gamepad support have hot-plugging support. You can connect and disconnect a controller while a project is still running. If a controller already has mappings (and you can include new mappings if Lime does not have one for the controller) the Gamepad API provides unified, named input. Regardless of the device, you can check values such as `GamepadAxis.LEFT_X`, or `GamepadButton.START`, simplifying support of different types of controllers.
+
+For compatibility with the Flash API, OpenFL provides the Flash "GameInput" API. This is similar to the Lime Gamepad API, but more closely resembles other OpenFL APIs, and shares compatibility with the Flash runtime.
+
+```haxe
+new GameInput ().addEventListener (GameInputDevice.DEVICE_ADDED, function (event) {
+  
+  trace ("Connected Device: " + event.device.name);
+  
+  for (i in 0...event.device.numControls) {
+    
+    var control = event.device.getControlAt (i);
+    
+    control.addEventListener (Event.CHANGE, function (event) {
+      trace ("Control " + control.id + ": " + control.value);
+    });
+    
+  }
+  
+});
+```
+
+Sometimes you may not have gamepad mapping for a certain device, or you are using a real joystick, or prefer the more raw system-level events. Lime now supports standard joystick events as well.
+
+```haxe
+Joystick.onConnect.add (function (joystick) {
+  
+  trace ("Connected Joystick: " + joystick.name);
+  
+  joystick.onAxisMove.add (function (axis:Int, value:Float) {
+    trace ("Moved Axis " + axis + ": " + value);
+  });
+  
+  joystick.onButtonDown.add (function (button:Int) {
+    trace ("Pressed Button: " + button);
+  });
+  
+  joystick.onButtonUp.add (function (button:Int) {
+    trace ("Released Button: " + button);
+  });
+  
+  joystick.onDisconnect.add (function () {
+    trace ("Disconnected Joystick");
+  });
+  
+  joystick.onHatMove.add (function (hat:Int, position:JoystickHatPosition) {
+    trace ("Moved Hat " + hat + ": " + position);
+  });
+  
+  joystick.onTrackballMove.add (function (trackball:Int, value:Float) {
+    trace ("Moved Trackball " + trackball + ": " + value);
+  });
+  
+});
+```
+
+If you are using a real joystick (with a hat or trackball) then Joystick provides clear access to these features. Also, for other game controllers, `Joystick` provides you with the raw hardware event values, buttons and axes are dispatched using the real hardware IDs rather than named axis or button values. This may particularly help with creating or modifying Lime Gamepad mappings.
+
+The old `JoystickEvent` has been deprecated, I hope that you enjoy the new `Gamepad` or `Joystick` API, or use the `GameInput` API for Flash compatibility. OpenFL Legacy will continue to use only `JoystickEvent`.
+
+## More New Lime APIs
+
+Over time, Lime has gained additional APIs which may come in handy.
+
+### Log
+
+Lime now has a `Log` class, with added support for logging levels.
+
+```haxe
+Log.error ("This is an error message");
+Log.warn ("This is a warning message");
+Log.info ("This is an informational message");
+Log.debug ("This is a debug message");
+Log.verbose ("This is a verbose message");
+```
+
+Logging levels are defined automatically, based upon the build time, or whether additional flags (such as `-verbose`) exist when run.
+
+### Clipboard
+
+Lime has standard clipboard support now.
+
+```haxe
+var text = Clipboard.text;
+Clipboard.text = "Hello";
+```
+
+### BackgroundWorker/ThreadPool
+
+For simpler use of threads, Lime has added the `BackgroundWorker` class. This allows you to start an asynchronous on another thread, or where threads are not supported, it will operate inline.
+
+```haxe
+var worker = new BackgroundWorker ();
+worker.doWork.add (function (data) {
+  worker.sendComplete ("Done!");
+});
+worker.onComplete.add (function (result) trace (result));
+worker.run ();
+```
+
+Workers can support error and progress event types as well.
+
+When there is a task that may benefit from multiple threads, the `ThreadPool` class provides support for spinning up (and shutting down) background threads for you.
+
+```haxe
+var pool = new ThreadPool (1, 2);
+pool.doWork.add (function (data) {
+  pool.sendComplete ("Done!");
+});
+pool.onComplete.add (function (result) trace (result));
+pool.queue ();
+```
+
+### Future/Promise
+
+In order to better support asynchronous loading, Lime has added Future/Promise API support.
+
+```haxe
+var future = Assets.loadImage ("image.png");
+future.onComplete (function (image) trace ("Loaded"));
+future.onProgress (function (progress) trace ("Progress: " + progress));
+future.onError (function (msg) trace ("Error " + msg));
+```
+
+This is also exposed in the newer OpenFL `Assets` class for "load" methods.
+
+Unlike a standard "loaded" callback, returning a future allows you to handle error and progress callbacks, and allows chains, so that an error earlier in the process will propogate to the final error handler, making things simpler.
+
+A Future has the added benefit (as well) that an `onComplete` can be registered even after a Promise has completed a Future. In the case of `Assets`, a file may already be available when the Future is returned. Regardless, you can handle complete, progress or error conditions without worry about timing.
+
+### Sensor
+
+Lime now has support accelerometer sensors, and the ground-work to help support new types of sensors in the future.
+
+```haxe
+var sensors = Sensor.getSensors (SensorType.ACCELEROMETER);
+
+for (sensor in sensors) {
+  
+  sensor.onUpdate.add (function (x, y, z) {
+    trace ("Sensor Update: " + x + ", " + y + ", " + z);
+  });
+
+}
+```
+
+OpenFL uses this to provide accelerometer support (internally).
+
+## CFFI Prime
+
+In the search for better, faster bindings between Haxe and C++ code, Lime now uses "CFFI Prime", a new format that Hugh Sanderson added to HXCPP and announced at the last Worldwide Haxe conference.
+
+You may have heard things about new HXCPP extern support, allowing Haxe code to bind directly to C++ (when building to the C++ target) without the overhead cost of using traditial "CFFI" bindings.
+
+This was not a good option for Lime, because it would make our code more complex, push internal header search paths to the user, and it would break (or complicate) support for runtimes that currently support the Lime binary (such as using Neko and Node.js on a desktop)
+
+"CFFI Prime" is a hybrid approach that provide bindings as fast as HXCPP externs when targeting C++, but provide support for other runtimes (such as Neko) as well. In our tests, the new prime bindings are 10x to 42x faster than the original CFFI bindings on C++, and are marginally faster on Node.js and Neko.
