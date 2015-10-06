@@ -241,3 +241,38 @@ I would love to discuss input and feedback and creating a powerful, flexible and
 In the past few months, there have been [over 140 changes](https://github.com/openfl/openfl/blob/master/CHANGELOG.md) to OpenFL, too many to discuss! Each step along the way, OpenFL gets more mature, more consistent and more powerful.
 
 ## SWF Improvements
+
+Starting today, a new OpenFL plug-in for Flash Professional CC is available from Adobe Add-ons.
+
+Now, you can create a new OpenFL FLA for use with your projects. If you publish yoor FLA inside of an asset path for your project (such as the "Assets" folder) it will be immediately available without any changes to your project.xml. OpenFL will automatically include the SWF library, and use the options used in the FLA publish settings.
+
+OpenFL supports two SWF types, SWF and SWFLite. Type SWF is used on Flash for the native SWF `Loader`, and SWFLite is elsewhere by default. Type "swf" uses runtime code to process SWF assets, but SWFLite processes at compile-time, enjoys better performance and works with HTML5. SWFLite decodes your SWF into meta-data (such as where to `beginFill` or `curveTo`) and flat images of any JPEG, PNG or JPEG + alpha images from the SWF. Vector types are preserved, though it is expected that you embed any fonts used separately (to use existing font/webfont pipeline in OpenFL)
+
+"Export for ActionScript" symbols create Haxe classes by default. This means that these symbols can be created on-the-fly, or even extended. The generated Haxe classes even make references to named child objects.
+
+```haxe
+class Main extends SWFSymbol {
+  
+  public function new () {
+    
+    super ();
+    
+    childObject.x = 100;
+    childObject.y = 200;
+    
+  }
+  
+}
+```
+
+Now the SWFLite supports animation, so we expect things to get even more exciting!
+
+## Conclusion
+
+The summer was packed with new improvements, and fall looks to be no exception. We are excited about OpenFL, Lime, SWF and other features coming. Thank to all of our [Patreon]() sponsors. Your monthly support provides for the ongoing cost of running the OpenFL website, build servers, Github and other business aspects of keeping the project going. Thank you so much. If you would like to support OpenFL, you can help on the forums, contribute on Github and give on Patreon.
+
+### And Just One More Thing
+
+Have you seen the console videos yet? :)
+
+[YouTube](https://www.youtube.com/watch?v=rnJ3qkwzcqw&list=PLF1S8k0g8YOXhS0d0JnPDg9Cn9CSATudc&index=4)
