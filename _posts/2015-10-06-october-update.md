@@ -200,7 +200,7 @@ This was not a good option for Lime, because it would make our code more complex
 
 One of the faster APIs in OpenFL is `drawTiles`. Since the beginning, there have been ideas for creating something that would be easier to use, but also, time has shown a number of reasons why it is important to consider and plan a replacement API.
 
-1. The long data array used for `drawTiles` calls was made optimize CFFI performance. Lime has better CFFI support now, but going to the renderer no longer requires CFFI at all. This format is actually more inconvient now to the renderer architecture, and is not really convenient as a user.
+1. The long data array used for `drawTiles` calls was made to optimize CFFI performance. Lime has better CFFI support now, but going to the renderer no longer requires CFFI at all. This format is actually more inconvient now to the renderer architecture, and is not really convenient as a user.
 
 2. OpenFL `Graphics` is used for curves, lines, fills and other vector operations, which is not a good place to put a hardware batching API. This has added complexity, and has made it hard to support both operations under all circumstances.
 
