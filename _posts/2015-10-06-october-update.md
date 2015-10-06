@@ -187,7 +187,7 @@ OpenFL uses this to provide accelerometer support (internally).
 
 ## CFFI Prime
 
-In the search for better, faster bindings between Haxe and C++ code, Lime now uses "CFFI Prime", a new format that Hugh Sanderson added to HXCPP and announced at the last Worldwide Haxe conference.
+In the search for better, faster bindings between Haxe and C++ code, Lime now uses "CFFI Prime", a new format that Hugh Sanderson added to [HXCPP](https://github.com/HaxeFoundation/hxcpp) and announced at the last Worldwide Haxe conference.
 
 You may have heard things about new HXCPP extern support, allowing Haxe code to bind directly to C++ (when building to the C++ target) without the overhead cost of using traditial "CFFI" bindings.
 
