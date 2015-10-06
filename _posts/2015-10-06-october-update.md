@@ -195,3 +195,43 @@ You may have heard things about new HXCPP extern support, allowing Haxe code to 
 This was not a good option for Lime, because it would make our code more complex, push internal header search paths to the user, and it would break (or complicate) support for runtimes that currently support the Lime binary (such as using Neko and Node.js on a desktop)
 
 "CFFI Prime" is a hybrid approach that provide bindings as fast as HXCPP externs when targeting C++, but provide support for other runtimes (such as Neko) as well. In our tests, the new prime bindings are 10x to 42x faster than the original CFFI bindings on C++, and are marginally faster on Node.js and Neko.
+
+## Tilemap
+
+One of the faster APIs in OpenFL is `drawTiles`. Since the beginning, there have been ideas for creating something that would be easier to use, but also, time has shown a number of reasons why it is important to consider and plan a replacement API.
+
+#. The long data array used for `drawTiles` calls was made optimize CFFI performance. Lime has better CFFI support now, but going to the renderer no longer requires CFFI at all. This format is actually more inconvient now to the renderer architecture, and is not really convenient to users.
+
+#. OpenFL `Graphics` is used for curves, lines, fills and other vector operations, which is not a good place to put a hardware batching API. This has added complexity, and has made it hard to support both operations under all circumstances.
+
+#. Without Stage3D, using `bitmapData.copyPixels` is usually the fastest on Flash. However, `BitmapData` requires an exact size. The nature of `drawTiles` makes it difficult to anticipate the render target size. Having an explicit tile render size would also improve performance on other targets that currently have to measure the output of drawTiles.
+
+#. Initial explorations have shown 230% performance improvements on capable hardware, and I am sure that this could be improved more.
+
+For these reasons (and others), the goal is to come up with a suitable `drawTiles` replacement that is robust and ready for the future.
+
+The goal of OpenFL is not to introduce many new APIs, so this does make things difficult, but Flash has `Graphics` for vector shapes, `Bitmap` for pixel operations, `TextField` for text and `DisplayObject` for the display list. In exploring the paradigms that other projects use for batches of many objects that may be larger than a pixel, "particle", "tile" and "sprite" are the most common I found. Since OpenFL is using the Flash vocabulary, "sprite" is not a good choice, and we have a history of using "tile".
+
+It would be possible to create an API designed around tilemaps that support common use-cases and editors (such as Tiled) while maintaining fast batch performance. Perhaps the API could support orthogonal or isometric tilemaps. This would support many optimizations `drawTiles` cannot do right now, and would be a passive API (like the display list) that improves usage.
+
+The current "openfl-samples" version of BunnyMark uses the beginning of a `Tilemap` API, similar to the following:
+
+```haxe
+var bitmapData = Assets.getBitmapData ("image.png");
+var tileset = new Tileset (bitmapData);
+tileset.addRect (bitmapData.rect);
+
+var tilemap = new Tilemap (stage.stageWidth, stage.stageHeight);
+var layer = new TilemapLayer (tileset);
+
+for (i in 0...100) {
+  
+  layer.addTile (new Tile (0, Math.random () * tilemap.width, Math.random () * tilemap.height));
+  
+}
+
+tilemap.addLayer (layer);
+addChild (tilemap);
+```
+
+I would love to discuss input and feedback and creating a powerful, flexible and suitable tile API.
