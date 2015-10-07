@@ -56,6 +56,8 @@ new GameInput ().addEventListener (GameInputDevice.DEVICE_ADDED, function (event
     
   }
   
+  event.device.enabled = true;
+  
 });
 ```
 
