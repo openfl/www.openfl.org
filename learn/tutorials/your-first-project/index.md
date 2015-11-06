@@ -156,7 +156,7 @@ class Main extends Sprite {
 
 ## Running the Project
 
-We are going to test our project with three different platforms, you can use [many more](advanced_setup/platforms/README.md).
+We are going to test our project with three different platforms.
 
 If you open a command-prompt (Windows) or terminal (Mac/Linux), change to the directory of the project we created.
 
