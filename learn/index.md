@@ -11,7 +11,7 @@ If you are already familiar with the fundamentals of ActionScript/Flash developm
 
 ## Documentation
 
-For documentation on the classes available in Lime and OpenFL, please visit <a href="http://docs.openfl.org" target="_blank">docs.openfl.org</a>.
+For documentation on the classes available in Lime and OpenFL, please visit <a href="http://api.openfl.org" target="_blank">api.openfl.org</a>.
 
 ## Tutorials
 
