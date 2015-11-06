@@ -90,7 +90,7 @@ class Main extends Sprite {
 }
 ```
 
-In order to see our `Bitmap` instance, we use `addChild` to make it visible on the display list. The "display list" is an easy-to-use method of drawing that is available in OpenFL, you can read more about it [here](openfl_basics/display_list.md).
+In order to see our `Bitmap` instance, we use `addChild` to make it visible on the display list. The "display list" is an easy-to-use method of drawing that is available in OpenFL.
 
 ## Positioning an Object
 
