@@ -21,7 +21,7 @@ OpenFL contains multiple samples for illustrating different features of the plat
 
 ## Adding an Image
 
-The first thing we will do is add an image. First, copy an image (PNG or JPG format) to the "Assets" folder of the project. We will be using [this image](https://raw.githubusercontent.com/openfl/openfl-samples/master/DisplayingABitmap/Assets/openfl.png), but you can download or copy any image you like.
+The first thing we will do is add an image. First, copy an image (PNG or JPG format) to the "Assets" folder of the project. We will be using [this image](https://raw.githubusercontent.com/openfl/openfl-samples/master/features/display/DisplayingABitmap/Assets/openfl.png), but you can download or copy any image you like.
 
 Open the "Source/Main.hx" file in the editor of your choice. It should look something like this:
 
