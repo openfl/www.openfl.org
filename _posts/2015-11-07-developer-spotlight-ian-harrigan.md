@@ -74,7 +74,7 @@ Another feature I like about HaxeUI is the ability to keep entire “application
 
 <span style="font-size: 120%">**What was your experience like with OpenFL?**</span>
 
-Very positive. It allowed me to hit the ground running and, even though I had little flash experience it was easy to get things working across platforms. There were, of course, gotchas here and there, and fairly large issues with textfields on native platforms but this is something I have seen massive improvements on in subsequent releases. In fact OpenFL Next seems to have resolved almost all of my previous issues!
+Very positive. It allowed me to hit the ground running and, even though I had little Flash experience it was easy to get things working across platforms. There were, of course, gotchas here and there, and fairly large issues with textfields on native platforms but this is something I have seen massive improvements on in subsequent releases. In fact OpenFL Next seems to have resolved almost all of my previous issues!
 
 <span style="font-size: 120%">**What advice would you give a new developer who wants to get started?**</span>
 
