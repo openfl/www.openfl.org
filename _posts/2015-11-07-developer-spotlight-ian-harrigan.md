@@ -24,7 +24,7 @@ Haxe seemed to tick the first box, of being able to maintain a single codebase a
 
 The second box to tick was to be able to build a visually consistent rich user interface using Haxe, and this is where OpenFL came onto my radar as a way to display content on screen in a pretty consistent manner across platforms. I did find multiple UI libs for Haxe and/or OpenFL but none seemed to match my criteria, were simply incomplete or seemed to focus more on game type UIs rather than rich business applications. 
 
-That’s when HaxeUI was born! I don’t have much experience with the Flash API but its pretty straight forward and having the ability to run the same code natively on pretty much all desktops and devices meant that my proof of concept test app quickly grew into a general UI framework.
+That’s when [HaxeUI](http://www.haxeui.org) was born! I don’t have much experience with the Flash API but its pretty straight forward and having the ability to run the same code natively on pretty much all desktops and devices meant that my proof of concept test app quickly grew into a general UI framework.
 
 ![HaxeUI]({{ site.baseurl }}/blog/assets/haxeui-0.jpg)
 
