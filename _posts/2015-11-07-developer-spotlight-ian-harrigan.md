@@ -2,7 +2,6 @@
 layout: post
 title: Developer Spotlight&#58; Ian Harrigan
 date: 2015-11-07 20:00:00.000000000 -08:00
-published: false
 ---
 
 _Today in the Developer Spotlight, we chat with Ian Harrigan, the creator of HaxeUI, a cross-platform user interface toolkit._
