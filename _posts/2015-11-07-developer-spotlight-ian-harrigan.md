@@ -70,7 +70,7 @@ Add to that using macro driven build helpers to automatically populate model and
 
 Even to this day, I do occasionally catch myself when building a new test project with HaxeUI thinking “oh right, yeah, that’s it. Add a button, setup an event listener”.
 
-Another feature I like about HaxeUI is the ability to keep entire “applications” in human readable xml files, including application logic via scripting. Not only does this really help with playing with app logic and styles, it also means entire applications, or application modules can be sent “down the wire”. A good example of this in action would be the calculator example (https://github.com/ianharrigan/haxeui-builder/blob/master/assets/data/calc.xml) and it loaded remotely and run inside the haxeui-builder (http://haxeui.org/try.jsp?layoutId=Ra76bjj). 
+Another feature I like about HaxeUI is the ability to keep entire “applications” in human readable xml files, including application logic via scripting. Not only does this really help with playing with app logic and styles, it also means entire applications, or application modules can be sent “down the wire”. A good example of this in action would be the [calculator example](https://github.com/ianharrigan/haxeui-builder/blob/master/assets/data/calc.xml) and it loaded remotely and run inside the [haxeui-builder](http://haxeui.org/try.jsp?layoutId=Ra76bjj). 
 
 <span style="font-size: 120%">**What was your experience like with OpenFL?**</span>
 
