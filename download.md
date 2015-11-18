@@ -12,9 +12,7 @@ First, you will need to install Haxe and Neko. OpenFL uses Haxe to power the bui
 
  * [Windows](http://haxe.org/website-content/downloads/3.2.1/downloads/haxe-3.2.1-win.exe)
  * [Mac](http://haxe.org/website-content/downloads/3.2.1/downloads/haxe-3.2.1-osx-installer.pkg)
- * [Linux](http://www.openfl.org/builds/haxe/haxe-3.2.1-linux-installer.tar.gz)
-
-_If you are a Linux user, we recommend that you do use the above install script instead of your own package manager. The versions of Haxe and Neko distributed on Linux package repositories tend to be old, or experience other issues after the install._
+ * [Linux](http://haxe.org/download/linux)
 
 ## OpenFL
 
