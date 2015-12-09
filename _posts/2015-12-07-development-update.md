@@ -51,6 +51,10 @@ We are happy to announce we have restored Windows XP support, but as we have foc
 
 ANGLE adds a couple megabytes of additional size to applications in separate DLLs, but is disabled in Windows `-static` builds in order to generate a single binary.
 
+UPDATE: Although we experienced comparable performance between OpenGL and ANGLE on Windows, we have received reports of performance regressions elsewhere. Until we can perform more testing, we are disabling ANGLE for Windows builds, but it can still be enabled optionally when building from the source.
+
+Use `lime rebuild windows -clean -DLIME_SDL_ANGLE` to build for ANGLE on Windows, and use (either) `<set name="angle" />` or `-Dangle` in your project to copy the needed DLLs. We appreciate your feedback and input as we seek the best balance of performance and compatibility! 
+
 ## Gamepad Support for HTML5
 
 The latest Lime includes initial support for the HTML5 Gamepad API, supported by Chrome, Opera and Firefox. In testing with a Logitech gamepad, one browser worked for all buttons and axes (except for the X button, which it thought was constantly depressed) and another browser recognized it as a joystick, but lacked button mappings to support our Gamepad API. More popular gamepads (such as the Xbox One controller) may fare better, and we may see continued support as browsers are updated. Either way, we think it is a promising start to bridging all the features we can across the board for consistent play in many different environments.
