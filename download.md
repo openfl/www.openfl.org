@@ -21,6 +21,7 @@ _If you are a Linux user, we recommend that you do use the above install script 
 With the latest versions of Haxe and Neko installed, open a command-prompt (Windows) or terminal (Mac/Linux) and run these commands:
 
     haxelib install openfl
+    haxelib install lime
     haxelib run openfl setup
 
 To confirm that OpenFL is installed and working properly, try running the "openfl" command:
