@@ -51,7 +51,7 @@ We are happy to announce we have restored Windows XP support, but as we have foc
 
 ANGLE adds a couple megabytes of additional size to applications in separate DLLs, but is disabled in Windows `-static` builds in order to generate a single binary.
 
-UPDATE: Although we experienced comparable performance between OpenGL and ANGLE on Windows, we have received reports of performance regressions elsewhere. Until we can perform more testing, we are disabling ANGLE for Windows builds, but it can still be enabled optionally when building from the source.
+**UPDATE**: Although we experienced comparable performance between OpenGL and ANGLE on Windows, we have received reports of performance regressions elsewhere. Until we can perform more testing, we are disabling ANGLE for Windows builds, but it can still be enabled optionally when building from the source.
 
 Use `lime rebuild windows -clean -DLIME_SDL_ANGLE` to build for ANGLE on Windows, and use (either) `<set name="angle" />` or `-Dangle` in your project to copy the needed DLLs. We appreciate your feedback and input as we seek the best balance of performance and compatibility! 
 
