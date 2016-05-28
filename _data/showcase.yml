@@ -951,11 +951,11 @@
   amazon: http://www.amazon.com/Sempai-Games-Puralax/dp/B014L4DO4Y
   html5: http://www.puralax.com/
 
-- title: TimeScope
-  developer: Toggle Games
-  image: TimeScope.jpg
-  url: http://tg.typhex.com/timescope/
-  android: https://play.google.com/store/apps/details?id=com.togglegames.timeScope
+- title: Reflex
+  developer: Liger Group
+  image: Reflex.jpg
+  url: http://www.ligergroup.com/reflex
+  android: https://play.google.com/store/apps/details?id=com.ligergroup.reflex
 
 - title: Demonition
   developer: Ezelia
