@@ -79,6 +79,14 @@
   android: https://play.google.com/store/apps/details?id=com.kongregate.mobile.cardinalquest.google
   featured: true
 
+- title: Run 3
+  developer: player_03
+  image: Run3.jpg
+  url: http://www.kongregate.com/games/player_03/run-3
+  flash: http://www.kongregate.com/games/player_03/run-3
+  ios: https://itunes.apple.com/app/run!!!/id907239855
+  android: https://play.google.com/store/apps/details?id=com.kongregate.mobile.run.google
+
 - title: Werewolf Tycoon
   developer: Joe Williamson
   image: WerewolfTycoon.png
@@ -284,13 +292,6 @@
   url: http://mybogame.com/m/
   ios: http://itunes.apple.com/us/app/ponon-deluxe/id402642577
   android: https://play.google.com/store/apps/details?id=com.mybogame.ponon
-
-- title: Run 3
-  developer: player_03
-  image: Run3.jpg
-  url: http://www.kongregate.com/games/player_03/run-3
-  flash: http://www.kongregate.com/games/player_03/run-3
-  android: https://play.google.com/store/apps/details?id=com.kongregate.mobile.run.google
 
 - title: Letter Rush
   developer: Proletariat
