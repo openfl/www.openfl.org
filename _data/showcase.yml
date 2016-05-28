@@ -1,3 +1,19 @@
+- title: "Madden NFL Mobile"
+  developer: EA Sports
+  image: MaddenNFLMobile.jpg
+  url: https://www.easports.com/madden-nfl
+  ios: https://itunes.apple.com/us/app/madden-nfl-mobile/id855627886
+  android: https://play.google.com/store/apps/details?id=com.ea.game.maddenmobile15_row
+  featured: true
+
+- title: Mino Monsters 2: Evolution
+  developer: Mino Games
+  image: MinoMonsters2.jpg
+  url: http://www.minomonsters.com
+  ios: https://itunes.apple.com/us/app/mino-monsters-2-evolution/id1042597125
+  android: https://play.google.com/store/apps/details?id=com.minogames.minomonsters
+  featured: true
+
 - title: "Papers, Please"
   developer: "3909"
   image: PapersPlease.png
@@ -20,13 +36,13 @@
   playstation: "http://p0.dl.playstation.net/p0/psns/psnschk.htm?a=psns%3Abrowse%3Fproduct%3DUM0135-NPNA00111_00-0000000000000000&type=psm"
   featured: true
 
-- title: A Good Snowman is Hard to Build
-  developer: Draknek
-  image: AGoodSnowmanIsHardToBuild.jpg
-  url: http://agoodsnowman.com
-  windows: http://store.steampowered.com/app/316610/
-  mac: http://store.steampowered.com/app/316610/
-  linux: http://store.steampowered.com/app/316610/
+- title: "twofold inc."
+  developer: grapefrukt
+  image: TwofoldInc.png
+  url: http://www.twofoldinc.com
+  ios: https://itunes.apple.com/us/app/twofold-inc./id1042322028
+  android: https://play.google.com/store/apps/details?id=com.grapefrukt.games.twofold
+  featured: true
 
 - title: The Masterplan
   developer: Shark Punch
@@ -35,14 +51,6 @@
   windows: http://store.steampowered.com/app/313080/
   mac: http://store.steampowered.com/app/313080/
   linux: http://store.steampowered.com/app/313080/
-
-- title: Genial Santa Claus 2
-  developer: Netforza
-  image: GenialSanta2.png
-  ios: https://itunes.apple.com/app/genial-santa-claus-2-christmas/id1064711553?mt=8
-  android: https://play.google.com/store/apps/details?id=com.netforza.GenialSantaClaus2
-  amazon: http://www.amazon.com/Genial-Santa-Claus-Christmas-Cards/dp/B0191YWWNI
-  flash: http://www.kongregate.com/games/Netforza/genial-santa-claus-2-the-christmas-cards
 
 - title: Rune Raiders
   developer: Retro64
@@ -86,6 +94,14 @@
   ios: https://itunes.apple.com/app/id732353646
   android: https://play.google.com/store/apps/details?id=com.kongregate.mobile.cardinalquest.google
   featured: true
+
+- title: A Good Snowman is Hard to Build
+  developer: Draknek
+  image: AGoodSnowmanIsHardToBuild.jpg
+  url: http://agoodsnowman.com
+  windows: http://store.steampowered.com/app/316610/
+  mac: http://store.steampowered.com/app/316610/
+  linux: http://store.steampowered.com/app/316610/
 
 - title: Run 3
   developer: player_03
@@ -174,12 +190,6 @@
   image: TEN.png
   url: http://tengame.info/
   ios: https://itunes.apple.com/gb/app/ten/id669964112
-
-- title: HexaWay
-  developer: Molotov Studios
-  image: hexaway.jpg
-  url: https://play.google.com/store/apps/details?id=com.molotovstudios.games.HexaWay
-  android: https://play.google.com/store/apps/details?id=com.molotovstudios.games.HexaWay
 
 - title: Lightbot
   developer: Lightbot Inc
@@ -291,6 +301,12 @@
   url: http://evoland.shirogames.com/classic
   flash: http://evoland.shirogames.com/classic
   html5: http://www.openfl.org/samples/evoland
+
+- title: HexaWay
+  developer: Molotov Studios
+  image: hexaway.jpg
+  url: https://play.google.com/store/apps/details?id=com.molotovstudios.games.HexaWay
+  android: https://play.google.com/store/apps/details?id=com.molotovstudios.games.HexaWay
 
 - title: Deer Sprint
   developer: Six Socks Software
@@ -589,6 +605,14 @@
   image: UltimateUAntivirus.jpg
   url: https://play.google.com/store/apps/details?id=com.ap.uAntivirus
   android: https://play.google.com/store/apps/details?id=com.ap.uAntivirus
+
+- title: Genial Santa Claus 2
+  developer: Netforza
+  image: GenialSanta2.png
+  ios: https://itunes.apple.com/app/genial-santa-claus-2-christmas/id1064711553?mt=8
+  android: https://play.google.com/store/apps/details?id=com.netforza.GenialSantaClaus2
+  amazon: http://www.amazon.com/Genial-Santa-Claus-Christmas-Cards/dp/B0191YWWNI
+  flash: http://www.kongregate.com/games/Netforza/genial-santa-claus-2-the-christmas-cards
 
 - title: Runecryption
   developer: Apodidae
