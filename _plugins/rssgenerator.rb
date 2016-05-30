@@ -34,6 +34,7 @@ module Jekyll
     # Returns nothing
     def generate(site)
       require 'rss'
+      require 'cgi/util'
 
       # Create the rss with the help of the RSS module
       rss = RSS::Maker.make("2.0") do |maker|
@@ -41,20 +42,24 @@ module Jekyll
         maker.channel.link = site.config['url']
         maker.channel.description = site.config['description'] || "RSS feed for #{site.config['name']}"
         maker.channel.author = site.config["author"]
-        maker.channel.updated = site.posts.map { |p| p.date  }.max
+        maker.channel.updated = site.posts.docs.map { |p| p.date  }.max
         maker.channel.copyright = site.config['copyright']
 
-        post_limit = (site.config['rss_post_limit'] - 1 rescue site.posts.count)
+        post_limit = site.config['rss_post_limit'].nil? ? site.posts.docs.count : site.config['rss_post_limit'] - 1
 
-        site.posts.reverse[0..post_limit].each do |post|
-          post.render(site.layouts, site.site_payload)
+        site.posts.docs.reverse[0..post_limit].each do |doc|
+          doc.read
           maker.items.new_item do |item|
-            link = "#{site.config['url']}#{post.url}"
+            link = "#{site.config['url']}#{doc.url}"
             item.guid.content = link
-            item.title = post.title
+            item.title = doc.data['title']
             item.link = link
-            item.description = post.excerpt
-            item.updated = post.date
+            item.description = "<![CDATA[" + doc.data['excerpt'].to_s.gsub(%r{</?[^>]+?>}, '') + "]]>"
+
+            # the whole doc content, wrapped in CDATA tags
+            item.content_encoded = "<![CDATA[" + doc.content + "]]>"
+
+            item.updated = doc.date
           end
         end
       end
@@ -64,7 +69,12 @@ module Jekyll
       rss_name = site.config['rss_name'] || "rss.xml"
       full_path = File.join(site.dest, rss_path)
       ensure_dir(full_path)
-      File.open("#{full_path}#{rss_name}", "w") { |f| f.write(rss) }
+
+      # We only have HTML in our content_encoded field which is surrounded by CDATA.
+      # So it should be safe to unescape the HTML.
+      feed = CGI::unescapeHTML(rss.to_s)
+
+      File.open("#{full_path}#{rss_name}", "w") { |f| f.write(feed) }
 
       # Add the feed page to the site pages
       site.pages << Jekyll::RssFeed.new(site, site.dest, rss_path, rss_name)

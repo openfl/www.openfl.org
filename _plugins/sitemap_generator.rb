@@ -10,20 +10,16 @@
 # Site: http://www.kinnetica.com
 # Distributed Under A Creative Commons License
 #   - http://creativecommons.org/licenses/by/3.0/
-
+require 'jekyll/document'
 require 'rexml/document'
 
 module Jekyll
 
-  class Post
+  class Jekyll::Document
     attr_accessor :name
 
-    def full_path_to_source
-      File.join(@base, @name)
-    end
-    
     def path_to_source
-      File.join(@name)
+      File.join(*[@name].compact)
     end
 
     def location_on_server(my_url)
@@ -34,12 +30,8 @@ module Jekyll
   class Page
     attr_accessor :name
 
-    def full_path_to_source
-      File.join(@base, @dir, @name)
-    end
-    
     def path_to_source
-      File.join(@dir, @name)
+      File.join(*[@dir, @name].compact)
     end
 
     def location_on_server(my_url)
@@ -48,26 +40,15 @@ module Jekyll
     end
   end
 
-
-  class Layout
-    def full_path_to_source
-      File.join(@base, @name)
-    end
-  end
-
   # Recover from strange exception when starting server without --auto
   class SitemapFile < StaticFile
     def write(dest)
-      begin
-        super(dest)
-      rescue
-      end
-
       true
     end
   end
 
   class SitemapGenerator < Generator
+    priority :lowest
 
     # Config defaults
     SITEMAP_FILE_NAME = "/sitemap.xml"
@@ -123,15 +104,15 @@ module Jekyll
     #
     # Returns last_modified_date of latest post
     def fill_posts(site, urlset)
+
       last_modified_date = nil
-      site.posts.each do |post|
+      site.collections["posts"].docs.each do |post|
         if !excluded?(site, post.name)
           url = fill_url(site, post)
           urlset.add_element(url)
         end
 
-        path = post.full_path_to_source
-        date = File.mtime(path)
+        date = File.mtime(post.path)
         last_modified_date = date if last_modified_date == nil or date > last_modified_date
       end
 
@@ -145,8 +126,7 @@ module Jekyll
     def fill_pages(site, urlset)
       site.pages.each do |page|
         if !excluded?(site, page.path_to_source)
-          path = page.full_path_to_source
-          if File.exists?(path)
+          if File.exists?(page.path)
             url = fill_url(site, page)
             urlset.add_element(url)
           end
@@ -154,7 +134,7 @@ module Jekyll
       end
     end
 
-    # Fill data of each URL element: location, last modified, 
+    # Fill data of each URL element: location, last modified,
     # change frequency (optional), and priority.
     #
     # Returns url REXML::Element
@@ -201,7 +181,7 @@ module Jekyll
     # Returns the location of the page or post
     def fill_location(site, page_or_post)
       loc = REXML::Element.new "loc"
-      url = site.config['url']
+      url = site.config['url'] + site.config['baseurl']
       loc.text = page_or_post.location_on_server(url)
 
       loc
@@ -211,10 +191,8 @@ module Jekyll
     #
     # Returns lastmod REXML::Element or nil
     def fill_last_modified(site, page_or_post)
-      path = page_or_post.full_path_to_source
-
       lastmod = REXML::Element.new "lastmod"
-      date = File.mtime(path)
+      date = File.mtime(page_or_post.path)
       latest_date = find_latest_date(date, site, page_or_post)
 
       if @last_modified_post_date == nil
@@ -241,8 +219,7 @@ module Jekyll
       layouts = site.layouts
       layout = layouts[page_or_post.data["layout"]]
       while layout
-        path = layout.full_path_to_source
-        date = File.mtime(path)
+        date = File.mtime(layout.path)
 
         latest_date = date if (date > latest_date)
 

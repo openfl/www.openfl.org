@@ -1,4 +1,5 @@
 name: OpenFL
+gems: ["jekyll-paginate", "redcarpet", "pygments"]
 markdown: RedcarpetCustom
 redcarpet:
   extensions: ["strikethrough", "no_intra_emphasis", "autolink", "tables", "with_toc_data", "fenced_code_blocks"]
