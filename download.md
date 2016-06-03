@@ -2,6 +2,11 @@
 layout: default
 title: Download
 permalink: download/
+redirect_from:
+ - documentation/getting-started/installing-openfl/
+ - documentation/setup/
+ - documentation/setup/install-haxe/
+ - documentation/setup/platforms/
 ---
 
 # Download

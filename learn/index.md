@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Learn
+redirect_from: documentation/
 ---
 
 # Learn
