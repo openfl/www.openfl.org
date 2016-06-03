@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Get Involved
-permalink: get-involved/
+title: Connect
+permalink: connect/
 ---
 
 # Connect
