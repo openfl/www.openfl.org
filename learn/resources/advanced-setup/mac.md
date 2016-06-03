@@ -2,6 +2,7 @@
 layout: default
 title: Setup Mac
 permalink: learn/resources/advanced-setup/mac/
+redirect_from: documentation/setup/platforms/setup-mac/
 ---
 
 # Setup Mac

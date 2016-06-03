@@ -2,6 +2,7 @@
 layout: default
 title: Setup Tizen
 permalink: learn/resources/advanced-setup/tizen/
+redirect_from: documentation/setup/platforms/setup-tizen/
 ---
 
 # Setup Tizen

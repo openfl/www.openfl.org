@@ -2,6 +2,7 @@
 layout: default
 title: Setup BlackBerry
 permalink: learn/resources/advanced-setup/blackberry/
+redirect_from: documentation/setup/platforms/setup-blackberry/
 ---
 
 # Setup BlackBerry

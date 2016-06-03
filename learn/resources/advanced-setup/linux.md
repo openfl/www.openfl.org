@@ -2,6 +2,7 @@
 layout: default
 title: Setup Linux
 permalink: learn/resources/advanced-setup/linux/
+redirect_from: documentation/setup/platforms/setup-linux/
 ---
 
 # Setup Linux

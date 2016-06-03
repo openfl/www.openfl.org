@@ -2,6 +2,7 @@
 layout: default
 title: Setup Windows
 permalink: learn/resources/advanced-setup/windows/
+redirect_from: documentation/setup/platforms/setup-windows/
 ---
 
 # Setup Windows

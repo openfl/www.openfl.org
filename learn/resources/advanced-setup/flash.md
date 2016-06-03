@@ -2,6 +2,7 @@
 layout: default
 title: Setup Flash
 permalink: learn/resources/advanced-setup/flash/
+redirect_from: documentation/setup/platforms/setup-flash/
 ---
 
 # Setup Flash

@@ -2,6 +2,7 @@
 layout: default
 title: Setup HTML5
 permalink: learn/resources/advanced-setup/html5/
+redirect_from: documentation/setup/platforms/setup-html5/
 ---
 
 # Setup HTML5

@@ -2,6 +2,7 @@
 layout: default
 title: Setup Firefox OS
 permalink: learn/resources/advanced-setup/firefox-os/
+redirect_from: documentation/setup/platforms/setup-firefox-os/
 ---
 
 # Setup Firefox OS

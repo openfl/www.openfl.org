@@ -2,6 +2,7 @@
 layout: default
 title: Setup iOS
 permalink: learn/resources/advanced-setup/ios/
+redirect_from: documentation/setup/platforms/setup-ios/
 ---
 
 # Setup iOS
