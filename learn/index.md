@@ -92,14 +92,8 @@ For documentation on the classes available in Lime and OpenFL, please visit <a h
  * [Linux](/learn/resources/advanced-setup/linux/)
  * [iOS](/learn/resources/advanced-setup/ios/)
  * [Android](/learn/resources/advanced-setup/android/)
- * [BlackBerry](/learn/resources/advanced-setup/blackberry/)
- * [Firefox OS](/learn/resources/advanced-setup/firefox-os/)
  * [Flash](/learn/resources/advanced-setup/flash/)
  * [HTML5](/learn/resources/advanced-setup/html5/)
-
-### Contributors
-
- * [Roadmap](/learn/resources/contributors/roadmap/)
 
 ## Forums
 
