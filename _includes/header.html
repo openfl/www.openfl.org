@@ -60,7 +60,7 @@
                 {% for p in site.navigation %}
                 <li><a {% if p.url == page.url %}class="active"{% endif %} href="{{ p.url | prepend: site.baseurl | replace: '//', '/' }}">{{ p.title | upcase }}</a></li>
                 {% endfor %}
-                <li><a href="http://api.openfl.org" target="_blank">API</a></li>
+                <!-- <li><a href="http://api.openfl.org" target="_blank">API</a></li> -->
                 <li><a href="http://community.openfl.org">FORUMS</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
