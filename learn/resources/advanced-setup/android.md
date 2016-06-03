@@ -2,6 +2,7 @@
 layout: default
 title: Setup Android
 permalink: learn/resources/advanced-setup/android/
+redirect_from: documentation/setup/platforms/setup-android/
 ---
 
 # Setup Android
