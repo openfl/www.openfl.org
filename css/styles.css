@@ -180,6 +180,7 @@ li.list-checkbox input {
   text-overflow: ellipsis;
   max-width: 460px;
   white-space: nowrap;
+  overflow: hidden;
   
 }
 
