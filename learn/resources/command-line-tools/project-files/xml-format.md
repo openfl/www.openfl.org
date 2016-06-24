@@ -209,6 +209,10 @@ BlackBerry does not use the `alias` or `alias-password` attributes.
 
     <certificate path="to/certificate.crt" password="1234" alias="my-alias" alias-password="4321" />
 
+iOS does not use a certificate `path` and `password`, but instead uses an `identity` attribute matching the provisioning profile you have configured on your system:
+
+    <certificate identity="iPhone Developer" />
+
 ### `<config:ios />`
 
 Control iOS-specific values when compiling.
