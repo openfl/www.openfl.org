@@ -256,6 +256,11 @@ BlackBerry does not use the `alias` or `alias-password` properties.
 
     certificate = new Keystore ("certificate.crt", "1234", "my-alias", "4321");
 
+iOS does not use a certificate `path` and `password`, but instead uses an `identity` property matching the provisioning profile you have configured on your system:
+
+    certificate = new Keystore ();
+    certificate.identity = "iPhone Developer";
+
 ### platformConfig.ios
 
 Control iOS-specific values when compiling.
