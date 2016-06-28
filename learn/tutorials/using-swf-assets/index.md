@@ -68,7 +68,7 @@ Assets.loadLibrary ("swf-library", function (_) {
 	
 	trace ("SWF library loaded");
 	
-}
+});
 ```
 
 ## Instantiating a SWF Symbol
