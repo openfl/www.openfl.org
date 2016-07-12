@@ -10,14 +10,14 @@ head: '<link rel="alternate" type="application/rss+xml" title="OpenFL Blog" href
 <div class="col-md-8">
 
 {% for post in paginator.posts %}
-<h2><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}/">{{ post.title }}</a></h2>
+<h2><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></h2>
 {% if post.excerpt != null and post.excerpt != "" %}
 {{ post.excerpt | split:"</p>" | first }}
-<a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}/">Read more</a></p>
+<a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">Read more</a></p>
 {% else %}
 <div>{{ post.content }}</div>
 {% endif %}
-<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">{{ post.date | date: "%B %-d, %Y" }} | <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}/#disqus_thread">View Comments</a></h5>
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">{{ post.date | date: "%B %-d, %Y" }} | <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}#disqus_thread">View Comments</a></h5>
 {% endfor %}
 
 {% if paginator.total_pages > 1 %}

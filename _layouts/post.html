@@ -12,7 +12,7 @@ layout: default
 {{ content | replace: '&lt;!--more--&gt;','' }}
 </div>
 
-<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">{{ page.date | date: "%B %-d, %Y" }} | <a href="{{ page.url | prepend: site.baseurl | replace: '//', '/' }}/#disqus_thread">View Comments</a></h5>
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">{{ page.date | date: "%B %-d, %Y" }} | <a href="{{ page.url | prepend: site.baseurl | replace: '//', '/' }}#disqus_thread">View Comments</a></h5>
 
  <div id="disqus_thread"></div>
     <script type="text/javascript">
