@@ -7,17 +7,17 @@ The next, latest, greatest version of OpenFL is here—OpenFL 4. We invite you t
 
 ## New OpenGL Renderer
 
-We went to the drawing board to make a lightweight, clean, easy-to-understand OpenGL renderer in the core of OpenFL. This has resulted in a number of great benefits, not only for maintenance and development, but also this has enable support for WebGL by default in our HTML5 builds. We have working `ShaderFilter` support in `Bitmap`, `TextField`, `DisplayObject` and `Tilemap`, and plan to add support to `Sprite` in the future.
+We went to the drawing board to make a lightweight, clean, easy-to-understand OpenGL renderer in the core of OpenFL. This has resulted in a number of great benefits, not only for maintenance and development, but also this has enabled support for WebGL by default in our HTML5 builds. We have working `ShaderFilter` support in `Bitmap`, `TextField`, `DisplayObject` and `Tilemap`, and plan to add support to `Sprite` in the future.
 
 WebGL builds will fallback to 2D canvas automatically if WebGL is not supported by a user's browser, but if you would prefer to force the use of 2D canvas when targeting HTML5, use `-Dcanvas` when compiling.
 
 ## Greater Consistency with Flash APIs
 
-There are many subtle little differences we are changing in order to better support the behavior you expect when using an open-source Flash library. These will not hurt ordinary projects, but can make a the difference when you port an existing ActionScript project over to use OpenFL. We are on the road to continue to remove the tiny differences that unnecessarily make some porting projects complicated.
+There are many subtle little differences we are changing in order to better support the behavior you expect when using an open-source Flash library. These will not hurt ordinary projects, but can make all the difference when you port an existing ActionScript project over to use OpenFL. We are on the road to continue to remove the tiny differences that unnecessarily make some porting projects complicated.
 
 ## Commitment to the Stage3D API
 
-In the past, the Stage3D compatibility layer was developing by our friends on the Away3D project, and maintained by generous contributors through pull requests. As an API, this was not supported by the core OpenFL team, but with our new OpenGL renderer, and continuing commitment to providing the functionality you expect, we have begun the process of improving our Stage3D APIs to conform more closely with the original API. We are partnering with the developers of the Haxe Starling port to continue to make improvements to our core Stage3D implementation so that we can grow to support modern ActionScript projects using Stage3D with as little headache as possible.
+In the past, the Stage3D compatibility layer was developed by our friends on the Away3D project, and maintained by generous contributors through pull requests. As an API, this was not supported by the core OpenFL team, but with our new OpenGL renderer, and continuing commitment to providing the functionality you expect, we have begun the process of improving our Stage3D APIs to conform more closely with the original API. We are partnering with the developers of the Haxe Starling port to continue to make improvements to our core Stage3D implementation so that we can grow to support modern ActionScript projects using Stage3D with as little headache as possible.
 
 ## Continued Graphics Improvements
 
