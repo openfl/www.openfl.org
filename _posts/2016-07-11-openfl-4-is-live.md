@@ -1,4 +1,7 @@
-# OpenFL 4 is Live
+---
+layout: post
+title: OpenFL 4 is Live
+---
 
 The next, latest, greatest version of OpenFL is here—OpenFL 4. We invite you to update using `haxelib upgrade` or by following the directions on the [download](https://www.openfl.org/download) page!
 
