@@ -33,4 +33,4 @@ Over two years ago, we started development on a new implementation of OpenFL, de
 
 Coinciding with the OpenFL 4 release, there is a new version of Lime as well. This includes better tools and many improvements to our platform support. If you are migrating from OpenFL legacy, Lime provides a suite of APIs that extend the OpenFL experience for greater control over input APIs, threading, rendering and the behavior of your application. Although OpenFL is the most common framework that uses Lime, we know many developers who use and love Lime directly. It is recommended if you prefer a lower-level approach to development.
 
-Thank you everyone for your continued support!
+You can read the full changelog for [OpenFL](https://github.com/openfl/openfl/blob/develop/CHANGELOG.md) and [Lime](https://github.com/openfl/lime/blob/develop/CHANGELOG.md) here. Thank you everyone for your continued support. We have an exciting road ahead!
