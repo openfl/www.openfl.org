@@ -15,7 +15,7 @@ The \*.hxp format is based upon Haxe, it mirrors the internal project format use
 The basic structure of an \*.hxp project looks like this:
 
 ```haxe
-import project.*;
+import lime.project.*;
 
 class Project extends HXProject {
 
@@ -45,7 +45,7 @@ If needed, you can also check the `host` property, which should define Platform.
 You can also set your own values (of course):
 
 ```haxe
-import project.*;
+import lime.project.*;
 
 class Project extends HXProject {
 
