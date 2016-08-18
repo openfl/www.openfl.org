@@ -6,10 +6,10 @@
 			{{ content | replace: '<li>[ ]', '<li class="list-checkbox"><input type="checkbox" disabled> ' | replace: '<li>[x]', '<li class="list-checkbox"><input type="checkbox" checked disabled> ' }}
 			
 		</div>
-		<div class="col-md-4 col-md-pull-8">
+		<div class="col-md-4 col-md-pull-8 sidebar">
 			
 			{% if page.sidebar %}
-			{{ page.sidebar | markdownify }}
+			{{ page.sidebar | markdownify | replace: '<ul>', '<ul class="nav nav-sidebar">' }}
 			{% endif %}
 			
 		</div>

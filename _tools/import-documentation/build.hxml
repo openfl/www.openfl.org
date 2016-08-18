@@ -1,4 +1,5 @@
 -main ImportDocumentation
 -neko import.n
 -lib lime
---macro lime.system.System.includeTools()
+-D optional-cffi
+-D lime-native

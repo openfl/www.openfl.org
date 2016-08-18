@@ -2,7 +2,7 @@ package;
 
 
 import haxe.io.Path;
-import helpers.PathHelper;
+import lime.tools.helpers.PathHelper;
 import sys.io.File;
 import sys.FileSystem;
 
@@ -33,7 +33,7 @@ class ImportDocumentation {
 			
 			var input = File.read (source + "/SUMMARY.md", false);
 			
-			summary.push ("* [Introduction](/documentation/)");
+			//summary.push ("#### [Learn](/learn/)");
 			
 			while (true) {
 				
@@ -111,6 +111,7 @@ class ImportDocumentation {
 		for (i in 0...targetPaths.length) {
 			
 			if (targetPaths[i] == null) continue;
+			if (targetPaths[i] == "index.md") continue;
 			if (names[i] == "SUMMARY") continue;
 			//if (names[i] == "_sidebar") continue;
 			
@@ -138,12 +139,12 @@ class ImportDocumentation {
 			output.writeString ("title: " + title + "\n");
 			output.writeString ("---\n\n");
 			//output.writeString ("# " + title);
-			output.writeString (' <a href="https://github.com/openfl/openfl-documentation/edit/master/${sourcePaths[i]}" class="btn btn-default pull-right" style="margin-top: 16px" role="button" target="_blank"><span class="glyphicon glyphicon-pencil"></span></a>');
+			output.writeString (' <a href="https://github.com/openfl/learn-openfl/edit/master/${sourcePaths[i]}" class="btn btn-default pull-right" style="margin-top: 16px" role="button" target="_blank"><span class="glyphicon glyphicon-pencil"></span></a>');
 			output.writeString ("\n\n");
 			output.writeString (content);
 			
 			output.writeString ("\n\n{% sidebar %}");
-			output.writeString ("<br />\n\n");
+			//output.writeString ("<br />\n\n");
 			
 			var pageComponents = targetPath.split ("/");
 			pageComponents.pop ();
@@ -156,27 +157,35 @@ class ImportDocumentation {
 				
 				if (index > -1) {
 					
-					var targetPath = link.substring (index + 3, link.lastIndexOf (")") - 1);
-					var targetComponents = targetPath.split ("/");
-					targetComponents.shift ();
-					
-					if (targetComponents.length <= 1 || pageComponents[0] == targetComponents[0]) {
+					if (link.indexOf ("://") > -1) {
 						
-						if (pageComponents.join ("/") == targetComponents.join ("/")) {
+						output.writeString (link);
+						
+					} else {
+						
+						var targetPath = link.substring (index + 3, link.lastIndexOf (")") - 1);
+						var targetComponents = targetPath.split ("/");
+						targetComponents.shift ();
+						
+						if (targetComponents.length <= 1 || pageComponents[0] == targetComponents[0]) {
 							
-							var leftIndex = link.indexOf ("* [") + 3;
-							var rightIndex = link.indexOf ("](");
+							if (pageComponents.join ("/") == targetComponents.join ("/")) {
+								
+								var leftIndex = link.indexOf ("* [") + 3;
+								var rightIndex = link.indexOf ("](");
+								
+								var link = link.substring (0, leftIndex) + "__" + link.substring (leftIndex, rightIndex) + "__" + link.substr (rightIndex);
+								output.writeString (link);
+								
+							} else {
+								
+								output.writeString (link);
+								
+							}
 							
-							var link = link.substring (0, leftIndex) + "__" + link.substring (leftIndex, rightIndex) + "__" + link.substr (rightIndex);
-							output.writeString (link);
-							
-						} else {
-							
-							output.writeString (link);
+							output.writeString ("\n");
 							
 						}
-						
-						output.writeString ("\n");
 						
 					}
 					
@@ -212,7 +221,7 @@ class ImportDocumentation {
 			
 			var sourcePath = sourcePaths[i];
 			var targetPath = targetPaths[i];
-			
+
 			if (targetPath != null && targetPath.indexOf ("/") > -1) {
 				
 				if (StringTools.endsWith (targetPath, ".md")) {
@@ -221,7 +230,7 @@ class ImportDocumentation {
 					
 				}
 				
-				targetPath = "/documentation/" + targetPath;
+				targetPath = "/learn/" + targetPath;
 				
 				if (StringTools.endsWith (targetPath, "/index.html")) {
 					

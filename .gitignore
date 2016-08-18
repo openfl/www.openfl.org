@@ -2,3 +2,6 @@ _site
 .DS_Store
 documentation
 import.n
+learn/docs
+learn/guides
+learn/tutorials

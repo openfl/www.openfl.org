@@ -66,7 +66,8 @@ a:hover, a:focus { color: #1e90a0; }
 }
 
 .btn-default {
-  background-color: #cccccc;
+  background-color: #eeeeee;
+  border-color: #dddddd;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
@@ -80,7 +81,8 @@ a:hover, a:focus { color: #1e90a0; }
 }
 
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
-    background-color: #aaaaaa;
+  background-color: #dddddd;
+  border-color: #cccccc;
 }
 
 
@@ -172,6 +174,24 @@ li.list-checkbox input {
   margin: 6px 0 0 -20px;
   float: left;
   line-height: 1.4;
+  
+}
+
+div.sidebar {
+  
+  margin-top: 20px;
+
+}
+
+.nav.nav-sidebar {
+  
+  background-color: #FCFCFC;
+  
+}
+
+ul.nav-sidebar > li > ul.nav-sidebar {
+  
+  margin-left: 20px;
   
 }
 
