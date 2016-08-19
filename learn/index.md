@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: documentation
 title: Learn
 redirect_from: documentation/
 ---
@@ -49,3 +49,11 @@ a.large-btn .glyphicon {
 ## Questions
 
 If you still have questions, or are having trouble with OpenFL, please visit our friendly [community forums](http://community.openfl.org), we'd be happy to help you!
+
+{% sidebar %}
+* [__Introduction__](/learn/)
+* [Documentation](/learn/docs/)
+* [Guides](/learn/guides/)
+* [Tutorials](/learn/tutorials/)
+* [API](http:/api.openfl.org/)
+{% endsidebar %}
