@@ -205,9 +205,18 @@ class ImportDocumentation {
 		
 		// TODO: regex?
 		
+		//var regex = ~/```\n[\s\S]+?```/g
+		 
 		content = StringTools.replace (content, "\n```haxe\n", "\n{% highlight haxe %}\n");
 		content = StringTools.replace (content, "\n```Haxe\n", "\n{% highlight haxe %}\n");
 		content = StringTools.replace (content, "\n```bash\n", "\n{% highlight bash %}\n");
+		content = StringTools.replace (content, "\n```xml\n", "\n{% highlight xml %}\n");
+		content = StringTools.replace (content, "\n```as3\n", "\n{% highlight as3 %}\n");
+		content = StringTools.replace (content, "\n```html\n", "\n{% highlight html %}\n");
+		content = StringTools.replace (content, "\n```css\n", "\n{% highlight css %}\n");
+		content = StringTools.replace (content, "\n```java\n", "\n{% highlight java %}\n");
+		content = StringTools.replace (content, "\n```objc\n", "\n{% highlight objc %}\n");
+		content = StringTools.replace (content, "\n```cpp\n", "\n{% highlight cpp %}\n");
 		content = StringTools.replace (content, "\n```\n", "\n{% endhighlight %}\n");
 		
 		return content;
