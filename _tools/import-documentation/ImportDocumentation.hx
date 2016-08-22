@@ -160,6 +160,7 @@ class ImportDocumentation {
 					if (link.indexOf ("://") > -1) {
 						
 						output.writeString (link);
+						output.writeString ("\n");
 						
 					} else {
 						
