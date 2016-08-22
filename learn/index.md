@@ -33,9 +33,9 @@ a.large-btn .glyphicon {
 	<span class="glyphicon glyphicon-file"></span>
 	Docs
 </a>
-<a href="/learn/guides/" class="btn btn-default btn-lg text-center large-btn" role="button">
+<a href="/learn/books/" class="btn btn-default btn-lg text-center large-btn" role="button">
 	<span class="glyphicon glyphicon-book"></span>
-	Guides
+	Books
 </a>
 <a href="/learn/tutorials/" class="btn btn-default btn-lg text-center large-btn" role="button">
 	<span class="glyphicon glyphicon-apple"></span>
@@ -53,7 +53,7 @@ If you still have questions, or are having trouble with OpenFL, please visit our
 {% sidebar %}
 * [__Introduction__](/learn/)
 * [Documentation](/learn/docs/)
-* [Guides](/learn/guides/)
+* [Books](/learn/books/)
 * [Tutorials](/learn/tutorials/)
 * [API](http:/api.openfl.org/)
 {% endsidebar %}
