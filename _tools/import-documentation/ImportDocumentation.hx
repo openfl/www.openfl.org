@@ -174,7 +174,40 @@ class ImportDocumentation {
 						var targetComponents = targetPath.split ("/");
 						targetComponents.shift ();
 						
-						if (targetComponents.length <= 1 || pageComponents[0] == targetComponents[0]) {
+						var componentsMatch = true;
+						
+						// Pages should match all but the last component
+						
+						for (i in 0...(pageComponents.length - 1)) {
+							
+							if (i >= targetComponents.length - 1) break;
+							
+							if (pageComponents[i] != targetComponents[i]) {
+								
+								componentsMatch = false;
+								break;
+								
+							}
+							
+						}
+						
+						// Pages should also match if they are a child
+						
+						if (targetComponents.length > pageComponents.length + 1) {
+							
+							componentsMatch = false;
+							
+						} else if (targetComponents.length == pageComponents.length + 1) {
+							
+							if (pageComponents[pageComponents.length - 1] != targetComponents[pageComponents.length - 1]) {
+								
+								componentsMatch = false;
+								
+							}
+							
+						}
+						
+						if (targetComponents.length <= 1 || componentsMatch) {
 							
 							if (pageComponents.join ("/") == targetComponents.join ("/")) {
 								
@@ -194,7 +227,17 @@ class ImportDocumentation {
 							
 						}
 						
-						skip = (pageComponents[0] != targetComponents[0]);
+						// Hack way to skip external links that aren't in the current hierarchy
+						
+						if (targetComponents.length > 0) {
+							
+							skip = (pageComponents[0] != targetComponents[0]);
+							
+						} else {
+							
+							skip = false;
+							
+						}
 						
 					}
 					
