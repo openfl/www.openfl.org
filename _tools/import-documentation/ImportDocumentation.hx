@@ -149,6 +149,8 @@ class ImportDocumentation {
 			var pageComponents = targetPath.split ("/");
 			pageComponents.pop ();
 			
+			var skip = false;
+			
 			for (link in summary) {
 				
 				if (link.indexOf ("<!--") > -1) continue;
@@ -159,8 +161,12 @@ class ImportDocumentation {
 					
 					if (link.indexOf ("://") > -1) {
 						
-						output.writeString (link);
-						output.writeString ("\n");
+						if (!skip || link.indexOf (" ") != 0) {
+							
+							output.writeString (link);
+							output.writeString ("\n");
+							
+						}
 						
 					} else {
 						
@@ -187,6 +193,8 @@ class ImportDocumentation {
 							output.writeString ("\n");
 							
 						}
+						
+						skip = (pageComponents[0] != targetComponents[0]);
 						
 					}
 					
