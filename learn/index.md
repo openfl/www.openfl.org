@@ -20,7 +20,7 @@ If you are already familiar with the fundamentals of ActionScript/Flash developm
 a.large-btn {
 	width: 110px;
 	height: 110px;
-	margin-right: 12px;
+	margin: 4px 12px 12px 0;
 }
 a.large-btn .glyphicon {
 	display: block;
