@@ -1,5 +1,5 @@
 ---
-layout: documentation
+layout: sidebar
 title: Learn
 redirect_from: documentation/
 ---

@@ -8,9 +8,11 @@
 		</div>
 		<div class="col-md-4 col-md-pull-8 sidebar">
 			
-			{% if page.sidebar %}
-			{{ page.sidebar | markdownify | replace: '<ul>', '<ul class="nav nav-sidebar">' }}
+			{% for item in site.data.navigation %}
+			{% if page.url contains item.url and item.subitems %}
+			{% include sidebar-item.html navigation=item.subitems %}
 			{% endif %}
+			{% endfor %}
 			
 		</div>
 	</div>

@@ -189,6 +189,12 @@ div.sidebar {
   
 }
 
+.nav.nav-sidebar a.active {
+  
+  font-weight: bold
+  
+}
+
 ul.nav-sidebar > li > ul.nav-sidebar {
   
   margin-left: 20px;

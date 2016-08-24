@@ -27,10 +27,10 @@ a:hover,a:focus{color:#1e90a0;}
 .footer .icons a{text-decoration:none!important;}
 .btn-primary{background-color:#ff5b18;border-color:#EF4C00;}
 .btn-info{background-color:#24afc4;border-color:#1F9DB2;}
-.btn-default{background-color:#cccccc;}
+.btn-default{background-color:#eeeeee;border-color:#dddddd;}
 .btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary{background-color:#EF4C00;border-color:#BC3700;}
 .btn-info:hover,.btn-info:focus,.btn-info:active,.btn-info.active,.open .dropdown-toggle.btn-info{background-color:#1F9DB2;border-color:#158BA0;}
-.btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active,.open .dropdown-toggle.btn-default{background-color:#aaaaaa;}
+.btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active,.open .dropdown-toggle.btn-default{background-color:#dddddd;border-color:#cccccc;}
 .marketing{padding-right:15px;padding-left:15px;}
 .marketing .col-lg-4{margin-bottom:20px;text-align:center;}
 .marketing h2{font-weight:normal;}
@@ -44,6 +44,10 @@ a:hover,a:focus{color:#1e90a0;}
 .jumbotron .btn{text-shadow:none;}
 li.list-checkbox{list-style:none;line-height:1.6;}
 li.list-checkbox input{margin:6px 0 0 -20px;float:left;line-height:1.4;}
+div.sidebar{margin-top:20px;}
+.nav.nav-sidebar{background-color:#FCFCFC;}
+.nav.nav-sidebar a.active{font-weight:bold}
+ul.nav-sidebar>li>ul.nav-sidebar{margin-left:20px;}
 .showcase-title{text-overflow:ellipsis;max-width:460px;white-space:nowrap;overflow:hidden;}
 .showcase-image{width:100%;max-width:460px;margin:6px auto 0 auto;}
 .showcase-icons{color:#dddddd;font-size:28px;padding:8px 0 16px 0;text-align:center;max-width:460px;}
