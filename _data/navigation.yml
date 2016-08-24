@@ -61,8 +61,8 @@
   - title: Tutorials
     url: /learn/tutorials/
     subitems:
-    - title: Your First Project
-      url: /learn/tutorials/your-first-project/
+    - title: Displaying a Bitmap
+      url: /learn/tutorials/displaying-a-bitmap/
     - title: Using SWF Assets
       url: /learn/tutorials/using-swf-assets/
   - title: API

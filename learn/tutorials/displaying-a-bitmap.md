@@ -1,9 +1,10 @@
 ---
 layout: sidebar
-title: Your First Project
+title: Displaying a Bitmap
+redirect_from: /learn/tutorials/your-first-project/
 ---
 
-# Your First Project
+# Displaying a Bitmap
 
 ## Creating a New Project
 
@@ -15,7 +16,7 @@ To create an empty project, open a command-prompt (Windows) or terminal (Mac/Lin
 
 You can replace "HelloWorld" with whatever you want to call your project.
 
-OpenFL contains multiple samples for illustrating different features of the platform. One of the simple samples is called "DisplayingABitmap", as we build our first project, we will quickly walk through the steps to recreate this sample. You can also generate a copy of it yourself using:
+OpenFL contains multiple samples for illustrating different features of the platform. One of these samples is called "DisplayingABitmap". As we build our first project, we will quickly walk through the steps to recreate this sample. You can also generate a copy of it yourself using the command:
 
     openfl create DisplayingABitmap
 

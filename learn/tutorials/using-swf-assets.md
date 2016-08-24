@@ -3,8 +3,6 @@ layout: sidebar
 title: Using SWF Assets
 ---
 
- <a href="https://github.com/openfl/learn-openfl/edit/master/tutorials/using-swf-assets.md" class="btn btn-default pull-right" style="margin-top: 16px" role="button" target="_blank"><span class="glyphicon glyphicon-pencil"></span></a>
-
 # Using SWF Assets
 
 ## Introduction
@@ -198,11 +196,3 @@ class Main extends Sprite {
 	
 }
 {% endhighlight %}
-
-
-{% sidebar %}* [Documentation](/learn/docs/)
-* [Guides](/learn/guides/)
-* [Tutorials](/learn/tutorials/)
-   * [Your First Project](/learn/tutorials/your-first-project/)
-   * [__Using SWF Assets__](/learn/tutorials/using-swf-assets/)
-* [API](http://api.openfl.org/){% endsidebar %}
