@@ -20,11 +20,11 @@ a:hover,a:focus{color:#1e90a0;}
 .container-full h2{font-weight:300;line-height:1;letter-spacing:-1px;font-size:20px;text-transform:uppercase;}
 .centered{text-align:center;}
 .container.cta{padding:20px;}
-.footer{width:100%;position:relative;background-color:#2e2e2e;margin-top:-180px;height:180px;clear:both;font-size:12px;}
+.footer{width:100%;position:relative;background-color:#2e2e2e;margin-top:-180px;height:180px;clear:both;font-size:12px;color:#999999;}
 .footer .logos{background-color:#f9f9f9;border-top:1px solid #f0f0f0;margin-bottom:30px;border-bottom:solid 2px #444444;padding:14px 20px 14px 20px;}
 .footer .logos img{margin:0 auto;}
 .footer .icons{float:right!important;font-size:26px!important;margin-top:-5px}
-.footer .icons a{text-decoration:none!important;}
+.footer .icons a{text-decoration:none!important;padding-right:14px;}
 .btn-primary{background-color:#ff5b18;border-color:#EF4C00;}
 .btn-info{background-color:#24afc4;border-color:#1F9DB2;}
 .btn-default{background-color:#eeeeee;border-color:#dddddd;}

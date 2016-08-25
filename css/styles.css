@@ -35,6 +35,7 @@ a:hover, a:focus { color: #1e90a0; }
   height: 180px;
   clear:both;
   font-size: 12px;
+  color: #999999;
 }
 .footer .logos {
   background-color:#f9f9f9;
@@ -53,6 +54,7 @@ a:hover, a:focus { color: #1e90a0; }
 }
 .footer .icons a {
   text-decoration: none !important;
+  padding-right: 14px;
 }
 
 .btn-primary {
