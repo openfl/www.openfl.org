@@ -39,7 +39,7 @@ title: Feature Matrix
 | rect | yes | yes | yes | yes |
 | transparent | yes | yes | yes | yes |
 | width | yes | yes | yes | yes |
-| applyFilter | yes | partial | partial | planned |
+| applyFilter | yes | partial | planned | planned |
 | clone | yes | yes | yes | yes |
 | colorTransform | yes | yes | yes | yes |
 | compare | yes | yes | yes | no |
@@ -47,7 +47,8 @@ title: Feature Matrix
 | copyPixels | yes | yes | yes | yes |
 | dispose | yes | yes | yes | yes |
 | draw | yes | yes | yes* | yes* |
-| encode | yes | yes** | yes | yes |
+| drawWithQuality | yes | partial | partial* | no |
+| encode | yes | yes | yes | yes |
 | fillRect | yes | yes | yes | yes |
 | floodFill | yes | yes | yes | yes |
 | generateFilterRect | yes | ignored | ignored | ignored |
@@ -56,7 +57,7 @@ title: Feature Matrix
 | getPixel32 | yes | yes | yes | yes |
 | getPixels | yes | yes | yes | yes |
 | getVector | yes | yes | yes | yes |
-| histogram | yes | yes | yes | yes |
+| histogram | yes | yes | yes | no |
 | hitTest | yes | yes | yes | no |
 | lock | yes | yes | yes | yes |
 | merge | yes | yes | yes | no |
@@ -78,7 +79,7 @@ title: Feature Matrix
 | alpha | yes | yes | yes | yes |
 | blendMode | yes | ignored | partial | yes* |
 | cacheAsBitmap | yes | planned | planned | yes* |
-| filters | yes | partial | planned | yes |
+| filters | yes | planned | partial | yes |
 | height | yes | yes | yes | yes |
 | loaderInfo | yes | yes | yes | yes |
 | mask | yes | yes | yes | yes |
@@ -99,6 +100,12 @@ title: Feature Matrix
 | width | yes | yes | yes | yes |
 | x | yes | yes | yes | yes |
 | y | yes | yes | yes | yes |
+| getBounds | yes | yes | yes | yes |
+| getRect | yes | yes | yes | yes |
+| globalToLocal | yes | yes | yes | yes |
+| hitTestObject | yes | yes | yes | partial |
+| hitTestPoint | yes | yes | yes | partial |
+| localToGlobal | yes | yes | yes | yes |
 
 ### DisplayObjectContainer
 
@@ -147,12 +154,11 @@ title: Feature Matrix
 | drawRect | yes | yes | yes | yes |
 | drawRoundRect | yes | yes | yes | yes |
 | drawRoundRectComplex | yes | no | no | no |
-| drawTiles | yes | yes | yes | yes |
 | drawTriangles | yes | yes | yes | yes |
 | endFill | yes | yes | yes | yes |
-| lineBitmapStyle | yes | no | no | partial |
-| lineGradientStyle | yes | no | no | partial |
-| lineStyle | yes | partial | partial | partial |
+| lineBitmapStyle | yes | planned | planned | partial |
+| lineGradientStyle | yes | planned | planned | partial |
+| lineStyle | yes | yes | yes | partial |
 | lineTo | yes | yes | yes | yes |
 | moveTo | yes | yes | yes | yes |
 
@@ -272,6 +278,7 @@ title: Feature Matrix
 
 | Feature | Flash | HTML5 | Native | Legacy |
 | ------- |:-----:|:-----:|:------:|:------:|
+| addFrameScript | yes | yes | yes | no |
 | currentFrame | yes | yes | yes | yes |
 | currentFrameLabel | yes | yes | yes | yes |
 | currentLabel | yes | yes | yes | yes |
@@ -324,8 +331,10 @@ title: Feature Matrix
 | ------- |:-----:|:-----:|:------:|:------:|
 | buttonMode | yes | yes | yes | ignored |
 | graphics | yes | yes | yes | yes |
+| hitArea | yes | yes | yes | no |
 | useHandCursor | yes | yes | yes | ignored |
 | startDrag | yes | yes | yes | yes |
+| stopAllMovieClips | yes | yes | yes | no |
 | stopDrag | yes | yes | yes | yes |
 
 ### Stage
@@ -333,18 +342,22 @@ title: Feature Matrix
 | Feature | Flash | HTML5 | Native | Legacy |
 | ------- |:-----:|:-----:|:------:|:------:|
 | align | yes | no | no | partial |
-| allowsFullscren | yes | ignored | ignored | no |
+| allowsFullscren | yes | yes | yes | no |
+| allowsFullscrenInteractive | yes | yes | yes | no |
+| application | yes | yes | yes | no |
 | color | yes | yes | yes | yes |
 | displayState | yes | partial | yes | yes |
 | focus | yes | yes | yes | partial |
 | frameRate | yes | yes | yes | yes |
 | invalidate | yes | yes | yes | yes |
 | quality | yes | ignored | ignored | partial |
+| scaleMode | yes | no | no | partial |
 | stage3ds | yes | yes | yes | yes |
 | stageFocusRect | yes | ignored | ignored | ignored |
-| scaleMode | yes | no | no | partial |
 | stageHeight | yes | yes | yes | yes |
 | stageWidth | yes | yes | yes | yes |
+| window | yes | yes | yes | no |
+| invalidate | yes | yes | yes | yes |
 
 ### Stage3D
 
@@ -354,13 +367,49 @@ title: Feature Matrix
 | visible | yes | yes | yes | yes |
 | x | yes | yes | yes | yes |
 | y | yes | yes | yes | yes |
+| requestContext3D | yes | yes | yes | partial |
+| requestContext3DMatchingProfiles | yes | partial | partial | partial |
 
-### Tilesheet
+### Tile
 
 | Feature | Flash | HTML5 | Native | Legacy |
 | ------- |:-----:|:-----:|:------:|:------:|
-| addTileRect | yes | yes | yes | yes |
-| drawTiles | yes | yes | yes | yes |
+| alpha | yes | yes | yes | no |
+| data | yes | yes | yes | no |
+| id | yes | yes | yes | no |
+| matrix | yes | yes | yes | no |
+| rotation | yes | yes | yes | no |
+| scaleX | yes | yes | yes | no |
+| scaleY | yes | yes | yes | no |
+| tileset | yes | yes | yes | no |
+| visible | yes | yes | yes | no |
+| x | yes | yes | yes | no |
+| y | yes | yes | yes | no |
+
+### Tilemap
+
+| Feature | Flash | HTML5 | Native | Legacy |
+| ------- |:-----:|:-----:|:------:|:------:|
+| numTiles | yes | yes | yes | no |
+| smoothing | yes | yes | yes | no |
+| tileset | yes | yes | yes | no |
+| addTile | yes | yes | yes | no |
+| addTileAt | yes | yes | yes | no |
+| addTiles | yes | yes | yes | no |
+| contains | yes | yes | yes | no |
+| getTileAt | yes | yes | yes | no |
+| getTileIndex | yes | yes | yes | no |
+| removeTile | yes | yes | yes | no |
+| removeTileAt | yes | yes | yes | no |
+| removeTiles | yes | yes | yes | no |
+
+### Tileset
+
+| Feature | Flash | HTML5 | Native | Legacy |
+| ------- |:-----:|:-----:|:------:|:------:|
+| bitmapData | yes | yes | yes | no |
+| addRect | yes | yes | yes | no |
+| getRect | yes | yes | yes | no |
 
 ## openfl.errors
 
@@ -829,6 +878,7 @@ title: Feature Matrix
 | Feature | Flash | HTML5 | Native | Legacy |
 | ------- |:-----:|:-----:|:------:|:------:|
 | projectVector | yes | yes | yes | yes |
+| projectVectors | yes | yes | yes | no |
 
 ### Vector3D
 
@@ -905,6 +955,15 @@ title: Feature Matrix
 | bufferTime | yes | ignored | ignored | ignored |
 | checkPolicyFile | yes | ignored | ignored | ignored |
 
+### SoundMixer
+
+| Feature | Flash | HTML5 | Native | Legacy |
+| ------- |:-----:|:-----:|:------:|:------:|
+| bufferTime | yes | ignored | ignored | no |
+| soundTransform | yes | yes | yes | no |
+| areSoundsInaccessible | yes | yes | yes | no |
+| stopAll | yes | yes | yes | no |
+
 ### SoundTransform
 
 | Feature | Flash | HTML5 | Native | Legacy |
@@ -927,6 +986,31 @@ title: Feature Matrix
 | clear | yes | ignored | ignored | ignored |
 
 ## openfl.net
+
+### FileReference
+
+| Feature | Flash | HTML5 | Native | Legacy |
+| ------- |:-----:|:-----:|:------:|:------:|
+| creationDate | yes | yes | yes | no |
+| creator | yes | yes | ignored | no |
+| data | yes | yes | yes | no |
+| modificationDate | yes | yes | yes | no |
+| name | yes | yes | yes | no |
+| size | yes | yes | yes | no |
+| type | yes | yes | yes | no |
+| browse | yes | planned | yes | no |
+| cancel | yes | yes | yes | no |
+| download | yes | yes | yes | no |
+| load | yes | planned | yes | no |
+| save | yes | planned | yes | no |
+| upload | yes | planned | planned | no |
+
+### FileReferenceList
+
+| Feature | Flash | HTML5 | Native | Legacy |
+| ------- |:-----:|:-----:|:------:|:------:|
+| fileList | yes | yes | yes | no |
+| browse | yes | planned | yes | no |
 
 ### NetConnection
 
@@ -951,6 +1035,7 @@ title: Feature Matrix
 | speed | yes | ignored | ignored | ignored |
 | time | yes | ignored | ignored | ignored |
 | videoCodec | yes | ignored | ignored | ignored |
+| close | yes | yes | ignored | no |
 | pause | yes | yes | ignored | ignored |
 | play | yes | yes | ignored | ignored |
 | resume | yes | yes | ignored | ignored |
@@ -1334,8 +1419,8 @@ title: Feature Matrix
 | objectEncoding | yes | ignored | ignored | ignored |
 | position | yes | yes | yes | yes |
 | clear | yes | yes | yes | yes |
-| compress | yes | no | yes | yes |
-| deflate | yes | no | yes | yes |
+| compress | yes | yes | yes | yes |
+| deflate | yes | yes | yes | yes |
 | inflate | yes | yes | yes | yes |
 | readBoolean | yes | yes | yes | yes |
 | readByte | yes | yes | yes | yes |
@@ -1364,6 +1449,26 @@ title: Feature Matrix
 | writeUnsignedShort | yes | yes | yes | yes |
 | writeUTF | yes | yes | yes | yes |
 | writeUTFBytes | yes | yes | yes | yes |
+
+### Dictionary
+
+| Feature | Flash | HTML5 | Native | Legacy |
+| ------- |:-----:|:-----:|:------:|:------:|
+| exists | yes | yes | yes | no |
+| get | yes | yes | yes | no |
+| remove | yes | yes | yes | no |
+| set | yes | yes | yes | no |
+
+### Object
+
+| Feature | Flash | HTML5 | Native | Legacy |
+| ------- |:-----:|:-----:|:------:|:------:|
+| hasOwnProperty | yes | yes | yes | no |
+| isPrototypeOf | yes | yes | yes | no |
+| propertyIsEnumerable | yes | yes | yes | no |
+| toLocaleString | yes | yes | yes | no |
+| toString | yes | yes | yes | no |
+| valueOf | yes | yes | yes | no |
 
 ### Timer
 
@@ -1463,5 +1568,3 @@ title: Feature Matrix
 | toArray | yes | yes | yes | yes |
 
 _* Implemented using software rendering instead of hardware rendering_
-
-_** When including the "format" haxelib library_
