@@ -11,7 +11,7 @@ There is no automatic setup available for HTML5.
 
 ## Manual Install
 
-There is generally no setup required for the HTML5 target, but it may vary depending upon the HTML5 backend you use. For example, in order to use the unofficial "openfl-bitfive" backend, you must also install "openfl-bitfive" from haxelib, and include `<haxelib name="openfl-bitfive" />`, before `<haxelib name="openfl" />`
+There is generally no setup required for the HTML5 target, but it may vary depending upon the HTML5 backend you use. For example, in order to use the unofficial "openfl-bitfive" backend, you must also install "openfl-bitfive" from haxelib, and include `<haxelib name="openfl-bitfive" />`, before `<haxelib name="openfl" />`.
 
 ## Forums
 
