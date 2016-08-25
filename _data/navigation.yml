@@ -1,8 +1,8 @@
 - title: Showcase
   url: /showcase/
 
-- title: News
-  url: https://www.twitter.com/open_fl/
+- title: Blog
+  url: /blog/
 
 - title: Learn
   url: /learn/
@@ -70,5 +70,5 @@
   - title: API
     url: http://api.openfl.org
 
-- title: Forums
+- title: Community
   url: http://community.openfl.org
