@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: sidebar
 title: Getting Started
 redirect_from:
  - documentation/getting-started/installing-openfl/
