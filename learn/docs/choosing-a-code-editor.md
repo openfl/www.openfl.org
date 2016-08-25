@@ -17,15 +17,15 @@ OpenFL includes FlashDevelop project files when you use the "openfl create" comm
 
 ## Sublime Text
 
-[Sublime Text](http://www.sublimetext.com) is a code editor, with support for Haxe and OpenFL using the [Haxe Sublime Bundle](https://github.com/clemos/haxe-sublime-bundle). Sublime Text is cross-platform, with support for Windows, Mac and Linux.
+[Sublime Text](http://www.sublimetext.com) is a code editor, with support for Haxe and OpenFL using the [Haxe Sublime Bundle](https://github.com/clemos/haxe-sublime-bundle). Sublime Text is cross-platform, with support for Windows, macOS and Linux.
 
-Unlike FlashDevelop, Sublime Text does not provide accurate code completion, nor does it support "projects" in the traditional IDE sense. However, Sublime Text is much stronger than a simple text editor, and is a good recommendation for Mac and Linux users.
+Unlike FlashDevelop, Sublime Text does not provide accurate code completion, nor does it support "projects" in the traditional IDE sense. However, Sublime Text is much stronger than a simple text editor, and is a good recommendation for macOS and Linux users.
 
 Sublime Text is free-to-use, with reminders to pay for continued use.
 
 ## IntelliJ IDEA
 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/) is primarily marketed as a Java IDE, but it has growing support within the Haxe community, including large teams, such as TiVo. The full edition, as well as the free community edition, support the [Haxe plugin](https://plugins.jetbrains.com/plugin/6873?pr=idea), which is not easy to install, but can provide a fuller native IDE experience for Mac or Linux users.
+[IntelliJ IDEA](https://www.jetbrains.com/idea/) is primarily marketed as a Java IDE, but it has growing support within the Haxe community, including large teams, such as TiVo. The full edition, as well as the free community edition, support the [Haxe plugin](https://plugins.jetbrains.com/plugin/6873?pr=idea), which is not easy to install, but can provide a fuller native IDE experience for macOS or Linux users.
 
 ## Other Choices
 

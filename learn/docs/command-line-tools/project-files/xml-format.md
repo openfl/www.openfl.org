@@ -14,7 +14,7 @@ Usually a simple project file is all you need to build projects using OpenFL, bu
 First, every node in the project file format supports `if` and `unless` attributes. These are conditional values to help you customize your build process, based upon a number of values. Here are some of the default values:
 
  * mobile, desktop or web
- * ios, android, blackberry, tizen, windows, mac, linux or html5
+ * ios, android, windows, mac, linux or html5
  * cpp, neko, flash or js
 
 You can create more defines using the `<set />` or `<unset />` tags:
@@ -203,8 +203,6 @@ If you do not include the password attribute, you will be prompted for your cert
 For Android, the alias will be set to the file name of your certificate by default, without the extension. If the alias name is different, you can use the alias attribute.
 
 If you have set the password attribute, the alias_password attribute will default to the same value. Otherwise you can add an alias-password attribute to specify a different value.
-
-BlackBerry does not use the `alias` or `alias-password` attributes.
 
     <certificate path="to/certificate.crt" password="1234" alias="my-alias" alias-password="4321" />
 

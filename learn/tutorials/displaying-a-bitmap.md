@@ -10,7 +10,7 @@ redirect_from: /learn/tutorials/your-first-project/
 
 OpenFL includes a "create" command that can help generate an empty or sample project for you.
 
-To create an empty project, open a command-prompt (Windows) or terminal (Mac/Linux) and run the following command:
+To create an empty project, open a command-prompt (Windows) or terminal (macOS/Linux) and run the following command:
 
     openfl create project HelloWorld
 
@@ -159,7 +159,7 @@ class Main extends Sprite {
 
 We are going to test our project with three different platforms.
 
-If you open a command-prompt (Windows) or terminal (Mac/Linux), change to the directory of the project we created.
+If you open a command-prompt (Windows) or terminal (macOS/Linux), change to the directory of the project we created.
 
 If you are using a code editor with OpenFL support built-in, you may be able to compile using a shortcut, such as Ctrl+Enter or a "Run" button in the editor. For sake of consistency, we will go over the steps for how you would build the project yourself from a command-line.
 

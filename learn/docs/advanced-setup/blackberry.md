@@ -16,7 +16,7 @@ Open a command-prompt or terminal and run the following command:
 OpenFL is compatible with the BlackBerry Tablet SDK, which enables support for legacy BlackBerry PlayBook devices as well as BlackBerry 10:
 
  * [Windows](http://developer.blackberry.com/native/downloads/fetch/installer-bbndk-2.1.0-win32-1032-201209271809-201209280007.exe)
- * [Mac](http://developer.blackberry.com/native/downloads/fetch/installer-bbndk-2.1.0-macosx-1032-201209271809-201209280007.dmg)
+ * [macOS](http://developer.blackberry.com/native/downloads/fetch/installer-bbndk-2.1.0-macosx-1032-201209271809-201209280007.dmg)
  * [Linux](http://developer.blackberry.com/native/downloads/fetch/installer-bbndk-2.1.0-linux-1032-201209271809-201209280007.bin)
 
 You can also use newer BlackBerry Native SDKs, which support BlackBerry 10 devices only.

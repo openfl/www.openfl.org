@@ -20,12 +20,10 @@ You can substitute "neko" for any OpenFL target, including:
  * linux
  * ios
  * android
- * blackberry
- * tizen
  * flash
  * html5
 
-Some targets are not available from every host platform. For example, iOS is only available when using a Mac.
+Some targets are not available from every host platform. For example, iOS is only available when using macOS.
 
 If you are not in the same directory as your project, you can add an additional argument with either the path to the project directory or to the project file:
 
@@ -37,7 +35,7 @@ There are also additional "target flags" you can use to specify adjustments to t
  * (windows|mac|linux) -neko -- Build with Neko instead of C++
  * (mac|linux) -32 -- Compile for 32-bit instead of the OS default
  * (mac|linux) -64 -- Compile for 64-bit instead of the OS default
- * (ios|blackberry|tizen|webos) -simulator -- Target the device simulator
+ * (ios) -simulator -- Target the device simulator
  * (ios) -simulator -ipad -- Build/test for the iPad Simulator
  * (android) -emulator -- Target the device emulator
  * (html5) -minify -- Minify output using the Google Closure compiler

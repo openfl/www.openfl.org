@@ -37,7 +37,7 @@ Being in Haxe, you can use standard if/else logic in order to control your build
 
 A variety of values are set for you. For example, the `platformType` value may be PlatformType.MOBILE, PlatformType.DESKTOP or PlatformType.WEB.
 
-There is also a `target` value, which may be Platform.IOS, Platform.ANDROID, Platform.BLACKBERRY, Platform.TIZEN, Platform.WINDOWS, Platform.MAC, Platform.LINUX, Platform.FLASH or Platform.HTML5, among others.
+There is also a `target` value, which may be Platform.IOS, Platform.ANDROID, Platform.WINDOWS, Platform.MAC, Platform.LINUX, Platform.FLASH or Platform.HTML5, among others.
 
 If needed, you can also check the `host` property, which should define Platform.WINDOWS, Platform.MAC or Platform.LINUX.
 
@@ -250,10 +250,6 @@ If you do not include the password attribute, you will be prompted for your cert
 For Android, the alias will be set to the file name of your certificate by default, without the extension. If the alias name is different, you can use the alias property.
 
 If you have set the password property, the alias_password property will default to the same value. Otherwise you can add an alias-password property to specify a different value.
-
-BlackBerry does not use the `alias` or `alias-password` properties.
-
-    certificate = new Keystore ("certificate.crt", "1234", "my-alias", "4321");
 
 iOS does not use a certificate `path` and `password`, but instead uses an `identity` property matching the provisioning profile you have configured on your system:
 
