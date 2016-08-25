@@ -18,7 +18,7 @@ As needed, the tools will copy asset files, process template files, trigger comp
  * [Website](http://www.haxe.org)
  * [Source](https://github.com/haxefoundation/haxe)
 
-OpenFL developers write code in Haxe, a powerful language that can compile to _other_ programming languages. This unique (and proven) ability is the cornerstone to OpenFL's cross-platform nature.
+OpenFL developers write code in [Haxe](https://en.wikipedia.org/wiki/Haxe), a powerful language that can compile to _other_ programming languages. This unique (and proven) ability is the cornerstone to OpenFL's cross-platform nature.
 
 Based on your project, the arguments used and the target platform, the command-line tools use Haxe to compile Haxe source files into SWF bytecode, Neko bytecode, C++ or JavaScript.
 
