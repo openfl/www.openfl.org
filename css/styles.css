@@ -112,7 +112,7 @@ a:hover, a:focus { color: #1e90a0; }
 ------------------------- */
 
 .featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+  margin: 30px 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the marketing headings */
@@ -125,6 +125,9 @@ a:hover, a:focus { color: #1e90a0; }
 @media (min-width: 768px) {
   .featurette-heading {
     font-size: 50px;
+  }
+  .featurette-divider {
+    margin: 80px 0; /* Space out the Bootstrap <hr> more */
   }
 }
 
@@ -162,7 +165,7 @@ a:hover, a:focus { color: #1e90a0; }
   background-size: 100% 100%;
   margin-top: -30px;
   margin-bottom: -30px;
-  padding-top: 20px;
+  padding-top: 30px;
   padding-bottom: 30px;
   
 }
@@ -171,7 +174,7 @@ a:hover, a:focus { color: #1e90a0; }
 .jumbotron-overlay {
     margin-top: -48px;
     margin-bottom: -48px;
-    padding-top: 38px;
+    padding-top: 48px;
     padding-bottom: 48px;
 }
 }
