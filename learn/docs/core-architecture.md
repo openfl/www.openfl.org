@@ -44,6 +44,6 @@ Native dependencies include SDL2, Freetype, Harfbuzz, libogg, libvorbis, libjpeg
 
  * [Source](https://github.com/openfl/openfl)
 
-OpenFL is a Haxe library, designed to work over Lime. System events, windowing and other features are mapped to Flash-style APIs for convenience. OpenFL has a renderer designed for use with HTML5 DOM, HTML5 Canvas, a Cairo (a native software renderer) or OpenGL targets (WebGL, OpenGL, OpenGL ES).
+OpenFL is a Haxe library, designed to work over Lime. System events, windowing and other features are mapped to Flash-style APIs for convenience. OpenFL has a renderer designed for use with HTML5 DOM, HTML5 Canvas, Cairo (a native software renderer) or OpenGL targets (WebGL, OpenGL, OpenGL ES).
 
 The HTML5 target supports three render modes. The default is HTML5 WebGL, but there is also canvas mode. OpenFL also supports a DOM render mode, which uses different image, div or canvas elements, and animates using CSS. The DOM rendering mode also supports `Video` and `DOMSprite` elements. Using `bitmapData.draw`, it is possible to selectively merge lements into a single canvas, similar to how canvas mode behaves for the whole project. Adding `-Dcanvas` or `-Ddom` will force canvas or DOM mode when building.
