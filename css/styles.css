@@ -135,23 +135,43 @@ a:hover, a:focus { color: #1e90a0; }
 
 
 .jumbotron {
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     background-image: url(../images/home/Jumbotron.png);
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
-    text-shadow: 
+    /*text-shadow: 
       -1px -1px 0 #666666,
       1px -1px 0 #666666,
       -1px 1px 0 #666666,
       1px 1px 0 #666666,
-      2px 2px 5px rgba(0,0,0,0.8);
+      2px 2px 5px rgba(0,0,0,0.8);*/
 }
 
 .jumbotron .btn {
   
   text-shadow: none;
+}
+
+.jumbotron-overlay {
+  
+  background-image: url('../images/home/overlay.png');
+  background-size: 100% 100%;
+  margin-top: -30px;
+  margin-bottom: -30px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  
+}
+
+@media screen and (min-width: 768px) {
+.jumbotron-overlay {
+    margin-top: -48px;
+    margin-bottom: -48px;
+    padding-top: 38px;
+    padding-bottom: 48px;
+}
 }
 
 li.list-checkbox {
