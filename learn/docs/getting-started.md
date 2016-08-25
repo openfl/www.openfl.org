@@ -1,7 +1,6 @@
 ---
 layout: default
-title: Download
-permalink: download/
+title: Getting Started
 redirect_from:
  - documentation/getting-started/installing-openfl/
  - documentation/setup/
@@ -9,9 +8,10 @@ redirect_from:
  - documentation/setup/install-lime/
  - documentation/setup/install-openfl/
  - documentation/setup/platforms/
+ - download/
 ---
 
-# Download
+# Getting Started
 
 ## Haxe
 

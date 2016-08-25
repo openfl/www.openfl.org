@@ -12,6 +12,8 @@
   - title: Documentation
     url: /learn/docs/
     subitems:
+    - title: Getting Started
+      url: /learn/docs/getting-started/
     - title: Choosing a Code Editor
       url: /learn/docs/choosing-a-code-editor/
     - title: Command-Line Tools
