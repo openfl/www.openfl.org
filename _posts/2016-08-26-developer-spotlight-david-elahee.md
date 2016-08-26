@@ -16,7 +16,7 @@ I made my first game in 2001 in University, it was a competitive procedural Pong
 
 ### Where did you come up with the idea for _Double Kick Heroes_?
 
-In December 2015, after a tiny bit of unemployment period, we participated in [Ludum Dare](http://ludumdare.com/compo/) 34. We had many game designs under the hood, so we told ourselves, "F*** it, let's make the game we want to make and that nobody will actually play. Who cares, it's Ludum Dare; no pressure," and we made it. A rhythm METAL shooter... with zombies... and Cadillac cars.
+In December 2015, after a tiny bit of unemployment period, we participated in [Ludum Dare](http://ludumdare.com/compo/) 34. We had many game designs under the hood, so we told ourselves, "Let's make the game we want to make and that nobody will actually play. Who cares, it's Ludum Dare; no pressure," and we made it. A rhythm METAL shooter... with zombies... and Cadillac cars.
 
 The problem is an awful lot of people actually played it and loved it. We were overwhelmed by enthusiasm, so we did not really have a choice. We had a METAL mission. We shelved all the other game designs and went the METAL way.
 
