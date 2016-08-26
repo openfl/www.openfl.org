@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Developer Spotlight&#58; David Elahee
+title: "Developer Spotlight: David Elahee"
 date: 2016-08-26 10:00:00.000000000 -08:00
 ---
 
