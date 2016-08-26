@@ -1,10 +1,7 @@
 ---
-layout: sidebar
 title: Displaying a Bitmap
 redirect_from: /learn/tutorials/your-first-project/
 ---
-
-# Displaying a Bitmap
 
 ## Creating a New Project
 

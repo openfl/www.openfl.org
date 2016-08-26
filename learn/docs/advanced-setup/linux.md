@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Setup Linux
 ---
-
-# Setup Linux
 
 ## Automatic Install
 

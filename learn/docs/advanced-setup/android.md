@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Setup Android
 ---
-
-# Setup Android
 
 ## Automatic Install
 

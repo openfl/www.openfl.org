@@ -1,10 +1,7 @@
 ---
-layout: sidebar
 title: Setup macOS
 redirect_from: /learn/docs/advanced-setup/mac/
 ---
-
-# Setup macOS
 
 ## Automatic Install
 

@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Samples
 ---
-
-# Samples
 
 ## Listing Samples
 

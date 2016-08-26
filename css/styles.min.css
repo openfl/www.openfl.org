@@ -5,8 +5,6 @@ html,body{height:100%;}
 img{max-width:100%;}
 a{color:#24afc4;}
 a:hover,a:focus{color:#1e90a0;}
-h1{font-weight:600;}
-.default-content h1,.sidebar-content h1{padding-top:20px;}
 .navbar{border-top:solid 3px #eeeeee;padding-top:17px;margin-bottom:0;}
 .navbar .navbar-nav button{margin-top:-8px;}
 .navbar .navbar-logo{float:left;margin:-8px 16px 16px 0px;}

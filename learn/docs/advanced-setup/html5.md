@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Setup HTML5
 ---
-
-# Setup HTML5
 
 ## Automatic Install
 

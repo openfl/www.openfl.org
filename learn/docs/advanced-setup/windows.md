@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Setup Windows
 ---
-
-# Setup Windows
 
 ## Automatic Install
 

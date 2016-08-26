@@ -1,10 +1,7 @@
 ---
-layout: sidebar
 title: Learn
 redirect_from: documentation/
 ---
-
-# Learn
 
 Welcome! Before getting started, be sure that you [download and install](/download/) OpenFL.
 

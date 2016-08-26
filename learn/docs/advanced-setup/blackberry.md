@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Setup BlackBerry
 ---
-
-# Setup BlackBerry
 
 ## Automatic Install
 

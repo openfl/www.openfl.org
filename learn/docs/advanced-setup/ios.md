@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Setup iOS
 ---
-
-# Setup iOS
 
 ## Automatic Install
 

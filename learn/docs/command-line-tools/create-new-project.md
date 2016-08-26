@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Create New Project
 ---
-
-# Create New Project
 
 ## Using the "create" Command
 

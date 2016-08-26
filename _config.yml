@@ -1,4 +1,27 @@
 name: OpenFL
+collections:
+  showcase:
+    output: true
+    permalink: /showcase/title/:path/
+defaults:
+ - scope:
+     path: ""
+     type: showcase
+   values:
+     layout: showcase-item
+ - scope:
+     path: "showcase"
+   values:
+     layout: showcase
+ - scope:
+     path: ""
+     type: posts
+   values:
+     layout: post
+ - scope:
+     path: "learn"
+   values:
+     layout: default-sidebar
 excerpt_separator: "<!--more-->"
 gems:
  - jekyll-paginate

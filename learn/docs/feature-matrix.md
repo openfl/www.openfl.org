@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Feature Matrix
 ---
-
-# Feature Matrix
 
 <style>th:not(:first-child) { text-align: center; }</style>
 

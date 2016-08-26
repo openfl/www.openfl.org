@@ -1,10 +1,8 @@
 ---
-layout: default
+layout: default-header
 title: Connect
 permalink: connect/
 ---
-
-# Connect
 
 We love meeting new people and developing together!
 

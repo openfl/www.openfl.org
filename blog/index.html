@@ -4,10 +4,10 @@ title: Blog
 head: '<link rel="alternate" type="application/rss+xml" title="OpenFL Blog" href="http://www.openfl.org/blog/rss.xml" />'
 ---
 
-<h1>Blog</h1>
-
 <div class="row">
 <div class="col-md-8">
+
+<div class="page-header"><h1>{{ page.title }}</h1></div>
 
 {% for post in paginator.posts %}
 <h2><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></h2>

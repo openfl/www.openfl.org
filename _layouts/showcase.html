@@ -1,0 +1,39 @@
+{% include header.html %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-push-4 sidebar-content">
+			
+			<div class="page-header"><h1>{{ page.title}}{% if page.subtitle %} <small class="pull-right" style="padding-top: 14px">{{ page.subtitle }}</small>{% endif %}</h1></div>
+			
+			{% assign titles = site.showcase %}
+			{% assign count = 0 %}
+			
+			{% for showcase in titles %}
+			{% if showcase[page.type] %}
+			{% cycle '<div class="row">', '' %}
+			<div class="col-md-6">
+				<a href="{{ showcase.url }}">
+					<img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}" class="showcase-image" />
+				</a>
+				<h3 class="showcase-title">{{ showcase.title }}</h3>
+			</div>
+			{% cycle '', '</div><br/>' %}
+			{% assign count = count | plus: 1 %}
+			{% endif %}
+			{% endfor %}
+			
+			{% assign remainder = count | modulo: 2 %}
+			{% if remainder != 0 %}
+			</div>
+			{% endif %}
+			
+		</div>
+		<div class="col-md-4 col-md-pull-8 sidebar">
+			
+			{% assign item = site.data.navigation[0] %}
+			{% include sidebar-item.html navigation=item.subitems %}
+			
+		</div>
+	</div>
+</div>
+{% include footer.html %}

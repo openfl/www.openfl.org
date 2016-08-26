@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Setup Firefox OS
 ---
-
-# Setup Firefox OS
 
 ## Automatic Install
 

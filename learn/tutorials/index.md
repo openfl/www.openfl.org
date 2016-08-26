@@ -1,11 +1,6 @@
 ---
-layout: sidebar
 title: Tutorials
-
 ---
-
-# Tutorials
-
 
 
 <style>.glyphicon-new-window { color: #DDD; }</style>

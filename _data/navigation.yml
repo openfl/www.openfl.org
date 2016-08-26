@@ -1,9 +1,26 @@
 - title: Showcase
   url: /showcase/
-
+  subitems:
+  - title: Featured
+    url: /showcase/
+  - title: Windows
+    url: /showcase/windows/
+  - title: macOS
+    url: /showcase/macos/
+  - title: Linux
+    url: /showcase/linux/
+  - title: iOS
+    url: /showcase/ios/
+  - title: Android
+    url: /showcase/android/
+  - title: Flash
+    url: /showcase/flash/
+  - title: HTML5
+    url: /showcase/html5/
+  #- title: Other
+  #  url: /showcase/other/
 - title: Blog
   url: /blog/
-
 - title: Learn
   url: /learn/
   subitems:
@@ -69,6 +86,5 @@
       url: /learn/tutorials/using-swf-assets/
   - title: API
     url: http://api.openfl.org
-
 - title: Community
   url: http://community.openfl.org

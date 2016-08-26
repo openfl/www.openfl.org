@@ -1,10 +1,9 @@
 {% include header.html %}
-<style>
-h1:first { padding-top: 20px; }
-</style>
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-push-4 sidebar-content">
+			
+			<div class="page-header"><h1>{{ page.title}}{% if page.subtitle %} <small>{{ page.subtitle }}</small>{% endif %}</h1></div>
 			
 			{{ content | replace: '<li>[ ]', '<li class="list-checkbox"><input type="checkbox" disabled> ' | replace: '<li>[x]', '<li class="list-checkbox"><input type="checkbox" checked disabled> ' }}
 			

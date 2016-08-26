@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: HXP Format
 ---
-
-# HXP Format
 
 ## Overview
 

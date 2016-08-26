@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Setup Flash
 ---
-
-# Setup Flash
 
 ## Automatic Install
 

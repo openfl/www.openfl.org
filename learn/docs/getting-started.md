@@ -1,5 +1,4 @@
 ---
-layout: sidebar
 title: Getting Started
 redirect_from:
  - documentation/getting-started/installing-openfl/
@@ -10,8 +9,6 @@ redirect_from:
  - documentation/setup/platforms/
  - download/
 ---
-
-# Getting Started
 
 ## Haxe
 

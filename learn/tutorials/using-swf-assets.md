@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Using SWF Assets
 ---
-
-# Using SWF Assets
 
 ## Introduction
 

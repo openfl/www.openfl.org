@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Setup Tizen
 ---
-
-# Setup Tizen
 
 ## Automatic Install
 

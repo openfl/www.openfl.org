@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: XML Format
 ---
-
-# XML Format
 
 ## Overview
 

@@ -1,9 +1,6 @@
 ---
-layout: sidebar
 title: Basic Commands
 ---
-
-# Basic Commands
 
 ## openfl build
 
