@@ -4,7 +4,7 @@ title: Developer Spotlight&#58; David Elahee
 date: 2016-08-26 10:00:00.000000000 -08:00
 ---
 
-_Today in the Developer Spotlight, we chat with David Elahee, the creator of Double Kick Heroes, a rhythm metal shooter... with zombies... and Cadillac cars._
+_Today in the Developer Spotlight, we chat with David Elahee, the creator of Double Kick Heroes, a rhythm metal shooter... with zombies... and Cadillacs._
 
 ![Developer Spotlight]({{ site.baseurl }}/images/spotlight/DeveloperSpotlight.png)
 
