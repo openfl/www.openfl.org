@@ -90,6 +90,20 @@ a:hover, a:focus { color: #1e90a0; }
   border-color: #cccccc;
 }
 
+.pagination>li>a,
+.pagination>li>span {
+  color: #24afc4;
+}
+.pagination>li>a:hover{
+  color: #1e90a0;
+}
+.pagination>li.active>a {
+  background: #24afc4;
+  border: 1px solid #1e90a0;
+}
+.pagination>li.active>a:hover {
+  background: #24afc4;
+}
 
 /* Pad the edges of the mobile views a bit */
 .marketing {

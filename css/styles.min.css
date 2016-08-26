@@ -32,6 +32,10 @@ a:hover,a:focus{color:#1e90a0;}
 .btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary{background-color:#EF4C00;border-color:#BC3700;}
 .btn-info:hover,.btn-info:focus,.btn-info:active,.btn-info.active,.open .dropdown-toggle.btn-info{background-color:#1F9DB2;border-color:#158BA0;}
 .btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active,.open .dropdown-toggle.btn-default{background-color:#dddddd;border-color:#cccccc;}
+.pagination>li>a,.pagination>li>span{color:#24afc4;}
+.pagination>li>a:hover{color:#1e90a0;}
+.pagination>li.active>a{background:#24afc4;border:1px solid #1e90a0;}
+.pagination>li.active>a:hover{background:#24afc4;}
 .marketing{padding-right:15px;padding-left:15px;}
 .marketing .col-lg-4{margin-bottom:20px;text-align:center;}
 .marketing h2{font-weight:normal;}
