@@ -11,13 +11,13 @@
 			{% for showcase in titles %}
 			{% if showcase[page.type] %}
 			{% cycle '<div class="row">', '' %}
-			<div class="col-md-6">
+			<div class="col-md-6 showcase-listing">
 				<h3 class="showcase-title">{{ showcase.title }}</h3>
 				<a href="{{ showcase.url }}">
 					<img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}" class="showcase-image" />
 				</a>
 			</div>
-			{% cycle '', '</div><br/>' %}
+			{% cycle '', '</div>' %}
 			{% assign count = count | plus: 1 %}
 			{% endif %}
 			{% endfor %}

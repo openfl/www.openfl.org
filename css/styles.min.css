@@ -24,8 +24,8 @@ a:hover,a:focus{color:#1e90a0;}
 .footer{width:100%;position:relative;background-color:#2e2e2e;margin-top:-140px;height:240px;clear:both;font-size:13px;color:#999999;}
 .footer .logos{background-color:#f9f9f9;border-top:1px solid #f0f0f0;margin-bottom:30px;border-bottom:solid 2px #444444;padding:14px 20px 14px 20px;}
 .footer .logos img{margin:0 auto;}
-.footer .icons{float:right!important;font-size:26px!important;margin-top:-5px}
-.footer .icons a{text-decoration:none!important;padding-right:14px;}
+.footer .icons{float:right!important;font-size:26px!important;margin-top:-5px;padding-right:14px;}
+.footer .icons a{text-decoration:none!important;padding-left:14px;}
 .btn-primary{background-color:#ff5b18;border-color:#EF4C00;}
 .btn-info{background-color:#24afc4;border-color:#1F9DB2;}
 .btn-default{background-color:#eeeeee;border-color:#dddddd;}
@@ -53,6 +53,7 @@ div.sidebar{margin-top:20px;}
 ul.nav-sidebar>li>ul.nav-sidebar{margin-left:20px;}
 .showcase-title{text-overflow:ellipsis;max-width:460px;white-space:nowrap;overflow:hidden;}
 .showcase-image{width:100%;max-width:460px;margin:6px auto 0 auto;}
+.showcase-listing{padding-bottom:20px;}
 .showcase-icons{color:#dddddd;font-size:28px;padding:8px 0 16px 0;text-align:center;max-width:460px;}
 .showcase-icons a{text-decoration:none;}
 @charset "UTF-8";@font-face{font-family:"platform-icons";src:url("../fonts/platform-icons.eot");src:url("../fonts/platform-icons.eot?#iefix") format("embedded-opentype"),url("../fonts/platform-icons.woff") format("woff"),url("../fonts/platform-icons.ttf") format("truetype"),url("../fonts/platform-icons.svg#platform-icons") format("svg");font-weight:normal;font-style:normal;}
