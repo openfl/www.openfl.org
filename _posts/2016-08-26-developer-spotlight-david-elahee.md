@@ -8,7 +8,7 @@ _Today in the Developer Spotlight, we chat with David Elahee, the creator of Dou
 
 ![Developer Spotlight]({{ site.baseurl }}/images/spotlight/DeveloperSpotlight.png)
 
-## Tell us a bit about yourself David. What is your background, what got you started in game development?
+<span style="font-size: 120%">**Tell us a bit about yourself David. What is your background, what got you started in game development?**</span>
 
 I made my first game in 2001 in University… It was a Competitive Procedural Pong in [PltScheme](https://en.wikipedia.org/wiki/Racket_(programming_language)).
 Since then, every time I approached the so called “serious” industry, I thought it was all about buzzwords and crappy projects. So I committed myself to gamedev because it was so much more interesting, invigorating.
@@ -16,7 +16,7 @@ It’s dead simple, it makes me feel ALIVE.
 
 ![Double Kick Heroes]({{ site.baseurl }}/blog/assets/doublekickheroes-0.png)
 
-### Where did you come up with the idea for _Double Kick Heroes_?
+<span style="font-size: 120%">**Where did you come up with the idea for _Double Kick Heroes_?**</span>
 
 In December 2015, after a tiny bit of unemployment period, we participated in [Ludum Dare](http://ludumdare.com/compo/) 34.
 We had many game designs under the hood so we told ourselves, f*ck it, let’s make the game we want to make and that nobody will actually play, who cares it’s Ludum Dare, no pressure.
