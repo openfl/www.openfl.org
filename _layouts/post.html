@@ -17,6 +17,8 @@ layout: default
 {% assign postYear = postYear | times: 1 %}
 {% assign postMonth = postMonth | times: 1 %}
 
+{% assign postYear = 2000 %}
+
 {% if postYear <= 2015 or postYear == 2016 and postMonth < 8 %}
 <h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">{{ page.date | date: "%B %-d, %Y" }} | <a href="{{ page.url | prepend: site.baseurl | replace: '//', '/' }}#disqus_thread">View Comments</a></h5>
 
@@ -52,7 +54,7 @@ var disqus_shortname = 'haxenme'; // required: replace example with your forum s
 
 <script type="text/javascript">
   DiscourseEmbed = { discourseUrl: 'http://community.openfl.org/',
-                     discourseEmbedUrl: 'http://www.openfl.org/{{ page.url | append: '/' | replace: '//', '/' }}' };
+                     discourseEmbedUrl: 'http://www.openfl.org{{ page.url | append: '/' | replace: '//', '/' }}' };
 
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;

@@ -17,7 +17,7 @@ head: '<link rel="alternate" type="application/rss+xml" title="OpenFL Blog" href
 {% else %}
 <div>{{ post.content }}</div>
 {% endif %}
-<!-- <h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">{{ post.date | date: "%B %-d, %Y" }} | <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}#disqus_thread">View Comments</a></h5> -->
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">{{ post.date | date: "%B %-d, %Y" }} <!-- | <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}#disqus_thread">View Comments</a> --></h5>
 {% endfor %}
 
 <nav aria-label="Page navigation">
@@ -67,7 +67,7 @@ head: '<link rel="alternate" type="application/rss+xml" title="OpenFL Blog" href
 <div class="col-md-4">
 
 <div class="hidden-xs hidden-sm" style="margin-top: 50px; border: 4px solid #fafafa">
-<a class="twitter-timeline" data-dnt="true" height="800px" href="https://twitter.com/Open_FL"  data-widget-id="436939058351067136"></a>
+<a class="twitter-timeline" data-dnt="true" height="1000px" href="https://twitter.com/Open_FL"  data-widget-id="436939058351067136"></a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
 
