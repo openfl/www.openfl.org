@@ -52,7 +52,7 @@ var disqus_shortname = 'haxenme'; // required: replace example with your forum s
 
 <script type="text/javascript">
   DiscourseEmbed = { discourseUrl: 'http://community.openfl.org/',
-                     discourseEmbedUrl: 'openfl.org' };
+                     discourseEmbedUrl: '{{ page.url | prepend: site.baseurl | replace: '//', '/' }}' };
 
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
