@@ -29,7 +29,7 @@ a:hover,a:focus{color:#1e90a0;}
 .btn-primary{background-color:#ff5b18;border-color:#EF4C00;}
 .btn-info{background-color:#24afc4;border-color:#1F9DB2;}
 .btn-default{background-color:#eeeeee;border-color:#dddddd;}
-.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary{background-color:#EF4C00;border-color:#BC3700;}
+.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary{background-color:#EF4C00!important;border-color:#BC3700!important;}
 .btn-info:hover,.btn-info:focus,.btn-info:active,.btn-info.active,.open .dropdown-toggle.btn-info{background-color:#1F9DB2;border-color:#158BA0;}
 .btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active,.open .dropdown-toggle.btn-default{background-color:#dddddd;border-color:#cccccc;}
 .pagination>li>a,.pagination>li>span{color:#24afc4;}

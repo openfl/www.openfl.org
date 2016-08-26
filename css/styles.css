@@ -76,8 +76,8 @@ a:hover, a:focus { color: #1e90a0; }
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
-    background-color: #EF4C00;
-    border-color: #BC3700;
+    background-color: #EF4C00 !important;
+    border-color: #BC3700 !important;
 }
 
 .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open .dropdown-toggle.btn-info {
