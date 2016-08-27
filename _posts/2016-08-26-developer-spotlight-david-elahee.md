@@ -68,7 +68,7 @@ Make jams, avoid year-long projects at all costs. Think like an artist and choos
 
 ![Double Kick Heroes]({{ site.baseurl }}/blog/assets/doublekickheroes-7.gif)
 
-### What advice would you give a new developer who wants to get started?
+### With so many engines out there, why choose OpenFL over some other techs?
 
 Open-source, Flash and iteration speed.
 
