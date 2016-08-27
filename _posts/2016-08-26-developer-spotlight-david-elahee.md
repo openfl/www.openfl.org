@@ -78,4 +78,6 @@ _Flash_ still has the most expressive, graphical creative API I ever used, and I
 
 _Iteration speed_&mdash;nothing can beat the Flash runtime for development speed and comfort, it scales really well with OpenFL and the Haxe compiler and even if I use three different engines or techs, I still always go way faster prototyping in Haxe/OpenFL/Flash 2D or 3D... much faster than with a powerful editor with entities that requires a lot of setup, at least.
 
+-![Double Kick Heroes]({{ site.baseurl }}/blog/assets/doublekickheroes-6.png)
+
 _[Double Kick Heroes](http://www.doublekickheroes.rocks) will soon be available on Steam (demo available [here](https://steamcommunity.com/sharedfiles/filedetails/?id=650407962)) for Windows, macOS and Linux. If you have any questions for David "Blackmagic" Elahee, feel free to contact him on Twitter at [@blackmag_c](http://www.twitter.com/blackmag_c). You can also stay up-to-date with Double Kick Heroes by following the [Facebook page](https://www.facebook.com/double.kick.heroes/) and David's work on [Github](http://www.github.com/delahee)._
