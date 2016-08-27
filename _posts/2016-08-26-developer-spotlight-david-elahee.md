@@ -16,7 +16,7 @@ I made my first game in 2001 in University, it was a competitive procedural Pong
 
 ### Where did you come up with the idea for _Double Kick Heroes_?
 
-In December 2015, after a tiny bit of unemployment period, we participated in [Ludum Dare](http://ludumdare.com/compo/) 34. We had many game designs under the hood, so we told ourselves, "Let's make the game we want to make and that nobody will actually play. Who cares, it's Ludum Dare; no pressure," and we made it. A rhythm METAL shooter... with zombies... and Cadillac cars.
+In December 2015, after a tiny bit of unemployment period, we participated in [Ludum Dare](http://ludumdare.com/compo/) 34. We had many game designs under the hood, so we told ourselves, "Let's make the game we want to make and that nobody will actually play. Who cares, it's Ludum Dare; no pressure," and we made it. A rhythm METAL shooter... with zombies... and Cadillacs.
 
 The problem is an awful lot of people actually played it and loved it. We were overwhelmed by enthusiasm, so we did not really have a choice. We had a METAL mission. We shelved all the other game designs and went the METAL way.
 
@@ -72,10 +72,10 @@ Make jams, avoid year-long projects at all costs. Think like an artist and choos
 
 Open-source, Flash and iteration speed.
 
-Open-source is very important, especially in this age of engine uniformity. It means nobody holds your guts in his hand&mdash;benevolent or not.
+_Open-source_ is very important, especially in this age of engine uniformity. It means nobody holds your guts in his hand&mdash;benevolent or not.
 
-Flash still has the most expressive, graphical creative API I ever used, and I used a lot of them. Of course, one should try many techs to know what is good and what's not and learn a number of tricks, but the Flash legacy has a great truth to deliver. It does not scale that well on hardware but there are important basics there. Our engine Heaps/H3d over OpenFL gets the best of all those worlds, so we are really blessed.
+_Flash_ still has the most expressive, graphical creative API I ever used, and I used a lot of them. Of course, one should try many techs to know what is good and what's not and learn a number of tricks, but the Flash legacy has a great truth to deliver. It does not scale that well on hardware but there are important basics there. Our engine Heaps/H3d over OpenFL gets the best of all those worlds, so we are really blessed.
 
-Iteration speed&mdash;nothing can beat the Flash runtime for development speed and comfort, it scales really well with OpenFL and the Haxe compiler and even if I use three different engines or techs, I still always go way faster prototyping in Haxe/OpenFL/Flash 2D or 3D... much faster than with a powerful editor with entities that requires a lot of setup, at least.
+_Iteration speed_&mdash;nothing can beat the Flash runtime for development speed and comfort, it scales really well with OpenFL and the Haxe compiler and even if I use three different engines or techs, I still always go way faster prototyping in Haxe/OpenFL/Flash 2D or 3D... much faster than with a powerful editor with entities that requires a lot of setup, at least.
 
 _[Double Kick Heroes](http://www.doublekickheroes.rocks) will soon be available on Steam (demo available [here](https://steamcommunity.com/sharedfiles/filedetails/?id=650407962)) for Windows, macOS and Linux. If you have any questions for David "BlackMagic", feel free to contact him on Twitter at [@blackmag_c](http://www.twitter.com/blackmag_c). You can also stay up-to-date with Double Kick Heroes by following the [Facebook page](https://www.facebook.com/double.kick.heroes/) and David on [Github](http://www.github.com/delahee)._
