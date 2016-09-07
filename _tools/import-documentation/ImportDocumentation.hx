@@ -2,7 +2,7 @@ package;
 
 
 import haxe.io.Path;
-import helpers.PathHelper;
+import lime.tools.helpers.PathHelper;
 import sys.io.File;
 import sys.FileSystem;
 
@@ -33,7 +33,7 @@ class ImportDocumentation {
 			
 			var input = File.read (source + "/SUMMARY.md", false);
 			
-			summary.push ("* [Introduction](/documentation/)");
+			//summary.push ("#### [Learn](/learn/)");
 			
 			while (true) {
 				
@@ -111,6 +111,7 @@ class ImportDocumentation {
 		for (i in 0...targetPaths.length) {
 			
 			if (targetPaths[i] == null) continue;
+			if (targetPaths[i] == "index.md") continue;
 			if (names[i] == "SUMMARY") continue;
 			//if (names[i] == "_sidebar") continue;
 			
@@ -138,15 +139,17 @@ class ImportDocumentation {
 			output.writeString ("title: " + title + "\n");
 			output.writeString ("---\n\n");
 			//output.writeString ("# " + title);
-			output.writeString (' <a href="https://github.com/openfl/openfl-documentation/edit/master/${sourcePaths[i]}" class="btn btn-default pull-right" style="margin-top: 16px" role="button" target="_blank"><span class="glyphicon glyphicon-pencil"></span></a>');
+			output.writeString (' <a href="https://github.com/openfl/learn-openfl/edit/master/${sourcePaths[i]}" class="btn btn-default pull-right" style="margin-top: 16px" role="button" target="_blank"><span class="glyphicon glyphicon-pencil"></span></a>');
 			output.writeString ("\n\n");
 			output.writeString (content);
 			
 			output.writeString ("\n\n{% sidebar %}");
-			output.writeString ("<br />\n\n");
+			//output.writeString ("<br />\n\n");
 			
 			var pageComponents = targetPath.split ("/");
 			pageComponents.pop ();
+			
+			var skip = false;
 			
 			for (link in summary) {
 				
@@ -156,27 +159,85 @@ class ImportDocumentation {
 				
 				if (index > -1) {
 					
-					var targetPath = link.substring (index + 3, link.lastIndexOf (")") - 1);
-					var targetComponents = targetPath.split ("/");
-					targetComponents.shift ();
-					
-					if (targetComponents.length <= 1 || pageComponents[0] == targetComponents[0]) {
+					if (link.indexOf ("://") > -1) {
 						
-						if (pageComponents.join ("/") == targetComponents.join ("/")) {
-							
-							var leftIndex = link.indexOf ("* [") + 3;
-							var rightIndex = link.indexOf ("](");
-							
-							var link = link.substring (0, leftIndex) + "__" + link.substring (leftIndex, rightIndex) + "__" + link.substr (rightIndex);
-							output.writeString (link);
-							
-						} else {
+						if (!skip || link.indexOf (" ") != 0) {
 							
 							output.writeString (link);
+							output.writeString ("\n");
 							
 						}
 						
-						output.writeString ("\n");
+					} else {
+						
+						var targetPath = link.substring (index + 3, link.lastIndexOf (")") - 1);
+						var targetComponents = targetPath.split ("/");
+						targetComponents.shift ();
+						
+						var componentsMatch = true;
+						
+						// Pages should match all but the last component
+						
+						for (i in 0...(pageComponents.length - 1)) {
+							
+							if (i >= targetComponents.length - 1) break;
+							
+							if (pageComponents[i] != targetComponents[i]) {
+								
+								componentsMatch = false;
+								break;
+								
+							}
+							
+						}
+						
+						// Pages should also match if they are a child
+						
+						if (targetComponents.length > pageComponents.length + 1) {
+							
+							componentsMatch = false;
+							
+						} else if (targetComponents.length == pageComponents.length + 1) {
+							
+							if (pageComponents[pageComponents.length - 1] != targetComponents[pageComponents.length - 1]) {
+								
+								componentsMatch = false;
+								
+							}
+							
+						}
+						
+						if (targetComponents.length <= 1 || componentsMatch) {
+							
+							if (pageComponents.join ("/") == targetComponents.join ("/")) {
+								
+								var leftIndex = link.indexOf ("* [") + 3;
+								var rightIndex = link.indexOf ("](");
+								
+								var link = link.substring (0, leftIndex) + "__" + link.substring (leftIndex, rightIndex) + "__" + link.substr (rightIndex);
+								output.writeString (link);
+								
+							} else {
+								
+								output.writeString (link);
+								
+							}
+							
+							output.writeString ("\n");
+							
+						}
+						
+						// Hack way to skip external links that aren't in the current hierarchy
+						
+						if (targetComponents.length > 0) {
+							
+							skip = (pageComponents[0] != targetComponents[0]);
+							
+						} else {
+							
+							skip = false;
+							
+						}
 						
 					}
 					
@@ -196,9 +257,18 @@ class ImportDocumentation {
 		
 		// TODO: regex?
 		
+		//var regex = ~/```\n[\s\S]+?```/g
+		 
 		content = StringTools.replace (content, "\n```haxe\n", "\n{% highlight haxe %}\n");
 		content = StringTools.replace (content, "\n```Haxe\n", "\n{% highlight haxe %}\n");
 		content = StringTools.replace (content, "\n```bash\n", "\n{% highlight bash %}\n");
+		content = StringTools.replace (content, "\n```xml\n", "\n{% highlight xml %}\n");
+		content = StringTools.replace (content, "\n```as3\n", "\n{% highlight as3 %}\n");
+		content = StringTools.replace (content, "\n```html\n", "\n{% highlight html %}\n");
+		content = StringTools.replace (content, "\n```css\n", "\n{% highlight css %}\n");
+		content = StringTools.replace (content, "\n```java\n", "\n{% highlight java %}\n");
+		content = StringTools.replace (content, "\n```objc\n", "\n{% highlight objc %}\n");
+		content = StringTools.replace (content, "\n```cpp\n", "\n{% highlight cpp %}\n");
 		content = StringTools.replace (content, "\n```\n", "\n{% endhighlight %}\n");
 		
 		return content;
@@ -212,7 +282,7 @@ class ImportDocumentation {
 			
 			var sourcePath = sourcePaths[i];
 			var targetPath = targetPaths[i];
-			
+
 			if (targetPath != null && targetPath.indexOf ("/") > -1) {
 				
 				if (StringTools.endsWith (targetPath, ".md")) {
@@ -221,7 +291,7 @@ class ImportDocumentation {
 					
 				}
 				
-				targetPath = "/documentation/" + targetPath;
+				targetPath = "/learn/" + targetPath;
 				
 				if (StringTools.endsWith (targetPath, "/index.html")) {
 					

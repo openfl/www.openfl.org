@@ -1,9 +1,37 @@
 name: OpenFL
+collections:
+  showcase:
+    output: true
+    permalink: /showcase/title/:path/
+defaults:
+ - scope:
+     path: ""
+     type: showcase
+   values:
+     layout: showcase-item
+ - scope:
+     path: "showcase"
+   values:
+     layout: showcase
+ - scope:
+     path: ""
+     type: posts
+   values:
+     layout: post
+ - scope:
+     path: "learn"
+   values:
+     layout: default-sidebar
+excerpt_separator: "<!--more-->"
 gems:
  - jekyll-paginate
  - redcarpet
  - pygments
+highlighter: pygments
 markdown: RedcarpetCustom
+paginate: 6
+paginate_path: "blog/page/:num"
+permalink: /blog/:year/:month/:day/:title/
 redcarpet:
   extensions: 
    - strikethrough
@@ -12,20 +40,6 @@ redcarpet:
    - tables
    - with_toc_data
    - fenced_code_blocks
-highlighter: pygments
-excerpt_separator: "<!--more-->"
-paginate: 5
-paginate_path: "blog/page/:num"
-url: http://www.openfl.org
-navigation:
-- title: Showcase
-  url: /showcase/
-- title: News
-  url: https://www.twitter.com/open_fl/
-- title: Learn
-  url: /learn/
-#- title: Community
-#  url: http://community.openfl.org
-permalink: /blog/:year/:month/:day/:title
 rss_path: /blog/
 rss_post_limit: 10
+url: http://www.openfl.org

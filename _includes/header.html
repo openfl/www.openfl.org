@@ -6,34 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.ico"> -->
     
     <link rel="shortcut icon" href="{{ site.baseurl }}/images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="{{ site.baseurl }}/images/favicon.ico" type="image/x-icon">
 
     <title>{{ page.title }}</title>
     
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
     
     {{ page.head }}
     
-    <!-- Bootstrap core CSS -->
     <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet">
     <link href="{{ site.baseurl }}/css/syntax.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
     
     <script src="{{ site.baseurl }}/js/holder.js"></script>
     
@@ -57,22 +43,18 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                {% for p in site.navigation %}
+                {% for p in site.data.navigation %}
+                {% if p.url contains '://' %}
+                <li><a href="{{ p.url }}"{% unless p.url contains 'openfl.org' %} target="_blank"{% endunless %}>{{ p.title | upcase }}</a></li>
+                {% else %}
                 <li><a {% if p.url == page.url %}class="active"{% endif %} href="{{ p.url | prepend: site.baseurl | replace: '//', '/' }}">{{ p.title | upcase }}</a></li>
+                {% endif %}
                 {% endfor %}
-                <!-- <li><a href="http://api.openfl.org" target="_blank">API</a></li> -->
-                <li><a href="http://community.openfl.org">FORUMS</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ site.baseurl }}/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> Contribute</button></a></li>
-                <li><a href="{{ site.baseurl }}/download/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span>
-     </button></a></li>
+                <li><a href="{{ site.baseurl }}/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <li><a href="{{ site.baseurl }}/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li>
               </ul>
-              <!-- <ul class="nav navbar-nav navbar-right">
-                <li><a href="../navbar/">Default</a></li>
-                <li class="active"><a href="./">Static top</a></li>
-                <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-              </ul> -->
-            </div><!--/.nav-collapse -->
+            </div>
           </div>
         </div>

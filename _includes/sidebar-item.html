@@ -1,0 +1,19 @@
+{% assign navurl = page.url | remove: 'index.html' %}
+<ul class="nav nav-sidebar">
+{% for item in include.navigation %}
+	<li>
+		{% assign pathSplit = page.url | split: "/" %}
+		{% assign file = pathSplit | last %}
+		{% assign baseURL = page.url | remove: file %}
+		
+		{% if item.url contains "://" %}
+		<a href="{{ item.url }}" target="_blank" />{{ item.title }}</a>
+		{% else %}
+		<a href="{{ item.url }}" {% if item.url == navurl %}class="active"{% endif %}>{{ item.title }}</a>
+		{% endif %}
+		{% if item.subitems and navurl contains item.url %}
+			{% include sidebar-item.html navigation=item.subitems %}
+		{% endif %}
+	</li>
+{% endfor %}
+</ul>
