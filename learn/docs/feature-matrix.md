@@ -1279,6 +1279,7 @@ title: Feature Matrix
 | maxChars | yes | planned | planned | ignored |
 | maxScrollH | yes | yes | yes | ignored |
 | maxScrollV | yes | yes | yes | ignored |
+| mouseWheelEnabled | yes | ignored | ignored | no |
 | multiline | yes | yes | yes | yes |
 | numLines | yes | yes | yes | yes |
 | restrict | yes | planned | planned | ignored |
