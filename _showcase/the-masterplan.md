@@ -6,4 +6,5 @@ link: http://playfield.io/themasterplan
 windows: http://store.steampowered.com/app/313080/
 mac: http://store.steampowered.com/app/313080/
 linux: http://store.steampowered.com/app/313080/
+featured: true
 ---
