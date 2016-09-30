@@ -1,8 +1,8 @@
 ---
 title: Goumy Sticks
-developer: 
+developer: Tikids
 image: GoumySticks.jpg
-link: http://goumysticks.tikids-studio.com
+link: https://play.google.com/store/apps/details?id=com.tikids.toddlerstairs.unlimited
 ios: https://itunes.apple.com/us/app/goumy-sticks/id966169188
 android: https://play.google.com/store/apps/details?id=com.tikids.toddlerstairs.unlimited
 ---

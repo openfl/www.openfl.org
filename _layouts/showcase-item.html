@@ -24,7 +24,15 @@ h1:first { padding-top: 20px; }
 					{% if page.playstation %}<a href="{{ page.playstation }}" target="_blank"><span class="icon-playstation"></span></a>{% endif %}
 				</p>
 				
-				{% if page.developer %}<hr/><p><strong>Developer:</strong> {{ page.developer }}</p>{% endif %}
+				{% if page.developer %}
+				{% for developer in site.data.developers %}
+				{% if developer.name == page.developer %}
+				{% assign developerData = developer %}
+				{% endif %}
+				{% endfor %}
+				{% endif %}
+				
+				{% if page.developer %}<hr/><p><strong>Developer:</strong> {% if developerData %}<a href="{{ developerData.url }}" target="_blank">{% endif %}{{ page.developer }}{% if developerData %}</a>{% endif %}</p>{% endif %}
 				{% if page.client %}<hr/><p><strong>Client:</strong> {{ page.client }}</p>{% endif %}
 				
 				{% if page.developer %}
