@@ -1,0 +1,90 @@
+- title: Showcase
+  url: /showcase/
+  subitems:
+  - title: Featured
+    url: /showcase/
+  - title: Windows
+    url: /showcase/windows/
+  - title: macOS
+    url: /showcase/macos/
+  - title: Linux
+    url: /showcase/linux/
+  - title: iOS
+    url: /showcase/ios/
+  - title: Android
+    url: /showcase/android/
+  - title: Flash
+    url: /showcase/flash/
+  - title: HTML5
+    url: /showcase/html5/
+  #- title: Other
+  #  url: /showcase/other/
+- title: Blog
+  url: /blog/
+- title: Learn
+  url: /learn/
+  subitems:
+  - title: Introduction
+    url: /learn/
+  - title: Documentation
+    url: /learn/docs/
+    subitems:
+    - title: Getting Started
+      url: /learn/docs/getting-started/
+    - title: Choosing a Code Editor
+      url: /learn/docs/choosing-a-code-editor/
+    - title: Command-Line Tools
+      url: /learn/docs/command-line-tools/
+      subitems:
+      - title: Basic Commands
+        url: /learn/docs/command-line-tools/basic-commands/
+      - title: Create New Project
+        url: /learn/docs/command-line-tools/create-new-project/
+      - title: Samples
+        url: /learn/docs/command-line-tools/samples/
+      - title: Project Files
+        url: /learn/docs/command-line-tools/project-files/
+        subitems:
+        - title: XML Format
+          url: /learn/docs/command-line-tools/project-files/xml-format/
+        - title: HXP Format
+          url: /learn/docs/command-line-tools/project-files/hxp-format/
+    - title: Advanced Setup
+      url: /learn/docs/advanced-setup/
+      subitems:
+      - title: Windows
+        url: /learn/docs/advanced-setup/windows/
+      - title: macOS
+        url: /learn/docs/advanced-setup/macos/
+      - title: Linux
+        url: /learn/docs/advanced-setup/linux/
+      - title: iOS
+        url: /learn/docs/advanced-setup/ios/
+      - title: Android
+        url: /learn/docs/advanced-setup/android/
+      - title: Flash
+        url: /learn/docs/advanced-setup/flash/
+      - title: HTML5
+        url: /learn/docs/advanced-setup/html5/
+    - title: Core Architecture
+      url: /learn/docs/core-architecture/
+    - title: Feature Matrix
+      url: /learn/docs/feature-matrix/
+  - title: Books
+    url: /learn/books/
+    subitems:
+    - title: ActionScript 3.0 Conversion Guide
+      url: http://books.openfl.org/as3-conversion-guide/
+    - title: Videojuegos Multiplataforma con OpenFL
+      url: http://www.openflbook.com
+  - title: Tutorials
+    url: /learn/tutorials/
+    subitems:
+    - title: Displaying a Bitmap
+      url: /learn/tutorials/displaying-a-bitmap/
+    - title: Using SWF Assets
+      url: /learn/tutorials/using-swf-assets/
+  - title: API
+    url: http://api.openfl.org
+- title: Community
+  url: http://community.openfl.org

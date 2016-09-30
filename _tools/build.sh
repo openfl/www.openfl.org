@@ -9,10 +9,12 @@ cd ../../
 
 # Rebuild documentation
 
-rm -r -f documentation
-mkdir documentation
+rm -r -f learn/docs
+rm -r -f learn/guides
+rm -r -f learn/tutorials
+#mkdir learn
 
-neko _tools/import-documentation/import.n ../openfl-documentation documentation
+neko _tools/import-documentation/import.n ../learn-openfl learn
 
 # Rebuild site
 

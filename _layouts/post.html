@@ -5,14 +5,22 @@ layout: default
 <div class="row">
 <div class="col-md-8">
 
-<h1>{{ page.title }}</h1>
+<div class="page-header"><h1>{{ page.title }}</h1></div>
 <!-- <p class="meta">{{ page.date | date_to_string }}</p> -->
 
 <div class="post">
 {{ content | replace: '&lt;!--more--&gt;','' }}
 </div>
 
-<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">{{ page.date | date: "%B %-d, %Y" }} | <a href="{{ page.url | prepend: site.baseurl | replace: '//', '/' }}/#disqus_thread">View Comments</a></h5>
+{% comment %}
+{% capture postYear %}{{ page.date | date: "%Y" }}{% endcapture %}
+{% capture postMonth %}{{ page.date | date: "%m" }}{% endcapture %}
+{% assign postYear = postYear | times: 1 %}
+{% assign postMonth = postMonth | times: 1 %}
+{% if postYear <= 2015 or postYear == 2016 and postMonth < 8 %}{% endif %}
+{% endcomment %}
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">{{ page.date | date: "%B %-d, %Y" }} | <a href="{{ page.url | prepend: site.baseurl | replace: '//', '/' }}#disqus_thread">View Comments</a></h5>
 
  <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -29,8 +37,6 @@ layout: default
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     
-    
-    
 <script type="text/javascript">
 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
@@ -43,6 +49,23 @@ var disqus_shortname = 'haxenme'; // required: replace example with your forum s
     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 }());
 </script>
+
+{% comment %}
+{% else %}
+<div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'http://community.openfl.org/',
+                     discourseEmbedUrl: 'http://www.openfl.org{{ page.url | append: '/' | replace: '//', '/' }}' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+{% endif %}
+{% endcomment %}
 
 </div>
 </div>
