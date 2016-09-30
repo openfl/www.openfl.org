@@ -1,6 +1,6 @@
 ---
 title: Puralax
-developer: Luis Federico Bricker
+developer: Sempai Games
 image: Puralax.jpg
 link: http://www.puralax.com/
 ios: https://itunes.apple.com/app/id781705529
