@@ -6,6 +6,8 @@ Okay kids!
 
 We have a fresh release of OpenFL, Lime, SWF and SVG out today.
 
+As always, run `openfl upgrade` to fetch the latest.
+
 These are some highlights:
 
 ## Improved Custom Shader System
@@ -30,4 +32,4 @@ We have made a number of small changes to lime.app.Future in order to make it mo
 
 ## Miscellaneous Fixes
 
-There are too many other improvements to mention here, but there are a lot of good ones! You can find the full CHANGELOG for OpenFL [here](https://github.com/openfl/openfl/blob/develop/CHANGELOG.md] or the CHANGELOG for Lime [here](https://github.com/openfl/lime/blob/develop/CHANGELOG.md)
+There are too many other improvements to mention here, but there are a lot of good ones! You can find the full CHANGELOG for OpenFL [here](https://github.com/openfl/openfl/blob/develop/CHANGELOG.md) or the CHANGELOG for Lime [here](https://github.com/openfl/lime/blob/develop/CHANGELOG.md).
