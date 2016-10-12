@@ -32,20 +32,25 @@ shader.glFragmentSource =
 	void main(void) {
 		
 		vec4 color = texture2D (uImage0, vTexCoord);
+		float alpha;
 		
 		if (useAlphaImage) {
 			
-			color.a = texture2D (uAlphaImage, vTexCoord).a;
+			alpha = texture2D (uAlphaImage, vTexCoord).a;
+			
+		} else {
+			
+			alpha = color.a;
 			
 		}
 		
-		if (color.a == 0.0) {
+		if (alpha == 0.0) {
 			
 			gl_FragColor = vec4 (0.0, 0.0, 0.0, 0.0);
 			
 		} else {
 			
-			gl_FragColor = vec4 (color.rgb / color.a, color.a * vAlpha);
+			gl_FragColor = vec4 (color.rgb / color.a, alpha * vAlpha);
 			
 		}
 		
