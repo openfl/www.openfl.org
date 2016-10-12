@@ -1,5 +1,5 @@
 ---
-title: Custom Shaders, AudioSource and more -- OpenFL (4.3.0) and Lime (3.3.0) Released
+title: Custom Shaders, AudioSource and more&mdash;OpenFL (4.3.0) and Lime (3.3.0) Released
 ---
 
 Okay kids!
