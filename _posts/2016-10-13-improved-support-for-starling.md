@@ -10,7 +10,7 @@ OpenFL 4.3.1 is now available, correcting minor issues affecting the Starling de
 
 ## Demo
 
-<iframe width="320" height="480" src="/samples/starling/html5"></iframe>
+<iframe width="320" height="480" src="/samples/starling/html5" frameBorder="0"></iframe>
 
 ## Install
 
