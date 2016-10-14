@@ -12,6 +12,8 @@ OpenFL 4.3.1 is now available, correcting minor issues affecting the Starling de
 
 <iframe width="320" height="480" src="/samples/starling/html5" frameBorder="0"></iframe>
 
+_Edit: The performance of the benchmark in the above demo is crippled due to being in an iframe. If you would like to more reliably test the benchmark score of your machine, please try this [direct link](http://www.openfl.org/samples/starling/html5/) to the demo._
+
 ## Install
 
 Starling and OpenFL are both available on Haxelib, for a full install, run the following commands:
