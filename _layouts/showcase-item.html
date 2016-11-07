@@ -52,7 +52,7 @@ h1:first { padding-top: 20px; }
 				
 				{% cycle '<div class="row">', '', '' %}
 				
-				<div class="col-md-4"><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/small/{{ showcase.image }}" class="showcase-image-small" /></a><br/><a href="{{ showcase.url }}" target="_blank">{{ showcase.title }}</a></div>
+				<div class="col-md-4"><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/small/{{ showcase.image }}" class="showcase-image-small" /></a><br/><a href="{{ showcase.url }}" class="showcase-text-small" target="_blank">{{ showcase.title }}</a></div>
 				
 				{% cycle '', '', '</div>' %}
 				{% endif %}

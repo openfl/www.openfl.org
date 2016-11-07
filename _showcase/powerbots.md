@@ -1,5 +1,6 @@
 ---
 title: Powerbots
+developer: Double Duck
 image: Powerbots.jpg
 link: http://www.doubleduck.co/games/powerbots/
 android: https://play.google.com/store/apps/details?id=com.funtomic.powerbots

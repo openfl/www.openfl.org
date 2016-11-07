@@ -260,6 +260,13 @@ ul.nav-sidebar > li > ul.nav-sidebar {
   
 }
 
+.showcase-text-small {
+  
+  display: block;
+  padding-bottom: 7px;
+  
+}
+
 .showcase-listing {
   
   padding-bottom: 20px;
