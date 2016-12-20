@@ -6,7 +6,7 @@ OpenFL 4.5 and Lime 3.5 are available, with quite a long list of changes!
 
 ## Improved SWF Support
 
-The "swf" library has been merged into OpenFL, which means that OpenFL understands how to process and include SWF-based assets with installing any extra haxelibs. For this release, we have focused on improving the quality and integration of SWF-based assets, resulting in multiple improvements that were not possible before. For example, it is possible to use Haxe-based classes as a "custom base class" from Adobe Animate or older versions of Adobe Flash Professional.
+The "swf" library has been merged into OpenFL, which means that OpenFL understands how to process and include SWF-based assets without installing any extra haxelibs. For this release, we have focused on improving the quality and integration of SWF-based assets, resulting in multiple improvements that were not possible before. For example, it is possible to use Haxe-based classes as a "custom base class" from Adobe Animate or older versions of Adobe Flash Professional.
 
 Using a SWF library with the "generate" option enabled (such as `<library path="lib.swf" preload="true" generate="true" />`), classes used in the "Export for ActionScript" option are now strongly typed in generated Haxe classes. Support for strong type references improves performance, and increases the amount of code that can be used without using casting. As a result, we have disabled the `implements Dynamic` behavior for `DisplayObject`, as dynamic access has performance costs, and made it difficult to debug certain kinds of spelling errors. This option is available now using `-Dopenfl-dynamic`, but is disabled by default.
 
