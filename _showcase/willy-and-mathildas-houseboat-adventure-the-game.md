@@ -4,6 +4,7 @@ developer: In the Beginning was the Word Game
 image: WillyAndMathildasHouseboatAdventureTheGame.jpg
 link: https://ibwwg.com/story.html
 windows: https://ibwwg.itch.io/mathildagame
+mac: https://ibwwg.itch.io/mathildagame
 linux: https://ibwwg.itch.io/mathildagame
 featured: false
 ---
