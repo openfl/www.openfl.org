@@ -1,6 +1,7 @@
 ---
 title: Fly Catbug Fly!
-developer: Cartoon Hangover
+developer: Ludoko Studios
+client: Cartoon Hangover
 image: FlyCatbugFly.jpg
 link: http://cartoonhangover.com/flycatbugfly/
 ios: https://itunes.apple.com/us/app/fly-catbug-fly!/id812663886

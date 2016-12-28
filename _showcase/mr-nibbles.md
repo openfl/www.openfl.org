@@ -1,6 +1,6 @@
 ---
 title: Mr. Nibbles
-developer: Artificial Games
+developer: Epic Shrimp
 image: MrNibbles.jpg
 link: http://www.mr-nibbles.com/
 ios: http://itunes.apple.com/gb/app/mr-nibbles/id552109003

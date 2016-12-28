@@ -1,6 +1,6 @@
 ---
 title: My Little Story Factory
-developer: Éditions Autrement
+developer: e-Toiles éditions
 image: MyLittleStoryFactory.png
 link: http://www.etoiles-editions.com/en/collection/my-little-story-factory-2
 mac: http://itunes.apple.com/us/app/my-little-story-factory/id637433662

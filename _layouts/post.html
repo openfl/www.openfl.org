@@ -12,14 +12,14 @@ layout: default
 {{ content | replace: '&lt;!--more--&gt;','' }}
 </div>
 
+{% comment %}
 {% capture postYear %}{{ page.date | date: "%Y" }}{% endcapture %}
 {% capture postMonth %}{{ page.date | date: "%m" }}{% endcapture %}
 {% assign postYear = postYear | times: 1 %}
 {% assign postMonth = postMonth | times: 1 %}
+{% if postYear <= 2015 or postYear == 2016 and postMonth < 8 %}{% endif %}
+{% endcomment %}
 
-{% assign postYear = 2000 %}
-
-{% if postYear <= 2015 or postYear == 2016 and postMonth < 8 %}
 <h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">{{ page.date | date: "%B %-d, %Y" }} | <a href="{{ page.url | prepend: site.baseurl | replace: '//', '/' }}#disqus_thread">View Comments</a></h5>
 
  <div id="disqus_thread"></div>
@@ -49,6 +49,8 @@ var disqus_shortname = 'haxenme'; // required: replace example with your forum s
     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 }());
 </script>
+
+{% comment %}
 {% else %}
 <div id='discourse-comments'></div>
 
@@ -63,6 +65,7 @@ var disqus_shortname = 'haxenme'; // required: replace example with your forum s
   })();
 </script>
 {% endif %}
+{% endcomment %}
 
 </div>
 </div>

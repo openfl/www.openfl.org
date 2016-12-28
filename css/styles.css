@@ -252,6 +252,21 @@ ul.nav-sidebar > li > ul.nav-sidebar {
   
 }
 
+.showcase-image-small {
+  
+  width: 100%;
+  max-width: 230px;
+  margin: 14px auto 12px auto;
+  
+}
+
+.showcase-text-small {
+  
+  display: block;
+  padding-bottom: 7px;
+  
+}
+
 .showcase-listing {
   
   padding-bottom: 20px;

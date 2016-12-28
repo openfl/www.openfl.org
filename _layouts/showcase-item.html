@@ -24,8 +24,47 @@ h1:first { padding-top: 20px; }
 					{% if page.playstation %}<a href="{{ page.playstation }}" target="_blank"><span class="icon-playstation"></span></a>{% endif %}
 				</p>
 				
-				{% if page.developer %}<hr/><p><strong>Developer:</strong> {{ page.developer }}</p>{% endif %}
+				{% if page.developer %}
+				{% for developer in site.data.developers %}
+				{% if developer.name == page.developer %}
+				{% assign developerData = developer %}
+				{% endif %}
+				{% endfor %}
+				{% endif %}
+				
+				{% if page.developer %}<hr/><p><strong>Developer:</strong> {% if developerData %}<a href="{{ developerData.url }}" target="_blank">{% endif %}{{ page.developer }}{% if developerData %}</a>{% endif %}</p>{% endif %}
 				{% if page.client %}<hr/><p><strong>Client:</strong> {{ page.client }}</p>{% endif %}
+				
+				{% if page.developer %}
+				
+				{% assign count = 0 %}
+				{% for showcase in site.showcase %}
+				{% if showcase.title != page.title and showcase.developer == page.developer %}
+				{% assign count = count | plus: 1 %}
+				{% endif %}
+				{% endfor %}
+				
+				{% if count > 0 %}
+				<hr/>
+				<h3>More by this developer</h3>
+				{% for showcase in site.showcase %}
+				{% if showcase.title != page.title and showcase.developer == page.developer %}
+				
+				{% cycle '<div class="row">', '', '' %}
+				
+				<div class="col-md-4"><a href="{{ showcase.url }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/small/{{ showcase.image }}" class="showcase-image-small" /></a><br/><a href="{{ showcase.url }}" class="showcase-text-small" target="_blank">{{ showcase.title }}</a></div>
+				
+				{% cycle '', '', '</div>' %}
+				{% endif %}
+				{% endfor %}
+				
+				{% assign remainder = count | modulo: 3 %}
+				{% if remainder != 0 %}
+				</div>
+				{% endif %}
+				
+				{% endif %}
+				{% endif %}
 			
 			{{ content }}
 			
