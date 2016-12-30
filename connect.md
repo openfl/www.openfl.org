@@ -26,6 +26,7 @@ You can also access several of our chat rooms using Fleep, without an invite:
 
 ## Roadmap
 
-We regularly discuss roadmap in chat, 
+We regularly discuss roadmap items in the chat, then try to track "wishlist" items as well as items that are worked on by the core team using Trello:
 
-We also use [HuBoard](http://huboard.com/openfl/openfl/#/milestones) to help keep track of OpenFL development
+ * [OpenFL](https://trello.com/b/kor9hdzf/openfl)
+ * [Lime](https://trello.com/b/DxxhqdQf/lime)
