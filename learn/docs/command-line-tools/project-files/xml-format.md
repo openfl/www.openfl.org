@@ -84,6 +84,14 @@ You can also specify a version, if you prefer:
 
     <haxelib name="actuate" version="1.0.0" />
 
+### `<section />`
+
+The `<section />` tag is used to group other tags together. This is usually most valuable when combined with "if" and/or "unless" logic:
+    
+    <section if="html5">
+        <source path="extra/src/html5" />
+    </section>
+
 ### `<ndll />`
 
 You can use `<ndll />` tags to include native libraries. These are usually located under an "ndll" directory, with additional directories based upon the target platform. Usually an `<ndll />` tag will be included as a part of an extension, and is rare to be used directly:
