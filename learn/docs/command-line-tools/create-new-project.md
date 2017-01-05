@@ -50,7 +50,7 @@ For a Haxe-based project file, use the name of your project file class, with an 
 Here is a sample Haxe project file:
 
 {% highlight haxe %}
-import project.*;
+import lime.project.*;
 
 class Project extends HXProject {
 
