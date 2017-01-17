@@ -6,8 +6,7 @@ We have new releases of OpenFL and Lime available!
 
 ## OpenFL
 
-4.5.3 (01/16/2017)
-------------------
+### 4.5.3 (01/16/2017)
 
 * Updated for Lime 3.6
 * Updated AGALMiniAssembler to a fresh port of Adobe's last release
@@ -30,12 +29,11 @@ We have new releases of OpenFL and Lime available!
 * Fixed wrong colors when values were larger than expected
 * Fixed an issue with needing clearRect on CocoonJS
 
-_[previous releases](https://github.com/openfl/openfl/blob/develop/CHANGELOG.md)_
+_Additional changes for previous releases are available [here](https://github.com/openfl/openfl/blob/develop/CHANGELOG.md)_
 
 ## Lime
 
-3.6.0 (01/16/2017)
-------------------
+### 3.6.0 (01/16/2017)
 
 * Moved "lime.audio" to "lime.media"
 * Added Vorbis bindings under "lime.media.codecs.vorbis"
@@ -59,6 +57,6 @@ _[previous releases](https://github.com/openfl/openfl/blob/develop/CHANGELOG.md)
 * Fixed support for image.copyChannel on HTML5 when using WebGL
 * Fixed support for command-line arguments with "lime rebuild"
 
-_[previous releases](https://github.com/openfl/lime/blob/develop/CHANGELOG.md)_
+_Additional changes for previous releases are available [here](https://github.com/openfl/lime/blob/develop/CHANGELOG.md)_
 
 Thank you to all OpenFL supporters, and happy new year!
