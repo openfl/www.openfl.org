@@ -399,6 +399,8 @@ ul.nav-sidebar > li > ul.nav-sidebar {
 }
 .icon-flash:before {
   content: "\66";
+  margin-left: -5px;
+  margin-right: -3px;
 }
 
 

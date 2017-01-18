@@ -88,7 +88,7 @@ ul.nav-sidebar>li>ul.nav-sidebar{margin-left:20px;}
 .icon-ubuntu:before{content:"\75";}
 .icon-amazon:before{content:"\7a";}
 .icon-ouya:before{content:"\79";}
-.icon-flash:before{content:"\66";}
+.icon-flash:before{content:"\66";margin-left:-5px;margin-right:-3px;}
 @media (max-width:991px){.navbar-header{float:none;}
 .navbar-left,.navbar-right{float:none!important;}
 .navbar-toggle{display:block;}
