@@ -1,0 +1,6 @@
+- name: National Geographic Kids
+  url: http://kids.nationalgeographic.com
+- name: Nickelodeon
+  url: http://www.nickelodeon.com
+- name: PBS Kids
+  url: https://www.pbskids.org

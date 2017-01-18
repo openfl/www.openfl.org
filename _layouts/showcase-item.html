@@ -33,9 +33,25 @@ h1:first { padding-top: 20px; }
 				{% endfor %}
 				{% endif %}
 				
+				{% if page.client %}
+				{% for client in site.data.clients %}
+				{% if client.name == page.client %}
+				{% assign clientData = client %}
+				{% endif %}
+				{% endfor %}
+				{% endif %}
+				
+				{% if page.publisher %}
+				{% for publisher in site.data.publishers %}
+				{% if publisher.name == page.publisher %}
+				{% assign publisherData = publisher %}
+				{% endif %}
+				{% endfor %}
+				{% endif %}
+				
 				{% if page.developer %}<hr/><p><strong>Developer:</strong> {% if developerData %}<a href="{{ developerData.url }}" target="_blank">{% endif %}{{ page.developer }}{% if developerData %}</a>{% endif %}</p>{% endif %}
-				{% if page.client %}<hr/><p><strong>Client:</strong> {{ page.client }}</p>{% endif %}
-				{% if page.publisher %}<hr/><p><strong>Publisher:</strong> {{ page.publisher }}</p>{% endif %}
+				{% if page.client %}<p><strong>Client:</strong> {% if clientData %}<a href="{{ clientData.url }}" target="_blank">{% endif %}{{ page.client }}{% if clientData %}</a>{% endif %}</p>{% endif %}
+				{% if page.publisher %}<p><strong>Publisher:</strong> {% if publisherData %}<a href="{{ publisherData.url }}" target="_blank">{% endif %}{{ page.publisher }}{% if publisherData %}</a>{% endif %}</p>{% endif %}
 				
 				{% if page.developer %}
 				
