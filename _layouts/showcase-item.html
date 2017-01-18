@@ -7,19 +7,19 @@ h1:first { padding-top: 20px; }
 		<div class="col-md-8 col-md-push-4 sidebar-content">
 			
 				<div class="page-header"><h1>{{ page.title }}</h2></div>
-				<p><a href="{{ page.link }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/large/{{ page.image }}" class="showcase-image" /></a></p>
+				<p class="showcase-image-container"><a href="{{ page.link }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/large/{{ page.image }}" class="showcase-image" /></a></p>
 				<p class="showcase-icons">
 					{% if page.windows %}<a href="{{ page.windows }}" target="_blank">{% endif %}<span class="icon-windows"></span>{% if page.windows %}</a>{% endif %}
 					{% if page.mac %}<a href="{{ page.mac }}" target="_blank">{% endif %}<span class="icon-apple"></span>{% if page.mac %}</a>{% endif %}
 					{% if page.linux %}<a href="{{ page.linux }}" target="_blank">{% endif %}<span class="icon-linux"></span>{% if page.linux %}</a>{% endif %}
 					{% if page.ios %}<a href="{{ page.ios }}" target="_blank">{% endif %}<span class="icon-apple"></span>{% if page.ios %}</a>{% endif %}
 					{% if page.android %}<a href="{{ page.android }}" target="_blank">{% endif %}<span class="icon-android"></span>{% if page.android %}</a>{% endif %}
-					{% if page.blackberry %}<a href="{{ page.blackberry }}" target="_blank">{% endif %}<span class="icon-blackberry"></span>{% if page.blackberry %}</a>{% endif %}
-					<!-- {% if page.firefoxos %}<a href="{{ page.firefoxos }}" target="_blank">{% endif %}<span class="icon-firefox"></span>{% if page.firefoxos %}</a>{% endif %} -->
-					<!-- {% if page.tizen %}<a href="{{ page.tizen }}" target="_blank">{% endif %}<span class="icon-tizen"></span>{% if page.tizen %}</a>{% endif %} -->
-					{% if page.amazon %}<a href="{{ page.amazon }}" target="_blank">{% endif %}<span class="icon-amazon"></span>{% if page.amazon %}</a>{% endif %}
 					{% if page.flash %}<a href="{{ page.flash }}" target="_blank">{% endif %}<span class="icon-flash"></span>{% if page.flash %}</a>{% endif %}
 					{% if page.html5 %}<a href="{{ page.html5 }}" target="_blank">{% endif %}<span class="icon-html5"></span>{% if page.html5 %}</a>{% endif %}
+					{% if page.blackberry %}<a href="{{ page.blackberry }}" target="_blank"><span class="icon-blackberry"></span></a>{% endif %}
+					{% if page.firefoxos %}<a href="{{ page.firefoxos }}" target="_blank"><span class="icon-firefox"></span></a>{% endif %}
+					{% if page.tizen %}<a href="{{ page.tizen }}" target="_blank"><span class="icon-tizen"></span></a>{% endif %}
+					{% if page.amazon %}<a href="{{ page.amazon }}" target="_blank"><span class="icon-amazon"></span></a>{% endif %}
 					{% if page.ouya %}<a href="{{ page.ouya }}" target="_blank"><span class="icon-ouya"></span></a>{% endif %}
 					{% if page.playstation %}<a href="{{ page.playstation }}" target="_blank"><span class="icon-playstation"></span></a>{% endif %}
 					{% if page.xbox %}<a href="{{ page.xbox }}" target="_blank"><span class="icon-xbox"></span></a>{% endif %}
