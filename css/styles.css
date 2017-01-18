@@ -331,75 +331,76 @@ ul.nav-sidebar > li > ul.nav-sidebar {
 }
 
 .icon-apple:before {
-  content: "a";
+  content: "\61";
 }
 .icon-android:before {
-  content: "n";
+  content: "\6e";
   vertical-align: 1px;
 }
 .icon-linux:before {
-  content: "l";
+  content: "\6c";
 }
 .icon-windows:before {
-  content: "w";
+  content: "\77";
 }
 .icon-html5:before {
-  content: "h";
+  content: "\68";
 }
 .icon-twitter:before {
-  content: "r";
+  content: "\72";
 }
 .icon-github:before {
-  content: "g";
+  content: "\67";
 }
 .icon-tizen:before {
-  content: "t";
+  content: "\74";
 }
 .icon-facebook:before {
-  content: "k";
+  content: "\6b";
 }
 .icon-blackberry:before {
-  content: "b";
+  content: "\62";
 }
 .icon-steam:before {
-  content: "s";
+  content: "\73";
 }
 .icon-playstation:before {
-  content: "p";
+  content: "\70";
 }
 .icon-xbox:before {
-  content: "x";
+  content: "\78";
 }
 .icon-patreon:before {
-  content: "e";
+  content: "\65";
 }
 .icon-chrome:before {
-  content: "c";
+  content: "\63";
 }
 .icon-firefox:before {
-  content: "m";
+  content: "\6d";
 }
 .icon-opera:before {
-  content: "o";
+  content: "\6f";
 }
 .icon-safari:before {
-  content: "v";
+  content: "\76";
 }
 .icon-ie:before {
-  content: "i";
+  content: "\69";
 }
 .icon-ubuntu:before {
-  content: "u";
-}
-.icon-flash:before {
-  content: "f";
+  content: "\75";
 }
 .icon-amazon:before {
-  content: "z";
+  content: "\7a";
 }
 .icon-ouya:before {
-  content: "y";
+  content: "\79";
 }
+.icon-flash:before {
+  content: "\66";
+}
+
 
 @media (max-width: 991px) {
   .navbar-header {
