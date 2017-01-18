@@ -249,6 +249,7 @@ ul.nav-sidebar > li > ul.nav-sidebar {
   background: #fefefe;
   margin-top: -8px;
   padding: 12px;
+  text-align: center;
   
 }
 
@@ -285,7 +286,7 @@ ul.nav-sidebar > li > ul.nav-sidebar {
   
   color: #dddddd;
   font-size: 42px;
-  padding: 8px 0 16px 0;
+  padding: 8px 0 4px 0;
   text-align: center;
   
 }
