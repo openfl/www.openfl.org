@@ -6,7 +6,7 @@ We have been receiving feedback that upgrading from old OpenFL releases to a cur
 
 Lime is continuing to evolve as a project, but OpenFL is not a moving target. As we are able to continue to invest in Lime as a foundation layer for Flash, native and HTML5 unified projects, OpenFL is pursuing an established, proven API standard. As such, over the course of a year, we can expect Lime to continue to make backward-incompatible changes as it matures, but OpenFL should remain backward compatible for the majority of the API -- an API we have supported for almost seven years.
 
-Backward compatibility is one reason OpenFL does not show internal APIs in code completion. This is also one motivation for trying to strictly adding new APIs to OpenFL. From one version to the next, the mission of OpenFL remains the same, and we hope that we continue to "make good on that promise" with increasing clarity over time.
+Backward compatibility is one reason OpenFL does not show internal APIs in code completion. This is also one motivation for trying to strictly avoid adding new APIs to OpenFL. From one version to the next, the mission of OpenFL remains the same, and we hope that we continue to "make good on that promise" with increasing clarity over time.
 
 We have spent more time considering how we name our versions, and have chosen to become more strict in our adherence of "SemVer", or "Semantic Versioning", the standard used in haxelib and many other package management systems.
 
