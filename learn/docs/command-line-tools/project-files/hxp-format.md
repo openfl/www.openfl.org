@@ -11,7 +11,7 @@ The \*.hxp format is based upon Haxe, it mirrors the internal project format use
 The basic structure of an \*.hxp project looks like this:
 
 {% highlight haxe %}
-import project.*;
+import lime.project.*;
 
 class Project extends HXProject {
 
@@ -41,7 +41,7 @@ If needed, you can also check the `host` property, which should define Platform.
 You can also set your own values (of course):
 
 {% highlight haxe %}
-import project.*;
+import lime.project.*;
 
 class Project extends HXProject {
 
@@ -51,8 +51,8 @@ class Project extends HXProject {
 
         if (platformType == PlatformType.WEB) {
 
-            window[0].width = 800;
-            window[0].height = 600;
+            windows[0].width = 800;
+            windows[0].height = 600;
 
         }
 
@@ -108,25 +108,25 @@ Each `window` includes the screen resolution and background color, as well as ot
 
 By default, mobile platforms use a window width and height of 0, which is a special value that uses the resolution of the current display. This is available on desktop platforms, but usually it is recommended to enable the `fullscreen` value instead, and to set the `width` and `height` values to a good windowed resolution. There is a special `fps="0"` value for HTML5, which is default, which uses "requestAnimationFrame" instead of forcing a frame rate.
 
-    window[0].width = 640;
-    window[0].height = 480;
-    window[0].background = 0xFFFFFF;
-    window[0].fps = 30;
-    window[0].hardware = true;
-    window[0].allowShaders = true;
-    window[0].requireShaders = true;
-    window[0].depthBuffer = false;
-    window[0].stencilBuffer = false;
-    window[0].fullscreen = false;
-    window[0].resizable = true;
-    window[0].borderless = false;
-    window[0].vsync = false;
-    window[0].orientation = Orientation.PORTRAIT;
-    window[0].antialiasing = 0;
+    windows[0].width = 640;
+    windows[0].height = 480;
+    windows[0].background = 0xFFFFFF;
+    windows[0].fps = 30;
+    windows[0].hardware = true;
+    windows[0].allowShaders = true;
+    windows[0].requireShaders = true;
+    windows[0].depthBuffer = false;
+    windows[0].stencilBuffer = false;
+    windows[0].fullscreen = false;
+    windows[0].resizable = true;
+    windows[0].borderless = false;
+    windows[0].vsync = false;
+    windows[0].orientation = Orientation.PORTRAIT;
+    windows[0].antialiasing = 0;
 
 Similar to `app` and `meta`, the `window` property is a typedef, so you can use either an object literal or set each property, depending on your preference. If you use an object literal, any values you do not define will be added later with default values by the tools.
 
-    window[0] = { width: 640, height: 480, background: 0xFFFFFF, fps: 30, hardware: true, allowShaders: true, requireShaders: true, depthBuffer: false, stencilBuffer: false, fullscreen:false, resizable: true, borderless: false, vsync: false, orientation: Orientation.PORTRAIT, antialiasing: 0 };
+    windows[0] = { width: 640, height: 480, background: 0xFFFFFF, fps: 30, hardware: true, allowShaders: true, requireShaders: true, depthBuffer: false, stencilBuffer: false, fullscreen:false, resizable: true, borderless: false, vsync: false, orientation: Orientation.PORTRAIT, antialiasing: 0 };
 
 ### sources
 
