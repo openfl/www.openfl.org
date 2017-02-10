@@ -4,17 +4,17 @@ title: Using SWF Assets
 
 ## Introduction
 
-There is a "swf" library that is designed to enable the use of SWF assets from Flash Professional. It is still in beta, so the quality and supported feature list will continue to improve, but already, the SWF library can enable the use of many kinds of Flash assets.
+OpenFL includes support for decoding many features of SWF assets generated from editors such as Flash Professional and Adobe Animate.
 
-The SWF library includes two different kinds of support. The "swf" type is compatible with native platforms. It decodes and uses SWF assets at runtime, unzipping and extracting information from a SWF. The second kind is "swflite", designed to extract the information at compile-time.
-
-The "swflite" format is faster and generally than "swf", where the features are equal. The "swf" format currently supports some additional features. "swflite" is the same on all targets (compatible even with HTML5), while "swf" is not.
+At compile time, OpenFL is able to convert SWF assets into a faster, more optimal format compatible with HTML5 and native platforms, while using the original SWF content if you target Flash Player.
 
 ## Creating SWF Content
 
-Using any version of Flash Professional, you can publish SWF assets to be used by OpenFL. Supported features include Shapes, SimpleButtons, MovieClips, many drawing operations, and where possible, masks, scrollRects, filters and blend modes.
+Using any version of Flash Professional or Adobe Animate, you can publish SWF assets to be used by OpenFL. Supported features include Shapes, SimpleButtons, MovieClips, many drawing operations, and where possible, masks, scrollRects, filters and blend modes.
 
 Certain features that rely on ActionScript, such as frame scripts, the Text Layout Framework or inverse kinematics are not supported. The current releases of Flash Professional include an "Export as Bitmap" feature, which is useful for certain types of rendering.
+
+Sounds, shape tweens or new motion tweens (not "classic tweens") are not currently supported, but some of these features could be supported with contributions. Fonts are supported if they are embedded separately.
 
 ## Embedding a SWF Library
 
@@ -30,27 +30,21 @@ You can find many of the same concepts in the "SimpleSWFLayout" sample, also, if
 openfl create SimpleSWFLayout
 {% endhighlight %}
 
-Add support for SWF assets, first, by including the SWF library in your "project.xml" file:
-
-{% highlight bash %}
-<haxelib name="swf" />
-{% endhighlight %}
-
 Once the SWF library is included, you can add assets using the following tag:
 
 {% highlight bash %}
 <library path="to/my.swf" />
 {% endhighlight %}
 
-This will use the _default_ SWF type ("swf" for native and Flash, "swflite" for HTML5) and will use a _default_ ID value, matching the file name (in this case "my")
+This will use a _default_ ID value, matching the file name (in this case "my").
 
-You can set these yourself using the `type` or `id` attributes:
+You can set this yourself using the `id` attribute if you prefer:
 
 {% highlight bash %}
-<library path="to/my.swf" id="swf-library" type="swflite" />
+<library path="to/my.swf" id="swf-library" />
 {% endhighlight %}
 
-There are a couple beta embed features available as well. Added a `preload` attribute can help you automatically load a SWF library as part of the preload process (more on that later), and `generate` will attempt to create classes for every "Export for ActionScript" class in the SWF, so you can `new MySymbolClass ()` in your code.
+There are additional features as well. Adding a `preload` attribute can help you automatically load a SWF library as part of the preload process (more on that later), and `generate` will attempt to create classes for every "Export for ActionScript" class in the SWF, so you can `new MySymbolClass ()` in your code.
 
 {% highlight bash %}
 <library path="to/my.swf" preload="true" generate="true" />
@@ -82,7 +76,7 @@ If the `generate` attribute was used, each symbol class should be available to i
 var clip = new MySymbolClass ();
 {% endhighlight %}
 
-Code completion should be available for the first level of child objects in the MovieClip.
+Code completion should be available for all generated classes.
 
 If you want to access symbols from multiple SWF libraries, change the prefix before the colon (":") in the `Assets.getMovieClip` call. If you would prefer to load the entire SWF timeline, and not a child clip, use an empty value for the symbol name, like this:
 
@@ -104,12 +98,10 @@ _project.xml_
 	<source path="Source" />
 	
 	<haxelib name="openfl" />
-	<haxelib name="swf" />
 	
 	<library path="Assets/library.swf" />
 	
-	<assets path="Assets" rename="assets" exclude="openfl.svg|*.swf" />
-	<icon path="Assets/openfl.svg" />
+	<assets path="Assets" rename="assets" exclude="*.swf" />
 	
 </project>
 {% endhighlight %}
@@ -158,12 +150,10 @@ _project.xml_
 	<source path="Source" />
 	
 	<haxelib name="openfl" />
-	<haxelib name="swf" />
 	
-	<library path="Assets/library.swf" type="swflite" preload="true" generate="true" />
+	<library path="Assets/library.swf" preload="true" generate="true" />
 	
-	<assets path="Assets" rename="assets" exclude="openfl.svg|*.swf" />
-	<icon path="Assets/openfl.svg" />
+	<assets path="Assets" rename="assets" exclude="*.swf" />
 	
 </project>
 {% endhighlight %}
