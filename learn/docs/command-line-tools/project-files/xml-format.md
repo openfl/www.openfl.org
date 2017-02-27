@@ -14,10 +14,30 @@ First, every node in the project file format supports `if` and `unless` attribut
  * ios, android, windows, mac, linux or html5
  * cpp, neko, flash or js
 
-You can create more defines using the `<set />` or `<unset />` tags:
+You can `<set />` or `<unset />` values for conditional logic:
 
-    <set name="define" />
-    <window width="640" height="480" if="define" />
+    <set name="red" />
+    <window background="#FF0000" if="red" />
+
+This can also be used to pass special values:
+    
+    <set name="color" value="#FF0000" if="red" />
+    <set name="color" value="#0000FF" if="blue" />
+    
+    <window background="${color}" if="color" />
+    
+Similarly, you can `<define />` which also passes values to Haxe
+
+{% highlight xml %} 
+<define name="red" />
+<window background="#FF0000" if="red" />
+{% endhighlight %}
+
+{% highlight haxe %} 
+#if red
+trace ("Background is red");
+#end
+{% endhighlight %}
 
 You can add defines using the command-line as well:
 
