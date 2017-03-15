@@ -4,7 +4,7 @@ title: Using the Improved OpenGL Bindings in Lime&nbsp;4
 
 Lime 4 has been released, and among [other changes](https://github.com/openfl/lime/blob/develop/CHANGELOG.md#400-03152017), we have improved our support for OpenGL!
 
-OpenGL has a large number of APIs, which may only on certain platform types (such as the desktop), or may require recent graphics drivers. After much thought, we have come designed a system where we can continue to expose new OpenGL APIs while preserving the same simple cross-platform stability of current Lime releases.
+OpenGL has a large number of APIs, which may be available on only certain platforms (such as the desktop), or may require recent graphics drivers. After much thought, we have come designed a system where we can continue to expose new OpenGL APIs while preserving the same simple cross-platform stability of current Lime releases.
 
 Lime OpenGL support begins with a `GLRenderContext`. This API more closely resembles the native OpenGL and OpenGL ES APIs, but is designed to operate also in the browser. Optionally, there is a static `GL` class which access the last created context, but with multiple windows and future support for multiple OpenGL contexts, it was important that our native platforms move to GL context objects at the core, similar to how WebGL behaves.
 
