@@ -1,5 +1,7 @@
 ---
 title: Core Architecture
+redirect_from:
+ - /learn/resources/core-architecture/
 ---
 
 ## Command-Line Tools

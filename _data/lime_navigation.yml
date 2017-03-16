@@ -1,0 +1,52 @@
+- title: Lime
+  url: /lime/
+  subitems:
+  - title: Lime
+    url: /lime/
+  - title: Documentation
+    url: /lime/docs/
+    subitems:
+    #- title: Getting Started
+    #  url: /lime/docs/getting-started/
+    #  subitems:
+    #  - title: Install Haxe
+    #  - title: Install Lime
+    #  - title: Choose a Code Editor
+    #    url: /lime/docs/getting-started/choosing-a-code-editor/
+    - title: Command-Line Tools
+      url: /lime/docs/command-line-tools/
+      subitems:
+      - title: Basic Commands
+        url: /lime/docs/command-line-tools/basic-commands/
+      - title: Create New Project
+        url: /lime/docs/command-line-tools/create-new-project/
+      - title: Samples
+        url: /lime/docs/command-line-tools/samples/
+    - title: Project Files
+      url: /lime/docs/project-files/
+      subitems:
+      - title: XML Format
+        url: /lime/docs/project-files/xml-format/
+      - title: HXP Format
+        url: /lime/docs/project-files/hxp-format/
+    - title: Advanced Setup
+      url: /lime/docs/advanced-setup/
+      subitems:
+      - title: Windows
+        url: /lime/docs/advanced-setup/windows/
+      - title: macOS
+        url: /lime/docs/advanced-setup/macos/
+      - title: Linux
+        url: /lime/docs/advanced-setup/linux/
+      - title: iOS
+        url: /lime/docs/advanced-setup/ios/
+      - title: Android
+        url: /lime/docs/advanced-setup/android/
+      - title: Flash
+        url: /lime/docs/advanced-setup/flash/
+      - title: HTML5
+        url: /lime/docs/advanced-setup/html5/
+  #- title: Tutorials
+  #  url: /lime/tutorials/
+  - title: API
+    url: http://api.openfl.org/lime/

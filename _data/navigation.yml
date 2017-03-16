@@ -31,45 +31,28 @@
     subitems:
     - title: Getting Started
       url: /learn/docs/getting-started/
-    - title: Choosing a Code Editor
-      url: /learn/docs/choosing-a-code-editor/
-    - title: Command-Line Tools
-      url: /learn/docs/command-line-tools/
       subitems:
-      - title: Basic Commands
-        url: /learn/docs/command-line-tools/basic-commands/
-      - title: Create New Project
-        url: /learn/docs/command-line-tools/create-new-project/
-      - title: Samples
-        url: /learn/docs/command-line-tools/samples/
-      - title: Project Files
-        url: /learn/docs/command-line-tools/project-files/
-        subitems:
-        - title: XML Format
-          url: /learn/docs/command-line-tools/project-files/xml-format/
-        - title: HXP Format
-          url: /learn/docs/command-line-tools/project-files/hxp-format/
-    - title: Advanced Setup
-      url: /learn/docs/advanced-setup/
-      subitems:
-      - title: Windows
-        url: /learn/docs/advanced-setup/windows/
-      - title: macOS
-        url: /learn/docs/advanced-setup/macos/
-      - title: Linux
-        url: /learn/docs/advanced-setup/linux/
-      - title: iOS
-        url: /learn/docs/advanced-setup/ios/
-      - title: Android
-        url: /learn/docs/advanced-setup/android/
-      - title: Flash
-        url: /learn/docs/advanced-setup/flash/
-      - title: HTML5
-        url: /learn/docs/advanced-setup/html5/
+      #- title: Install Haxe
+      #- title: Install OpenFL
+      - title: Choose a Code Editor
+        url: /learn/docs/getting-started/choose-a-code-editor/
     - title: Core Architecture
       url: /learn/docs/core-architecture/
-    - title: Feature Matrix
-      url: /learn/docs/feature-matrix/
+    #- title: Basics
+    #  url: /learn/docs/basics/
+    #  subitems:
+    #  - title: Display List
+    #    url: /learn/docs/basics/display-list/
+    #  - title: Events
+    #    url: /learn/docs/basics/events/
+    #  - title: Assets
+    #    url: /learn/docs/basics/assets/
+    - title: Project Files
+      url: /learn/docs/project-files/
+    - title: Tools
+      url: /learn/docs/tools/
+    #- title: Feature Matrix
+    #  url: /learn/docs/feature-matrix/
   - title: Books
     url: /learn/books/
     subitems:

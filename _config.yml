@@ -22,6 +22,10 @@ defaults:
      path: "learn"
    values:
      layout: default-sidebar
+ - scope:
+     path: "lime"
+   values:
+     layout: default-sidebar-lime
 excerpt_separator: "<!--more-->"
 gems:
  - jekyll-paginate
