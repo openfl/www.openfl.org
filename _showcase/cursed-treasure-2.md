@@ -1,6 +1,7 @@
 ---
 title: Cursed Treasure 2
 developer: IriySoft
+publisher: Armor Games
 image: CursedTreasure2.jpg
 link: http://armorgames.com/play/14412/cursed-treasure-2
 flash: http://armorgames.com/play/14412/cursed-treasure-2
