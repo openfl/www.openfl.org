@@ -65,6 +65,8 @@
     subitems:
     - title: Displaying a Bitmap
       url: /learn/tutorials/displaying-a-bitmap/
+    - title: Adding Animation
+      url: /learn/tutorials/adding-animation/
     - title: Using SWF Assets
       url: /learn/tutorials/using-swf-assets/
   - title: API
