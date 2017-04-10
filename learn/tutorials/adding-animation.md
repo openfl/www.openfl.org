@@ -248,7 +248,7 @@ class Main extends Sprite {
         bitmap.smoothing = true;
         
         var container = new Sprite ();
-        addChild (bitmap);
+        container.addChild (bitmap);
         container.alpha = 0;
         container.scaleX = 0;
         container.scaleY = 0;
@@ -288,7 +288,7 @@ class Main extends Sprite {
         bitmap.smoothing = true;
         
         var container = new Sprite ();
-        addChild (bitmap);
+        container.addChild (bitmap);
         container.alpha = 0;
         container.scaleX = 0;
         container.scaleY = 0;
