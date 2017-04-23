@@ -46,13 +46,14 @@ Here we setup a server which listens for connections and can accept these incomi
 
 {% endhighlight %}
 
-Our Server code starts by listening on port 4028, we can loop over acceptConnection() to connect to new clients.
+Our Server code starts by listening on port 4028, we can loop over acceptConnection() to connect to new clients as they attempt a connection.
 
-## Setting up Client
+## Setting up a Client
 
-For our Client we create a socket, though instead of listening for incoming connections we can connect to the server.
+For our Client we create a socket, though instead of listening for incoming connections we connect directly to a server.
 
 {% highlight haxe %}
+
 	package;
 
 	import sys.net.Socket;
@@ -78,13 +79,14 @@ For our Client we create a socket, though instead of listening for incoming conn
 		}
 		
 	}
+	
 {% endhighlight %}
 
 Here we are connecting to Localhost because that is where our Server is listening from, but generally you want to connect to a server on a remote computer through an IP-address.
 
 ## Completing Connection
 
-When you create a server class it begins listening for an incoming connection, when you create the Client and run connectToServer() it attempts a connection to localhost, where the server we created is listening.
+When you create a Server class it begins listening for an incoming connection, when you create the Client and run connectToServer() it attempts a connection to localhost, where the server we created is listening.
 
 You now run acceptConnection() on the server, this completes the connection and the Socket "c" becomes the completed socket connection.
 
@@ -129,11 +131,11 @@ Network data should be compressed as hex code using a data dictionary that maps 
 
 Movement: MO, X-Position: 3-7, Y-Position: 8-12
 
-Here Movement can be defined as MO meaning character movement, followed by 5 characters representing the X coordinate, and 5 characters representing the Y coordinate.
+Here Movement is defined as MO meaning character movement, followed by 5 characters representing the X coordinate, and 5 characters representing the Y coordinate.
 
 ## Zlib
 
-Large number of Bytes can be compressed using Zlib
+Large number of Bytes can be compressed using Zlib included with OpenFL.
 
 From the sender we compress the data:
 
