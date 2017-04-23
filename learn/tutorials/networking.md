@@ -138,6 +138,7 @@ Large number of Bytes can be compressed using Zlib
 From the sender we compress the data:
 
 {% highlight haxe %}
+
     var stringToSend = "12345678910111213141516171819202122232425262728293031323334353637383940";
     var bytesToSend:Bytes = Zlib.compress(haxe.io.Bytes.ofString(stringToSend));
     socket.output.writeBytes(bytesToSend,0,bytesToSend.length);
