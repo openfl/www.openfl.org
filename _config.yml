@@ -28,6 +28,7 @@ defaults:
      layout: default-sidebar-lime
 excerpt_separator: "<!--more-->"
 gems:
+ - jekyll-feed
  - jekyll-paginate
  - redcarpet
  - pygments
@@ -44,6 +45,6 @@ redcarpet:
    - tables
    - with_toc_data
    - fenced_code_blocks
-rss_path: /blog/
-rss_post_limit: 10
+feed:
+  path: blog/rss.xml
 url: http://www.openfl.org
