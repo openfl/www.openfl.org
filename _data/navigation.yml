@@ -56,6 +56,8 @@
   - title: Books
     url: /learn/books/
     subitems:
+    - title: OpenFL Developer's Guide
+      url: http://books.openfl.org/openfl-developers-guide/
     - title: ActionScript 3.0 Conversion Guide
       url: http://books.openfl.org/as3-conversion-guide/
     - title: Videojuegos Multiplataforma con OpenFL
