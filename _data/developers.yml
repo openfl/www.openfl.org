@@ -22,6 +22,8 @@
   url: https://www.avkgames.com
 - name: Axol Studio
   url: http://www.axolstudio.com
+- name: BadgerHammer
+  url: http://www.badgerhammer.com
 - name: Bamtang Games
   url: http://www.bamtang.com
 - name: Bank of Albania
@@ -32,6 +34,8 @@
   url: http://www.bytecombo.com
 - name: Chimango Games
   url: http://www.chimangogames.com
+- name: Clockwork Acorn
+  url: http://www.clockworkacorn.com
 - name: CodeZyabra
   url: https://codezyabra.wordpress.com
 - name: CodinSoft
@@ -58,10 +62,14 @@
   url: http://www.etoiles-editions.com
 - name: Ezelia
   url: http://www.ezelia.com
+- name: Fail Safe Games
+  url: https://www.failsafegames.com
 - name: Fiery Squirrel
   url: http://www.fierysquirrel.com
 - name: Flowplay
   url: http://www.flowplay.com
+- name: "Frank & Jordan"
+  url: https://twitter.com/frankandjordan
 - name: fserb
   url: http://www.fserb.com
 - name: GamePill
@@ -108,8 +116,12 @@
   url: http://www.ludoko.com
 - name: Mino Games
   url: http://www.mino-games.com
+- name: MokoGames
+  url: http://www.mokogames.com
 - name: MonsterFace Games
   url: http://monsterfacegames.blogspot.com
+- name: MouseMob
+  url: http://www.mousemob.com
 - name: Mutant Labs
   url: http://www.mutantlabs.com
 - name: Mybo
@@ -174,7 +186,13 @@
   url: https://www.tmogames.com
 - name: tooDX
   url: http://www.toodx.com
+- name: Ugly Pixels
+  url: https://www.facebook.com/UglyPixels/
 - name: Vile Media
   url: http://www.vilemedia.com
 - name: Watabou
   url: http://www.watabou.ru/
+- name: Wiering Software
+  url: http://www.wieringsoftware.nl
+- name: "Xavier Stamps-Lafont"
+  url: https://www.xavierstampslafont.com
