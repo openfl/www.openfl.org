@@ -5,7 +5,7 @@ redirect_from: documentation/
 
 Welcome! Before getting started, be sure that you [download and install](/download/) OpenFL.
 
-With OpenFL installed and running, you can get up and going with included [sample](docs/command-line-tools/samples/) project, or create your own project by following a [tutorial](tutorials/creating-your-first-project/) or using a [blank template](docs/command-line-tools/create-new-project/).
+With OpenFL installed and running, you can get up and going with included [sample](docs/command-line-tools/samples/) projects, or create your own project by following a [tutorial](tutorials/creating-your-first-project/) or using a [blank template](docs/command-line-tools/create-new-project/).
 
 ## Fundamentals
 
