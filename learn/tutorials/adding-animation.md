@@ -255,8 +255,8 @@ class Main extends Sprite {
         
         addChild (container);
         
-        Actuate.tween (bitmap, 3, { alpha: 1 });
-        Actuate.tween (bitmap, 6, { scaleX: 1, scaleY: 1 }).ease (Elastic.easeOut);
+        Actuate.tween (container, 3, { alpha: 1 });
+        Actuate.tween (container, 6, { scaleX: 1, scaleY: 1 }).ease (Elastic.easeOut);
         
     }
     
@@ -297,8 +297,8 @@ class Main extends Sprite {
         
         addChild (container);
         
-        Actuate.tween (bitmap, 3, { alpha: 1 });
-        Actuate.tween (bitmap, 6, { scaleX: 1, scaleY: 1 }).delay (0.4).ease (Elastic.easeOut);
+        Actuate.tween (container, 3, { alpha: 1 });
+        Actuate.tween (container, 6, { scaleX: 1, scaleY: 1 }).delay (0.4).ease (Elastic.easeOut);
         
     }
     
