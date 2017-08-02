@@ -1,6 +1,14 @@
+- name: BBC / CBeebies
+  url: http://www.bbc.co.uk/cbeebies
+- name: Disney Junior
+  url: http://disneyjunior.disney.com
 - name: National Geographic Kids
   url: http://kids.nationalgeographic.com
+- name: Nick Jr.
+  url: http://www.nickjr.com
 - name: Nickelodeon
   url: http://www.nickelodeon.com
+- name: Nickelodeon UK
+  url: http://www.nick.co.uk
 - name: PBS Kids
   url: https://www.pbskids.org

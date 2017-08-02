@@ -38,11 +38,11 @@
         url: /learn/docs/getting-started/choose-a-code-editor/
     - title: Core Architecture
       url: /learn/docs/core-architecture/
-    #- title: Basics
-    #  url: /learn/docs/basics/
-    #  subitems:
-    #  - title: Display List
-    #    url: /learn/docs/basics/display-list/
+    - title: Basics
+      url: /learn/docs/basics/
+      subitems:
+      - title: Display List
+        url: /learn/docs/basics/display-list/
     #  - title: Events
     #    url: /learn/docs/basics/events/
     #  - title: Assets
