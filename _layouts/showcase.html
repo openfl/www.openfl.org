@@ -5,7 +5,7 @@
 			
 			<div class="page-header"><h1>{{ page.title}}{% if page.subtitle %} <small class="pull-right" style="padding-top: 14px">{{ page.subtitle }}</small>{% endif %}</h1></div>
 			
-			{% assign titles = site.showcase %}
+			{% assign titles = site.showcase | sort_natural: 'title' %}
 			{% assign count = 0 %}
 			
 			{% for showcase in titles %}
