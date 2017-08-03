@@ -1,7 +1,13 @@
-- name: BBC / CBeebies
+- name: BBC
+  url: http://www.bbc.co.uk/
+- name: CBeebies
   url: http://www.bbc.co.uk/cbeebies
 - name: Disney Junior
   url: http://disneyjunior.disney.com
+- name: eOne
+  url: https://www.entertainmentone.com/
+- name: Ludorum
+  url: http://www.ludorum.com/
 - name: National Geographic Kids
   url: http://kids.nationalgeographic.com
 - name: Nick Jr.

@@ -33,6 +33,10 @@ h1:first { padding-top: 20px; }
 				{% endfor %}
 				{% endif %}
 				
+				{% if page.clients %}
+				{% assign clients = page.clients | split: ", " %}
+				{% endif %}
+				
 				{% if page.client %}
 				{% for client in site.data.clients %}
 				{% if client.name == page.client %}
@@ -50,6 +54,19 @@ h1:first { padding-top: 20px; }
 				{% endif %}
 				
 				{% if page.developer %}<hr/><p><strong>Developer:</strong> {% if developerData %}<a href="{{ developerData.url }}" target="_blank">{% endif %}{{ page.developer }}{% if developerData %}</a>{% endif %}</p>{% endif %}
+				{% if page.clients %}
+				<p><strong>Clients: </strong>
+				{% assign count = 0 %}
+				{% for _client in clients %}
+				{% for client in site.data.clients %}
+				{% if client.name == _client %}
+				 {% if count > 0 %}/{% endif %} <a href="{{ client.url }}" target="_blank">{{ _client }}</a>
+				{% endif %}
+				{% endfor %}
+				{% assign count = count | plus: 1 %}
+				{% endfor %}
+				{% endif %}
+				
 				{% if page.client %}<p><strong>Client:</strong> {% if clientData %}<a href="{{ clientData.url }}" target="_blank">{% endif %}{{ page.client }}{% if clientData %}</a>{% endif %}</p>{% endif %}
 				{% if page.publisher %}<p><strong>Publisher:</strong> {% if publisherData %}<a href="{{ publisherData.url }}" target="_blank">{% endif %}{{ page.publisher }}{% if publisherData %}</a>{% endif %}</p>{% endif %}
 				
