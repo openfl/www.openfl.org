@@ -246,7 +246,7 @@ All the remaining collision functions act similarly to checkBottomCollision(). I
 
 Finally, here's the full code. The whole game fit into just one class.
 
-{% highlight haxe linenos %}
+{% highlight haxe %}
 package ;
 
 import com.kircode.debug.FPS_Mem;
