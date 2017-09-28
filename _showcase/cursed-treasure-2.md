@@ -10,4 +10,5 @@ linux: http://store.steampowered.com/app/643960/Cursed_Treasure_2/
 flash: http://armorgames.com/play/14412/cursed-treasure-2
 ios: https://itunes.apple.com/us/app/cursed-treasure-2/id670189358
 android: https://play.google.com/store/apps/details?id=ru.iriysoft.cursedtreasure2
+featured: true
 ---
