@@ -16,29 +16,31 @@ First, you will need to install Haxe and Neko. OpenFL uses Haxe to power the bui
 
 <div class="row">
 	<div class="col-md-4 text-center">
-		<h3><a href="https://github.com/HaxeFoundation/haxe/releases/download/3.4.3/haxe-3.4.3-win.exe"><span class="icon-windows"></span></a> <a href="https://github.com/HaxeFoundation/haxe/releases/download/3.4.3/haxe-3.4.3-win.exe">Windows</a></h3>
+		<a class="btn" href="https://github.com/HaxeFoundation/haxe/releases/download/3.4.4/haxe-3.4.4-win64.exe">
+			<h3><span class="icon-windows">&nbsp;Windows</h3>
+		</a>
 	</div>
 	<div class="col-md-4 text-center">
-		<h3><a href="https://github.com/HaxeFoundation/haxe/releases/download/3.4.3/haxe-3.4.3-osx-installer.pkg"><span class="icon-apple"></span></a> <a href="https://github.com/HaxeFoundation/haxe/releases/download/3.4.3/haxe-3.4.3-osx-installer.pkg">macOS</a></h3>
+		<a href="https://github.com/HaxeFoundation/haxe/releases/download/3.4.4/haxe-3.4.4-osx-installer.pkg">
+			<h3><span class="icon-apple"></span>&nbsp;macOS</h3>
+		</a>
 	</div>
 	<div class="col-md-4 text-center">
-		<h3><a href="http://builds.openfl.org/haxe/haxe-3.4.2-linux-installer.tar.gz"><span class="icon-linux"></span></a> <a href="http://builds.openfl.org/haxe/haxe-3.4.2-linux-installer.tar.gz">Linux</a></h3>
+		<a href="https://haxe.org/download/linux/" target="_blank">
+			<h3><span class="icon-linux"></span>&nbsp;Linux</h3>
+		</a>
 	</div>
 </div>
 
 <br />
 
 <div class="alert alert-warning">
-<p><strong>macOS users:</strong> You will need to run the following commands to finish your install:</p>
+<p><strong>macOS and Linux users:</strong> You will need to run the following commands to finish your install:</p>
 <br/>
 {% highlight bash %}
 sudo haxelib setup /usr/local/lib/haxe/lib
 sudo chmod 777 /usr/local/lib/haxe/lib
 {% endhighlight %}
-</div>
-
-<div class="alert alert-info">
-<p><strong>Linux users:</strong> The versions of Haxe and Neko distributed on Linux package repositories can be old, or experience other issues after the install, so we recommend that you use the above install script instead.</p>
 </div>
 
 ## Install OpenFL
@@ -80,4 +82,4 @@ openfl test html5
 
 ## Next Steps
 
-Now that OpenFL is installed, you can [choose a code editor](/learn/docs/choosing-a-code-editor/) or start creating [your first project](/learn/tutorials/displaying-a-bitmap/)!
+Now that OpenFL is installed, you can [choose a code editor](/learn/docs/choosing-a-code-editor/) or learn how to use OpenFL by creating [your first project](/learn/tutorials/displaying-a-bitmap/).
