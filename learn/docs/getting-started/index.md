@@ -38,7 +38,7 @@ First, you will need to install Haxe and Neko. OpenFL uses Haxe to power the bui
 <p><strong>macOS users:</strong> You need to run the following command to finish your install:</p>
 <br/>
 {% highlight bash %}
-sudo haxelib setup ~/haxelib
+haxelib setup ~/haxelib
 {% endhighlight %}
 </div>
 
