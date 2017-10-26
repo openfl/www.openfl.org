@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: starefossen/github-pages
+      - image: circleci/ruby:latest
     steps:
       - checkout
       - run:
