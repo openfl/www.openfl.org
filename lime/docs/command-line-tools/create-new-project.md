@@ -52,7 +52,7 @@ For a Haxe-based project file, use the name of your project file class, with an 
 
 Here is a sample Haxe project file:
 
-{% highlight haxe %}
+```java
 import lime.project.*;
 
 class Project extends HXProject {
@@ -75,7 +75,7 @@ class Project extends HXProject {
    }
 
 }
-{% endhighlight %}
+```
 
 ### Haxe Main Class
 
@@ -87,7 +87,7 @@ You will also want to create it in the source path. For example, if the project 
 
 Here is a sample entry class:
 
-{% highlight haxe %}
+```java
 package;
 
 import flash.display.Sprite;
@@ -101,4 +101,4 @@ class Main extends Sprite {
     }
 
 }
-{% endhighlight %}
+```

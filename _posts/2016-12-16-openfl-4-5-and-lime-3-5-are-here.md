@@ -30,7 +30,7 @@ We have made big changes to how Lime asset libraries are handled, to reduce the 
 
 We received feedback that the custom preloader API was difficult to use, so it has been revised to make it simpler and easier to understand.
 
-{% highlight haxe %}
+```java
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.events.ProgressEvent;
@@ -63,7 +63,7 @@ class CustomPreloader extends Sprite {
 	}
 	
 }
-{% endhighlight %}
+```
 
 Now, a custom preloader can be an ordinary `Sprite`, and does not need to inherit from a special class or interface. `PROGRESS` and `COMPLETE` events are dispatched, and if the `COMPLETE` is not canceled, the preloader is removed and the application begins. If preferred, the `COMPLETE` event can be canceled, then the preloader should dispatch a `COMPLETE` event on its own when it is ready to release control to the document class.
 

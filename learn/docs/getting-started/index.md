@@ -17,7 +17,7 @@ First, you will need to install Haxe and Neko. OpenFL uses Haxe to power the bui
 <div class="row">
 	<div class="col-md-4 text-center">
 		<a class="btn" href="https://github.com/HaxeFoundation/haxe/releases/download/3.4.4/haxe-3.4.4-win64.exe">
-			<h3><span class="icon-windows">&nbsp;Windows</h3>
+			<h3><span class="icon-windows"></span>&nbsp;Windows</h3>
 		</a>
 	</div>
 	<div class="col-md-4 text-center">
@@ -37,25 +37,25 @@ First, you will need to install Haxe and Neko. OpenFL uses Haxe to power the bui
 <div class="alert alert-warning">
 <p><strong>macOS users:</strong> You need to run the following command to finish your install:</p>
 <br/>
-{% highlight bash %}
+```bash
 haxelib setup ~/haxelib
-{% endhighlight %}
+```
 </div>
 
 ## Install OpenFL
 
 With the latest versions of Haxe and Neko installed, open a command-prompt (Windows) or terminal (macOS/Linux) and run these commands:
 
-{% highlight bash %}
+```bash
 haxelib install openfl
 haxelib run openfl setup
-{% endhighlight %}
+```
 
 To confirm that OpenFL is installed and working properly, try running the "openfl" command:
 
-{% highlight bash %}
+```bash
 openfl
-{% endhighlight %}
+```
 
 If you are upgrading, you can find more information about changes <a href="https://github.com/openfl/lime/blob/master/CHANGELOG.md" target="_blank">here</a> and <a href="https://github.com/openfl/openfl/blob/master/CHANGELOG.md" target="_blank">here</a>.
 
@@ -65,17 +65,17 @@ OpenFL includes a set of sample projects, from simple tutorials to more complex 
 
 You can use the "openfl create" command for a list of available samples.
 
-{% highlight bash %}
+```bash
 openfl create
-{% endhighlight %}
+```
 
 For example, here is how to build and run the DisplayingABitmap sample on HTML5:
 
-{% highlight bash %}
+```bash
 openfl create DisplayingABitmap
 cd DisplayingABitmap
 openfl test html5
-{% endhighlight %}
+```
 
 
 

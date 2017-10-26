@@ -20,75 +20,75 @@ Sounds, shape tweens or new motion tweens (not "classic tweens") are not current
 
 If you do not already have a project created, you can use a command like the following:
 
-{% highlight bash %}
+```bash
 openfl create project UsingSWFAssets
-{% endhighlight %}
+```
 
 You can find many of the same concepts in the "SimpleSWFLayout" sample, also, if you prefer:
 
-{% highlight bash %}
+```bash
 openfl create SimpleSWFLayout
-{% endhighlight %}
+```
 
 Once the SWF library is included, you can add assets using the following tag:
 
-{% highlight bash %}
+```bash
 <library path="to/my.swf" />
-{% endhighlight %}
+```
 
 This will use a _default_ ID value, matching the file name (in this case "my").
 
 You can set this yourself using the `id` attribute if you prefer:
 
-{% highlight bash %}
+```bash
 <library path="to/my.swf" id="swf-library" />
-{% endhighlight %}
+```
 
 There are additional features as well. Adding a `preload` attribute can help you automatically load a SWF library as part of the preload process (more on that later), and `generate` will attempt to create classes for every "Export for ActionScript" class in the SWF, so you can `new MySymbolClass ()` in your code.
 
-{% highlight bash %}
+```bash
 <library path="to/my.swf" preload="true" generate="true" />
-{% endhighlight %}
+```
 
 ## Loading a SWF Library
 
 Unless you have used `preload="true"` in your `<library />` tag, before you are able to use content from a SWF library, you must load the library first:
 
-{% highlight haxe %}
+```java
 Assets.loadLibrary ("swf-library", function (_) {
 	
 	trace ("SWF library loaded");
 	
 });
-{% endhighlight %}
+```
 
 ## Instantiating a SWF Symbol
 
 Once a library is loaded, you can access named symbols from the library using the following code:
 
-{% highlight haxe %}
+```java
 var clip = Assets.getMovieClip ("swf-library:MySymbolClass");
-{% endhighlight %}
+```
 
 If the `generate` attribute was used, each symbol class should be available to instantiate normally:
 
-{% highlight haxe %}
+```java
 var clip = new MySymbolClass ();
-{% endhighlight %}
+```
 
 Code completion should be available for all generated classes.
 
 If you want to access symbols from multiple SWF libraries, change the prefix before the colon (":") in the `Assets.getMovieClip` call. If you would prefer to load the entire SWF timeline, and not a child clip, use an empty value for the symbol name, like this:
 
-{% highlight haxe %}
+```java
 var clip = Assets.getMovieClip ("swf-library:");
-{% endhighlight %}
+```
 
 ## Standard Example
 
 _project.xml_
 
-{% highlight bash %}
+```bash
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
@@ -104,11 +104,11 @@ _project.xml_
 	<assets path="Assets" rename="assets" exclude="*.swf" />
 	
 </project>
-{% endhighlight %}
+```
 
 _Main.hx_
 
-{% highlight haxe %}
+```java
 package;
 
 
@@ -134,13 +134,13 @@ class Main extends Sprite {
 	
 	
 }
-{% endhighlight %}
+```
 
 ## Using "preload" and "generate"
 
 _project.xml_
 
-{% highlight bash %}
+```bash
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
@@ -156,11 +156,11 @@ _project.xml_
 	<assets path="Assets" rename="assets" exclude="*.swf" />
 	
 </project>
-{% endhighlight %}
+```
 
 _Main.hx_
 
-{% highlight haxe %}
+```java
 package;
 
 
@@ -182,4 +182,4 @@ class Main extends Sprite {
 	
 	
 }
-{% endhighlight %}
+```

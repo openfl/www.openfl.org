@@ -23,14 +23,14 @@ Create a new OpenFL project using FlashDevelep. If you're using a different IDE,
 
 Set the background color of your window to light gray, and the size to 600x400. This is done in the application.xml file:
 
-{% highlight xml %}
+```xml
 <window background="#eeeeee" fps="60" />
 <window width="600" height="400" unless="mobile" />
-{% endhighlight %}
+```
 
 Introduce 8 new variables in your Main class:
 
-{% highlight haxe %}
+```java
 private var map:Array<Array<Int>>;
 private var world:Sprite;
 private var tileSize:Int;
@@ -39,21 +39,21 @@ private var acceleration:Float;
 private var velocity:Point;
 private var keys:Array<Bool>;
 private var isOnGround:Bool;
-{% endhighlight %}
+```
 
 The tileSize and acceleration variables are tweakable parameters, which means you can set their values first thing in the init() method and play around with them as you like:
 
-{% highlight haxe %}
+```java
 // Parameters init
 tileSize = 40;
 acceleration = 0.9;
-{% endhighlight %}
+```
 
 Our level will be built out of tiles, and tileSize value determines how big a single tile is. The acceleration value represents gravity acceleration.
 
 Next thing, we declare a matrix to hold the map data.
 
-{% highlight haxe %}
+```java
 // Map init
 map = [
 [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -67,13 +67,13 @@ map = [
 [1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1],
 [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
-{% endhighlight %}
+```
 
 As simple as it can get&mdash;0 represents empty space, 1 represents an obstacle (wall).
 
 Now we'll draw the map. I'm using solid colored blocks for this:
 
-{% highlight haxe %}
+```java
 // World init
 world = new Sprite();
 world.graphics.beginFill(0x3498db);
@@ -85,13 +85,13 @@ for (row in 0...map.length) {
 	}
 }
 addChild(world);
-{% endhighlight %}
+```
 
 Next is player character's initialization. Our player will be a simple Sprite object, same size as a tile, positioned in the center of the screen in the beginning.
 
 It would also be logical to set the velocity and isOnGround values here. The velocity object is a vector, which holds the speed of the character on the x and y axes. The isOnGround value is a flag, which is true whenever the player is touching the ground with its 'feet'&mdash;set it to false by default.
 
-{% highlight haxe %}
+```java
 // Player init
 player = new Sprite();
 player.graphics.beginFill(0xe67e22);
@@ -101,27 +101,27 @@ player.x = 300 - tileSize / 2;
 player.y = 200 - tileSize / 2;
 velocity = new Point(0, 0);
 isOnGround = false;
-{% endhighlight %}
+```
 
 Add a game loop:
 
-{% highlight haxe %}
+```java
 // Game loop
 this.addEventListener(Event.ENTER_FRAME, gameLoop);
-{% endhighlight %}
+```
 
 Don't forget about keyboard listeners:
 
-{% highlight haxe %}
+```java
 // Keyboard input detection
 keys = [];
 stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
-{% endhighlight %}
+```
 
 You can see that I also declared a "keys" array. It's a set of booleans, where each element represents a key. The handlers of the listeners access each element using the KeyboardEvent.keyCode property and set the value accordingly&mdash;true when pressed, false when released.
 
-{% highlight haxe %}
+```java
 private function onKeyDown(evt:KeyboardEvent):Void {
 	keys[evt.keyCode] = true;
 }
@@ -129,13 +129,13 @@ private function onKeyDown(evt:KeyboardEvent):Void {
 private function onKeyUp(evt:KeyboardEvent):Void {
 	keys[evt.keyCode] = false;
 }
-{% endhighlight %}
+```
 
 This way we can easily detect whenever a key is being held just using this array and a keyCode value. This approach in detail and more information about keyboard input detection is explained in my <a href="http://www.haxecoder.com/post.php?id=19" target="_blank">Keyboard events in Haxe using OpenFL tutorial</a>.
 
 In the very end of the init() function, we can add the instructions text field, as well as the FPS and memory display:
 
-{% highlight haxe %}
+```java
 // Text
 var instructions:TextField = new TextField();
 instructions.selectable = false;
@@ -149,7 +149,7 @@ addChild(instructions);
 
 // Debugger tutorial: http://haxecoder.com/post.php?id=24
 addChild(new FPS_Mem(15, 15, 0xffffff));
-{% endhighlight %}
+```
 
 ## Movement and Collision
 
@@ -157,7 +157,7 @@ All of this is handled in the ENTER_FRAME event handler.
 
 Here's the code of it, I'll explain it in a bit:
 
-{% highlight haxe %}
+```java
 private function gameLoop(e:Event):Void {
 	// Gravity
 	velocity.y += acceleration;
@@ -191,7 +191,7 @@ private function gameLoop(e:Event):Void {
 		isOnGround = false;
 	}
 }
-{% endhighlight %}
+```
 
 You can see that the first thing I do is apply the gravity acceleration to the vertical vector.
 
@@ -207,7 +207,7 @@ The tileCoords object is used to store temporary calculated values of the collid
 
 These functions are similar, so let's take a look at just one:
 
-{% highlight haxe %}
+```java
 private function checkBottomCollision(tileCoords:Point, approximateCoords:Point):Void {
 	// Bottom collision
 	if (velocity.y >= 0) {
@@ -230,23 +230,23 @@ private function checkBottomCollision(tileCoords:Point, approximateCoords:Point)
 		}
 	}
 }
-{% endhighlight %}
+```
 
 Here we check whether the character collides with the floor. We actually check whether he collides with 2 ground blocks that are below him. This is where we round the potentially collided tile coordinates both ways. If any of the tiles are obstacles, we register a collision and set the vertical velocity (vertical in this case) to 0. We also alter the position of the character to snap him to the nearest floor (floor in this case, wall in horizontal movement). Just for bottom collision, we also set the isOnGround value to true if a collision was detected.
 
 The isBlock() function checks whether a tile is a block using the map array:
 
-{% highlight haxe %}
+```java
 private function isBlock(coords:Point):Bool {
 	return map[Math.round(coords.y)][Math.round(coords.x)] == 1;
 }
-{% endhighlight %}
+```
 
 All the remaining collision functions act similarly to checkBottomCollision(). It may look complicated at first, but it's really just a sequence of accessing tile coordinates that our character is hitting or is going to hit, and checking whether that's an obstacle or not.
 
 Finally, here's the full code. The whole game fit into just one class.
 
-{% highlight haxe %}
+```java
 package ;
 
 import com.kircode.debug.FPS_Mem;
@@ -508,7 +508,7 @@ class Main extends Sprite
 		Lib.current.addChild(new Main());
 	}
 }
-{% endhighlight %}
+```
 
 ## What's Next?
 

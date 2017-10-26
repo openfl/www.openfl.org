@@ -12,7 +12,7 @@ We have developed an easy-to-use `DisplayObject` called `Tilemap` which makes it
 
 This release includes the (beta) API for `TileArray`, for writing tile data more directly:
 
-{% highlight haxe %}
+```java
 var data = tilemap.getTiles ();
 data.length = 2;
 data.position = 0;
@@ -21,7 +21,7 @@ data.position = 1;
 data.setMatrix (1, 0, 0, 1, 200, 200);
 data.alpha = 0.5;
 tilemap.setTiles (data);
-{% endhighlight %}
+```
 
 This API has enabled our team to more easily migrate legacy `drawTiles` rendering code to the current version of OpenFL.
 
@@ -33,10 +33,10 @@ OpenFL 4 added initial support for custom shaders, using the filter API.
 
 However, in time we have found that our use of OpenGL framebuffers was too expensive to make shader filters practical for every-day production. We are enabling an alternative approach in OpenFL 6, where `Bitmap`, `TextField`, `Tilemap` and `Video` objects can have a custom shader set directly:
 
-{% highlight haxe %}
+```java
 var customShader = new CustomShader ();
 bitmap.shader = customShader;
-{% endhighlight %}
+```
 
 We have also enabled support for custom OpenGL shaders for individual tiles in `Tilemap`
 

@@ -18,7 +18,7 @@ Step-by-step, we have been moving past standard features, such as Bitmaps, to mo
 
 Building on this system, we have implemented ColorMatrixFilter and ConvolutionFilter again, and have improved the behavior of ConvolutionFilter to more accurately mirror the behavior of the original Flash filter. You can use ShaderFilter to implement your own effects as well.
 
-{% highlight haxe %}
+```java
 var shader = new Shader ();
 shader.glFragmentSource = 
 	
@@ -60,16 +60,16 @@ shader.data.useAlphaImage = [ true ];
 shader.data.uAlphaImage.input = alphaBitmapData;
 
 bitmap.filters = [ new ShaderFilter (shader) ];
-{% endhighlight %}
+```
 
 ## Updates to Lime AudioSource
 
 We have made fixes to the Lime AudioSource API, adding Howler.js as a standard dependency on HTML5. As a result, we can remove the custom SoundJS audio support in OpenFL, and standardize on implementing Lime AudioSource as the playback engine on all non-Flash platforms.
 
-{% highlight haxe %}
+```java
 var audioSource = new AudioSource (Assets.getAudioBuffer ("sound.ogg"));
 audioSource.play ();
-{% endhighlight %}
+```
 
 ## Tilemap Fixes
 
@@ -79,16 +79,16 @@ As we continue to improve the new Tilemap API in OpenFL, we have a number of sma
 
 We have made a number of small changes to lime.app.Future in order to make it more useful, the most notable changes to Future include the addition of `ready` and `result`, which can be used to force sleep on native platforms to wait for either the Future to be finished, or to be finished and to return the `onComplete` result. These are helpful when you want a Future to block instead of returning asynchronously.
 
-{% highlight haxe %}
+```java
 var future = AudioBuffer.loadFromFile ("sound.ogg");
 future.onComplete (completeHandler);
 future.onError (errorHandler);
 future.ready (); // will block until the result is ready
-{% endhighlight %}
+```
 
-{% highlight haxe %}
+```java
 var buffer = AudioBuffer.loadFromFile ("sound.ogg").result (); // will block and return result
-{% endhighlight %}
+```
 
 ## Miscellaneous Fixes
 

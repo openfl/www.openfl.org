@@ -26,7 +26,7 @@ Similar to the [Displaying a Bitmap](../displaying-a-bitmap/) sample, add an ima
 
 Once you have an image available, edit "Source/Main.hx" add it to the stage (substituting "openfl.png" for the name of your PNG or JPEG image):
 
-{% highlight haxe %}
+```java
 package;
 
 import openfl.display.Bitmap;
@@ -45,7 +45,7 @@ class Main extends Sprite {
     }
     
 }
-{% endhighlight %}
+```
 
 ## Including Actuate in Your Project
 
@@ -53,13 +53,13 @@ To begin using Actuate, first you will need to edit the "project.xml" file to in
 
 There should be a `<haxelib />` tag already for OpenFL, we will need to add a similar tag for Actuate:
 
-{% highlight xml %}
+```xml
 <haxelib name="actuate" />
-{% endhighlight %}
+```
 
 Once Actuate is in included in the last of haxelibs for your project, next we need to add an `import` statement in "Main.hx"
 
-{% highlight haxe %}
+```java
 package;
 
 import motion.Actuate;
@@ -79,13 +79,13 @@ class Main extends Sprite {
     }
     
 }
-{% endhighlight %}
+```
 
 ## Creating a Simple Tween
 
 Actuate has a `tween` method which accepts an _object_ to animate, the _duration_ for the animation and third an object with _target values_ for each property you wish to change over time. To animate the x position of the image to make it move across the screen, for example, we could use the following:
 
-{% highlight haxe %}
+```java
 package;
 
 import motion.Actuate;
@@ -107,7 +107,7 @@ class Main extends Sprite {
     }
     
 }
-{% endhighlight %}
+```
 
 This will animate the object over the course of four seconds, from its original x position (which was the default value of 0) to an x position on-screen of 200. Go ahead and run your project (like we learned in the [previous tutorial](../displaying-a-bitmap/)) and see how it looks.
 
@@ -115,7 +115,7 @@ Tweens can be used to animate any numeric value, including the `alpha` (or trans
 
 To make the image fade in, we would set the `alpha` value of the image to 0, then add a tween to increase the `alpha` to 1, or fully visible. The following code will animate the image from invisible to visible as well as changing the `x` value:
 
-{% highlight haxe %}
+```java
 package;
 
 import motion.Actuate;
@@ -138,7 +138,7 @@ class Main extends Sprite {
     }
     
 }
-{% endhighlight %}
+```
 
 ## Using Tween Modifiers
 
@@ -150,7 +150,7 @@ However, if you begin to use different easing equations, it may be ideal to sepa
 
 You can use a different easing equation by importing one from the "motion.easing" package, and adding it to your animation. For example, to use an `Elastic.easeOut` equation for only the `x` value, you can use the following code:
 
-{% highlight haxe %}
+```java
 package;
 
 import motion.easing.Elastic;
@@ -175,7 +175,7 @@ class Main extends Sprite {
     }
     
 }
-{% endhighlight %}
+```
 
 You can read more about other Actuate tween modifiers [here](https://github.com/openfl/actuate#tween-modifiers).
 
@@ -185,13 +185,13 @@ By default, the OpenFL `Bitmap` class is not set for smoothing. When displaying 
 
 You can enable smoothing for a `Bitmap` using the `smoothing` property:
 
-{% highlight haxe %}
+```java
 bitmap.smoothing = true;
-{% endhighlight %}
+```
 
 For example, if we decided to scale our image to make it "pop out" and appear, we could use our previous animation on the `scaleX` and `scaleY` of the object (rather than the `x` value)
 
-{% highlight haxe %}
+```java
 package;
 
 import motion.easing.Elastic;
@@ -219,7 +219,7 @@ class Main extends Sprite {
     }
     
 }
-{% endhighlight %}
+```
 
 ## Centering with a Display Object Container
 
@@ -227,7 +227,7 @@ OpenFL display objects have an origin in the upper-left corner of the object. Fo
 
 It is simple to change the origin point of an object by putting it inside of a display object container. The most common form of display object container is the `Sprite` class, so instead of animating our image to the stage directly, we can add our image to a parent `Sprite` and animate the parent with a few small changes:
 
-{% highlight haxe %}
+```java
 package;
 
 import motion.easing.Elastic;
@@ -261,13 +261,13 @@ class Main extends Sprite {
     }
     
 }
-{% endhighlight %}
+```
 
 ## Final Steps
 
 The last code sample centered our image to improve the behavior of the scale animation, but the image is centered to the top-left corner of the window, rather than being centered in the window. The following changes will center the image based on the size of the current stage width and height, and adds a small delay to the animation
 
-{% highlight haxe %}
+```java
 package;
 
 import motion.easing.Elastic;
@@ -303,7 +303,7 @@ class Main extends Sprite {
     }
     
 }
-{% endhighlight %}
+```
 
 ## Issues
 

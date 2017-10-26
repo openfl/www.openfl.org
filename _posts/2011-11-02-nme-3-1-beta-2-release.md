@@ -22,10 +22,10 @@ NME supports two technologies, C++ and Neko, for desktop applications. If you ch
 
 If you are interested in creating documentation for your project, this version has support for leveraging haxedoc. The first step is to build your project with an added "-xml" flag, which will generate XML type information for your classes. Next, you can use the "document" command to create documentation for your API
 
-{% highlight bash %}
+```bash
 haxelib run nme document MyProject.nmml
 haxelib run nme document MyProject.nmml windows
-{% endhighlight %}
+```
 
 By default, it will look for XML definitions for all targets, and attempt to merge them together. Currently, this will not work for NME core classes. However, if you have multiple definitions, you can specify which one you would like haxedoc to use by setting the platform target.
 

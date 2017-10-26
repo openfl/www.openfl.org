@@ -23,7 +23,7 @@ The first thing we will do is add an image. First, copy an image (PNG or JPG for
 
 Open the "Source/Main.hx" file in the editor of your choice. It should look something like this:
 
-{% highlight haxe %}
+```java
 package;
 
 import openfl.display.Sprite;
@@ -37,13 +37,13 @@ class Main extends Sprite {
     }
 
 }
-{% endhighlight %}
+```
 
 In order to import our image, we will want to import the `openfl.Assets` class, and add a `getBitmapData` call. There is more than one way to load an image in OpenFL, but the `Assets` class is designed to make this very simple.
 
 You will want to use the name of your image, so if it is called "myimage.png", be sure to replace the example below with the right text to match your file name.
 
-{% highlight haxe %}
+```java
 package;
 
 import openfl.display.Sprite;
@@ -60,13 +60,13 @@ class Main extends Sprite {
     }
 
 }
-{% endhighlight %}
+```
 
 The `openfl.display.BitmapData` type represents the pixel data for an image. You can use this directly to read pixels, perform fills, and multiple other pixel-based effects. Often however, you will load directly from a file, and will not need to modify the data.
 
 The easiest to display our data is using the `openfl.display.Bitmap` type, you can use the same `BitmapData` with multiple `Bitmap` instances, however you want it to display.
 
-{% highlight haxe %}
+```java
 package;
 
 import openfl.display.Bitmap;
@@ -86,7 +86,7 @@ class Main extends Sprite {
     }
 
 }
-{% endhighlight %}
+```
 
 In order to see our `Bitmap` instance, we use `addChild` to make it visible on the display list. The "display list" is an easy-to-use method of drawing that is available in OpenFL.
 
@@ -94,7 +94,7 @@ In order to see our `Bitmap` instance, we use `addChild` to make it visible on t
 
 When you use the display list, you can use `x` and `y` properties to control where an object will be drawn.
 
-{% highlight haxe %}
+```java
 package;
 
 import openfl.display.Bitmap;
@@ -117,7 +117,7 @@ class Main extends Sprite {
     }
 
 }
-{% endhighlight %}
+```
 
 If we set the bitmap position to (100, 200), instead of drawing at the upper-left of the window, it will be 100 and 200 pixels away from the corner, respectively. You can use any value you want, but for this sample, we will center the image.
 
@@ -127,7 +127,7 @@ Since the `x` and `y` values of a display object use the upper-left corner of th
 
 We can determine the width of our window using the `stage.stageWidth` and `stage.stageHeight` values. We can use the `width` and `height` values of our bitmap to find how large it is. The resulting code looks like this:
 
-{% highlight haxe %}
+```java
 package;
 
 import openfl.display.Bitmap;
@@ -150,7 +150,7 @@ class Main extends Sprite {
     }
 
 }
-{% endhighlight %}
+```
 
 ## Running the Project
 

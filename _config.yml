@@ -30,10 +30,11 @@ excerpt_separator: "<!--more-->"
 gems:
  - jekyll-feed
  - jekyll-paginate
+ - jekyll-redirect-from
  - redcarpet
  - pygments
 highlighter: pygments
-markdown: RedcarpetCustom
+markdown: Redcarpet
 paginate: 6
 paginate_path: "blog/page/:num"
 permalink: /blog/:year/:month/:day/:title/
