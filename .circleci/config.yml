@@ -2,14 +2,25 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:latest
+      - image: starefossen/github-pages:147
     steps:
       - checkout
       - run:
-          name: Setup
+          name: Install awscli
+          working_directory: /
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              apt-get -y -qq update
+              apt-get -y -qq install python3.4-dev
+              curl -O https://bootstrap.pypa.io/get-pip.py
+              python3.4 get-pip.py --user
+              pip install awscli --upgrade --user
+            fi
+      - run:
+          name: Install gems
           command: bundle install 
       - run:
-          name: Build Site
+          name: Build site
           command: bundle exec jekyll build
       - deploy:
           name: Deploy (if on master)
