@@ -7,3 +7,4 @@ RUN apk add --update \
     py-pip \
     build-base
 RUN pip install awscli --upgrade --user
+ENV PATH="~/.local/bin:${PATH}"
