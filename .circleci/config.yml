@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: starefossen/github-pages
+    steps:
+      - checkout
+      - run:
+          name: Setup
+          command: bundle install 
+      - run:
+          name: Build Site
+          command: bundle exec jekyll build
+      - deploy:
+          name: Deploy (if on master)
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              aws s3 sync _site s3://openfl --delete
+            else
+              echo "Not on master (skipping step)"
+            fi
