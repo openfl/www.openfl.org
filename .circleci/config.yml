@@ -15,7 +15,7 @@ jobs:
           name: Deploy (if on master)
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              aws s3 sync _site s3://www.openfl.org --delete --acl bucket-owner-full-control --acl public-read
+              aws s3 sync _site s3://www.openfl.org --acl bucket-owner-full-control --acl public-read
             else
               echo "Not on master (skipping step)"
             fi
