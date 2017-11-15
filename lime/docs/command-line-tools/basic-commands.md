@@ -21,6 +21,7 @@ You can substitute "neko" for any Lime target, including:
  * ios
  * android
  * flash
+ * air
  * html5
 
 Some targets are not available from every host platform. For example, iOS is only available when using macOS.
@@ -35,11 +36,14 @@ There are also additional "target flags" you can use to specify adjustments to t
  * (windows|mac|linux) -neko -- Build with Neko instead of C++
  * (mac|linux) -32 -- Compile for 32-bit instead of the OS default
  * (mac|linux) -64 -- Compile for 64-bit instead of the OS default
- * (ios) -simulator -- Target the device simulator
+ * (ios|tvos) -simulator -- Target the device simulator
  * (ios) -simulator -ipad -- Build/test for the iPad Simulator
  * (android) -emulator -- Target the device emulator
- * (html5) -minify -- Minify output using the Google Closure compiler
- * (html5) -minify -yui -- Minify output using the YUI compressor
+ * (html5) -minify -- Minify application file
+ * (flash) -web -- Test Flash target using a web template
+ * (windows|mac|ios|android) -air -- Build with AIR instead of C++
+ * (air) -ios -- Target iOS instead of AIR desktop
+ * (air) -android -- Target Android instead of AIR desktop
 
 By default, the tools will perform a release build, but you can add "-debug" to perform a debug build instead. You can also add "-verbose" in order to get verbose output. If you would like to remove the output directory and perform a clean build, you can also add "-clean".
 

@@ -15,6 +15,12 @@ Although you can write code using even a simple text editor, a quality IDE can p
 
 OpenFL includes FlashDevelop project files when you use the "openfl create" command for convenience. FlashDevelop is free and open-source.
 
+## Visual Studio Code
+
+[Visual Studio Code](https://code.visualstudio.com) is a flexible code editor with support for Windows, macOS and Linux, and is recommended for most macOS and Linux developers. It is lightweight compared to some other editors (similar to Sublime Text), but is a mature open-source editor with support for our custom [extension](https://marketplace.visualstudio.com/items?itemName=openfl.lime-vscode-extension), providing code completion and simplifying testing projects.
+
+Visual Studio Code does not require project files. Using the Lime extension, you can "Open Folder" for any Lime or OpenFL project in order to enable support for code completion and other features.
+
 ## Sublime Text
 
 [Sublime Text](https://www.sublimetext.com) is a code editor, with support for Haxe and OpenFL using the [Haxe Sublime Bundle](https://github.com/clemos/haxe-sublime-bundle). Sublime Text is cross-platform, with support for Windows, macOS and Linux.
