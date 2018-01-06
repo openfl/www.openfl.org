@@ -1,3 +1,5 @@
+- title: Download
+  url: /download/
 - title: Showcase
   url: /showcase/
   subitems:
@@ -19,8 +21,6 @@
     url: /showcase/html5/
   #- title: Other
   #  url: /showcase/other/
-- title: Blog
-  url: /blog/
 - title: Learn
   url: /learn/
   subitems:
@@ -73,5 +73,7 @@
       url: /learn/tutorials/using-swf-assets/
   - title: API
     url: http://api.openfl.org
+- title: Blog
+  url: /blog/
 - title: Community
   url: http://community.openfl.org

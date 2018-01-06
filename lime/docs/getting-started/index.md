@@ -1,13 +1,5 @@
 ---
 title: Getting Started
-redirect_from:
- - documentation/getting-started/installing-openfl/
- - documentation/setup/
- - documentation/setup/install-haxe/
- - documentation/setup/install-lime/
- - documentation/setup/install-openfl/
- - documentation/setup/platforms/
- - download/
 ---
 
 ## Install Haxe
