@@ -27,7 +27,7 @@ defaults:
    values:
      layout: default-sidebar-lime
 excerpt_separator: "<!--more-->"
-gems:
+plugins:
  - jekyll-feed
  - jekyll-paginate
  - jekyll-redirect-from
