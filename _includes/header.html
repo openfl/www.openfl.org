@@ -39,7 +39,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-logo" href="{% if site.baseurl != "" %}{{ site.baseurl }}{% else %}/{% endif %}"><img src="{{ site.baseurl }}/images/logo.png" /></a>
+              <a class="navbar-logo" href="{% if site.baseurl and site.baseurl != "" %}{{ site.baseurl }}{% else %}/{% endif %}"><img src="{{ site.baseurl }}/images/logo.png" /></a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
