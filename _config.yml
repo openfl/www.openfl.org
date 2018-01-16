@@ -21,7 +21,7 @@ defaults:
  - scope:
      path: "learn"
    values:
-     layout: default-sidebar
+     layout: learn-sidebar
  - scope:
      path: "lime"
    values:

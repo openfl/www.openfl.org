@@ -1,6 +1,8 @@
 ---
 title: Displaying a Bitmap
-redirect_from: /learn/tutorials/your-first-project/
+redirect_from:
+ - /learn/tutorials/your-first-project/
+ - /learn/tutorials/displaying-a-bitmap/
 ---
 
 ## Creating a New Project

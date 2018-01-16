@@ -1,5 +1,6 @@
 ---
 title: Adding Animation
+redirect_from: /learn/tutorials/adding-animation/
 ---
 
 ## Introduction

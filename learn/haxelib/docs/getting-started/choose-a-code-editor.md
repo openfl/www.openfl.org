@@ -3,6 +3,7 @@ title: Choose a Code Editor
 redirect_from:
  - /learn/docs/choosing-a-code-editor/
  - /learn/resources/choosing-a-code-editor/
+ - /learn/docs/choosing-a-code-editor/
 ---
 
 Once OpenFL has been installed, it is helpful to choose an integrated development environment (IDE) with good support for Haxe and OpenFL development.

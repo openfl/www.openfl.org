@@ -1,5 +1,6 @@
 ---
 title: Project Files
+redirect_from: /learn/docs/project-files/
 ---
 
 OpenFL uses the Lime project file format.

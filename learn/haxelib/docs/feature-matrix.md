@@ -2,6 +2,7 @@
 title: Feature Matrix
 redirect_from:
  - /learn/resources/feature-matrix/
+ - /learn/docs/feature-matrix/
 ---
 
 <style>th:not(:first-child) { text-align: center; }</style>

@@ -1,5 +1,6 @@
 ---
 title: Tutorials
+redirect_from: /learn/tutorials/
 ---
 
 <style>.glyphicon-new-window { color: #DDD; }</style>

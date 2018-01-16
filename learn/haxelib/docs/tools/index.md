@@ -2,6 +2,7 @@
 title: Tools
 redirect_from:
  - /learn/docs/command-line-tools/
+ - /learn/docs/tools/
 ---
 
 OpenFL includes command-line tools, which can be accessed from a Command-Prompt or Terminal window:

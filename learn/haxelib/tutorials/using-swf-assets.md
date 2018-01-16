@@ -1,5 +1,6 @@
 ---
 title: Using SWF Assets
+redirect_from: /learn/tutorials/using-swf-assets/
 ---
 
 ## Introduction

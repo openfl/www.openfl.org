@@ -26,53 +26,62 @@
   subitems:
   - title: Introduction
     url: /learn/
-  - title: Documentation
-    url: /learn/docs/
+  - title: NPM
+    url: https://www.npmjs.com/package/openfl/
+    # url: /learn/npm/
+    # subitems:
+    # - title: Fundamentals
+    #   url: /learn/npm/basics/
+  - title: Haxelib
+    url: /learn/haxelib/
     subitems:
-    - title: Getting Started
-      url: /learn/docs/getting-started/
+    - title: Documentation
+      url: /learn/haxelib/docs/
       subitems:
-      #- title: Install Haxe
-      #- title: Install OpenFL
-      - title: Choose a Code Editor
-        url: /learn/docs/getting-started/choose-a-code-editor/
-    - title: Core Architecture
-      url: /learn/docs/core-architecture/
-    #- title: Basics
-    #  url: /learn/docs/basics/
-    #  subitems:
-    #  - title: Display List
-    #    url: /learn/docs/basics/display-list/
-    #  - title: Events
-    #    url: /learn/docs/basics/events/
-    #  - title: Assets
-    #    url: /learn/docs/basics/assets/
-    - title: Project Files
-      url: /learn/docs/project-files/
-    - title: Tools
-      url: /learn/docs/tools/
-    #- title: Feature Matrix
-    #  url: /learn/docs/feature-matrix/
-  - title: Books
-    url: /learn/books/
-    subitems:
-    - title: OpenFL Developer's Guide
-      url: http://books.openfl.org/openfl-developers-guide/
-    - title: ActionScript 3.0 Conversion Guide
-      url: http://books.openfl.org/as3-conversion-guide/
-    - title: Videojuegos Multiplataforma con OpenFL
-      url: http://www.openflbook.com
-  - title: Tutorials
-    url: /learn/tutorials/
-    subitems:
-    - title: Displaying a Bitmap
-      url: /learn/tutorials/displaying-a-bitmap/
-    - title: Adding Animation
-      url: /learn/tutorials/adding-animation/
-    - title: Using SWF Assets
-      url: /learn/tutorials/using-swf-assets/
-  - title: API
-    url: http://api.openfl.org
+      # - title: Getting Started
+        # url: /learn/haxelib/docs/getting-started/
+        # subitems:
+        #- title: Install Haxe
+        #- title: Install OpenFL
+        # - title: Choose a Code Editor
+        #   url: /learn/haxelib/docs/getting-started/choose-a-code-editor/
+      - title: Core Architecture
+        url: /learn/haxelib/docs/core-architecture/
+      #- title: Basics
+      #  url: /learn/docs/basics/
+      #  subitems:
+      #  - title: Display List
+      #    url: /learn/docs/basics/display-list/
+      #  - title: Events
+      #    url: /learn/docs/basics/events/
+      #  - title: Assets
+      #    url: /learn/docs/basics/assets/
+      - title: Project Files
+        url: /learn/haxelib/docs/project-files/
+      - title: Tools
+        url: /learn/haxelib/docs/tools/
+      #- title: Feature Matrix
+      #  url: /learn/docs/feature-matrix/
+    - title: Books
+      url: /learn/haxelib/books/
+      subitems:
+      - title: OpenFL Developer's Guide
+        url: http://books.openfl.org/openfl-developers-guide/
+      - title: ActionScript 3.0 Conversion Guide
+        url: http://books.openfl.org/as3-conversion-guide/
+      - title: Videojuegos Multiplataforma con OpenFL
+        url: http://www.openflbook.com
+    - title: Tutorials
+      url: /learn/haxelib/tutorials/
+      subitems:
+      - title: Displaying a Bitmap
+        url: /learn/haxelib/tutorials/displaying-a-bitmap/
+      - title: Adding Animation
+        url: /learn/haxelib/tutorials/adding-animation/
+      - title: Using SWF Assets
+        url: /learn/haxelib/tutorials/using-swf-assets/
+    - title: API
+      url: http://api.openfl.org
 - title: Blog
   url: /blog/
 - title: Community
