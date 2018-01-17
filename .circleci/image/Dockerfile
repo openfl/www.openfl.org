@@ -52,6 +52,10 @@ RUN gem install --verbose --no-document \
   && mkdir -p /usr/src/app \
   && rm -rf /usr/lib/ruby/gems/*/cache/*.gem
 
+ENV LC_ALL C.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+
 ## Install awscli
 RUN apt-get install -y build-essential git curl python
 RUN curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py

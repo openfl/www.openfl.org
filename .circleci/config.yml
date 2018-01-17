@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: openfl/openfl.org-build:0.0.6
+      - image: openfl/openfl.org-build:0.0.7
     steps:
       - checkout
       - run:
@@ -10,7 +10,7 @@ jobs:
           command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
       - run:
           name: Clone OpenFL and install Typedoc
-          command: git clone https://github.com/openfl/openfl openfl && cd openfl && npm install typedoc
+          command: git clone --depth=1 https://github.com/openfl/openfl _openfl && cd _openfl && npm install typedoc
       - run:
           name: Build site
           command: bundle exec jekyll build
@@ -19,7 +19,7 @@ jobs:
       #     command: npm install openfl && mkdir -f _site/learn/npm/api && cp -r node_modules/openfl/docs/* _site/learn/npm/api/
       - run:
           name: Build NPM-based documentation
-          command: cd openfl && npm run build-docs -s && cp -rf docs/* ../_site/learn/npm/api/
+          command: cd _openfl && npm run build-docs -s && mkdir -p ../_site/learn/npm/api && cp -r docs/* ../_site/learn/npm/api/
       - deploy:
           name: Deploy (if on master)
           command: |
