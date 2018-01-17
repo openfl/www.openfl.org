@@ -32,7 +32,7 @@
     - title: Getting Started
       url: https://www.npmjs.com/package/openfl/
     - title: API
-      url: /learn/npm/url/
+      url: /learn/npm/api/
   - title: Haxelib
     url: /learn/haxelib/
     subitems:
