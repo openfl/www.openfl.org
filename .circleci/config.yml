@@ -6,20 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Additional setup for Jekyll
-          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+          name: Install
+          command: _scripts/install.sh
       - run:
-          name: Clone OpenFL and install Typedoc
-          command: git clone --depth=1 https://github.com/openfl/openfl _openfl && cd _openfl && npm install typedoc
-      - run:
-          name: Build site
-          command: bundle exec jekyll build
-      # - run:
-      #     name: Add documentation
-      #     command: npm install openfl && mkdir -f _site/learn/npm/api && cp -r node_modules/openfl/docs/* _site/learn/npm/api/
-      - run:
-          name: Build NPM-based documentation
-          command: cd _openfl && npm run build-docs -s && mkdir -p ../_site/learn/npm/api && cp -r docs/* ../_site/learn/npm/api/
+          name: Build
+          command: _scripts/build.sh
       - deploy:
           name: Deploy (if on master)
           command: |
