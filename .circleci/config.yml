@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: openfl/openfl.org-build:0.0.4
+      - image: openfl/openfl.org-build:0.0.5
     steps:
       - checkout
       - run:
