@@ -1,0 +1,27 @@
+@font-face {
+	font-family: 'webfont-04b03';
+	src: url('fonts/04b_03__-webfont.eot');
+	src: url('fonts/04b_03__-webfont.eot?#iefix') format('embedded-opentype'),
+	url('fonts/04b_03__-webfont.woff') format('woff'),
+	url('fonts/04b_03__-webfont.ttf') format('truetype'),
+	url('fonts/04b_03__-webfont.svg#04b03regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+a {
+	color : #c77;
+}
+#social {
+	margin-top : 5px;
+}
+#social a {
+	font-weight : bold;
+	font-size : 20px;
+	color : white;
+	text-decoration : none;
+	margin-left : 30px;
+}
+#social img {
+	border : 0;
+	vertical-align : -10px;
+}
