@@ -27,11 +27,12 @@
   - title: Introduction
     url: /learn/
   - title: NPM
-    url: https://www.npmjs.com/package/openfl/
-    # url: /learn/npm/
-    # subitems:
-    # - title: Fundamentals
-    #   url: /learn/npm/basics/
+    url: /learn/npm/
+    subitems:
+    - title: Getting Started
+      url: https://www.npmjs.com/package/openfl/
+    - title: API
+      url: /learn/npm/url/
   - title: Haxelib
     url: /learn/haxelib/
     subitems:
