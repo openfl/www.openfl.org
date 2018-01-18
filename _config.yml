@@ -28,7 +28,6 @@ defaults:
      layout: default-sidebar-lime
 excerpt_separator: "<!--more-->"
 plugins:
- - jekyll-code-example-tag
  - jekyll-feed
  - jekyll-optional-front-matter
  - jekyll-paginate
@@ -37,8 +36,7 @@ plugins:
  - jekyll-seo-tag
  - jekyll-sitemap
  - kramdown
- - pygments
-highlighter: pygments
+highlighter: rouge
 markdown: kramdown
 paginate: 6
 paginate_path: "blog/page/:num"
@@ -53,9 +51,6 @@ redcarpet:
    - fenced_code_blocks
 feed:
   path: blog/rss.xml
-code_example_dir: _code
-code_example_buttons_class: "buttons"
-code_example_button_class: "button"
-code_example_list_class: "nav nav-tabs"
 url: http://www.openfl.org
 exclude: [ "node_modules", "README.md", "Gemfile", "Gemfile.lock", "package-lock.json" ]
+emptyArray: []

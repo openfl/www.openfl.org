@@ -19,18 +19,38 @@ Next, download [openfl.png](https://github.com/openfl/openfl/raw/develop/assets/
 
 Next, use Visual Studio Code or another code editor to open "src/app.ts", "src/app.js" or "src/App.hx", depending upon the language type you used when you created the project. We will need to add a couple more imports, and a little code to load and display an image.
 
-## TypeScript
-
 At the top of the file, add new imports:
 
-```typescript
+{% capture typescript %}
+```ts
 import Bitmap from "openfl/display/Bitmap";
 import BitmapData from "openfl/display/BitmapData";
 ```
+{% endcapture %}
+{% capture haxe %}
+```js
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
+```
+{% endcapture %}
+{% capture es6 %}
+```js
+import Bitmap from "openfl/display/Bitmap";
+import BitmapData from "openfl/display/BitmapData";
+```
+{% endcapture %}
+{% capture es5 %}
+```js
+var Bitmap = require ("openfl/display/Bitmap").default;
+var BitmapData = require ("openfl/display/BitmapData").default;
+```
+{% endcapture %}
+{% include code.md %}
 
-Then extend the `constructor` method so it looks like this:
+Then extend the constructor so it looks like this
 
-```typescript
+{% capture typescript %}
+```ts
 constructor () {
 	
 	super ();
@@ -44,19 +64,9 @@ constructor () {
 	
 }
 ```
-
-## Haxe
-
-At the top of the file, add new imports:
-
-```haxe
-import openfl.display.Bitmap;
-import openfl.display.BitmapData;
-```
-
-Then extend the `new` method so it looks like this:
-
-```haxe
+{% endcapture %}
+{% capture haxe %}
+```js
 public function new () {
 	
 	super ();
@@ -70,19 +80,9 @@ public function new () {
 	
 }
 ```
-
-## ES6 JavaScript
-
-At the top of the file, add new imports:
-
-```typescript
-import Bitmap from "openfl/display/Bitmap";
-import BitmapData from "openfl/display/BitmapData";
-```
-
-Then extend the `constructor` method so it looks like this:
-
-```typescript
+{% endcapture %}
+{% capture es6 %}
+```js
 constructor () {
 	
 	super ();
@@ -96,19 +96,9 @@ constructor () {
 	
 }
 ```
-
-## ES5 JavaScript
-
-At the top of the file, add new require statements:
-
-```typescript
-var Bitmap = require ("openfl/display/Bitmap").default;
-var BitmapData = require ("openfl/display/BitmapData").default;
-```
-
-Then extend the `App` constructor so it looks like this:
-
-```typescript
+{% endcapture %}
+{% capture es5 %}
+```js
 var App = function () {
 	
 	Sprite.call (this);
@@ -122,6 +112,8 @@ var App = function () {
 	
 }
 ```
+{% endcapture %}
+{% include code.md %}
 
 ## Running the Project
 
@@ -134,7 +126,7 @@ You can continue make changes to your `app.ts`, `app.js` or `App.hx` file, to ma
 
 For example:
 
-```haxe
+```js
 bitmap.x = 10;
 bitmap.y = 200;
 bitmap.rotation = 45;

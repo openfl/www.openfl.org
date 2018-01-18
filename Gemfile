@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 group :jekyll_plugins do
 	gem 'jekyll'
-	gem 'jekyll-code-example-tag'
 	gem 'jekyll-feed'
 	gem 'jekyll-optional-front-matter'
 	gem 'jekyll-paginate'
