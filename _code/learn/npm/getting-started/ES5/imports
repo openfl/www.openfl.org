@@ -1,0 +1,2 @@
+var Bitmap = require ("openfl/display/Bitmap").default;
+var BitmapData = require ("openfl/display/BitmapData").default;

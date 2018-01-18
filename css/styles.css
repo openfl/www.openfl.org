@@ -476,3 +476,34 @@ ul.nav-sidebar > li > ul.nav-sidebar {
     margin-right: 0px;
   }
 }
+
+
+.anchorjs-link {
+  font-size: 0.57em;
+  color: inherit !important;
+  opacity: 0 !important;
+  text-decoration: none !important; /* do not underline */
+  padding-left: 0.57em;
+  -webkit-transition: opacity .16s linear;
+  transition: opacity .16s linear;
+}
+
+@media (max-width: 768px) {
+  /* Do not display AnchorJS icon on less than 768px view point */
+  .anchorjs-link {
+    display: none;
+  }
+}
+
+*:hover > .anchorjs-link {
+  opacity: .2 !important;
+  /* To fade links as they appear, change transition-property from 'color' to 'all' */
+  -webkit-transition: opacity .16s linear;
+  transition: opacity .16s linear;
+}
+
+*:hover > .anchorjs-link:hover,
+.anchorjs-link:focus {
+  text-decoration: none !important; /* do not underline */
+  opacity: .75 !important;
+}
