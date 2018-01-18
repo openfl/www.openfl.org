@@ -10,5 +10,5 @@ group :jekyll_plugins do
 	gem 'jekyll-relative-links'
 	gem 'jekyll-seo-tag'
 	gem 'jekyll-sitemap'
-	gem 'pygments'
+	gem 'pygments.rb'
 end
