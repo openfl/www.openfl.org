@@ -2,6 +2,8 @@
 title: Getting Started
 ---
 
+## Creating a New Project
+
 The simplest way to get started is to use Yeoman to create a new project:
 
 ```bash
@@ -17,9 +19,11 @@ The template project will include configuration files for Webpack, as well as a 
 
 Next, download [openfl.png](https://github.com/openfl/openfl/raw/develop/assets/openfl.png) and save it your new "dist" directory.
 
-Next, use Visual Studio Code or another code editor to open "src/app.ts", "src/app.js" or "src/App.hx", depending upon the language type you used when you created the project. We will need to add a couple more imports, and a little code to load and display an image.
+## Adding Some Code
 
-At the top of the file, add new imports:
+Now we can use [Visual Studio Code](https://code.visualstudio.com) (or another code editor) to open "src/app.ts", "src/app.js" or "src/App.hx", depending upon the language type you used when you created the project. We will need to add a couple more imports, and a little code to load and display an image.
+
+At the top of the file, add some new imports:
 
 {% capture typescript %}
 ```ts
@@ -47,7 +51,7 @@ var BitmapData = require ("openfl/display/BitmapData").default;
 {% endcapture %}
 {% include code.md %}
 
-Then extend the constructor so it looks like this
+Then extend the constructor so it looks like this:
 
 {% capture typescript %}
 ```ts
