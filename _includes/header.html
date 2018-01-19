@@ -19,8 +19,8 @@
     {{ page.head }}
     
     <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/css/syntax.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/css/styles.css?{{site.time | date: '%s%N'}}" rel="stylesheet">
+    <link href="{{ site.baseurl }}/css/syntax.css?{{site.time | date: '%s%N'}}" rel="stylesheet">
     
     <script src="{{ site.baseurl }}/js/holder.js"></script>
     
