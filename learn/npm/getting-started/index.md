@@ -17,7 +17,7 @@ You will have the opportunity to choose TypeScript, Haxe, ES6 or ES5 as the sour
 
 The template project will include configuration files for Webpack, as well as a source code entry point where you can begin writing a new project.
 
-Next, download [openfl.png](https://github.com/openfl/openfl/raw/develop/assets/openfl.png) and save it your new "dist" directory.
+Next, download [openfl.png](/learn/assets/openfl.png) and save it your new "dist" directory.
 
 ## Adding Some Code
 
@@ -123,6 +123,28 @@ var App = function () {
 
 You can start a development server by going to the root directory of your project, and running `npm start`. In addition to compiling your application, it will open a new window in your web browser, with hot reloading enabled. This means that if you edit the `app.ts`, `app.js` or `App.hx` source file, the server will automatically compile your changes, and reload the current window, speeding up development. Now we can making more changes.
 
+{% capture embed %}
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("{{ site.baseurl }}/learn/assets/openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		this.addChild (bitmap);
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+{% endcapture %}
+{% include embed.md %}
 
 ## Adding Changes
 
@@ -133,9 +155,36 @@ For example:
 ```js
 bitmap.x = 10;
 bitmap.y = 200;
-bitmap.rotation = 45;
+bitmap.rotation = 10;
 bitmap.alpha = 0.5;
 ```
+
+{% capture embed %}
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("{{ site.baseurl }}/learn/assets/openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		this.addChild (bitmap);
+		bitmap.x = 10;
+		bitmap.y = 200;
+		bitmap.rotation = 10;
+		bitmap.alpha = 0.5;
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+{% endcapture %}
+{% include embed.md %}
 
 ## Other Samples
 

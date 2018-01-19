@@ -7,4 +7,5 @@ bundle install
 
 git clone --depth=1 https://github.com/openfl/openfl _openfl
 cd $SITE_PATH/_openfl
-npm install typedoc
+git pull
+npm install -s

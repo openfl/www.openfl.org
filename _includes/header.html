@@ -17,6 +17,7 @@
     <script src="{{ site.baseurl }}/js/anchor.min.js"></script>
     
     {{ page.head }}
+    {% if include.embed %}<script src='{{ site.baseurl }}/js/openfl.min.js'></script>{% endif %}
     
     <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ site.baseurl }}/css/styles.css?{{site.time | date: '%s%N'}}" rel="stylesheet">
