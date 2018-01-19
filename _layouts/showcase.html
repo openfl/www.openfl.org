@@ -8,6 +8,40 @@
 			{% assign titles = site.showcase | sort_natural: 'title' %}
 			{% assign count = 0 %}
 			
+			{% if page.type == "console" %}
+			
+			{% for showcase in titles %}
+			{% if showcase.ouya or showcase.playstation or showcase.vita or showcase.ps3 or showcase.ps4 or showcase.xbox or showcase.xboxone %}
+			{% cycle '<div class="row">', '' %}
+			<div class="col-md-6 showcase-listing">
+				<h3 class="showcase-title">{{ showcase.title }}</h3>
+				<a href="{{ showcase.url }}">
+					<img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}" class="showcase-image" />
+				</a>
+			</div>
+			{% cycle '', '</div>' %}
+			{% assign count = count | plus: 1 %}
+			{% endif %}
+			{% endfor %}
+			
+			{% elsif page.type == "other" %}
+			
+			{% for showcase in titles %}
+			{% if showcase.blackberry or showcase.firefoxos or showcase.tizen or showcase.other %}
+			{% cycle '<div class="row">', '' %}
+			<div class="col-md-6 showcase-listing">
+				<h3 class="showcase-title">{{ showcase.title }}</h3>
+				<a href="{{ showcase.url }}">
+					<img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}" class="showcase-image" />
+				</a>
+			</div>
+			{% cycle '', '</div>' %}
+			{% assign count = count | plus: 1 %}
+			{% endif %}
+			{% endfor %}
+			
+			{% else %}
+			
 			{% for showcase in titles %}
 			{% if showcase[page.type] %}
 			{% cycle '<div class="row">', '' %}
@@ -21,6 +55,8 @@
 			{% assign count = count | plus: 1 %}
 			{% endif %}
 			{% endfor %}
+			
+			{% endif %}
 			
 			{% assign remainder = count | modulo: 2 %}
 			{% if remainder != 0 %}

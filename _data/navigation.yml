@@ -19,6 +19,10 @@
     url: /showcase/flash/
   - title: HTML5
     url: /showcase/html5/
+  - title: Console
+    url: /showcase/console/
+  - title: Other
+    url: /showcase/other/
   #- title: Other
   #  url: /showcase/other/
 - title: Learn
