@@ -34,7 +34,7 @@ var Event = require ("openfl/events/Event").default;
 
 _If you prefer, you can use `"enterFrame"` instead of `Event.ENTER_FRAME`, but importing `Event` is a standard way of accessing event names._
 
-Now we can add some code to listen to the `Event.ENTER_FRAME` event:
+Now we can add some code to listen to the `Event.ENTER_FRAME` event. Each code sample occurs inside the `BitmapData.loadFromFile` callback, after `var bitmap` has been assigned and added as a child to make it visible.
 
 {% capture typescript %}
 ```ts
@@ -379,8 +379,18 @@ this.addEventListener (Event.ENTER_FRAME, (e:Event) => {
 	let deltaTime = currentTime - cacheTime;
 	
 	bitmap.x += speed * deltaTime;
-	if (bitmap.x >= 100) speed *= -1;
-	if (bitmap.x <= 0) speed *= -1;
+	
+	if (bitmap.x > 100) {
+		
+		speed *= -1;
+		bitmap.x = 100;
+		
+	} else if (bitmap.x < 0) {
+		
+		speed *= -1;
+		bitmap.x = 0;
+		
+	}
 	
 	cacheTime = currentTime;
 	
@@ -403,8 +413,18 @@ addEventListener (Event.ENTER_FRAME, function (e) {
 	var deltaTime = currentTime - cacheTime;
 	
 	bitmap.x += speed * deltaTime;
-	if (bitmap.x >= 100) speed *= -1;
-	if (bitmap.x <= 0) speed *= -1;
+	
+	if (bitmap.x > 100) {
+		
+		speed *= -1;
+		bitmap.x = 100;
+		
+	} else if (bitmap.x < 0) {
+		
+		speed *= -1;
+		bitmap.x = 0;
+		
+	}
 	
 	cacheTime = currentTime;
 	
@@ -427,8 +447,18 @@ this.addEventListener (Event.ENTER_FRAME, (e) => {
 	let deltaTime = currentTime - cacheTime;
 	
 	bitmap.x += speed * deltaTime;
-	if (bitmap.x >= 100) speed *= -1;
-	if (bitmap.x <= 0) speed *= -1;
+	
+	if (bitmap.x > 100) {
+		
+		speed *= -1;
+		bitmap.x = 100;
+		
+	} else if (bitmap.x < 0) {
+		
+		speed *= -1;
+		bitmap.x = 0;
+		
+	}
 	
 	cacheTime = currentTime;
 	
@@ -451,8 +481,18 @@ this.addEventListener (Event.ENTER_FRAME, function (e) {
 	var deltaTime = currentTime - cacheTime;
 	
 	bitmap.x += speed * deltaTime;
-	if (bitmap.x >= 100) speed *= -1;
-	if (bitmap.x <= 0) speed *= -1;
+	
+	if (bitmap.x > 100) {
+		
+		speed *= -1;
+		bitmap.x = 100;
+		
+	} else if (bitmap.x < 0) {
+		
+		speed *= -1;
+		bitmap.x = 0;
+		
+	}
 	
 	cacheTime = currentTime;
 	
@@ -487,8 +527,18 @@ var App = function () {
 			var deltaTime = currentTime - cacheTime;
 			
 			bitmap.x += speed * deltaTime;
-			if (bitmap.x >= 100) speed *= -1;
-			if (bitmap.x <= 0) speed *= -1;
+			
+			if (bitmap.x > 100) {
+				
+				speed *= -1;
+				bitmap.x = 100;
+				
+			} else if (bitmap.x < 0) {
+				
+				speed *= -1;
+				bitmap.x = 0;
+				
+			}
 			
 			cacheTime = currentTime;
 			
