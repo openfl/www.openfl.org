@@ -3,7 +3,216 @@ title: Adding Animation
 redirect_from: learn/npm/adding-animation/
 ---
 
-_This project builds on the "features/display/DisplayingABitmap" sample (available on [GitHub](https://github.com/openfl?utf8=✓&q=openfl-samples&type=&language=)) or based on code written previously in [Getting Started](./getting-started/)._
+## Setup
+
+If you have completed the [Displaying a Bitmap](../displaying-a-bitmap) tutorial, you can continue using the same project files. However, the completing the last step in this tutorial may be easiest if you start with our "features/display/AddingAnimation" sample instead.
+
+If you prefer to start using our "AddingAnimation" sample code, you can visit the OpenFL [GitHub](https://github.com/openfl?utf8=✓&q=openfl-samples&type=&language=) and click "Download" on the appropriate sample repository for your chosen source language, or you can use the following commands to clone it using `git`:
+
+{% capture typescript %}
+```bash
+git clone https://github.com/openfl/openfl-samples-ts
+cd openfl-samples-ts/features/display/AddingAnimation
+npm install
+```
+{% endcapture %}
+{% capture haxe %}
+```bash
+git clone https://github.com/openfl/openfl-samples
+cd openfl-samples/npm/features/display/AddingAnimation
+npm install
+```
+{% endcapture %}
+{% capture es6 %}
+```bash
+git clone https://github.com/openfl/openfl-samples-es6
+cd openfl-samples-es6/features/display/AddingAnimation
+npm install
+```
+{% endcapture %}
+{% capture es5 %}
+```bash
+git clone https://github.com/openfl/openfl-samples-es5
+cd openfl-samples-es5/features/display/AddingAnimation
+npm install
+```
+{% endcapture %}
+{% include code.md %}
+
+You could also try the sample later on code, and start with an empty project template:
+
+```bash
+mkdir AddingAnimation
+cd AddingAnimation
+yo openfl
+```
+
+If you start fresh, download an image file into your `dist` directory, such as [this](openfl.png) one.
+
+
+## Animating Your Project
+
+In the [Displaying a Bitmap](../displaying-a-bitmap) tutorial, we added an image using the `openfl.display.Bitmap` class, and made it renderable. We also suggested that you try changing some properties, such as the `x` or `y` property of the `Bitmap` object to change how it would be rendered.
+
+Although this is a good way to understand the fundamental principle of how most drawing works in OpenFL, interactive projects often appeal much more if there is a component of animation. Even a simple animation to fade an object from `alpha = 0;` (which is transparent) to `alpha = 1;` (which is fully visible) makes a simple project more exciting.
+
+In the following steps, we show how to add animation using `Event.ENTER_FRAME`, using time, a combination of both `Event.ENTER_FRAME` and time, as well as using an animation library, of which there are many.
+
+Before we get started though, your project should at least load and display a bitmap, similar to this code:
+
+{% capture typescript %}
+```ts
+import Bitmap from "openfl/display/Bitmap";
+import BitmapData from "openfl/display/BitmapData";
+import Sprite from "openfl/display/Sprite";
+import Stage from "openfl/display/Stage";
+
+
+class App extends Sprite {
+	
+	
+	constructor () {
+		
+		super ();
+		
+		BitmapData.loadFromFile ("openfl.png").onComplete ((bitmapData) => {
+			
+			var bitmap = new Bitmap (bitmapData);
+			this.addChild (bitmap);
+			
+		});
+		
+	}
+	
+	
+}
+
+
+var stage = new Stage (550, 400, 0xFFFFFF, App);
+document.body.appendChild (stage.element);
+```
+{% endcapture %}
+{% capture haxe %}
+```js
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
+import openfl.display.Sprite;
+import openfl.display.Stage;
+
+
+class App extends Sprite {
+	
+	
+	public function new () {
+		
+		super ();
+		
+		BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+			
+			var bitmap = new Bitmap (bitmapData);
+			addChild (bitmap);
+			
+		});
+		
+	}
+	
+	
+	static function main () {
+		
+		var stage = new Stage (550, 400, 0xFFFFFF, App);
+		js.Browser.document.body.appendChild (stage.element);
+		
+	}
+	
+	
+}
+```
+{% endcapture %}
+{% capture es6 %}
+```js
+import Bitmap from "openfl/display/Bitmap";
+import BitmapData from "openfl/display/BitmapData";
+import Sprite from "openfl/display/Sprite";
+import Stage from "openfl/display/Stage";
+
+
+class App extends Sprite {
+	
+	
+	constructor () {
+		
+		super ();
+		
+		BitmapData.loadFromFile ("openfl.png").onComplete ((bitmapData) => {
+			
+			var bitmap = new Bitmap (bitmapData);
+			this.addChild (bitmap);
+			
+		});
+		
+	}
+	
+	
+}
+
+
+var stage = new Stage (550, 400, 0xFFFFFF, App);
+document.body.appendChild (stage.element);
+```
+{% endcapture %}
+{% capture es5 %}
+```js
+var Bitmap = require ("openfl/display/Bitmap").default;
+var BitmapData = require ("openfl/display/BitmapData").default;
+var Sprite = require ("openfl/display/Sprite").default;
+var Stage = require ("openfl/display/Stage").default;
+
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		this.addChild (bitmap);
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+
+var stage = new Stage (550, 400, 0xFFFFFF, App);
+document.body.appendChild (stage.element);
+```
+{% endcapture %}
+{% include code.md %}
+
+{% capture embed %}
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("{{ site.baseurl }}/learn/assets/openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		this.addChild (bitmap);
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+{% endcapture %}
+{% include embed.md %}
+
 
 ## Using `Event.ENTER_FRAME`
 
@@ -35,7 +244,57 @@ var Event = require ("openfl/events/Event").default;
 
 _If you prefer, you can use `"enterFrame"` instead of `Event.ENTER_FRAME`, but importing `Event` is a standard way of accessing event names._
 
-Now we can add some code to listen to the `Event.ENTER_FRAME` event. Each code sample occurs inside the `BitmapData.loadFromFile` callback, after `var bitmap` has been assigned and added as a child to make it visible.
+Now we can add some code to listen to the `Event.ENTER_FRAME` event. Add it below the `new Bitmap` declaration in your code, like this:
+
+{% capture typescript %}
+```ts
+BitmapData.loadFromFile ("openfl.png").onComplete ((bitmapData) => {
+	
+	var bitmap = new Bitmap (bitmapData);
+	this.addChild (bitmap);
+	
+	// add code here
+	
+});
+```
+{% endcapture %}
+{% capture haxe %}
+```js
+BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+	
+	var bitmap = new Bitmap (bitmapData);
+	addChild (bitmap);
+	
+	// add code here
+	
+});
+```
+{% endcapture %}
+{% capture es6 %}
+```js
+BitmapData.loadFromFile ("openfl.png").onComplete ((bitmapData) => {
+	
+	var bitmap = new Bitmap (bitmapData);
+	this.addChild (bitmap);
+	
+	// add code here
+	
+});
+```
+{% endcapture %}
+{% capture es5 %}
+```js
+BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+	
+	var bitmap = new Bitmap (bitmapData);
+	this.addChild (bitmap);
+	
+	// add code here
+	
+}.bind (this));
+```
+{% endcapture %}
+{% include code.md %}
 
 {% capture typescript %}
 ```ts
@@ -207,6 +466,7 @@ App.prototype = Sprite.prototype;
 {% endcapture %}
 {% include embed.md %}
 
+
 ## Using `Timer`
 
 Sometimes, you may need to update a property based upon time, rather than animation frames. In general, it is recommended that updates are made within an animation frame. In the next section, we will show you can combine `Event.ENTER_FRAME` with `getTimer` to handle time, but in the meantime, this is a short description of `openfl.utils.Timer` could be used to trigger animation based on time.
@@ -357,6 +617,7 @@ var App = function () {
 App.prototype = Sprite.prototype;
 {% endcapture %}
 {% include embed.md %}
+
 
 ## Using `Event.ENTER_FRAME` and `getTimer`
 
@@ -553,6 +814,7 @@ App.prototype = Sprite.prototype;
 {% endcapture %}
 {% include embed.md %}
 
+
 ## Using an Animation Library
 
 When you move beyond a simple illustration, and begin building real interactive projects, use of an animation (or "tween") library is more productive for expressive animation. In addition to automatically animating based upon `requestAnimationFrame`, an animation library may make it simpler to combine animation of multiple properties at once, make it simple to receive callbacks when the object has been updated or completes an animation, and often includes multiple "easing" equations in order to animate properties along a quadratic, exponential or elastic animation equation rather than a simple linear equation, similar to the examples above.
@@ -648,11 +910,4 @@ App.prototype = Sprite.prototype;
 
 ## Next Steps
 
-There are more sample projects with additional features (such as sound, animation and video) in each of the OpenFL samples repositories:
-
- - [https://github.com/openfl/openfl-samples-ts](https://github.com/openfl/openfl-samples-ts)
- - [https://github.com/openfl/openfl-samples](https://github.com/openfl/openfl-samples)
- - [https://github.com/openfl/openfl-samples-es6](https://github.com/openfl/openfl-samples-es6)
- - [https://github.com/openfl/openfl-samples-es5](https://github.com/openfl/openfl-samples-es5)
-
-Each of the samples can be tested using `npm install` then `npm start`
+Keep playing! There is a lot you can do with an animation library. You can also look at our [other samples](https://github.com/openfl?utf8=✓&q=openfl-samples&type=&language=), specifically samples under "features/ui", including "HandlingKeyboardEvents" or "HandlingMouseEvents". Combining art assets, animation and mouse or keyboard input are enough to begin building a game or interactive project.
