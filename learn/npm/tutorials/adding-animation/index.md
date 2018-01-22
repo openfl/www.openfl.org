@@ -1,5 +1,6 @@
 ---
 title: Adding Animation
+redirect_from: learn/npm/adding-animation/
 ---
 
 _This project builds on the "features/display/DisplayingABitmap" sample (available on [GitHub](https://github.com/openfl?utf8=✓&q=openfl-samples&type=&language=)) or based on code written previously in [Getting Started](./getting-started/)._

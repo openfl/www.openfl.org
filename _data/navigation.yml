@@ -35,9 +35,14 @@
     subitems:
     - title: Getting Started
       url: /learn/npm/getting-started/
-    - title: Adding Animation
-      url: /learn/npm/adding-animation/
-    - title: API
+    - title: Tutorials
+      url: /learn/npm/tutorials/
+      subitems:
+      - title: Displaying a Bitmap
+        url: /learn/npm/tutorials/displaying-a-bitmap/
+      - title: Adding Animation
+        url: /learn/npm/tutorials/adding-animation/
+    - title: API Reference
       url: /learn/npm/api/
   - title: Haxelib
     url: /learn/haxelib/

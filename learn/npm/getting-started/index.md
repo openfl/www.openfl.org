@@ -2,143 +2,164 @@
 title: Getting Started
 ---
 
+## Install NPM
+
+If you do not have Node.js installed, download and install it [here](https://nodejs.org/).
+
+NPM is included by default with Node.js, but may be out-of-date. Update NPM by running the following command:
+
+```bash
+npm install npm -g
+```
+
+_You may have to run this using `sudo` on Linux or macOS._
+
+
+## Install a Code Editor
+
+Next, you should make sure that you have a code editor that is designed for TypeScript, Haxe or at a minimum, syntax highlighting for JavaScript. There are many choices, but if you are unsure, we recommend you start with [Visual Studio Code](https://code.visualstudio.com).
+
+
 ## Creating a New Project
 
-The simplest way to get started is to use Yeoman to create a new project:
+The simplest way to get started with OpenFL is to use a generator to make a new project:
 
 ```bash
 npm install -g yo generator-openfl
-mkdir DisplayingABitmap
-cd DisplayingABitmap
+mkdir MyNewProject
+cd MyNewProject
 yo openfl
 ```
 
-You will have the opportunity to choose TypeScript, Haxe, ES6 or ES5 as the source language for your new project.
+You will have the opportunity to choose TypeScript, Haxe, ES6 or ES5 as the source language (or syntax) for your new project.
 
-The template project will include configuration files for Webpack, as well as a source code entry point where you can begin writing a new project.
 
-Next, download [openfl.png](/learn/assets/openfl.png) and save it your new "dist" directory.
+## Running Your Project
 
-## Adding Some Code
+The default project template is configured with a "hot reload" development server. You can start a development server by going to the root directory of your project, and running `npm start`. In addition to compiling your application, it will open a new window in your web browser, with hot reloading enabled. This means that if you edit the `app.ts`, `app.js` or `App.hx` source file, the server will automatically compile your changes, and reload the current window, speeding up development.
 
-Now we can use [Visual Studio Code](https://code.visualstudio.com) (or another code editor) to open "src/app.ts", "src/app.js" or "src/App.hx", depending upon the language type you used when you created the project. We will need to add a couple more imports, and a little code to load and display an image.
 
-At the top of the file, add some new imports:
+## Making Some Changes
 
-{% capture typescript %}
-```ts
-import Bitmap from "openfl/display/Bitmap";
-import BitmapData from "openfl/display/BitmapData";
-```
-{% endcapture %}
-{% capture haxe %}
-```js
-import openfl.display.Bitmap;
-import openfl.display.BitmapData;
-```
-{% endcapture %}
-{% capture es6 %}
-```js
-import Bitmap from "openfl/display/Bitmap";
-import BitmapData from "openfl/display/BitmapData";
-```
-{% endcapture %}
-{% capture es5 %}
-```js
-var Bitmap = require ("openfl/display/Bitmap").default;
-var BitmapData = require ("openfl/display/BitmapData").default;
-```
-{% endcapture %}
-{% include code.md %}
-
-Then extend the constructor so it looks like this:
+To draw a square, you could update the initial `app.ts`, `app.js` or `App.hx` source file to look like this:
 
 {% capture typescript %}
 ```ts
-constructor () {
+import Sprite from "openfl/display/Sprite";
+import Stage from "openfl/display/Stage";
+
+
+class App extends Sprite {
 	
-	super ();
 	
-	BitmapData.loadFromFile ("openfl.png").onComplete ((bitmapData) => {
+	constructor () {
 		
-		var bitmap = new Bitmap (bitmapData);
-		this.addChild (bitmap);
+		super ();
 		
-	});
+		this.graphics.beginFill (0xFF0000);
+		this.graphics.drawRect (0, 0, 100, 100);
+		
+	}
+	
 	
 }
+
+
+var stage = new Stage (550, 400, 0xFFFFFF, App);
+document.body.appendChild (stage.element);
 ```
 {% endcapture %}
 {% capture haxe %}
 ```js
-public function new () {
+import openfl.display.Sprite;
+import openfl.display.Stage;
+
+
+class App extends Sprite {
 	
-	super ();
 	
-	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+	public function new () {
 		
-		var bitmap = new Bitmap (bitmapData);
-		addChild (bitmap);
+		super ();
 		
-	});
+		graphics.beginFill (0xFF0000);
+		graphics.drawRect (0, 0, 100, 100);
+		
+	}
+	
+	
+	static function main () {
+		
+		var stage = new Stage (550, 400, 0xFFFFFF, App);
+		js.Browser.document.body.appendChild (stage.element);
+		
+	}
+	
 	
 }
 ```
 {% endcapture %}
 {% capture es6 %}
 ```js
-constructor () {
+import Sprite from "openfl/display/Sprite";
+import Stage from "openfl/display/Stage";
+
+
+class App extends Sprite {
 	
-	super ();
 	
-	BitmapData.loadFromFile ("openfl.png").onComplete ((bitmapData) => {
+	constructor () {
 		
-		var bitmap = new Bitmap (bitmapData);
-		this.addChild (bitmap);
+		super ();
 		
-	});
+		this.graphics.beginFill (0xFF0000);
+		this.graphics.drawRect (0, 0, 100, 100);
+		
+	}
+	
 	
 }
+
+
+var stage = new Stage (550, 400, 0xFFFFFF, App);
+document.body.appendChild (stage.element);
 ```
 {% endcapture %}
 {% capture es5 %}
 ```js
+var Sprite = require ("openfl/display/Sprite").default;
+var Stage = require ("openfl/display/Stage").default;
+
+
 var App = function () {
 	
 	Sprite.call (this);
 	
-	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
-		
-		var bitmap = new Bitmap (bitmapData);
-		this.addChild (bitmap);
-		
-	}.bind (this));
+	this.graphics.beginFill (0xFF0000);
+	this.graphics.drawRect (0, 0, 100, 100);
 	
 }
+
+App.prototype = Sprite.prototype;
+
+
+var stage = new Stage (550, 400, 0xFFFFFF, App);
+document.body.appendChild (stage.element);
 ```
 {% endcapture %}
 {% include code.md %}
 
-## Running the Project
-
-You can start a development server by going to the root directory of your project, and running `npm start`. In addition to compiling your application, it will open a new window in your web browser, with hot reloading enabled. This means that if you edit the `app.ts`, `app.js` or `App.hx` source file, the server will automatically compile your changes, and reload the current window, speeding up development.
-
 {% capture embed %}
-var Bitmap = openfl.display.Bitmap;
-var BitmapData = openfl.display.BitmapData;
 var Sprite = openfl.display.Sprite;
 var Stage = openfl.display.Stage;
 
+
 var App = function () {
 	
 	Sprite.call (this);
 	
-	BitmapData.loadFromFile ("{{ site.baseurl }}/learn/assets/openfl.png").onComplete (function (bitmapData) {
-		
-		var bitmap = new Bitmap (bitmapData);
-		this.addChild (bitmap);
-		
-	}.bind (this));
+	this.graphics.beginFill (0xFF0000);
+	this.graphics.drawRect (0, 0, 100, 100);
 	
 }
 
@@ -146,47 +167,10 @@ App.prototype = Sprite.prototype;
 {% endcapture %}
 {% include embed.md %}
 
-## Adding Changes
+If you already started your project, the browser window should reload once you change and save your entry file.
 
-You can continue make changes to your `app.ts`, `app.js` or `App.hx` file, to manipulate your bitmap after it is loaded.
 
-For example:
-
-```js
-bitmap.x = 10;
-bitmap.y = 200;
-bitmap.rotation = 10;
-bitmap.alpha = 0.5;
-```
-
-{% capture embed %}
-var Bitmap = openfl.display.Bitmap;
-var BitmapData = openfl.display.BitmapData;
-var Sprite = openfl.display.Sprite;
-var Stage = openfl.display.Stage;
-
-var App = function () {
-	
-	Sprite.call (this);
-	
-	BitmapData.loadFromFile ("{{ site.baseurl }}/learn/assets/openfl.png").onComplete (function (bitmapData) {
-		
-		var bitmap = new Bitmap (bitmapData);
-		this.addChild (bitmap);
-		bitmap.x = 10;
-		bitmap.y = 200;
-		bitmap.rotation = 10;
-		bitmap.alpha = 0.5;
-		
-	}.bind (this));
-	
-}
-
-App.prototype = Sprite.prototype;
-{% endcapture %}
-{% include embed.md %}
-
-## Other Samples
+## Next Steps
 
 There are more sample projects with additional features (such as sound, animation and video) in each of the OpenFL samples repositories:
 
@@ -196,3 +180,7 @@ There are more sample projects with additional features (such as sound, animatio
  - [https://github.com/openfl/openfl-samples-es5](https://github.com/openfl/openfl-samples-es5)
 
 Each of the samples can be tested using `npm install` then `npm start`
+
+You can also build on this example by going through the [Displaying a Bitmap](learn/npm/tutorials/displaying-a-bitmap/) tutorial.
+
+Having any trouble? Go to our helpful [community](http://community.openfl.org/c/help) and post a question, we would love to help!
