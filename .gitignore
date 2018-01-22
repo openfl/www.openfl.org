@@ -8,3 +8,4 @@ package-lock.json
 learn/npm/api
 _openfl
 js/openfl.min.js
+_deploy
