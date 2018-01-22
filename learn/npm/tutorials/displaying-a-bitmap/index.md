@@ -18,7 +18,7 @@ yo openfl
 
 The output of our project will be run from a directory called `dist` in the project structure, so adding any new image file in the `dist` directory will make it possible to load it in the project.
 
-You can choose any image file you prefer, or download [openfl.png](/learn/assets/openfl.png) and save it under `dist`.
+You can choose any image file you prefer, or download [openfl.png](openfl.png) and save it under `dist`.
 
 
 ## Loading a Bitmap
@@ -336,4 +336,4 @@ App.prototype = Sprite.prototype;
 
 ## Next Steps
 
-Once you feel you have mastered this step, let's make it more exciting by [Adding Animation](adding-animation). Problems or concerns? Visit our helpful [community](http://community.openfl.org/) and we would be glad to help you!
+Once you feel you have mastered this step, let's make it more exciting by [Adding Animation](../adding-animation). Problems or concerns? Visit our helpful [community](http://community.openfl.org/) and we would be glad to help you!
