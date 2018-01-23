@@ -5,7 +5,7 @@ redirect_from: learn/npm/adding-animation/
 
 ## Setup
 
-_You may find a completed "features/display/AddingAnimation" sample project for [TypeScript](https://github.com/openfl/openfl-samples-ts), [Haxe](https://github.com/openfl/openfl-samples/tree/master/npm), [ES6](https://github.com/openfl/openfl-samples-es6) or [ES5](https://github.com/openfl/openfl-samples-es5) online, the following describes how to add and display a bitmap image from an empty project._
+_You may find a completed "features/display/AddingAnimation" sample project for [TypeScript](https://github.com/openfl/openfl-samples-ts), [Haxe](https://github.com/openfl/openfl-samples/tree/master/npm), [ES6](https://github.com/openfl/openfl-samples-es6) or [ES5](https://github.com/openfl/openfl-samples-es5) online, the following describes how to add animation from an empty project or from the previous [Displaying a Bitmap](../displaying-a-bitmap)._
 
 If you have completed the [Displaying a Bitmap](../displaying-a-bitmap) tutorial, you can continue using the same project files. Otherwise you can run the following commands:
 
@@ -168,7 +168,7 @@ var App = function () {
 	
 	Sprite.call (this);
 	
-	BitmapData.loadFromFile ("{{ site.baseurl }}/learn/assets/openfl.png").onComplete (function (bitmapData) {
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
 		
 		var bitmap = new Bitmap (bitmapData);
 		this.addChild (bitmap);
@@ -403,7 +403,7 @@ var App = function () {
 	
 	Sprite.call (this);
 	
-	BitmapData.loadFromFile ("{{ site.baseurl }}/learn/assets/openfl.png").onComplete (function (bitmapData) {
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
 		
 		var bitmap = new Bitmap (bitmapData);
 		this.addChild (bitmap);
@@ -557,7 +557,7 @@ var App = function () {
 	
 	Sprite.call (this);
 	
-	BitmapData.loadFromFile ("{{ site.baseurl }}/learn/assets/openfl.png").onComplete (function (bitmapData) {
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
 		
 		var bitmap = new Bitmap (bitmapData);
 		this.addChild (bitmap);
@@ -743,7 +743,7 @@ var App = function () {
 	
 	Sprite.call (this);
 	
-	BitmapData.loadFromFile ("{{ site.baseurl }}/learn/assets/openfl.png").onComplete (function (bitmapData) {
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
 		
 		var bitmap = new Bitmap (bitmapData);
 		this.addChild (bitmap);
@@ -897,7 +897,7 @@ var App = function () {
 	
 	Sprite.call (this);
 	
-	BitmapData.loadFromFile ("{{ site.baseurl }}/learn/assets/openfl.png").onComplete (function (bitmapData) {
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
 		
 		var bitmap = new Bitmap (bitmapData);
 		this.addChild (bitmap);
@@ -919,4 +919,4 @@ You can read more about the Actuate library [here](https://github.com/jgranick/a
 
 ## Next Steps
 
-Keep playing! There is a lot you can do with an animation library. You can also look at our [other samples](https://github.com/openfl?utf8=✓&q=openfl-samples&type=&language=), specifically samples under "features/ui", including "HandlingKeyboardEvents" or "HandlingMouseEvents". Combining art assets, animation and mouse or keyboard input are enough to begin building a game or interactive project.
+Keep playing! There is a lot you can do with an animation library. To keep learning, try the [Handling Mouse Events](../handling-mouse-events) tutorial to begin making your project interactive.

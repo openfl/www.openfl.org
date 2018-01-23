@@ -44,6 +44,8 @@
         url: /learn/npm/tutorials/displaying-a-bitmap/
       - title: Adding Animation
         url: /learn/npm/tutorials/adding-animation/
+      - title: Handling Mouse Events
+        url: /learn/npm/tutorials/handling-mouse-events/
     - title: API Reference
       url: /learn/npm/api/
   - title: Haxelib

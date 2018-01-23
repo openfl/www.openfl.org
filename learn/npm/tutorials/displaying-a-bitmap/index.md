@@ -280,7 +280,7 @@ var App = function () {
 	
 	Sprite.call (this);
 	
-	BitmapData.loadFromFile ("{{ site.baseurl }}/learn/assets/openfl.png").onComplete (function (bitmapData) {
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
 		
 		var bitmap = new Bitmap (bitmapData);
 		this.addChild (bitmap);
@@ -317,7 +317,7 @@ var App = function () {
 	
 	Sprite.call (this);
 	
-	BitmapData.loadFromFile ("{{ site.baseurl }}/learn/assets/openfl.png").onComplete (function (bitmapData) {
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
 		
 		var bitmap = new Bitmap (bitmapData);
 		this.addChild (bitmap);
