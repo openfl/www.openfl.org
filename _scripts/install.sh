@@ -5,7 +5,10 @@ SITE_PATH=$SCRIPT_PATH/../
 cd $SITE_PATH
 bundle install
 
-git clone --depth=1 https://github.com/openfl/openfl _openfl
-cd $SITE_PATH/_openfl
+#npm install openfl
+mkdir -p node_modules
+cd node_modules
+git clone --depth=1 https://github.com/openfl/openfl
+cd openfl
 git pull
 npm install -s
