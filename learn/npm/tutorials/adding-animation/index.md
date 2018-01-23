@@ -5,41 +5,9 @@ redirect_from: learn/npm/adding-animation/
 
 ## Setup
 
-If you have completed the [Displaying a Bitmap](../displaying-a-bitmap) tutorial, you can continue using the same project files. However, the completing the last step in this tutorial may be easiest if you start with our "features/display/AddingAnimation" sample instead.
+_You may find a completed "features/display/AddingAnimation" sample project for [TypeScript](https://github.com/openfl/openfl-samples-ts), [Haxe](https://github.com/openfl/openfl-samples/tree/master/npm), [ES6](https://github.com/openfl/openfl-samples-es6) or [ES5](https://github.com/openfl/openfl-samples-es5) online, the following describes how to add and display a bitmap image from an empty project._
 
-If you prefer to start using our "AddingAnimation" sample code, you can visit the OpenFL [GitHub](https://github.com/openfl?utf8=✓&q=openfl-samples&type=&language=) and click "Download" on the appropriate sample repository for your chosen source language, or you can use the following commands to clone it using `git`:
-
-{% capture typescript %}
-```bash
-git clone https://github.com/openfl/openfl-samples-ts
-cd openfl-samples-ts/features/display/AddingAnimation
-npm install
-```
-{% endcapture %}
-{% capture haxe %}
-```bash
-git clone https://github.com/openfl/openfl-samples
-cd openfl-samples/npm/features/display/AddingAnimation
-npm install
-```
-{% endcapture %}
-{% capture es6 %}
-```bash
-git clone https://github.com/openfl/openfl-samples-es6
-cd openfl-samples-es6/features/display/AddingAnimation
-npm install
-```
-{% endcapture %}
-{% capture es5 %}
-```bash
-git clone https://github.com/openfl/openfl-samples-es5
-cd openfl-samples-es5/features/display/AddingAnimation
-npm install
-```
-{% endcapture %}
-{% include code.md %}
-
-You could also try the sample later on code, and start with an empty project template:
+If you have completed the [Displaying a Bitmap](../displaying-a-bitmap) tutorial, you can continue using the same project files. Otherwise you can run the following commands:
 
 ```bash
 mkdir AddingAnimation
@@ -54,11 +22,11 @@ If you start fresh, download an image file into your `dist` directory, such as [
 
 In the [Displaying a Bitmap](../displaying-a-bitmap) tutorial, we added an image using the {% include api.md ref="openfl.display.Bitmap" %} class, and made it renderable. We also suggested that you try changing some properties, such as the {% include api.md ref="openfl.display.DisplayObject" sub="x" label="x" %} or {% include api.md ref="openfl.display.DisplayObject" sub="y" label="y" %} property of the {% include api.md ref="openfl.display.Bitmap" label="Bitmap" %} object to change how it would be rendered.
 
-Although this is a good way to understand the fundamental principle of how most drawing works in OpenFL, interactive projects often appeal much more if there is a component of animation. Even a simple animation to fade an object from `alpha = 0;` (which is transparent) to `alpha = 1;` (which is fully visible) makes a simple project more exciting.
+Although this is a good way to understand some of the fundamental principles of the display list works in OpenFL, interactive projects often benefit by updating these properties _over time_ to create an animation.
 
-In the following steps, we show how to add animation using {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %}, using time, a combination of both {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %} and time, as well as using an animation library, of which there are many.
+In the following steps, we will illustrate how you can create animation using {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %}, using a timer, a combination of both {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %} and time, as well as using an animation library.
 
-Before we get started though, your project should at least load and display a bitmap, similar to this code:
+Before we continue, your "src/app.ts", "src/app.js" or "src/App.hx" should be able to load and display a bitmap, similar to the following:
 
 {% capture typescript %}
 ```ts
@@ -216,7 +184,7 @@ App.prototype = Sprite.prototype;
 
 ## Using `Event.ENTER_FRAME`
 
-One of the ways that you can begin to add animation in OpenFL is by listening to the {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %} event. This event occurs every time that OpenFL enters a new animation frame (which is by default the same as `requestAnimationFrame`, but is configurable).
+One of the ways that you can begin to add animation in OpenFL is by listening to the {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %} event. This event occurs every time that OpenFL enters a new animation frame (which is by default the same as <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame"><code>requestAnimationFrame</code></a>, but is configurable).
 
 First we can add a new import for {% include api.md ref="openfl.events.Event" %}:
 
@@ -471,7 +439,7 @@ App.prototype = Sprite.prototype;
 
 Sometimes, you may need to update a property based upon time, rather than animation frames. In general, it is recommended that updates are made within an animation frame. In the next section, we will show you can combine {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %} with {% include api.md ref="openfl.utils" sub="getTimer" type="modules" label="openfl.utils.getTimer" %} to handle time, but in the meantime, this is a short description of {% include api.md ref="openfl.utils.Timer" %} could be used to trigger animation based on time.
 
-Both `setTimeout` and `setInterval` could be used to trigger an event repeatedly, as well as a final complete event, but the {% include api.md ref="openfl.utils.Timer" label="Timer" %} class combines the two behaviors into a single utility which may be helpful for time-based behaviors.
+Both <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout"><code>setTimeout</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval"><code>setInterval</code></a> could be used to trigger an event repeatedly, as well as a final complete event, but the {% include api.md ref="openfl.utils.Timer" label="Timer" %} class combines the two behaviors into a single utility which may be helpful for time-based behaviors.
 
 {% capture typescript %}
 ```ts
@@ -623,7 +591,7 @@ App.prototype = Sprite.prototype;
 
 When you need to update based on animation frames, but also need to know how much time has elapsed, you could use a combination of both {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %} and {% include api.md ref="openfl.utils" sub="getTimer" type="modules" label="openfl.utils.getTimer" %}.
 
-This approach is common for many games, which need to know the amount of time that has elapsed since the last frame.
+This approach is common for many games, which need to know the amount of time that has elapsed since the last frame. It also tends to blend the best elements of both {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %} and time-based animation.
 
 {% capture typescript %}
 ```ts
@@ -817,23 +785,50 @@ App.prototype = Sprite.prototype;
 
 ## Using an Animation Library
 
-When you move beyond a simple illustration, and begin building real interactive projects, use of an animation (or "tween") library is more productive for expressive animation. In addition to automatically animating based upon `requestAnimationFrame`, an animation library may make it simpler to combine animation of multiple properties at once, make it simple to receive callbacks when the object has been updated or completes an animation, and often includes multiple "easing" equations in order to animate properties along a quadratic, exponential or elastic animation equation rather than a simple linear equation, similar to the examples above.
+When you move beyond a simple illustration, and begin building real interactive projects, use of an animation (or "tween") library is more productive for expressive animation than animating by hand. In addition to automatically animating based upon <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame"><code>requestAnimationFrame</code></a>, an animation library may make it simpler to combine animation of multiple properties at once, make it simple to receive callbacks when the object has been updated or completes an animation, and often includes multiple "easing" equations in order to animate properties along a quadratic, exponential or elastic animation equation rather than a simple linear equation, similar to the examples above.
 
-The "AddingAnimation" sample (for [TypeScript](https://github.com/openfl/openfl-samples-ts/tree/master/features/display/AddingAnimation), [Haxe](https://github.com/openfl/openfl-samples/tree/master/npm/features/display/AddingAnimation), [ES6](https://github.com/openfl/openfl-samples-es6/tree/master/features/display/AddingAnimation) and [ES5](https://github.com/openfl/openfl-samples-es5/tree/master/features/display/AddingAnimation)) is configured to use the Actuate animation library, but many others are available.
+In the following example code, we have integrated a tween library called [Actuate](https://github.com/jgranick/actuate). If you wish, you may use the "features/display/AddingAnimation" sample (for [TypeScript](https://github.com/openfl/openfl-samples-ts/tree/master/features/display/AddingAnimation), [Haxe](https://github.com/openfl/openfl-samples/tree/master/npm/features/display/AddingAnimation), [ES6](https://github.com/openfl/openfl-samples-es6/tree/master/features/display/AddingAnimation) and [ES5](https://github.com/openfl/openfl-samples-es5/tree/master/features/display/AddingAnimation)), which is already configured for use with Actuate, otherwise we can add Actuate to your current project.
 
-Here is what some of the above animation might look like using Actuate:
+First, open a command-prompt or terminal, and change to your project directory and run the following command:
+
+```bash
+npm install --save-dev actuate
+```
+
+Next, in order to make it easier to import modules from the Actuate library, edit "webpack.common.js", and update the `resolve` section to include an alias for Actuate:
+
+```js
+alias: {
+	...
+	"motion": path.resolve (__dirname, "node_modules/actuate/lib/motion")
+}
+```
+
+If you are using TypeScript, we will also need to add an alias in "tsconfig.json" so that the TypeScript compiler also knows how to resolve our aliases for Actuate:
+
+```json
+"paths": {
+	...
+	"motion": ["node_modules/actuate/lib/motion"],
+	"motion/*": ["node_modules/actuate/lib/motion/*"]
+},
+```
+
+If you are using Haxe, we will need to add a new classpath to Actuate in your "build.hxml" file:
+
+```bash
+-cp node_modules/actuate/lib
+```
+
+Now Actuate should be installed available, importing from "motion" or "motion/Actuate", rather than a lengthier path.
+
+Here is an example animation using Actuate:
 
 {% capture typescript %}
 ```ts
 import Actuate from "motion/Actuate";
 import Elastic from "motion/easing/Elastic";
 import Linear from "motion/easing/Linear";
-
-...
-
-Actuate.tween (bitmap, 4, { y: 200 }).repeat ().reflect ();
-Actuate.tween (bitmap, 4, { x: 100 }).ease (Elastic.easeOut).repeat ().reflect ();
-Actuate.tween (bitmap, 4, { alpha: 0 }).ease (Linear.easeNone).repeat ().reflect ();
 ```
 {% endcapture %}
 {% capture haxe %}
@@ -841,12 +836,6 @@ Actuate.tween (bitmap, 4, { alpha: 0 }).ease (Linear.easeNone).repeat ().reflect
 import motion.Actuate;
 import motion.easing.Elastic;
 import motion.easing.Linear;
-
-...
-
-Actuate.tween (bitmap, 4, { y: 200 }).repeat ().reflect ();
-Actuate.tween (bitmap, 4, { x: 100 }).ease (Elastic.easeOut).repeat ().reflect ();
-Actuate.tween (bitmap, 4, { alpha: 0 }).ease (Linear.easeNone).repeat ().reflect ();
 ```
 {% endcapture %}
 {% capture es6 %}
@@ -854,12 +843,6 @@ Actuate.tween (bitmap, 4, { alpha: 0 }).ease (Linear.easeNone).repeat ().reflect
 import Actuate from "motion/Actuate";
 import Elastic from "motion/easing/Elastic";
 import Linear from "motion/easing/Linear";
-
-...
-
-Actuate.tween (bitmap, 4, { y: 200 }).repeat ().reflect ();
-Actuate.tween (bitmap, 4, { x: 100 }).ease (Elastic.easeOut).repeat ().reflect ();
-Actuate.tween (bitmap, 4, { alpha: 0 }).ease (Linear.easeNone).repeat ().reflect ();
 ```
 {% endcapture %}
 {% capture es5 %}
@@ -867,9 +850,33 @@ Actuate.tween (bitmap, 4, { alpha: 0 }).ease (Linear.easeNone).repeat ().reflect
 var Actuate = require ("motion/Actuate").default;
 var Elastic = require ("motion/easing/Elastic").default;
 var Linear = require ("motion/easing/Linear").default;
+```
+{% endcapture %}
+{% include code.md %}
 
-...
-
+{% capture typescript %}
+```ts
+Actuate.tween (bitmap, 4, { y: 200 }).repeat ().reflect ();
+Actuate.tween (bitmap, 4, { x: 100 }).ease (Elastic.easeOut).repeat ().reflect ();
+Actuate.tween (bitmap, 4, { alpha: 0 }).ease (Linear.easeNone).repeat ().reflect ();
+```
+{% endcapture %}
+{% capture haxe %}
+```js
+Actuate.tween (bitmap, 4, { y: 200 }).repeat ().reflect ();
+Actuate.tween (bitmap, 4, { x: 100 }).ease (Elastic.easeOut).repeat ().reflect ();
+Actuate.tween (bitmap, 4, { alpha: 0 }).ease (Linear.easeNone).repeat ().reflect ();
+```
+{% endcapture %}
+{% capture es6 %}
+```js
+Actuate.tween (bitmap, 4, { y: 200 }).repeat ().reflect ();
+Actuate.tween (bitmap, 4, { x: 100 }).ease (Elastic.easeOut).repeat ().reflect ();
+Actuate.tween (bitmap, 4, { alpha: 0 }).ease (Linear.easeNone).repeat ().reflect ();
+```
+{% endcapture %}
+{% capture es5 %}
+```js
 Actuate.tween (bitmap, 4, { y: 200 }).repeat ().reflect ();
 Actuate.tween (bitmap, 4, { x: 100 }).ease (Elastic.easeOut).repeat ().reflect ();
 Actuate.tween (bitmap, 4, { alpha: 0 }).ease (Linear.easeNone).repeat ().reflect ();
@@ -906,6 +913,8 @@ var App = function () {
 App.prototype = Sprite.prototype;
 {% endcapture %}
 {% include embed.md %}
+
+You can read more about the Actuate library [here](https://github.com/jgranick/actuate), or experiment with other tween libraries!
 
 
 ## Next Steps

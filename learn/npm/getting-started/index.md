@@ -41,7 +41,9 @@ The default project template is configured with a "hot reload" development serve
 
 ## Making Some Changes
 
-To draw a square, you could update the initial `app.ts`, `app.js` or `App.hx` source file to look like this:
+Open your code editor and select "Open Folder", then open the new project directory we created. Otherwise, if there is no option to open a folder, edit "src/app.ts", "src/app.js" or "src/App.hx" by itself.
+
+To draw a square, you could update the file to look like this:
 
 {% capture typescript %}
 ```ts
@@ -167,7 +169,7 @@ App.prototype = Sprite.prototype;
 {% endcapture %}
 {% include embed.md %}
 
-If you already started your project, the browser window should reload once you change and save your entry file.
+If you already started your project (using `npm start`), the browser window should reload once you change and save your entry file. If not, run `npm start` from the project directory to test it now.
 
 
 ## Next Steps
