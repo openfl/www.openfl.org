@@ -10,7 +10,7 @@ Lime OpenGL support begins with a `GLRenderContext`. This API more closely resem
 
 The new Lime 4 API includes Haxe abstract types to provide guard rails or a more familiar syntax over the OpenGL context object:
 
-```java
+```ts
 var context:GLRenderContext;
 
 ...
@@ -40,7 +40,7 @@ In the WebGL API, the `count` is determined automatically by the size of the `Ar
 
 Although the `Bytes` example above is perhaps not as nice as using the `Float32Array`, either will work in the GLES2-style API. The benefit of being able to use pointers becomes more clear if you wish to upload multiple values from the same bytes object, such as in the following example:
 
-```java
+```as3
 var gl:WebGLContext = context;
 var subData = data.subarray (0, 4);
 gl.uniform4fv (location, subData);
@@ -64,7 +64,7 @@ In the WebGL API, a new `ArrayBufferView` must be created for each upload, which
 
 If a GL context has been lost, Lime 4 will create a new `GLRenderContext` object, even if the same OpenGL context object is returned by the native platform. This adds another way to be able to check if an OpenGL object comes from an invalid OpenGL context:
 
-```java
+```as3
 private function getBuffer (gl:GLRenderContext):GLBuffer {
 	
 	if (buffer == null || bufferContext != gl) {
@@ -81,7 +81,7 @@ You can also use `bufferContext.isContextLost ()` on a dead context to determine
 
 The `GLRenderContext` also exposes `type` and `version` properties, to make it easier to determine the current running environment, and what features may be available:
 
-```java
+```as3
 // WebGL
 trace (gl.version); // 1
 trace (gl.type);    // WEBGL

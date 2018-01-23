@@ -23,7 +23,8 @@ You can choose any image file you prefer, or download [openfl.png](openfl.png) a
 
 ## Loading a Bitmap
 
-Images are not available right away, but must be loaded to use them at runtime. There are multiple ways to load an image from file, including `openfl.net.Loader` or the OpenFL asset library system, but using `BitmapData.loadFromFile` is one of the most straightforward.
+Images are not available right away, but must be loaded to use them at runtime. There are multiple ways to load an image from file, including {% include api.md ref="openfl.display.Loader" %} or the OpenFL asset library system, but using {% include api.md ref="openfl.display.BitmapData" sub=
+"loadFromFile" label="BitmapData.loadFromFile" %} is one of the most straightforward.
 
 Add the following imports to the top of your `app.ts`, `app.js` or `App.hx` file, depending upon the language you chose when you generated your project:
 
@@ -53,7 +54,7 @@ var BitmapData = require ("openfl/display/BitmapData").default;
 {% endcapture %}
 {% include code.md %}
 
-This will make the `openfl.display.Bitmap` and `openfl.display.BitmapData` types available in our code. Next, we can add some additional code inside of our constructor. After the change, the constructor method should look like this:
+This will make the {% include api.md ref="openfl.display.Bitmap" %} and {% include api.md ref="openfl.display.BitmapData" %} types available in our code. Next, we can add some additional code inside of our constructor. After the change, the constructor method should look like this:
 
 {% capture typescript %}
 ```ts
@@ -253,11 +254,11 @@ document.body.appendChild (stage.element);
 {% endcapture %}
 {% include code.md %}
 
-`BitmapData.loadFromFile ("openfl.png")` is a method to load a single bitmap, and returns an `openfl.utils.Future`. An OpenFL `Future` accepts callbacks for progress (`onProgress (function (bytesLoaded, bytesTotal) {})`), errors (`onError (function (error) {})`) as well as completion (`onComplete (function (value) {})`).
+{% include api.md ref="openfl.display.BitmapData" sub="loadFromFile" label="BitmapData.loadFromFile" %} is a method to load a single bitmap, and returns an {% include api.md ref="openfl.utils.Future" %}. An OpenFL {% include api.md ref="openfl.utils.Future" label="Future" %} accepts callbacks for progress (`onProgress (function (bytesLoaded, bytesTotal) {})`), errors (`onError (function (error) {})`) as well as completion (`onComplete (function (value) {})`).
 
-In this case, we are receiving an `openfl.display.BitmapData` object of our image file. Once it is loaded as a bitmap, we can get pixels, change pixels, copy pixels between images, or for this sample, render it.
+In this case, we are receiving an {% include api.md ref="openfl.display.BitmapData" %} object of our image file. Once it is loaded as a bitmap, we can get pixels, change pixels, copy pixels between images, or for this sample, render it.
 
-The simplest way to display `BitmapData` is using `openfl.display.Bitmap`, which accepts a `BitmapData` as the first argument:
+The simplest way to display {% include api.md ref="openfl.display.BitmapData" label="BitmapData" %} is using {% include api.md ref="openfl.display.Bitmap" %}, which accepts a {% include api.md ref="openfl.display.BitmapData" label="BitmapData" %} as the first argument:
 
 ```js
 var bitmap = new Bitmap (bitmapData);
@@ -295,7 +296,7 @@ App.prototype = Sprite.prototype;
 
 ## Manipulating the Bitmap
 
-Now that our image is visible, you can try changing properties common to all `openfl.display.DisplayObject` instances. Common properties include `x`, `y`, `alpha`, `rotation`, `scaleX` and `scaleY`.
+Now that our image is visible, you can try changing properties common to all {% include api.md ref="openfl.display.DisplayObject" %} instances. Common properties include {% include api.md ref="openfl.display.DisplayObject" sub="x" label="x" %}, {% include api.md ref="openfl.display.DisplayObject" sub="y" label="y" %}, {% include api.md ref="openfl.display.DisplayObject" sub="alpha" label="alpha" %}, {% include api.md ref="openfl.display.DisplayObject" sub="rotation" label="rotation" %}, {% include api.md ref="openfl.display.DisplayObject" sub="scaleX" label="scaleX" %} and {% include api.md ref="openfl.display.DisplayObject" sub="scaleY" label="scaleY" %}.
 
 For example:
 

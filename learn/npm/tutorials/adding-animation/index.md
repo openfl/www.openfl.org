@@ -52,11 +52,11 @@ If you start fresh, download an image file into your `dist` directory, such as [
 
 ## Animating Your Project
 
-In the [Displaying a Bitmap](../displaying-a-bitmap) tutorial, we added an image using the `openfl.display.Bitmap` class, and made it renderable. We also suggested that you try changing some properties, such as the `x` or `y` property of the `Bitmap` object to change how it would be rendered.
+In the [Displaying a Bitmap](../displaying-a-bitmap) tutorial, we added an image using the {% include api.md ref="openfl.display.Bitmap" %} class, and made it renderable. We also suggested that you try changing some properties, such as the {% include api.md ref="openfl.display.DisplayObject" sub="x" label="x" %} or {% include api.md ref="openfl.display.DisplayObject" sub="y" label="y" %} property of the {% include api.md ref="openfl.display.Bitmap" label="Bitmap" %} object to change how it would be rendered.
 
 Although this is a good way to understand the fundamental principle of how most drawing works in OpenFL, interactive projects often appeal much more if there is a component of animation. Even a simple animation to fade an object from `alpha = 0;` (which is transparent) to `alpha = 1;` (which is fully visible) makes a simple project more exciting.
 
-In the following steps, we show how to add animation using `Event.ENTER_FRAME`, using time, a combination of both `Event.ENTER_FRAME` and time, as well as using an animation library, of which there are many.
+In the following steps, we show how to add animation using {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %}, using time, a combination of both {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %} and time, as well as using an animation library, of which there are many.
 
 Before we get started though, your project should at least load and display a bitmap, similar to this code:
 
@@ -216,9 +216,9 @@ App.prototype = Sprite.prototype;
 
 ## Using `Event.ENTER_FRAME`
 
-One of the ways that you can begin to add animation in OpenFL is by listening to the `Event.ENTER_FRAME` event. This event occurs every time that OpenFL enters a new animation frame (which is by default the same as `requestAnimationFrame`, but is configurable).
+One of the ways that you can begin to add animation in OpenFL is by listening to the {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %} event. This event occurs every time that OpenFL enters a new animation frame (which is by default the same as `requestAnimationFrame`, but is configurable).
 
-First we can add a new import for `openfl.events.Event`:
+First we can add a new import for {% include api.md ref="openfl.events.Event" %}:
 
 {% capture typescript %}
 ```ts
@@ -242,9 +242,9 @@ var Event = require ("openfl/events/Event").default;
 {% endcapture %}
 {% include code.md %}
 
-_If you prefer, you can use `"enterFrame"` instead of `Event.ENTER_FRAME`, but importing `Event` is a standard way of accessing event names._
+_If you prefer, you can use `"enterFrame"` instead of {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %}, but importing {% include api.md ref="openfl.events.Event" label="Event" %} is a standard way of accessing event names._
 
-Now we can add some code to listen to the `Event.ENTER_FRAME` event. Add it below the `new Bitmap` declaration in your code, like this:
+Now we can add some code to listen to the {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %} event. Add it below the `new Bitmap` declaration in your code, like this:
 
 {% capture typescript %}
 ```ts
@@ -334,7 +334,7 @@ this.addEventListener (Event.ENTER_FRAME, function (e) {
 {% endcapture %}
 {% include code.md %}
 
-All we need to do to create an animation is update a property of our `Bitmap` object (such as the `x`, `y` or `alpha` property) in our listener. This will occur repeatedly over time, making it possible to play an animation.
+All we need to do to create an animation is update a property of our {% include api.md ref="openfl.display.Bitmap" label="Bitmap" %} object (such as the `x`, `y` or `alpha` property) in our listener. This will occur repeatedly over time, making it possible to play an animation.
 
 The following code will animate the image from it's initial `y` position of `0`, increasing by `1` each frame until it reaches `y == 200`. Then it changes direction, and moves back toward `y == 0` before finally repeating:
 
@@ -469,9 +469,9 @@ App.prototype = Sprite.prototype;
 
 ## Using `Timer`
 
-Sometimes, you may need to update a property based upon time, rather than animation frames. In general, it is recommended that updates are made within an animation frame. In the next section, we will show you can combine `Event.ENTER_FRAME` with `getTimer` to handle time, but in the meantime, this is a short description of `openfl.utils.Timer` could be used to trigger animation based on time.
+Sometimes, you may need to update a property based upon time, rather than animation frames. In general, it is recommended that updates are made within an animation frame. In the next section, we will show you can combine {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %} with {% include api.md ref="openfl.utils" sub="getTimer" type="modules" label="openfl.utils.getTimer" %} to handle time, but in the meantime, this is a short description of {% include api.md ref="openfl.utils.Timer" %} could be used to trigger animation based on time.
 
-Both `setTimeout` and `setInterval` could be used to trigger an event repeatedly, as well as a final complete event, but the `Timer` class combines the two behaviors into a single utility which may be helpful for time-based behaviors.
+Both `setTimeout` and `setInterval` could be used to trigger an event repeatedly, as well as a final complete event, but the {% include api.md ref="openfl.utils.Timer" label="Timer" %} class combines the two behaviors into a single utility which may be helpful for time-based behaviors.
 
 {% capture typescript %}
 ```ts
@@ -621,7 +621,7 @@ App.prototype = Sprite.prototype;
 
 ## Using `Event.ENTER_FRAME` and `getTimer`
 
-When you need to update based on animation frames, but also need to know how much time has elapsed, you could use a combination of both `Event.ENTER_FRAME` and `openfl.utils.getTimer`.
+When you need to update based on animation frames, but also need to know how much time has elapsed, you could use a combination of both {% include api.md ref="openfl.events.Event" sub="ENTER_FRAME" label="Event.ENTER_FRAME" %} and {% include api.md ref="openfl.utils" sub="getTimer" type="modules" label="openfl.utils.getTimer" %}.
 
 This approach is common for many games, which need to know the amount of time that has elapsed since the last frame.
 

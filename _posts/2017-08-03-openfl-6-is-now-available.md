@@ -12,7 +12,7 @@ We have developed an easy-to-use `DisplayObject` called `Tilemap` which makes it
 
 This release includes the (beta) API for `TileArray`, for writing tile data more directly:
 
-```java
+```js
 var data = tilemap.getTiles ();
 data.length = 2;
 data.position = 0;
@@ -33,7 +33,7 @@ OpenFL 4 added initial support for custom shaders, using the filter API.
 
 However, in time we have found that our use of OpenGL framebuffers was too expensive to make shader filters practical for every-day production. We are enabling an alternative approach in OpenFL 6, where `Bitmap`, `TextField`, `Tilemap` and `Video` objects can have a custom shader set directly:
 
-```java
+```js
 var customShader = new CustomShader ();
 bitmap.shader = customShader;
 ```
