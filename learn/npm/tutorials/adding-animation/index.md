@@ -334,9 +334,9 @@ this.addEventListener (Event.ENTER_FRAME, function (e) {
 {% endcapture %}
 {% include code.md %}
 
-All we need to do to create an animation is update a property of our {% include api.md ref="openfl.display.Bitmap" label="Bitmap" %} object (such as the `x`, `y` or `alpha` property) in our listener. This will occur repeatedly over time, making it possible to play an animation.
+All we need to do to create an animation is update a property of our {% include api.md ref="openfl.display.Bitmap" label="Bitmap" %} object (such as the {% include api.md ref="openfl.display.DisplayObject" sub="x" label="x" %}, {% include api.md ref="openfl.display.DisplayObject" sub="y" label="y" %} or {% include api.md ref="openfl.display.DisplayObject" sub="alpha" label="alpha" %} property) in our listener. This will occur repeatedly over time, making it possible to play an animation.
 
-The following code will animate the image from it's initial `y` position of `0`, increasing by `1` each frame until it reaches `y == 200`. Then it changes direction, and moves back toward `y == 0` before finally repeating:
+The following code will animate the image from it's initial {% include api.md ref="openfl.display.DisplayObject" sub="y" label="y" %} position of `0`, increasing by `1` each frame until it reaches `y == 200`. Then it changes direction, and moves back toward `y == 0` before finally repeating:
 
 {% capture typescript %}
 ```ts
