@@ -5,6 +5,7 @@
     url: /lime/
   - title: Documentation
     url: /lime/docs/
+    folder: true
     subitems:
     #- title: Getting Started
     #  url: /lime/docs/getting-started/
@@ -15,6 +16,7 @@
     #    url: /lime/docs/getting-started/choosing-a-code-editor/
     - title: Command-Line Tools
       url: /lime/docs/command-line-tools/
+      folder: true
       subitems:
       - title: Basic Commands
         url: /lime/docs/command-line-tools/basic-commands/
@@ -24,6 +26,7 @@
         url: /lime/docs/command-line-tools/samples/
     - title: Project Files
       url: /lime/docs/project-files/
+      folder: true
       subitems:
       - title: XML Format
         url: /lime/docs/project-files/xml-format/
@@ -31,6 +34,7 @@
         url: /lime/docs/project-files/hxp-format/
     - title: Advanced Setup
       url: /lime/docs/advanced-setup/
+      folder: true
       subitems:
       - title: Windows
         url: /lime/docs/advanced-setup/windows/

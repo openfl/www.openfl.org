@@ -236,6 +236,18 @@ div.sidebar {
   
 }
 
+.nav.nav-sidebar > li > a:focus {
+  
+  background-color: #F3F3F3;
+  
+}
+
+ul.nav-sidebar > li > div > ul.nav-sidebar {
+  
+  margin-left: 20px;
+  
+}
+
 ul.nav-sidebar > li > ul.nav-sidebar {
   
   margin-left: 20px;

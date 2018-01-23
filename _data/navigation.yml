@@ -32,11 +32,13 @@
     url: /learn/
   - title: NPM
     url: /learn/npm/
+    folder: true
     subitems:
     - title: Getting Started
       url: /learn/npm/getting-started/
     - title: Tutorials
       url: /learn/npm/tutorials/
+      folder: true
       subitems:
       - title: Displaying a Bitmap
         url: /learn/npm/tutorials/displaying-a-bitmap/
@@ -46,9 +48,11 @@
       url: /learn/npm/api/
   - title: Haxelib
     url: /learn/haxelib/
+    folder: true
     subitems:
     - title: Documentation
       url: /learn/haxelib/docs/
+      folder: true
       subitems:
       # - title: Getting Started
         # url: /learn/haxelib/docs/getting-started/
@@ -76,6 +80,7 @@
       #  url: /learn/docs/feature-matrix/
     - title: Books
       url: /learn/haxelib/books/
+      folder: true
       subitems:
       - title: OpenFL Developer's Guide
         url: http://books.openfl.org/openfl-developers-guide/
@@ -85,6 +90,7 @@
         url: http://www.openflbook.com
     - title: Tutorials
       url: /learn/haxelib/tutorials/
+      folder: true
       subitems:
       - title: Displaying a Bitmap
         url: /learn/haxelib/tutorials/displaying-a-bitmap/
