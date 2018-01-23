@@ -56,7 +56,7 @@ class App extends Sprite {
 		
 		super ();
 		
-		this.graphics.beginFill (0xFF0000);
+		this.graphics.beginFill (0x24AFC4);
 		this.graphics.drawRect (0, 0, 100, 100);
 		
 	}
@@ -82,7 +82,7 @@ class App extends Sprite {
 		
 		super ();
 		
-		graphics.beginFill (0xFF0000);
+		graphics.beginFill (0x24AFC4);
 		graphics.drawRect (0, 0, 100, 100);
 		
 	}
@@ -112,7 +112,7 @@ class App extends Sprite {
 		
 		super ();
 		
-		this.graphics.beginFill (0xFF0000);
+		this.graphics.beginFill (0x24AFC4);
 		this.graphics.drawRect (0, 0, 100, 100);
 		
 	}
@@ -135,7 +135,7 @@ var App = function () {
 	
 	Sprite.call (this);
 	
-	this.graphics.beginFill (0xFF0000);
+	this.graphics.beginFill (0x24AFC4);
 	this.graphics.drawRect (0, 0, 100, 100);
 	
 }
@@ -158,7 +158,7 @@ var App = function () {
 	
 	Sprite.call (this);
 	
-	this.graphics.beginFill (0xFF0000);
+	this.graphics.beginFill (0x24AFC4);
 	this.graphics.drawRect (0, 0, 100, 100);
 	
 }
