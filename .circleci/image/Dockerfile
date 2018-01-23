@@ -60,3 +60,6 @@ ENV LANGUAGE en_US.UTF-8
 RUN apt-get install -y build-essential git curl python
 RUN curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 RUN pip install awscli awsebcli
+
+## Install zopfli
+RUN apt-get install zopfli
