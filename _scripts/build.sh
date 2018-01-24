@@ -3,7 +3,7 @@ set -e
 SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 SITE_PATH=$SCRIPT_PATH/../
 
-cd $SITE_PATH/node_modules/openfl
+cd $SITE_PATH/_openfl
 npm run build -s
 rm -rf $SITE_PATH/learn/npm/api
 mkdir -p $SITE_PATH/learn/npm/api

@@ -7,9 +7,7 @@ cd $SITE_PATH
 bundle install
 
 #npm install openfl
-mkdir -p node_modules
-cd node_modules
-git clone --depth=1 https://github.com/openfl/openfl
-cd openfl
+git clone --depth=1 https://github.com/openfl/openfl _openfl
+cd _openfl
 git pull
 npm install -s
