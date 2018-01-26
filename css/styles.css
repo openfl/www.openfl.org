@@ -16,7 +16,7 @@ a:hover, a:focus { color: #1e90a0; }
 .navbar { border-top: solid 3px #eeeeee; padding-top: 17px; margin-bottom: 0; }
 .navbar .navbar-nav button { margin-top: -8px; }
 .lime .navbar .navbar-nav button { filter: grayscale(100%); }
-.navbar .navbar-logo { float: left; margin: -8px 16px 16px 0px; }
+.navbar .navbar-logo { float: left; font-size: 44px; margin: -8px 16px 16px 0px; }
 .lime .navbar .navbar-logo img { filter: grayscale(100%); }
 @media (max-width: 991px) { .navbar .navbar-logo { margin-left: 18px; } }
 .navbar-default { background-color: #f9f9f9; border-bottom: solid 1px #e5e5e5; border-top: margin-bottom: 0; padding-top: 24px; }
@@ -165,6 +165,7 @@ pre { background-color: #333; border: 3px solid #555; border-radius: 4px; color:
 
 .jumbotron {
     margin-bottom: 10px;
+    background-color: #43909D;
     background-image: url(../images/home/Jumbotron.png);
     background-position: 0% 25%;
     background-size: cover;
@@ -274,9 +275,16 @@ ul.nav-sidebar > li > ul.nav-sidebar {
 
 .showcase-image {
   
+  font-size: 30px;
   width: 100%;
   max-width: 460px;
   margin: 0px auto 0 auto;
+  
+}
+
+.showcase-image-container .showcase-image {
+  
+  font-size: 44px;
   
 }
 
