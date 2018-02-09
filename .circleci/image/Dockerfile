@@ -43,7 +43,12 @@ RUN apt-get install -y ruby-dev bundler
 ENV GITHUB_GEM_VERSION 172
 ENV JSON_GEM_VERSION 1.8.6
 
-RUN apt-get install -y zlib1g-dev libcurl4-openssl-dev
+RUN apt-get install -y \
+    build-essential \
+    autoconf \
+    libtool \
+    zlib1g-dev \
+    libcurl4-openssl-dev
 RUN gem install --verbose --no-document \
     json:${JSON_GEM_VERSION} \
     github-pages:${GITHUB_GEM_VERSION} \
