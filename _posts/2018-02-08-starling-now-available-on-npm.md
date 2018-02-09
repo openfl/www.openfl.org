@@ -92,12 +92,12 @@ yo openfl
 
 We have more work to do, but in the meantime, please visit our friendly forums for questions, concerns and feedback at: [http://community.openfl.org](http://community.openfl.org).
 
-Thank you one more time to our awesome[Patreon](https://www.patreon.com/openfl) sponsors and contributors. We appreciate your help and support.
+Thank you one more time to our awesome [Patreon](https://www.patreon.com/openfl) sponsors and contributors. We appreciate your help and support!
 
- > In the golden lightning 
-Of the sunken sun, 
-O'er which clouds are bright'ning, 
-Thou dost float and run; 
-Like an unbodied joy whose race is just begun. 
+<blockquote>In the golden lightning<br/>
+Of the sunken sun,<br/>
+O'er which clouds are bright'ning,<br/>
+Thou dost float and run;<br/>
+Like an unbodied joy whose race is just begun.</blockquote>
  
-_["To a Skylark"](https://www.poetryfoundation.org/poems/45146/to-a-skylark)_
+_Percy Bysshe Shelley, ["To a Skylark"](https://www.poetryfoundation.org/poems/45146/to-a-skylark)_
