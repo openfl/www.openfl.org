@@ -27,21 +27,21 @@ date: 2013-09-25 04:02:13.000000000 -07:00
 
 <p>By default, OpenFL will now generate launch images for you automatically, to take advantage of the full resolution of the iPhone 5. The developer tools will also handle the new iOS 7.0 icon sizes as well. If you would prefer to use your own launch images, you may do so with the "splashScreen" tag in your project file:</p>
 
-{% highlight xml %}
+```xml
 <splashScreen path="to/image.png" width="1024" height="768" />
-{% endhighlight %}
+```
 
 <p>We have made improvements to the deployment for iOS simulators and devices, and have added support for customize the code sign identity for your project. You may do this using a "certificate" tag in your project file:</p>
 
-{% highlight xml %}
+```xml
 <certificate identity="iPhone Distribution" if="ios" />
-{% endhighlight %}
+```
 
 <p>You may control the visibility of the iOS 7.0 status bar, using the "fullscreen" property of the "window" tag in your project file. The default is true for mobile platforms, but you can set it to false if you prefer to include it in your application:</p>
 
-{% highlight xml %}
+```xml
 <window fullscreen="false" if="ios" />
-{% endhighlight %}
+```
 
 <h3>ARMv7 Support for Android</h3>
 
@@ -49,9 +49,9 @@ date: 2013-09-25 04:02:13.000000000 -07:00
 
 <p>If you would like to compile ARMv5 binaries for Android (which are compatible with ARMv6 and newer devices as well), you may add an "architecture" tag to your project:</p>
 
-{% highlight bash %}
+```bash
 <architecture name="armv5" if="android" />
-{% endhighlight %}
+```
 
 <h3>...and more</h3>
 
@@ -69,13 +69,13 @@ date: 2013-09-25 04:02:13.000000000 -07:00
 </ul>
 <p>After you have downloaded the ZIP packages, run:</p>
 
-{% highlight bash %}
+```bash
 haxelib local openfl-1.1.0-beta.zip
 haxelib local openfl-tools-1.1.0-beta.zip
 haxelib local openfl-native-1.1.0-beta.zip
 haxelib local openfl-html5-1.1.0-beta.zip
 haxelib local hxcpp-3.0.3-beta.zip
-{% endhighlight %}
+```
 
 <p>Be aware, that if you are using a development version of any of these libraries, you may need to run "haxelib dev (name of library)" to disable your development directory, or you may choose to update and rebuild whichever component you are using from the source.</p>
 <h3>Feedback</h3>

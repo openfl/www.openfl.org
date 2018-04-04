@@ -1,6 +1,24 @@
+- name: BBC
+  url: http://www.bbc.co.uk/
+- name: Boomerang
+  url: http://www.boomeranghq.net
+- name: Cartoon Network
+  url: http://www.cartoonnetworkhq.com
+- name: CBeebies
+  url: http://www.bbc.co.uk/cbeebies
+- name: Disney Junior
+  url: http://disneyjunior.disney.com
+- name: eOne
+  url: https://www.entertainmentone.com/
+- name: Ludorum
+  url: http://www.ludorum.com/
 - name: National Geographic Kids
   url: http://kids.nationalgeographic.com
+- name: Nick Jr.
+  url: http://www.nickjr.com
 - name: Nickelodeon
   url: http://www.nickelodeon.com
+- name: Nickelodeon UK
+  url: http://www.nick.co.uk
 - name: PBS Kids
   url: https://www.pbskids.org

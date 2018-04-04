@@ -13,7 +13,7 @@ The \*.hxp format is based upon Haxe, it mirrors the internal project format use
 
 The basic structure of an \*.hxp project looks like this:
 
-{% highlight haxe %}
+```java
 import lime.project.*;
 
 class Project extends HXProject {
@@ -27,7 +27,7 @@ class Project extends HXProject {
     }
 
 }
-{% endhighlight %}
+```
 
 You can put all of your settings within the `new` function, or you can create additional methods, if you prefer.
 
@@ -43,7 +43,7 @@ If needed, you can also check the `host` property, which should define Platform.
 
 You can also set your own values (of course):
 
-{% highlight haxe %}
+```java
 import lime.project.*;
 
 class Project extends HXProject {
@@ -70,7 +70,7 @@ class Project extends HXProject {
     }
 
 }
-{% endhighlight %}
+```
 
 ## Common Values
 

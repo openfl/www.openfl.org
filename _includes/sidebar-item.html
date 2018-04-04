@@ -1,19 +1,28 @@
 {% assign navurl = page.url | remove: 'index.html' %}
+{% if sidebar_uuid %}{% assign sidebar_uuid = sidebar_uuid | plus: 1 %}{% else %}{% assign sidebar_uuid = 0 %}{% endif %}
+<div class="collapse {% unless collapse %}in{% endunless %}" id="nav-sidebar-{{ sidebar_uuid }}">
 <ul class="nav nav-sidebar">
 {% for item in include.navigation %}
-	<li>
+	<li class="nav-sidebar-item">
 		{% assign pathSplit = page.url | split: "/" %}
 		{% assign file = pathSplit | last %}
 		{% assign baseURL = page.url | remove: file %}
 		
+		{% if item.folder %}
+		<a href="#nav-sidebar-{{ sidebar_uuid | plus: 1 }}" {% if item.url == navurl %}class="active"{% endif %} data-toggle="collapse">{{ item.title }}</a>
+		{% else %}
 		{% if item.url contains "://" %}
 		<a href="{{ item.url }}" target="_blank" />{{ item.title }}</a>
 		{% else %}
 		<a href="{{ item.url }}" {% if item.url == navurl %}class="active"{% endif %}>{{ item.title }}</a>
 		{% endif %}
-		{% if item.subitems and navurl contains item.url %}
+		{% endif %}
+		
+		{% if navurl contains item.url %}{% assign collapse = false %}{% else %}{% assign collapse = true %}{% endif %}
+		{% if item.subitems %}
 			{% include sidebar-item.html navigation=item.subitems %}
 		{% endif %}
 	</li>
 {% endfor %}
 </ul>
+</div>

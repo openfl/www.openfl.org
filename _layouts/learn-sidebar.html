@@ -1,0 +1,35 @@
+{% include header.html embed=true %}
+<script src='{{ site.baseurl }}/js/holder.js'></script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-push-4 sidebar-content add-anchors">
+			
+			<div class="page-header">
+				<h1>{{ page.title}}{% if page.subtitle %} <small>{{ page.subtitle }}</small>{% endif %}</h1>
+				<div class="page-links"><a href="https://github.com/openfl/openfl.org/edit/master/{{page.path}}">Edit Document<span class="page-links-icon glyphicon glyphicon-pencil"></span></a></div>
+			</div>
+			
+			{{ content | replace: '<li>[ ]', '<li class="list-checkbox"><input type="checkbox" disabled> ' | replace: '<li>[x]', '<li class="list-checkbox"><input type="checkbox" checked disabled> ' }}
+			
+		</div>
+		<div class="col-md-4 col-md-pull-8 sidebar add-anchors">
+			
+			{% for item in site.data.navigation %}
+			{% if page.url contains item.url and item.subitems %}
+			{% include sidebar-item.html navigation=item.subitems %}
+			{% endif %}
+			{% endfor %}
+			
+		</div>
+	</div>
+</div>
+<script>
+	anchors.options = {
+		placement: "right",
+		visible: "always",
+		icon: "",
+		class: "glyphicon glyphicon-link"
+	};
+	anchors.add ("div.add-anchors > h1, div.add-anchors > h2");
+</script>
+{% include footer.html %}

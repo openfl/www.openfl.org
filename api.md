@@ -1,4 +1,5 @@
 ---
-permalink: documentation/api/
-redirect_to: http://docs.openfl.org
+permalink: api/
+redirect_from: documentation/api/
+redirect_to: http://api.openfl.org
 ---

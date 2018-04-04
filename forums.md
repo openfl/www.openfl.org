@@ -1,7 +1,4 @@
 ---
-layout: full-width
-title: Forums
 permalink: forums/
-head: '<meta http-equiv="refresh" content="0; url=http://community.openfl.org" />'
+redirect_to: http://community.openfl.org
 ---
-

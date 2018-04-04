@@ -21,29 +21,36 @@ defaults:
  - scope:
      path: "learn"
    values:
-     layout: default-sidebar
+     layout: learn-sidebar
  - scope:
      path: "lime"
    values:
      layout: default-sidebar-lime
 excerpt_separator: "<!--more-->"
-gems:
+plugins:
+ - jekyll-feed
+ - jekyll-optional-front-matter
  - jekyll-paginate
- - redcarpet
- - pygments
-highlighter: pygments
-markdown: RedcarpetCustom
+ - jekyll-redirect-from
+ - jekyll-relative-links
+ - jekyll-seo-tag
+ - jekyll-sitemap
+ - kramdown
+highlighter: rouge
+markdown: kramdown
 paginate: 6
 paginate_path: "blog/page/:num"
 permalink: /blog/:year/:month/:day/:title/
 redcarpet:
-  extensions: 
+  extensions:
    - strikethrough
    - no_intra_emphasis
    - autolink
    - tables
    - with_toc_data
    - fenced_code_blocks
-rss_path: /blog/
-rss_post_limit: 10
+feed:
+  path: blog/rss.xml
 url: http://www.openfl.org
+exclude: [ "node_modules", "README.md", "Gemfile", "Gemfile.lock", "package-lock.json" ]
+emptyArray: []

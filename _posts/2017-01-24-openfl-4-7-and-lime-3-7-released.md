@@ -4,7 +4,7 @@ title: OpenFL 4.7 and Lime 3.7 Released
 
 New versions of OpenFL and Lime are available!
 
-```
+```bash
 openfl upgrade
 ```
 

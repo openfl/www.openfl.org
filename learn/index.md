@@ -5,11 +5,11 @@ redirect_from: documentation/
 
 Welcome! Before getting started, be sure that you [download and install](/download/) OpenFL.
 
-With OpenFL installed and running, you can get up and going with included [sample](docs/command-line-tools/samples/) project, or create your own project by following a [tutorial](tutorials/creating-your-first-project/) or using a [blank template](docs/command-line-tools/create-new-project/).
+With OpenFL installed and running, you can get up and going with included [sample](docs/command-line-tools/samples/) projects, or create your own project by following a [tutorial](tutorials/creating-your-first-project/) or using a [blank template](docs/command-line-tools/create-new-project/).
 
 ## Fundamentals
 
-If you are already familiar with the fundamentals of ActionScript/Flash development, go on ahead! If you have never developed using ActionScript before, OpenFL builds on many of the same concepts, so looking at the <a href="http://help.adobe.com/en_US/as3/dev/index.html" target="_blank">ActionScript 3.0 Developer’s Guide</a> will provide a good introduction to using some of the key classes and APIs.
+If you are already familiar with the fundamentals of ActionScript/Flash development, go on ahead! If you have never developed using ActionScript before, OpenFL builds on many of the same concepts, so looking at the <a href="http://help.adobe.com/en_US/as3/dev/index.html" target="_blank">ActionScript 3.0 Developer’s Guide</a> will provide a good introduction to using some of the key classes and APIs. There is also an adaption, the <a href="http://books.openfl.org/openfl-developers-guide/" target="_blank">OpenFL Developer's Guide</a>, which is under development.
 
 ## Resources
 

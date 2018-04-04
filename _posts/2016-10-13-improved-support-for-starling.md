@@ -26,7 +26,7 @@ haxelib install starling
 
 You can create a copy of the Starling demo to build and run using the following command:
 
-```
+```bash
 openfl create starling demo StarlingDemo
 ```
 

@@ -17,21 +17,21 @@ Even further, OpenFL is getting a new system for "library handlers." Simply put,
 
 Here is an example:
 
-{% highlight xml %}
+```xml
 <haxelib name="swf" />
 <library path="assets/library.swf" />
-{% endhighlight %}
+```
 
 If the "swf" library were to register itself as a handler for *.swf library types, it has an opportunity to be called during the OpenFL tools build process, and tell OpenFL how to handle the file, seamlessly.
 
 Accessing the library in the project would then be this simple:
 
-{% highlight haxe %}
+```java
 Assets.loadLibrary ("library", function (_) {
 &nbsp; &nbsp;
 &nbsp; &nbsp;addChild (Assets.getMovieClip ("library:MySymbol"));
 &nbsp; &nbsp;
 });
-{% endhighlight %}
+```
 
 We look forward to finishing these features and sharing them with you soon :)

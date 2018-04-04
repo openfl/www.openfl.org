@@ -5,10 +5,10 @@ date: 2013-10-31 16:27:44.000000000 -07:00
 ---
 We are excited to introduce our newest (and greatest) release yet, OpenFL 1.1. I know that you've been waiting for this one, so before we get started on all the features and details, here's how you upgrade:
 
-{% highlight bash %}
+```bash
 haxelib install openfl
 haxelib run openfl setup
-{% endhighlight %}
+```
 
 Great! With that out of the way, let's dive deeper into what OpenFL 1.1 changes, and how it helps make the platform even stronger.<!--more--><a id="more-235"></a>
 <h3>New Desktop Windowing</h3>

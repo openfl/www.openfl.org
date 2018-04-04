@@ -11,7 +11,7 @@ The Haxe community has worked diligently to advance the dream of "every platform
 
 Using the same code for your project, the development builds of NME make it possible to compile, package and test on these targets:
 
-{% highlight bash %}
+```bash
 haxelib run nme test MyProject.nmml windows
 haxelib run nme test MyProject.nmml mac
 haxelib run nme test MyProject.nmml linux
@@ -20,6 +20,6 @@ haxelib run nme test MyProject.nmml webos
 haxelib run nme test MyProject.nmml android
 haxelib run nme test MyProject.nmml flash
 haxelib run nme test MyProject.nmml html5
-{% endhighlight %}
+```
 
 I hope that you are as excited as we are, while we prepare for the next release of NME.

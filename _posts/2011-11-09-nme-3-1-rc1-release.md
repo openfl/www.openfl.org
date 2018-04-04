@@ -16,17 +16,17 @@ One of NME's greatest strengths is that it relies on the standard tools for each
 
 This release improves the command-line tools significantly. First, you can call "nme setup" to install a script so you don't have to type "haxelib run" to access NME anymore:
 
-{% highlight bash %}
+```bash
 haxelib run nme setup
-{% endhighlight %}
+```
 
 Then you can use "nme setup (target)" to automatically download, install and configure the tools required to use one of NME's targets. For example:
 
-{% highlight bash %}
+```bash
 nme setup webos
 Download and install the HP webOS SDK? [y/n/a] ? y
 Downloading HP_webOS_SDK-Win-3.0.4-669-x64.exe...
 8739050/283305624 (3%)
-{% endhighlight %}
+```
 
 The "setup" command is available for Windows, Mac and Linux, for all targets except for Flash.

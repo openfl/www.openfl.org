@@ -1,0 +1,1 @@
+<a href="{{ site.baseurl }}/learn/npm/api/{{ include.type | default: 'classes' }}/{{ include.ref | downcase }}.html{% if include.sub %}#{{ include.sub | downcase }}{% endif %}"><code>{% if include.label %}{{ include.label }}{% else %}{{ include.ref }}{% endif %}</code></a>

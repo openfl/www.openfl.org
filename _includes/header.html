@@ -14,12 +14,17 @@
     
     <script src="{{ site.baseurl }}/js/jquery-1.11.0.min.js"></script>
     <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
+    <script src="{{ site.baseurl }}/js/anchor.min.js"></script>
     
     {{ page.head }}
+    {% if include.embed %}
+    <script src='{{ site.baseurl }}/js/openfl.min.js'></script>
+    <script src='{{ site.baseurl }}/js/actuate.min.js'></script>
+    {% endif %}
     
     <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/css/syntax.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/css/styles.css?{{site.time | date: '%s%N'}}" rel="stylesheet">
+    <link href="{{ site.baseurl }}/css/syntax.css?{{site.time | date: '%s%N'}}" rel="stylesheet">
     
     <script src="{{ site.baseurl }}/js/holder.js"></script>
     
@@ -39,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-logo" href="{% if site.baseurl != "" %}{{ site.baseurl }}{% else %}/{% endif %}"><img src="{{ site.baseurl }}/images/logo.png" /></a>
+              <a class="navbar-logo" href="{% if site.baseurl and site.baseurl != "" %}{{ site.baseurl }}{% else %}/{% endif %}"><img src="{{ site.baseurl }}/images/logo.png" alt="OpenFL" /></a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -53,7 +58,7 @@
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ site.baseurl }}/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
-                <li><a href="{{ site.baseurl }}/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li>
+                <!-- <li><a href="{{ site.baseurl }}/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
               </ul>
             </div>
           </div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		
+		<title>Starling Demo</title>
+		
+		<script type="text/javascript" src="swfobject.js"></script>
+		<script type="text/javascript">
+			
+			swfobject.embedSWF ("Demo.swf", "openfl-content", "320", "480", "12", "expressInstall.swf", {}, { wmode: "direct" });
+		</script>
+		
+		<style>
+			
+			html, body, #openfl-content { width:320px; height:480px; }
+			body { margin:0; padding:0; overflow:hidden; }
+			
+		</style>
+		
+	</head>
+	
+	<body>
+		
+		<div id="openfl-content" />
+		
+	</body>
+	
+</html>
