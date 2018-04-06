@@ -34,10 +34,6 @@ Sublime Text is free-to-use, with reminders to pay for continued use.
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) is primarily marketed as a Java IDE, but it has growing support within the Haxe community, including large teams, such as TiVo. The full edition, as well as the free community edition, support the [Haxe plugin](https://plugins.jetbrains.com/plugin/6873?pr=idea), which is not easy to install, but can provide a fuller native IDE experience for macOS or Linux users.
 
-## Visual Studio Code
-
-[Visual Studio Code](https://code.visualstudio.com/) (or vscode) is an extensible code editor. There is active development on extensions for Visual Studio Code that adds support for the Haxe language, leveraging the Haxe Language Server. This provides accurate code completion. After installing make sure you install the [Haxe extension pack](https://marketplace.visualstudio.com/items?itemName=vshaxe.haxe-extension-pack). 
-
 ## Other Choices
 
 There are other code editors to choose from, include vim and up-and-coming Haxe-based editors. You can read more at [https://haxe.org/documentation/introduction/editors-and-ides.html](https://haxe.org/documentation/introduction/editors-and-ides.html)
