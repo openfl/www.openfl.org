@@ -4,7 +4,6 @@ documentation
 import.n
 Gemfile.lock
 node_modules
-package-lock.json
 learn/npm/api
 _openfl
 js/openfl.min.js
