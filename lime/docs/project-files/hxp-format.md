@@ -84,10 +84,11 @@ The `meta` property is a typedef, allowing you to use it as an object. This type
     meta.packageName = "com.example.myapplication";
     meta.version = "1.0.0";
     meta.company = "My Company";
+    meta.buildNumber = "2";
 
 ...or you can override the full value of the property. You don't need to specify every value, as the tools will automatically complete any missing values with default ones:
 
-    meta = { title: "Hello World", packageName: "com.example.myapplication", version: "1.0.0" };
+    meta = { title: "Hello World", packageName: "com.example.myapplication", version: "1.0.0" , buildNumber: "2" };
 
 ### app
 
