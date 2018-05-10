@@ -78,7 +78,7 @@ If you create a haxelib, you can add "include.xml" to the top-level directory. T
 Use `<meta />` tags to add information about your application, which usually will not affect how the application runs, but how it is identified to the target operating system or on an application store:
 
 ```xml
-<meta title="My Application" package="com.example.myapplication" version="1.0.0" company="My Company" />
+<meta title="My Application" package="com.example.myapplication" version="1.0.0" company="My Company" build-number"git+1" />
 ```
 
 ### `<app />`
