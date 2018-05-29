@@ -9,24 +9,24 @@ redirect_from: /learn/tutorials/
 
  * [Displaying a Bitmap](/learn/tutorials/displaying-a-bitmap/)
  * [Adding Animation](/learn/tutorials/adding-animation/)
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=9" target="_blank">Getting Started with Haxe</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=14" target="_blank">How to Make a Pong Game in Haxe and OpenFL</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=19" target="_blank">Keyboard Events in Haxe using OpenFL</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=20" target="_blank">Assets in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/02_getting_started_with_haxe.html" target="_blank">Getting Started with Haxe</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/07_how_to_make_a_pong_game_in_haxe_and_openfl_part_1.html" target="_blank">How to Make a Pong Game in Haxe and OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/12_keyboard_events_in_haxe_using_openfl.html" target="_blank">Keyboard Events in Haxe using OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/13_assets_in_openfl_embedding_images,_sounds_and_more.html" target="_blank">Assets in OpenFL</a>
  * [Using SWF Assets](/learn/tutorials/using-swf-assets/)
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=66" target="_blank">Depth-Sorting in OpenFL</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=67" target="_blank">Toggle Fullscreen in OpenFL</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=69" target="_blank">Embedding Fonts in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/59_depth_sorting_in_openfl.html" target="_blank">Depth-Sorting in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/60_toggle_fullscreen_in_openfl.html" target="_blank">Toggle Fullscreen in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/62_embedding_fonts_in_openfl.html" target="_blank">Embedding Fonts in OpenFL</a>
 
 
 ### Intermediate
 
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=21" target="_blank">Fast 2D Rendering Using Tilesheets in OpenFL</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=24" target="_blank">Displaying FPS and Memory Usage in OpenFL</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=25" target="_blank">Tile-Based Game Tutorial using Haxe and OpenFL</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=68" target="_blank">Particle System in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/14_fast_2d_rendering_using_tilesheets_in_openfl.html" target="_blank">Fast 2D Rendering Using Tilesheets in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/17_displaying_fps_and_memory_usage_using_openfl.html" target="_blank">Displaying FPS and Memory Usage in OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/18_tile_based_game_tutorial_using_haxe_and_openfl_part_1.html" target="_blank">Tile-Based Game Tutorial using Haxe and OpenFL</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/61_particle_system_in_openfl_using_tilesheet.html" target="_blank">Particle System in OpenFL</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://player03.com/2014/08/14/template-basics/" target="_blank">OpenFL Template Basics: Overriding AndroidManifest.xml</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=80" target="_blank">Fast 2D Rendering Using Tilemap in OpenFL 4</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/73_fast_2d_rendering_using_tilemap_in_openfl_4.html" target="_blank">Fast 2D Rendering Using Tilemap in OpenFL 4</a>
 
  
 ### Advanced
@@ -39,27 +39,27 @@ redirect_from: /learn/tutorials/
 
 #### HaxeFlixel
 
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=44" target="_blank">HaxeFlixel Tutorial: Getting Started</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/37_haxeflixel_tutorial_getting_started.html" target="_blank">HaxeFlixel Tutorial: Getting Started</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxeflixel.com/documentation/tutorials/" target="_blank">HaxeFlixel Tutorials</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=45" target="_blank">HaxeFlixel RPG Tutorial</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/38_haxeflixel_rpg_tutorial_part_1.html" target="_blank">HaxeFlixel RPG Tutorial</a>
 
 
 #### HaxePunk
 
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=31" target="_blank">HaxePunk Tutorial: Getting Started</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=32" target="_blank">HaxePunk Shooting Game Tutorial</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/24_haxepunk_tutorial_getting_started.html" target="_blank">HaxePunk Tutorial: Getting Started</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/25_haxepunk_shooting_game_tutorial_part_1.html" target="_blank">HaxePunk Shooting Game Tutorial</a>
 
 
 #### HaxeUI
 
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=70" target="_blank">Introduction to HaxeUI</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=71" target="_blank">Using XML Layouts in HaxeUI</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=72" target="_blank">IDs and Event Listeners in HaxeUI</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=73" target="_blank">Popups in HaxeUI</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=74" target="_blank">Styling in HaxeUI</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=75" target="_blank">HaxeUI Roots</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=76" target="_blank">Accordions in HaxeUI</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxecoder.com/post.php?id=77" target="_blank">ListView in HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/63_introduction_to_haxeui.html" target="_blank">Introduction to HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/64_using_xml_layouts_in_haxeui.html" target="_blank">Using XML Layouts in HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/65_ids_and_event_listeners_in_haxeui.html" target="_blank">IDs and Event Listeners in HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/66_popups_in_haxeui.html" target="_blank">Popups in HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/67_styling_in_haxeui.html" target="_blank">Styling in HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/68_haxeui_roots.html" target="_blank">HaxeUI Roots</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/69_accordions_in_haxeui.html" target="_blank">Accordions in HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/70_listview_in_haxeui.html" target="_blank">ListView in HaxeUI</a>
 
 
 ### Video Tutorials
