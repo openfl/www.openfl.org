@@ -124,7 +124,7 @@ class Main extends Sprite {
 		
 		super ();
 		
-		Assets.loadLibrary ("library", function (_) {
+		Assets.loadLibrary ("library").onComplete (function (_) {
 			
 			var clip = Assets.getMovieClip ("library:MySymbolClass");
 			addChild (clip);
