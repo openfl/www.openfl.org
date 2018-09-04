@@ -56,7 +56,7 @@ There are additional features as well. Adding a `preload` attribute can help you
 Unless you have used `preload="true"` in your `<library />` tag, before you are able to use content from a SWF library, you must load the library first:
 
 ```java
-Assets.loadLibrary ("swf-library", function (_) {
+Assets.loadLibrary ("swf-library").onComplete (function (_) {
 	
 	trace ("SWF library loaded");
 	
@@ -124,7 +124,7 @@ class Main extends Sprite {
 		
 		super ();
 		
-		Assets.loadLibrary ("library", function (_) {
+		Assets.loadLibrary ("library").onComplete (function (_) {
 			
 			var clip = Assets.getMovieClip ("library:MySymbolClass");
 			addChild (clip);
