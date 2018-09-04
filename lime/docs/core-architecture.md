@@ -1,5 +1,6 @@
 ---
 title: Core Architecture
+redirect_to: http://lime.software/
 ---
 
 ## Command-Line Tools
