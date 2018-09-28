@@ -26,7 +26,7 @@ HXP is also compatible with being pre-compiled into Neko or other binaries as we
 
 What does an HXP script look like? Here's a quick example:
 
-```haxe
+```js
 // script.hx
 class Script {
 	public function new () {
@@ -48,7 +48,7 @@ HELLO FROM HXP
 
 We can spice this up with more commands. For example, this script creates a new directory (if not present), compiles Haxe code, then runs a local web server for testing HTML5 content:
 
-```haxe
+```js
 class Script {
 
     public function new () {
@@ -69,7 +69,7 @@ For convenience, you can also execute scripts using the `-verbose` or `-v` flag,
 
 Optionally, you can extend the `hxp.Script` class for automatic parsing of arguments. For example, consider this case:
 
-```haxe
+```js
 class Script extends hxp.Script {
 
     public function new () {
