@@ -58,7 +58,7 @@ class Script {
         var hxml = new HXML ({ cp: ["src"], main: "Main.hx", js: "bin/index.js" });
         hxml.build ();
 		
-        PlatformTools.startWebServer ("bin");
+        PlatformTools.launchWebServer ("bin");
         
     }
     
