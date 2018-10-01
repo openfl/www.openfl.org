@@ -46,15 +46,15 @@ hxp
 HELLO FROM HXP
 ```
 
-We can spice this up with more commands. For example, this script creates a new directory (if not present), compiles Haxe code, then runs a local web server for testing HTML5 content:
+We can spice this up with more commands. For example, this script compiles Haxe code, then runs a local web server for testing HTML5 content. This script assumes there is an "index.html" in the "bin" directory, though larger scripts can copy template files, similar to the Lime tools
 
 ```js
+import hxp.*;
+
 class Script {
 
     public function new () {
     
-        System.mkdir ("bin");
-		
         var hxml = new HXML ({ cp: ["src"], main: "Main.hx", js: "bin/index.js" });
         hxml.build ();
 		
