@@ -350,8 +350,6 @@ sprite.addEventListener (MouseEvent.MOUSE_UP, function (e) {
 {% endcapture %}
 {% include code.md %}
 
-Now, if you click on the icon, you should get a browser `alert` message that you clicked the object.
-
 {% capture embed %}
 var Bitmap = openfl.display.Bitmap;
 var BitmapData = openfl.display.BitmapData;
