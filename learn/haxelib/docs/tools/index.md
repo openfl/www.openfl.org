@@ -24,7 +24,7 @@ Some of the commands have slightly different behavior, as using the `openfl` com
 
 You can read more about the Lime command-line tools in the Lime documentation:
 
- * [Command-Line Tools](http://lime.software/docs/command-line-tools/) (Lime)
+ * [Command-Line Tools](https://lime.software/docs/command-line-tools/basic-commands/) (Lime)
 
 The OpenFL tools also include support for processing SWF-based assets, to prepare them for use on the HTML5 and native platform targets. This is performed automatically when using OpenFL (whether you use `lime` or `openfl` to access those commands), or it can be done separately using the `openfl process` command:
 
