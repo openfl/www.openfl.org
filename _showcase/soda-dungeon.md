@@ -1,8 +1,11 @@
 ---
-title: Escape the Office
+title: Soda Dungeon
 developer: Afro-Ninja Productions
-image: EscapeTheOffice.jpg
-link: http://www.afro-ninja.com/game/71
-android: https://play.google.com/store/apps/details?id=com.afroninja.escape7
-flash: http://www.addictinggames.com/puzzle-games/escape-the-office-game.jsp
+publisher: Armor Games
+image: SodaDungeon.jpg
+link: https://armorgamesstudios.com/games/soda-dungeon/
+windows: http://store.steampowered.com/app/564710/
+ios: https://itunes.apple.com/us/app/soda-dungeon/id1006414665?mt=8
+android: https://play.google.com/store/apps/details?id=com.armorgames.sodadungeon
+amazon: https://www.amazon.com/dp/B078PTH5SM/
 ---
