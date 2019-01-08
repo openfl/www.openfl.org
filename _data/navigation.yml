@@ -102,7 +102,7 @@
         url: /learn/haxelib/tutorials/using-swf-assets/
     - title: API
       url: http://api.openfl.org
-- title: Blog
-  url: /blog/
+#- title: Blog
+#  url: /blog/
 - title: Community
   url: http://community.openfl.org
