@@ -177,7 +177,7 @@ If you already started your project (using `npm start`), the browser window shou
 There are more sample projects with additional features (such as sound, animation and video) in each of the OpenFL samples repositories:
 
  - [https://github.com/openfl/openfl-samples-ts](https://github.com/openfl/openfl-samples-ts)
- - [https://github.com/openfl/openfl-samples](https://github.com/openfl/openfl-samples)
+ - [https://github.com/openfl/openfl-samples-haxe](https://github.com/openfl/openfl-samples-haxe)
  - [https://github.com/openfl/openfl-samples-es6](https://github.com/openfl/openfl-samples-es6)
  - [https://github.com/openfl/openfl-samples-es5](https://github.com/openfl/openfl-samples-es5)
 
