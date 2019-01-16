@@ -5,7 +5,7 @@ redirect_from: learn/npm/adding-animation/
 
 ## Setup
 
-_You may find a completed "features/display/AddingAnimation" sample project for [TypeScript](https://github.com/openfl/openfl-samples-ts), [Haxe](https://github.com/openfl/openfl-samples/tree/master/npm), [ES6](https://github.com/openfl/openfl-samples-es6) or [ES5](https://github.com/openfl/openfl-samples-es5) online, the following describes how to add animation from an empty project or from the previous [Displaying a Bitmap](../displaying-a-bitmap)._
+_You may find a completed "features/display/AddingAnimation" sample project for [TypeScript](https://github.com/openfl/openfl-samples-ts), [Haxe](https://github.com/openfl/openfl-samples-haxe), [ES6](https://github.com/openfl/openfl-samples-es6) or [ES5](https://github.com/openfl/openfl-samples-es5) online, the following describes how to add animation from an empty project or from the previous [Displaying a Bitmap](../displaying-a-bitmap)._
 
 If you have completed the [Displaying a Bitmap](../displaying-a-bitmap) tutorial, you can continue using the same project files. Otherwise you can run the following commands:
 
