@@ -4,7 +4,7 @@ title: Displaying a Bitmap
 
 ## Setup
 
-_You may find a completed "features/display/DisplayingABitmap" sample project for [TypeScript](https://github.com/openfl/openfl-samples-ts), [Haxe](https://github.com/openfl/openfl-samples/tree/master/npm), [ES6](https://github.com/openfl/openfl-samples-es6) or [ES5](https://github.com/openfl/openfl-samples-es5) online, the following describes how to add and display a bitmap image from an empty project._
+_You may find a completed "features/display/DisplayingABitmap" sample project for [TypeScript](https://github.com/openfl/openfl-samples-ts), [Haxe](https://github.com/openfl/openfl-samples-haxe), [ES6](https://github.com/openfl/openfl-samples-es6) or [ES5](https://github.com/openfl/openfl-samples-es5) online, the following describes how to add and display a bitmap image from an empty project._
 
 Run the following commands:
 
