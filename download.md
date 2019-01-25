@@ -28,9 +28,10 @@ yo openfl
 		<p>There are many OpenFL samples you can try, depending on the code environment you wish to use:</p>
 		<ul>
 			<li><a href="https://github.com/openfl/openfl-samples-ts" target="_blank">TypeScript</a></li>
-			<li><a href="https://github.com/openfl/openfl-samples" target="_blank">Haxe</a></li>
+			<li><a href="https://github.com/openfl/openfl-samples-haxe" target="_blank">Haxe</a></li>
 			<li><a href="https://github.com/openfl/openfl-samples-es6" target="_blank">ES6 JavaScript</a></li>
 			<li><a href="https://github.com/openfl/openfl-samples-es5" target="_blank">ES5 JavaScript</a></li>
+			<li><a href="https://github.com/openfl/openfl-samples-as3" target="_blank">ActionScript</a></li>
 		</ul>
 		<p>Choose a sample, then <code>npm install</code> and <code>npm start</code> in the local directory to start a development server (with hot-reloading enabled):</p>
 {% highlight bash %}
