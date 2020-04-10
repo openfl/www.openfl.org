@@ -47,8 +47,8 @@ npm start
 		<h2>Haxelib <small><i>(Option 2)</i></small></h2>
 		<p>OpenFL is also available on haxelib, supporting HTML5, native desktop, mobile, AIR and Flash development from a single toolset and the Haxe programming language. To get started, install Haxe globally on your system:</p>
 		<ul>
-			<li><a href="https://github.com/HaxeFoundation/haxe/releases/download/3.4.4/haxe-3.4.4-win64.exe">Windows</a></li>
-			<li><a href="https://github.com/HaxeFoundation/haxe/releases/download/3.4.4/haxe-3.4.4-osx-installer.pkg">macOS</a></li>
+			<li><a href="https://github.com/HaxeFoundation/haxe/releases/download/4.0.5/haxe-4.0.5-win64.exe">Windows</a></li>
+			<li><a href="https://github.com/HaxeFoundation/haxe/releases/download/4.0.5/haxe-4.0.5-osx-installer.pkg">macOS</a></li>
 			<li><a href="https://haxe.org/download/linux/" target="_blank">Linux</a></li>
 		</ul>
 		<p>With the latest versions of Haxe and Neko installed, open a command-prompt (Windows) or terminal (macOS/Linux) and run these commands:</p>
