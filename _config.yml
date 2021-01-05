@@ -48,5 +48,5 @@ redcarpet:
 feed:
   path: blog/rss.xml
 url: http://www.openfl.org
-exclude: [ "node_modules", "README.md", "Gemfile", "Gemfile.lock", "package-lock.json" ]
+exclude: [ "node_modules", "README.md", "Gemfile", "Gemfile.lock", "package-lock.json", "vendor" ]
 emptyArray: []
