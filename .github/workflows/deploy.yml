@@ -11,8 +11,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the site in the jekyll/builder container
+
+    - name: Install dependencies
       run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && _scripts/install.sh && _scripts/build.sh && _scripts/deploy.sh"
+        _scripts/install.sh
+    
+    - name: Build site
+      run: |
+        _scripts/build.sh
+    
+    - name: Deploy to AWS
+      run: |
+        _scripts/deploy.sh

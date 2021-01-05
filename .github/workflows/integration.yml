@@ -1,8 +1,8 @@
-name: Continuous Integration (Pull Requests)
+name: Continuous Integration
 
 on:
-  #push:
-  #  branches: [ master ]
+  push:
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
