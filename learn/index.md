@@ -43,7 +43,7 @@ a.large-btn .glyphicon {
 	API
 </a>
 <a href="http://try.openfl.org" class="btn btn-default btn-lg text-center large-btn" role="button">
-	<span class="glyphicon glyphicon-bicycle"></span>
+	<span class="glyphicon glyphicon-globe"></span>
 	Try Online
 </a>
 
