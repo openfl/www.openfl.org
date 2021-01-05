@@ -1,8 +1,8 @@
-name: Jekyll site CI
+name: Continuous Integration (Pull Requests)
 
 on:
-  push:
-    branches: [ master ]
+  #push:
+  #  branches: [ master ]
   pull_request:
     branches: [ master ]
 
