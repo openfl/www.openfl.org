@@ -183,6 +183,6 @@ There are more sample projects with additional features (such as sound, animatio
 
 Each of the samples can be tested using `npm install` then `npm start`
 
-You can also build on this example by going through the [Displaying a Bitmap](learn/npm/tutorials/displaying-a-bitmap/) tutorial.
+You can also build on this example by going through the [Displaying a Bitmap](../tutorials/displaying-a-bitmap/) tutorial.
 
 Having any trouble? Go to our helpful [community](http://community.openfl.org/c/help) and post a question, we would love to help!
