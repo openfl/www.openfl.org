@@ -40,7 +40,7 @@ redirect_from: /learn/tutorials/
 #### HaxeFlixel
 
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/37_haxeflixel_tutorial_getting_started.html" target="_blank">HaxeFlixel Tutorial: Getting Started</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxeflixel.com/documentation/tutorials/" target="_blank">HaxeFlixel Tutorials</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="http://haxeflixel.com/documentation/tutorial/" target="_blank">HaxeFlixel Tutorials</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/38_haxeflixel_rpg_tutorial_part_1.html" target="_blank">HaxeFlixel RPG Tutorial</a>
 
 
