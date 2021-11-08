@@ -25,14 +25,14 @@ redirect_from: /learn/tutorials/
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/17_displaying_fps_and_memory_usage_using_openfl.html" target="_blank">Displaying FPS and Memory Usage in OpenFL</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/18_tile_based_game_tutorial_using_haxe_and_openfl_part_1.html" target="_blank">Tile-Based Game Tutorial using Haxe and OpenFL</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/61_particle_system_in_openfl_using_tilesheet.html" target="_blank">Particle System in OpenFL</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://player03.com/2014/08/14/template-basics/" target="_blank">OpenFL Template Basics: Overriding AndroidManifest.xml</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://player03.com/openfl/template-basics/" target="_blank">OpenFL Template Basics: Overriding AndroidManifest.xml</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/73_fast_2d_rendering_using_tilemap_in_openfl_4.html" target="_blank">Fast 2D Rendering Using Tilemap in OpenFL 4</a>
 
  
 ### Advanced
 
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://player03.com/2014/08/09/openfl-extensions/" target="_blank">OpenFL Extensions</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="http://player03.com/2014/08/24/hxp/" target="_blank">HXP Projects and Template Directories</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://player03.com/openfl/openfl-extensions/" target="_blank">OpenFL Extensions</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://player03.com/openfl/hxp-projects/" target="_blank">HXP Projects and Template Directories</a>
 
 
 ### Third-Party Frameworks
