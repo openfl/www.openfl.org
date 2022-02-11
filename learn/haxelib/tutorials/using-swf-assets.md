@@ -2,7 +2,7 @@
 title: Using SWF Assets
 redirect_from: /learn/tutorials/using-swf-assets/
 ---
-
+[Full Tutorials List (including external links)](../)
 ## Introduction
 
 OpenFL includes support for decoding many features of SWF assets generated from editors such as Flash Professional and Adobe Animate.
