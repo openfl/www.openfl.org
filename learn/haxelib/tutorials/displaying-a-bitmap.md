@@ -4,7 +4,7 @@ redirect_from:
  - /learn/tutorials/your-first-project/
  - /learn/tutorials/displaying-a-bitmap/
 ---
-
+[Full Tutorials List (including external links)](../)
 ## Creating a New Project
 
 OpenFL includes a "create" command that can help generate an empty or sample project for you.
