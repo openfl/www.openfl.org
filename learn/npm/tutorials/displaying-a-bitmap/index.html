@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Displaying a Bitmap</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    <!-- <script src='/js/openfl.min.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openfl/7.1.2/openfl.min.js"></script>
+    <script src='/js/actuate.min.js'></script>
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<script src='/js/holder.js'></script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-push-4 sidebar-content add-anchors">
+			
+			<div class="page-header">
+				<h1>Displaying a Bitmap</h1>
+				<div class="page-links"><a href="https://github.com/openfl/openfl.org/edit/master/learn/npm/tutorials/displaying-a-bitmap/index.md">Edit Document<span class="page-links-icon glyphicon glyphicon-pencil"></span></a></div>
+			</div>
+			
+			<h2 id="setup">Setup</h2>
+
+<p><em>You may find a completed “features/display/DisplayingABitmap” sample project for <a href="https://github.com/openfl/openfl-samples-ts">TypeScript</a>, <a href="https://github.com/openfl/openfl-samples-haxe">Haxe</a>, <a href="https://github.com/openfl/openfl-samples-es6">ES6</a> or <a href="https://github.com/openfl/openfl-samples-es5">ES5</a> online, the following describes how to add and display a bitmap image from an empty project.</em></p>
+
+<p>Run the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>DisplayingABitmap
+<span class="nb">cd </span>DisplayingABitmap
+yo openfl
+</code></pre></div></div>
+
+<h2 id="add-an-image-file">Add an Image File</h2>
+
+<p>The output of our project will be run from a directory called <code class="language-plaintext highlighter-rouge">dist</code> in the project structure, so adding any new image file in the <code class="language-plaintext highlighter-rouge">dist</code> directory will make it possible to load it in the project.</p>
+
+<p>You can choose any image file you prefer, or download <a href="/learn/npm/tutorials/displaying-a-bitmap/openfl.png">openfl.png</a> and save it under <code class="language-plaintext highlighter-rouge">dist</code>.</p>
+
+<h2 id="loading-a-bitmap">Loading a Bitmap</h2>
+
+<p>Images are not available right away, but must be loaded to use them at runtime. There are multiple ways to load an image from file, including <a href="/learn/npm/api/classes/openfl.display.loader.html"><code>openfl.display.Loader</code></a> or the OpenFL asset library system, but using <a href="/learn/npm/api/classes/openfl.display.bitmapdata.html#loadfromfile"><code>BitmapData.loadFromFile</code></a> is one of the most straightforward.</p>
+
+<p>Add the following imports to the top of your <code class="language-plaintext highlighter-rouge">app.ts</code>, <code class="language-plaintext highlighter-rouge">app.js</code> or <code class="language-plaintext highlighter-rouge">App.hx</code> file, depending upon the language you chose when you generated your project:</p>
+
+<div id="tabset0">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset0-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset0-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset0-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset0-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset0-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Bitmap</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Bitmap</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">BitmapData</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/BitmapData</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset0-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Bitmap</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">BitmapData</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset0-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Bitmap</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Bitmap</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">BitmapData</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/BitmapData</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset0-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Bitmap</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/display/Bitmap</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">BitmapData</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/display/BitmapData</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<p>This will make the <a href="/learn/npm/api/classes/openfl.display.bitmap.html"><code>openfl.display.Bitmap</code></a> and <a href="/learn/npm/api/classes/openfl.display.bitmapdata.html"><code>openfl.display.BitmapData</code></a> types available in our code. Next, we can add some additional code inside of our constructor. After the change, the constructor method should look like this:</p>
+
+<div id="tabset1">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset1-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset1-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset1-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset1-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset1-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">constructor</span> <span class="p">()</span> <span class="p">{</span>
+	
+	<span class="k">super</span> <span class="p">();</span>
+	
+	<span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">((</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		
+		<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+		
+	<span class="p">});</span>
+	
+<span class="p">}</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset1-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">public</span> <span class="kd">function</span> <span class="k">new</span> <span class="p">()</span> <span class="p">{</span>
+	
+	<span class="k">super</span> <span class="p">();</span>
+	
+	<span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+		<span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+		
+	<span class="p">});</span>
+	
+<span class="p">}</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset1-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">constructor</span> <span class="p">()</span> <span class="p">{</span>
+	
+	<span class="k">super</span> <span class="p">();</span>
+	
+	<span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">((</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		
+		<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+		
+	<span class="p">});</span>
+	
+<span class="p">}</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset1-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">App</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+	
+	<span class="nx">Sprite</span><span class="p">.</span><span class="nx">call</span> <span class="p">(</span><span class="k">this</span><span class="p">);</span>
+	
+	<span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+		
+	<span class="p">}.</span><span class="nx">bind</span> <span class="p">(</span><span class="k">this</span><span class="p">));</span>
+	
+<span class="p">}</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<p>Altogether, the your <code class="language-plaintext highlighter-rouge">app.ts</code>, <code class="language-plaintext highlighter-rouge">app.js</code> or <code class="language-plaintext highlighter-rouge">App.hx</code> file should look similar to this:</p>
+
+<div id="tabset2">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset2-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset2-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset2-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset2-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset2-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Bitmap</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Bitmap</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">BitmapData</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/BitmapData</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Sprite</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Sprite</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Stage</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Stage</span><span class="dl">"</span><span class="p">;</span>
+
+
+<span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+	
+	
+	<span class="kd">constructor</span> <span class="p">()</span> <span class="p">{</span>
+		
+		<span class="k">super</span> <span class="p">();</span>
+		
+		<span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">((</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+			
+			<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+			
+		<span class="p">});</span>
+		
+	<span class="p">}</span>
+	
+	
+<span class="p">}</span>
+
+
+<span class="kd">var</span> <span class="nx">stage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stage</span> <span class="p">(</span><span class="mi">550</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mh">0xFFFFFF</span><span class="p">,</span> <span class="nx">App</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span> <span class="p">(</span><span class="nx">stage</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset2-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Bitmap</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">BitmapData</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Sprite</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Stage</span><span class="p">;</span>
+
+
+<span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+	
+	
+	<span class="kr">public</span> <span class="kd">function</span> <span class="k">new</span> <span class="p">()</span> <span class="p">{</span>
+		
+		<span class="k">super</span> <span class="p">();</span>
+		
+		<span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="p">{</span>
+			
+			<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+			<span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+			
+		<span class="p">});</span>
+		
+	<span class="p">}</span>
+	
+	
+	<span class="kd">static</span> <span class="kd">function</span> <span class="nx">main</span> <span class="p">()</span> <span class="p">{</span>
+		
+		<span class="kd">var</span> <span class="nx">stage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stage</span> <span class="p">(</span><span class="mi">550</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mh">0xFFFFFF</span><span class="p">,</span> <span class="nx">App</span><span class="p">);</span>
+		<span class="nx">js</span><span class="p">.</span><span class="nx">Browser</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span> <span class="p">(</span><span class="nx">stage</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+		
+	<span class="p">}</span>
+	
+	
+<span class="p">}</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset2-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Bitmap</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Bitmap</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">BitmapData</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/BitmapData</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Sprite</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Sprite</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Stage</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Stage</span><span class="dl">"</span><span class="p">;</span>
+
+
+<span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+	
+	
+	<span class="kd">constructor</span> <span class="p">()</span> <span class="p">{</span>
+		
+		<span class="k">super</span> <span class="p">();</span>
+		
+		<span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">((</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+			
+			<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+			
+		<span class="p">});</span>
+		
+	<span class="p">}</span>
+	
+	
+<span class="p">}</span>
+
+
+<span class="kd">var</span> <span class="nx">stage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stage</span> <span class="p">(</span><span class="mi">550</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mh">0xFFFFFF</span><span class="p">,</span> <span class="nx">App</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span> <span class="p">(</span><span class="nx">stage</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset2-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Bitmap</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/display/Bitmap</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">BitmapData</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/display/BitmapData</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">Sprite</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/display/Sprite</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">Stage</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/display/Stage</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+
+
+<span class="kd">var</span> <span class="nx">App</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+	
+	<span class="nx">Sprite</span><span class="p">.</span><span class="nx">call</span> <span class="p">(</span><span class="k">this</span><span class="p">);</span>
+	
+	<span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+		
+	<span class="p">}.</span><span class="nx">bind</span> <span class="p">(</span><span class="k">this</span><span class="p">));</span>
+	
+<span class="p">}</span>
+
+<span class="nx">App</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">Sprite</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span>
+
+
+<span class="kd">var</span> <span class="nx">stage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stage</span> <span class="p">(</span><span class="mi">550</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mh">0xFFFFFF</span><span class="p">,</span> <span class="nx">App</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span> <span class="p">(</span><span class="nx">stage</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<p><a href="/learn/npm/api/classes/openfl.display.bitmapdata.html#loadfromfile"><code>BitmapData.loadFromFile</code></a> is a method to load a single bitmap, and returns an <a href="/learn/npm/api/classes/openfl.utils.future.html"><code>openfl.utils.Future</code></a>. An OpenFL <a href="/learn/npm/api/classes/openfl.utils.future.html"><code>Future</code></a> accepts callbacks for progress (<code class="language-plaintext highlighter-rouge">onProgress (function (bytesLoaded, bytesTotal) {})</code>), errors (<code class="language-plaintext highlighter-rouge">onError (function (error) {})</code>) as well as completion (<code class="language-plaintext highlighter-rouge">onComplete (function (value) {})</code>).</p>
+
+<p>In this case, we are receiving an <a href="/learn/npm/api/classes/openfl.display.bitmapdata.html"><code>openfl.display.BitmapData</code></a> object of our image file. Once it is loaded as a bitmap, we can get pixels, change pixels, copy pixels between images, or for this sample, render it.</p>
+
+<p>The simplest way to display <a href="/learn/npm/api/classes/openfl.display.bitmapdata.html"><code>BitmapData</code></a> is using <a href="/learn/npm/api/classes/openfl.display.bitmap.html"><code>openfl.display.Bitmap</code></a>, which accepts a <a href="/learn/npm/api/classes/openfl.display.bitmapdata.html"><code>BitmapData</code></a> as the first argument:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>This can be added to the object model, or “display list”, to be visible when the OpenFL renderer enters a new frame.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div id="embed-0" class="openfl-embed" style="max-width: 550px; max-height: 400px;"></div>
+<script type="text/javascript">
+(function () {
+	
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		this.addChild (bitmap);
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+	
+	var stage = new Stage (550, 400, 0xFFFFFF, App, { renderer: "dom" });
+	document.getElementById ("embed-0").appendChild (stage.element);
+	
+})();
+</script>
+
+<h2 id="manipulating-the-bitmap">Manipulating the Bitmap</h2>
+
+<p>Now that our image is visible, you can try changing properties common to all <a href="/learn/npm/api/classes/openfl.display.displayobject.html"><code>openfl.display.DisplayObject</code></a> instances. Common properties include <a href="/learn/npm/api/classes/openfl.display.displayobject.html#x"><code>x</code></a>, <a href="/learn/npm/api/classes/openfl.display.displayobject.html#y"><code>y</code></a>, <a href="/learn/npm/api/classes/openfl.display.displayobject.html#alpha"><code>alpha</code></a>, <a href="/learn/npm/api/classes/openfl.display.displayobject.html#rotation"><code>rotation</code></a>, <a href="/learn/npm/api/classes/openfl.display.displayobject.html#scalex"><code>scaleX</code></a> and <a href="/learn/npm/api/classes/openfl.display.displayobject.html#scaley"><code>scaleY</code></a>.</p>
+
+<p>For example:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="nx">bitmap</span><span class="p">.</span><span class="nx">rotation</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">;</span>
+<span class="nx">bitmap</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div id="embed-1" class="openfl-embed" style="max-width: 550px; max-height: 400px;"></div>
+<script type="text/javascript">
+(function () {
+	
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		this.addChild (bitmap);
+		bitmap.x = 10;
+		bitmap.y = 200;
+		bitmap.rotation = -10;
+		bitmap.alpha = 0.5;
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+	
+	var stage = new Stage (550, 400, 0xFFFFFF, App, { renderer: "dom" });
+	document.getElementById ("embed-1").appendChild (stage.element);
+	
+})();
+</script>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Once you feel you have mastered this step, let’s make it more exciting by <a href="../adding-animation">Adding Animation</a>. Problems or concerns? Visit our helpful <a href="http://community.openfl.org/">community</a> and we would be glad to help you!</p>
+
+			
+		</div>
+		<div class="col-md-4 col-md-pull-8 sidebar add-anchors">
+			
+			
+			
+			
+			
+			
+			
+			
+
+<div class="collapse in" id="nav-sidebar-0">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/" >Introduction</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-1"  data-toggle="collapse">NPM</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-1">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/getting-started/" >Getting Started</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-2"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-2">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/displaying-a-bitmap/" class="active">Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/adding-animation/" >Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/handling-mouse-events/" >Handling Mouse Events</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/api/" >API Reference</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-3"  data-toggle="collapse">Haxelib</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-3">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-4"  data-toggle="collapse">Documentation</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-4">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/core-architecture/" >Core Architecture</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/project-files/" >Project Files</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/tools/" >Tools</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-5"  data-toggle="collapse">Books</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-5">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://books.openfl.org/openfl-developers-guide/" target="_blank" />OpenFL Developer's Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://books.openfl.org/as3-conversion-guide/" target="_blank" />ActionScript 3.0 Conversion Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://www.openflbook.com" target="_blank" />Videojuegos Multiplataforma con OpenFL</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-6"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-6">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/displaying-a-bitmap/" >Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/adding-animation/" >Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/using-swf-assets/" >Using SWF Assets</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://api.openfl.org" target="_blank" />API</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+</ul>
+</div>
+			
+			
+			
+			
+			
+		</div>
+	</div>
+</div>
+<script>
+	anchors.options = {
+		placement: "right",
+		visible: "always",
+		icon: "",
+		class: "glyphicon glyphicon-link"
+	};
+	anchors.add ("div.add-anchors > h1, div.add-anchors > h2");
+</script>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

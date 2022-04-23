@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>OpenFL 4.7 and Lime 3.7 Released</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>OpenFL 4.7 and Lime 3.7 Released</h1></div>
+<!-- <p class="meta">24 Jan 2017</p> -->
+
+<div class="post">
+<p>New versions of OpenFL and Lime are available!</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl upgrade
+</code></pre></div></div>
+
+<h2 id="openfl">OpenFL</h2>
+
+<h3 id="470-01242017">4.7.0 (01/24/2017)</h3>
+
+<ul>
+  <li>Added support for high-DPI HTML5 output</li>
+  <li>Added BitmapData.loadFromBase64/loadFromBytes/loadFromFile</li>
+  <li>Added handling for UP/DOWN/HOME/END keyboard shortcuts in TextField</li>
+  <li>Added stage.fullscreenWidth/fullscreenHeight</li>
+  <li>Added support for Lime 3.7 simulated preloader progress</li>
+  <li>Improved selection of multi-line text in TextField</li>
+  <li>Improved the behavior of bitmapData.paletteMap</li>
+  <li>Improved text measurement for HTML5 input TextField</li>
+  <li>Improved sharpness of HTML5 vector shape rendering</li>
+  <li>Deprecated async callbacks in BitmapData.fromBase64/fromBytes/fromFile</li>
+  <li>Fixed support for the “rect” argument in bitmapData.encode</li>
+  <li>Fixed use of textField.setTextFormat when text is empty</li>
+  <li>Fixed support for openfl.printing.PrintJob on Flash Player</li>
+  <li>Fixed support for SWF-based assets on iOS and Flash</li>
+  <li>Fixed use of deprecated NMEPreloader class</li>
+  <li>Fixed use of font names on HTML5 that may already be quoted</li>
+</ul>
+
+<h3 id="460-01202017">4.6.0 (01/20/2017)</h3>
+
+<ul>
+  <li>Added (initial) support for openfl.printing.PrintJob on HTML5</li>
+  <li>Added a stub for stage.softKeyboardRect to fix compilation</li>
+  <li>Made stageWidth and stageHeight read-only on Flash target</li>
+  <li>Updated AGALMiniAssembler to a newer release from the Gaming SDK</li>
+  <li>Improved rendering for multi-line text selections</li>
+  <li>Changed the default font hint style to something more subtle</li>
+  <li>Fixed some cases where textField.getCharIndex would work improperly</li>
+  <li>Fixed issues where tile.rotation resulted in flipped objects</li>
+  <li>Fixed problems with scaleX, scaleY and rotation interacting improperly</li>
+</ul>
+
+<p><em>Additional changes for previous releases are available <a href="https://github.com/openfl/openfl/blob/develop/CHANGELOG.md">here</a></em></p>
+
+<h2 id="lime">Lime</h2>
+
+<h3 id="370-01242017">3.7.0 (01/24/2017)</h3>
+
+<ul>
+  <li>Added <code class="language-plaintext highlighter-rouge">&lt;define /&gt;</code> (implies <code class="language-plaintext highlighter-rouge">&lt;set /&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;haxedef /&gt;</code>)</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">&lt;dependency force-load="" /&gt;</code> (will default to false in Lime 4)</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">-Dsimulate-preloader=3000</code> for simulating preload progress</li>
+  <li>Improved Image.loadFromBase64/loadFromBytes/loadFromFile on HTML5</li>
+  <li>Improved Image.loadFromBytes/loadFromFile support on Flash target</li>
+  <li>Improved support for “library.json” files that are not embedded</li>
+  <li>Improved support for browsers that do not have context.isPointInPath</li>
+  <li>Improved <code class="language-plaintext highlighter-rouge">lime setup linux</code> command for some newer environments</li>
+  <li>Improved caching behavior of text assets in AssetLibrary</li>
+  <li>Improved seeking behavior for AudioSource on native targets</li>
+  <li>Improved preload behavior on Flash target</li>
+  <li>Fixed metadata-based font embedding for Flash Player</li>
+  <li>Fixed issues with Windows paths when building tools with Haxe 3.4</li>
+  <li>Fixed preloading of fonts similar to default sans-serif on HTML5</li>
+  <li>Fixed base path for assets loaded from non-default asset libraries</li>
+  <li>Fixed scale of mouse events dispatched for high-DPI HTML5 windows</li>
+</ul>
+
+<h3 id="362-01202017">3.6.2 (01/20/2017)</h3>
+
+<ul>
+  <li>Improved error when making a directory on an unavailable drive letter</li>
+  <li>Fixed regression in support for HTML5 font preloading</li>
+  <li>Fixed possible font overflow when embedding fonts on Flash target</li>
+  <li>Fixed crash on Neko when using AudioSource with no AudioBuffer</li>
+</ul>
+
+<h3 id="361-01182017">3.6.1 (01/18/2017)</h3>
+
+<ul>
+  <li>Added streaming audio support to AudioSource</li>
+  <li>Fixed issues in bytesLoaded/bytesTotal calculation</li>
+  <li>Fixed a regression in support for static-linking</li>
+  <li>Fixed a regression in support for lime.utils.JNI</li>
+</ul>
+
+<p><em>Additional changes for previous releases are available <a href="https://github.com/openfl/lime/blob/develop/CHANGELOG.md">here</a></em></p>
+
+<p>Thank you again to all of our <a href="http://www.patreon.com/openfl">Patreon</a> supporters and awesome contributors!</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">January 24, 2017 | <a href="/blog/2017/01/24/openfl-4-7-and-lime-3-7-released/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

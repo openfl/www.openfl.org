@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Developer Spotlight&#58; Danny Yaroslavski</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>Developer Spotlight&#58; Danny Yaroslavski</h1></div>
+<!-- <p class="meta">08 Nov 2014</p> -->
+
+<div class="post">
+<p><em>Today in the Developer Spotlight, we chat with Danny Yaroslavski, the creator of Lightbot, an imaginative programming game for all ages.</em></p>
+
+<p><img src="/images/spotlight/DeveloperSpotlight.png" alt="Developer Spotlight" /></p>
+
+<p><span style="font-size: 120%"><strong>Tell us a bit about yourself Danny. What is your background? What got your started in game development?</strong></span></p>
+
+<p>My name is Danny Yaroslavski, and I’m the founder of Lightbot Inc, a learn-to-code company that makes games to teach kids coding logic. I started making basic games and animations in Flash when I was 12, and as I went through high school, I’d continue to make Flash games and get a lot of great exposure on websites like ArmorGames, Kongregate and Newgrounds. That lead me to later work at games companies like ArmorGames and EA. Today, with a Bachelor of Computer Science in hand, <em>Lightbot</em> is my full-time job.</p>
+
+<p><img src="/blog/assets/Lightbot-1.png" alt="Lightbot" /></p>
+
+<p><span style="font-size: 120%"><strong>Where did you come up with the idea for the game?</strong></span></p>
+
+<p>One of the games that I created while in high school was a puzzle game called <em>light-bot</em>. I took inspiration from a <a href="http://www.newgrounds.com/portal/view/200730">simpler game</a> where you could write codes to guide a robot to pick up computer chips, and imagined creating something that could be more accessible for kids to play with, with polished graphics and charming character design. That game really took off with programmers and non-programmers alike. Coming back to it in 2013, I recreated the game from the ground up to be education-friendly and cross-platform.</p>
+
+<p><span style="font-size: 120%"><strong>Are there any funny unintended moments that happened during the course of development?</strong></span></p>
+
+<p>What’s really funny about <em>Lightbot</em> is that it wasn’t initially intended to be an educational game at all. After it was released, it caught the attention of coding teachers, who then were using it as their go-to introductory tool for teaching. One of the most memorable emails I received was from a grade school teacher in Russia, with a photo attached of his whole classroom playing the Flash game with smiles on their faces. It was then that I knew <em>Lightbot</em> was meant for something bigger than being simply a for-entertainment game.</p>
+
+<p><img src="/blog/assets/Lightbot-2.png" alt="Lightbot" /></p>
+
+<p><span style="font-size: 120%"><strong>What was the best part of creating <em>Lightbot</em>?</strong></span></p>
+
+<p>It is always heartwarming to see teachers’ and parents’ tweets of their students and kids playing <em>Lightbot</em>, all the while developing algorithmic thinking. It’s great knowing that I’m able to share my passion for coding with so many young minds.</p>
+
+<p><span style="font-size: 120%"><strong>What was your experience like with OpenFL?</strong></span></p>
+
+<p>First off, OpenFL made it easy to transition from my experience making games in Flash and then transitioning to creating cross-platform apps.</p>
+
+<p>The best part about the OpenFL framework is being able to write in a single codebase, and yet deploy to every platform imaginable, simply by running a different command (ie. “test flash” becomes “test android” becomes “test html5”). The language you code in, Haxe, is extremely versatile, and allows for high-level object-oriented coding. Your Haxe code is then compiled to a native app for whichever platform you target.</p>
+
+<p>OpenFL doesn’t force you to write code in any particular way, and is itself open-source, meaning that new features are always being added. If something doesn’t work as you’d like it to, you also have the freedom to jump into the OpenFL code itself and hack around to get it working your way. For those particular features that require different execution on different platforms, like say, touch events on mobile versus click events on computers, additional conditional compilations instructions can be embedded in the code directly (ie. “#if flash … #elseif android … #else …”).</p>
+
+<p>There’s a whole team of dedicated coders who contribute to the OpenFL project regularly, as well as a community of Haxe developers ready to help newcomers on the OpenFL forums.</p>
+
+<p><img src="/blog/assets/Lightbot-3.png" alt="Lightbot" /></p>
+
+<p><span style="font-size: 120%"><strong>What advice would you give a new developer who wants to get started?</strong></span></p>
+
+<p>Just jump in. Download Haxe and OpenFL, and try to run a project on your computer. Within ten minutes, you can have a running application on multiple platforms, using the same codebase. Learning the language, Haxe, is easy as well. It is very similar in syntax and structure to languages you’re likely familiar with, whether you come from an AS3, C++, Java or Javascript background.</p>
+
+<p>Why spend time developing for one platform in particular, and then rewrite code each time you want to target another platform? OpenFL gives you the opportunity to know that the code you write today, for the platform you’re targeting now, can be later reused on a multitude of other platforms in the future.</p>
+
+<p>OpenFL is really the reason why <em>Lightbot</em> is where it is today, and can be downloaded and played on Windows, Mac, iOS, Android, Flash and HTML5. In my opinion, OpenFL is your best bet for any developer planning on writing cross-platform applications, especially video games.</p>
+
+<p>You can find out more about <em>Lightbot</em> at <a href="http://www.lightbot.com">lightbot.com</a>.</p>
+
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">November 8, 2014 | <a href="/blog/2014/11/08/developer-spotlight-danny-yaroslavski/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,501 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Transform | openfl</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">openfl</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../index.html">openfl</a>
+				</li>
+				<li>
+					<a href="../modules/openfl.geom.html">geom</a>
+				</li>
+				<li>
+					<a href="openfl.geom.transform.html">Transform</a>
+				</li>
+			</ul>
+			<h1>Class Transform</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The Transform class provides access to color adjustment properties and two-
+							or three-dimensional transformation objects that can be applied to a
+							display object. During the transformation, the color or the orientation and
+							position of a display object is adjusted(offset) from the current values
+							or coordinates to new values or coordinates. The Transform class also
+							collects data about color and two-dimensional matrix transformations that
+							are applied to a display object and all of its parent objects. You can
+							access these combined transformations through the
+							<code>concatenatedColorTransform</code> and <code>concatenatedMatrix</code>
+						properties.</p>
+					</div>
+					<p>To apply color transformations: create a ColorTransform object, set the
+						color adjustments using the object&#39;s methods and properties, and then
+						assign the <code>colorTransformation</code> property of the
+						<code>transform</code> property of the display object to the new
+					ColorTransformation object.</p>
+					<p>To apply two-dimensional transformations: create a Matrix object, set
+						the matrix&#39;s two-dimensional transformation, and then assign the
+						<code>transform.matrix</code> property of the display object to the new
+					Matrix object.</p>
+					<p>To apply three-dimensional transformations: start with a
+						three-dimensional display object. A three-dimensional display object has a
+						<code>z</code> property value other than zero. You do not need to create
+						the Matrix3D object. For all three-dimensional objects, a Matrix3D object
+						is created automatically when you assign a <code>z</code> value to a
+						display object. You can access the display object&#39;s Matrix3D object through
+						the display object&#39;s <code>transform</code> property. Using the methods of
+						the Matrix3D class, you can add to or modify the existing transformation
+						settings. Also, you can create a custom Matrix3D object, set the custom
+						Matrix3D object&#39;s transformation elements, and then assign the new Matrix3D
+						object to the display object using the <code>transform.matrix</code>
+					property.</p>
+					<p>To modify a perspective projection of the stage or root object: use the
+						<code>transform.matrix</code> property of the root display object to gain
+						access to the PerspectiveProjection object. Or, apply different perspective
+						projection properties to a display object by setting the perspective
+						projection properties of the display object&#39;s parent. The child display
+						object inherits the new properties. Specifically, create a
+						PerspectiveProjection object and set its properties, then assign the
+						PerspectiveProjection object to the <code>perspectiveProjection</code>
+						property of the parent display object&#39;s <code>transform</code> property.
+						The specified projection transformation then applies to all the display
+					object&#39;s three-dimensional children.</p>
+					<p>Since both PerspectiveProjection and Matrix3D objects perform
+						perspective transformations, do not assign both to a display object at the
+						same time. Use the PerspectiveProjection object for focal length and
+						projection center changes. For more control over the perspective
+					transformation, create a perspective projection Matrix3D object.</p>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Transform</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-external"><a href="openfl.geom.transform.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.geom.transform.html#colortransform" class="tsd-kind-icon">color<wbr>Transform</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.geom.transform.html#concatenatedcolortransform" class="tsd-kind-icon">concatenated<wbr>Color<wbr>Transform</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.geom.transform.html#concatenatedmatrix" class="tsd-kind-icon">concatenated<wbr>Matrix</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.geom.transform.html#matrix" class="tsd-kind-icon">matrix</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.geom.transform.html#matrix3d" class="tsd-kind-icon">matrix3D</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.geom.transform.html#pixelbounds" class="tsd-kind-icon">pixel<wbr>Bounds</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Transform<span class="tsd-signature-symbol">(</span>displayObject<span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.geom.transform.html" class="tsd-signature-type">Transform</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/geom/Transform.d.ts#L134">lib/openfl/geom/Transform.d.ts:134</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>displayObject: <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.geom.transform.html" class="tsd-signature-type">Transform</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="colortransform" class="tsd-anchor"></a>
+					<h3>color<wbr>Transform</h3>
+					<div class="tsd-signature tsd-kind-icon">color<wbr>Transform<span class="tsd-signature-symbol">:</span> <a href="openfl.geom.colortransform.html" class="tsd-signature-type">ColorTransform</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/geom/Transform.d.ts#L74">lib/openfl/geom/Transform.d.ts:74</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A ColorTransform object containing values that universally adjust the
+							colors in the display object.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>throws</dt>
+							<dd><p>TypeError The colorTransform is null when being set</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="concatenatedcolortransform" class="tsd-anchor"></a>
+					<h3>concatenated<wbr>Color<wbr>Transform</h3>
+					<div class="tsd-signature tsd-kind-icon">concatenated<wbr>Color<wbr>Transform<span class="tsd-signature-symbol">:</span> <a href="openfl.geom.colortransform.html" class="tsd-signature-type">ColorTransform</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/geom/Transform.d.ts#L83">lib/openfl/geom/Transform.d.ts:83</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A ColorTransform object representing the combined color transformations
+								applied to the display object and all of its parent objects, back to the
+								root level. If different color transformations have been applied at
+								different levels, all of those transformations are concatenated into one
+							ColorTransform object for this property.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="concatenatedmatrix" class="tsd-anchor"></a>
+					<h3>concatenated<wbr>Matrix</h3>
+					<div class="tsd-signature tsd-kind-icon">concatenated<wbr>Matrix<span class="tsd-signature-symbol">:</span> <a href="openfl.geom.matrix.html" class="tsd-signature-type">Matrix</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/geom/Transform.d.ts#L96">lib/openfl/geom/Transform.d.ts:96</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A Matrix object representing the combined transformation matrixes of the
+								display object and all of its parent objects, back to the root level. If
+								different transformation matrixes have been applied at different levels,
+								all of those matrixes are concatenated into one matrix for this property.
+								Also, for resizeable SWF content running in the browser, this property
+								factors in the difference between stage coordinates and window coordinates
+								due to window resizing. Thus, the property converts local coordinates to
+								window coordinates, which may not be the same coordinate space as that of
+							the Stage.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="matrix" class="tsd-anchor"></a>
+					<h3>matrix</h3>
+					<div class="tsd-signature tsd-kind-icon">matrix<span class="tsd-signature-symbol">:</span> <a href="openfl.geom.matrix.html" class="tsd-signature-type">Matrix</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/geom/Transform.d.ts#L110">lib/openfl/geom/Transform.d.ts:110</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A Matrix object containing values that alter the scaling, rotation, and
+							translation of the display object.</p>
+						</div>
+						<p>If the <code>matrix</code> property is set to a value(not
+							<code>null</code>), the <code>matrix3D</code> property is
+							<code>null</code>. And if the <code>matrix3D</code> property is set to a
+							value(not <code>null</code>), the <code>matrix</code> property is
+						<code>null</code>.</p>
+						<dl class="tsd-comment-tags">
+							<dt>throws</dt>
+							<dd><p>TypeError The matrix is null when being set</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="matrix3d" class="tsd-anchor"></a>
+					<h3>matrix3D</h3>
+					<div class="tsd-signature tsd-kind-icon">matrix3D<span class="tsd-signature-symbol">:</span> <a href="openfl.geom.matrix3d.html" class="tsd-signature-type">Matrix3D</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/geom/Transform.d.ts#L124">lib/openfl/geom/Transform.d.ts:124</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Provides access to the Matrix3D object of a three-dimensional display
+								object. The Matrix3D object represents a transformation matrix that
+								determines the display object&#39;s position and orientation. A Matrix3D
+							object can also perform perspective projection.</p>
+						</div>
+						<p>If the <code>matrix</code> property is set to a value(not
+							<code>null</code>), the <code>matrix3D</code> property is
+							<code>null</code>. And if the <code>matrix3D</code> property is set to a
+							value(not <code>null</code>), the <code>matrix</code> property is
+						<code>null</code>.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="pixelbounds" class="tsd-anchor"></a>
+					<h3>pixel<wbr>Bounds</h3>
+					<div class="tsd-signature tsd-kind-icon">pixel<wbr>Bounds<span class="tsd-signature-symbol">:</span> <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/geom/Transform.d.ts#L134">lib/openfl/geom/Transform.d.ts:134</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A Rectangle object that defines the bounding rectangle of the display
+							object on the stage.</p>
+						</div>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.desktop.html">openfl.desktop</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.display.html">openfl.display</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.display3d.html">openfl.display3D</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.errors.html">openfl.errors</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.events.html">openfl.events</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.external.html">openfl.external</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.filters.html">openfl.filters</a>
+					</li>
+					<li class="current tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.geom.html">openfl.geom</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.media.html">openfl.media</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.net.html">openfl.net</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.profiler.html">openfl.profiler</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.sensors.html">openfl.sensors</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.system.html">openfl.system</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.text.html">openfl.text</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.ui.html">openfl.ui</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.utils.html">openfl.utils</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.geom.orientation3d.html" class="tsd-kind-icon">Orientation3D</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.geom.colortransform.html" class="tsd-kind-icon">Color<wbr>Transform</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.geom.matrix.html" class="tsd-kind-icon">Matrix</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.geom.matrix3d.html" class="tsd-kind-icon">Matrix3D</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.geom.perspectiveprojection.html" class="tsd-kind-icon">Perspective<wbr>Projection</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.geom.point.html" class="tsd-kind-icon">Point</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.geom.rectangle.html" class="tsd-kind-icon">Rectangle</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.geom.transform.html" class="tsd-kind-icon">Transform</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.geom.transform.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.geom.transform.html#colortransform" class="tsd-kind-icon">color<wbr>Transform</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.geom.transform.html#concatenatedcolortransform" class="tsd-kind-icon">concatenated<wbr>Color<wbr>Transform</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.geom.transform.html#concatenatedmatrix" class="tsd-kind-icon">concatenated<wbr>Matrix</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.geom.transform.html#matrix" class="tsd-kind-icon">matrix</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.geom.transform.html#matrix3d" class="tsd-kind-icon">matrix3D</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.geom.transform.html#pixelbounds" class="tsd-kind-icon">pixel<wbr>Bounds</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.geom.utils3d.html" class="tsd-kind-icon">Utils3D</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.geom.vector3d.html" class="tsd-kind-icon">Vector3D</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

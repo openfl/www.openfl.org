@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>OpenFL 4.2 and Lime 3.2 Released</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>OpenFL 4.2 and Lime 3.2 Released</h1></div>
+<!-- <p class="meta">20 Sep 2016</p> -->
+
+<div class="post">
+<p>New versions of OpenFL (4.2.0) and Lime (3.2.1) are now available on haxelib.</p>
+
+<p>Please run <code class="language-plaintext highlighter-rouge">openfl upgrade</code> to fetch the latest!</p>
+
+<p>Here are some highlights of this release:</p>
+
+<h2 id="a-new-and-improved-scrollrect-implementation">A new-and-improved <code class="language-plaintext highlighter-rouge">scrollRect</code> implementation</h2>
+
+<p>OpenFL has received a rewritten implementation of <code class="language-plaintext highlighter-rouge">scrollRect</code>, correcting numerous small issues with the previous version. Particularly for user interfaces, <code class="language-plaintext highlighter-rouge">scrollRect</code> is a valuable feature that is difficult to implement correctly, due to the way it changes visual coordinates without changing the “real” world position of objects.</p>
+
+<p>We believe we have the correct balance of features that respond to the visual position of the object (such as hit detection, <code class="language-plaintext highlighter-rouge">mouseX</code>/<code class="language-plaintext highlighter-rouge">mouseY</code> or <code class="language-plaintext highlighter-rouge">globalToLocal</code>) while also preserving the correct world position for other APIs (such as <code class="language-plaintext highlighter-rouge">x</code>, <code class="language-plaintext highlighter-rouge">y</code> and bounds detection).</p>
+
+<p>Multiple nested objects which use a <code class="language-plaintext highlighter-rouge">scrollRect</code> or using <code class="language-plaintext highlighter-rouge">startDrag</code> within a nested <code class="language-plaintext highlighter-rouge">scrollRect</code> did not behave as developers who used the feature in Flash would expect, but this has all improved.</p>
+
+<h2 id="other-consistency-fixes">Other consistency fixes</h2>
+
+<p>As we continue to improve upon OpenFL 4, it is our goal to continue to improve upon the consistency of each feature we support. Included in this release are improvements such as <code class="language-plaintext highlighter-rouge">ROLL_OVER</code> and <code class="language-plaintext highlighter-rouge">ROLL_OUT</code> support, and corrected <code class="language-plaintext highlighter-rouge">MOUSE_OVER</code> and <code class="language-plaintext highlighter-rouge">MOUSE_OUT</code> events. We also implemented <code class="language-plaintext highlighter-rouge">opaqueBackground</code> for each renderer, and improved locale support.</p>
+
+<h2 id="updates-for-ios-10--xcode-8">Updates for iOS 10 / Xcode 8</h2>
+
+<p>Apple has changed the code signing process for Xcode 8, and Lime 3.2 now supports <code class="language-plaintext highlighter-rouge">&lt;certificate team-id="" /&gt;</code> for supporting the development team ID required when building a signed application. If this does not work, see if you are overriding the default Lime Xcode project template, as that can block this improvement from affecting your project.</p>
+
+<p>We have also switched mobile to use high-density DPI as the default, this can be disabled using <window allow-high-dpi="false"></window> if you would prefer to not use “retina” screen resolution on iOS projects.</p>
+
+<h2 id="garbage-collection-improvements">Garbage collection improvements</h2>
+
+<p>We have swept through our renderer code, and made further improvements to reduce the amount of garbage collection activity generated by our internal code, and have made important changes to ensure that garbage collection for OpenGL resources occurs in the correct thread.</p>
+
+<h2 id="thank-you">Thank you!</h2>
+
+<p>Thanks to all of our <a href="http://www.patreon.com/openfl">Patreon</a> supporters and other sponsors. Thank to you everyone who helps on the forums, fields issues, writes pull requests and helps report problems they find. While many other cross-platform solutions have disappeared, we are thankful for your help and support as we continue to build what we believe to be the most versatile set of tools for deploying multi-platform projects, using the most versatile programming language.</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">September 20, 2016 | <a href="/blog/2016/09/20/openfl-4-2-and-lime-3-2-released/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

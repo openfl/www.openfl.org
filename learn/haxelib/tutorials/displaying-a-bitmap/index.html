@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Displaying a Bitmap</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    <!-- <script src='/js/openfl.min.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openfl/7.1.2/openfl.min.js"></script>
+    <script src='/js/actuate.min.js'></script>
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<script src='/js/holder.js'></script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-push-4 sidebar-content add-anchors">
+			
+			<div class="page-header">
+				<h1>Displaying a Bitmap</h1>
+				<div class="page-links"><a href="https://github.com/openfl/openfl.org/edit/master/learn/haxelib/tutorials/displaying-a-bitmap.md">Edit Document<span class="page-links-icon glyphicon glyphicon-pencil"></span></a></div>
+			</div>
+			
+			<h2 id="creating-a-new-project">Creating a New Project</h2>
+
+<p>OpenFL includes a “create” command that can help generate an empty or sample project for you.</p>
+
+<p>To create an empty project, open a command-prompt (Windows) or terminal (macOS/Linux) and run the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create project HelloWorld
+</code></pre></div></div>
+
+<p>You can replace “HelloWorld” with whatever you want to call your project.</p>
+
+<p>OpenFL contains multiple samples for illustrating different features of the platform. One of these samples is called “DisplayingABitmap”. As we build our first project, we will quickly walk through the steps to recreate this sample. You can also generate a copy of it yourself using the command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create DisplayingABitmap
+</code></pre></div></div>
+
+<h2 id="adding-an-image">Adding an Image</h2>
+
+<p>The first thing we will do is add an image. First, copy an image (PNG or JPG format) to the “Assets” folder of the project. We will be using <a href="https://raw.githubusercontent.com/openfl/openfl-samples/master/features/display/DisplayingABitmap/Assets/openfl.png">this image</a>, but you can download or copy any image you like.</p>
+
+<p>Open the “Source/Main.hx” file in the editor of your choice. It should look something like this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Sprite</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+
+        <span class="kd">super</span> <span class="o">();</span>
+
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>In order to import our image, we will want to import the <code class="language-plaintext highlighter-rouge">openfl.Assets</code> class, and add a <code class="language-plaintext highlighter-rouge">getBitmapData</code> call. There is more than one way to load an image in OpenFL, but the <code class="language-plaintext highlighter-rouge">Assets</code> class is designed to make this very simple.</p>
+
+<p>You will want to use the name of your image, so if it is called “myimage.png”, be sure to replace the example below with the right text to match your file name.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+
+        <span class="kd">super</span> <span class="o">();</span>
+
+        <span class="kt">var</span> <span class="n">bitmapData</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">);</span>
+
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">openfl.display.BitmapData</code> type represents the pixel data for an image. You can use this directly to read pixels, perform fills, and multiple other pixel-based effects. Often however, you will load directly from a file, and will not need to modify the data.</p>
+
+<p>The easiest to display our data is using the <code class="language-plaintext highlighter-rouge">openfl.display.Bitmap</code> type, you can use the same <code class="language-plaintext highlighter-rouge">BitmapData</code> with multiple <code class="language-plaintext highlighter-rouge">Bitmap</code> instances, however you want it to display.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Bitmap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+
+        <span class="kd">super</span> <span class="o">();</span>
+
+        <span class="kt">var</span> <span class="n">bitmapData</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">);</span>
+        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="n">bitmapData</span><span class="o">);</span>
+        <span class="n">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
+
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>In order to see our <code class="language-plaintext highlighter-rouge">Bitmap</code> instance, we use <code class="language-plaintext highlighter-rouge">addChild</code> to make it visible on the display list. The “display list” is an easy-to-use method of drawing that is available in OpenFL.</p>
+
+<h2 id="positioning-an-object">Positioning an Object</h2>
+
+<p>When you use the display list, you can use <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> properties to control where an object will be drawn.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Bitmap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+
+        <span class="kd">super</span> <span class="o">();</span>
+
+        <span class="kt">var</span> <span class="n">bitmapData</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">);</span>
+        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="n">bitmapData</span><span class="o">);</span>
+        <span class="n">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
+
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">200</span><span class="o">;</span>
+
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>If we set the bitmap position to (100, 200), instead of drawing at the upper-left of the window, it will be 100 and 200 pixels away from the corner, respectively. You can use any value you want, but for this sample, we will center the image.</p>
+
+<p>Since the <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> values of a display object use the upper-left corner of the object, the math for centering our object will look something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var centerValue = (totalWidth - imageWidth) / 2;
+</code></pre></div></div>
+
+<p>We can determine the width of our window using the <code class="language-plaintext highlighter-rouge">stage.stageWidth</code> and <code class="language-plaintext highlighter-rouge">stage.stageHeight</code> values. We can use the <code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">height</code> values of our bitmap to find how large it is. The resulting code looks like this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Bitmap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+
+        <span class="kd">super</span> <span class="o">();</span>
+
+        <span class="kt">var</span> <span class="n">bitmapData</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">);</span>
+        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="n">bitmapData</span><span class="o">);</span>
+        <span class="n">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
+
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">stage</span><span class="o">.</span><span class="na">stageWidth</span> <span class="o">-</span> <span class="n">bitmap</span><span class="o">.</span><span class="na">width</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">stage</span><span class="o">.</span><span class="na">stageHeight</span> <span class="o">-</span> <span class="n">bitmap</span><span class="o">.</span><span class="na">height</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="running-the-project">Running the Project</h2>
+
+<p>We are going to test our project with three different platforms.</p>
+
+<p>If you open a command-prompt (Windows) or terminal (macOS/Linux), change to the directory of the project we created.</p>
+
+<p>If you are using a code editor with OpenFL support built-in, you may be able to compile using a shortcut, such as Ctrl+Enter or a “Run” button in the editor. For sake of consistency, we will go over the steps for how you would build the project yourself from a command-line.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl test neko
+</code></pre></div></div>
+
+<p>This command should run the project using Neko, a runtime included with the Haxe compiler.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl test html5
+</code></pre></div></div>
+
+<p>If you use “html5” instead, the “openfl” command will open a local web server, as well as your default web browser.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl test flash
+</code></pre></div></div>
+
+<p>The “flash” target will create a Flash SWF, and will use the default handler on your system for SWF files. You may wish to download a standalone “content debugger” Flash projector and set it to the default for SWF files on your system, as it is the best environment for testing Flash projects.</p>
+
+<p>If you would like to run the command from a different folder on your system, you can also add an additional argument to the “test” command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl test ../DisplayingABitmap flash
+</code></pre></div></div>
+
+<h2 id="issues">Issues</h2>
+
+<p>Any problems? Please visit our helpful <a href="http://community.openfl.org">community forums</a> if you are experiencing trouble!</p>
+
+			
+		</div>
+		<div class="col-md-4 col-md-pull-8 sidebar add-anchors">
+			
+			
+			
+			
+			
+			
+			
+			
+
+<div class="collapse in" id="nav-sidebar-0">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/" >Introduction</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-1"  data-toggle="collapse">NPM</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-1">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/getting-started/" >Getting Started</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-2"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-2">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/displaying-a-bitmap/" >Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/adding-animation/" >Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/handling-mouse-events/" >Handling Mouse Events</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/api/" >API Reference</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-3"  data-toggle="collapse">Haxelib</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-3">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-4"  data-toggle="collapse">Documentation</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-4">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/core-architecture/" >Core Architecture</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/project-files/" >Project Files</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/tools/" >Tools</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-5"  data-toggle="collapse">Books</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-5">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://books.openfl.org/openfl-developers-guide/" target="_blank" />OpenFL Developer's Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://books.openfl.org/as3-conversion-guide/" target="_blank" />ActionScript 3.0 Conversion Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://www.openflbook.com" target="_blank" />Videojuegos Multiplataforma con OpenFL</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-6"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-6">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/displaying-a-bitmap/" class="active">Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/adding-animation/" >Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/using-swf-assets/" >Using SWF Assets</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://api.openfl.org" target="_blank" />API</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+</ul>
+</div>
+			
+			
+			
+			
+			
+		</div>
+	</div>
+</div>
+<script>
+	anchors.options = {
+		placement: "right",
+		visible: "always",
+		icon: "",
+		class: "glyphicon glyphicon-link"
+	};
+	anchors.add ("div.add-anchors > h1, div.add-anchors > h2");
+</script>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

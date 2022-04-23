@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Flash AND HTML5, Unicorns Exist!</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>Flash AND HTML5, Unicorns Exist!</h1></div>
+<!-- <p class="meta">18 Mar 2014</p> -->
+
+<div class="post">
+<p>A few days ago, Mochi Media announced that it was shutting its doors, and shutting down its services by the end of the month. This week, GDC began, but there was no Flash Gaming Summit – a long-running event of five years. Although some believe Mochi Media to be an isolated case, others are calling it the “canary in the coal mine,” signaling the end of “the era of Flash web gaming.”</p>
+
+<p>The world has changed.</p>
+
+<p>10 years ago, we were delivering rich, interactive content using Flash Player. Today, is not uncommon to find some of the same experiences delivered through HTML5. The difference is in the vehicle. Just as you may read your news on a tablet, or through Twitter, when years ago you may have read a paper newspaper or magazine, the method of <em>delivery</em> has changed, but the desire for compelling content, if anything, has only increased.</p>
+
+<p>Everyone, it is time to think outside the plugin.</p>
+
+<p>Historically, “Flash” has meant at least three things:</p>
+
+<ul>
+  <li>A productive developer workflow</li>
+  <li>A polarizing browser plugin</li>
+  <li>A fast superhero</li>
+</ul>
+
+<p>Two of these are here to stay, but one is not to last. Critics of Flash Player may forget what the web was like before. Plugins were created to solve a problem, not make them. Flash was the “web plugin victorious,” it is the conqueror of a diverse (and unstable) universe of plugins for MIDIs, chat and all sorts of features the browser itself could not deliver. Flash is one of the few-remaining plugins, and most content does not need a plugin anymore.</p>
+
+<p>…but what about the workflow?</p>
+
+<p>We believe that Flash is an amazing workflow, but we also believe that in order to deliver the projects you want to deliver, you need more than a plugin. OpenFL provides native implementations of the Flash Player API, so you can deliver true C++/OpenGL titles for Steam, iOS, Android and other markets, and today, we are announcing a new OpenFL HTML5 backend, based around <a href="https://github.com/goodboydigital/pixi.js">pixi.js</a>.</p>
+
+<p>pixi.js is a “super fast HTML5 2D rendering engine that uses webGL with canvas fallback,” and happens to be based on the Flash API, though to a small scale. We believe that a lot of value comes from the ability to leverage a fuller API, and is not tied directly to bloat. In our testing, we have exceeded pixi’s canvas performance by 40% on some systems, and thanks to Haxe’s dead-code elimination feature, a BunnyMark sample is only 22KB (gzipped).</p>
+
+<p>Since Apple and other manufacturers have not added WebGL support yet, canvas is a necessity. For this beta release, canvas is our first priority, and WebGL will soon follow.</p>
+
+<p>18 months ago, the winner of the Ludum Dare “Evolution” compo was Nicolas Cannasse, the creator of Haxe (and an awesome game developer). We have brought this to HTML5 using our new backend. The same code compiles to Flash, like the original, but thanks to OpenFL, compiles also to C++ and HTML5:</p>
+
+<p><a href="http://www.openfl.org/samples/evoland">http://www.openfl.org/samples/evoland</a></p>
+
+<p>You can find the original here:</p>
+
+<p><a href="http://evoland.shirogames.com/classic">http://evoland.shirogames.com/classic</a></p>
+
+<p>If you would like to test the current canvas performance, try this bunny sample:</p>
+
+<p><a href="http://www.openfl.org/samples/bunny">http://www.openfl.org/samples/bunny</a></p>
+
+<p>OpenFL 1.3 is now released, and the new backend, “openfl-html5”, is now enabled by default. To use the older backend, use <code class="language-plaintext highlighter-rouge">&lt;set name="html5-backend" value="openfl-html5-dom" /&gt;</code> before <code class="language-plaintext highlighter-rouge">&lt;haxelib name="openfl" /&gt;</code> in your project file.</p>
+
+<p>OpenFL 1.3 introduces a new platform target: Firefox OS. You can use “lime build firefoxos” to build for Firefox OS instead of traditional HTML5. This will use the new HTML5 target, and can be installed using the Firefox App Manager (Mozilla does not have any official command-line install tools, yet).</p>
+
+<p>We are very excited, and encourage you to get involved, <a href="http://patreon.com/openfl">show your support on Patreon</a>, <a href="https://github.com/openfl/openfl-html5">collaborate</a> and help us build the next generation of Flash C++ and HTML5 games!</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">March 18, 2014 | <a href="/blog/2014/03/18/flash-and-html5/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

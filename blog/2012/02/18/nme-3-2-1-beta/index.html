@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>NME 3.2.1 Beta</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>NME 3.2.1 Beta</h1></div>
+<!-- <p class="meta">18 Feb 2012</p> -->
+
+<div class="post">
+<p>Earlier this week, NME 3.2 was released. NME 3.2 added built-in SWF asset support, brought new APIs, improved the NMML project format, support for extensions and continued our support for devices and platforms.</p>
+
+<p>While 3.2 was a feature release, 3.2.1 will be a stability and toolchain update.</p>
+
+<p>Android builds have been updated to use the recently released Android NDK r7b. You will be able to update your copy of the NDK easily by running “nme setup android” after upgrading.</p>
+
+<p>iOS builds have been updated to compile for the ARMv7 processor architecture instead of ARMv6. For performance and simplicity, we are not supporting universal packages at this time. This change also moves the minimum OS version from iOS 3.0 to 4.3.</p>
+
+<p>It has become increasingly difficult to avoid making ARMv7 builds because of Apple’s changes to XCode and submission policies for the App Store. While we are also considering a move to OpenGL ES 2.0 in the not-so-distant future, we would need to begin supporting only ARMv7 or newer devices (many ARMv6 devices do not support GLES 2.0). To keep build times low, to maintain our current build process and for these reasons, making a move to ARMv7 for iOS has seemed to make the most sense.</p>
+
+<p>This also means that if you use iOS 4.x or 5.x features in your application, such as through an NME extension, you will not need to create ARMv7 libraries yourself.</p>
+
+<p>Version 1.08 of the SWF library was recently released, adding initial support for buttons. This update for NME improves our generation of SWF classes to create both MovieClip and SimpleButton classes automatically, and addresses API changes which took place because of the upgrade.</p>
+
+<p>The waxe library has been posted to haxelib, and this version of NME resolves some minor issues which prevented you from compiling certain kinds of projects using the NME command-line tools. Believe it or not, the NME command-line tools do not require that you build an NME application. If <code class="language-plaintext highlighter-rouge">&lt;haxelib name="nme" /&gt;</code> is included in your waxe project, NME will create an NME window (like normal) but you will be able to access additional UI elements like dialogs, windows, panels and buttons. On the the other hand, if the NME haxelib is not included in your NMML, you will be able to configure your own native OS window yourself.</p>
+
+<p>We will be talking about waxe more in the future, and exploring how NME and waxe can continue to work together to improve application development.</p>
+
+<h2 id="download">Download</h2>
+
+<ul>
+	<li><a href="http://www.haxenme.org/files/8313/2950/5098/NME-3.2.1-Windows.exe">Windows</a> (EXE -- 12.1 MB)</li>
+	<li><a href="http://www.haxenme.org/files/2213/2950/5498/NME-3.2.1-Mac.zip">Mac</a> (PKG -- 18.9 MB)</li>
+	<li><a href="http://www.haxenme.org/files/8313/2950/5408/NME-3.2.1-Linux.tar.gz">Linux</a> (SH -- 1 KB)</li>
+</ul>
+<p><em>If you would prefer to install packages manually, you can download this version of <a href="http://www.haxenme.org/files/8413/2950/5137/nme-321.zip">NME</a> and <a href="http://www.haxenme.org/files/7913/2950/5114/hxcpp-2082.zip">HXCPP</a>, and install from a command-line or terminal using the “haxelib test” command</em></p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">February 18, 2012 | <a href="/blog/2012/02/18/nme-3-2-1-beta/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

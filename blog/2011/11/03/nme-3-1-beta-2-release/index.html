@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>NME 3.1 Beta 2 Release</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>NME 3.1 Beta 2 Release</h1></div>
+<!-- <p class="meta">03 Nov 2011</p> -->
+
+<div class="post">
+<p>We are happy to announce the second beta release of NME 3.1, including even more improvements and new features than before. Thank you, everyone, for your excitement, participation and involvement as we all work together to make NME even stronger!</p>
+
+<p>You can download the new release, <a href="http://www.haxenme.org/developers/get-started">here</a>.</p>
+
+<p>Here are some key highlights since beta 1:</p>
+<ul>
+	<li>Added (experimental) support to cross-publish Neko applications</li>
+	<li>Improved rendering calls, like drawTriangles</li>
+	<li>Added auto-documentation, using haxedoc</li>
+	<li>Updated the XCode project template for iOS 5 and OS X Lion</li>
+	<li>Updated the Android build process for the newest Android SDK</li>
+	<li>Added a Flash publishing template for Opera widgets</li>
+	<li>Added a Flash publishing template for Chrome apps</li>
+	<li>Added multi-touch for webOS</li>
+</ul>
+<p>NME supports two technologies, C++ and Neko, for desktop applications. If you choose “windows”, “mac” or “linux” as your target when publishing, NME will default to C++ if that is your current platform, otherwise it used to fail. This release includes experimental support to publish for a desktop platform other than your own, using Neko.</p>
+
+<p>If you are interested in creating documentation for your project, this version has support for leveraging haxedoc. The first step is to build your project with an added “-xml” flag, which will generate XML type information for your classes. Next, you can use the “document” command to create documentation for your API</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>haxelib run nme document MyProject.nmml
+haxelib run nme document MyProject.nmml windows
+</code></pre></div></div>
+
+<p>By default, it will look for XML definitions for all targets, and attempt to merge them together. Currently, this will not work for NME core classes. However, if you have multiple definitions, you can specify which one you would like haxedoc to use by setting the platform target.</p>
+
+<p>If you would like to control where documentation is generated, you can set DOCS_DIR in your NMML project file, or to filter which class or package names are included, you can set DOCS_FILTER as well. To control your file output, you can use a custom “template.xml” in your docs directory. For more information on the format, visit <a href="http://haxe.org/doc/haxedoc" target="_blank">this page</a>.</p>
+
+<p>The Flash target supports multiple templates for publishing. If you add “-web” when you compile, an HTML file that uses SWFObject to embed your application will be generated for you. This release adds “-opera” and “-chrome” as valid templates. The Opera publishing template will create a functional Opera Widget, which installs and acts like a regular desktop application. The Chrome template does not generate a completed CRX file (yet), but generates the files you need to use the “Pack Extension” option from Google Chrome to package as a Chrome app you can distribute.</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">November 3, 2011 | <a href="/blog/2011/11/03/nme-3-1-beta-2-release/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

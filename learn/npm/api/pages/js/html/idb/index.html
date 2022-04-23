@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"><!-- use theme color or fallback -->
+<!--use textcolor from settings, otherwise create a contrasting color to theme color-->
+<head><meta charset="utf-8"/><link href="../../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/><link href="../../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/><link href="../../../bootstrap/css/bootstrap-select.min.css" rel="stylesheet"/><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic" rel="stylesheet" type="text/css"/><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,600italic,400" rel="stylesheet" type="text/css"/><link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"/><script src="../../../jquery-1.9.1.min.js"></script><script src="../../../bootstrap/js/bootstrap.min.js"></script><script src="../../../bootstrap/js/bootstrap-select.min.js"></script><link href="../../../styles.css" rel="stylesheet"/><link href="../../../haxe-nav.css" rel="stylesheet"/><script type="text/javascript">var dox = {rootPath: "../../../",platforms: ["Neko","Android","Flash","iOS","macOS","Linux","HTML5","Windows"]};</script><script type="text/javascript" src="../../../nav.js"></script><script type="text/javascript" src="../../../index.js"></script><link rel="icon" href="../../../favicon.ico" type="image/x-icon"></link><title>js.html.idb - API Reference</title></head><body><style>
+a, code .type {
+	color: #24afc4;
+}
+.navbar .brand {
+	display: inline-block;
+	float: none;
+	text-shadow: 0 0 0 transparent;
+}
+.nav-list>.active>a.treeLink, .nav-list>.active>a.treeLink:hover, .nav-list>.active>a.treeLink:focus {
+	background: #24afc4;
+	color: #ffffff;
+	text-shadow: 0 0 0 transparent;
+}
+.navbar .container {
+	width: 940px ;
+}
+@media (max-width: 767px) {
+	.navbar .container {
+		width: auto;
+	}
+}
+@media (max-width: 979px) and (min-width: 768px) {
+	.navbar .container {
+		width: 724px;
+	}
+}
+@media (min-width: 1200px) {
+	.navbar .container {
+		width: 1170px;
+	}
+}
+.navbar .container img {
+	margin: 5px 0 0 4px;
+}
+</style><nav class="nav"><div class="navbar"><div class="navbar-inner" style="background:#FAFAFA; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" href="http://www.openfl.org"><img alt="" src="http://www.openfl.org/images/logo.png"/></a><a class="brand" style="color:#777777" href="../../../">API Reference</a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="icon-search"></i></span><input id="search" type="text" placeholder="Search" autocomplete="off"/></div></form><div class="dropdown"><select id="select-platform" class="selectpicker" title="Filter by platform" data-width="100%"><option value="all" selected="true">All Platforms</option><option>Neko</option><option>Android</option><option>Flash</option><option>iOS</option><option>macOS</option><option>Linux</option><option>HTML5</option><option>Windows</option></select></div></div><div class="well sidebar-nav"><div id="nav"></div></div></div><div class="span9"><h1>js.html.idb </h1><!-- 
+::if full == ""::
+	<h1>Haxe API documentation <small ::cond api.isDefined("version")::>version ::api.getValue('version')::</small></h1>
+	<p>Haxe is an open source toolkit based on a modern, high level, strictly typed programming language, a cross-compiler, a complete cross-platform standard library and ways to access each platform's native capabilities.</p> 
+	<h3>Getting Started With Haxe</h3>
+	<ul>
+		<li>Take a look at our <a href="http://haxe.org/documentation/introduction/">introduction</a></li>
+		<li>Read through the <a href="http://haxe.org/manual/">Haxe Manual</a></li>
+		<li>Look at these <a href="http://haxe.org/use-cases/">use cases for Haxe</a></li>
+		<li>Find and install <a href="http://lib.haxe.org/t/all/">popular Haxe libraries</a></li>
+		<li>Learn by example with the <a href="http://code.haxe.org">Haxe Code Cookbook</a></li>
+	</ul>
+	<hr/>
+	<h3>Top Level</h3>
+::elseif full.split(".").length==1::
+	<h1>Haxe/::full:: API documentation</h1>
+	<p>To get started with the Haxe ::full:: target:</p>
+	<ul>
+		<li>Read through the <a href="http://haxe.org/manual/">Haxe Manual</a></li>
+		<li ::cond full=="js"::>Read the <a href="http://haxe.org/manual/target-javascript.html">Haxe/JavaScript target details</a></li>
+		<li ::cond full=="flash"::>Read the <a href="http://haxe.org/manual/target-flash.html">Haxe/Flash target details</a></li>
+		<li ::cond full=="php"::>Read the <a href="http://haxe.org/manual/target-php.html">Haxe/PHP target details</a></li>
+		<li ::cond full=="cpp"::>Read the <a href="http://haxe.org/manual/target-cpp.html">Haxe/C++ target details</a></li>
+		<li ::cond full=="neko"::>Read the <a href="http://nekovm.org/doc">Neko documentation</a></li>
+		<li>Find and install <a href="http://lib.haxe.org/t/::full::/">popular Haxe/::full:: libraries</a></li>
+		<li>Learn by example with the <a href="http://code.haxe.org">Haxe Code Cookbook</a></li>
+	</ul>
+	<hr/>
+	<h1><small class="directive">package</small> ::full::</h1>
+::else::
+	<h1><small class="directive">package</small> ::full::</h1>
+::end::
+-->
+  <table class="table table-condensed"><tbody><tr><th width="200"><i class="fa fa-folder-o"></i><a href="../index.html" title="js.html">..</a></th><td></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/Cursor.html" title="js.html.idb.Cursor">Cursor</a></td><td><p>The <code>IDBCursor</code> interface of the IndexedDB API represents a cursor for traversing or iterating over multiple records in a database.</p></td></tr><tr class="abstract"><td width="200"><a href="../../../js/html/idb/CursorDirection.html" title="js.html.idb.CursorDirection">CursorDirection</a></td><td><p></p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/CursorWithValue.html" title="js.html.idb.CursorWithValue">CursorWithValue</a></td><td><p>Documentation <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBCursorWithValue">IDBCursorWithValue</a> by <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBCursorWithValue$history">Mozilla Contributors</a>, licensed under <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC-BY-SA 2.5</a>.</p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/Database.html" title="js.html.idb.Database">Database</a></td><td><p>Inherits from: EventTarget</p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/Factory.html" title="js.html.idb.Factory">Factory</a></td><td><p>In the following code snippet, we make a request to open a database, and include handlers for the success and error cases. For a full working example, see our To-do Notifications app (view example live.)</p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/FileHandle.html" title="js.html.idb.FileHandle">FileHandle</a></td><td><p></p></td></tr><tr class="type"><td width="200"><a href="../../../js/html/idb/FileMetadataParameters.html" title="js.html.idb.FileMetadataParameters">FileMetadataParameters</a></td><td><p></p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/FileRequest.html" title="js.html.idb.FileRequest">FileRequest</a></td><td><p></p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/$Index.html" title="js.html.idb.Index">Index</a></td><td><p><code>IDBIndex</code> interface of the IndexedDB API provides asynchronous access to an index in a database. An index is a kind of object store for looking up records in another object store, called the referenced object store. You use this interface to retrieve data.</p></td></tr><tr class="type"><td width="200"><a href="../../../js/html/idb/IndexParameters.html" title="js.html.idb.IndexParameters">IndexParameters</a></td><td><p></p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/KeyRange.html" title="js.html.idb.KeyRange">KeyRange</a></td><td><p>A key range can be a single value or a range with upper and lower bounds or endpoints. If the key range has both upper and lower bounds, then it is bounded; if it has no bounds, it is unbounded. A bounded key range can either be open (the endpoints are excluded) or closed (the endpoints are included). To retrieve all keys within a certain range, you can use the following code constructs:</p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/MutableFile.html" title="js.html.idb.MutableFile">MutableFile</a></td><td><p>The <code>IDBMutableFile</code> interface provides access in read or write mode to a file, dealing with all the necessary locks.</p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/ObjectStore.html" title="js.html.idb.ObjectStore">ObjectStore</a></td><td><p>This example shows a variety of different uses of object stores, from updating the data structure with <code>IDBObjectStore.createIndex</code> inside an <code>onupgradeneeded</code> function, to adding a new item to our object store with <code>IDBObjectStore.add</code>. For a full working example, see our To-do Notifications app (view example live.)</p></td></tr><tr class="type"><td width="200"><a href="../../../js/html/idb/ObjectStoreParameters.html" title="js.html.idb.ObjectStoreParameters">ObjectStoreParameters</a></td><td><p></p></td></tr><tr class="type"><td width="200"><a href="../../../js/html/idb/OpenDBOptions.html" title="js.html.idb.OpenDBOptions">OpenDBOptions</a></td><td><p></p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/OpenDBRequest.html" title="js.html.idb.OpenDBRequest">OpenDBRequest</a></td><td><p>No methods, but inherits methods from its parents <code>IDBRequest</code> and <code><a href="../../../js/html/EventTarget.html">EventTarget</a></code>.</p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/Request.html" title="js.html.idb.Request">Request</a></td><td><p>The request object does not initially contain any information about the result of the operation, but once information becomes available, an event is fired on the request, and the information becomes available through the properties of the <code>IDBRequest</code> instance.</p></td></tr><tr class="abstract"><td width="200"><a href="../../../js/html/idb/RequestReadyState.html" title="js.html.idb.RequestReadyState">RequestReadyState</a></td><td><p></p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/Transaction.html" title="js.html.idb.Transaction">Transaction</a></td><td><p>Note that as of Firefox 40, IndexedDB transactions have relaxed durability guarantees to increase performance (see bug 1112702.) Previously in a <code>readwrite</code> transaction <code>IDBTransaction.oncomplete</code> was fired only when all data was guaranteed to have been flushed to disk. In Firefox 40+ the <code>complete</code> event is fired after the OS has been told to write the data but potentially before that data has actually been flushed to disk. The <code>complete</code> event may thus be delivered quicker than before, however, there exists a small chance that the entire transaction will be lost if the OS crashes or there is a loss of system power before the data is flushed to disk. Since such catastrophic events are rare most consumers should not need to concern themselves further.</p></td></tr><tr class="abstract"><td width="200"><a href="../../../js/html/idb/TransactionMode.html" title="js.html.idb.TransactionMode">TransactionMode</a></td><td><p></p></td></tr><tr class="class"><td width="200"><a href="../../../js/html/idb/VersionChangeEvent.html" title="js.html.idb.VersionChangeEvent">VersionChangeEvent</a></td><td><p>The <code>IDBVersionChangeEvent</code> interface of the IndexedDB API indicates that the version of the database has changed, as the result of an <code>IDBOpenDBRequest.onupgradeneeded</code> event handler function.</p></td></tr><tr class="type"><td width="200"><a href="../../../js/html/idb/VersionChangeEventInit.html" title="js.html.idb.VersionChangeEventInit">VersionChangeEventInit</a></td><td><p></p></td></tr></tbody></table></div></div></div><footer class="section site-footer" style="background:#FAFAFA"><div class="container"><div class="copyright"><p style="color:#777777">&copy; 2017 &nbsp;<a style="color:#777777" href="http://www.openfl.org">http://www.openfl.org</a></p></div></div></footer><script src="../../..//highlighter.js"></script><link href="../../../highlighter.css" rel="stylesheet"/></body></html>

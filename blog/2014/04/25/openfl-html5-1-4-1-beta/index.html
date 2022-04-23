@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>OpenFL HTML5 1.4.1 Beta</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>OpenFL HTML5 1.4.1 Beta</h1></div>
+<!-- <p class="meta">25 Apr 2014</p> -->
+
+<div class="post">
+<p>Although we just released OpenFL 1.4, we have a new update of the beta HTML5 target – it’s too hard to wait for a big release!</p>
+
+<p>In this release, we’ve addressed cases where “world transform” information could be out-of-date, which is important for size, scale and position in “getBounds” or “globalToLocal” APIs. In the process, we have improved the performance of DOM rendering, caching additional properties so that the DOM is modified only when an object is changed.</p>
+
+<p>It may seem funny that we are investing in DOM support, in addition to canvas support. Certain older devices do not handle canvas very well, but also, the DOM rendering is designed not to update the page unless it has changed, making it more ideal for applications and other content that does not need to blit on the screen constantly.</p>
+
+<p>Actually, the DOM render path will still use canvas if you A.) modify the pixels in a BitmapData, B.) call “bitmapData.draw”, or C.) use “graphics” on a Sprite or Shape</p>
+
+<p>If you would benefit from DOM-based text-rendering, or using multiple layers (such as a static image background, plus a more constantly updated canvas for game content, etc) the DOM render path may actually be what you are looking for.</p>
+
+<p>The single-canvas approach is still used by default, as we believe it is still the closest (until we also have WebGL ready for you) to the familiar Flash plugin behavior.</p>
+
+<p>However, the DOM render approach allows you to benefit from more of the unique qualities of the browser, performing better in environments where the canvas is not accelerated, and should all-around be a better fit for the average application (rather than games).</p>
+
+<p>Please provide your feedback here, and let us know how the backend is working for you. If you like what we are doing, please also consider supporting us on <a href="http://www.patreon.com/openfl">Patreon</a>. Thank you!</p>
+
+<h2 id="changes">Changes</h2>
+
+<h3 id="openfl-html5"><a href="https://github.com/openfl/openfl-html5">openfl-html5</a></h3>
+
+<p><strong>Version: 1.4.1-beta</strong></p>
+
+<ul>
+  <li>Improved the behavior of “textWidth” and “textHeight” for flash.text.TextField</li>
+  <li>Fix for “over bubbling” of certain events</li>
+  <li>Implemented “scrollRect” support for DOM (-Ddom) projects</li>
+  <li>Fixed cases where world transforms could be invalid when calculating positions and sizes</li>
+  <li>Increased caching to change styles less often when using DOM rendering</li>
+  <li>Fixed z-ordering for DOM rendered projects</li>
+  <li>Optimized flash.display.Graphics to not render when a fill is fully transparent</li>
+  <li>Improved HTML text when using DOM renderering</li>
+  <li>No longer keep events queue, allow events to dispatch immediately</li>
+</ul>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">April 25, 2014 | <a href="/blog/2014/04/25/openfl-html5-1-4-1-beta/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

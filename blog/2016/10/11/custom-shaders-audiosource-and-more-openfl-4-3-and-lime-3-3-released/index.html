@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Custom Shaders, AudioSource and More &ndash; OpenFL (4.3.0) and Lime (3.3.0) Released</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>Custom Shaders, AudioSource and More &ndash; OpenFL (4.3.0) and Lime (3.3.0) Released</h1></div>
+<!-- <p class="meta">11 Oct 2016</p> -->
+
+<div class="post">
+<p>Okay kids!</p>
+
+<p>We have a fresh release of OpenFL, Lime, SWF and SVG out today.</p>
+
+<p>As always, run <code class="language-plaintext highlighter-rouge">openfl upgrade</code> to fetch the latest.</p>
+
+<p>These are some highlights:</p>
+
+<h2 id="improved-custom-shader-system">Improved Custom Shader System</h2>
+
+<p>Previously, we added support for custom shaders in OpenFL, but this did not follow the Flash API, and led to unfortunate number of regressions when combined with other core features. In OpenFL 4, we introduced a new internal OpenGL renderer designed to keep our core features working smoothly and properly.</p>
+
+<p>Step-by-step, we have been moving past standard features, such as Bitmaps, to more complex features that have not worked properly in the past, such as scrollRect. With this release, we are improving our custom shader system, enabling support for custom shaders that define additional uniforms or sampler images.</p>
+
+<p>Building on this system, we have implemented ColorMatrixFilter and ConvolutionFilter again, and have improved the behavior of ConvolutionFilter to more accurately mirror the behavior of the original Flash filter. You can use ShaderFilter to implement your own effects as well.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">shader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Shader</span> <span class="o">();</span>
+<span class="n">shader</span><span class="o">.</span><span class="na">glFragmentSource</span> <span class="o">=</span> 
+	
+	<span class="s">"varying float vAlpha;
+	varying vec2 vTexCoord;
+	uniform sampler2D uImage0;
+	
+	uniform bool useAlphaImage;
+	uniform sampler2D uAlphaImage;
+	
+	void main(void) {
+		
+		vec4 color = texture2D (uImage0, vTexCoord);
+		float alpha;
+		
+		if (useAlphaImage) {
+			
+			alpha = texture2D (uAlphaImage, vTexCoord).a;
+			
+		} else {
+			
+			alpha = color.a;
+			
+		}
+		
+		if (alpha == 0.0) {
+			
+			gl_FragColor = vec4 (0.0, 0.0, 0.0, 0.0);
+			
+		} else {
+			
+			gl_FragColor = vec4 (color.rgb / color.a, alpha * vAlpha);
+			
+		}
+		
+	}"</span><span class="o">;</span>
+
+<span class="n">shader</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">useAlphaImage</span> <span class="o">=</span> <span class="o">[</span> <span class="kc">true</span> <span class="o">];</span>
+<span class="n">shader</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">uAlphaImage</span><span class="o">.</span><span class="na">input</span> <span class="o">=</span> <span class="n">alphaBitmapData</span><span class="o">;</span>
+
+<span class="n">bitmap</span><span class="o">.</span><span class="na">filters</span> <span class="o">=</span> <span class="o">[</span> <span class="k">new</span> <span class="nc">ShaderFilter</span> <span class="o">(</span><span class="n">shader</span><span class="o">)</span> <span class="o">];</span>
+</code></pre></div></div>
+
+<h2 id="updates-to-lime-audiosource">Updates to Lime AudioSource</h2>
+
+<p>We have made fixes to the Lime AudioSource API, adding Howler.js as a standard dependency on HTML5. As a result, we can remove the custom SoundJS audio support in OpenFL, and standardize on implementing Lime AudioSource as the playback engine on all non-Flash platforms.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">audioSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AudioSource</span> <span class="o">(</span><span class="nc">Assets</span><span class="o">.</span><span class="na">getAudioBuffer</span> <span class="o">(</span><span class="s">"sound.ogg"</span><span class="o">));</span>
+<span class="n">audioSource</span><span class="o">.</span><span class="na">play</span> <span class="o">();</span>
+</code></pre></div></div>
+
+<h2 id="tilemap-fixes">Tilemap Fixes</h2>
+
+<p>As we continue to improve the new Tilemap API in OpenFL, we have a number of small improvements to how it behaves. Similar to other DisplayObjects, Tilemap width and height will now return scaled values. If you set width or height, it will update the internal size and set the scale to 1. We also have improved how smoothing works on Flash Player, the underlying draw API we are using requires that we cut BitmapData into smaller objects in order to enable smoothing, so this is done internally only on the Flash target to increase consistency.</p>
+
+<h2 id="improvements-to-lime-future">Improvements to Lime Future</h2>
+
+<p>We have made a number of small changes to lime.app.Future in order to make it more useful, the most notable changes to Future include the addition of <code class="language-plaintext highlighter-rouge">ready</code> and <code class="language-plaintext highlighter-rouge">result</code>, which can be used to force sleep on native platforms to wait for either the Future to be finished, or to be finished and to return the <code class="language-plaintext highlighter-rouge">onComplete</code> result. These are helpful when you want a Future to block instead of returning asynchronously.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">future</span> <span class="o">=</span> <span class="nc">AudioBuffer</span><span class="o">.</span><span class="na">loadFromFile</span> <span class="o">(</span><span class="s">"sound.ogg"</span><span class="o">);</span>
+<span class="n">future</span><span class="o">.</span><span class="na">onComplete</span> <span class="o">(</span><span class="n">completeHandler</span><span class="o">);</span>
+<span class="n">future</span><span class="o">.</span><span class="na">onError</span> <span class="o">(</span><span class="n">errorHandler</span><span class="o">);</span>
+<span class="n">future</span><span class="o">.</span><span class="na">ready</span> <span class="o">();</span> <span class="c1">// will block until the result is ready</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">buffer</span> <span class="o">=</span> <span class="nc">AudioBuffer</span><span class="o">.</span><span class="na">loadFromFile</span> <span class="o">(</span><span class="s">"sound.ogg"</span><span class="o">).</span><span class="na">result</span> <span class="o">();</span> <span class="c1">// will block and return result</span>
+</code></pre></div></div>
+
+<h2 id="miscellaneous-fixes">Miscellaneous Fixes</h2>
+
+<p>There are too many other improvements to mention here, but there are a lot of good ones! You can find the full CHANGELOG for OpenFL <a href="https://github.com/openfl/openfl/blob/develop/CHANGELOG.md">here</a> or the CHANGELOG for Lime <a href="https://github.com/openfl/lime/blob/develop/CHANGELOG.md">here</a>.</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">October 11, 2016 | <a href="/blog/2016/10/11/custom-shaders-audiosource-and-more-openfl-4-3-and-lime-3-3-released/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

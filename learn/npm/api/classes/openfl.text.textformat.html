@@ -1,0 +1,891 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>TextFormat | openfl</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">openfl</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../index.html">openfl</a>
+				</li>
+				<li>
+					<a href="../modules/openfl.text.html">text</a>
+				</li>
+				<li>
+					<a href="openfl.text.textformat.html">TextFormat</a>
+				</li>
+			</ul>
+			<h1>Class TextFormat</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The TextFormat class represents character formatting information. Use the
+							TextFormat class to create specific text formatting for text fields. You
+							can apply text formatting to both static and dynamic text fields. The
+							properties of the TextFormat class apply to device and embedded fonts.
+							However, for embedded fonts, bold and italic text actually require specific
+							fonts. If you want to display bold or italic text with an embedded font,
+						you need to embed the bold and italic variations of that font.</p>
+					</div>
+					<p> You must use the constructor <code>new TextFormat()</code> to create a
+						TextFormat object before setting its properties. When you apply a
+						TextFormat object to a text field using the
+						<code>TextField.defaultTextFormat</code> property or the
+						<code>TextField.setTextFormat()</code> method, only its defined properties
+						are applied. Use the <code>TextField.defaultTextFormat</code> property to
+						apply formatting BEFORE you add text to the <code>TextField</code>, and the
+						<code>setTextFormat()</code> method to add formatting AFTER you add text to
+						the <code>TextField</code>. The TextFormat properties are <code>null</code>
+						by default because if you don&#39;t provide values for the properties, Flash
+						Player uses its own default formatting. The default formatting that Flash
+						Player uses for each property(if property&#39;s value is <code>null</code>) is
+					as follows:</p>
+					<p>The default formatting for each property is also described in each
+					property description.</p>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">TextFormat</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#align" class="tsd-kind-icon">align</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#blockindent" class="tsd-kind-icon">block<wbr>Indent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#bold" class="tsd-kind-icon">bold</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#bullet" class="tsd-kind-icon">bullet</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#color" class="tsd-kind-icon">color</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#font" class="tsd-kind-icon">font</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#indent" class="tsd-kind-icon">indent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#italic" class="tsd-kind-icon">italic</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#kerning" class="tsd-kind-icon">kerning</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#leading" class="tsd-kind-icon">leading</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#leftmargin" class="tsd-kind-icon">left<wbr>Margin</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#letterspacing" class="tsd-kind-icon">letter<wbr>Spacing</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#rightmargin" class="tsd-kind-icon">right<wbr>Margin</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#tabstops" class="tsd-kind-icon">tab<wbr>Stops</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#target" class="tsd-kind-icon">target</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#underline" class="tsd-kind-icon">underline</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#url" class="tsd-kind-icon">url</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.text.textformat.html#clone" class="tsd-kind-icon">clone</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Text<wbr>Format<span class="tsd-signature-symbol">(</span>font<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, color<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, bold<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, italic<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, underline<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, url<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, target<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, align<span class="tsd-signature-symbol">?: </span><a href="../enums/openfl.text.textformatalign.html" class="tsd-signature-type">TextFormatAlign</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, leftMargin<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, rightMargin<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, indent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, leading<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.text.textformat.html" class="tsd-signature-type">TextFormat</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L192">lib/openfl/text/TextFormat.d.ts:192</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a TextFormat object with the specified properties. You can then
+										change the properties of the TextFormat object to change the formatting of
+									text fields.</p>
+								</div>
+								<p>Any parameter may be set to <code>null</code> to indicate that it is
+									not defined. All of the parameters are optional; any omitted parameters
+								are treated as <code>null</code>.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> font: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The name of a font for text as a string.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> size: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>An integer that indicates the size in pixels.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> color: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The color of text using this text format. A number
+												containing three 8-bit RGB components; for example,
+											0xFF0000 is red, and 0x00FF00 is green.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> bold: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A Boolean value that indicates whether the text is
+											boldface.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> italic: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A Boolean value that indicates whether the text is
+											italicized.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> underline: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A Boolean value that indicates whether the text is
+											underlined.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The URL to which the text in this text format
+												hyperlinks. If <code>url</code> is an empty string, the
+											text does not have a hyperlink.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> target: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The target window where the hyperlink is displayed. If
+												the target window is an empty string, the text is
+												displayed in the default target window
+												<code>_self</code>. If the <code>url</code> parameter
+												is set to an empty string or to the value
+												<code>null</code>, you can get or set this property,
+											but the property will have no effect.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> align: <a href="../enums/openfl.text.textformatalign.html" class="tsd-signature-type">TextFormatAlign</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The alignment of the paragraph, as a TextFormatAlign
+											value.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> leftMargin: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Indicates the left margin of the paragraph, in pixels.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rightMargin: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Indicates the right margin of the paragraph, in pixels.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> indent: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>An integer that indicates the indentation from the left
+											margin to the first character in the paragraph.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> leading: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A number that indicates the amount of leading vertical
+											space between lines.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.text.textformat.html" class="tsd-signature-type">TextFormat</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="align" class="tsd-anchor"></a>
+					<h3>align</h3>
+					<div class="tsd-signature tsd-kind-icon">align<span class="tsd-signature-symbol">:</span> <a href="../enums/openfl.text.textformatalign.html" class="tsd-signature-type">TextFormatAlign</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L44">lib/openfl/text/TextFormat.d.ts:44</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the alignment of the paragraph. Valid values are TextFormatAlign
+							constants.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>TextFormatAlign.LEFT</p>
+							</dd>
+							<dt>throws</dt>
+							<dd><p>ArgumentError The <code>align</code> specified is not a member of
+								flash.text.TextFormatAlign.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="blockindent" class="tsd-anchor"></a>
+					<h3>block<wbr>Indent</h3>
+					<div class="tsd-signature tsd-kind-icon">block<wbr>Indent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L54">lib/openfl/text/TextFormat.d.ts:54</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the block indentation in pixels. Block indentation is applied to
+								an entire block of text; that is, to all lines of the text. In contrast,
+								normal indentation(<code>TextFormat.indent</code>) affects only the first
+								line of each paragraph. If this property is <code>null</code>, the
+								TextFormat object does not specify block indentation(block indentation is
+							0).</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="bold" class="tsd-anchor"></a>
+					<h3>bold</h3>
+					<div class="tsd-signature tsd-kind-icon">bold<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L61">lib/openfl/text/TextFormat.d.ts:61</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies whether the text is boldface. The default value is
+								<code>null</code>, which means no boldface is used. If the value is
+							<code>true</code>, then the text is boldface.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="bullet" class="tsd-anchor"></a>
+					<h3>bullet</h3>
+					<div class="tsd-signature tsd-kind-icon">bullet<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L69">lib/openfl/text/TextFormat.d.ts:69</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates that the text is part of a bulleted list. In a bulleted list,
+								each paragraph of text is indented. To the left of the first line of each
+								paragraph, a bullet symbol is displayed. The default value is
+							<code>null</code>, which means no bulleted list is used.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="color" class="tsd-anchor"></a>
+					<h3>color</h3>
+					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L77">lib/openfl/text/TextFormat.d.ts:77</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the color of the text. A number containing three 8-bit RGB
+								components; for example, 0xFF0000 is red, and 0x00FF00 is green. The
+								default value is <code>null</code>, which means that Flash Player uses the
+							color black(0x000000).</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="font" class="tsd-anchor"></a>
+					<h3>font</h3>
+					<div class="tsd-signature tsd-kind-icon">font<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L88">lib/openfl/text/TextFormat.d.ts:88</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The name of the font for text in this text format, as a string. The
+								default value is <code>null</code>, which means that Flash Player uses
+							Times New Roman font for the text.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="indent" class="tsd-anchor"></a>
+					<h3>indent</h3>
+					<div class="tsd-signature tsd-kind-icon">indent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L95">lib/openfl/text/TextFormat.d.ts:95</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the indentation from the left margin to the first character in
+								the paragraph. The default value is <code>null</code>, which indicates
+							that no indentation is used.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="italic" class="tsd-anchor"></a>
+					<h3>italic</h3>
+					<div class="tsd-signature tsd-kind-icon">italic<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L101">lib/openfl/text/TextFormat.d.ts:101</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates whether text in this text format is italicized. The default
+							value is <code>null</code>, which means no italics are used.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="kerning" class="tsd-anchor"></a>
+					<h3>kerning</h3>
+					<div class="tsd-signature tsd-kind-icon">kerning<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L116">lib/openfl/text/TextFormat.d.ts:116</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A Boolean value that indicates whether kerning is enabled
+								(<code>true</code>) or disabled(<code>false</code>). Kerning adjusts the
+								pixels between certain character pairs to improve readability, and should
+								be used only when necessary, such as with headings in large fonts. Kerning
+							is supported for embedded fonts only.</p>
+						</div>
+						<p>Certain fonts such as Verdana and monospaced fonts, such as Courier
+						New, do not support kerning.</p>
+						<p>The default value is <code>null</code>, which means that kerning is not
+						enabled.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="leading" class="tsd-anchor"></a>
+					<h3>leading</h3>
+					<div class="tsd-signature tsd-kind-icon">leading<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L123">lib/openfl/text/TextFormat.d.ts:123</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An integer representing the amount of vertical space(called
+								<em>leading</em>) between lines. The default value is <code>null</code>,
+							which indicates that the amount of leading used is 0.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="leftmargin" class="tsd-anchor"></a>
+					<h3>left<wbr>Margin</h3>
+					<div class="tsd-signature tsd-kind-icon">left<wbr>Margin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L129">lib/openfl/text/TextFormat.d.ts:129</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The left margin of the paragraph, in pixels. The default value is
+							<code>null</code>, which indicates that the left margin is 0 pixels.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="letterspacing" class="tsd-anchor"></a>
+					<h3>letter<wbr>Spacing</h3>
+					<div class="tsd-signature tsd-kind-icon">letter<wbr>Spacing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L138">lib/openfl/text/TextFormat.d.ts:138</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A number representing the amount of space that is uniformly distributed
+								between all characters. The value specifies the number of pixels that are
+								added to the advance after each character. The default value is
+								<code>null</code>, which means that 0 pixels of letter spacing is used.
+							You can use decimal values such as <code>1.75</code>.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="rightmargin" class="tsd-anchor"></a>
+					<h3>right<wbr>Margin</h3>
+					<div class="tsd-signature tsd-kind-icon">right<wbr>Margin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L144">lib/openfl/text/TextFormat.d.ts:144</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The right margin of the paragraph, in pixels. The default value is
+							<code>null</code>, which indicates that the right margin is 0 pixels.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="size" class="tsd-anchor"></a>
+					<h3>size</h3>
+					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L150">lib/openfl/text/TextFormat.d.ts:150</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The size in pixels of text in this text format. The default value is
+							<code>null</code>, which means that a size of 12 is used.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="tabstops" class="tsd-anchor"></a>
+					<h3>tab<wbr>Stops</h3>
+					<div class="tsd-signature tsd-kind-icon">tab<wbr>Stops<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L157">lib/openfl/text/TextFormat.d.ts:157</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies custom tab stops as an array of non-negative integers. Each tab
+								stop is specified in pixels. If custom tab stops are not specified
+							(<code>null</code>), the default tab stop is 4(average character width).</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="target" class="tsd-anchor"></a>
+					<h3>target</h3>
+					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L171">lib/openfl/text/TextFormat.d.ts:171</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the target window where the hyperlink is displayed. If the
+								target window is an empty string, the text is displayed in the default
+								target window <code>_self</code>. You can choose a custom name or one of
+								the following four names: <code>_self</code> specifies the current frame
+								in the current window, <code>_blank</code> specifies a new window,
+								<code>_parent</code> specifies the parent of the current frame, and
+								<code>_top</code> specifies the top-level frame in the current window. If
+								the <code>TextFormat.url</code> property is an empty string or
+								<code>null</code>, you can get or set this property, but the property will
+							have no effect.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="underline" class="tsd-anchor"></a>
+					<h3>underline</h3>
+					<div class="tsd-signature tsd-kind-icon">underline<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L181">lib/openfl/text/TextFormat.d.ts:181</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates whether the text that uses this text format is underlined
+								(<code>true</code>) or not(<code>false</code>). This underlining is
+								similar to that produced by the <code>&lt;U&gt;</code> tag, but the latter is
+								not true underlining, because it does not skip descenders correctly. The
+								default value is <code>null</code>, which indicates that underlining is
+							not used.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="url" class="tsd-anchor"></a>
+					<h3>url</h3>
+					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L192">lib/openfl/text/TextFormat.d.ts:192</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the target URL for the text in this text format. If the
+								<code>url</code> property is an empty string, the text does not have a
+								hyperlink. The default value is <code>null</code>, which indicates that
+							the text does not have a hyperlink.</p>
+						</div>
+						<p><strong>Note:</strong> The text with the assigned text format must be set with
+						the <code>htmlText</code> property for the hyperlink to work.</p>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="clone" class="tsd-anchor"></a>
+					<h3>clone</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.text.textformat.html" class="tsd-signature-type">TextFormat</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/text/TextFormat.d.ts#L237">lib/openfl/text/TextFormat.d.ts:237</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.text.textformat.html" class="tsd-signature-type">TextFormat</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.desktop.html">openfl.desktop</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.display.html">openfl.display</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.display3d.html">openfl.display3D</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.errors.html">openfl.errors</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.events.html">openfl.events</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.external.html">openfl.external</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.filters.html">openfl.filters</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.geom.html">openfl.geom</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.media.html">openfl.media</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.net.html">openfl.net</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.profiler.html">openfl.profiler</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.sensors.html">openfl.sensors</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.system.html">openfl.system</a>
+					</li>
+					<li class="current tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.text.html">openfl.text</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.ui.html">openfl.ui</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.utils.html">openfl.utils</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.text.antialiastype.html" class="tsd-kind-icon">Anti<wbr>Alias<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.text.fontstyle.html" class="tsd-kind-icon">Font<wbr>Style</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.text.fonttype.html" class="tsd-kind-icon">Font<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.text.gridfittype.html" class="tsd-kind-icon">Grid<wbr>Fit<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.text.textfieldautosize.html" class="tsd-kind-icon">Text<wbr>Field<wbr>Auto<wbr>Size</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.text.textfieldtype.html" class="tsd-kind-icon">Text<wbr>Field<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.text.textformatalign.html" class="tsd-kind-icon">Text<wbr>Format<wbr>Align</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.text.font.html" class="tsd-kind-icon">Font</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.text.textfield.html" class="tsd-kind-icon">Text<wbr>Field</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.text.textformat.html" class="tsd-kind-icon">Text<wbr>Format</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#align" class="tsd-kind-icon">align</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#blockindent" class="tsd-kind-icon">block<wbr>Indent</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#bold" class="tsd-kind-icon">bold</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#bullet" class="tsd-kind-icon">bullet</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#color" class="tsd-kind-icon">color</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#font" class="tsd-kind-icon">font</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#indent" class="tsd-kind-icon">indent</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#italic" class="tsd-kind-icon">italic</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#kerning" class="tsd-kind-icon">kerning</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#leading" class="tsd-kind-icon">leading</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#leftmargin" class="tsd-kind-icon">left<wbr>Margin</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#letterspacing" class="tsd-kind-icon">letter<wbr>Spacing</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#rightmargin" class="tsd-kind-icon">right<wbr>Margin</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#size" class="tsd-kind-icon">size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#tabstops" class="tsd-kind-icon">tab<wbr>Stops</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#target" class="tsd-kind-icon">target</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#underline" class="tsd-kind-icon">underline</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#url" class="tsd-kind-icon">url</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.text.textformat.html#clone" class="tsd-kind-icon">clone</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.text.textlinemetrics.html" class="tsd-kind-icon">Text<wbr>Line<wbr>Metrics</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

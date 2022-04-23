@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Here Comes the First OpenFL 3 Beta!</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>Here Comes the First OpenFL 3 Beta!</h1></div>
+<!-- <p class="meta">20 Mar 2015</p> -->
+
+<div class="post">
+<p>We are rolling out a new beta release of OpenFL 3.0! It comes with tons of exciting changes, but for the sake of stability and continuity you can use the “-Dv2” or “-Dlegacy” flag to keep the old behavior for all your Windows, Mac, Linux, iOS, Android, and BlackBerry projects. This is meant to be fully backward-compatible, so we can continue to release critical patches as we move forward. Please report any issues you have using legacy mode.</p>
+
+<p>OpenFL 3 introduces a new rendering path that will take some time to fully develop, but already is yielding some great results.</p>
+
+<h2 id="architecture">Architecture</h2>
+
+<p>Some of you may ask, “Okay, feature, feature, feature, but <em>why</em>? <em>Why</em> do something different?”</p>
+
+<p>Basically, the old structure wasn’t taking us where we wanted to go, led to lots of duplicated work, was difficult to contribute to, and just wasn’t sustainable long-term.</p>
+
+<p><img src="/blog/assets/openfl2architecture.png" alt="OpenFL 2 Architecture" /></p>
+
+<p>This illustration shows the (old) OpenFL 2.x architecture.</p>
+
+<p>Native targets used a combination of Haxe glue and C++ logic to power the full API. Many behaviors required deep dives into C++ to change, and certain parts of the API were (practically speaking) never going to change. Whether innocent inconsistencies or larger issues, it was difficult to fix things. The platform layer was handled by SDL2 on desktop targets and by custom code layers for each mobile platform (since this was developed before SDL even supported mobile). Now we can just use SDL on mobile platforms, improving both stability and productivity. Instead of searching through custom Java and Objective-C back-ends, we can invest more of efforts on portable code.</p>
+
+<p><img src="/blog/assets/openfl3architecture.png" alt="OpenFL 3 Architecture" /></p>
+
+<p>Lime 2 has been designed to be low-level and portable, supporting not only Flash, HTML5 and traditional native targets, but also home game console targets. <a href="http://www.openfl.org/samples/bunny/">BunnyMark</a> has already been ported for Wii U (using Lime), and additional low-level features needed for OpenFL are forthcoming.</p>
+
+<p>The new OpenFL now consists of 100% Haxe code. Not only is this super-portable, it has other benefits. Since we’re all Haxe developers, the entire community can now make OpenFL stronger, even if it’s just a small fix or addition. And now that there’s only one OpenFL library to maintain, we have already seen huge boosts in development flow and improvements to existing features.</p>
+
+<h2 id="lime-2">Lime 2</h2>
+
+<p>Lime 2 is a brand-new API in OpenFL development.</p>
+
+<p>While Lime has previously been used to power the command-line tools and provide native binaries, Lime can now be used directly as a distinct framework beneath OpenFL. This has some amazing benefits. First, getting Lime up and running on a platform is much simpler to implement than the full OpenFL stack. Second, you can control the whole lifecycle of an application in Lime, and create/destroy an OpenFL stage at will to step in or out of the Flash development workflow.</p>
+
+<p>And even when you don’t work directly at the Lime level, the APIs provide features like nuanced gamepad support, complex text layout, and direct access to sound APIs. By pushing the OpenFL renderer up and away from the low-level platform layer, we gain clarity, stability, and pave the way for new features, such as upcoming support for custom shaders in OpenFL.</p>
+
+<p>Lime is also available in more environments than just OpenFL 2. The command-line tools work with or without native binaries. It has been tested to work on C++, JavaScript, Flash and Java, including new permutations, such as node.js for JavaScript + native windowing support or asm.js through Emscripten.</p>
+
+<p>And of course, compatibility with home game console targets, such as the Wii U and additional platforms, is coming.</p>
+
+<h2 id="html5-as-a-first-class-citizen">HTML5 as a First-Class Citizen</h2>
+
+<p>Did you know that Flash is being <a href="http://www.infognition.com/blog/2014/comparing_flash_haxe_dart_asmjs_and_cpp.html">out-performed by JavaScript</a> nowadays?</p>
+
+<p>Of course no single benchmark is perfect, but the web has certainly come a long way since the 1990’s.</p>
+
+<p>Like it or not – most users today want rich interactive web content without a plugin. Flash was and is awesome, but HTML5 is now filling its shoes for many purposes. We want to be sure that as OpenFL matures, it provides the same robust web support as Flash, without relying exclusively on Flash Player. Since OpenFL 3 has unified the codebase, 90% of the time, contributions meant for native platforms will benefit the HTML5 and mobile targets, and vice versa. Unification helps improve every platform, regardless of what technology we use to reach it.</p>
+
+<h2 id="and-more">…and More</h2>
+
+<p>There are already many improvements in OpenFL 3, including complex text layout, mouse cursor handling, robust gamepad support, and other improvements to come.</p>
+
+<h2 id="download-openfl-3">Download OpenFL 3</h2>
+
+<p>As always, OpenFL is available on haxelib:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>haxelib <span class="nb">install </span>openfl
+haxelib run openfl setup
+</code></pre></div></div>
+
+<p>Remember that you can enable OpenFL 2 compatibility mode using the -Dv2 or -Dlegacy flags, but only by improving OpenFL 3 can we tap into the future it opens up for us all. It works on so many Haxe platforms already, why shouldn’t it work on C#, or the new Python target? If you can load OpenFL into Lime, why not load OpenFL projects into other OpenFL projects, or use OpenFL as the renderer for other, pre-established game engines? …and what about the SWF library? How does that open doors to reproduce the Flash SWC workflow for the web with and without the Flash plugin?</p>
+
+<p>One thing is for certain, the future is bright. Thank you again to all of our awesome <a href="http://www.openfl.org/get-involved/">supporters</a>, and all you cool cats who are making games and web projects out in Twitter, the <a href="http://community.openfl.org">forums</a> and our Slack chat. Onward and upward!</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">March 20, 2015 | <a href="/blog/2015/03/20/here-comes-the-first-openfl-3-beta/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

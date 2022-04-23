@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>OpenFL Hybrid Release</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>OpenFL Hybrid Release</h1></div>
+<!-- <p class="meta">08 Apr 2015</p> -->
+
+<div class="post">
+<p>Spring has arrived, and new versions of Lime and OpenFL are up!</p>
+
+<h2 id="openfl-hybrid">OpenFL Hybrid</h2>
+
+<p>The biggest new feature is OpenFL “hybrid” mode. As you may already know, OpenFL 3 supports two different build modes, the default is a unified OpenFL, that is consistent across all target platforms, for Flash, for HTML5, for desktop, mobile or console native targets. The second build mode is called “legacy”, which only works for native desktop or mobile. This is the older OpenFL renderer and platform backend, familiar to OpenFL 1 and OpenFL 2 behaviors.</p>
+
+<p>Both approaches, either the default or legacy, have their own benefits. We built Lime 2 and the new OpenFL architecture for a reason, to be portable, to be easy to maintain, to maximize our code investment and open the door to new and exciting platforms, like the budding Wii U target. On the other hand, since we developed the older native architecture for so long, there is more maturity in areas of the code. “Hybrid” helps bridge the gap between them.</p>
+
+<p>Instead of using the legacy Lime backend, hybrid uses Lime 2. On top of Lime, hybrid utilizes OpenFL legacy instead of the newer code. This approach opens up support for Lime 2 Gamepad, advanced text and low-level sound and networking with legacy OpenFL. This an in-between from Lime legacy to Lime 2, allowing us to continue to make Lime 2 strong, while not necessarily switching a project from the older OpenFL native renderer to the new code.</p>
+
+<h2 id="how-to-use-legacy-or-hybrid-mode">How to Use Legacy or Hybrid Mode</h2>
+
+<p>Use <code class="language-plaintext highlighter-rouge">-Dlegacy</code> or <code class="language-plaintext highlighter-rouge">-Dv2</code> to use the OpenFL legacy (OpenFL 2) native behavior:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl <span class="nb">test </span>windows <span class="nt">-Dlegacy</span>
+openfl <span class="nb">test </span>windows <span class="nt">-Dv2</span>
+</code></pre></div></div>
+
+<p>If you use a define, it enables fast-switching between different OpenFL build types.</p>
+
+<p>For example, in FlashDevelop, the target drop-down box is actually editable. If you type “windows -Dlegacy” or “neko -Dlegacy” as an option, these will be available in addition to default Windows or Neko support, allowing either to be used.</p>
+
+<p>If you must lock in legacy for a project, add the following before <code class="language-plaintext highlighter-rouge">&lt;haxelib name="openfl" /&gt;</code> in the project XML:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;set</span> <span class="na">name=</span><span class="s">"openfl-legacy"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>Similarly, use the following to use OpenFL hybrid native behavior</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl <span class="nb">test </span>windows <span class="nt">-Dhybrid</span>
+</code></pre></div></div>
+
+<p>If you must lock in hybrid for a project, add the following before <code class="language-plaintext highlighter-rouge">&lt;haxelib name="openfl" /&gt;</code> in the project XML:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;set</span> <span class="na">name=</span><span class="s">"lime-hybrid"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<h2 id="new-releases">New Releases</h2>
+
+<p>New versions of OpenFL and Lime are available. Some (newer) versions of haxelib install only “stable” versions of libraries. Unfortunately this means that Lime 2.3 was being installed with OpenFL 2.2, which are not compatible. As we continue to develop the newer OpenFL 3 APIs, we are changing the version number to a stable “3.0.0” in order to ensure that Lime 2.3 is installed along with OpenFL 3 and to avoid setup bugs.</p>
+
+<p>Upgrade using the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl upgrade
+</code></pre></div></div>
+
+<p>Install using the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>haxelib <span class="nb">install </span>openfl
+haxelib run openfl setup
+</code></pre></div></div>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">April 8, 2015 | <a href="/blog/2015/04/08/openfl-hybrid-release/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

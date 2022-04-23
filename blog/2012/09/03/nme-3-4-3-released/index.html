@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>NME 3.4.3 Released</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>NME 3.4.3 Released</h1></div>
+<!-- <p class="meta">03 Sep 2012</p> -->
+
+<div class="post">
+<p>NME 3.4.3 is <a href="http://www.haxenme.org/download">now available</a>.</p>
+<ul>
+	<li>Project names are now optional when running commands ("nme test blackberry")</li>
+	<li>Added support for OpenGL 2 shader-based rendering</li>
+	<li>Improved support for AIR mobile</li>
+	<li>Minor fixes for BlackBerry release signing</li>
+	<li>Fixed compatibility for webOS devices</li>
+	<li>Flags with two dashes ("--connect") now pass through to the Haxe compiler</li>
+	<li>Build ID file changed from "ProjectName.build" to ".build"</li>
+	<li>Implemented Sound.loadCompressedDataFromByteArray</li>
+	<li>Implemented Sound.loadPCMFromByteArray</li>
+	<li>Fixed AJAX asset loading on HTML5</li>
+	<li>Improved compatibility for MP3 file formats for Flash</li>
+	<li>Removed need for Event.RESIZE to get initial iOS stage width and height</li>
+	<li>Compatibility fixes for Windows 8 RTM</li>
+</ul>
+<h3>Short Syntax</h3>
+<p>The first change may seem minor, but its proven to be time-saving. Rather than specifying the project file whenever you call the NME command-line tools, NME can now look for your “project.nmml”, “project.xml” or other NMML files in order to automatically determine how to build your project. If you are in the directory of your project, you should be able to drop the project file name altogether:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nme <span class="nb">test </span>blackberry
+</code></pre></div></div>
+
+<p>You can also specify the directory where a project lives, without specifying the project file name as well:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nme <span class="nb">test</span> <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rojects</span><span class="se">\G</span><span class="s2">ames</span><span class="se">\P</span><span class="s2">irate Pig"</span> windows
+</code></pre></div></div>
+
+<h3>OpenGL 2</h3>
+<p>We’ve added initial support for OpenGL 2, shader-based rendering in NME. This should work properly on the desktop, and brings us close to supporting OpenGL ES 2.0 on mobile. This should not look any different than the old method at first, but down the road this opens doors to custom shaders, like HxSL, and more ways to accelerate complex rendering.</p>
+
+<p>If you would like to experiment with the new render pipeline, you can add the following to your project file:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;window</span> <span class="na">shaders=</span><span class="s">"true"</span> <span class="na">if=</span><span class="s">"desktop"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<h3>Improved AIR Support</h3>
+<p>We believe in choices. That’s one of the reasons why we’ve integrated support for Adobe AIR straight into NME. You can seamlessly compile for AIR or the native target support built into NME. In addition to the desktop support we added in 3.4.1, NME now has initial support for AIR mobile platforms.</p>
+<h3>BlackBerry Signing</h3>
+<p>We’ve added extra polish to our release build process for BlackBerry, so targeting the platform should be smoother than ever.</p>
+<h3>Windows 8</h3>
+<p>Now that Microsoft has released the first official build of Windows 8, in preparation for launch, we’ve updated NME to resolve some small issues that occurred when moving from the Release Preview to RTM.</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">September 3, 2012 | <a href="/blog/2012/09/03/nme-3-4-3-released/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

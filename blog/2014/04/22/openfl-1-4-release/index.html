@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>OpenFL 1.4 Release</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>OpenFL 1.4 Release</h1></div>
+<!-- <p class="meta">22 Apr 2014</p> -->
+
+<div class="post">
+<p>We have a brand-new OpenFL (and kin) release for you today. If you have already updated to Haxe 3.1.3, this resolves some C++ incompatibilities that were introduced.</p>
+
+<h2 id="new-limenme-collaborative-backend">New Lime/NME Collaborative Backend</h2>
+
+<p>The most significant change in this release is that we have joined forces with the (now renewed) NME project in order to unify our efforts in building a stable, fast native backend implementation for Haxe projects. NME and Lime remain different projects, but a primary goal for us is to welcome contribution where we can, and to reduce barriers to increasing the quality of Lime as a whole.</p>
+
+<p>If you are a contributor, you will find that the native C++ code has moved out of Lime, and has been merged to a new home within the NME repository. Issues and pull requests should be made against NME, the C++ binaries for NME and Lime are not identical, but we are building from the same source files to increase collaboration and joint improvements.</p>
+
+<p>As a user, this will not have a tangible impact, other than stronger and better Lime releases. When we use the same code as NME, we all benefit by more developers patching and improving the code. Where we have chosen not to use the same code (such as OpenAL for sound and our new Android extension system) we will continue to provide the same Lime experience.</p>
+
+<h2 id="better-canvas-support-new-dom-support">Better Canvas Support, new DOM Support</h2>
+
+<p>Although the new HTML5 backend is in beta, we have already seen amazing results so far. In this release, the HTML5 backend has many, many, MANY improvements across the board. You can expect a more consistent Flash experience, now with automated webfont support!</p>
+
+<p>We have had it in mind to develop a separate DOM-based backend for HTML5, in order to best support applications, as well as games. Upon a technical review, we realized that the best result for a DOM backend looked much closer to the existing HTML5 backend than we thought. Using “-Ddom” while compiling (or &lt;haxedef name=”dom” /&gt; in your project) you can target the DOM instead of a single canvas.</p>
+
+<p>The default canvas behavior is the fastest result for desktop and mobile targets for games that are blitting the fullscreen each frame. The DOM renderer is faster for certain older or low-feature devices (such as a smart TV) and may be a better match for applications that do not need to render each frame, would benefit from DOM-based text, or any project that would prefer to use canvas elements sparingly.</p>
+
+<p>We still expect to introduce WebGL rendering soon… the canvas-based renderer, in the meantime, is plenty fast on the desktop, and is a good way to provide feedback for the behavior of our new backend. WebGL support will be a progressive, in-place upgrade when it is ready.</p>
+
+<h2 id="unified-haxe-c-library">Unified Haxe C++ Library</h2>
+
+<p>The most recent hxcpp release, 3.1.30, is a combination of hxcpp and hxlibc in a joint investment to build the ideal Haxe C++ library. Improvements from hxlibc, such as better, more reliable build tools, smarter output, support for external toolchain XML and new platform support are now official within hxcpp. Haxe related improvements to C++ target are also reflected and up-to-date, coinciding with the recent Haxe 3.1.3 release. All around, we feel this is a great solution. The release schedule has also been improved, to help make sure that time-critical fixes can go out to you on-time.</p>
+
+<p>This release changes to use the new-and-improved hxcpp library by default.</p>
+
+<h2 id="additional-tools">Additional Tools</h2>
+
+<p>In addition to OpenFL, we also want to highlight a couple useful tools that have been updated recently!</p>
+
+<h3 id="as3hx">as3hx</h3>
+
+<p>If you would like to convert ActionScript code to Haxe, as3hx can help automate the process:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>haxelib install as3hx
+haxelib run as3hx path/to/as3/sources
+</code></pre></div></div>
+
+<p>If you find issues or have pull requests to contribute to the tool, we invite you to visit the official project page at <a href="https://github.com/HaxeFoundation/as3hx">https://github.com/HaxeFoundation/as3hx</a></p>
+
+<h3 id="swf">swf</h3>
+
+<p>As a friendly reminder, there is a totally awesome SWF library that seamless works with OpenFL. If you want to bring assets over from Flash, it makes it surprisingly simple:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>haxelib install swf
+</code></pre></div></div>
+
+<p>You can add a SWF library to your project file, like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;library path="awesome.swf" /&gt;
+</code></pre></div></div>
+
+<p>…then you can load it at runtime, like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Assets.loadLibrary ("awesome", function (_) {
+	var clip = Assets.getMovieClip ("awesome:MyClipName");
+	addChild (clip);
+});
+</code></pre></div></div>
+
+<p>The SWF library also supports compile-time support for including SWF assets in HTML5 projects, but this is (unfortunately) not fully compatible with our new HTML5 backend, yet. If you want to experiment with it, you can do so with the old “openfl-html5-dom” backend:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;set name="html5-backend" value="openfl-html5-dom" /&gt;
+&lt;haxelib name="openfl" /&gt;
+</code></pre></div></div>
+
+<h2 id="contributing-to-openfl">Contributing to OpenFL</h2>
+
+<p>If you are interested in being a source-code contributor to OpenFL, please check out our <a href="https://github.com/openfl">GitHub</a> or visit us at the <a href="http://www.hipchat.com/ggsrxiqGV">Contributors’ Chat Room</a>.</p>
+
+<p>We also want to take this opportunity to give a <strong>HUGE</strong> thank you to all of our supporters, who have contributed a total of $516.08 since February to help OpenFL grow. You guys are all awesome! If you are not a supporter yet, please consider giving to help <a href="http://www.patreon.com/openfl">supporting the project</a>. Thank you!</p>
+
+<h2 id="getting-the-update">Getting the Update</h2>
+
+<p>If you have not installed OpenFL yet, follow the <a href="http://www.openfl.org/download">install instructions</a> to get started!</p>
+
+<p>If you are upgrading from a recent OpenFL release, you can use “lime upgrade” to get the latest release:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lime upgrade openfl
+</code></pre></div></div>
+
+<p>If you have an older version of OpenFL installed, you can try these commands:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>haxelib update lime
+haxelib update lime-tools
+lime upgrade openfl
+</code></pre></div></div>
+
+<p>If you encounter any problems while your upgrading, or installing for the first time, please comment here so that we can help!</p>
+
+<h2 id="changes">Changes</h2>
+
+<h3 id="openfl"><a href="https://github.com/openfl/openfl">openfl</a></h3>
+
+<p><strong>Version: 1.4.0</strong></p>
+
+<ul>
+  <li>Updated to new OpenFL logo and icon</li>
+  <li>Install hxcpp instead of hxlibc during setup</li>
+</ul>
+
+<h3 id="openfl-native"><a href="https://github.com/openfl/openfl-native">openfl-native</a></h3>
+
+<p><strong>Version: 1.4.0</strong></p>
+
+<ul>
+  <li>Now openfl.gl.GL accepts both Array&lt;Float&gt; and Float32Array values, where appropriate</li>
+  <li>Implemented “cullFace” in openfl.gl.GL, as well as other minor fixes</li>
+  <li>Fixed lime_bitmap_data_set_flags to use the right number of parameters</li>
+  <li>Fixed a position offset error in openfl.utils.UInt8Array</li>
+  <li>Implemented “followRedirects” in flash.net.URLLoader, still true by default</li>
+  <li>Implemented “responseHeaders” in flash.net.HTTPStatusEvent</li>
+  <li>Set hxcpp critical errors to throw in Haxe instead of stderr in debug builds</li>
+</ul>
+
+<h3 id="openfl-html5"><a href="https://github.com/openfl/openfl-html5">openfl-html5</a></h3>
+
+<p><strong>Version: 1.4.0-beta</strong></p>
+
+<ul>
+  <li>Fix (possible) infinite loop in flash.display.BitmapData.floodFill</li>
+  <li>Fix bounds calculation for display objects</li>
+  <li>Added Event.ACTIVATE and Event.DEACTIVATE when leaving/entering window</li>
+  <li>Added “copyFrom” and “setTo” for flash.geom.Matrix</li>
+  <li>Added “copyFrom” to flash.geom.Rectangle and fixed internal “expand” method</li>
+  <li>Copied additional classes from “openfl-html5-dom”</li>
+  <li>Changed flash.display.DisplayObject to allow override of more core properties</li>
+  <li>Skipped creation of a canvas for flash.display.Graphics with a size of zero</li>
+  <li>Improved the “transform.matrix” property for flash.display.DisplayObject</li>
+  <li>Created a DOM render path (use -Ddom while compiling or &lt;haxedef name=”dom” /&gt;)</li>
+  <li>Silenced keyLocation warnings on certain browsers</li>
+  <li>Toggling canvas smoothing based upon “smoothing” value of flash.display.Bitmap</li>
+  <li>Added “unload” to flash.net.Loader and “invalidate” to flash.display.Stage</li>
+  <li>Fixed issue when using “drawTiles” with tiles with a width or height &lt;= 0</li>
+  <li>Fixed “rect” for flash.display.BitmapData</li>
+  <li>Switched from Howler.js to SoundJS for audio backend</li>
+  <li>Implemented support for automatically embedding of webfonts</li>
+  <li>Disabled “image drag” behavior in Firefox</li>
+  <li>Added support for older Haxe releases, tested on Haxe 3.1, possibly compatible with 3.0</li>
+  <li>Added Event.ADDED_TO_STAGE event for the document class</li>
+  <li>Populating the “content” property of flash.display.Loader</li>
+  <li>Added flash.events.FocusEvent support</li>
+  <li>Consistency fixes to the event capture/target/bubble implementation</li>
+  <li>Fixed bubbling for manually dispatched events</li>
+  <li>Made KeyboardEvents dispatch through the currently focused object</li>
+  <li>Added initial “scrollRect” support for flash.display.DisplayObject</li>
+  <li>Fixed bounds checking for objects that have an alpha of 0 but are visible</li>
+  <li>Added initial support for bitmap fill matrix in flash.display.Graphics</li>
+</ul>
+
+<h3 id="lime"><a href="https://github.com/openfl/lime">lime</a></h3>
+
+<p><strong>Version: 0.9.7</strong></p>
+
+<ul>
+  <li>Merged into a shared NME/Lime C++ codebase</li>
+  <li>Improvements to exposed OpenGL float-based APIs</li>
+  <li>Updated Android OpenAL libraries for better performance</li>
+  <li>Set to rebuild to using hxcpp instead of hxlibc</li>
+  <li>Fix for SDL2 initialization using software</li>
+  <li>Guard KEYCODE_VOLUME_MUTE from older Android SDK versions</li>
+  <li>Improved BlackBerry audio by moving from SDL_mixer to OpenAL</li>
+  <li>Added Android Extension callbacks for “onLowMemory”, “onTrimMemory”</li>
+  <li>Fixed issue where the mouse would reset when leaving the window</li>
+  <li>Fixed bug where Android arrow/enter keys were trapped as joystick events</li>
+  <li>HTTPS requests are no longer blocking</li>
+  <li>Fix support for BWF format WAV files (and possibly others)</li>
+  <li>URLLoader now includes request headers and other improvements</li>
+  <li>Improve keyboard mapping for iOS</li>
+  <li>Enable support for Linux systems with no GL library</li>
+  <li>Improved handling for GPU pixel format / color order</li>
+  <li>Switched to a smarter build system for third-party dependencies</li>
+</ul>
+
+<h3 id="lime-tools"><a href="https://github.com/openfl/lime-tools">lime-tools</a></h3>
+
+<p><strong>Version: 1.4.0</strong></p>
+
+<ul>
+  <li>Changed default C++ build library to hxcpp</li>
+  <li>Improved error messages when the tools are not able to write to a file</li>
+  <li>Added OpenAL to list of expected libraries for BlackBerry</li>
+  <li>Added support for certain versions of haxelib that do not add a -D for the lib name</li>
+  <li>Confirmed for Amazon FireTV devices</li>
+  <li>Added –device=192.168.2.100 (etc) for targeting Android devices over a network</li>
+  <li>Now “lime install” will upgrade dependencies if they are installed already</li>
+  <li>Improved “lime upgrade” to manage updates from both GIT and haxelib</li>
+  <li>Improved “lime upgrade” to also handle dependencies that are specific to dev versions</li>
+  <li>Added support for generating SVG, EOT and WOFF web fonts automatically</li>
+  <li>Improved embedding to support native C++ targets, using &lt;assets path=”” embed=”true” /&gt;</li>
+  <li>Added internal support for targeting a specific display, using &lt;window display=”” /&gt;</li>
+  <li>Added internal support for setting up multiple windows, using &lt;window id=”” /&gt;</li>
+  <li>Moving DefaultAssetLibrary out of tools, into “openfl”</li>
+</ul>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">April 22, 2014 | <a href="/blog/2014/04/22/openfl-1-4-release/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

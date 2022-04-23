@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>OpenFL 6.0 is Now Available!</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>OpenFL 6.0 is Now Available!</h1></div>
+<!-- <p class="meta">03 Aug 2017</p> -->
+
+<div class="post">
+<p>We are pleased to announce that OpenFL 6.0 is available, including new features and fixes to continue to support single-source, cross-platform development support for web, mobile, desktop and other platforms!</p>
+
+<h2 id="new-features">New Features</h2>
+
+<h3 id="beta-tilearray">(Beta) TileArray</h3>
+
+<p>We have developed an easy-to-use <code class="language-plaintext highlighter-rouge">DisplayObject</code> called <code class="language-plaintext highlighter-rouge">Tilemap</code> which makes it possible to use batch hardware rendering. <code class="language-plaintext highlighter-rouge">Tilemap</code> is similar to a mixture of <code class="language-plaintext highlighter-rouge">Bitmap</code> and the display list, but we have received multiple requests to support an alternative API that is less structured.</p>
+
+<p>This release includes the (beta) API for <code class="language-plaintext highlighter-rouge">TileArray</code>, for writing tile data more directly:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">tilemap</span><span class="p">.</span><span class="nx">getTiles</span> <span class="p">();</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">setMatrix</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">setMatrix</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="nx">tilemap</span><span class="p">.</span><span class="nx">setTiles</span> <span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>This API has enabled our team to more easily migrate legacy <code class="language-plaintext highlighter-rouge">drawTiles</code> rendering code to the current version of OpenFL.</p>
+
+<p>We welcome your feedback, and hope to continue to improve <code class="language-plaintext highlighter-rouge">Tilemap</code></p>
+
+<h3 id="beta-custom-shader-support">(Beta) Custom Shader Support</h3>
+
+<p>OpenFL 4 added initial support for custom shaders, using the filter API.</p>
+
+<p>However, in time we have found that our use of OpenGL framebuffers was too expensive to make shader filters practical for every-day production. We are enabling an alternative approach in OpenFL 6, where <code class="language-plaintext highlighter-rouge">Bitmap</code>, <code class="language-plaintext highlighter-rouge">TextField</code>, <code class="language-plaintext highlighter-rouge">Tilemap</code> and <code class="language-plaintext highlighter-rouge">Video</code> objects can have a custom shader set directly:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">customShader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomShader</span> <span class="p">();</span>
+<span class="nx">bitmap</span><span class="p">.</span><span class="nx">shader</span> <span class="o">=</span> <span class="nx">customShader</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>We have also enabled support for custom OpenGL shaders for individual tiles in <code class="language-plaintext highlighter-rouge">Tilemap</code></p>
+
+<h3 id="improved-blendmode-and-colortransform-support">Improved blendMode and colorTransform support</h3>
+
+<p>We have improved support for <code class="language-plaintext highlighter-rouge">blendMode</code> throughout our renderer, and have added support for hardware-accelerated <code class="language-plaintext highlighter-rouge">colorTransform</code> when possible. In other cases, we enabled <code class="language-plaintext highlighter-rouge">cacheAsBitmap</code> in order to preserve performance. We also added (beta) support for <code class="language-plaintext highlighter-rouge">colorTransform</code> in <code class="language-plaintext highlighter-rouge">Tilemap</code>, but it is supported only on hardware since it is very expensive on other render types.</p>
+
+<h2 id="stage3d-libraries">Stage3D Libraries</h2>
+
+<p>Although OpenFL has enjoyed stable Stage3D support for some time, we have continued to focus on creating faithful renditions of familiar Stage3D libraries for OpenFL.</p>
+
+<h3 id="away3d">Away3D</h3>
+
+<p><img src="/blog/assets/openfl-6-away3d-cmp.png" alt="Away3D" /></p>
+
+<p>Away3D is an open source platform for developing interactive 3D graphics for video games and applications.</p>
+
+<p>The latest development version of Away3D is now compatible with OpenFL, and should continue to improve in quality with time: <a href="https://github.com/openfl/away3d">https://github.com/openfl/away3d</a></p>
+
+<h3 id="starling">Starling</h3>
+
+<p><img src="/blog/assets/openfl-6-starling-cmp.png" alt="Starling" /></p>
+
+<p>Starling is the “Cross-Platform Game Engine”, a popular Stage3D framework. OpenFL is hardware-accelerated without the use of Starling, but it still provides a popular alternative to the traditional Flash API.</p>
+
+<p>We currently have 1.8 release of Starling and the Starling particle framework working reliably, and are still working on porting the Starling 2.x codebase for use with OpenFL: <a href="https://github.com/openfl/starling">https://github.com/openfl/starling</a></p>
+
+<h3 id="dragonbones">DragonBones</h3>
+
+<p><img src="/blog/assets/openfl-6-dragonbones-cmp.png" alt="DragonBones" /></p>
+
+<p>DragonBones is a skeletal animation editor, as an alternative to using SWF assets with OpenFL directly (which is also supported).</p>
+
+<p>We have ported the most recent ActionScript runtime for DragonBones over for use with OpenFL. There is still room to create a runtime using OpenFL <code class="language-plaintext highlighter-rouge">Tilemap</code>, but we are still happy to provide a working version of the DragonBones runtime for use with projects: <a href="https://github.com/openfl/dragonbones">https://github.com/openfl/dragonbones</a></p>
+
+<h2 id="other-improvements">Other Improvements</h2>
+
+<p>We are continuing to invest in SWF asset support. You can use SWF content from Flash Professional or Adobe Animate directly in OpenFL, with layers, animation and object IDs preserved.</p>
+
+<p>In time, we expect <code class="language-plaintext highlighter-rouge">MovieClip</code> animation to continue to perform better, as well as accuracy. OpenFL 6 includes improved support for <code class="language-plaintext highlighter-rouge">blendMode</code>, <code class="language-plaintext highlighter-rouge">colorTransform</code> and frame script when working with SWF source data.</p>
+
+<p>As always, we are continuing to improve and polish a large variety of minor behaviors and features.</p>
+
+<h2 id="other-changes">Other Changes</h2>
+
+<p>We have removed deprecated references to <code class="language-plaintext highlighter-rouge">openfl.gl.*</code> and <code class="language-plaintext highlighter-rouge">openfl.utils.*</code> typed arrays, JNI and GL classes. You should use <code class="language-plaintext highlighter-rouge">lime.graphics.opengl.*</code> or <code class="language-plaintext highlighter-rouge">lime.utils.*</code> when using these types in your projects.</p>
+
+<p>In this release, the default output directory per-platform has also changed. Now that Lime supports custom output directory naming schemes, we adopted a flatter directory structure by default, leaving the option up to the developer if they would prefer to distinguish between different kinds of builds.</p>
+
+<p>For example, a Windows Neko release build on OpenFL 5 would use “Export/windows/neko/release/” by default, but OpenFL 6 will default to “Export/neko” instead. For more information on this change, and how to customize this structure, please visit the <a href="http://community.openfl.org">community forums</a></p>
+
+<h2 id="thank-you">Thank You</h2>
+
+<p>A huge thank you to all of our <a href="http://patreon.com/openfl">Patreon</a> sponsors, code contributors and friendly developers, for continuing to make OpenFL possible and a great community to work with.</p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">openfl upgrade</code> to update to the latest version, or visit the <a href="http://www.openfl.org/download">download</a> page to install OpenFL.</p>
+
+<p>Our goal is to continue to make OpenFL a practical, efficient tool for cross-platform production work. Please visit the <a href="http://community.openfl.org">forums</a> if you have any concerns, or feedback on how you believe OpenFL could continue to improve.</p>
+
+<p>Happy coding!</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">August 3, 2017 | <a href="/blog/2017/08/03/openfl-6-is-now-available/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

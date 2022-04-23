@@ -1,0 +1,2895 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>DisplayObjectContainer | openfl</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">openfl</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../index.html">openfl</a>
+				</li>
+				<li>
+					<a href="../modules/openfl.display.html">display</a>
+				</li>
+				<li>
+					<a href="openfl.display.displayobjectcontainer.html">DisplayObjectContainer</a>
+				</li>
+			</ul>
+			<h1>Class DisplayObjectContainer</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The DisplayObjectContainer class is the base class for all objects that can
+							serve as display object containers on the display list. The display list
+							manages all objects displayed in the Flash runtimes. Use the
+							DisplayObjectContainer class to arrange the display objects in the display
+							list. Each DisplayObjectContainer object has its own child list for
+							organizing the z-order of the objects. The z-order is the front-to-back
+							order that determines which object is drawn in front, which is behind, and
+						so on.</p>
+					</div>
+					<p>DisplayObject is an abstract base class; therefore, you cannot call
+						DisplayObject directly. Invoking <code>new DisplayObject()</code> throws an
+						<code>ArgumentError</code> exception.
+						The DisplayObjectContainer class is an abstract base class for all objects
+						that can contain child objects. It cannot be instantiated directly; calling
+						the <code>new DisplayObjectContainer()</code> constructor throws an
+					<code>ArgumentError</code> exception.</p>
+					<p>For more information, see the &quot;Display Programming&quot; chapter of the
+					<em>ActionScript 3.0 Developer&#39;s Guide</em>.</p>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<a href="openfl.display.interactiveobject.html" class="tsd-signature-type">InteractiveObject</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">DisplayObjectContainer</span>
+								<ul class="tsd-hierarchy">
+									<li>
+										<a href="openfl.display.loader.html" class="tsd-signature-type">Loader</a>
+									</li>
+									<li>
+										<a href="openfl.display.stage.html" class="tsd-signature-type">Stage</a>
+									</li>
+									<li>
+										<a href="openfl.display.sprite.html" class="tsd-signature-type">Sprite</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="openfl.events.ieventdispatcher.html" class="tsd-signature-type">IEventDispatcher</a></li>
+					<li><a href="openfl.display.ibitmapdrawable.html" class="tsd-signature-type">IBitmapDrawable</a></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#alpha" class="tsd-kind-icon">alpha</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#blendmode" class="tsd-kind-icon">blend<wbr>Mode</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#cacheasbitmap" class="tsd-kind-icon">cache<wbr>AsBitmap</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#doubleclickenabled" class="tsd-kind-icon">double<wbr>Click<wbr>Enabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#filters" class="tsd-kind-icon">filters</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#focusrect" class="tsd-kind-icon">focus<wbr>Rect</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#height" class="tsd-kind-icon">height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#loaderinfo" class="tsd-kind-icon">loader<wbr>Info</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#mask" class="tsd-kind-icon">mask</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#mousechildren" class="tsd-kind-icon">mouse<wbr>Children</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#mouseenabled" class="tsd-kind-icon">mouse<wbr>Enabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#mousex" class="tsd-kind-icon">mouseX</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#mousey" class="tsd-kind-icon">mouseY</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#needssoftkeyboard" class="tsd-kind-icon">needs<wbr>Soft<wbr>Keyboard</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#numchildren" class="tsd-kind-icon">num<wbr>Children</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#opaquebackground" class="tsd-kind-icon">opaque<wbr>Background</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#parent" class="tsd-kind-icon">parent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#root" class="tsd-kind-icon">root</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#rotation" class="tsd-kind-icon">rotation</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#scale9grid" class="tsd-kind-icon">scale9<wbr>Grid</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#scalex" class="tsd-kind-icon">scaleX</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#scaley" class="tsd-kind-icon">scaleY</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#scrollrect" class="tsd-kind-icon">scroll<wbr>Rect</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#softkeyboardinputareaofinterest" class="tsd-kind-icon">soft<wbr>Keyboard<wbr>Input<wbr>Area<wbr>OfInterest</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#stage" class="tsd-kind-icon">stage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#tabchildren" class="tsd-kind-icon">tab<wbr>Children</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#tabenabled" class="tsd-kind-icon">tab<wbr>Enabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#tabindex" class="tsd-kind-icon">tab<wbr>Index</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#transform" class="tsd-kind-icon">transform</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#visible" class="tsd-kind-icon">visible</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#width" class="tsd-kind-icon">width</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#y" class="tsd-kind-icon">y</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#addchild" class="tsd-kind-icon">add<wbr>Child</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#addchildat" class="tsd-kind-icon">add<wbr>Child<wbr>At</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#areinaccessibleobjectsunderpoint" class="tsd-kind-icon">are<wbr>Inaccessible<wbr>Objects<wbr>Under<wbr>Point</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#contains" class="tsd-kind-icon">contains</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#getbounds" class="tsd-kind-icon">get<wbr>Bounds</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#getchildat" class="tsd-kind-icon">get<wbr>Child<wbr>At</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#getchildbyname" class="tsd-kind-icon">get<wbr>Child<wbr>ByName</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#getchildindex" class="tsd-kind-icon">get<wbr>Child<wbr>Index</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#getobjectsunderpoint" class="tsd-kind-icon">get<wbr>Objects<wbr>Under<wbr>Point</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#getrect" class="tsd-kind-icon">get<wbr>Rect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#globaltolocal" class="tsd-kind-icon">global<wbr>ToLocal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#hittestobject" class="tsd-kind-icon">hit<wbr>Test<wbr>Object</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#hittestpoint" class="tsd-kind-icon">hit<wbr>Test<wbr>Point</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#localtoglobal" class="tsd-kind-icon">local<wbr>ToGlobal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#removechild" class="tsd-kind-icon">remove<wbr>Child</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#removechildat" class="tsd-kind-icon">remove<wbr>Child<wbr>At</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#removechildren" class="tsd-kind-icon">remove<wbr>Children</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#requestsoftkeyboard" class="tsd-kind-icon">request<wbr>Soft<wbr>Keyboard</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#setchildindex" class="tsd-kind-icon">set<wbr>Child<wbr>Index</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#stopallmovieclips" class="tsd-kind-icon">stop<wbr>All<wbr>Movie<wbr>Clips</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#swapchildren" class="tsd-kind-icon">swap<wbr>Children</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#swapchildrenat" class="tsd-kind-icon">swap<wbr>Children<wbr>At</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.display.displayobjectcontainer.html#willtrigger" class="tsd-kind-icon">will<wbr>Trigger</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Display<wbr>Object<wbr>Container<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobjectcontainer.html" class="tsd-signature-type">DisplayObjectContainer</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="openfl.display.interactiveobject.html">InteractiveObject</a>.<a href="openfl.display.interactiveobject.html#constructor">constructor</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L75">lib/openfl/display/DisplayObjectContainer.d.ts:75</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Calling the <code>new DisplayObjectContainer()</code> constructor throws
+										an <code>ArgumentError</code> exception. You <em>can</em>, however, call
+									constructors for the following subclasses of DisplayObjectContainer:</p>
+								</div>
+								<ul>
+									<li><code>new Loader()</code></li>
+									<li><code>new Sprite()</code></li>
+									<li><code>new MovieClip()</code></li>
+								</ul>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.displayobjectcontainer.html" class="tsd-signature-type">DisplayObjectContainer</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="alpha" class="tsd-anchor"></a>
+					<h3>alpha</h3>
+					<div class="tsd-signature tsd-kind-icon">alpha<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#alpha">alpha</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L159">lib/openfl/display/DisplayObject.d.ts:159</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the alpha transparency value of the object specified. Valid
+							values are 0(fully transparent) to 1(fully opaque). The default value is</p>
+							<ol>
+								<li>Display objects with <code>alpha</code> set to 0 <em>are</em> active,
+								even though they are invisible.</li>
+							</ol>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="blendmode" class="tsd-anchor"></a>
+					<h3>blend<wbr>Mode</h3>
+					<div class="tsd-signature tsd-kind-icon">blend<wbr>Mode<span class="tsd-signature-symbol">:</span> <a href="../enums/openfl.display.blendmode.html" class="tsd-signature-type">BlendMode</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#blendmode">blendMode</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L185">lib/openfl/display/DisplayObject.d.ts:185</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A value from the BlendMode class that specifies which blend mode to use. A
+								bitmap can be drawn internally in two ways. If you have a blend mode
+								enabled or an external clipping mask, the bitmap is drawn by adding a
+								bitmap-filled square shape to the vector render. If you attempt to set
+								this property to an invalid value, Flash runtimes set the value to
+							<code>BlendMode.NORMAL</code>.</p>
+						</div>
+						<p>The <code>blendMode</code> property affects each pixel of the display
+							object. Each pixel is composed of three constituent colors(red, green,
+							and blue), and each constituent color has a value between 0x00 and 0xFF.
+							Flash Player or Adobe AIR compares each constituent color of one pixel in
+							the movie clip with the corresponding color of the pixel in the
+							background. For example, if <code>blendMode</code> is set to
+							<code>BlendMode.LIGHTEN</code>, Flash Player or Adobe AIR compares the red
+							value of the display object with the red value of the background, and uses
+							the lighter of the two as the value for the red component of the displayed
+						color.</p>
+						<p>The following table describes the <code>blendMode</code> settings. The
+							BlendMode class defines string values you can use. The illustrations in
+							the table show <code>blendMode</code> values applied to a circular display
+						object(2) superimposed on another display object(1).</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="cacheasbitmap" class="tsd-anchor"></a>
+					<h3>cache<wbr>AsBitmap</h3>
+					<div class="tsd-signature tsd-kind-icon">cache<wbr>AsBitmap<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#cacheasbitmap">cacheAsBitmap</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L242">lib/openfl/display/DisplayObject.d.ts:242</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>All vector data for a display object that has a cached bitmap is drawn
+								to the bitmap instead of the main display. If
+								<code>cacheAsBitmapMatrix</code> is null or unsupported, the bitmap is
+								then copied to the main display as unstretched, unrotated pixels snapped
+								to the nearest pixel boundaries. Pixels are mapped 1 to 1 with the parent
+								object. If the bounds of the bitmap change, the bitmap is recreated
+							instead of being stretched.</p>
+						</div>
+						<p>If <code>cacheAsBitmapMatrix</code> is non-null and supported, the
+							object is drawn to the off-screen bitmap using that matrix and the
+							stretched and/or rotated results of that rendering are used to draw the
+						object to the main display.</p>
+						<p>No internal bitmap is created unless the <code>cacheAsBitmap</code>
+						property is set to <code>true</code>.</p>
+						<p>After you set the <code>cacheAsBitmap</code> property to
+							<code>true</code>, the rendering does not change, however the display
+							object performs pixel snapping automatically. The animation speed can be
+						significantly faster depending on the complexity of the vector content.</p>
+						<p>The <code>cacheAsBitmap</code> property is automatically set to
+							<code>true</code> whenever you apply a filter to a display object(when
+							its <code>filter</code> array is not empty), and if a display object has a
+							filter applied to it, <code>cacheAsBitmap</code> is reported as
+							<code>true</code> for that display object, even if you set the property to
+							<code>false</code>. If you clear all filters for a display object, the
+						<code>cacheAsBitmap</code> setting changes to what it was last set to.</p>
+						<p>A display object does not use a bitmap even if the
+							<code>cacheAsBitmap</code> property is set to <code>true</code> and
+						instead renders from vector data in the following cases:</p>
+						<ul>
+							<li>The bitmap is too large. In AIR 1.5 and Flash Player 10, the maximum
+								size for a bitmap image is 8,191 pixels in width or height, and the total
+								number of pixels cannot exceed 16,777,215 pixels.(So, if a bitmap image
+								is 8,191 pixels wide, it can only be 2,048 pixels high.) In Flash Player 9
+								and earlier, the limitation is is 2880 pixels in height and 2,880 pixels
+							in width.</li>
+							<li>The bitmap fails to allocate(out of memory error).</li>
+						</ul>
+						<p>The <code>cacheAsBitmap</code> property is best used with movie clips
+							that have mostly static content and that do not scale and rotate
+							frequently. With such movie clips, <code>cacheAsBitmap</code> can lead to
+							performance increases when the movie clip is translated(when its <em>x</em>
+						and <em>y</em> position is changed).</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="doubleclickenabled" class="tsd-anchor"></a>
+					<h3>double<wbr>Click<wbr>Enabled</h3>
+					<div class="tsd-signature tsd-kind-icon">double<wbr>Click<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.interactiveobject.html">InteractiveObject</a>.<a href="openfl.display.interactiveobject.html#doubleclickenabled">doubleClickEnabled</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/InteractiveObject.d.ts#L1072">lib/openfl/display/InteractiveObject.d.ts:1072</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies whether the object receives <code>doubleClick</code> events. The
+								default value is <code>false</code>, which means that by default an
+								InteractiveObject instance does not receive <code>doubleClick</code>
+								events. If the <code>doubleClickEnabled</code> property is set to
+								<code>true</code>, the instance receives <code>doubleClick</code> events
+								within its bounds. The <code>mouseEnabled</code> property of the
+								InteractiveObject instance must also be set to <code>true</code> for the
+							object to receive <code>doubleClick</code> events.</p>
+						</div>
+						<p>No event is dispatched by setting this property. You must use the
+							<code>addEventListener()</code> method to add an event listener for the
+						<code>doubleClick</code> event.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="filters" class="tsd-anchor"></a>
+					<h3>filters</h3>
+					<div class="tsd-signature tsd-kind-icon">filters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="openfl.filters.bitmapfilter.html" class="tsd-signature-type">BitmapFilter</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#filters">filters</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L319">lib/openfl/display/DisplayObject.d.ts:319</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An indexed array that contains each filter object currently associated
+								with the display object. The openfl.filters package contains several
+							classes that define specific filters you can use.</p>
+						</div>
+						<p>Filters can be applied in Flash Professional at design time, or at run
+							time by using ActionScript code. To apply a filter by using ActionScript,
+							you must make a temporary copy of the entire <code>filters</code> array,
+							modify the temporary array, then assign the value of the temporary array
+							back to the <code>filters</code> array. You cannot directly add a new
+						filter object to the <code>filters</code> array.</p>
+						<p>To add a filter by using ActionScript, perform the following steps
+							(assume that the target display object is named
+						<code>myDisplayObject</code>):</p>
+						<ol>
+							<li>Create a new filter object by using the constructor method of your
+							chosen filter class.</li>
+							<li>Assign the value of the <code>myDisplayObject.filters</code> array
+							to a temporary array, such as one named <code>myFilters</code>.</li>
+							<li>Add the new filter object to the <code>myFilters</code> temporary
+							array.</li>
+							<li>Assign the value of the temporary array to the
+							<code>myDisplayObject.filters</code> array.</li>
+						</ol>
+						<p>If the <code>filters</code> array is undefined, you do not need to use
+							a temporary array. Instead, you can directly assign an array literal that
+							contains one or more filter objects that you create. The first example in
+							the Examples section adds a drop shadow filter by using code that handles
+						both defined and undefined <code>filters</code> arrays.</p>
+						<p>To modify an existing filter object, you must use the technique of
+						modifying a copy of the <code>filters</code> array:</p>
+						<ol>
+							<li>Assign the value of the <code>filters</code> array to a temporary
+							array, such as one named <code>myFilters</code>.</li>
+							<li>Modify the property by using the temporary array,
+								<code>myFilters</code>. For example, to set the quality property of the
+								first filter in the array, you could use the following code:
+							<code>myFilters[0].quality = 1;</code></li>
+							<li>Assign the value of the temporary array to the <code>filters</code>
+							array.</li>
+						</ol>
+						<p>At load time, if a display object has an associated filter, it is
+							marked to cache itself as a transparent bitmap. From this point forward,
+							as long as the display object has a valid filter list, the player caches
+							the display object as a bitmap. This source bitmap is used as a source
+							image for the filter effects. Each display object usually has two bitmaps:
+							one with the original unfiltered source display object and another for the
+							final image after filtering. The final image is used when rendering. As
+							long as the display object does not change, the final image does not need
+						updating.</p>
+						<p>The openfl.filters package includes classes for filters. For example, to
+						create a DropShadow filter, you would write:</p>
+						<dl class="tsd-comment-tags">
+							<dt>throws</dt>
+							<dd><p>ArgumentError When <code>filters</code> includes a ShaderFilter
+									and the shader output type is not compatible with
+									this operation(the shader must specify a
+								<code>pixel4</code> output).</p>
+							</dd>
+							<dt>throws</dt>
+							<dd><p>ArgumentError When <code>filters</code> includes a ShaderFilter
+									and the shader doesn&#39;t specify any image input or
+								the first input is not an <code>image4</code> input.</p>
+							</dd>
+							<dt>throws</dt>
+							<dd><p>ArgumentError When <code>filters</code> includes a ShaderFilter
+									and the shader specifies an image input that isn&#39;t
+								provided.</p>
+							</dd>
+							<dt>throws</dt>
+							<dd><p>ArgumentError When <code>filters</code> includes a ShaderFilter, a
+									ByteArray or Vector.<Number> instance as a shader
+										input, and the <code>width</code> and
+										<code>height</code> properties aren&#39;t specified for
+										the ShaderInput object, or the specified values
+										don&#39;t match the amount of data in the input data.
+										See the <code>ShaderInput.input</code> property for
+								more information.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="focusrect" class="tsd-anchor"></a>
+					<h3>focus<wbr>Rect</h3>
+					<div class="tsd-signature tsd-kind-icon">focus<wbr>Rect<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.interactiveobject.html">InteractiveObject</a>.<a href="openfl.display.interactiveobject.html#focusrect">focusRect</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/InteractiveObject.d.ts#L1074">lib/openfl/display/InteractiveObject.d.ts:1074</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="height" class="tsd-anchor"></a>
+					<h3>height</h3>
+					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#height">height</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L331">lib/openfl/display/DisplayObject.d.ts:331</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the height of the display object, in pixels. The height is
+								calculated based on the bounds of the content of the display object. When
+								you set the <code>height</code> property, the <code>scaleY</code> property
+							is adjusted accordingly, as shown in the following code:</p>
+						</div>
+						<p>Except for TextField and Video objects, a display object with no
+							content(such as an empty sprite) has a height of 0, even if you try to
+						set <code>height</code> to a different value.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="loaderinfo" class="tsd-anchor"></a>
+					<h3>loader<wbr>Info</h3>
+					<div class="tsd-signature tsd-kind-icon">loader<wbr>Info<span class="tsd-signature-symbol">:</span> <a href="openfl.display.loaderinfo.html" class="tsd-signature-type">LoaderInfo</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#loaderinfo">loaderInfo</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L346">lib/openfl/display/DisplayObject.d.ts:346</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Returns a LoaderInfo object containing information about loading the file
+								to which this display object belongs. The <code>loaderInfo</code> property
+								is defined only for the root display object of a SWF file or for a loaded
+								Bitmap(not for a Bitmap that is drawn with ActionScript). To find the
+								<code>loaderInfo</code> object associated with the SWF file that contains
+								a display object named <code>myDisplayObject</code>, use
+							<code>myDisplayObject.root.loaderInfo</code>.</p>
+						</div>
+						<p>A large SWF file can monitor its download by calling
+							<code>this.root.loaderInfo.addEventListener(Event.COMPLETE,
+func)</code>.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="mask" class="tsd-anchor"></a>
+					<h3>mask</h3>
+					<div class="tsd-signature tsd-kind-icon">mask<span class="tsd-signature-symbol">:</span> <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#mask">mask</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L379">lib/openfl/display/DisplayObject.d.ts:379</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The calling display object is masked by the specified <code>mask</code>
+								object. To ensure that masking works when the Stage is scaled, the
+								<code>mask</code> display object must be in an active part of the display
+								list. The <code>mask</code> object itself is not drawn. Set
+							<code>mask</code> to <code>null</code> to remove the mask.</p>
+						</div>
+						<p>To be able to scale a mask object, it must be on the display list. To
+							be able to drag a mask Sprite object(by calling its
+							<code>startDrag()</code> method), it must be on the display list. To call
+							the <code>startDrag()</code> method for a mask sprite based on a
+							<code>mouseDown</code> event being dispatched by the sprite, set the
+						sprite&#39;s <code>buttonMode</code> property to <code>true</code>.</p>
+						<p>When display objects are cached by setting the
+							<code>cacheAsBitmap</code> property to <code>true</code> an the
+							<code>cacheAsBitmapMatrix</code> property to a Matrix object, both the
+							mask and the display object being masked must be part of the same cached
+							bitmap. Thus, if the display object is cached, then the mask must be a
+							child of the display object. If an ancestor of the display object on the
+							display list is cached, then the mask must be a child of that ancestor or
+							one of its descendents. If more than one ancestor of the masked object is
+							cached, then the mask must be a descendent of the cached container closest
+						to the masked object in the display list.</p>
+						<p><strong>Note:</strong> A single <code>mask</code> object cannot be used to mask
+							more than one calling display object. When the <code>mask</code> is
+							assigned to a second display object, it is removed as the mask of the
+							first object, and that object&#39;s <code>mask</code> property becomes
+						<code>null</code>.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="mousechildren" class="tsd-anchor"></a>
+					<h3>mouse<wbr>Children</h3>
+					<div class="tsd-signature tsd-kind-icon">mouse<wbr>Children<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L54">lib/openfl/display/DisplayObjectContainer.d.ts:54</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Determines whether or not the children of the object are mouse, or user
+								input device, enabled. If an object is enabled, a user can interact with
+								it by using a mouse or user input device. The default is
+							<code>true</code>.</p>
+						</div>
+						<p>This property is useful when you create a button with an instance of
+							the Sprite class(instead of using the SimpleButton class). When you use a
+							Sprite instance to create a button, you can choose to decorate the button
+							by using the <code>addChild()</code> method to add additional Sprite
+							instances. This process can cause unexpected behavior with mouse events
+							because the Sprite instances you add as children can become the target
+							object of a mouse event when you expect the parent instance to be the
+							target object. To ensure that the parent instance serves as the target
+							objects for mouse events, you can set the <code>mouseChildren</code>
+						property of the parent instance to <code>false</code>.</p>
+						<p> No event is dispatched by setting this property. You must use the
+							<code>addEventListener()</code> method to create interactive
+						functionality.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="mouseenabled" class="tsd-anchor"></a>
+					<h3>mouse<wbr>Enabled</h3>
+					<div class="tsd-signature tsd-kind-icon">mouse<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.interactiveobject.html">InteractiveObject</a>.<a href="openfl.display.interactiveobject.html#mouseenabled">mouseEnabled</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/InteractiveObject.d.ts#L1092">lib/openfl/display/InteractiveObject.d.ts:1092</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies whether this object receives mouse, or other user input,
+								messages. The default value is <code>true</code>, which means that by
+								default any InteractiveObject instance that is on the display list
+								receives mouse events or other user input events. If
+								<code>mouseEnabled</code> is set to <code>false</code>, the instance does
+								not receive any mouse events(or other user input events like keyboard
+								events). Any children of this instance on the display list are not
+								affected. To change the <code>mouseEnabled</code> behavior for all
+								children of an object on the display list, use
+							<code>openfl.display.DisplayObjectContainer.mouseChildren</code>.</p>
+						</div>
+						<p> No event is dispatched by setting this property. You must use the
+							<code>addEventListener()</code> method to create interactive
+						functionality.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="mousex" class="tsd-anchor"></a>
+					<h3>mouseX</h3>
+					<div class="tsd-signature tsd-kind-icon">mouseX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#mousex">mouseX</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L388">lib/openfl/display/DisplayObject.d.ts:388</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the x coordinate of the mouse or user input device position, in
+							pixels.</p>
+						</div>
+						<p><strong>Note</strong>: For a DisplayObject that has been rotated, the returned x
+						coordinate will reflect the non-rotated object.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="mousey" class="tsd-anchor"></a>
+					<h3>mouseY</h3>
+					<div class="tsd-signature tsd-kind-icon">mouseY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#mousey">mouseY</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L397">lib/openfl/display/DisplayObject.d.ts:397</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the y coordinate of the mouse or user input device position, in
+							pixels.</p>
+						</div>
+						<p><strong>Note</strong>: For a DisplayObject that has been rotated, the returned y
+						coordinate will reflect the non-rotated object.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#name">name</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L409">lib/openfl/display/DisplayObject.d.ts:409</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the instance name of the DisplayObject. The object can be
+								identified in the child list of its parent display object container by
+								calling the <code>getChildByName()</code> method of the display object
+							container.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>throws</dt>
+							<dd><p>IllegalOperationError If you are attempting to set this property
+									on an object that was placed on the timeline
+								in the Flash authoring tool.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="needssoftkeyboard" class="tsd-anchor"></a>
+					<h3>needs<wbr>Soft<wbr>Keyboard</h3>
+					<div class="tsd-signature tsd-kind-icon">needs<wbr>Soft<wbr>Keyboard<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.interactiveobject.html">InteractiveObject</a>.<a href="openfl.display.interactiveobject.html#needssoftkeyboard">needsSoftKeyboard</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/InteractiveObject.d.ts#L1116">lib/openfl/display/InteractiveObject.d.ts:1116</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies whether a virtual keyboard(an on-screen, software keyboard)
+							should display when this InteractiveObject instance receives focus.</p>
+						</div>
+						<p>By default, the value is <code>false</code> and focusing an
+							InteractiveObject instance does not raise a soft keyboard. If the
+							<code>needsSoftKeyboard</code> property is set to <code>true</code>, the
+							runtime raises a soft keyboard when the InteractiveObject instance is
+							ready to accept user input. An InteractiveObject instance is ready to
+							accept user input after a programmatic call to set the Stage
+							<code>focus</code> property or a user interaction, such as a &quot;tap.&quot; If the
+							client system has a hardware keyboard available or does not support
+						virtual keyboards, then the soft keyboard is not raised.</p>
+						<p>The InteractiveObject instance dispatches
+							<code>softKeyboardActivating</code>, <code>softKeyboardActivate</code>,
+							and <code>softKeyboardDeactivate</code> events when the soft keyboard
+						raises and lowers.</p>
+						<p><strong>Note:</strong> This property is not supported in AIR applications on
+						iOS.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="numchildren" class="tsd-anchor"></a>
+					<h3>num<wbr>Children</h3>
+					<div class="tsd-signature tsd-kind-icon">num<wbr>Children<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L59">lib/openfl/display/DisplayObjectContainer.d.ts:59</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Returns the number of children of this object.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="opaquebackground" class="tsd-anchor"></a>
+					<h3>opaque<wbr>Background</h3>
+					<div class="tsd-signature tsd-kind-icon">opaque<wbr>Background<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#opaquebackground">opaqueBackground</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L435">lib/openfl/display/DisplayObject.d.ts:435</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies whether the display object is opaque with a certain background
+								color. A transparent bitmap contains alpha channel data and is drawn
+								transparently. An opaque bitmap has no alpha channel(and renders faster
+								than a transparent bitmap). If the bitmap is opaque, you specify its own
+							background color to use.</p>
+						</div>
+						<p>If set to a number value, the surface is opaque(not transparent) with
+							the RGB background color that the number specifies. If set to
+							<code>null</code>(the default value), the display object has a
+						transparent background.</p>
+						<p>The <code>opaqueBackground</code> property is intended mainly for use
+							with the <code>cacheAsBitmap</code> property, for rendering optimization.
+							For display objects in which the <code>cacheAsBitmap</code> property is
+							set to true, setting <code>opaqueBackground</code> can improve rendering
+						performance.</p>
+						<p>The opaque background region is <em>not</em> matched when calling the
+							<code>hitTestPoint()</code> method with the <code>shapeFlag</code>
+						parameter set to <code>true</code>.</p>
+						<p>The opaque background region does not respond to mouse events.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="parent" class="tsd-anchor"></a>
+					<h3>parent</h3>
+					<div class="tsd-signature tsd-kind-icon">parent<span class="tsd-signature-symbol">:</span> <a href="openfl.display.displayobjectcontainer.html" class="tsd-signature-type">DisplayObjectContainer</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#parent">parent</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L451">lib/openfl/display/DisplayObject.d.ts:451</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the DisplayObjectContainer object that contains this display
+								object. Use the <code>parent</code> property to specify a relative path to
+								display objects that are above the current display object in the display
+							list hierarchy.</p>
+						</div>
+						<p>You can use <code>parent</code> to move up multiple levels in the
+						display list as in the following:</p>
+						<dl class="tsd-comment-tags">
+							<dt>throws</dt>
+							<dd><p>SecurityError The parent display object belongs to a security
+									sandbox to which you do not have access. You can
+									avoid this situation by having the parent movie call
+								the <code>Security.allowDomain()</code> method.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="root" class="tsd-anchor"></a>
+					<h3>root</h3>
+					<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#root">root</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L479">lib/openfl/display/DisplayObject.d.ts:479</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>For a display object in a loaded SWF file, the <code>root</code> property
+								is the top-most display object in the portion of the display list&#39;s tree
+								structure represented by that SWF file. For a Bitmap object representing a
+								loaded image file, the <code>root</code> property is the Bitmap object
+								itself. For the instance of the main class of the first SWF file loaded,
+								the <code>root</code> property is the display object itself. The
+								<code>root</code> property of the Stage object is the Stage object itself.
+								The <code>root</code> property is set to <code>null</code> for any display
+								object that has not been added to the display list, unless it has been
+								added to a display object container that is off the display list but that
+							is a child of the top-most display object in a loaded SWF file.</p>
+						</div>
+						<p>For example, if you create a new Sprite object by calling the
+							<code>Sprite()</code> constructor method, its <code>root</code> property
+							is <code>null</code> until you add it to the display list(or to a display
+							object container that is off the display list but that is a child of the
+						top-most display object in a SWF file).</p>
+						<p>For a loaded SWF file, even though the Loader object used to load the
+							file may not be on the display list, the top-most display object in the
+							SWF file has its <code>root</code> property set to itself. The Loader
+							object does not have its <code>root</code> property set until it is added
+							as a child of a display object for which the <code>root</code> property is
+						set.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="rotation" class="tsd-anchor"></a>
+					<h3>rotation</h3>
+					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#rotation">rotation</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L489">lib/openfl/display/DisplayObject.d.ts:489</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the rotation of the DisplayObject instance, in degrees, from its
+								original orientation. Values from 0 to 180 represent clockwise rotation;
+								values from 0 to -180 represent counterclockwise rotation. Values outside
+								this range are added to or subtracted from 360 to obtain a value within
+								the range. For example, the statement <code>my_video.rotation = 450</code>
+							is the same as <code>my_video.rotation = 90</code>.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="scale9grid" class="tsd-anchor"></a>
+					<h3>scale9<wbr>Grid</h3>
+					<div class="tsd-signature tsd-kind-icon">scale9<wbr>Grid<span class="tsd-signature-symbol">:</span> <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#scale9grid">scale9Grid</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L553">lib/openfl/display/DisplayObject.d.ts:553</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The current scaling grid that is in effect. If set to <code>null</code>,
+								the entire display object is scaled normally when any scale transformation
+							is applied.</p>
+						</div>
+						<p>When you define the <code>scale9Grid</code> property, the display
+							object is divided into a grid with nine regions based on the
+							<code>scale9Grid</code> rectangle, which defines the center region of the
+						grid. The eight other regions of the grid are the following areas:</p>
+						<ul>
+							<li>The upper-left corner outside of the rectangle</li>
+							<li>The area above the rectangle</li>
+							<li>The upper-right corner outside of the rectangle</li>
+							<li>The area to the left of the rectangle</li>
+							<li>The area to the right of the rectangle</li>
+							<li>The lower-left corner outside of the rectangle</li>
+							<li>The area below the rectangle</li>
+							<li>The lower-right corner outside of the rectangle</li>
+						</ul>
+						<p>You can think of the eight regions outside of the center(defined by
+							the rectangle) as being like a picture frame that has special rules
+						applied to it when scaled.</p>
+						<p>When the <code>scale9Grid</code> property is set and a display object
+							is scaled, all text and gradients are scaled normally; however, for other
+						types of objects the following rules apply:</p>
+						<ul>
+							<li>Content in the center region is scaled normally.</li>
+							<li>Content in the corners is not scaled.</li>
+							<li>Content in the top and bottom regions is scaled horizontally only.
+							Content in the left and right regions is scaled vertically only.</li>
+							<li>All fills(including bitmaps, video, and gradients) are stretched to
+							fit their shapes.</li>
+						</ul>
+						<p>If a display object is rotated, all subsequent scaling is normal(and
+						the <code>scale9Grid</code> property is ignored).</p>
+						<p>For example, consider the following display object and a rectangle that
+						is applied as the display object&#39;s <code>scale9Grid</code>:</p>
+						<p>A common use for setting <code>scale9Grid</code> is to set up a display
+							object to be used as a component, in which edge regions retain the same
+						width when the component is scaled.</p>
+						<dl class="tsd-comment-tags">
+							<dt>throws</dt>
+							<dd><p>ArgumentError If you pass an invalid argument to the method.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="scalex" class="tsd-anchor"></a>
+					<h3>scaleX</h3>
+					<div class="tsd-signature tsd-kind-icon">scaleX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#scalex">scaleX</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L563">lib/openfl/display/DisplayObject.d.ts:563</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the horizontal scale(percentage) of the object as applied from
+								the registration point. The default registration point is(0,0). 1.0
+							equals 100% scale.</p>
+						</div>
+						<p>Scaling the local coordinate system changes the <code>x</code> and
+						<code>y</code> property values, which are defined in whole pixels.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="scaley" class="tsd-anchor"></a>
+					<h3>scaleY</h3>
+					<div class="tsd-signature tsd-kind-icon">scaleY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#scaley">scaleY</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L573">lib/openfl/display/DisplayObject.d.ts:573</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the vertical scale(percentage) of an object as applied from the
+								registration point of the object. The default registration point is(0,0).
+							1.0 is 100% scale.</p>
+						</div>
+						<p>Scaling the local coordinate system changes the <code>x</code> and
+						<code>y</code> property values, which are defined in whole pixels.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="scrollrect" class="tsd-anchor"></a>
+					<h3>scroll<wbr>Rect</h3>
+					<div class="tsd-signature tsd-kind-icon">scroll<wbr>Rect<span class="tsd-signature-symbol">:</span> <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#scrollrect">scrollRect</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L601">lib/openfl/display/DisplayObject.d.ts:601</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The scroll rectangle bounds of the display object. The display object is
+								cropped to the size defined by the rectangle, and it scrolls within the
+								rectangle when you change the <code>x</code> and <code>y</code> properties
+							of the <code>scrollRect</code> object.</p>
+						</div>
+						<p>The properties of the <code>scrollRect</code> Rectangle object use the
+							display object&#39;s coordinate space and are scaled just like the overall
+							display object. The corner bounds of the cropped window on the scrolling
+							display object are the origin of the display object(0,0) and the point
+							defined by the width and height of the rectangle. They are not centered
+							around the origin, but use the origin to define the upper-left corner of
+							the area. A scrolled display object always scrolls in whole pixel
+						increments.</p>
+						<p>You can scroll an object left and right by setting the <code>x</code>
+							property of the <code>scrollRect</code> Rectangle object. You can scroll
+							an object up and down by setting the <code>y</code> property of the
+							<code>scrollRect</code> Rectangle object. If the display object is rotated
+							90° and you scroll it left and right, the display object actually scrolls
+						up and down.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="softkeyboardinputareaofinterest" class="tsd-anchor"></a>
+					<h3>soft<wbr>Keyboard<wbr>Input<wbr>Area<wbr>OfInterest</h3>
+					<div class="tsd-signature tsd-kind-icon">soft<wbr>Keyboard<wbr>Input<wbr>Area<wbr>OfInterest<span class="tsd-signature-symbol">:</span> <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.interactiveobject.html">InteractiveObject</a>.<a href="openfl.display.interactiveobject.html#softkeyboardinputareaofinterest">softKeyboardInputAreaOfInterest</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/InteractiveObject.d.ts#L1117">lib/openfl/display/InteractiveObject.d.ts:1117</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="stage" class="tsd-anchor"></a>
+					<h3>stage</h3>
+					<div class="tsd-signature tsd-kind-icon">stage<span class="tsd-signature-symbol">:</span> <a href="openfl.display.stage.html" class="tsd-signature-type">Stage</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#stage">stage</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L613">lib/openfl/display/DisplayObject.d.ts:613</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The Stage of the display object. A Flash runtime application has only one
+								Stage object. For example, you can create and load multiple display
+								objects into the display list, and the <code>stage</code> property of each
+								display object refers to the same Stage object(even if the display object
+							belongs to a loaded SWF file).</p>
+						</div>
+						<p>If a display object is not added to the display list, its
+						<code>stage</code> property is set to <code>null</code>.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="tabchildren" class="tsd-anchor"></a>
+					<h3>tab<wbr>Children</h3>
+					<div class="tsd-signature tsd-kind-icon">tab<wbr>Children<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L75">lib/openfl/display/DisplayObjectContainer.d.ts:75</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Determines whether the children of the object are tab enabled. Enables or
+								disables tabbing for the children of the object. The default is
+							<code>true</code>.</p>
+						</div>
+						<p><strong>Note:</strong> Do not use the <code>tabChildren</code> property with
+							Flex. Instead, use the
+						<code>mx.core.UIComponent.hasFocusableChildren</code> property.</p>
+						<dl class="tsd-comment-tags">
+							<dt>throws</dt>
+							<dd><p>IllegalOperationError Calling this property of the Stage object
+									throws an exception. The Stage object does
+								not implement this property.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="tabenabled" class="tsd-anchor"></a>
+					<h3>tab<wbr>Enabled</h3>
+					<div class="tsd-signature tsd-kind-icon">tab<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.interactiveobject.html">InteractiveObject</a>.<a href="openfl.display.interactiveobject.html#tabenabled">tabEnabled</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/InteractiveObject.d.ts#L1118">lib/openfl/display/InteractiveObject.d.ts:1118</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="tabindex" class="tsd-anchor"></a>
+					<h3>tab<wbr>Index</h3>
+					<div class="tsd-signature tsd-kind-icon">tab<wbr>Index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.interactiveobject.html">InteractiveObject</a>.<a href="openfl.display.interactiveobject.html#tabindex">tabIndex</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/InteractiveObject.d.ts#L1119">lib/openfl/display/InteractiveObject.d.ts:1119</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="transform" class="tsd-anchor"></a>
+					<h3>transform</h3>
+					<div class="tsd-signature tsd-kind-icon">transform<span class="tsd-signature-symbol">:</span> <a href="openfl.geom.transform.html" class="tsd-signature-type">Transform</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#transform">transform</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L653">lib/openfl/display/DisplayObject.d.ts:653</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An object with properties pertaining to a display object&#39;s matrix, color
+								transform, and pixel bounds. The specific properties  -  matrix,
+								colorTransform, and three read-only properties
+								(<code>concatenatedMatrix</code>, <code>concatenatedColorTransform</code>,
+								and <code>pixelBounds</code>)  -  are described in the entry for the
+							Transform class.</p>
+						</div>
+						<p>Each of the transform object&#39;s properties is itself an object. This
+							concept is important because the only way to set new values for the matrix
+							or colorTransform objects is to create a new object and copy that object
+						into the transform.matrix or transform.colorTransform property.</p>
+						<p>For example, to increase the <code>tx</code> value of a display
+							object&#39;s matrix, you must make a copy of the entire matrix object, then
+							copy the new object into the matrix property of the transform object:
+							<code>var myMatrix:Matrix =
+myDisplayObject.transform.matrix; myMatrix.tx += 10;
+myDisplayObject.transform.matrix = myMatrix;</code></p>
+						<p>You cannot directly set the <code>tx</code> property. The following
+							code has no effect on <code>myDisplayObject</code>:
+							<code>myDisplayObject.transform.matrix.tx +=
+10;</code></p>
+						<p>You can also copy an entire transform object and assign it to another
+							display object&#39;s transform property. For example, the following code
+							copies the entire transform object from <code>myOldDisplayObj</code> to
+							<code>myNewDisplayObj</code>:
+						<code>myNewDisplayObj.transform = myOldDisplayObj.transform;</code></p>
+						<p>The resulting display object, <code>myNewDisplayObj</code>, now has the
+							same values for its matrix, color transform, and pixel bounds as the old
+						display object, <code>myOldDisplayObj</code>.</p>
+						<p>Note that AIR for TV devices use hardware acceleration, if it is
+						available, for color transforms.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="visible" class="tsd-anchor"></a>
+					<h3>visible</h3>
+					<div class="tsd-signature tsd-kind-icon">visible<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#visible">visible</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L660">lib/openfl/display/DisplayObject.d.ts:660</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether or not the display object is visible. Display objects that are not
+								visible are disabled. For example, if <code>visible=false</code> for an
+							InteractiveObject instance, it cannot be clicked.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="width" class="tsd-anchor"></a>
+					<h3>width</h3>
+					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#width">width</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L672">lib/openfl/display/DisplayObject.d.ts:672</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the width of the display object, in pixels. The width is
+								calculated based on the bounds of the content of the display object. When
+								you set the <code>width</code> property, the <code>scaleX</code> property
+							is adjusted accordingly, as shown in the following code:</p>
+						</div>
+						<p>Except for TextField and Video objects, a display object with no
+							content(such as an empty sprite) has a width of 0, even if you try to set
+						<code>width</code> to a different value.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="x" class="tsd-anchor"></a>
+					<h3>x</h3>
+					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#x">x</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L684">lib/openfl/display/DisplayObject.d.ts:684</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the <em>x</em> coordinate of the DisplayObject instance relative
+								to the local coordinates of the parent DisplayObjectContainer. If the
+								object is inside a DisplayObjectContainer that has transformations, it is
+								in the local coordinate system of the enclosing DisplayObjectContainer.
+								Thus, for a DisplayObjectContainer rotated 90° counterclockwise, the
+								DisplayObjectContainer&#39;s children inherit a coordinate system that is
+								rotated 90° counterclockwise. The object&#39;s coordinates refer to the
+							registration point position.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="y" class="tsd-anchor"></a>
+					<h3>y</h3>
+					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#y">y</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L696">lib/openfl/display/DisplayObject.d.ts:696</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the <em>y</em> coordinate of the DisplayObject instance relative
+								to the local coordinates of the parent DisplayObjectContainer. If the
+								object is inside a DisplayObjectContainer that has transformations, it is
+								in the local coordinate system of the enclosing DisplayObjectContainer.
+								Thus, for a DisplayObjectContainer rotated 90° counterclockwise, the
+								DisplayObjectContainer&#39;s children inherit a coordinate system that is
+								rotated 90° counterclockwise. The object&#39;s coordinates refer to the
+							registration point position.</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="addchild" class="tsd-anchor"></a>
+					<h3>add<wbr>Child</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Child<span class="tsd-signature-symbol">(</span>child<span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L125">lib/openfl/display/DisplayObjectContainer.d.ts:125</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a child DisplayObject instance to this DisplayObjectContainer
+										instance. The child is added to the front(top) of all other children in
+										this DisplayObjectContainer instance.(To add a child to a specific index
+									position, use the <code>addChildAt()</code> method.)</p>
+								</div>
+								<p>If you add a child object that already has a different display object
+									container as a parent, the object is removed from the child list of the
+								other display object container.</p>
+								<p><strong>Note:</strong> The command <code>stage.addChild()</code> can cause
+									problems with a published SWF file, including security problems and
+									conflicts with other loaded SWF files. There is only one Stage within a
+									Flash runtime instance, no matter how many SWF files you load into the
+									runtime. So, generally, objects should not be added to the Stage,
+									directly, at all. The only object the Stage should contain is the root
+									object. Create a DisplayObjectContainer to contain all of the items on the
+									display list. Then, if necessary, add that DisplayObjectContainer instance
+								to the Stage.</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>ArgumentError Throws if the child is the same as the parent. Also
+											throws if the caller is a child(or grandchild etc.)
+										of the child being added.</p>
+									</dd>
+									<dt>:event</dt>
+									<dd><p>added Dispatched when a display object is added to the display
+										list.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>child: <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The DisplayObject instance to add as a child of this
+										DisplayObjectContainer instance.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h4>
+							<p>The DisplayObject instance that you pass in the <code>child</code>
+							parameter.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="addchildat" class="tsd-anchor"></a>
+					<h3>add<wbr>Child<wbr>At</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Child<wbr>At<span class="tsd-signature-symbol">(</span>child<span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L157">lib/openfl/display/DisplayObjectContainer.d.ts:157</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a child DisplayObject instance to this DisplayObjectContainer
+										instance. The child is added at the index position specified. An index of
+										0 represents the back(bottom) of the display list for this
+									DisplayObjectContainer object.</p>
+								</div>
+								<p>For example, the following example shows three display objects, labeled
+								a, b, and c, at index positions 0, 2, and 1, respectively:</p>
+								<p>If you add a child object that already has a different display object
+									container as a parent, the object is removed from the child list of the
+								other display object container.</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>ArgumentError Throws if the child is the same as the parent. Also
+											throws if the caller is a child(or grandchild etc.)
+										of the child being added.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>RangeError    Throws if the index position does not exist in the
+										child list.</p>
+									</dd>
+									<dt>:event</dt>
+									<dd><p>added Dispatched when a display object is added to the display
+										list.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>child: <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The DisplayObject instance to add as a child of this
+										DisplayObjectContainer instance.</p>
+									</div>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The index position to which the child is added. If you
+											specify a currently occupied index position, the child object
+											that exists at that position and all higher positions are
+										moved up one position in the child list.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h4>
+							<p>The DisplayObject instance that you pass in the <code>child</code>
+							parameter.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="addeventlistener" class="tsd-anchor"></a>
+					<h3>add<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, useCapture<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, priority<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, useWeakReference<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#addeventlistener">addEventListener</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/events/EventDispatcher.d.ts#L168">lib/openfl/events/EventDispatcher.d.ts:168</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Registers an event listener object with an EventDispatcher object so that
+										the listener receives notification of an event. You can register event
+										listeners on all nodes in the display list for a specific type of event,
+									phase, and priority.</p>
+								</div>
+								<p>After you successfully register an event listener, you cannot change
+									its priority through additional calls to <code>addEventListener()</code>.
+									To change a listener&#39;s priority, you must first call
+									<code>removeListener()</code>. Then you can register the listener again
+								with the new priority level.</p>
+								<p>Keep in mind that after the listener is registered, subsequent calls to
+									<code>addEventListener()</code> with a different <code>type</code> or
+									<code>useCapture</code> value result in the creation of a separate
+									listener registration. For example, if you first register a listener with
+									<code>useCapture</code> set to <code>true</code>, it listens only during
+									the capture phase. If you call <code>addEventListener()</code> again using
+									the same listener object, but with <code>useCapture</code> set to
+									<code>false</code>, you have two separate listeners: one that listens
+									during the capture phase and another that listens during the target and
+								bubbling phases.</p>
+								<p>You cannot register an event listener for only the target phase or the
+									bubbling phase. Those phases are coupled during registration because
+								bubbling applies only to the ancestors of the target node.</p>
+								<p>If you no longer need an event listener, remove it by calling
+									<code>removeEventListener()</code>, or memory problems could result. Event
+									listeners are not automatically removed from memory because the garbage
+									collector does not remove the listener as long as the dispatching object
+									exists(unless the <code>useWeakReference</code> parameter is set to
+								<code>true</code>).</p>
+								<p>Copying an EventDispatcher instance does not copy the event listeners
+									attached to it.(If your newly created node needs an event listener, you
+									must attach the listener after creating the node.) However, if you move an
+									EventDispatcher instance, the event listeners attached to it move along
+								with it.</p>
+								<p>If the event listener is being registered on a node while an event is
+									being processed on this node, the event listener is not triggered during
+									the current phase but can be triggered during a later phase in the event
+								flow, such as the bubbling phase.</p>
+								<p>If an event listener is removed from a node while an event is being
+									processed on the node, it is still triggered by the current actions. After
+									it is removed, the event listener is never invoked again(unless
+								registered again for future processing).</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>ArgumentError The <code>listener</code> specified is not a
+										function.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The type of event.</p>
+									</div>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>event: <span class="tsd-signature-type">object</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useCapture: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Determines whether the listener works in the
+											capture phase or the target and bubbling phases.
+											If <code>useCapture</code> is set to
+											<code>true</code>, the listener processes the
+											event only during the capture phase and not in the
+											target or bubbling phase. If
+											<code>useCapture</code> is <code>false</code>, the
+											listener processes the event only during the
+											target or bubbling phase. To listen for the event
+											in all three phases, call
+											<code>addEventListener</code> twice, once with
+											<code>useCapture</code> set to <code>true</code>,
+											then again with <code>useCapture</code> set to
+										<code>false</code>.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> priority: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The priority level of the event listener. The
+											priority is designated by a signed 32-bit integer.
+											The higher the number, the higher the priority.
+											All listeners with priority <em>n</em> are processed
+											before listeners of priority <em>n</em>-1. If two or
+											more listeners share the same priority, they are
+											processed in the order in which they were added.
+										The default priority is 0.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useWeakReference: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Determines whether the reference to the listener
+											is strong or weak. A strong reference(the
+											default) prevents your listener from being
+										garbage-collected. A weak reference does not.</p>
+										<pre><code>                    Class-level member functions are not subject to
+                    garbage collection, so you can <span class="hljs-keyword">set</span>
+                    <span class="hljs-string">`useWeakReference`</span> <span class="hljs-keyword">to</span> <span class="hljs-string">`true`</span>
+                    <span class="hljs-keyword">for</span> <span class="hljs-keyword">class</span>-<span class="hljs-keyword">level</span> <span class="hljs-keyword">member</span> functions <span class="hljs-keyword">without</span>
+                    subjecting them <span class="hljs-keyword">to</span> garbage collection. <span class="hljs-keyword">If</span> you <span class="hljs-keyword">set</span>
+                    <span class="hljs-string">`useWeakReference`</span> <span class="hljs-keyword">to</span> <span class="hljs-string">`true`</span>
+                    <span class="hljs-keyword">for</span> a listener that <span class="hljs-keyword">is</span> a <span class="hljs-keyword">nested</span> <span class="hljs-keyword">inner</span> <span class="hljs-keyword">function</span>,
+                    the <span class="hljs-keyword">function</span> will be garbage-collected <span class="hljs-keyword">and</span> <span class="hljs-keyword">no</span>
+                    longer persistent. <span class="hljs-keyword">If</span> you <span class="hljs-keyword">create</span> <span class="hljs-keyword">references</span> <span class="hljs-keyword">to</span> the
+                    <span class="hljs-keyword">inner</span> <span class="hljs-keyword">function</span>(<span class="hljs-keyword">save</span> it <span class="hljs-keyword">in</span> another <span class="hljs-keyword">variable</span>) <span class="hljs-keyword">then</span>
+                    it <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> garbage-collected <span class="hljs-keyword">and</span> stays
+                    persistent.
+</code></pre>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="areinaccessibleobjectsunderpoint" class="tsd-anchor"></a>
+					<h3>are<wbr>Inaccessible<wbr>Objects<wbr>Under<wbr>Point</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">are<wbr>Inaccessible<wbr>Objects<wbr>Under<wbr>Point<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L180">lib/openfl/display/DisplayObjectContainer.d.ts:180</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Indicates whether the security restrictions would cause any display
+										objects to be omitted from the list returned by calling the
+										<code>DisplayObjectContainer.getObjectsUnderPoint()</code> method with the
+										specified <code>point</code> point. By default, content from one domain
+										cannot access objects from another domain unless they are permitted to do
+										so with a call to the <code>Security.allowDomain()</code> method. For more
+										information, related to security, see the Flash Player Developer Center
+									Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+								</div>
+								<p>The <code>point</code> parameter is in the coordinate space of the
+									Stage, which may differ from the coordinate space of the display object
+									container(unless the display object container is the Stage). You can use
+									the <code>globalToLocal()</code> and the <code>localToGlobal()</code>
+								methods to convert points between these coordinate spaces.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The point under which to look.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code> if the point contains child display objects with
+							security restrictions.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="contains" class="tsd-anchor"></a>
+					<h3>contains</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">contains<span class="tsd-signature-symbol">(</span>child<span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L195">lib/openfl/display/DisplayObjectContainer.d.ts:195</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determines whether the specified display object is a child of the
+										DisplayObjectContainer instance or the instance itself. The search
+										includes the entire display list including this DisplayObjectContainer
+										instance. Grandchildren, great-grandchildren, and so on each return
+									<code>true</code>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>child: <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The child object to test.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code> if the <code>child</code> object is a child of
+								the DisplayObjectContainer or the container itself; otherwise
+							<code>false</code>.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="dispatchevent" class="tsd-anchor"></a>
+					<h3>dispatch<wbr>Event</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">dispatch<wbr>Event<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="openfl.events.event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#dispatchevent">dispatchEvent</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/events/EventDispatcher.d.ts#L186">lib/openfl/events/EventDispatcher.d.ts:186</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Dispatches an event into the event flow. The event target is the
+										EventDispatcher object upon which the <code>dispatchEvent()</code> method
+									is called.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>Error The event dispatch recursion limit has been reached.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <a href="openfl.events.event.html" class="tsd-signature-type">Event</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The Event object that is dispatched into the event flow. If
+											the event is being redispatched, a clone of the event is
+											created automatically. After an event is dispatched, its
+											<code>target</code> property cannot be changed, so you must
+										create a new copy of the event for redispatching to work.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>A value of <code>true</code> if the event was successfully
+								dispatched. A value of <code>false</code> indicates failure or
+							that <code>preventDefault()</code> was called on the event.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="getbounds" class="tsd-anchor"></a>
+					<h3>get<wbr>Bounds</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Bounds<span class="tsd-signature-symbol">(</span>targetCoordinateSpace<span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#getbounds">getBounds</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L726">lib/openfl/display/DisplayObject.d.ts:726</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a rectangle that defines the area of the display object relative
+										to the coordinate system of the <code>targetCoordinateSpace</code> object.
+										Consider the following code, which shows how the rectangle returned can
+										vary depending on the <code>targetCoordinateSpace</code> parameter that
+									you pass to the method:</p>
+								</div>
+								<p><strong>Note:</strong> Use the <code>localToGlobal()</code> and
+									<code>globalToLocal()</code> methods to convert the display object&#39;s local
+									coordinates to display coordinates, or display coordinates to local
+								coordinates, respectively.</p>
+								<p>The <code>getBounds()</code> method is similar to the
+									<code>getRect()</code> method; however, the Rectangle returned by the
+									<code>getBounds()</code> method includes any strokes on shapes, whereas
+									the Rectangle returned by the <code>getRect()</code> method does not. For
+								an example, see the description of the <code>getRect()</code> method.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>targetCoordinateSpace: <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The display object that defines the
+										coordinate system to use.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h4>
+							<p>The rectangle that defines the area of the display object relative
+								to the <code>targetCoordinateSpace</code> object&#39;s coordinate
+							system.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="getchildat" class="tsd-anchor"></a>
+					<h3>get<wbr>Child<wbr>At</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Child<wbr>At<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L211">lib/openfl/display/DisplayObjectContainer.d.ts:211</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the child display object instance that exists at the specified
+									index.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError    Throws if the index does not exist in the child
+										list.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>SecurityError This child display object belongs to a sandbox to
+											which you do not have access. You can avoid this
+											situation by having the child movie call
+										<code>Security.allowDomain()</code>.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The index position of the child object.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h4>
+							<p>The child display object at the specified index position.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="getchildbyname" class="tsd-anchor"></a>
+					<h3>get<wbr>Child<wbr>ByName</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Child<wbr>ByName<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L232">lib/openfl/display/DisplayObjectContainer.d.ts:232</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the child display object that exists with the specified name. If
+										more that one child display object has the specified name, the method
+									returns the first object in the child list.</p>
+								</div>
+								<p>The <code>getChildAt()</code> method is faster than the
+									<code>getChildByName()</code> method. The <code>getChildAt()</code> method
+									accesses a child from a cached array, whereas the
+									<code>getChildByName()</code> method has to traverse a linked list to
+								access a child.</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>SecurityError This child display object belongs to a sandbox to
+											which you do not have access. You can avoid this
+											situation by having the child movie call the
+										<code>Security.allowDomain()</code> method.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The name of the child to return.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h4>
+							<p>The child display object with the specified name.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="getchildindex" class="tsd-anchor"></a>
+					<h3>get<wbr>Child<wbr>Index</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Child<wbr>Index<span class="tsd-signature-symbol">(</span>child<span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L243">lib/openfl/display/DisplayObjectContainer.d.ts:243</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the index position of a <code>child</code> DisplayObject instance.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>ArgumentError Throws if the child parameter is not a child of this
+										object.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>child: <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The DisplayObject instance to identify.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The index position of the child display object to identify.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="getobjectsunderpoint" class="tsd-anchor"></a>
+					<h3>get<wbr>Objects<wbr>Under<wbr>Point</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Objects<wbr>Under<wbr>Point<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L265">lib/openfl/display/DisplayObjectContainer.d.ts:265</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns an array of objects that lie under the specified point and are
+										children(or grandchildren, and so on) of this DisplayObjectContainer
+										instance. Any child objects that are inaccessible for security reasons are
+										omitted from the returned array. To determine whether this security
+										restriction affects the returned array, call the
+									<code>areInaccessibleObjectsUnderPoint()</code> method.</p>
+								</div>
+								<p>The <code>point</code> parameter is in the coordinate space of the
+									Stage, which may differ from the coordinate space of the display object
+									container(unless the display object container is the Stage). You can use
+									the <code>globalToLocal()</code> and the <code>localToGlobal()</code>
+								methods to convert points between these coordinate spaces.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The point under which to look.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An array of objects that lie under the specified point and are
+								children(or grandchildren, and so on) of this
+							DisplayObjectContainer instance.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="getrect" class="tsd-anchor"></a>
+					<h3>get<wbr>Rect</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Rect<span class="tsd-signature-symbol">(</span>targetCoordinateSpace<span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#getrect">getRect</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L747">lib/openfl/display/DisplayObject.d.ts:747</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a rectangle that defines the boundary of the display object, based
+										on the coordinate system defined by the <code>targetCoordinateSpace</code>
+										parameter, excluding any strokes on shapes. The values that the
+										<code>getRect()</code> method returns are the same or smaller than those
+									returned by the <code>getBounds()</code> method.</p>
+								</div>
+								<p><strong>Note:</strong> Use <code>localToGlobal()</code> and
+									<code>globalToLocal()</code> methods to convert the display object&#39;s local
+									coordinates to Stage coordinates, or Stage coordinates to local
+								coordinates, respectively.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>targetCoordinateSpace: <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The display object that defines the
+										coordinate system to use.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h4>
+							<p>The rectangle that defines the area of the display object relative
+								to the <code>targetCoordinateSpace</code> object&#39;s coordinate
+							system.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="globaltolocal" class="tsd-anchor"></a>
+					<h3>global<wbr>ToLocal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">global<wbr>ToLocal<span class="tsd-signature-symbol">(</span>pos<span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#globaltolocal">globalToLocal</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L767">lib/openfl/display/DisplayObject.d.ts:767</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts the <code>point</code> object from the Stage(global) coordinates
+									to the display object&#39;s(local) coordinates.</p>
+								</div>
+								<p>To use this method, first create an instance of the Point class. The
+									<em>x</em> and <em>y</em> values that you assign represent global coordinates
+									because they relate to the origin(0,0) of the main display area. Then
+									pass the Point instance as the parameter to the
+									<code>globalToLocal()</code> method. The method returns a new Point object
+									with <em>x</em> and <em>y</em> values that relate to the origin of the display
+								object instead of the origin of the Stage.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pos: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h4>
+							<p>A Point object with coordinates relative to the display object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="haseventlistener" class="tsd-anchor"></a>
+					<h3>has<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#haseventlistener">hasEventListener</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/events/EventDispatcher.d.ts#L209">lib/openfl/events/EventDispatcher.d.ts:209</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks whether the EventDispatcher object has any listeners registered for
+										a specific type of event. This allows you to determine where an
+										EventDispatcher object has altered handling of an event type in the event
+										flow hierarchy. To determine whether a specific event type actually
+									triggers an event listener, use <code>willTrigger()</code>.</p>
+								</div>
+								<p>The difference between <code>hasEventListener()</code> and
+									<code>willTrigger()</code> is that <code>hasEventListener()</code>
+									examines only the object to which it belongs, whereas
+									<code>willTrigger()</code> examines the entire event flow for the event
+								specified by the <code>type</code> parameter.</p>
+								<p>When <code>hasEventListener()</code> is called from a LoaderInfo
+								object, only the listeners that the caller can access are considered.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The type of event.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>A value of <code>true</code> if a listener of the specified type
+							is registered; <code>false</code> otherwise.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="hittestobject" class="tsd-anchor"></a>
+					<h3>hit<wbr>Test<wbr>Object</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">hit<wbr>Test<wbr>Object<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#hittestobject">hitTestObject</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L783">lib/openfl/display/DisplayObject.d.ts:783</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Evaluates the bounding box of the display object to see if it overlaps or
+									intersects with the bounding box of the <code>obj</code> display object.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>obj: <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The display object to test against.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code> if the bounding boxes of the display objects
+							intersect; <code>false</code> if not.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="hittestpoint" class="tsd-anchor"></a>
+					<h3>hit<wbr>Test<wbr>Point</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">hit<wbr>Test<wbr>Point<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, shapeFlag<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#hittestpoint">hitTestPoint</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L802">lib/openfl/display/DisplayObject.d.ts:802</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Evaluates the display object to see if it overlaps or intersects with the
+										point specified by the <code>x</code> and <code>y</code> parameters. The
+										<code>x</code> and <code>y</code> parameters specify a point in the
+										coordinate space of the Stage, not the display object container that
+										contains the display object(unless that display object container is the
+									Stage).</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <em>x</em> coordinate to test against this object.</p>
+									</div>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <em>y</em> coordinate to test against this object.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> shapeFlag: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether to check against the actual pixels of the object
+											(<code>true</code>) or the bounding box
+										(<code>false</code>).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code> if the display object overlaps or intersects
+							with the specified point; <code>false</code> otherwise.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="localtoglobal" class="tsd-anchor"></a>
+					<h3>local<wbr>ToGlobal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">local<wbr>ToGlobal<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.display.displayobject.html">DisplayObject</a>.<a href="openfl.display.displayobject.html#localtoglobal">localToGlobal</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObject.d.ts#L828">lib/openfl/display/DisplayObject.d.ts:828</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts the <code>point</code> object from the display object&#39;s(local)
+									coordinates to the Stage(global) coordinates.</p>
+								</div>
+								<p>This method allows you to convert any given <em>x</em> and <em>y</em>
+									coordinates from values that are relative to the origin(0,0) of a
+									specific display object(local coordinates) to values that are relative to
+								the origin of the Stage(global coordinates).</p>
+								<p>To use this method, first create an instance of the Point class. The
+									<em>x</em> and <em>y</em> values that you assign represent local coordinates
+								because they relate to the origin of the display object.</p>
+								<p>You then pass the Point instance that you created as the parameter to
+									the <code>localToGlobal()</code> method. The method returns a new Point
+									object with <em>x</em> and <em>y</em> values that relate to the origin of the
+								Stage instead of the origin of the display object.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The name or identifier of a point created with the Point
+											class, specifying the <em>x</em> and <em>y</em> coordinates as
+										properties.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h4>
+							<p>A Point object with coordinates relative to the Stage.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="removechild" class="tsd-anchor"></a>
+					<h3>remove<wbr>Child</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Child<span class="tsd-signature-symbol">(</span>child<span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L287">lib/openfl/display/DisplayObjectContainer.d.ts:287</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes the specified <code>child</code> DisplayObject instance from the
+										child list of the DisplayObjectContainer instance. The <code>parent</code>
+										property of the removed child is set to <code>null</code> , and the object
+										is garbage collected if no other references to the child exist. The index
+										positions of any display objects above the child in the
+									DisplayObjectContainer are decreased by 1.</p>
+								</div>
+								<p>The garbage collector reallocates unused memory space. When a variable
+									or object is no longer actively referenced or stored somewhere, the
+									garbage collector sweeps through and wipes out the memory space it used to
+								occupy if no other references to it exist.</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>ArgumentError Throws if the child parameter is not a child of this
+										object.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>child: <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The DisplayObject instance to remove.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h4>
+							<p>The DisplayObject instance that you pass in the <code>child</code>
+							parameter.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="removechildat" class="tsd-anchor"></a>
+					<h3>remove<wbr>Child<wbr>At</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Child<wbr>At<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L312">lib/openfl/display/DisplayObjectContainer.d.ts:312</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a child DisplayObject from the specified <code>index</code>
+										position in the child list of the DisplayObjectContainer. The
+										<code>parent</code> property of the removed child is set to
+										<code>null</code>, and the object is garbage collected if no other
+										references to the child exist. The index positions of any display objects
+									above the child in the DisplayObjectContainer are decreased by 1.</p>
+								</div>
+								<p>The garbage collector reallocates unused memory space. When a variable
+									or object is no longer actively referenced or stored somewhere, the
+									garbage collector sweeps through and wipes out the memory space it used to
+								occupy if no other references to it exist.</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError    Throws if the index does not exist in the child
+										list.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>SecurityError This child display object belongs to a sandbox to
+											which the calling object does not have access. You
+											can avoid this situation by having the child movie
+										call the <code>Security.allowDomain()</code> method.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The child index of the DisplayObject to remove.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h4>
+							<p>The DisplayObject instance that was removed.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="removechildren" class="tsd-anchor"></a>
+					<h3>remove<wbr>Children</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Children<span class="tsd-signature-symbol">(</span>beginIndex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, endIndex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L315">lib/openfl/display/DisplayObjectContainer.d.ts:315</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> beginIndex: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> endIndex: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="removeeventlistener" class="tsd-anchor"></a>
+					<h3>remove<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, useCapture<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#removeeventlistener">removeEventListener</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/events/EventDispatcher.d.ts#L227">lib/openfl/events/EventDispatcher.d.ts:227</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a listener from the EventDispatcher object. If there is no
+										matching listener registered with the EventDispatcher object, a call to
+									this method has no effect.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The type of event.</p>
+									</div>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>event: <span class="tsd-signature-type">object</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useCapture: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Specifies whether the listener was registered for the
+											capture phase or the target and bubbling phases. If the
+											listener was registered for both the capture phase and
+											the target and bubbling phases, two calls to
+											<code>removeEventListener()</code> are required to
+											remove both, one call with <code>useCapture()</code> set
+											to <code>true</code>, and another call with
+										<code>useCapture()</code> set to <code>false</code>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="requestsoftkeyboard" class="tsd-anchor"></a>
+					<h3>request<wbr>Soft<wbr>Keyboard</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">request<wbr>Soft<wbr>Keyboard<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.display.interactiveobject.html">InteractiveObject</a>.<a href="openfl.display.interactiveobject.html#requestsoftkeyboard">requestSoftKeyboard</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/InteractiveObject.d.ts#L1153">lib/openfl/display/InteractiveObject.d.ts:1153</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Raises a virtual keyboard.</p>
+								</div>
+								<p>Calling this method focuses the InteractiveObject instance and raises
+									the soft keyboard, if necessary. The <code>needsSoftKeyboard</code> must
+									also be <code>true</code>. A keyboard is not raised if a hardware keyboard
+									is available, or if the client system does not support virtual
+								keyboards.</p>
+								<p><strong>Note:</strong> This method is not supported in AIR applications on
+								iOS.</p>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>A value of <code>true</code> means that the soft keyboard request
+								was granted; <code>false</code> means that the soft keyboard was
+							not raised.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="setchildindex" class="tsd-anchor"></a>
+					<h3>set<wbr>Child<wbr>Index</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Child<wbr>Index<span class="tsd-signature-symbol">(</span>child<span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L346">lib/openfl/display/DisplayObjectContainer.d.ts:346</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Changes the position of an existing child in the display object container.
+										This affects the layering of child objects. For example, the following
+										example shows three display objects, labeled a, b, and c, at index
+									positions 0, 1, and 2, respectively:</p>
+								</div>
+								<p>When you use the <code>setChildIndex()</code> method and specify an
+									index position that is already occupied, the only positions that change
+									are those in between the display object&#39;s former and new position. All
+									others will stay the same. If a child is moved to an index LOWER than its
+									current index, all children in between will INCREASE by 1 for their index
+									reference. If a child is moved to an index HIGHER than its current index,
+									all children in between will DECREASE by 1 for their index reference. For
+									example, if the display object container in the previous example is named
+									<code>container</code>, you can swap the position of the display objects
+								labeled a and b by calling the following code:</p>
+								<p>This code results in the following arrangement of objects:</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>ArgumentError Throws if the child parameter is not a child of this
+										object.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>RangeError    Throws if the index does not exist in the child
+										list.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>child: <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The child DisplayObject instance for which you want to change
+										the index number.</p>
+									</div>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The resulting index number for the <code>child</code> display
+										object.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="stopallmovieclips" class="tsd-anchor"></a>
+					<h3>stop<wbr>All<wbr>Movie<wbr>Clips</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">stop<wbr>All<wbr>Movie<wbr>Clips<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L349">lib/openfl/display/DisplayObjectContainer.d.ts:349</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="swapchildren" class="tsd-anchor"></a>
+					<h3>swap<wbr>Children</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">swap<wbr>Children<span class="tsd-signature-symbol">(</span>child1<span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a>, child2<span class="tsd-signature-symbol">: </span><a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L362">lib/openfl/display/DisplayObjectContainer.d.ts:362</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Swaps the z-order(front-to-back order) of the two specified child
+										objects. All other child objects in the display object container remain in
+									the same index positions.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>ArgumentError Throws if either child parameter is not a child of
+										this object.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>child1: <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The first child object.</p>
+									</div>
+								</li>
+								<li>
+									<h5>child2: <a href="openfl.display.displayobject.html" class="tsd-signature-type">DisplayObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The second child object.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="swapchildrenat" class="tsd-anchor"></a>
+					<h3>swap<wbr>Children<wbr>At</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">swap<wbr>Children<wbr>At<span class="tsd-signature-symbol">(</span>index1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, index2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/DisplayObjectContainer.d.ts#L374">lib/openfl/display/DisplayObjectContainer.d.ts:374</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Swaps the z-order(front-to-back order) of the child objects at the two
+										specified index positions in the child list. All other child objects in
+									the display object container remain in the same index positions.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError If either index does not exist in the child list.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>index1: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The index position of the first child object.</p>
+									</div>
+								</li>
+								<li>
+									<h5>index2: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The index position of the second child object.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="tostring" class="tsd-anchor"></a>
+					<h3>to<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#tostring">toString</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/events/EventDispatcher.d.ts#L230">lib/openfl/events/EventDispatcher.d.ts:230</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="willtrigger" class="tsd-anchor"></a>
+					<h3>will<wbr>Trigger</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">will<wbr>Trigger<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#willtrigger">willTrigger</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/events/EventDispatcher.d.ts#L253">lib/openfl/events/EventDispatcher.d.ts:253</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks whether an event listener is registered with this EventDispatcher
+										object or any of its ancestors for the specified event type. This method
+										returns <code>true</code> if an event listener is triggered during any
+										phase of the event flow when an event of the specified type is dispatched
+									to this EventDispatcher object or any of its descendants.</p>
+								</div>
+								<p>The difference between the <code>hasEventListener()</code> and the
+									<code>willTrigger()</code> methods is that <code>hasEventListener()</code>
+									examines only the object to which it belongs, whereas the
+									<code>willTrigger()</code> method examines the entire event flow for the
+								event specified by the <code>type</code> parameter.</p>
+								<p>When <code>willTrigger()</code> is called from a LoaderInfo object,
+								only the listeners that the caller can access are considered.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The type of event.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>A value of <code>true</code> if a listener of the specified type
+							will be triggered; <code>false</code> otherwise.</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.desktop.html">openfl.desktop</a>
+					</li>
+					<li class="current tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.display.html">openfl.display</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.display3d.html">openfl.display3D</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.errors.html">openfl.errors</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.events.html">openfl.events</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.external.html">openfl.external</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.filters.html">openfl.filters</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.geom.html">openfl.geom</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.media.html">openfl.media</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.net.html">openfl.net</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.profiler.html">openfl.profiler</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.sensors.html">openfl.sensors</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.system.html">openfl.system</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.text.html">openfl.text</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.ui.html">openfl.ui</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.utils.html">openfl.utils</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.display.displayobjectcontainer.html" class="tsd-kind-icon">Display<wbr>Object<wbr>Container</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#alpha" class="tsd-kind-icon">alpha</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#blendmode" class="tsd-kind-icon">blend<wbr>Mode</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#cacheasbitmap" class="tsd-kind-icon">cache<wbr>AsBitmap</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#doubleclickenabled" class="tsd-kind-icon">double<wbr>Click<wbr>Enabled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#filters" class="tsd-kind-icon">filters</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#focusrect" class="tsd-kind-icon">focus<wbr>Rect</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#height" class="tsd-kind-icon">height</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#loaderinfo" class="tsd-kind-icon">loader<wbr>Info</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#mask" class="tsd-kind-icon">mask</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#mousechildren" class="tsd-kind-icon">mouse<wbr>Children</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#mouseenabled" class="tsd-kind-icon">mouse<wbr>Enabled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#mousex" class="tsd-kind-icon">mouseX</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#mousey" class="tsd-kind-icon">mouseY</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#name" class="tsd-kind-icon">name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#needssoftkeyboard" class="tsd-kind-icon">needs<wbr>Soft<wbr>Keyboard</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#numchildren" class="tsd-kind-icon">num<wbr>Children</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#opaquebackground" class="tsd-kind-icon">opaque<wbr>Background</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#parent" class="tsd-kind-icon">parent</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#root" class="tsd-kind-icon">root</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#rotation" class="tsd-kind-icon">rotation</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#scale9grid" class="tsd-kind-icon">scale9<wbr>Grid</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#scalex" class="tsd-kind-icon">scaleX</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#scaley" class="tsd-kind-icon">scaleY</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#scrollrect" class="tsd-kind-icon">scroll<wbr>Rect</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#softkeyboardinputareaofinterest" class="tsd-kind-icon">soft<wbr>Keyboard<wbr>Input<wbr>Area<wbr>OfInterest</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#stage" class="tsd-kind-icon">stage</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#tabchildren" class="tsd-kind-icon">tab<wbr>Children</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#tabenabled" class="tsd-kind-icon">tab<wbr>Enabled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#tabindex" class="tsd-kind-icon">tab<wbr>Index</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#transform" class="tsd-kind-icon">transform</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#visible" class="tsd-kind-icon">visible</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#width" class="tsd-kind-icon">width</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#x" class="tsd-kind-icon">x</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#y" class="tsd-kind-icon">y</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#addchild" class="tsd-kind-icon">add<wbr>Child</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#addchildat" class="tsd-kind-icon">add<wbr>Child<wbr>At</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#areinaccessibleobjectsunderpoint" class="tsd-kind-icon">are<wbr>Inaccessible<wbr>Objects<wbr>Under<wbr>Point</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#contains" class="tsd-kind-icon">contains</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#getbounds" class="tsd-kind-icon">get<wbr>Bounds</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#getchildat" class="tsd-kind-icon">get<wbr>Child<wbr>At</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#getchildbyname" class="tsd-kind-icon">get<wbr>Child<wbr>ByName</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#getchildindex" class="tsd-kind-icon">get<wbr>Child<wbr>Index</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#getobjectsunderpoint" class="tsd-kind-icon">get<wbr>Objects<wbr>Under<wbr>Point</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#getrect" class="tsd-kind-icon">get<wbr>Rect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#globaltolocal" class="tsd-kind-icon">global<wbr>ToLocal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#hittestobject" class="tsd-kind-icon">hit<wbr>Test<wbr>Object</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#hittestpoint" class="tsd-kind-icon">hit<wbr>Test<wbr>Point</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#localtoglobal" class="tsd-kind-icon">local<wbr>ToGlobal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#removechild" class="tsd-kind-icon">remove<wbr>Child</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#removechildat" class="tsd-kind-icon">remove<wbr>Child<wbr>At</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#removechildren" class="tsd-kind-icon">remove<wbr>Children</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#requestsoftkeyboard" class="tsd-kind-icon">request<wbr>Soft<wbr>Keyboard</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#setchildindex" class="tsd-kind-icon">set<wbr>Child<wbr>Index</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#stopallmovieclips" class="tsd-kind-icon">stop<wbr>All<wbr>Movie<wbr>Clips</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#swapchildren" class="tsd-kind-icon">swap<wbr>Children</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#swapchildrenat" class="tsd-kind-icon">swap<wbr>Children<wbr>At</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.display.displayobjectcontainer.html#willtrigger" class="tsd-kind-icon">will<wbr>Trigger</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://www.openfl.org/blog/rss.xml" rel="self" type="application/atom+xml" /><link href="http://www.openfl.org/" rel="alternate" type="text/html" /><updated>2022-04-23T14:06:22+00:00</updated><id>http://www.openfl.org/blog/rss.xml</id><title type="html">OpenFL</title><entry><title type="html">Introducing the HXP Project</title><link href="http://www.openfl.org/blog/2018/09/28/introducing-the-hxp-project/" rel="alternate" type="text/html" title="Introducing the HXP Project" /><published>2018-09-28T00:00:00+00:00</published><updated>2018-09-28T00:00:00+00:00</updated><id>http://www.openfl.org/blog/2018/09/28/introducing-the-hxp-project</id><content type="html" xml:base="http://www.openfl.org/blog/2018/09/28/introducing-the-hxp-project/"><![CDATA[<p>A long time ago, Haxe enabled support for targeting multiple target languages (such as JavaScript and C++) while a cross-platform framework enabled support for multiple target platforms (such as Windows and Linux).</p>
+
+<p>The more that we could develop one project for multiple platforms, the more that we needed a tool to manage assets, template files, and all the unique scaffolding required to go cross-platform.</p>
+
+<p>These tools grew over time and found their way into Lime. These are the backbone to many OpenFL and Lime projects, making it simple to deploy to web, desktop, mobile and other platforms from one codebase.</p>
+
+<p>Our goal from the very beginning was to try and share our tools. Based on discussions from leading developers at Haxe Summit, we heard from many that there was a desire for many of the features including in the Lime tools, made available more broadly to other frameworks in the Haxe community. One feature specifically that piqued interest specifically was the “*.hxp” file format – a file written in Haxe, executed on the fly for building Haxe based projects.</p>
+
+<p>Today, we would like to share the initial release of a tool called HXP.</p>
+
+<h2 id="what-is-hxp">What is HXP?</h2>
+
+<p>HXP is a library with Haxe 3 and Haxe 4 for turning Haxe source code into script files. You can use HXP as a replacement for Haxe HXML, or for complicated bash and batch file scripts.</p>
+
+<p>We are releasing HXP first using an initial departure from the Lime tools, but hope to gather feedback and work toward a version 2.x API that may continue to build on the promise of the HXP project.</p>
+
+<p>In addition to providing the ability to execute Haxe code on the fly, HXP includes a standard API for making files, creating directories, executing commands, parsing command-line arguments, log output and other features common to command-line scripting. We are also hoping to move as much of the platform-specific utilities (for Xcode, Gradle, Flash, AIR, etc) written in Lime tools and move them to HXP to make them widely available.</p>
+
+<p>HXP is also compatible with being pre-compiled into Neko or other binaries as well, if runtime scripting is not desired.</p>
+
+<h2 id="basic-example">Basic Example</h2>
+
+<p>What does an HXP script look like? Here’s a quick example:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// script.hx</span>
+<span class="kd">class</span> <span class="nx">Script</span> <span class="p">{</span>
+	<span class="kr">public</span> <span class="kd">function</span> <span class="k">new</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="nx">trace</span> <span class="p">(</span><span class="dl">"</span><span class="s2">HELLO FROM HXP</span><span class="dl">"</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Pretty simple.</p>
+
+<p>With <code class="language-plaintext highlighter-rouge">hxp</code> installed from haxelib, open a command-prompt or terminal, and change to the same directory as the script (or optionally, you can pass the directory or file path to the script as the second argument).</p>
+
+<p>Just run <code class="language-plaintext highlighter-rouge">hxp</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hxp
+HELLO FROM HXP
+</code></pre></div></div>
+
+<p>We can spice this up with more commands. For example, this script compiles Haxe code, then runs a local web server for testing HTML5 content. This script assumes there is an “index.html” in the “bin” directory, though larger scripts can copy template files, similar to the Lime tools</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">hxp</span><span class="p">.</span><span class="o">*</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">Script</span> <span class="p">{</span>
+
+    <span class="kr">public</span> <span class="kd">function</span> <span class="k">new</span> <span class="p">()</span> <span class="p">{</span>
+    
+        <span class="kd">var</span> <span class="nx">hxml</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HXML</span> <span class="p">({</span> <span class="na">cp</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">src</span><span class="dl">"</span><span class="p">],</span> <span class="na">main</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Main.hx</span><span class="dl">"</span><span class="p">,</span> <span class="na">js</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bin/index.js</span><span class="dl">"</span> <span class="p">});</span>
+        <span class="nx">hxml</span><span class="p">.</span><span class="nx">build</span> <span class="p">();</span>
+		
+        <span class="nx">PlatformTools</span><span class="p">.</span><span class="nx">launchWebServer</span> <span class="p">(</span><span class="dl">"</span><span class="s2">bin</span><span class="dl">"</span><span class="p">);</span>
+        
+    <span class="p">}</span>
+    
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>For convenience, you can also execute scripts using the <code class="language-plaintext highlighter-rouge">-verbose</code> or <code class="language-plaintext highlighter-rouge">-v</code> flag, to get additional feedback on which directories are created, which commands are executed, and is especially for debugging or getting additional details.</p>
+
+<p>Optionally, you can extend the <code class="language-plaintext highlighter-rouge">hxp.Script</code> class for automatic parsing of arguments. For example, consider this case:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Script</span> <span class="kd">extends</span> <span class="nx">hxp</span><span class="p">.</span><span class="nx">Script</span> <span class="p">{</span>
+
+    <span class="kr">public</span> <span class="kd">function</span> <span class="k">new</span> <span class="p">()</span> <span class="p">{</span>
+    
+        <span class="k">super</span> <span class="p">();</span>
+        
+        <span class="nx">trace</span> <span class="p">(</span><span class="nx">command</span><span class="p">);</span>
+        <span class="nx">trace</span> <span class="p">(</span><span class="nx">commandArgs</span><span class="p">);</span>
+        <span class="nx">trace</span> <span class="p">(</span><span class="nx">flags</span><span class="p">.</span><span class="nx">keys</span> <span class="p">());</span>
+        <span class="nx">trace</span> <span class="p">(</span><span class="nx">defines</span><span class="p">.</span><span class="nx">keys</span> <span class="p">());</span>
+        <span class="nx">trace</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">keys</span> <span class="p">());</span>
+        
+    <span class="p">}</span>
+    
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>When you extend <code class="language-plaintext highlighter-rouge">hxp.Script</code>, default argument parsing is included for you. Arguments which begin with a single dash (such as <code class="language-plaintext highlighter-rouge">-debug</code>) will be treated as a “flag”, starting with <code class="language-plaintext highlighter-rouge">-D</code> is a “define”, and starting with two dashes (such as <code class="language-plaintext highlighter-rouge">--out-dir</code>) is an “option”. All other arguments will be considered a command (first), then command arguments.</p>
+
+<p>For example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hxp <span class="nb">command </span>arg1 arg2 <span class="nt">-debug</span> <span class="nt">-Ddefine</span> <span class="nt">-Ddefine2</span><span class="o">=</span>value <span class="nt">--option</span><span class="o">=</span>value
+</code></pre></div></div>
+
+<h2 id="how-to-get-hxp">How To Get HXP?</h2>
+
+<p>Simple!</p>
+
+<p>Run the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>haxelib <span class="nb">install </span>hxp
+haxelib run hxp <span class="nt">--install-hxp-alias</span>
+</code></pre></div></div>
+
+<h2 id="feedback">Feedback</h2>
+
+<p>We hope that we can start the discussion on building better shared tools between Haxe projects, and that the initial release we’ve put out of HXP will help move things forward in that direction.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[A long time ago, Haxe enabled support for targeting multiple target languages (such as JavaScript and C++) while a cross-platform framework enabled support for multiple target platforms (such as Windows and Linux). The more that we could develop one project for multiple platforms, the more that we needed a tool to manage assets, template files, and all the unique scaffolding required to go cross-platform. These tools grew over time and found their way into Lime. These are the backbone to many OpenFL and Lime projects, making it simple to deploy to web, desktop, mobile and other platforms from one codebase. Our goal from the very beginning was to try and share our tools. Based on discussions from leading developers at Haxe Summit, we heard from many that there was a desire for many of the features including in the Lime tools, made available more broadly to other frameworks in the Haxe community. One feature specifically that piqued interest specifically was the “*.hxp” file format – a file written in Haxe, executed on the fly for building Haxe based projects. Today, we would like to share the initial release of a tool called HXP. What is HXP? HXP is a library with Haxe 3 and Haxe 4 for turning Haxe source code into script files. You can use HXP as a replacement for Haxe HXML, or for complicated bash and batch file scripts. We are releasing HXP first using an initial departure from the Lime tools, but hope to gather feedback and work toward a version 2.x API that may continue to build on the promise of the HXP project. In addition to providing the ability to execute Haxe code on the fly, HXP includes a standard API for making files, creating directories, executing commands, parsing command-line arguments, log output and other features common to command-line scripting. We are also hoping to move as much of the platform-specific utilities (for Xcode, Gradle, Flash, AIR, etc) written in Lime tools and move them to HXP to make them widely available. HXP is also compatible with being pre-compiled into Neko or other binaries as well, if runtime scripting is not desired. Basic Example What does an HXP script look like? Here’s a quick example: // script.hx class Script { public function new () { trace ("HELLO FROM HXP"); } } Pretty simple. With hxp installed from haxelib, open a command-prompt or terminal, and change to the same directory as the script (or optionally, you can pass the directory or file path to the script as the second argument). Just run hxp hxp HELLO FROM HXP We can spice this up with more commands. For example, this script compiles Haxe code, then runs a local web server for testing HTML5 content. This script assumes there is an “index.html” in the “bin” directory, though larger scripts can copy template files, similar to the Lime tools import hxp.*; class Script { public function new () { var hxml = new HXML ({ cp: ["src"], main: "Main.hx", js: "bin/index.js" }); hxml.build (); PlatformTools.launchWebServer ("bin"); } } For convenience, you can also execute scripts using the -verbose or -v flag, to get additional feedback on which directories are created, which commands are executed, and is especially for debugging or getting additional details. Optionally, you can extend the hxp.Script class for automatic parsing of arguments. For example, consider this case: class Script extends hxp.Script { public function new () { super (); trace (command); trace (commandArgs); trace (flags.keys ()); trace (defines.keys ()); trace (options.keys ()); } } When you extend hxp.Script, default argument parsing is included for you. Arguments which begin with a single dash (such as -debug) will be treated as a “flag”, starting with -D is a “define”, and starting with two dashes (such as --out-dir) is an “option”. All other arguments will be considered a command (first), then command arguments. For example: hxp command arg1 arg2 -debug -Ddefine -Ddefine2=value --option=value How To Get HXP? Simple! Run the following commands: haxelib install hxp haxelib run hxp --install-hxp-alias Feedback We hope that we can start the discussion on building better shared tools between Haxe projects, and that the initial release we’ve put out of HXP will help move things forward in that direction.]]></summary></entry><entry><title type="html">Starling Now Available on NPM</title><link href="http://www.openfl.org/blog/2018/02/08/starling-now-available-on-npm/" rel="alternate" type="text/html" title="Starling Now Available on NPM" /><published>2018-02-08T00:00:00+00:00</published><updated>2018-02-08T00:00:00+00:00</updated><id>http://www.openfl.org/blog/2018/02/08/starling-now-available-on-npm</id><content type="html" xml:base="http://www.openfl.org/blog/2018/02/08/starling-now-available-on-npm/"><![CDATA[<p>OpenFL 7.1 and Lime 6.1 are now available on Haxelib and NPM!</p>
+
+<p>Among other minor features, OpenFL now properly supports Stage3D on NPM (where it was previously unavailable). We have also resolved showstopper issues when using GL framebuffers with the Xcode 11 SDK. This was the final blocker preventing us from releasing Starling 2 on Haxelib.</p>
+
+<p>Starling is a GPU-accelerated framework that works on top of OpenFL and Flash. Part of the reason why Starling has been so popular for ActionScript developers is because Flash Player does not (ordinarily) support hardware accelerated rendering, but Starling has grown to support additional features and tools for game development.</p>
+
+<p>OpenFL is GPU-accelerated by default, but there are still reasons why developers may choose to use Starling in addition or instead of the ordinary OpenFL features. In addition to bringing the newer Starling 2.x branch to Haxelib, we have invested in making Starling a first-class citizen in the NPM ecosystem, like OpenFL.</p>
+
+<p>This brings TypeScript as well ES6 and ES5 JavaScript support to Starling, in addition the original ActionScript 3.0 and Haxe language support.</p>
+
+<h2 id="running-the-starling-demo-haxelib">Running the Starling Demo (Haxelib)</h2>
+
+<p><a href="http://www.openfl.org/download">Install Haxe</a>, then install OpenFL, Lime and Starling using the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>haxelib <span class="nb">install </span>openfl
+haxelib run openfl setup
+haxelib <span class="nb">install </span>starling
+</code></pre></div></div>
+
+<p>Create a copy of the Starling demo using this command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create starling:demo
+</code></pre></div></div>
+
+<p>You can then test the demo using one of OpenFL’s supported platforms:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>demo
+openfl <span class="nb">test </span>flash
+</code></pre></div></div>
+
+<p>You can also use other supported platforms:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl <span class="nb">test </span>html5
+openfl <span class="nb">test </span>windows
+openfl <span class="nb">test </span>mac
+openfl <span class="nb">test </span>linux
+openfl <span class="nb">test </span>ios
+openfl <span class="nb">test </span>android
+openfl <span class="nb">test </span>air
+</code></pre></div></div>
+
+<h2 id="running-the-starling-demo-npm">Running the Starling Demo (NPM)</h2>
+
+<p>To save on space, the Starling demo is not released on NPM, but you can <a href="https://github.com/openfl/starling/archive/master.zip">download a zip</a> of the repository, or use GIT to clone it.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/openfl/starling
+<span class="nb">cd </span>starling/samples/demo_npm/typescript
+npm <span class="nb">install
+</span>npm start <span class="nt">-s</span>
+</code></pre></div></div>
+
+<p>You can also try “es6”, “es5” or “haxe” for different variations of the Starling demo, written in each language syntax.</p>
+
+<h2 id="creating-an-empty-project-haxelib">Creating an Empty Project (Haxelib)</h2>
+
+<p>You can create a new empty project using the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create starling:project MyNewProject
+</code></pre></div></div>
+
+<h2 id="creating-an-empty-project-npm">Creating an Empty Project (NPM)</h2>
+
+<p>You can use the Yeoman generator we created for Starling to generate a new empty project for TypeScript, ES6, ES5 or Haxe:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-g</span> yo generator-starling-framework
+<span class="nb">mkdir </span>MyNewProject
+<span class="nb">cd </span>MyNewProject
+yo starling-framework
+</code></pre></div></div>
+
+<p>This is similar to our generator for OpenFL:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-g</span> yo generator-openfl
+<span class="nb">mkdir </span>OpenFLTest
+<span class="nb">cd </span>OpenFLTest
+yo openfl
+</code></pre></div></div>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>We have more work to do, but in the meantime, please visit our friendly forums for questions, concerns and feedback at: <a href="http://community.openfl.org">http://community.openfl.org</a>.</p>
+
+<p>Thank you one more time to our awesome <a href="https://www.patreon.com/openfl">Patreon</a> sponsors and contributors. We appreciate your help and support!</p>
+
+<blockquote>In the golden lightning<br />
+Of the sunken sun,<br />
+O'er which clouds are bright'ning,<br />
+Thou dost float and run;<br />
+Like an unbodied joy whose race is just begun.</blockquote>
+
+<p><em>Percy Bysshe Shelley, <a href="https://www.poetryfoundation.org/poems/45146/to-a-skylark">“To a Skylark”</a></em></p>]]></content><author><name></name></author><summary type="html"><![CDATA[OpenFL 7.1 and Lime 6.1 are now available on Haxelib and NPM! Among other minor features, OpenFL now properly supports Stage3D on NPM (where it was previously unavailable). We have also resolved showstopper issues when using GL framebuffers with the Xcode 11 SDK. This was the final blocker preventing us from releasing Starling 2 on Haxelib. Starling is a GPU-accelerated framework that works on top of OpenFL and Flash. Part of the reason why Starling has been so popular for ActionScript developers is because Flash Player does not (ordinarily) support hardware accelerated rendering, but Starling has grown to support additional features and tools for game development. OpenFL is GPU-accelerated by default, but there are still reasons why developers may choose to use Starling in addition or instead of the ordinary OpenFL features. In addition to bringing the newer Starling 2.x branch to Haxelib, we have invested in making Starling a first-class citizen in the NPM ecosystem, like OpenFL. This brings TypeScript as well ES6 and ES5 JavaScript support to Starling, in addition the original ActionScript 3.0 and Haxe language support. Running the Starling Demo (Haxelib) Install Haxe, then install OpenFL, Lime and Starling using the following commands: haxelib install openfl haxelib run openfl setup haxelib install starling Create a copy of the Starling demo using this command: openfl create starling:demo You can then test the demo using one of OpenFL’s supported platforms: cd demo openfl test flash You can also use other supported platforms: openfl test html5 openfl test windows openfl test mac openfl test linux openfl test ios openfl test android openfl test air Running the Starling Demo (NPM) To save on space, the Starling demo is not released on NPM, but you can download a zip of the repository, or use GIT to clone it. git clone https://github.com/openfl/starling cd starling/samples/demo_npm/typescript npm install npm start -s You can also try “es6”, “es5” or “haxe” for different variations of the Starling demo, written in each language syntax. Creating an Empty Project (Haxelib) You can create a new empty project using the following command: openfl create starling:project MyNewProject Creating an Empty Project (NPM) You can use the Yeoman generator we created for Starling to generate a new empty project for TypeScript, ES6, ES5 or Haxe: npm install -g yo generator-starling-framework mkdir MyNewProject cd MyNewProject yo starling-framework This is similar to our generator for OpenFL: npm install -g yo generator-openfl mkdir OpenFLTest cd OpenFLTest yo openfl Next Steps We have more work to do, but in the meantime, please visit our friendly forums for questions, concerns and feedback at: http://community.openfl.org. Thank you one more time to our awesome Patreon sponsors and contributors. We appreciate your help and support! In the golden lightning Of the sunken sun, O'er which clouds are bright'ning, Thou dost float and run; Like an unbodied joy whose race is just begun. Percy Bysshe Shelley, “To a Skylark”]]></summary></entry><entry><title type="html">OpenFL 7.0 Release</title><link href="http://www.openfl.org/blog/2018/01/16/openfl-7-release/" rel="alternate" type="text/html" title="OpenFL 7.0 Release" /><published>2018-01-16T00:00:00+00:00</published><updated>2018-01-16T00:00:00+00:00</updated><id>http://www.openfl.org/blog/2018/01/16/openfl-7-release</id><content type="html" xml:base="http://www.openfl.org/blog/2018/01/16/openfl-7-release/"><![CDATA[<p>We have been hard at work preparing our seventh major release, but in addition to the ordinary improvements and refinements, this release opens up an entirely new way to use OpenFL.</p>
+
+<h2 id="typescript-es6-javascript-and-es5-javascript">TypeScript, ES6 JavaScript and ES5 JavaScript</h2>
+
+<p>There is now support for using TypeScript and ES5/ES6 JavaScript with OpenFL!</p>
+
+<h3 id="npm-based-workflow">NPM-based Workflow</h3>
+
+<p>OpenFL 7 is the first release that is simultaneously available on NPM and Haxelib. NPM is a hugely popular ecosystem for web development, with over 550,000 packages available, and almost 800 new packages submitted every day. The majority of famous web development tools are all in NPM, from Grunt to UglifyJS to Webpack.</p>
+
+<p>When OpenFL compiles for a native target, it does not go immediately to bytecode, but uses the Haxe compiler to write C++ source files, then relies a native compiler (Visual Studio, Xcode, Android NDK) to create an executable. In a similar fashion, we are compiling OpenFL to an intermediate JavaScript module format, then we can rely on industry-standard tools (such as Webpack) to emit our final application.</p>
+
+<p>As of writing, we have over 15 samples and demos available in TypeScript, Haxe, ES6 JavaScript and ES5 JavaScript for the NPM workflow, in addition to our Haxelib samples. This provides an opportunity to choose new source languages for OpenFL when developing a web-based project, and integration with modern web development workflows.</p>
+
+<p>Already, this workflow has enabled the ability to use hot-reloading, where code is recompiled automatically and browser pages are reloaded once compilation is complete. This and other resources in the ecosystem should be a huge boon to productivity.</p>
+
+<h3 id="yeoman-generator">Yeoman Generator</h3>
+
+<p>There is a new Yeoman generator for OpenFL NPM projects that provides similar functionality to the <code class="language-plaintext highlighter-rouge">openfl create project &lt;name&gt;</code> command, populating a new project with template files for TypeScript, Haxe, ES6 JavaScript or ES5 JavaScript.</p>
+
+<p>Assuming NPM is already installed, you can install the generator using the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g yo generator-openfl
+</code></pre></div></div>
+
+<p>Then you can create a new project like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>NewOpenFLProject
+<span class="nb">cd </span>NewOpenFLProject
+yo openfl
+</code></pre></div></div>
+
+<h3 id="swf-support">SWF Support</h3>
+
+<p>In addition to all of our runtime features in OpenFL, we have also made compile-time SWF processing available for Webpack.</p>
+
+<p>Webpack uses a series of libraries called “loaders” to process different kinds of assets, and in addition to OpenFL and the Yeoman generator, we also created a SWF loader to convert SWF assets into asset library bundles for OpenFL. Both the “NyanCat” and “UsingSWFAssets” samples illustrate how this works, and SWF loading is even compatible with hot-reloading, so when changes are made to a SWF file (such as from Adobe Animate) the SWF will be re-processed and the development page will reload automatically.</p>
+
+<h3 id="minor-additions">Minor Additions</h3>
+
+<p>There are a number of small improvements that have occurred while making OpenFL available for NPM.</p>
+
+<ul>
+  <li>Added <code class="language-plaintext highlighter-rouge">new Stage()</code> support for NPM releases, to simplify initialization</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">openfl.net.navigateToURL</code> and other top-level functions (available under <code class="language-plaintext highlighter-rouge">openfl.Lib</code> on Haxe)</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">openfl.utils.AssetManifest</code> with initial methods to simplify runtime asset manifest creation</li>
+  <li>Added support for DOM rendering without requiring a <code class="language-plaintext highlighter-rouge">-Ddom</code> compile-time flag</li>
+</ul>
+
+<h2 id="recent-features">Recent Features</h2>
+
+<p>Since OpenFL 6.0 was released in August of last year, there are other recent features that are worth mentioning.</p>
+
+<h3 id="adobe-air-target">Adobe AIR Target</h3>
+
+<p>In addition to all of our other targets in the Haxelib version of OpenFL, we added official support for Adobe AIR. That means that in addition to C++ native builds for mobile and desktop, we have made it simpler to compile for Adobe AIR. All Adobe AIR APIs should be supported, and our tooling should help make <code class="language-plaintext highlighter-rouge">openfl test air</code> as simple as every other platform.</p>
+
+<h3 id="beta-support-for-uwp">Beta Support for UWP</h3>
+
+<p>We have added beta Universal Windows Platform (UWP) support, using the HTML5 target. For anyone interested in publishing to the Windows Store, this should help make the process easier, or at least a bit more automatic. We appreciate any developers interested in contributing to help make this more mature.</p>
+
+<h3 id="initial--watch-support">Initial -watch Support</h3>
+
+<p>We have also added initial <code class="language-plaintext highlighter-rouge">-watch</code> support for Haxelib builds, which re-runs the specifed command when any of the *.hx files in the source path changes:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl test windows -watch
+</code></pre></div></div>
+
+<p>The above command will build and run an OpenFL as a native Windows application, and will watch all of the *.hx files located in the project and haxelib sources used. Then if one of those files are changed, the running application is terminated, and the project is built and run again.</p>
+
+<h3 id="packed-asset-library-support">Packed Asset Library Support</h3>
+
+<p>Updates to Lime also include initial packed asset library support, which provides the ability to generate single *.pak files externally as a globbed or compressed file.</p>
+
+<p>This feature has been long-requested on the desktop, where distribution makes asset files more visible to users. Used packed asset libraries enables the use of a single “level1.pak” or “assets.pak” file that makes resources less conspicuous, and can also save space if compression is enabled.</p>
+
+<h3 id="variable-substitution-in-template-filenames">Variable Substitution in Template Filenames</h3>
+
+<p>The Lime command-line tools now have the ability to process template values not only in the contents of files, but also in their names, using `` syntax. There are sometimes template files you may want or need which vary in name, such as due to the name of the project. This feature makes it possible to define a single <code class="language-plaintext highlighter-rouge">-Info.plist</code> file, or other resource, and have it copied accordingly.</p>
+
+<h3 id="openal-effects-extension-support">OpenAL Effects Extension Support</h3>
+
+<p>On OpenAL-Soft platforms (Windows, Linux, Android) we have support for OpenAL Effects in Lime. This will make it easier for sound engineers to create more complex and advanced sound for these projects.</p>
+
+<h3 id="on-going-stability-performance-and-consistency">On-going Stability, Performance and Consistency</h3>
+
+<p>There are many other fixes we have made to improve performance, keep OpenFL stable and to overall improve the consistency of how the OpenFL API supports Flash APIs.</p>
+
+<p>We have made endianness improvements for sockets and <code class="language-plaintext highlighter-rouge">ByteArray</code>, and added missing <code class="language-plaintext highlighter-rouge">openfl.Vector</code> properties. Initial support for compressed texture formats in Stage3D has landed, and improved support for complex text layouts and Unicode in our native font rendering. Capture phase support was added for all display objects, and improved support for multiple input <code class="language-plaintext highlighter-rouge">TextField</code> objects. OpenGL masking now uses a stencil buffer, for complex masking, and improved how we handle web fonts.</p>
+
+<h2 id="download-and-install">Download and Install</h2>
+
+<p>The latest OpenFL release is available on Haxelib or NPM. To install on Haxelib, after installing Haxe, run the following commands:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>haxelib install openfl
+haxelib run openfl setup
+</code></pre></div></div>
+
+<p>Then you can confirm that everything is working by running the <code class="language-plaintext highlighter-rouge">openfl</code> command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl
+</code></pre></div></div>
+
+<p>For NPM, try one of our samples for <a href="https://github.com/openfl/openfl-samples-ts">TypeScript</a>, <a href="https://github.com/openfl/openfl-samples">Haxe</a>, <a href="https://github.com/openfl/openfl-samples-es6">ES5</a> or <a href="https://github.com/openfl/openfl-samples-es5">ES6</a>, like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone (repository path)
+cd (path)/features/display/DisplayingABitmap
+</code></pre></div></div>
+
+<p>Then install and start the demo or sample:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install
+npm start -s
+</code></pre></div></div>
+
+<h2 id="thanks">Thanks</h2>
+
+<p>Over 130 contributors have helped us make nearly 240 OpenFL and Lime releases combined. Our <a href="https://www.patreon.com/openfl">Patreon</a> sponsors have contributed monthly to make OpenFL successful, and OpenFL continues to grow as a valuable library for cross-platform and single-platform development.</p>
+
+<p>Thank you everyone! We are looking forward to a bright 2018, and hope to see you all at <a href="https://summit.haxe.org/us/2018/">Haxe Summit</a> this May in Seattle.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[We have been hard at work preparing our seventh major release, but in addition to the ordinary improvements and refinements, this release opens up an entirely new way to use OpenFL. TypeScript, ES6 JavaScript and ES5 JavaScript There is now support for using TypeScript and ES5/ES6 JavaScript with OpenFL! NPM-based Workflow OpenFL 7 is the first release that is simultaneously available on NPM and Haxelib. NPM is a hugely popular ecosystem for web development, with over 550,000 packages available, and almost 800 new packages submitted every day. The majority of famous web development tools are all in NPM, from Grunt to UglifyJS to Webpack. When OpenFL compiles for a native target, it does not go immediately to bytecode, but uses the Haxe compiler to write C++ source files, then relies a native compiler (Visual Studio, Xcode, Android NDK) to create an executable. In a similar fashion, we are compiling OpenFL to an intermediate JavaScript module format, then we can rely on industry-standard tools (such as Webpack) to emit our final application. As of writing, we have over 15 samples and demos available in TypeScript, Haxe, ES6 JavaScript and ES5 JavaScript for the NPM workflow, in addition to our Haxelib samples. This provides an opportunity to choose new source languages for OpenFL when developing a web-based project, and integration with modern web development workflows. Already, this workflow has enabled the ability to use hot-reloading, where code is recompiled automatically and browser pages are reloaded once compilation is complete. This and other resources in the ecosystem should be a huge boon to productivity. Yeoman Generator There is a new Yeoman generator for OpenFL NPM projects that provides similar functionality to the openfl create project &lt;name&gt; command, populating a new project with template files for TypeScript, Haxe, ES6 JavaScript or ES5 JavaScript. Assuming NPM is already installed, you can install the generator using the following command: npm install -g yo generator-openfl Then you can create a new project like this: mkdir NewOpenFLProject cd NewOpenFLProject yo openfl SWF Support In addition to all of our runtime features in OpenFL, we have also made compile-time SWF processing available for Webpack. Webpack uses a series of libraries called “loaders” to process different kinds of assets, and in addition to OpenFL and the Yeoman generator, we also created a SWF loader to convert SWF assets into asset library bundles for OpenFL. Both the “NyanCat” and “UsingSWFAssets” samples illustrate how this works, and SWF loading is even compatible with hot-reloading, so when changes are made to a SWF file (such as from Adobe Animate) the SWF will be re-processed and the development page will reload automatically. Minor Additions There are a number of small improvements that have occurred while making OpenFL available for NPM. Added new Stage() support for NPM releases, to simplify initialization Added openfl.net.navigateToURL and other top-level functions (available under openfl.Lib on Haxe) Added openfl.utils.AssetManifest with initial methods to simplify runtime asset manifest creation Added support for DOM rendering without requiring a -Ddom compile-time flag Recent Features Since OpenFL 6.0 was released in August of last year, there are other recent features that are worth mentioning. Adobe AIR Target In addition to all of our other targets in the Haxelib version of OpenFL, we added official support for Adobe AIR. That means that in addition to C++ native builds for mobile and desktop, we have made it simpler to compile for Adobe AIR. All Adobe AIR APIs should be supported, and our tooling should help make openfl test air as simple as every other platform. Beta Support for UWP We have added beta Universal Windows Platform (UWP) support, using the HTML5 target. For anyone interested in publishing to the Windows Store, this should help make the process easier, or at least a bit more automatic. We appreciate any developers interested in contributing to help make this more mature. Initial -watch Support We have also added initial -watch support for Haxelib builds, which re-runs the specifed command when any of the *.hx files in the source path changes: openfl test windows -watch The above command will build and run an OpenFL as a native Windows application, and will watch all of the *.hx files located in the project and haxelib sources used. Then if one of those files are changed, the running application is terminated, and the project is built and run again. Packed Asset Library Support Updates to Lime also include initial packed asset library support, which provides the ability to generate single *.pak files externally as a globbed or compressed file. This feature has been long-requested on the desktop, where distribution makes asset files more visible to users. Used packed asset libraries enables the use of a single “level1.pak” or “assets.pak” file that makes resources less conspicuous, and can also save space if compression is enabled. Variable Substitution in Template Filenames The Lime command-line tools now have the ability to process template values not only in the contents of files, but also in their names, using `` syntax. There are sometimes template files you may want or need which vary in name, such as due to the name of the project. This feature makes it possible to define a single -Info.plist file, or other resource, and have it copied accordingly. OpenAL Effects Extension Support On OpenAL-Soft platforms (Windows, Linux, Android) we have support for OpenAL Effects in Lime. This will make it easier for sound engineers to create more complex and advanced sound for these projects. On-going Stability, Performance and Consistency There are many other fixes we have made to improve performance, keep OpenFL stable and to overall improve the consistency of how the OpenFL API supports Flash APIs. We have made endianness improvements for sockets and ByteArray, and added missing openfl.Vector properties. Initial support for compressed texture formats in Stage3D has landed, and improved support for complex text layouts and Unicode in our native font rendering. Capture phase support was added for all display objects, and improved support for multiple input TextField objects. OpenGL masking now uses a stencil buffer, for complex masking, and improved how we handle web fonts. Download and Install The latest OpenFL release is available on Haxelib or NPM. To install on Haxelib, after installing Haxe, run the following commands: haxelib install openfl haxelib run openfl setup Then you can confirm that everything is working by running the openfl command: openfl For NPM, try one of our samples for TypeScript, Haxe, ES5 or ES6, like this: git clone (repository path) cd (path)/features/display/DisplayingABitmap Then install and start the demo or sample: npm install npm start -s Thanks Over 130 contributors have helped us make nearly 240 OpenFL and Lime releases combined. Our Patreon sponsors have contributed monthly to make OpenFL successful, and OpenFL continues to grow as a valuable library for cross-platform and single-platform development. Thank you everyone! We are looking forward to a bright 2018, and hope to see you all at Haxe Summit this May in Seattle.]]></summary></entry><entry><title type="html">OpenFL 6.0 is Now Available!</title><link href="http://www.openfl.org/blog/2017/08/03/openfl-6-is-now-available/" rel="alternate" type="text/html" title="OpenFL 6.0 is Now Available!" /><published>2017-08-03T00:00:00+00:00</published><updated>2017-08-03T00:00:00+00:00</updated><id>http://www.openfl.org/blog/2017/08/03/openfl-6-is-now-available</id><content type="html" xml:base="http://www.openfl.org/blog/2017/08/03/openfl-6-is-now-available/"><![CDATA[<p>We are pleased to announce that OpenFL 6.0 is available, including new features and fixes to continue to support single-source, cross-platform development support for web, mobile, desktop and other platforms!</p>
+
+<h2 id="new-features">New Features</h2>
+
+<h3 id="beta-tilearray">(Beta) TileArray</h3>
+
+<p>We have developed an easy-to-use <code class="language-plaintext highlighter-rouge">DisplayObject</code> called <code class="language-plaintext highlighter-rouge">Tilemap</code> which makes it possible to use batch hardware rendering. <code class="language-plaintext highlighter-rouge">Tilemap</code> is similar to a mixture of <code class="language-plaintext highlighter-rouge">Bitmap</code> and the display list, but we have received multiple requests to support an alternative API that is less structured.</p>
+
+<p>This release includes the (beta) API for <code class="language-plaintext highlighter-rouge">TileArray</code>, for writing tile data more directly:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">tilemap</span><span class="p">.</span><span class="nx">getTiles</span> <span class="p">();</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">setMatrix</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">setMatrix</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="nx">tilemap</span><span class="p">.</span><span class="nx">setTiles</span> <span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>This API has enabled our team to more easily migrate legacy <code class="language-plaintext highlighter-rouge">drawTiles</code> rendering code to the current version of OpenFL.</p>
+
+<p>We welcome your feedback, and hope to continue to improve <code class="language-plaintext highlighter-rouge">Tilemap</code></p>
+
+<h3 id="beta-custom-shader-support">(Beta) Custom Shader Support</h3>
+
+<p>OpenFL 4 added initial support for custom shaders, using the filter API.</p>
+
+<p>However, in time we have found that our use of OpenGL framebuffers was too expensive to make shader filters practical for every-day production. We are enabling an alternative approach in OpenFL 6, where <code class="language-plaintext highlighter-rouge">Bitmap</code>, <code class="language-plaintext highlighter-rouge">TextField</code>, <code class="language-plaintext highlighter-rouge">Tilemap</code> and <code class="language-plaintext highlighter-rouge">Video</code> objects can have a custom shader set directly:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">customShader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomShader</span> <span class="p">();</span>
+<span class="nx">bitmap</span><span class="p">.</span><span class="nx">shader</span> <span class="o">=</span> <span class="nx">customShader</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>We have also enabled support for custom OpenGL shaders for individual tiles in <code class="language-plaintext highlighter-rouge">Tilemap</code></p>
+
+<h3 id="improved-blendmode-and-colortransform-support">Improved blendMode and colorTransform support</h3>
+
+<p>We have improved support for <code class="language-plaintext highlighter-rouge">blendMode</code> throughout our renderer, and have added support for hardware-accelerated <code class="language-plaintext highlighter-rouge">colorTransform</code> when possible. In other cases, we enabled <code class="language-plaintext highlighter-rouge">cacheAsBitmap</code> in order to preserve performance. We also added (beta) support for <code class="language-plaintext highlighter-rouge">colorTransform</code> in <code class="language-plaintext highlighter-rouge">Tilemap</code>, but it is supported only on hardware since it is very expensive on other render types.</p>
+
+<h2 id="stage3d-libraries">Stage3D Libraries</h2>
+
+<p>Although OpenFL has enjoyed stable Stage3D support for some time, we have continued to focus on creating faithful renditions of familiar Stage3D libraries for OpenFL.</p>
+
+<h3 id="away3d">Away3D</h3>
+
+<p><img src="/blog/assets/openfl-6-away3d-cmp.png" alt="Away3D" /></p>
+
+<p>Away3D is an open source platform for developing interactive 3D graphics for video games and applications.</p>
+
+<p>The latest development version of Away3D is now compatible with OpenFL, and should continue to improve in quality with time: <a href="https://github.com/openfl/away3d">https://github.com/openfl/away3d</a></p>
+
+<h3 id="starling">Starling</h3>
+
+<p><img src="/blog/assets/openfl-6-starling-cmp.png" alt="Starling" /></p>
+
+<p>Starling is the “Cross-Platform Game Engine”, a popular Stage3D framework. OpenFL is hardware-accelerated without the use of Starling, but it still provides a popular alternative to the traditional Flash API.</p>
+
+<p>We currently have 1.8 release of Starling and the Starling particle framework working reliably, and are still working on porting the Starling 2.x codebase for use with OpenFL: <a href="https://github.com/openfl/starling">https://github.com/openfl/starling</a></p>
+
+<h3 id="dragonbones">DragonBones</h3>
+
+<p><img src="/blog/assets/openfl-6-dragonbones-cmp.png" alt="DragonBones" /></p>
+
+<p>DragonBones is a skeletal animation editor, as an alternative to using SWF assets with OpenFL directly (which is also supported).</p>
+
+<p>We have ported the most recent ActionScript runtime for DragonBones over for use with OpenFL. There is still room to create a runtime using OpenFL <code class="language-plaintext highlighter-rouge">Tilemap</code>, but we are still happy to provide a working version of the DragonBones runtime for use with projects: <a href="https://github.com/openfl/dragonbones">https://github.com/openfl/dragonbones</a></p>
+
+<h2 id="other-improvements">Other Improvements</h2>
+
+<p>We are continuing to invest in SWF asset support. You can use SWF content from Flash Professional or Adobe Animate directly in OpenFL, with layers, animation and object IDs preserved.</p>
+
+<p>In time, we expect <code class="language-plaintext highlighter-rouge">MovieClip</code> animation to continue to perform better, as well as accuracy. OpenFL 6 includes improved support for <code class="language-plaintext highlighter-rouge">blendMode</code>, <code class="language-plaintext highlighter-rouge">colorTransform</code> and frame script when working with SWF source data.</p>
+
+<p>As always, we are continuing to improve and polish a large variety of minor behaviors and features.</p>
+
+<h2 id="other-changes">Other Changes</h2>
+
+<p>We have removed deprecated references to <code class="language-plaintext highlighter-rouge">openfl.gl.*</code> and <code class="language-plaintext highlighter-rouge">openfl.utils.*</code> typed arrays, JNI and GL classes. You should use <code class="language-plaintext highlighter-rouge">lime.graphics.opengl.*</code> or <code class="language-plaintext highlighter-rouge">lime.utils.*</code> when using these types in your projects.</p>
+
+<p>In this release, the default output directory per-platform has also changed. Now that Lime supports custom output directory naming schemes, we adopted a flatter directory structure by default, leaving the option up to the developer if they would prefer to distinguish between different kinds of builds.</p>
+
+<p>For example, a Windows Neko release build on OpenFL 5 would use “Export/windows/neko/release/” by default, but OpenFL 6 will default to “Export/neko” instead. For more information on this change, and how to customize this structure, please visit the <a href="http://community.openfl.org">community forums</a></p>
+
+<h2 id="thank-you">Thank You</h2>
+
+<p>A huge thank you to all of our <a href="http://patreon.com/openfl">Patreon</a> sponsors, code contributors and friendly developers, for continuing to make OpenFL possible and a great community to work with.</p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">openfl upgrade</code> to update to the latest version, or visit the <a href="http://www.openfl.org/download">download</a> page to install OpenFL.</p>
+
+<p>Our goal is to continue to make OpenFL a practical, efficient tool for cross-platform production work. Please visit the <a href="http://community.openfl.org">forums</a> if you have any concerns, or feedback on how you believe OpenFL could continue to improve.</p>
+
+<p>Happy coding!</p>]]></content><author><name></name></author><summary type="html"><![CDATA[We are pleased to announce that OpenFL 6.0 is available, including new features and fixes to continue to support single-source, cross-platform development support for web, mobile, desktop and other platforms! New Features (Beta) TileArray We have developed an easy-to-use DisplayObject called Tilemap which makes it possible to use batch hardware rendering. Tilemap is similar to a mixture of Bitmap and the display list, but we have received multiple requests to support an alternative API that is less structured. This release includes the (beta) API for TileArray, for writing tile data more directly: var data = tilemap.getTiles (); data.length = 2; data.position = 0; data.setMatrix (1, 0, 0, 1, 100, 100); data.position = 1; data.setMatrix (1, 0, 0, 1, 200, 200); data.alpha = 0.5; tilemap.setTiles (data); This API has enabled our team to more easily migrate legacy drawTiles rendering code to the current version of OpenFL. We welcome your feedback, and hope to continue to improve Tilemap (Beta) Custom Shader Support OpenFL 4 added initial support for custom shaders, using the filter API. However, in time we have found that our use of OpenGL framebuffers was too expensive to make shader filters practical for every-day production. We are enabling an alternative approach in OpenFL 6, where Bitmap, TextField, Tilemap and Video objects can have a custom shader set directly: var customShader = new CustomShader (); bitmap.shader = customShader; We have also enabled support for custom OpenGL shaders for individual tiles in Tilemap Improved blendMode and colorTransform support We have improved support for blendMode throughout our renderer, and have added support for hardware-accelerated colorTransform when possible. In other cases, we enabled cacheAsBitmap in order to preserve performance. We also added (beta) support for colorTransform in Tilemap, but it is supported only on hardware since it is very expensive on other render types. Stage3D Libraries Although OpenFL has enjoyed stable Stage3D support for some time, we have continued to focus on creating faithful renditions of familiar Stage3D libraries for OpenFL. Away3D Away3D is an open source platform for developing interactive 3D graphics for video games and applications. The latest development version of Away3D is now compatible with OpenFL, and should continue to improve in quality with time: https://github.com/openfl/away3d Starling Starling is the “Cross-Platform Game Engine”, a popular Stage3D framework. OpenFL is hardware-accelerated without the use of Starling, but it still provides a popular alternative to the traditional Flash API. We currently have 1.8 release of Starling and the Starling particle framework working reliably, and are still working on porting the Starling 2.x codebase for use with OpenFL: https://github.com/openfl/starling DragonBones DragonBones is a skeletal animation editor, as an alternative to using SWF assets with OpenFL directly (which is also supported). We have ported the most recent ActionScript runtime for DragonBones over for use with OpenFL. There is still room to create a runtime using OpenFL Tilemap, but we are still happy to provide a working version of the DragonBones runtime for use with projects: https://github.com/openfl/dragonbones Other Improvements We are continuing to invest in SWF asset support. You can use SWF content from Flash Professional or Adobe Animate directly in OpenFL, with layers, animation and object IDs preserved. In time, we expect MovieClip animation to continue to perform better, as well as accuracy. OpenFL 6 includes improved support for blendMode, colorTransform and frame script when working with SWF source data. As always, we are continuing to improve and polish a large variety of minor behaviors and features. Other Changes We have removed deprecated references to openfl.gl.* and openfl.utils.* typed arrays, JNI and GL classes. You should use lime.graphics.opengl.* or lime.utils.* when using these types in your projects. In this release, the default output directory per-platform has also changed. Now that Lime supports custom output directory naming schemes, we adopted a flatter directory structure by default, leaving the option up to the developer if they would prefer to distinguish between different kinds of builds. For example, a Windows Neko release build on OpenFL 5 would use “Export/windows/neko/release/” by default, but OpenFL 6 will default to “Export/neko” instead. For more information on this change, and how to customize this structure, please visit the community forums Thank You A huge thank you to all of our Patreon sponsors, code contributors and friendly developers, for continuing to make OpenFL possible and a great community to work with. Run openfl upgrade to update to the latest version, or visit the download page to install OpenFL. Our goal is to continue to make OpenFL a practical, efficient tool for cross-platform production work. Please visit the forums if you have any concerns, or feedback on how you believe OpenFL could continue to improve. Happy coding!]]></summary></entry><entry><title type="html">Runtime SWF Support in OpenFL 4.9</title><link href="http://www.openfl.org/blog/2017/03/15/runtime-swf-support-in-openfl-4.9/" rel="alternate" type="text/html" title="Runtime SWF Support in OpenFL 4.9" /><published>2017-03-15T00:00:00+00:00</published><updated>2017-03-15T00:00:00+00:00</updated><id>http://www.openfl.org/blog/2017/03/15/runtime-swf-support-in-openfl-4.9</id><content type="html" xml:base="http://www.openfl.org/blog/2017/03/15/runtime-swf-support-in-openfl-4.9/"><![CDATA[<p>OpenFL 4.9 is out, and the big new feature (among <a href="https://github.com/openfl/openfl/blob/develop/CHANGELOG.md#490-03152017">many other improvements</a>) is support for runtime SWF-based assets on HTML5 or native targets.</p>
+
+<p>In the past, you could include a SWF asset in a project file:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;library</span> <span class="na">path=</span><span class="s">"Assets/NyanCat.swf"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>Then OpenFL would do magic behind the curtains to convert your SWF asset into a format suitable for runtime.</p>
+
+<p>…but what if you want to create these assets separately, and load them at will at runtime?</p>
+
+<p>This is where the paradigm broke down, but thanks to some <a href="https://github.com/openfl/lime/blob/develop/CHANGELOG.md#400-03152017">awesome improvements</a> in Lime 4 (particularly to asset libraries), for the first time, OpenFL can load SWF-based assets at will, at compile-time or runtime!</p>
+
+<p>There is a new “process” command that will convert an existing SWF asset into the “SWFLite” format recognized by OpenFL HTML5 and native:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl process NyanCat.swf
+</code></pre></div></div>
+
+<p>The “process” command accepts an input SWF, and optionally an output directory. It will process the target SWF, and generated a folder based on the name of your input SWF, such as “NyanCat.bundle”, or using a name you choose from the output directory argument.</p>
+
+<p>Once you have created your “.bundle” directory, you’re ready to load at runtime!</p>
+
+<h4 id="using-openfldisplayloader">Using <code class="language-plaintext highlighter-rouge">openfl.display.Loader</code></h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">var</span> <span class="nl">loader:</span><span class="nc">Loader</span><span class="o">;</span>
+
+<span class="o">...</span>
+
+<span class="n">loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Loader</span> <span class="o">();</span>
+<span class="n">loader</span><span class="o">.</span><span class="na">contentLoaderInfo</span><span class="o">.</span><span class="na">addEventListener</span> <span class="o">(</span><span class="nc">ProgressEvent</span><span class="o">.</span><span class="na">PROGRESS</span><span class="o">,</span> <span class="n">loader_onProgress</span><span class="o">);</span>
+<span class="n">loader</span><span class="o">.</span><span class="na">contentLoaderInfo</span><span class="o">.</span><span class="na">addEventListener</span> <span class="o">(</span><span class="nc">IOErrorEvent</span><span class="o">.</span><span class="na">IO_ERROR</span><span class="o">,</span> <span class="n">loader_onError</span><span class="o">);</span>
+<span class="n">loader</span><span class="o">.</span><span class="na">contentLoaderInfo</span><span class="o">.</span><span class="na">addEventListener</span> <span class="o">(</span><span class="nc">Event</span><span class="o">.</span><span class="na">COMPLETE</span><span class="o">,</span> <span class="n">loader_onComplete</span><span class="o">);</span>
+<span class="n">loader</span><span class="o">.</span><span class="na">load</span> <span class="o">(</span><span class="k">new</span> <span class="nc">URLRequest</span> <span class="o">(</span><span class="s">"path/to/NyanCat.bundle"</span><span class="o">));</span>
+
+<span class="o">...</span>
+
+<span class="kd">private</span> <span class="n">function</span> <span class="nf">loader_onComplete</span> <span class="o">(</span><span class="nl">event:</span><span class="nc">Event</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+	
+	<span class="kt">var</span> <span class="n">content</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="na">content</span><span class="o">;</span>
+	<span class="n">addChild</span> <span class="o">(</span><span class="n">content</span><span class="o">);</span>
+	
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>For better control over the loaded asset library, you may choose to use the <code class="language-plaintext highlighter-rouge">AssetLibrary</code> approach instead</p>
+
+<h3 id="using-openflutilsassetlibrary">Using <code class="language-plaintext highlighter-rouge">openfl.utils.AssetLibrary</code></h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">future</span> <span class="o">=</span> <span class="nc">AssetLibrary</span><span class="o">.</span><span class="na">loadFromFile</span> <span class="o">(</span><span class="s">"path/to/NyanCat.bundle"</span><span class="o">);</span>
+<span class="n">future</span><span class="o">.</span><span class="na">onProgress</span> <span class="o">(</span><span class="n">library_onProgress</span><span class="o">);</span>
+<span class="n">future</span><span class="o">.</span><span class="na">onError</span> <span class="o">(</span><span class="n">library_onError</span><span class="o">);</span>
+<span class="n">future</span><span class="o">.</span><span class="na">onComplete</span> <span class="o">(</span><span class="n">library_onComplete</span><span class="o">);</span>
+
+<span class="o">...</span>
+
+<span class="kd">private</span> <span class="n">function</span> <span class="nf">library_onComplete</span> <span class="o">(</span><span class="nl">library:</span><span class="nc">AssetLibrary</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+	
+	<span class="kt">var</span> <span class="n">content</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="na">getMovieClip</span> <span class="o">(</span><span class="s">""</span><span class="o">);</span>
+	<span class="n">addChild</span> <span class="o">(</span><span class="n">content</span><span class="o">);</span>
+	
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>You can also use Lime futures in a single-line:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">AssetLibrary</span><span class="o">.</span><span class="na">loadFromFile</span> <span class="o">(</span><span class="s">"path/to/NyanCat.bundle"</span><span class="o">).</span><span class="na">onComplete</span> <span class="o">(</span><span class="n">function</span> <span class="o">(</span><span class="n">library</span><span class="o">)</span> <span class="o">{</span>
+	
+	<span class="kt">var</span> <span class="n">clip</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="na">getMovieClip</span> <span class="o">(</span><span class="s">"SymbolName"</span><span class="o">);</span>
+	<span class="n">addChild</span> <span class="o">(</span><span class="n">clip</span><span class="o">);</span>
+	
+<span class="o">});</span>
+</code></pre></div></div>
+
+<p>Using <code class="language-plaintext highlighter-rouge">openfl.utils.Loader</code> is similar to how you load SWF content on the Flash target, but using the <code class="language-plaintext highlighter-rouge">AssetLibrary</code> approach makes it easier to access child symbols, in addition to the root timeline.</p>
+
+<p>We appreciate your support and feedback! Thank you to our <a href="http://patreon.com/openfl">Patreon</a> supporters, and please keep letting us know on the <a href="http://community.openfl.org">forums</a> and Slack how things are working, and how we can improve OpenFL to better serve you!</p>]]></content><author><name></name></author><summary type="html"><![CDATA[OpenFL 4.9 is out, and the big new feature (among many other improvements) is support for runtime SWF-based assets on HTML5 or native targets. In the past, you could include a SWF asset in a project file: &lt;library path="Assets/NyanCat.swf" /&gt; Then OpenFL would do magic behind the curtains to convert your SWF asset into a format suitable for runtime. …but what if you want to create these assets separately, and load them at will at runtime? This is where the paradigm broke down, but thanks to some awesome improvements in Lime 4 (particularly to asset libraries), for the first time, OpenFL can load SWF-based assets at will, at compile-time or runtime! There is a new “process” command that will convert an existing SWF asset into the “SWFLite” format recognized by OpenFL HTML5 and native: openfl process NyanCat.swf The “process” command accepts an input SWF, and optionally an output directory. It will process the target SWF, and generated a folder based on the name of your input SWF, such as “NyanCat.bundle”, or using a name you choose from the output directory argument. Once you have created your “.bundle” directory, you’re ready to load at runtime! Using openfl.display.Loader private var loader:Loader; ... loader = new Loader (); loader.contentLoaderInfo.addEventListener (ProgressEvent.PROGRESS, loader_onProgress); loader.contentLoaderInfo.addEventListener (IOErrorEvent.IO_ERROR, loader_onError); loader.contentLoaderInfo.addEventListener (Event.COMPLETE, loader_onComplete); loader.load (new URLRequest ("path/to/NyanCat.bundle")); ... private function loader_onComplete (event:Event):Void { var content = loader.content; addChild (content); } For better control over the loaded asset library, you may choose to use the AssetLibrary approach instead Using openfl.utils.AssetLibrary var future = AssetLibrary.loadFromFile ("path/to/NyanCat.bundle"); future.onProgress (library_onProgress); future.onError (library_onError); future.onComplete (library_onComplete); ... private function library_onComplete (library:AssetLibrary):Void { var content = library.getMovieClip (""); addChild (content); } You can also use Lime futures in a single-line: AssetLibrary.loadFromFile ("path/to/NyanCat.bundle").onComplete (function (library) { var clip = library.getMovieClip ("SymbolName"); addChild (clip); }); Using openfl.utils.Loader is similar to how you load SWF content on the Flash target, but using the AssetLibrary approach makes it easier to access child symbols, in addition to the root timeline. We appreciate your support and feedback! Thank you to our Patreon supporters, and please keep letting us know on the forums and Slack how things are working, and how we can improve OpenFL to better serve you!]]></summary></entry><entry><title type="html">Using the Improved OpenGL Bindings in Lime 4</title><link href="http://www.openfl.org/blog/2017/03/15/using-the-improved-opengl-bindings-in-lime-4/" rel="alternate" type="text/html" title="Using the Improved OpenGL Bindings in Lime 4" /><published>2017-03-15T00:00:00+00:00</published><updated>2017-03-15T00:00:00+00:00</updated><id>http://www.openfl.org/blog/2017/03/15/using-the-improved-opengl-bindings-in-lime-4</id><content type="html" xml:base="http://www.openfl.org/blog/2017/03/15/using-the-improved-opengl-bindings-in-lime-4/"><![CDATA[<p>Lime 4 has been released, and among <a href="https://github.com/openfl/lime/blob/develop/CHANGELOG.md#400-03152017">other changes</a>, we have improved our support for OpenGL!</p>
+
+<p>OpenGL has a large number of APIs, which may be available on only certain platforms (such as the desktop), or may require recent graphics drivers. This can create problems when seeking simplicity, broad device support or unifying cross-platform APIs. After much thought, we have designed a new system where we believe we can continue to expose new OpenGL APIs, while preserving the same simple cross-platform interoperability of current Lime releases.</p>
+
+<p>Lime OpenGL support begins with a <code class="language-plaintext highlighter-rouge">GLRenderContext</code>. This API more closely resembles the native OpenGL and OpenGL ES APIs, but is designed to operate also in the browser. Optionally, there is a static <code class="language-plaintext highlighter-rouge">GL</code> class which access the last created context, but with multiple windows and future support for multiple OpenGL contexts, it was important that our native platforms move to GL context objects at the core, similar to how WebGL behaves.</p>
+
+<p>The new Lime 4 API includes Haxe abstract types to provide guard rails or a more familiar syntax over the OpenGL context object:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">context</span><span class="p">:</span><span class="nx">GLRenderContext</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="kd">var</span> <span class="nx">gl</span><span class="p">:</span><span class="nx">WebGLContext</span> <span class="o">=</span> <span class="nx">context</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">createBuffer</span> <span class="p">();</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">bindBuffer</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span> <span class="nx">buffer</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">srcData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Float32Array</span> <span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">]);</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">bufferData</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span> <span class="nx">srcData</span><span class="p">,</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">DYNAMIC_DRAW</span><span class="p">);</span>
+
+<span class="p">...</span>
+
+<span class="kd">var</span> <span class="nx">gl</span><span class="p">:</span><span class="nx">GLES2Context</span> <span class="o">=</span> <span class="nx">context</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">createBuffer</span> <span class="p">();</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">bindBuffer</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span> <span class="nx">buffer</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">bytes</span> <span class="o">=</span> <span class="nx">Bytes</span><span class="p">.</span><span class="nx">alloc</span> <span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+<span class="nx">bytes</span><span class="p">.</span><span class="nx">setFloat</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">bytes</span><span class="p">.</span><span class="nx">setFloat</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nx">bytes</span><span class="p">.</span><span class="nx">setFloat</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nx">bytes</span><span class="p">.</span><span class="nx">setFloat</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">bufferData</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="nx">bytes</span><span class="p">,</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">DYNAMIC_DRAW</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>In the WebGL API, the <code class="language-plaintext highlighter-rouge">count</code> is determined automatically by the size of the <code class="language-plaintext highlighter-rouge">ArrayBufferView</code> used to upload. In OpenGL and OpenGL ES, however, <code class="language-plaintext highlighter-rouge">bufferData</code> requires a size parameter. The downside is that this is more verbose, but the benefit is that we can create a data pointer from an <code class="language-plaintext highlighter-rouge">ArrayBufferView</code>, a <code class="language-plaintext highlighter-rouge">BytesObject</code>, or even a native pointer provided from a C++ extension library. Long-term, this can make things more flexible.</p>
+
+<p>Although the <code class="language-plaintext highlighter-rouge">Bytes</code> example above is perhaps not as nice as using the <code class="language-plaintext highlighter-rouge">Float32Array</code>, either will work in the GLES2-style API. The benefit of being able to use pointers becomes more clear if you wish to upload multiple values from the same bytes object, such as in the following example:</p>
+
+<div class="language-as3 highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">gl</span><span class="o">:</span><span class="nx">WebGLContext</span> <span class="o">=</span> <span class="nx">context</span><span class="o">;</span>
+<span class="kd">var</span> <span class="nx">subData</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">subarray</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">;</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">uniform4fv</span> <span class="p">(</span><span class="nx">location</span><span class="p">,</span> <span class="nx">subData</span><span class="p">)</span><span class="o">;</span>
+<span class="kd">var</span> <span class="nx">subData</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">subarray</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span><span class="o">;</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">uniform2fv</span> <span class="p">(</span><span class="nx">location2</span><span class="p">,</span> <span class="nx">subData</span><span class="p">)</span><span class="o">;</span>
+<span class="kd">var</span> <span class="nx">subData</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">subarray</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">;</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">uniform4fv</span> <span class="p">(</span><span class="nx">location3</span><span class="p">,</span> <span class="nx">subData</span><span class="p">)</span><span class="o">;</span>
+
+<span class="p">...</span>
+
+<span class="kd">var</span> <span class="nx">gl</span><span class="o">:</span><span class="nx">GLES2Context</span> <span class="o">=</span> <span class="nx">context</span><span class="o">;</span>
+<span class="kd">var</span> <span class="nx">bytePointer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BytePointer</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">;</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">uniform4fv</span> <span class="p">(</span><span class="nx">location</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bytePointer</span><span class="p">)</span><span class="o">;</span>
+<span class="nx">bytePointer</span><span class="p">.</span><span class="nx">offset</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">uniform2fv</span> <span class="p">(</span><span class="nx">location2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bytePointer</span><span class="p">)</span><span class="o">;</span>
+<span class="nx">bytePointer</span><span class="p">.</span><span class="nx">offset</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">uniform4fv</span> <span class="p">(</span><span class="nx">location3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bytePointer</span><span class="p">)</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>In the WebGL API, a new <code class="language-plaintext highlighter-rouge">ArrayBufferView</code> must be created for each upload, which is not ideal due to the garbage objects that will need to be deleted by garbage collection in the future. In the <code class="language-plaintext highlighter-rouge">GLES2Context</code> example code, however, we are able to upload a pointer to the same byte object repeatedly, without allocating new objects.</p>
+
+<p>If a GL context has been lost, Lime 4 will create a new <code class="language-plaintext highlighter-rouge">GLRenderContext</code> object, even if the same OpenGL context object is returned by the native platform. This adds another way to be able to check if an OpenGL object comes from an invalid OpenGL context:</p>
+
+<div class="language-as3 highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">private</span> <span class="kd">function</span> <span class="nx">getBuffer</span> <span class="p">(</span><span class="nx">gl</span><span class="o">:</span><span class="nx">GLRenderContext</span><span class="p">)</span><span class="o">:</span><span class="nx">GLBuffer</span> <span class="p">{</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">buffer</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">bufferContext</span> <span class="o">!=</span> <span class="nx">gl</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">buffer</span> <span class="o">=</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">createBuffer</span> <span class="p">()</span><span class="o">;</span>
+		<span class="nx">bufferContext</span> <span class="o">=</span> <span class="nx">gl</span><span class="o">;</span>
+		
+	<span class="p">}</span>
+	
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You can also use <code class="language-plaintext highlighter-rouge">bufferContext.isContextLost ()</code> on a dead context to determine if it is valid.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">GLRenderContext</code> also exposes <code class="language-plaintext highlighter-rouge">type</code> and <code class="language-plaintext highlighter-rouge">version</code> properties, to make it easier to determine the current running environment, and what features may be available:</p>
+
+<div class="language-as3 highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// WebGL</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">version</span><span class="p">)</span><span class="o">;</span> <span class="c1">// 1</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="o">;</span>    <span class="c1">// WEBGL</span>
+
+<span class="c1">// WebGL 2</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">version</span><span class="p">)</span><span class="o">;</span> <span class="c1">// 2</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="o">;</span>    <span class="c1">// WEBGL</span>
+
+<span class="c1">// OpenGL ES 2</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">version</span><span class="p">)</span><span class="o">;</span> <span class="c1">// 2</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="o">;</span>    <span class="c1">// GLES</span>
+
+<span class="c1">// OpenGL ES 3</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">version</span><span class="p">)</span><span class="o">;</span> <span class="c1">// 3</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="o">;</span>    <span class="c1">// GLES</span>
+
+<span class="c1">// OpenGL 4.2</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">version</span><span class="p">)</span><span class="o">;</span> <span class="c1">// 4.2</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="o">;</span>    <span class="c1">// OPENGL</span>
+</code></pre></div></div>
+
+<p>You may choose to use the <code class="language-plaintext highlighter-rouge">GLRenderContext</code> directly (being careful which features you use), or you may choose to lock into a limited API, such as <code class="language-plaintext highlighter-rouge">WebGLContext</code> to run on all platform types. Currently, desktop OpenGL should support OpenGL ES 2 APIs that Lime 4 exposes, and both desktop and mobile GL should support WebGL APIs.</p>
+
+<p>We are in the process of adding support for GLES3 APIs, and are considering additional abstract types for varying desktop GL versions. We appreciate your feedback as we continue to evolve support for advanced features, while also preserving cross-platform support.</p>
+
+<p>Lime 4 also introduces many missing typed APIs, for example, <code class="language-plaintext highlighter-rouge">getString</code>, <code class="language-plaintext highlighter-rouge">getBoolean</code> or <code class="language-plaintext highlighter-rouge">getBooleanv</code> as an alternative to the WebGL <code class="language-plaintext highlighter-rouge">getParameter</code>. The goal is to support all of these APIs on all platforms, so HTML5 can have a typed forced on a parameter, while native can return a <code class="language-plaintext highlighter-rouge">Dynamic</code> type using <code class="language-plaintext highlighter-rouge">getParameter</code>, or specific type using a more exact API.</p>
+
+<p>Lime 4 introduces better support for OpenGL extensions, beginning with known OpenGL ES 2 and WebGL extensions. With your feedback, we hope to continue to improve support for advanced features.</p>
+
+<p>Thank you for your support! We are excited to continue to make Lime a better, more useful cross-platform layer!</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Lime 4 has been released, and among other changes, we have improved our support for OpenGL! OpenGL has a large number of APIs, which may be available on only certain platforms (such as the desktop), or may require recent graphics drivers. This can create problems when seeking simplicity, broad device support or unifying cross-platform APIs. After much thought, we have designed a new system where we believe we can continue to expose new OpenGL APIs, while preserving the same simple cross-platform interoperability of current Lime releases. Lime OpenGL support begins with a GLRenderContext. This API more closely resembles the native OpenGL and OpenGL ES APIs, but is designed to operate also in the browser. Optionally, there is a static GL class which access the last created context, but with multiple windows and future support for multiple OpenGL contexts, it was important that our native platforms move to GL context objects at the core, similar to how WebGL behaves. The new Lime 4 API includes Haxe abstract types to provide guard rails or a more familiar syntax over the OpenGL context object: var context:GLRenderContext; ... var gl:WebGLContext = context; var buffer = gl.createBuffer (); gl.bindBuffer (gl.ARRAY_BUFFER, buffer); var srcData = new Float32Array ([ 0, 1, 2, 3 ]); gl.bufferData (gl.ARRAY_BUFFER, srcData, gl.DYNAMIC_DRAW); ... var gl:GLES2Context = context; var buffer = gl.createBuffer (); gl.bindBuffer (gl.ARRAY_BUFFER, buffer); var bytes = Bytes.alloc (16); bytes.setFloat (0, 0); bytes.setFloat (4, 1); bytes.setFloat (8, 2); bytes.setFloat (12, 3); gl.bufferData (gl.ARRAY_BUFFER, 16, bytes, gl.DYNAMIC_DRAW); In the WebGL API, the count is determined automatically by the size of the ArrayBufferView used to upload. In OpenGL and OpenGL ES, however, bufferData requires a size parameter. The downside is that this is more verbose, but the benefit is that we can create a data pointer from an ArrayBufferView, a BytesObject, or even a native pointer provided from a C++ extension library. Long-term, this can make things more flexible. Although the Bytes example above is perhaps not as nice as using the Float32Array, either will work in the GLES2-style API. The benefit of being able to use pointers becomes more clear if you wish to upload multiple values from the same bytes object, such as in the following example: var gl:WebGLContext = context; var subData = data.subarray (0, 4); gl.uniform4fv (location, subData); var subData = data.subarray (4, 6); gl.uniform2fv (location2, subData); var subData = data.subarray (6, 10); gl.uniform4fv (location3, subData); ... var gl:GLES2Context = context; var bytePointer = new BytePointer (data, 0); gl.uniform4fv (location, 1, bytePointer); bytePointer.offset = 4; gl.uniform2fv (location2, 1, bytePointer); bytePointer.offset = 6; gl.uniform4fv (location3, 1, bytePointer); In the WebGL API, a new ArrayBufferView must be created for each upload, which is not ideal due to the garbage objects that will need to be deleted by garbage collection in the future. In the GLES2Context example code, however, we are able to upload a pointer to the same byte object repeatedly, without allocating new objects. If a GL context has been lost, Lime 4 will create a new GLRenderContext object, even if the same OpenGL context object is returned by the native platform. This adds another way to be able to check if an OpenGL object comes from an invalid OpenGL context: private function getBuffer (gl:GLRenderContext):GLBuffer { if (buffer == null || bufferContext != gl) { buffer = gl.createBuffer (); bufferContext = gl; } } You can also use bufferContext.isContextLost () on a dead context to determine if it is valid. The GLRenderContext also exposes type and version properties, to make it easier to determine the current running environment, and what features may be available: // WebGL trace (gl.version); // 1 trace (gl.type); // WEBGL // WebGL 2 trace (gl.version); // 2 trace (gl.type); // WEBGL // OpenGL ES 2 trace (gl.version); // 2 trace (gl.type); // GLES // OpenGL ES 3 trace (gl.version); // 3 trace (gl.type); // GLES // OpenGL 4.2 trace (gl.version); // 4.2 trace (gl.type); // OPENGL You may choose to use the GLRenderContext directly (being careful which features you use), or you may choose to lock into a limited API, such as WebGLContext to run on all platform types. Currently, desktop OpenGL should support OpenGL ES 2 APIs that Lime 4 exposes, and both desktop and mobile GL should support WebGL APIs. We are in the process of adding support for GLES3 APIs, and are considering additional abstract types for varying desktop GL versions. We appreciate your feedback as we continue to evolve support for advanced features, while also preserving cross-platform support. Lime 4 also introduces many missing typed APIs, for example, getString, getBoolean or getBooleanv as an alternative to the WebGL getParameter. The goal is to support all of these APIs on all platforms, so HTML5 can have a typed forced on a parameter, while native can return a Dynamic type using getParameter, or specific type using a more exact API. Lime 4 introduces better support for OpenGL extensions, beginning with known OpenGL ES 2 and WebGL extensions. With your feedback, we hope to continue to improve support for advanced features. Thank you for your support! We are excited to continue to make Lime a better, more useful cross-platform layer!]]></summary></entry><entry><title type="html">OpenFL 4.7 and Lime 3.7 Released</title><link href="http://www.openfl.org/blog/2017/01/24/openfl-4-7-and-lime-3-7-released/" rel="alternate" type="text/html" title="OpenFL 4.7 and Lime 3.7 Released" /><published>2017-01-24T00:00:00+00:00</published><updated>2017-01-24T00:00:00+00:00</updated><id>http://www.openfl.org/blog/2017/01/24/openfl-4-7-and-lime-3-7-released</id><content type="html" xml:base="http://www.openfl.org/blog/2017/01/24/openfl-4-7-and-lime-3-7-released/"><![CDATA[<p>New versions of OpenFL and Lime are available!</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl upgrade
+</code></pre></div></div>
+
+<h2 id="openfl">OpenFL</h2>
+
+<h3 id="470-01242017">4.7.0 (01/24/2017)</h3>
+
+<ul>
+  <li>Added support for high-DPI HTML5 output</li>
+  <li>Added BitmapData.loadFromBase64/loadFromBytes/loadFromFile</li>
+  <li>Added handling for UP/DOWN/HOME/END keyboard shortcuts in TextField</li>
+  <li>Added stage.fullscreenWidth/fullscreenHeight</li>
+  <li>Added support for Lime 3.7 simulated preloader progress</li>
+  <li>Improved selection of multi-line text in TextField</li>
+  <li>Improved the behavior of bitmapData.paletteMap</li>
+  <li>Improved text measurement for HTML5 input TextField</li>
+  <li>Improved sharpness of HTML5 vector shape rendering</li>
+  <li>Deprecated async callbacks in BitmapData.fromBase64/fromBytes/fromFile</li>
+  <li>Fixed support for the “rect” argument in bitmapData.encode</li>
+  <li>Fixed use of textField.setTextFormat when text is empty</li>
+  <li>Fixed support for openfl.printing.PrintJob on Flash Player</li>
+  <li>Fixed support for SWF-based assets on iOS and Flash</li>
+  <li>Fixed use of deprecated NMEPreloader class</li>
+  <li>Fixed use of font names on HTML5 that may already be quoted</li>
+</ul>
+
+<h3 id="460-01202017">4.6.0 (01/20/2017)</h3>
+
+<ul>
+  <li>Added (initial) support for openfl.printing.PrintJob on HTML5</li>
+  <li>Added a stub for stage.softKeyboardRect to fix compilation</li>
+  <li>Made stageWidth and stageHeight read-only on Flash target</li>
+  <li>Updated AGALMiniAssembler to a newer release from the Gaming SDK</li>
+  <li>Improved rendering for multi-line text selections</li>
+  <li>Changed the default font hint style to something more subtle</li>
+  <li>Fixed some cases where textField.getCharIndex would work improperly</li>
+  <li>Fixed issues where tile.rotation resulted in flipped objects</li>
+  <li>Fixed problems with scaleX, scaleY and rotation interacting improperly</li>
+</ul>
+
+<p><em>Additional changes for previous releases are available <a href="https://github.com/openfl/openfl/blob/develop/CHANGELOG.md">here</a></em></p>
+
+<h2 id="lime">Lime</h2>
+
+<h3 id="370-01242017">3.7.0 (01/24/2017)</h3>
+
+<ul>
+  <li>Added <code class="language-plaintext highlighter-rouge">&lt;define /&gt;</code> (implies <code class="language-plaintext highlighter-rouge">&lt;set /&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;haxedef /&gt;</code>)</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">&lt;dependency force-load="" /&gt;</code> (will default to false in Lime 4)</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">-Dsimulate-preloader=3000</code> for simulating preload progress</li>
+  <li>Improved Image.loadFromBase64/loadFromBytes/loadFromFile on HTML5</li>
+  <li>Improved Image.loadFromBytes/loadFromFile support on Flash target</li>
+  <li>Improved support for “library.json” files that are not embedded</li>
+  <li>Improved support for browsers that do not have context.isPointInPath</li>
+  <li>Improved <code class="language-plaintext highlighter-rouge">lime setup linux</code> command for some newer environments</li>
+  <li>Improved caching behavior of text assets in AssetLibrary</li>
+  <li>Improved seeking behavior for AudioSource on native targets</li>
+  <li>Improved preload behavior on Flash target</li>
+  <li>Fixed metadata-based font embedding for Flash Player</li>
+  <li>Fixed issues with Windows paths when building tools with Haxe 3.4</li>
+  <li>Fixed preloading of fonts similar to default sans-serif on HTML5</li>
+  <li>Fixed base path for assets loaded from non-default asset libraries</li>
+  <li>Fixed scale of mouse events dispatched for high-DPI HTML5 windows</li>
+</ul>
+
+<h3 id="362-01202017">3.6.2 (01/20/2017)</h3>
+
+<ul>
+  <li>Improved error when making a directory on an unavailable drive letter</li>
+  <li>Fixed regression in support for HTML5 font preloading</li>
+  <li>Fixed possible font overflow when embedding fonts on Flash target</li>
+  <li>Fixed crash on Neko when using AudioSource with no AudioBuffer</li>
+</ul>
+
+<h3 id="361-01182017">3.6.1 (01/18/2017)</h3>
+
+<ul>
+  <li>Added streaming audio support to AudioSource</li>
+  <li>Fixed issues in bytesLoaded/bytesTotal calculation</li>
+  <li>Fixed a regression in support for static-linking</li>
+  <li>Fixed a regression in support for lime.utils.JNI</li>
+</ul>
+
+<p><em>Additional changes for previous releases are available <a href="https://github.com/openfl/lime/blob/develop/CHANGELOG.md">here</a></em></p>
+
+<p>Thank you again to all of our <a href="http://www.patreon.com/openfl">Patreon</a> supporters and awesome contributors!</p>]]></content><author><name></name></author><summary type="html"><![CDATA[New versions of OpenFL and Lime are available! openfl upgrade OpenFL 4.7.0 (01/24/2017) Added support for high-DPI HTML5 output Added BitmapData.loadFromBase64/loadFromBytes/loadFromFile Added handling for UP/DOWN/HOME/END keyboard shortcuts in TextField Added stage.fullscreenWidth/fullscreenHeight Added support for Lime 3.7 simulated preloader progress Improved selection of multi-line text in TextField Improved the behavior of bitmapData.paletteMap Improved text measurement for HTML5 input TextField Improved sharpness of HTML5 vector shape rendering Deprecated async callbacks in BitmapData.fromBase64/fromBytes/fromFile Fixed support for the “rect” argument in bitmapData.encode Fixed use of textField.setTextFormat when text is empty Fixed support for openfl.printing.PrintJob on Flash Player Fixed support for SWF-based assets on iOS and Flash Fixed use of deprecated NMEPreloader class Fixed use of font names on HTML5 that may already be quoted 4.6.0 (01/20/2017) Added (initial) support for openfl.printing.PrintJob on HTML5 Added a stub for stage.softKeyboardRect to fix compilation Made stageWidth and stageHeight read-only on Flash target Updated AGALMiniAssembler to a newer release from the Gaming SDK Improved rendering for multi-line text selections Changed the default font hint style to something more subtle Fixed some cases where textField.getCharIndex would work improperly Fixed issues where tile.rotation resulted in flipped objects Fixed problems with scaleX, scaleY and rotation interacting improperly Additional changes for previous releases are available here Lime 3.7.0 (01/24/2017) Added &lt;define /&gt; (implies &lt;set /&gt; and &lt;haxedef /&gt;) Added &lt;dependency force-load="" /&gt; (will default to false in Lime 4) Added -Dsimulate-preloader=3000 for simulating preload progress Improved Image.loadFromBase64/loadFromBytes/loadFromFile on HTML5 Improved Image.loadFromBytes/loadFromFile support on Flash target Improved support for “library.json” files that are not embedded Improved support for browsers that do not have context.isPointInPath Improved lime setup linux command for some newer environments Improved caching behavior of text assets in AssetLibrary Improved seeking behavior for AudioSource on native targets Improved preload behavior on Flash target Fixed metadata-based font embedding for Flash Player Fixed issues with Windows paths when building tools with Haxe 3.4 Fixed preloading of fonts similar to default sans-serif on HTML5 Fixed base path for assets loaded from non-default asset libraries Fixed scale of mouse events dispatched for high-DPI HTML5 windows 3.6.2 (01/20/2017) Improved error when making a directory on an unavailable drive letter Fixed regression in support for HTML5 font preloading Fixed possible font overflow when embedding fonts on Flash target Fixed crash on Neko when using AudioSource with no AudioBuffer 3.6.1 (01/18/2017) Added streaming audio support to AudioSource Fixed issues in bytesLoaded/bytesTotal calculation Fixed a regression in support for static-linking Fixed a regression in support for lime.utils.JNI Additional changes for previous releases are available here Thank you again to all of our Patreon supporters and awesome contributors!]]></summary></entry><entry><title type="html">Upcoming Changes to How We Name Versions</title><link href="http://www.openfl.org/blog/2017/01/20/upcoming-changes-to-how-we-name-versions/" rel="alternate" type="text/html" title="Upcoming Changes to How We Name Versions" /><published>2017-01-20T00:00:00+00:00</published><updated>2017-01-20T00:00:00+00:00</updated><id>http://www.openfl.org/blog/2017/01/20/upcoming-changes-to-how-we-name-versions</id><content type="html" xml:base="http://www.openfl.org/blog/2017/01/20/upcoming-changes-to-how-we-name-versions/"><![CDATA[<p>We have been receiving feedback that upgrading from old OpenFL releases to a current release can be difficult.</p>
+
+<p>Lime is continuing to evolve as a project, but OpenFL is not a moving target. As we are able to continue to invest in Lime as a foundation layer for Flash, native and HTML5 unified projects, OpenFL is pursuing an established, proven API standard. As such, over the course of a year, we can expect Lime to continue to make backward-incompatible changes as it matures, but OpenFL should remain backward compatible for the majority of the API – an API we have supported for almost seven years.</p>
+
+<p>Backward compatibility is one reason OpenFL does not show internal APIs in code completion. This is also one motivation for trying to strictly avoid adding new APIs to OpenFL. From one version to the next, the mission of OpenFL remains the same, and we hope that we continue to fulfill that promise with increasing clarity over time.</p>
+
+<p>We have spent more time considering how we name our versions, and have chosen to become more strict in our adherence of “SemVer”, or “Semantic Versioning”, the standard used in haxelib and many other package management systems.</p>
+
+<p>Semantic Versioning 2.0.0 dictates that backward-incompatible changes must be a major version release, and that added features require a new minor version release.</p>
+
+<p>The version releases for OpenFL may not look very different in the future, but Lime releases will begin to change a lot. Yesterday Lime 3.6.1 was released. There were minor (patch-level) changes, but we added streaming audio support. According to SemVer, this should have been 3.7.0 due to the added feature. Another example is our 3.5 release of Lime. The former <code class="language-plaintext highlighter-rouge">lime.net.HTTPRequest</code> API was dramatically rewritten for much better (unified) support of network requests. Under SemVer, this would have been a major version, or Lime 4.</p>
+
+<p>Since OpenFL 4.4, we have an error that occurs if OpenFL is not matched with a compatible version of Lime. Even though Lime versions may begin to increment more quickly than in the past, this version check will help make it clear which version of Lime an OpenFL release expects.</p>
+
+<p>If you are upgrading, and do have trouble, please contact the team at the OpenFL forums, or join the OpenFL Slack chat, and lets talk about it. The OpenFL samples have hardly changed since they were first created, and our tests only become more strict. If there are regressions for you, they are probably not intentional. Please be calm, let us know, and let us move forward together.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[We have been receiving feedback that upgrading from old OpenFL releases to a current release can be difficult. Lime is continuing to evolve as a project, but OpenFL is not a moving target. As we are able to continue to invest in Lime as a foundation layer for Flash, native and HTML5 unified projects, OpenFL is pursuing an established, proven API standard. As such, over the course of a year, we can expect Lime to continue to make backward-incompatible changes as it matures, but OpenFL should remain backward compatible for the majority of the API – an API we have supported for almost seven years. Backward compatibility is one reason OpenFL does not show internal APIs in code completion. This is also one motivation for trying to strictly avoid adding new APIs to OpenFL. From one version to the next, the mission of OpenFL remains the same, and we hope that we continue to fulfill that promise with increasing clarity over time. We have spent more time considering how we name our versions, and have chosen to become more strict in our adherence of “SemVer”, or “Semantic Versioning”, the standard used in haxelib and many other package management systems. Semantic Versioning 2.0.0 dictates that backward-incompatible changes must be a major version release, and that added features require a new minor version release. The version releases for OpenFL may not look very different in the future, but Lime releases will begin to change a lot. Yesterday Lime 3.6.1 was released. There were minor (patch-level) changes, but we added streaming audio support. According to SemVer, this should have been 3.7.0 due to the added feature. Another example is our 3.5 release of Lime. The former lime.net.HTTPRequest API was dramatically rewritten for much better (unified) support of network requests. Under SemVer, this would have been a major version, or Lime 4. Since OpenFL 4.4, we have an error that occurs if OpenFL is not matched with a compatible version of Lime. Even though Lime versions may begin to increment more quickly than in the past, this version check will help make it clear which version of Lime an OpenFL release expects. If you are upgrading, and do have trouble, please contact the team at the OpenFL forums, or join the OpenFL Slack chat, and lets talk about it. The OpenFL samples have hardly changed since they were first created, and our tests only become more strict. If there are regressions for you, they are probably not intentional. Please be calm, let us know, and let us move forward together.]]></summary></entry><entry><title type="html">Updated OpenFL and Lime Releases</title><link href="http://www.openfl.org/blog/2017/01/17/updated-openfl-and-lime-releases/" rel="alternate" type="text/html" title="Updated OpenFL and Lime Releases" /><published>2017-01-17T00:00:00+00:00</published><updated>2017-01-17T00:00:00+00:00</updated><id>http://www.openfl.org/blog/2017/01/17/updated-openfl-and-lime-releases</id><content type="html" xml:base="http://www.openfl.org/blog/2017/01/17/updated-openfl-and-lime-releases/"><![CDATA[<p>We have new releases of OpenFL and Lime available!</p>
+
+<h2 id="openfl">OpenFL</h2>
+
+<h3 id="453-01162017">4.5.3 (01/16/2017)</h3>
+
+<ul>
+  <li>Updated for Lime 3.6</li>
+  <li>Updated AGALMiniAssembler to a fresh port of Adobe’s last release</li>
+  <li>Added missing Event.FRAME_CONSTRUCTED event</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">Dictionary&lt;Object, Object&gt;</code> support</li>
+  <li>Improved support for textField.setTextFormat</li>
+  <li>Updated preloader to use Event.UNLOAD instead of Event.COMPLETE to unload</li>
+  <li>Updated SWFLite library to preload with the parent application</li>
+  <li>Fixed support for slashes in SharedObject names</li>
+  <li>Fixed support for preventing default on keyboard events</li>
+  <li>Fixed a regression in displaying stack traces on crash errors</li>
+  <li>Fixed text measurement on IE 11</li>
+  <li>Fixed return value when scaleX or scaleY is negative</li>
+  <li>Fixed issues where <code class="language-plaintext highlighter-rouge">new ByteArray</code> may have values other than zero</li>
+  <li>Fixed an issue with SWFLite assets when using the “generate” option</li>
+  <li>Fixed a possible null crash when updating object transforms</li>
+  <li>Fixed support for garbage collecting Sound when SoundChannel is finished</li>
+  <li>Fixed problems with using textField.appendText</li>
+  <li>Fixed the default template for HTML5 when multiple projects are embedded</li>
+  <li>Fixed wrong colors when values were larger than expected</li>
+  <li>Fixed an issue with needing clearRect on CocoonJS</li>
+</ul>
+
+<p><em>Additional changes for previous releases are available <a href="https://github.com/openfl/openfl/blob/develop/CHANGELOG.md">here</a></em></p>
+
+<h2 id="lime">Lime</h2>
+
+<h3 id="360-01162017">3.6.0 (01/16/2017)</h3>
+
+<ul>
+  <li>Moved “lime.audio” to “lime.media”</li>
+  <li>Added Vorbis bindings under “lime.media.codecs.vorbis”</li>
+  <li>Added lime.ui.ScanCode, with conversion support to/from KeyCode on native</li>
+  <li>Added tool support for the “–no-output” argument</li>
+  <li>Migrated from NFD to tinyfiledialogs for better dialog support</li>
+  <li>Made window.close cancelable on desktop platforms</li>
+  <li>Updated libjpeg to 9b</li>
+  <li>Updated howler.js to 2.0.2</li>
+  <li>Improved support for Haxe 3.4</li>
+  <li>Improved support for progress events while preloading</li>
+  <li>Fixed force install when deploying to Android (API 16+ devices)</li>
+  <li>Fixed an invalid state when returning from background on Android</li>
+  <li>Fixed playback of a single audio buffer multiple times on HTML5</li>
+  <li>Fixed initial volume level in AudioSource on HTML5</li>
+  <li>Fixed a regression in the default architecture list for iOS</li>
+  <li>Fixed merging of multiple <architecture></architecture> tags in project files</li>
+  <li>Fixed a possible crash when retrieving OpenGL strings</li>
+  <li>Fixed the default template for HTML5 when multiple projects are embedded</li>
+  <li>Fixed support for non-preloaded assets on HTML5</li>
+  <li>Fixed support for image.copyChannel on HTML5 when using WebGL</li>
+  <li>Fixed support for command-line arguments with “lime rebuild”</li>
+</ul>
+
+<p><em>Additional changes for previous releases are available <a href="https://github.com/openfl/lime/blob/develop/CHANGELOG.md">here</a></em></p>
+
+<p>Thank you to all OpenFL supporters, and happy new year!</p>]]></content><author><name></name></author><summary type="html"><![CDATA[We have new releases of OpenFL and Lime available! OpenFL 4.5.3 (01/16/2017) Updated for Lime 3.6 Updated AGALMiniAssembler to a fresh port of Adobe’s last release Added missing Event.FRAME_CONSTRUCTED event Added Dictionary&lt;Object, Object&gt; support Improved support for textField.setTextFormat Updated preloader to use Event.UNLOAD instead of Event.COMPLETE to unload Updated SWFLite library to preload with the parent application Fixed support for slashes in SharedObject names Fixed support for preventing default on keyboard events Fixed a regression in displaying stack traces on crash errors Fixed text measurement on IE 11 Fixed return value when scaleX or scaleY is negative Fixed issues where new ByteArray may have values other than zero Fixed an issue with SWFLite assets when using the “generate” option Fixed a possible null crash when updating object transforms Fixed support for garbage collecting Sound when SoundChannel is finished Fixed problems with using textField.appendText Fixed the default template for HTML5 when multiple projects are embedded Fixed wrong colors when values were larger than expected Fixed an issue with needing clearRect on CocoonJS Additional changes for previous releases are available here Lime 3.6.0 (01/16/2017) Moved “lime.audio” to “lime.media” Added Vorbis bindings under “lime.media.codecs.vorbis” Added lime.ui.ScanCode, with conversion support to/from KeyCode on native Added tool support for the “–no-output” argument Migrated from NFD to tinyfiledialogs for better dialog support Made window.close cancelable on desktop platforms Updated libjpeg to 9b Updated howler.js to 2.0.2 Improved support for Haxe 3.4 Improved support for progress events while preloading Fixed force install when deploying to Android (API 16+ devices) Fixed an invalid state when returning from background on Android Fixed playback of a single audio buffer multiple times on HTML5 Fixed initial volume level in AudioSource on HTML5 Fixed a regression in the default architecture list for iOS Fixed merging of multiple tags in project files Fixed a possible crash when retrieving OpenGL strings Fixed the default template for HTML5 when multiple projects are embedded Fixed support for non-preloaded assets on HTML5 Fixed support for image.copyChannel on HTML5 when using WebGL Fixed support for command-line arguments with “lime rebuild” Additional changes for previous releases are available here Thank you to all OpenFL supporters, and happy new year!]]></summary></entry><entry><title type="html">OpenFL 4.5 and Lime 3.5 are Here!</title><link href="http://www.openfl.org/blog/2016/12/16/openfl-4-5-and-lime-3-5-are-here/" rel="alternate" type="text/html" title="OpenFL 4.5 and Lime 3.5 are Here!" /><published>2016-12-16T00:00:00+00:00</published><updated>2016-12-16T00:00:00+00:00</updated><id>http://www.openfl.org/blog/2016/12/16/openfl-4-5-and-lime-3-5-are-here</id><content type="html" xml:base="http://www.openfl.org/blog/2016/12/16/openfl-4-5-and-lime-3-5-are-here/"><![CDATA[<p>OpenFL 4.5 and Lime 3.5 are available, with quite a long list of changes!</p>
+
+<h2 id="improved-swf-support">Improved SWF Support</h2>
+
+<p>The “swf” library has been merged into OpenFL, which means that OpenFL understands how to process and include SWF-based assets without installing any extra haxelibs. For this release, we have focused on improving the quality and integration of SWF-based assets, resulting in multiple improvements that were not possible before. For example, it is possible to use Haxe-based classes as a “custom base class” from Adobe Animate or older versions of Adobe Flash Professional.</p>
+
+<p>Using a SWF library with the “generate” option enabled (such as <code class="language-plaintext highlighter-rouge">&lt;library path="lib.swf" preload="true" generate="true" /&gt;</code>), classes used in the “Export for ActionScript” option are now strongly typed in generated Haxe classes. Support for strong type references improves performance, and increases the amount of code that can be used without using casting. As a result, we have disabled the <code class="language-plaintext highlighter-rouge">implements Dynamic</code> behavior for <code class="language-plaintext highlighter-rouge">DisplayObject</code>, as dynamic access has performance costs, and made it difficult to debug certain kinds of spelling errors. This option is available now using <code class="language-plaintext highlighter-rouge">-Dopenfl-dynamic</code>, but is disabled by default.</p>
+
+<h2 id="improved-html5--ddom-support">Improved HTML5 -Ddom Support</h2>
+
+<p>In addition to the standard WebGL target and the fallback canvas target, OpenFL has a special “DOM” mode for HTML5 that uses CSS transforms, DIVs, image tags and other HTML elements. Although support has lagged recently, we have brought the DOM target up to parity with our renderers in many ways. There may be a “one size fits all” approach that is ideal for all users on HTML5, so we are excited to better serve your needs by allowing alternatives depending on the project you are creating. Using the DOM output is more ideal for projects that are not constantly changing (such as a web application) or projects that wish to blend their own DOM elements (using <code class="language-plaintext highlighter-rouge">openfl.display.DOMSprite</code>) or weild greater control over the behavior of their project.</p>
+
+<h2 id="experimental-additional-gpu-features">(Experimental) Additional GPU Features</h2>
+
+<p>In this release, we are experimenting with changes to increase support for GPU features. These are only available on OpenGL targets (OpenGL, OpenGL ES, WebGL) and are liable to change in the future. Your feedback is greatly appreciated as we work on these features.</p>
+
+<p>First, we have experimenting with support for dumping the software representation of a <code class="language-plaintext highlighter-rouge">BitmapData</code> object. The compromise means that it is no longer possible to <code class="language-plaintext highlighter-rouge">getPixel</code> or <code class="language-plaintext highlighter-rouge">setPixel</code>, but if no edits are required, this cuts the amount of RAM used for the <code class="language-plaintext highlighter-rouge">BitmapData</code> by 50%. For large projects, this may be a life-saver, so we have added <code class="language-plaintext highlighter-rouge">bitmapData.readable</code> to determine if the object can be used with most <code class="language-plaintext highlighter-rouge">BitmapData</code> APIs, and <code class="language-plaintext highlighter-rouge">bitmapData.disposeImage</code> to delete the software buffer, but retain the hardware texture once it is created. Similarly, we have added support to <code class="language-plaintext highlighter-rouge">bitmapData.draw</code> and <code class="language-plaintext highlighter-rouge">bitmapData.fillRect</code> to use OpenGL framebuffers if the <code class="language-plaintext highlighter-rouge">BitmapData</code> is hardware-only. This may make a very big difference for performance, as <code class="language-plaintext highlighter-rouge">bitmapData.draw</code> would instead go through software.</p>
+
+<p>We are also experimenting with cross-over APIs between <code class="language-plaintext highlighter-rouge">Stage3D</code> and <code class="language-plaintext highlighter-rouge">BitmapData</code>, such as the <code class="language-plaintext highlighter-rouge">BitmapData.fromTexture</code> API, designed to be used for render-to-texture, similar to the above. However, this enables support for using a hardware texture that is already created in <code class="language-plaintext highlighter-rouge">Stage3D</code>, and does not create a software buffer to be deleted later, if the intention is to only use render-to-texture.</p>
+
+<p>We are also considering a default <code class="language-plaintext highlighter-rouge">Context3D</code> on hardware targets, since the hardware context is already initialized as a part of the Lime window creation.</p>
+
+<h2 id="asset-library-and-preloader-improvements">Asset Library and Preloader Improvements</h2>
+
+<p>We have made big changes to how Lime asset libraries are handled, to reduce the amount of special logic that exists in the <code class="language-plaintext highlighter-rouge">DefaultAssetLibrary</code> template, to improve support for custom asset libraries (such as SWF-based libraries) and to prepare the way for more work on asset library improvements. These changes should (ideally) be transparent, and everything should work the same as it did, with the exception that fewer assets are preloaded on HTML5, which is important for large projects.</p>
+
+<p>We received feedback that the custom preloader API was difficult to use, so it has been revised to make it simpler and easier to understand.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.events.Event</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.events.ProgressEvent</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">CustomPreloader</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+	
+	<span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+		
+		<span class="kd">super</span> <span class="o">();</span>
+		
+		<span class="n">addEventListener</span> <span class="o">(</span><span class="nc">ProgressEvent</span><span class="o">.</span><span class="na">PROGRESS</span><span class="o">,</span> <span class="n">this_onProgress</span><span class="o">);</span>
+		<span class="n">addEventListener</span> <span class="o">(</span><span class="nc">Event</span><span class="o">.</span><span class="na">COMPLETE</span><span class="o">,</span> <span class="n">this_onComplete</span><span class="o">);</span>
+		
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="n">function</span> <span class="nf">this_onComplete</span> <span class="o">(</span><span class="nl">event:</span><span class="nc">Event</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+		
+		<span class="c1">//event.preventDefault ();</span>
+		<span class="n">trace</span> <span class="o">(</span><span class="s">"load complete"</span><span class="o">);</span>
+		
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="n">function</span> <span class="nf">this_onProgress</span> <span class="o">(</span><span class="nl">event:</span><span class="nc">ProgressEvent</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+		
+		<span class="kt">var</span> <span class="n">percentLoaded</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">event</span><span class="o">.</span><span class="na">bytesTotal</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="n">percentLoaded</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="na">bytesLoaded</span> <span class="o">/</span> <span class="n">event</span><span class="o">.</span><span class="na">bytesTotal</span><span class="o">;</span>
+		
+		<span class="n">trace</span> <span class="o">(</span><span class="s">"percentLoaded: "</span> <span class="o">+</span> <span class="n">percentLoaded</span><span class="o">);</span>
+		
+	<span class="o">}</span>
+	
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now, a custom preloader can be an ordinary <code class="language-plaintext highlighter-rouge">Sprite</code>, and does not need to inherit from a special class or interface. <code class="language-plaintext highlighter-rouge">PROGRESS</code> and <code class="language-plaintext highlighter-rouge">COMPLETE</code> events are dispatched, and if the <code class="language-plaintext highlighter-rouge">COMPLETE</code> is not canceled, the preloader is removed and the application begins. If preferred, the <code class="language-plaintext highlighter-rouge">COMPLETE</code> event can be canceled, then the preloader should dispatch a <code class="language-plaintext highlighter-rouge">COMPLETE</code> event on its own when it is ready to release control to the document class.</p>
+
+<p>As a marked change from before, the custom preloader occurs on <em>every</em> target, including mobile or desktop platforms. As these platforms do not usually preload, these will often <code class="language-plaintext highlighter-rouge">COMPLETE</code> right away, but it will be up to you whether the preloader relinquishes control, or if you use it to show a “START” button, sponsor logos, or other content. It’s your choice!</p>
+
+<h2 id="ios-build-improvements">iOS Build Improvements</h2>
+
+<p>We have made multiple changes to the default iOS project templates, fixing the “cannot find build target by” error when using Haxe development builds, significantly improving compile-time, fixing issues with compiler cache invalidation and have improved the performance of OpenFL and Lime debug builds for devices. We hope that these quality-of-life improvements will continue to make iOS a friendlier target to use.</p>
+
+<h2 id="other-improvements">Other Improvements</h2>
+
+<p>There are many other minor fixes and improvements, such as a new HTTPRequest class in Lime, better support for high-DPI targets, and hit test and render fixes for OpenFL.</p>
+
+<p>Thank you to all of our <a href="http://patreon.com/openfl">Patreon</a> supporters, and keep making the world a more exciting place with all amazing games and applications you are building! It is humbling to see all that we are helping you create.</p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">openfl upgrade</code> to get the latest, and if you are using development builds, please be sure to do <code class="language-plaintext highlighter-rouge">-clean</code> builds, and <code class="language-plaintext highlighter-rouge">openfl rebuild tools</code> to compile the updated SWF embed tool.</p>
+
+<p>Check out the changelog <a href="https://github.com/openfl/openfl/blob/develop/CHANGELOG.md">here</a> and <a href="https://github.com/openfl/lime/blob/develop/CHANGELOG.md">here</a>.</p>
+
+<p>Merry Christmas!</p>]]></content><author><name></name></author><summary type="html"><![CDATA[OpenFL 4.5 and Lime 3.5 are available, with quite a long list of changes! Improved SWF Support The “swf” library has been merged into OpenFL, which means that OpenFL understands how to process and include SWF-based assets without installing any extra haxelibs. For this release, we have focused on improving the quality and integration of SWF-based assets, resulting in multiple improvements that were not possible before. For example, it is possible to use Haxe-based classes as a “custom base class” from Adobe Animate or older versions of Adobe Flash Professional. Using a SWF library with the “generate” option enabled (such as &lt;library path="lib.swf" preload="true" generate="true" /&gt;), classes used in the “Export for ActionScript” option are now strongly typed in generated Haxe classes. Support for strong type references improves performance, and increases the amount of code that can be used without using casting. As a result, we have disabled the implements Dynamic behavior for DisplayObject, as dynamic access has performance costs, and made it difficult to debug certain kinds of spelling errors. This option is available now using -Dopenfl-dynamic, but is disabled by default. Improved HTML5 -Ddom Support In addition to the standard WebGL target and the fallback canvas target, OpenFL has a special “DOM” mode for HTML5 that uses CSS transforms, DIVs, image tags and other HTML elements. Although support has lagged recently, we have brought the DOM target up to parity with our renderers in many ways. There may be a “one size fits all” approach that is ideal for all users on HTML5, so we are excited to better serve your needs by allowing alternatives depending on the project you are creating. Using the DOM output is more ideal for projects that are not constantly changing (such as a web application) or projects that wish to blend their own DOM elements (using openfl.display.DOMSprite) or weild greater control over the behavior of their project. (Experimental) Additional GPU Features In this release, we are experimenting with changes to increase support for GPU features. These are only available on OpenGL targets (OpenGL, OpenGL ES, WebGL) and are liable to change in the future. Your feedback is greatly appreciated as we work on these features. First, we have experimenting with support for dumping the software representation of a BitmapData object. The compromise means that it is no longer possible to getPixel or setPixel, but if no edits are required, this cuts the amount of RAM used for the BitmapData by 50%. For large projects, this may be a life-saver, so we have added bitmapData.readable to determine if the object can be used with most BitmapData APIs, and bitmapData.disposeImage to delete the software buffer, but retain the hardware texture once it is created. Similarly, we have added support to bitmapData.draw and bitmapData.fillRect to use OpenGL framebuffers if the BitmapData is hardware-only. This may make a very big difference for performance, as bitmapData.draw would instead go through software. We are also experimenting with cross-over APIs between Stage3D and BitmapData, such as the BitmapData.fromTexture API, designed to be used for render-to-texture, similar to the above. However, this enables support for using a hardware texture that is already created in Stage3D, and does not create a software buffer to be deleted later, if the intention is to only use render-to-texture. We are also considering a default Context3D on hardware targets, since the hardware context is already initialized as a part of the Lime window creation. Asset Library and Preloader Improvements We have made big changes to how Lime asset libraries are handled, to reduce the amount of special logic that exists in the DefaultAssetLibrary template, to improve support for custom asset libraries (such as SWF-based libraries) and to prepare the way for more work on asset library improvements. These changes should (ideally) be transparent, and everything should work the same as it did, with the exception that fewer assets are preloaded on HTML5, which is important for large projects. We received feedback that the custom preloader API was difficult to use, so it has been revised to make it simpler and easier to understand. import openfl.display.Sprite; import openfl.events.Event; import openfl.events.ProgressEvent; class CustomPreloader extends Sprite { public function new () { super (); addEventListener (ProgressEvent.PROGRESS, this_onProgress); addEventListener (Event.COMPLETE, this_onComplete); } private function this_onComplete (event:Event):Void { //event.preventDefault (); trace ("load complete"); } private function this_onProgress (event:ProgressEvent):Void { var percentLoaded = 0; if (event.bytesTotal &gt; 0) percentLoaded = event.bytesLoaded / event.bytesTotal; trace ("percentLoaded: " + percentLoaded); } } Now, a custom preloader can be an ordinary Sprite, and does not need to inherit from a special class or interface. PROGRESS and COMPLETE events are dispatched, and if the COMPLETE is not canceled, the preloader is removed and the application begins. If preferred, the COMPLETE event can be canceled, then the preloader should dispatch a COMPLETE event on its own when it is ready to release control to the document class. As a marked change from before, the custom preloader occurs on every target, including mobile or desktop platforms. As these platforms do not usually preload, these will often COMPLETE right away, but it will be up to you whether the preloader relinquishes control, or if you use it to show a “START” button, sponsor logos, or other content. It’s your choice! iOS Build Improvements We have made multiple changes to the default iOS project templates, fixing the “cannot find build target by” error when using Haxe development builds, significantly improving compile-time, fixing issues with compiler cache invalidation and have improved the performance of OpenFL and Lime debug builds for devices. We hope that these quality-of-life improvements will continue to make iOS a friendlier target to use. Other Improvements There are many other minor fixes and improvements, such as a new HTTPRequest class in Lime, better support for high-DPI targets, and hit test and render fixes for OpenFL. Thank you to all of our Patreon supporters, and keep making the world a more exciting place with all amazing games and applications you are building! It is humbling to see all that we are helping you create. Run openfl upgrade to get the latest, and if you are using development builds, please be sure to do -clean builds, and openfl rebuild tools to compile the updated SWF embed tool. Check out the changelog here and here. Merry Christmas!]]></summary></entry></feed>

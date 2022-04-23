@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>How to Make a Platform Game in OpenFL</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>How to Make a Platform Game in OpenFL</h1></div>
+<!-- <p class="meta">22 Sep 2014</p> -->
+
+<div class="post">
+<p>I’m Kirill, author of <a href="http://haxecoder.com" target="_blank">haxecoder.com</a>, where I regularly publish tutorials for Haxe and OpenFL. I’ve been invited to make a guest post here, so let’s do this!</p>
+
+<p>Today I’ll show you how to make a lightweight and efficient platform game engine. I won’t be using any frameworks. Just Haxe, OpenFL, and a little <a href="http://haxecoder.com/post.php?id=24" target="_blank">debugger class for displaying FPS and memory usage</a>.</p>
+
+<p>Here’s what we’ll be making today:</p>
+
+<div id="flash-example"></div>
+
+<script type="text/javascript" src="/js/swfobject.js"></script>
+
+<script type="text/javascript">
+	swfobject.embedSWF ("/blog/assets/Platformer.swf", "flash-example", "600", "400", "9.0.0");
+</script>
+
+<p>Let’s get started.</p>
+
+<h2 id="initialization">Initialization</h2>
+
+<p>Create a new OpenFL project using FlashDevelep. If you’re using a different IDE, just make sure that you have the application.xml manifest file and a Main class in your project.</p>
+
+<p>Set the background color of your window to light gray, and the size to 600x400. This is done in the application.xml file:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;window</span> <span class="na">background=</span><span class="s">"#eeeeee"</span> <span class="na">fps=</span><span class="s">"60"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;window</span> <span class="na">width=</span><span class="s">"600"</span> <span class="na">height=</span><span class="s">"400"</span> <span class="na">unless=</span><span class="s">"mobile"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>Introduce 8 new variables in your Main class:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">var</span> <span class="nl">map:</span><span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;&gt;;</span>
+<span class="kd">private</span> <span class="kt">var</span> <span class="nl">world:</span><span class="nc">Sprite</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kt">var</span> <span class="nl">tileSize:</span><span class="nc">Int</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kt">var</span> <span class="nl">player:</span><span class="nc">Sprite</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kt">var</span> <span class="nl">acceleration:</span><span class="nc">Float</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kt">var</span> <span class="nl">velocity:</span><span class="nc">Point</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kt">var</span> <span class="nl">keys:</span><span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Bool</span><span class="o">&gt;;</span>
+<span class="kd">private</span> <span class="kt">var</span> <span class="nl">isOnGround:</span><span class="nc">Bool</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>The tileSize and acceleration variables are tweakable parameters, which means you can set their values first thing in the init() method and play around with them as you like:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Parameters init</span>
+<span class="n">tileSize</span> <span class="o">=</span> <span class="mi">40</span><span class="o">;</span>
+<span class="n">acceleration</span> <span class="o">=</span> <span class="mf">0.9</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>Our level will be built out of tiles, and tileSize value determines how big a single tile is. The acceleration value represents gravity acceleration.</p>
+
+<p>Next thing, we declare a matrix to hold the map data.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Map init</span>
+<span class="n">map</span> <span class="o">=</span> <span class="o">[</span>
+<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">]</span>
+<span class="o">];</span>
+</code></pre></div></div>
+
+<p>As simple as it can get—0 represents empty space, 1 represents an obstacle (wall).</p>
+
+<p>Now we’ll draw the map. I’m using solid colored blocks for this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// World init</span>
+<span class="n">world</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Sprite</span><span class="o">();</span>
+<span class="n">world</span><span class="o">.</span><span class="na">graphics</span><span class="o">.</span><span class="na">beginFill</span><span class="o">(</span><span class="mh">0x3498db</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">row</span> <span class="n">in</span> <span class="mi">0</span><span class="o">...</span><span class="na">map</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+	<span class="k">for</span> <span class="o">(</span><span class="n">cell</span> <span class="n">in</span> <span class="mi">0</span><span class="o">...</span><span class="na">map</span><span class="o">[</span><span class="n">row</span><span class="o">].</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">map</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">cell</span><span class="o">]==</span><span class="mi">1</span><span class="o">){</span>
+			<span class="n">world</span><span class="o">.</span><span class="na">graphics</span><span class="o">.</span><span class="na">drawRect</span><span class="o">(</span><span class="n">cell</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">,</span> <span class="n">row</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">,</span> <span class="n">tileSize</span><span class="o">,</span> <span class="n">tileSize</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="n">addChild</span><span class="o">(</span><span class="n">world</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Next is player character’s initialization. Our player will be a simple Sprite object, same size as a tile, positioned in the center of the screen in the beginning.</p>
+
+<p>It would also be logical to set the velocity and isOnGround values here. The velocity object is a vector, which holds the speed of the character on the x and y axes. The isOnGround value is a flag, which is true whenever the player is touching the ground with its ‘feet’—set it to false by default.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Player init</span>
+<span class="n">player</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Sprite</span><span class="o">();</span>
+<span class="n">player</span><span class="o">.</span><span class="na">graphics</span><span class="o">.</span><span class="na">beginFill</span><span class="o">(</span><span class="mh">0xe67e22</span><span class="o">);</span>
+<span class="n">player</span><span class="o">.</span><span class="na">graphics</span><span class="o">.</span><span class="na">drawRect</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">tileSize</span><span class="o">,</span> <span class="n">tileSize</span><span class="o">);</span>
+<span class="n">addChild</span><span class="o">(</span><span class="n">player</span><span class="o">);</span>
+<span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">-</span> <span class="n">tileSize</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+<span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">200</span> <span class="o">-</span> <span class="n">tileSize</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+<span class="n">isOnGround</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>Add a game loop:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Game loop</span>
+<span class="k">this</span><span class="o">.</span><span class="na">addEventListener</span><span class="o">(</span><span class="nc">Event</span><span class="o">.</span><span class="na">ENTER_FRAME</span><span class="o">,</span> <span class="n">gameLoop</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Don’t forget about keyboard listeners:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Keyboard input detection</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="o">[];</span>
+<span class="n">stage</span><span class="o">.</span><span class="na">addEventListener</span><span class="o">(</span><span class="nc">KeyboardEvent</span><span class="o">.</span><span class="na">KEY_DOWN</span><span class="o">,</span> <span class="n">onKeyDown</span><span class="o">);</span>
+<span class="n">stage</span><span class="o">.</span><span class="na">addEventListener</span><span class="o">(</span><span class="nc">KeyboardEvent</span><span class="o">.</span><span class="na">KEY_UP</span><span class="o">,</span> <span class="n">onKeyUp</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>You can see that I also declared a “keys” array. It’s a set of booleans, where each element represents a key. The handlers of the listeners access each element using the KeyboardEvent.keyCode property and set the value accordingly—true when pressed, false when released.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="n">function</span> <span class="nf">onKeyDown</span><span class="o">(</span><span class="nl">evt:</span><span class="nc">KeyboardEvent</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+	<span class="n">keys</span><span class="o">[</span><span class="n">evt</span><span class="o">.</span><span class="na">keyCode</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="n">function</span> <span class="nf">onKeyUp</span><span class="o">(</span><span class="nl">evt:</span><span class="nc">KeyboardEvent</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+	<span class="n">keys</span><span class="o">[</span><span class="n">evt</span><span class="o">.</span><span class="na">keyCode</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This way we can easily detect whenever a key is being held just using this array and a keyCode value. This approach in detail and more information about keyboard input detection is explained in my <a href="http://www.haxecoder.com/post.php?id=19" target="_blank">Keyboard events in Haxe using OpenFL tutorial</a>.</p>
+
+<p>In the very end of the init() function, we can add the instructions text field, as well as the FPS and memory display:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Text</span>
+<span class="kt">var</span> <span class="nl">instructions:</span><span class="nc">TextField</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TextField</span><span class="o">();</span>
+<span class="n">instructions</span><span class="o">.</span><span class="na">selectable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">instructions</span><span class="o">.</span><span class="na">text</span> <span class="o">=</span> <span class="s">"SPACE to jump, ARROW KEYS to move"</span><span class="o">;</span>
+<span class="n">instructions</span><span class="o">.</span><span class="na">textColor</span> <span class="o">=</span> <span class="mh">0xffffff</span><span class="o">;</span>
+<span class="n">instructions</span><span class="o">.</span><span class="na">defaultTextFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TextFormat</span><span class="o">(</span><span class="s">"_sans"</span><span class="o">,</span> <span class="mi">12</span><span class="o">);</span>
+<span class="n">instructions</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">15</span><span class="o">;</span>
+<span class="n">instructions</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">370</span><span class="o">;</span>
+<span class="n">instructions</span><span class="o">.</span><span class="na">width</span> <span class="o">=</span> <span class="mi">300</span><span class="o">;</span>
+<span class="n">addChild</span><span class="o">(</span><span class="n">instructions</span><span class="o">);</span>
+
+<span class="c1">// Debugger tutorial: http://haxecoder.com/post.php?id=24</span>
+<span class="n">addChild</span><span class="o">(</span><span class="k">new</span> <span class="n">FPS_Mem</span><span class="o">(</span><span class="mi">15</span><span class="o">,</span> <span class="mi">15</span><span class="o">,</span> <span class="mh">0xffffff</span><span class="o">));</span>
+</code></pre></div></div>
+
+<h2 id="movement-and-collision">Movement and Collision</h2>
+
+<p>All of this is handled in the ENTER_FRAME event handler.</p>
+
+<p>Here’s the code of it, I’ll explain it in a bit:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="n">function</span> <span class="nf">gameLoop</span><span class="o">(</span><span class="nl">e:</span><span class="nc">Event</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+	<span class="c1">// Gravity</span>
+	<span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">+=</span> <span class="n">acceleration</span><span class="o">;</span>
+	
+	<span class="c1">// Movement</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">isOnGround</span> <span class="o">&amp;&amp;</span> <span class="n">keys</span><span class="o">[</span><span class="mi">32</span><span class="o">])</span> <span class="o">{</span>
+		<span class="n">isOnGround</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">16</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">keys</span><span class="o">[</span><span class="mi">39</span><span class="o">])</span> <span class="o">{</span>
+		<span class="n">velocity</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
+	<span class="o">}</span><span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">keys</span><span class="o">[</span><span class="mi">37</span><span class="o">])</span> <span class="o">{</span>
+		<span class="n">velocity</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">7</span><span class="o">;</span>
+	<span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+		<span class="n">velocity</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="c1">// Player coordinates on the grid</span>
+	<span class="kt">var</span> <span class="nl">tileCoords:</span><span class="nc">Point</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+	<span class="kt">var</span> <span class="nl">approximateCoords:</span><span class="nc">Point</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">();</span>
+	
+	<span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">+=</span> <span class="n">velocity</span><span class="o">.</span><span class="na">y</span><span class="o">;</span>
+	<span class="n">checkBottomCollision</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">,</span> <span class="n">approximateCoords</span><span class="o">);</span>
+	<span class="n">checkTopCollision</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">,</span> <span class="n">approximateCoords</span><span class="o">);</span>
+	
+	<span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">+=</span> <span class="n">velocity</span><span class="o">.</span><span class="na">x</span><span class="o">;</span>
+	<span class="n">checkRightCollision</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">,</span> <span class="n">approximateCoords</span><span class="o">);</span>
+	<span class="n">checkLeftCollision</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">,</span> <span class="n">approximateCoords</span><span class="o">);</span>
+	
+	<span class="c1">// Final vertical velocity check</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">isOnGround</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>You can see that the first thing I do is apply the gravity acceleration to the vertical vector.</p>
+
+<p>After that I have a chain of if statements which manipulate the velocity values. It is worth noting that the player can jump only when the isOnGround value is true. As soon as they jump, the value becomes false.</p>
+
+<p>Right after that we declare 2 Points—tileCoords and approximateCoords. Since this is a tile-based game, the collision detection can be easily and efficiently implemented without any complicated math involved. All we have to do is check whether a certain tile is an obstacle or not.</p>
+
+<p>The idea, in a nutshell, is to check the movement vector of the character, move him there, then check whether he hit any obstacle on his way. If he did—snap him to the wall and don’t let him move further.</p>
+
+<p>The approximateCoords point holds the coordinates of the player on the grid. The values, however, are not rounded on purpose—so even fraction values like 5.5 are possible. We will later round these values both ways—using ceil() and floor() methods. This is done, because the character will more often than not stand 2 tiles as opposed to 1. Therefore, we need to check whether they collide with at least one obstacle, and if they don’t—then let the gravity do its thing and make the character fall.</p>
+
+<p>The tileCoords object is used to store temporary calculated values of the collided tiles. This is done in all the check___Collision methods, which are called next.</p>
+
+<p>These functions are similar, so let’s take a look at just one:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="n">function</span> <span class="nf">checkBottomCollision</span><span class="o">(</span><span class="nl">tileCoords:</span><span class="nc">Point</span><span class="o">,</span> <span class="nl">approximateCoords:</span><span class="nc">Point</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+	<span class="c1">// Bottom collision</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">/</span> <span class="n">tileSize</span><span class="o">;</span>
+		<span class="n">approximateCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">/</span> <span class="n">tileSize</span><span class="o">;</span>
+		<span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
+		
+		<span class="n">tileCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span><span class="o">);</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">isBlock</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">))</span> <span class="o">{</span>
+			<span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">;</span>
+			<span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="n">isOnGround</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="o">}</span>
+		
+		<span class="n">tileCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span><span class="o">);</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">isBlock</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">))</span> <span class="o">{</span>
+			<span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">;</span>
+			<span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="n">isOnGround</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Here we check whether the character collides with the floor. We actually check whether he collides with 2 ground blocks that are below him. This is where we round the potentially collided tile coordinates both ways. If any of the tiles are obstacles, we register a collision and set the vertical velocity (vertical in this case) to 0. We also alter the position of the character to snap him to the nearest floor (floor in this case, wall in horizontal movement). Just for bottom collision, we also set the isOnGround value to true if a collision was detected.</p>
+
+<p>The isBlock() function checks whether a tile is a block using the map array:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="n">function</span> <span class="nf">isBlock</span><span class="o">(</span><span class="nl">coords:</span><span class="nc">Point</span><span class="o">):</span><span class="nc">Bool</span> <span class="o">{</span>
+	<span class="k">return</span> <span class="n">map</span><span class="o">[</span><span class="nc">Math</span><span class="o">.</span><span class="na">round</span><span class="o">(</span><span class="n">coords</span><span class="o">.</span><span class="na">y</span><span class="o">)][</span><span class="nc">Math</span><span class="o">.</span><span class="na">round</span><span class="o">(</span><span class="n">coords</span><span class="o">.</span><span class="na">x</span><span class="o">)]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>All the remaining collision functions act similarly to checkBottomCollision(). It may look complicated at first, but it’s really just a sequence of accessing tile coordinates that our character is hitting or is going to hit, and checking whether that’s an obstacle or not.</p>
+
+<p>Finally, here’s the full code. The whole game fit into just one class.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">com</span><span class="o">.</span><span class="na">kircode</span><span class="o">.</span><span class="na">debug</span><span class="o">.</span><span class="na">FPS_Mem</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">flash.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">flash.events.Event</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">flash.Lib</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.events.KeyboardEvent</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.geom.Point</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.geom.Rectangle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.text.TextField</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.text.TextFormat</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Main game class.
+ * @author Kirill Poletaev, www.haxecoder.com
+ */</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> 
+<span class="o">{</span>
+	<span class="kd">private</span> <span class="kt">var</span> <span class="nl">inited:</span><span class="nc">Bool</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">var</span> <span class="nl">map:</span><span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Int</span><span class="o">&gt;&gt;;</span>
+	<span class="kd">private</span> <span class="kt">var</span> <span class="nl">world:</span><span class="nc">Sprite</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">var</span> <span class="nl">tileSize:</span><span class="nc">Int</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">var</span> <span class="nl">player:</span><span class="nc">Sprite</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">var</span> <span class="nl">acceleration:</span><span class="nc">Float</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">var</span> <span class="nl">velocity:</span><span class="nc">Point</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">var</span> <span class="nl">keys:</span><span class="nc">Array</span><span class="o">&lt;</span><span class="nc">Bool</span><span class="o">&gt;;</span>
+	<span class="kd">private</span> <span class="kt">var</span> <span class="nl">isOnGround:</span><span class="nc">Bool</span><span class="o">;</span>
+	
+	<span class="n">function</span> <span class="nf">resize</span><span class="o">(</span><span class="n">e</span><span class="o">)</span> 
+	<span class="o">{</span>
+		<span class="k">if</span> <span class="o">(!</span><span class="n">inited</span><span class="o">)</span> <span class="n">init</span><span class="o">();</span>
+	<span class="o">}</span>
+	
+	<span class="n">function</span> <span class="nf">init</span><span class="o">()</span> 
+	<span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">inited</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
+		<span class="n">inited</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+		
+		<span class="c1">// Parameters init</span>
+		<span class="n">tileSize</span> <span class="o">=</span> <span class="mi">40</span><span class="o">;</span>
+		<span class="n">acceleration</span> <span class="o">=</span> <span class="mf">0.9</span><span class="o">;</span>
+		
+		<span class="c1">// Map init</span>
+		<span class="n">map</span> <span class="o">=</span> <span class="o">[</span>
+		<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+		<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+		<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+		<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+		<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+		<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+		<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+		<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+		<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">],</span>
+		<span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">]</span>
+		<span class="o">];</span>
+		
+		<span class="c1">// World init</span>
+		<span class="n">world</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Sprite</span><span class="o">();</span>
+		<span class="n">world</span><span class="o">.</span><span class="na">graphics</span><span class="o">.</span><span class="na">beginFill</span><span class="o">(</span><span class="mh">0x3498db</span><span class="o">);</span>
+		<span class="k">for</span> <span class="o">(</span><span class="n">row</span> <span class="n">in</span> <span class="mi">0</span><span class="o">...</span><span class="na">map</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">for</span> <span class="o">(</span><span class="n">cell</span> <span class="n">in</span> <span class="mi">0</span><span class="o">...</span><span class="na">map</span><span class="o">[</span><span class="n">row</span><span class="o">].</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">map</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">cell</span><span class="o">]==</span><span class="mi">1</span><span class="o">){</span>
+					<span class="n">world</span><span class="o">.</span><span class="na">graphics</span><span class="o">.</span><span class="na">drawRect</span><span class="o">(</span><span class="n">cell</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">,</span> <span class="n">row</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">,</span> <span class="n">tileSize</span><span class="o">,</span> <span class="n">tileSize</span><span class="o">);</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="n">addChild</span><span class="o">(</span><span class="n">world</span><span class="o">);</span>
+		
+		<span class="c1">// Player init</span>
+		<span class="n">player</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Sprite</span><span class="o">();</span>
+		<span class="n">player</span><span class="o">.</span><span class="na">graphics</span><span class="o">.</span><span class="na">beginFill</span><span class="o">(</span><span class="mh">0xe67e22</span><span class="o">);</span>
+		<span class="n">player</span><span class="o">.</span><span class="na">graphics</span><span class="o">.</span><span class="na">drawRect</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">tileSize</span><span class="o">,</span> <span class="n">tileSize</span><span class="o">);</span>
+		<span class="n">addChild</span><span class="o">(</span><span class="n">player</span><span class="o">);</span>
+		<span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">-</span> <span class="n">tileSize</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+		<span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">200</span> <span class="o">-</span> <span class="n">tileSize</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+		<span class="n">velocity</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+		<span class="n">isOnGround</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+		
+		<span class="c1">// Game loop</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">addEventListener</span><span class="o">(</span><span class="nc">Event</span><span class="o">.</span><span class="na">ENTER_FRAME</span><span class="o">,</span> <span class="n">gameLoop</span><span class="o">);</span>
+		
+		<span class="c1">// Keyboard input detection</span>
+		<span class="n">keys</span> <span class="o">=</span> <span class="o">[];</span>
+		<span class="n">stage</span><span class="o">.</span><span class="na">addEventListener</span><span class="o">(</span><span class="nc">KeyboardEvent</span><span class="o">.</span><span class="na">KEY_DOWN</span><span class="o">,</span> <span class="n">onKeyDown</span><span class="o">);</span>
+		<span class="n">stage</span><span class="o">.</span><span class="na">addEventListener</span><span class="o">(</span><span class="nc">KeyboardEvent</span><span class="o">.</span><span class="na">KEY_UP</span><span class="o">,</span> <span class="n">onKeyUp</span><span class="o">);</span>
+		
+		<span class="c1">// Text</span>
+		<span class="kt">var</span> <span class="nl">instructions:</span><span class="nc">TextField</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TextField</span><span class="o">();</span>
+		<span class="n">instructions</span><span class="o">.</span><span class="na">selectable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="n">instructions</span><span class="o">.</span><span class="na">text</span> <span class="o">=</span> <span class="s">"SPACE to jump, ARROW KEYS to move"</span><span class="o">;</span>
+		<span class="n">instructions</span><span class="o">.</span><span class="na">textColor</span> <span class="o">=</span> <span class="mh">0xffffff</span><span class="o">;</span>
+		<span class="n">instructions</span><span class="o">.</span><span class="na">defaultTextFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TextFormat</span><span class="o">(</span><span class="s">"_sans"</span><span class="o">,</span> <span class="mi">12</span><span class="o">);</span>
+		<span class="n">instructions</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">15</span><span class="o">;</span>
+		<span class="n">instructions</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">370</span><span class="o">;</span>
+		<span class="n">instructions</span><span class="o">.</span><span class="na">width</span> <span class="o">=</span> <span class="mi">300</span><span class="o">;</span>
+		<span class="n">addChild</span><span class="o">(</span><span class="n">instructions</span><span class="o">);</span>
+		
+		<span class="c1">// Debugger tutorial: http://haxecoder.com/post.php?id=24</span>
+		<span class="n">addChild</span><span class="o">(</span><span class="k">new</span> <span class="n">FPS_Mem</span><span class="o">(</span><span class="mi">15</span><span class="o">,</span> <span class="mi">15</span><span class="o">,</span> <span class="mh">0xffffff</span><span class="o">));</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="n">function</span> <span class="nf">gameLoop</span><span class="o">(</span><span class="nl">e:</span><span class="nc">Event</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+		<span class="c1">// Gravity</span>
+		<span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">+=</span> <span class="n">acceleration</span><span class="o">;</span>
+		
+		<span class="c1">// Movement</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">isOnGround</span> <span class="o">&amp;&amp;</span> <span class="n">keys</span><span class="o">[</span><span class="mi">32</span><span class="o">])</span> <span class="o">{</span>
+			<span class="n">isOnGround</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+			<span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">16</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">keys</span><span class="o">[</span><span class="mi">39</span><span class="o">])</span> <span class="o">{</span>
+			<span class="n">velocity</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
+		<span class="o">}</span><span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">keys</span><span class="o">[</span><span class="mi">37</span><span class="o">])</span> <span class="o">{</span>
+			<span class="n">velocity</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">7</span><span class="o">;</span>
+		<span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+			<span class="n">velocity</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="c1">// Player coordinates on the grid</span>
+		<span class="kt">var</span> <span class="nl">tileCoords:</span><span class="nc">Point</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+		<span class="kt">var</span> <span class="nl">approximateCoords:</span><span class="nc">Point</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">();</span>
+		
+		<span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">+=</span> <span class="n">velocity</span><span class="o">.</span><span class="na">y</span><span class="o">;</span>
+		<span class="n">checkBottomCollision</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">,</span> <span class="n">approximateCoords</span><span class="o">);</span>
+		<span class="n">checkTopCollision</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">,</span> <span class="n">approximateCoords</span><span class="o">);</span>
+		
+		<span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">+=</span> <span class="n">velocity</span><span class="o">.</span><span class="na">x</span><span class="o">;</span>
+		<span class="n">checkRightCollision</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">,</span> <span class="n">approximateCoords</span><span class="o">);</span>
+		<span class="n">checkLeftCollision</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">,</span> <span class="n">approximateCoords</span><span class="o">);</span>
+		
+		<span class="c1">// Final vertical velocity check</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">isOnGround</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="n">function</span> <span class="nf">checkBottomCollision</span><span class="o">(</span><span class="nl">tileCoords:</span><span class="nc">Point</span><span class="o">,</span> <span class="nl">approximateCoords:</span><span class="nc">Point</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+		<span class="c1">// Bottom collision</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">/</span> <span class="n">tileSize</span><span class="o">;</span>
+			<span class="n">approximateCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">/</span> <span class="n">tileSize</span><span class="o">;</span>
+			<span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
+			
+			<span class="n">tileCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span><span class="o">);</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">isBlock</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">))</span> <span class="o">{</span>
+				<span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">;</span>
+				<span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+				<span class="n">isOnGround</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+			<span class="o">}</span>
+			
+			<span class="n">tileCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span><span class="o">);</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">isBlock</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">))</span> <span class="o">{</span>
+				<span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">;</span>
+				<span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+				<span class="n">isOnGround</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="n">function</span> <span class="nf">checkTopCollision</span><span class="o">(</span><span class="nl">tileCoords:</span><span class="nc">Point</span><span class="o">,</span> <span class="nl">approximateCoords:</span><span class="nc">Point</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+		<span class="c1">// Top collision</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">/</span> <span class="n">tileSize</span><span class="o">;</span>
+			<span class="n">approximateCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">/</span> <span class="n">tileSize</span><span class="o">;</span>
+			
+			<span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
+			
+			<span class="n">tileCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span><span class="o">);</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">isBlock</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">))</span> <span class="o">{</span>
+				<span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">;</span>
+				<span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="o">}</span>
+			
+			<span class="n">tileCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span><span class="o">);</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">isBlock</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">))</span> <span class="o">{</span>
+				<span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">;</span>
+				<span class="n">velocity</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="n">function</span> <span class="nf">checkRightCollision</span><span class="o">(</span><span class="nl">tileCoords:</span><span class="nc">Point</span><span class="o">,</span> <span class="nl">approximateCoords:</span><span class="nc">Point</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+		<span class="c1">// Right collision</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">velocity</span><span class="o">.</span><span class="na">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
+			<span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">/</span> <span class="n">tileSize</span><span class="o">;</span>
+			<span class="n">approximateCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">/</span> <span class="n">tileSize</span><span class="o">;</span>
+			
+			<span class="n">tileCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span><span class="o">);</span>
+			
+			<span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">isBlock</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">))</span> <span class="o">{</span>
+				<span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">tileCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">;</span>
+				<span class="n">velocity</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="o">}</span>
+			
+			<span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">isBlock</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">))</span> <span class="o">{</span>
+				<span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">tileCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">;</span>
+				<span class="n">velocity</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="n">function</span> <span class="nf">checkLeftCollision</span><span class="o">(</span><span class="nl">tileCoords:</span><span class="nc">Point</span><span class="o">,</span> <span class="nl">approximateCoords:</span><span class="nc">Point</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+		<span class="c1">// Left collision</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">velocity</span><span class="o">.</span><span class="na">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="o">){</span>
+			<span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">/</span> <span class="n">tileSize</span><span class="o">;</span>
+			<span class="n">approximateCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="na">y</span> <span class="o">/</span> <span class="n">tileSize</span><span class="o">;</span>
+			
+			<span class="n">tileCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">x</span><span class="o">);</span>
+			
+			<span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">isBlock</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">))</span> <span class="o">{</span>
+				<span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">tileCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">;</span>
+				<span class="n">velocity</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="o">}</span>
+			
+			<span class="n">tileCoords</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">approximateCoords</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">isBlock</span><span class="o">(</span><span class="n">tileCoords</span><span class="o">))</span> <span class="o">{</span>
+				<span class="n">player</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">tileCoords</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">tileSize</span><span class="o">;</span>
+				<span class="n">velocity</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="n">function</span> <span class="nf">isBlock</span><span class="o">(</span><span class="nl">coords:</span><span class="nc">Point</span><span class="o">):</span><span class="nc">Bool</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">map</span><span class="o">[</span><span class="nc">Math</span><span class="o">.</span><span class="na">round</span><span class="o">(</span><span class="n">coords</span><span class="o">.</span><span class="na">y</span><span class="o">)][</span><span class="nc">Math</span><span class="o">.</span><span class="na">round</span><span class="o">(</span><span class="n">coords</span><span class="o">.</span><span class="na">x</span><span class="o">)]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="n">function</span> <span class="nf">onKeyDown</span><span class="o">(</span><span class="nl">evt:</span><span class="nc">KeyboardEvent</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+		<span class="n">keys</span><span class="o">[</span><span class="n">evt</span><span class="o">.</span><span class="na">keyCode</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="n">function</span> <span class="nf">onKeyUp</span><span class="o">(</span><span class="nl">evt:</span><span class="nc">KeyboardEvent</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+		<span class="n">keys</span><span class="o">[</span><span class="n">evt</span><span class="o">.</span><span class="na">keyCode</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span><span class="o">()</span> 
+	<span class="o">{</span>
+		<span class="kd">super</span><span class="o">();</span>	
+		<span class="n">addEventListener</span><span class="o">(</span><span class="nc">Event</span><span class="o">.</span><span class="na">ADDED_TO_STAGE</span><span class="o">,</span> <span class="n">added</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="n">function</span> <span class="nf">added</span><span class="o">(</span><span class="n">e</span><span class="o">)</span> 
+	<span class="o">{</span>
+		<span class="n">removeEventListener</span><span class="o">(</span><span class="nc">Event</span><span class="o">.</span><span class="na">ADDED_TO_STAGE</span><span class="o">,</span> <span class="n">added</span><span class="o">);</span>
+		<span class="n">stage</span><span class="o">.</span><span class="na">addEventListener</span><span class="o">(</span><span class="nc">Event</span><span class="o">.</span><span class="na">RESIZE</span><span class="o">,</span> <span class="n">resize</span><span class="o">);</span>
+		<span class="err">#</span><span class="k">if</span> <span class="n">ios</span>
+		<span class="n">haxe</span><span class="o">.</span><span class="na">Timer</span><span class="o">.</span><span class="na">delay</span><span class="o">(</span><span class="n">init</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span> <span class="c1">// iOS 6</span>
+		<span class="err">#</span><span class="k">else</span>
+		<span class="n">init</span><span class="o">();</span>
+		<span class="err">#</span><span class="n">end</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kd">static</span> <span class="n">function</span> <span class="nf">main</span><span class="o">()</span> 
+	<span class="o">{</span>
+		<span class="nc">Lib</span><span class="o">.</span><span class="na">current</span><span class="o">.</span><span class="na">stage</span><span class="o">.</span><span class="na">align</span> <span class="o">=</span> <span class="n">flash</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">StageAlign</span><span class="o">.</span><span class="na">TOP_LEFT</span><span class="o">;</span>
+		<span class="nc">Lib</span><span class="o">.</span><span class="na">current</span><span class="o">.</span><span class="na">stage</span><span class="o">.</span><span class="na">scaleMode</span> <span class="o">=</span> <span class="n">flash</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">StageScaleMode</span><span class="o">.</span><span class="na">NO_SCALE</span><span class="o">;</span>
+		<span class="nc">Lib</span><span class="o">.</span><span class="na">current</span><span class="o">.</span><span class="na">addChild</span><span class="o">(</span><span class="k">new</span> <span class="nc">Main</span><span class="o">());</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="whats-next">What’s Next?</h2>
+
+<p>If you liked this tutorial, come visit me at <a href="http://haxecoder.com" target="_blank">haxecoder.com</a> for more! I post new tutorials very often.</p>
+
+<p>You can also <a href="https://twitter.com/kircode" target="_blank">follow me on Twitter</a> and <a href="https://plus.google.com/+KirillPoletaev" target="_blank">Google+</a>.</p>
+
+<p>For regular updates and bonus content, remember to subscribe to the free newsletter on haxecoder.</p>
+
+<p>Thanks for reading!</p>
+
+<p>Happy haxing!</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">September 22, 2014 | <a href="/blog/2014/09/22/how-to-make-a-platform-game-in-openfl/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

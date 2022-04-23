@@ -1,0 +1,1124 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>URLLoader | openfl</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">openfl</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../index.html">openfl</a>
+				</li>
+				<li>
+					<a href="../modules/openfl.net.html">net</a>
+				</li>
+				<li>
+					<a href="openfl.net.urlloader.html">URLLoader</a>
+				</li>
+			</ul>
+			<h1>Class URLLoader</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The URLLoader class downloads data from a URL as text, binary data, or
+							URL-encoded variables. It is useful for downloading text files, XML, or
+						other information to be used in a dynamic, data-driven application.</p>
+					</div>
+					<p>A URLLoader object downloads all of the data from a URL before making it
+						available to code in the applications. It sends out notifications about the
+						progress of the download, which you can monitor through the
+						<code>bytesLoaded</code> and <code>bytesTotal</code> properties, as well as
+					through dispatched events.</p>
+					<p>When loading very large video files, such as FLV&#39;s, out-of-memory errors
+					may occur.</p>
+					<p>When you use this class in Flash Player and in AIR application content
+						in security sandboxes other than then application security sandbox,
+					consider the following security model:</p>
+					<ul>
+						<li>A SWF file in the local-with-filesystem sandbox may not load data
+						from, or provide data to, a resource that is in the network sandbox.</li>
+						<li>By default, the calling SWF file and the URL you load must be in
+							exactly the same domain. For example, a SWF file at www.adobe.com can load
+							data only from sources that are also at www.adobe.com. To load data from a
+							different domain, place a URL policy file on the server hosting the
+						data.</li>
+					</ul>
+					<p>For more information related to security, see the Flash Player Developer
+					Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+					<dl class="tsd-comment-tags">
+						<dt>:event</dt>
+						<dd><p>complete           Dispatched after all the received data is decoded
+								and placed in the data property of the URLLoader
+								object. The received data may be accessed once
+							this event has been dispatched.</p>
+						</dd>
+						<dt>:event</dt>
+						<dd><p>httpResponseStatus Dispatched if a call to the load() method
+								attempts to access data over HTTP, and Adobe AIR
+								is able to detect and return the status code for
+							the request.</p>
+						</dd>
+						<dt>:event</dt>
+						<dd><p>httpStatus         Dispatched if a call to URLLoader.load() attempts
+								to access data over HTTP. For content running in
+								Flash Player, this event is only dispatched if
+								the current Flash Player environment is able to
+								detect and return the status code for the
+								request.(Some browser environments may not be
+								able to provide this information.) Note that the
+								<code>httpStatus</code> event(if any) is sent
+								before(and in addition to) any
+								<code>complete</code> or <code>error</code>
+							event.</p>
+						</dd>
+						<dt>:event</dt>
+						<dd><p>ioError            Dispatched if a call to URLLoader.load() results
+							in a fatal error that terminates the download.</p>
+						</dd>
+						<dt>:event</dt>
+						<dd><p>open               Dispatched when the download operation commences
+								following a call to the
+							<code>URLLoader.load()</code> method.</p>
+						</dd>
+						<dt>:event</dt>
+						<dd><p>progress           Dispatched when data is received as the download
+							operation progresses.</p>
+							<pre><code>                      Note <span class="hljs-keyword">that</span> <span class="hljs-keyword">with</span> a URLLoader object, <span class="hljs-keyword">it</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span>
+                      possible <span class="hljs-keyword">to</span> access <span class="hljs-keyword">the</span> data <span class="hljs-keyword">until</span> <span class="hljs-keyword">it</span> has been
+                      received completely. So, <span class="hljs-keyword">the</span> progress event only
+                      serves <span class="hljs-keyword">as</span> a notification <span class="hljs-keyword">of</span> how far <span class="hljs-keyword">the</span> download
+                      has progressed. To access <span class="hljs-keyword">the</span> data <span class="hljs-keyword">before</span> <span class="hljs-keyword">it</span>'s
+                      entirely downloaded, use a URLStream object.
+</code></pre></dd>
+						<dt>:event</dt>
+						<dd><p>securityError      Dispatched if a call to URLLoader.load() attempts
+								to load data from a server outside the security
+								sandbox. Also dispatched if a call to
+								<code>URLLoader.load()</code> attempts to load a
+								SWZ file and the certificate is invalid or the
+							digest string does not match the component.</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<a href="openfl.events.eventdispatcher.html" class="tsd-signature-type">EventDispatcher</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">URLLoader</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="openfl.events.ieventdispatcher.html" class="tsd-signature-type">IEventDispatcher</a></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external"><a href="openfl.net.urlloader.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlloader.html#bytesloaded" class="tsd-kind-icon">bytes<wbr>Loaded</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlloader.html#bytestotal" class="tsd-kind-icon">bytes<wbr>Total</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlloader.html#data" class="tsd-kind-icon">data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlloader.html#dataformat" class="tsd-kind-icon">data<wbr>Format</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.net.urlloader.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlloader.html#close" class="tsd-kind-icon">close</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.net.urlloader.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.net.urlloader.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlloader.html#load" class="tsd-kind-icon">load</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.net.urlloader.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.net.urlloader.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="openfl.net.urlloader.html#willtrigger" class="tsd-kind-icon">will<wbr>Trigger</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">new URLLoader<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">?: </span><a href="openfl.net.urlrequest.html" class="tsd-signature-type">URLRequest</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.net.urlloader.html" class="tsd-signature-type">URLLoader</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#constructor">constructor</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLLoader.d.ts#L136">lib/openfl/net/URLLoader.d.ts:136</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a URLLoader object.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> request: <a href="openfl.net.urlrequest.html" class="tsd-signature-type">URLRequest</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A URLRequest object specifying the URL to download. If this
+												parameter is omitted, no load operation begins. If
+												specified, the load operation begins immediately(see the
+											<code>load</code> entry for more information).</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.net.urlloader.html" class="tsd-signature-type">URLLoader</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="bytesloaded" class="tsd-anchor"></a>
+					<h3>bytes<wbr>Loaded</h3>
+					<div class="tsd-signature tsd-kind-icon">bytes<wbr>Loaded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLLoader.d.ts#L87">lib/openfl/net/URLLoader.d.ts:87</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the number of bytes that have been loaded thus far during the
+							load operation.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="bytestotal" class="tsd-anchor"></a>
+					<h3>bytes<wbr>Total</h3>
+					<div class="tsd-signature tsd-kind-icon">bytes<wbr>Total<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLLoader.d.ts#L95">lib/openfl/net/URLLoader.d.ts:95</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the total number of bytes in the downloaded data. This property
+								contains 0 while the load operation is in progress and is populated when
+								the operation is complete. Also, a missing Content-Length header will
+							result in bytesTotal being indeterminate.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="data" class="tsd-anchor"></a>
+					<h3>data</h3>
+					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLLoader.d.ts#L114">lib/openfl/net/URLLoader.d.ts:114</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The data received from the load operation. This property is populated only
+								when the load operation is complete. The format of the data depends on the
+							setting of the <code>dataFormat</code> property:</p>
+						</div>
+						<p>If the <code>dataFormat</code> property is
+							<code>URLLoaderDataFormat.TEXT</code>, the received data is a string
+						containing the text of the loaded file.</p>
+						<p>If the <code>dataFormat</code> property is
+							<code>URLLoaderDataFormat.BINARY</code>, the received data is a ByteArray
+						object containing the raw binary data.</p>
+						<p>If the <code>dataFormat</code> property is
+							<code>URLLoaderDataFormat.VARIABLES</code>, the received data is a
+						URLVariables object containing the URL-encoded variables.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="dataformat" class="tsd-anchor"></a>
+					<h3>data<wbr>Format</h3>
+					<div class="tsd-signature tsd-kind-icon">data<wbr>Format<span class="tsd-signature-symbol">:</span> <a href="../enums/openfl.net.urlloaderdataformat.html" class="tsd-signature-type">URLLoaderDataFormat</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLLoader.d.ts#L136">lib/openfl/net/URLLoader.d.ts:136</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Controls whether the downloaded data is received as text
+								(<code>URLLoaderDataFormat.TEXT</code>), raw binary data
+								(<code>URLLoaderDataFormat.BINARY</code>), or URL-encoded variables
+							(<code>URLLoaderDataFormat.VARIABLES</code>).</p>
+						</div>
+						<p>If the value of the <code>dataFormat</code> property is
+							<code>URLLoaderDataFormat.TEXT</code>, the received data is a string
+						containing the text of the loaded file.</p>
+						<p>If the value of the <code>dataFormat</code> property is
+							<code>URLLoaderDataFormat.BINARY</code>, the received data is a ByteArray
+						object containing the raw binary data.</p>
+						<p>If the value of the <code>dataFormat</code> property is
+							<code>URLLoaderDataFormat.VARIABLES</code>, the received data is a
+						URLVariables object containing the URL-encoded variables.</p>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>URLLoaderDataFormat.TEXT</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="addeventlistener" class="tsd-anchor"></a>
+					<h3>add<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, useCapture<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, priority<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, useWeakReference<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#addeventlistener">addEventListener</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/events/EventDispatcher.d.ts#L168">lib/openfl/events/EventDispatcher.d.ts:168</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Registers an event listener object with an EventDispatcher object so that
+										the listener receives notification of an event. You can register event
+										listeners on all nodes in the display list for a specific type of event,
+									phase, and priority.</p>
+								</div>
+								<p>After you successfully register an event listener, you cannot change
+									its priority through additional calls to <code>addEventListener()</code>.
+									To change a listener&#39;s priority, you must first call
+									<code>removeListener()</code>. Then you can register the listener again
+								with the new priority level.</p>
+								<p>Keep in mind that after the listener is registered, subsequent calls to
+									<code>addEventListener()</code> with a different <code>type</code> or
+									<code>useCapture</code> value result in the creation of a separate
+									listener registration. For example, if you first register a listener with
+									<code>useCapture</code> set to <code>true</code>, it listens only during
+									the capture phase. If you call <code>addEventListener()</code> again using
+									the same listener object, but with <code>useCapture</code> set to
+									<code>false</code>, you have two separate listeners: one that listens
+									during the capture phase and another that listens during the target and
+								bubbling phases.</p>
+								<p>You cannot register an event listener for only the target phase or the
+									bubbling phase. Those phases are coupled during registration because
+								bubbling applies only to the ancestors of the target node.</p>
+								<p>If you no longer need an event listener, remove it by calling
+									<code>removeEventListener()</code>, or memory problems could result. Event
+									listeners are not automatically removed from memory because the garbage
+									collector does not remove the listener as long as the dispatching object
+									exists(unless the <code>useWeakReference</code> parameter is set to
+								<code>true</code>).</p>
+								<p>Copying an EventDispatcher instance does not copy the event listeners
+									attached to it.(If your newly created node needs an event listener, you
+									must attach the listener after creating the node.) However, if you move an
+									EventDispatcher instance, the event listeners attached to it move along
+								with it.</p>
+								<p>If the event listener is being registered on a node while an event is
+									being processed on this node, the event listener is not triggered during
+									the current phase but can be triggered during a later phase in the event
+								flow, such as the bubbling phase.</p>
+								<p>If an event listener is removed from a node while an event is being
+									processed on the node, it is still triggered by the current actions. After
+									it is removed, the event listener is never invoked again(unless
+								registered again for future processing).</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>ArgumentError The <code>listener</code> specified is not a
+										function.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The type of event.</p>
+									</div>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>event: <span class="tsd-signature-type">object</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useCapture: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Determines whether the listener works in the
+											capture phase or the target and bubbling phases.
+											If <code>useCapture</code> is set to
+											<code>true</code>, the listener processes the
+											event only during the capture phase and not in the
+											target or bubbling phase. If
+											<code>useCapture</code> is <code>false</code>, the
+											listener processes the event only during the
+											target or bubbling phase. To listen for the event
+											in all three phases, call
+											<code>addEventListener</code> twice, once with
+											<code>useCapture</code> set to <code>true</code>,
+											then again with <code>useCapture</code> set to
+										<code>false</code>.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> priority: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The priority level of the event listener. The
+											priority is designated by a signed 32-bit integer.
+											The higher the number, the higher the priority.
+											All listeners with priority <em>n</em> are processed
+											before listeners of priority <em>n</em>-1. If two or
+											more listeners share the same priority, they are
+											processed in the order in which they were added.
+										The default priority is 0.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useWeakReference: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Determines whether the reference to the listener
+											is strong or weak. A strong reference(the
+											default) prevents your listener from being
+										garbage-collected. A weak reference does not.</p>
+										<pre><code>                    Class-level member functions are not subject to
+                    garbage collection, so you can <span class="hljs-keyword">set</span>
+                    <span class="hljs-string">`useWeakReference`</span> <span class="hljs-keyword">to</span> <span class="hljs-string">`true`</span>
+                    <span class="hljs-keyword">for</span> <span class="hljs-keyword">class</span>-<span class="hljs-keyword">level</span> <span class="hljs-keyword">member</span> functions <span class="hljs-keyword">without</span>
+                    subjecting them <span class="hljs-keyword">to</span> garbage collection. <span class="hljs-keyword">If</span> you <span class="hljs-keyword">set</span>
+                    <span class="hljs-string">`useWeakReference`</span> <span class="hljs-keyword">to</span> <span class="hljs-string">`true`</span>
+                    <span class="hljs-keyword">for</span> a listener that <span class="hljs-keyword">is</span> a <span class="hljs-keyword">nested</span> <span class="hljs-keyword">inner</span> <span class="hljs-keyword">function</span>,
+                    the <span class="hljs-keyword">function</span> will be garbage-collected <span class="hljs-keyword">and</span> <span class="hljs-keyword">no</span>
+                    longer persistent. <span class="hljs-keyword">If</span> you <span class="hljs-keyword">create</span> <span class="hljs-keyword">references</span> <span class="hljs-keyword">to</span> the
+                    <span class="hljs-keyword">inner</span> <span class="hljs-keyword">function</span>(<span class="hljs-keyword">save</span> it <span class="hljs-keyword">in</span> another <span class="hljs-keyword">variable</span>) <span class="hljs-keyword">then</span>
+                    it <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> garbage-collected <span class="hljs-keyword">and</span> stays
+                    persistent.
+</code></pre>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="close" class="tsd-anchor"></a>
+					<h3>close</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">close<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLLoader.d.ts#L156">lib/openfl/net/URLLoader.d.ts:156</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Closes the load operation in progress. Any load operation in progress is
+										immediately terminated. If no URL is currently being streamed, an invalid
+									stream error is thrown.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="dispatchevent" class="tsd-anchor"></a>
+					<h3>dispatch<wbr>Event</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">dispatch<wbr>Event<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="openfl.events.event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#dispatchevent">dispatchEvent</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/events/EventDispatcher.d.ts#L186">lib/openfl/events/EventDispatcher.d.ts:186</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Dispatches an event into the event flow. The event target is the
+										EventDispatcher object upon which the <code>dispatchEvent()</code> method
+									is called.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>Error The event dispatch recursion limit has been reached.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <a href="openfl.events.event.html" class="tsd-signature-type">Event</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The Event object that is dispatched into the event flow. If
+											the event is being redispatched, a clone of the event is
+											created automatically. After an event is dispatched, its
+											<code>target</code> property cannot be changed, so you must
+										create a new copy of the event for redispatching to work.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>A value of <code>true</code> if the event was successfully
+								dispatched. A value of <code>false</code> indicates failure or
+							that <code>preventDefault()</code> was called on the event.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="haseventlistener" class="tsd-anchor"></a>
+					<h3>has<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#haseventlistener">hasEventListener</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/events/EventDispatcher.d.ts#L209">lib/openfl/events/EventDispatcher.d.ts:209</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks whether the EventDispatcher object has any listeners registered for
+										a specific type of event. This allows you to determine where an
+										EventDispatcher object has altered handling of an event type in the event
+										flow hierarchy. To determine whether a specific event type actually
+									triggers an event listener, use <code>willTrigger()</code>.</p>
+								</div>
+								<p>The difference between <code>hasEventListener()</code> and
+									<code>willTrigger()</code> is that <code>hasEventListener()</code>
+									examines only the object to which it belongs, whereas
+									<code>willTrigger()</code> examines the entire event flow for the event
+								specified by the <code>type</code> parameter.</p>
+								<p>When <code>hasEventListener()</code> is called from a LoaderInfo
+								object, only the listeners that the caller can access are considered.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The type of event.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>A value of <code>true</code> if a listener of the specified type
+							is registered; <code>false</code> otherwise.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="load" class="tsd-anchor"></a>
+					<h3>load</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">load<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="openfl.net.urlrequest.html" class="tsd-signature-type">URLRequest</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLLoader.d.ts#L258">lib/openfl/net/URLLoader.d.ts:258</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends and loads data from the specified URL. The data can be received as
+										text, raw binary data, or URL-encoded variables, depending on the value
+										you set for the <code>dataFormat</code> property. Note that the default
+										value of the <code>dataFormat</code> property is text. If you want to send
+										data to the specified URL, you can set the <code>data</code> property in
+									the URLRequest object.</p>
+								</div>
+								<p><strong>Note:</strong> If a file being loaded contains non-ASCII characters(as
+									found in many non-English languages), it is recommended that you save the
+									file with UTF-8 or UTF-16 encoding as opposed to a non-Unicode format like
+								ASCII.</p>
+								<p> A SWF file in the local-with-filesystem sandbox may not load data
+								from, or provide data to, a resource that is in the network sandbox.</p>
+								<p> By default, the calling SWF file and the URL you load must be in
+									exactly the same domain. For example, a SWF file at www.adobe.com can load
+									data only from sources that are also at www.adobe.com. To load data from a
+									different domain, place a URL policy file on the server hosting the
+								data.</p>
+								<p>You cannot connect to commonly reserved ports. For a complete list of
+									blocked ports, see &quot;Restricting Networking APIs&quot; in the <em>ActionScript
+								3.0 Developer&#39;s Guide</em>.</p>
+								<p> In Flash Player 10 and later, if you use a multipart Content-Type(for
+									example &quot;multipart/form-data&quot;) that contains an upload(indicated by a
+									&quot;filename&quot; parameter in a &quot;content-disposition&quot; header within the POST
+									body), the POST operation is subject to the security rules applied to
+								uploads:</p>
+								<ul>
+									<li>The POST operation must be performed in response to a user-initiated
+									action, such as a mouse click or key press.</li>
+									<li>If the POST operation is cross-domain(the POST target is not on the
+										same server as the SWF file that is sending the POST request), the target
+										server must provide a URL policy file that permits cross-domain
+									access.</li>
+								</ul>
+								<p>Also, for any multipart Content-Type, the syntax must be valid
+									(according to the RFC2046 standards). If the syntax appears to be invalid,
+									the POST operation is subject to the security rules applied to
+								uploads.</p>
+								<p>For more information related to security, see the Flash Player
+								Developer Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>ArgumentError <code>URLRequest.requestHeader</code> objects may
+											not contain certain prohibited HTTP request headers.
+											For more information, see the URLRequestHeader class
+										description.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>MemoryError   This error can occur for the following reasons: 1)
+											Flash Player or AIR cannot convert the
+											<code>URLRequest.data</code> parameter from UTF8 to
+											MBCS. This error is applicable if the URLRequest
+											object passed to <code>load()</code> is set to
+											perform a <code>GET</code> operation and if
+											<code>System.useCodePage</code> is set to
+											<code>true</code>. 2) Flash Player or AIR cannot
+											allocate memory for the <code>POST</code> data. This
+											error is applicable if the URLRequest object passed
+											to <code>load</code> is set to perform a
+										<code>POST</code> operation.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>SecurityError Local untrusted files may not communicate with the
+											Internet. This may be worked around by reclassifying
+										this file as local-with-networking or trusted.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>SecurityError You are trying to connect to a commonly reserved
+											port. For a complete list of blocked ports, see
+											&quot;Restricting Networking APIs&quot; in the <em>ActionScript
+										3.0 Developer&#39;s Guide</em>.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>TypeError     The value of the request parameter or the
+											<code>URLRequest.url</code> property of the
+										URLRequest object passed are <code>null</code>.</p>
+									</dd>
+									<dt>:event</dt>
+									<dd><p>complete           Dispatched after data has loaded successfully.</p>
+									</dd>
+									<dt>:event</dt>
+									<dd><p>httpResponseStatus Dispatched if a call to the <code>load()</code>
+											method attempts to access data over HTTP and
+											Adobe AIR is able to detect and return the
+										status code for the request.</p>
+									</dd>
+									<dt>:event</dt>
+									<dd><p>httpStatus         If access is over HTTP, and the current Flash
+											Player environment supports obtaining status
+											codes, you may receive these events in addition
+											to any <code>complete</code> or
+										<code>error</code> event.</p>
+									</dd>
+									<dt>:event</dt>
+									<dd><p>ioError            The load operation could not be completed.</p>
+									</dd>
+									<dt>:event</dt>
+									<dd><p>open               Dispatched when a load operation commences.</p>
+									</dd>
+									<dt>:event</dt>
+									<dd><p>progress           Dispatched when data is received as the download
+										operation progresses.</p>
+									</dd>
+									<dt>:event</dt>
+									<dd><p>securityError      A load operation attempted to retrieve data from
+											a server outside the caller&#39;s security sandbox.
+											This may be worked around using a policy file on
+										the server.</p>
+									</dd>
+									<dt>:event</dt>
+									<dd><p>securityError      A load operation attempted to load a SWZ file(a
+											Adobe platform component), but the certificate
+											is invalid or the digest does not match the
+										component.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>request: <a href="openfl.net.urlrequest.html" class="tsd-signature-type">URLRequest</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A URLRequest object specifying the URL to download.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="removeeventlistener" class="tsd-anchor"></a>
+					<h3>remove<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, useCapture<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#removeeventlistener">removeEventListener</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/events/EventDispatcher.d.ts#L227">lib/openfl/events/EventDispatcher.d.ts:227</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a listener from the EventDispatcher object. If there is no
+										matching listener registered with the EventDispatcher object, a call to
+									this method has no effect.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The type of event.</p>
+									</div>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>event: <span class="tsd-signature-type">object</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useCapture: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Specifies whether the listener was registered for the
+											capture phase or the target and bubbling phases. If the
+											listener was registered for both the capture phase and
+											the target and bubbling phases, two calls to
+											<code>removeEventListener()</code> are required to
+											remove both, one call with <code>useCapture()</code> set
+											to <code>true</code>, and another call with
+										<code>useCapture()</code> set to <code>false</code>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="tostring" class="tsd-anchor"></a>
+					<h3>to<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#tostring">toString</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/events/EventDispatcher.d.ts#L230">lib/openfl/events/EventDispatcher.d.ts:230</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="willtrigger" class="tsd-anchor"></a>
+					<h3>will<wbr>Trigger</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">will<wbr>Trigger<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="openfl.events.eventdispatcher.html">EventDispatcher</a>.<a href="openfl.events.eventdispatcher.html#willtrigger">willTrigger</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/events/EventDispatcher.d.ts#L253">lib/openfl/events/EventDispatcher.d.ts:253</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks whether an event listener is registered with this EventDispatcher
+										object or any of its ancestors for the specified event type. This method
+										returns <code>true</code> if an event listener is triggered during any
+										phase of the event flow when an event of the specified type is dispatched
+									to this EventDispatcher object or any of its descendants.</p>
+								</div>
+								<p>The difference between the <code>hasEventListener()</code> and the
+									<code>willTrigger()</code> methods is that <code>hasEventListener()</code>
+									examines only the object to which it belongs, whereas the
+									<code>willTrigger()</code> method examines the entire event flow for the
+								event specified by the <code>type</code> parameter.</p>
+								<p>When <code>willTrigger()</code> is called from a LoaderInfo object,
+								only the listeners that the caller can access are considered.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The type of event.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>A value of <code>true</code> if a listener of the specified type
+							will be triggered; <code>false</code> otherwise.</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.desktop.html">openfl.desktop</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.display.html">openfl.display</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.display3d.html">openfl.display3D</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.errors.html">openfl.errors</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.events.html">openfl.events</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.external.html">openfl.external</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.filters.html">openfl.filters</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.geom.html">openfl.geom</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.media.html">openfl.media</a>
+					</li>
+					<li class="current tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.net.html">openfl.net</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.profiler.html">openfl.profiler</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.sensors.html">openfl.sensors</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.system.html">openfl.system</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.text.html">openfl.text</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.ui.html">openfl.ui</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.utils.html">openfl.utils</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.net.sharedobjectflushstatus.html" class="tsd-kind-icon">Shared<wbr>Object<wbr>Flush<wbr>Status</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.net.urlloaderdataformat.html" class="tsd-kind-icon">URLLoader<wbr>Data<wbr>Format</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.net.urlrequestmethod.html" class="tsd-kind-icon">URLRequest<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.filefilter.html" class="tsd-kind-icon">File<wbr>Filter</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.filereference.html" class="tsd-kind-icon">File<wbr>Reference</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.filereferencelist.html" class="tsd-kind-icon">File<wbr>Reference<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.netconnection.html" class="tsd-kind-icon">Net<wbr>Connection</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.netstream.html" class="tsd-kind-icon">Net<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.sharedobject.html" class="tsd-kind-icon">Shared<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.socket.html" class="tsd-kind-icon">Socket</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.urlloader.html" class="tsd-kind-icon">URLLoader</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+								<a href="openfl.net.urlloader.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlloader.html#bytesloaded" class="tsd-kind-icon">bytes<wbr>Loaded</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlloader.html#bytestotal" class="tsd-kind-icon">bytes<wbr>Total</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlloader.html#data" class="tsd-kind-icon">data</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlloader.html#dataformat" class="tsd-kind-icon">data<wbr>Format</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.net.urlloader.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlloader.html#close" class="tsd-kind-icon">close</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.net.urlloader.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.net.urlloader.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlloader.html#load" class="tsd-kind-icon">load</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.net.urlloader.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.net.urlloader.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="openfl.net.urlloader.html#willtrigger" class="tsd-kind-icon">will<wbr>Trigger</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.urlrequest.html" class="tsd-kind-icon">URLRequest</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.urlrequestdefaults.html" class="tsd-kind-icon">URLRequest<wbr>Defaults</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.urlrequestheader.html" class="tsd-kind-icon">URLRequest<wbr>Header</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.urlstream.html" class="tsd-kind-icon">URLStream</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.urlvariables.html" class="tsd-kind-icon">URLVariables</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.xmlsocket.html" class="tsd-kind-icon">XMLSocket</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.net.html#navigatetourl" class="tsd-kind-icon">navigate<wbr>ToURL</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.net.html#sendtourl" class="tsd-kind-icon">send<wbr>ToURL</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

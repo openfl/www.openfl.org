@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Introducing the HXP Project</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>Introducing the HXP Project</h1></div>
+<!-- <p class="meta">28 Sep 2018</p> -->
+
+<div class="post">
+<p>A long time ago, Haxe enabled support for targeting multiple target languages (such as JavaScript and C++) while a cross-platform framework enabled support for multiple target platforms (such as Windows and Linux).</p>
+
+<p>The more that we could develop one project for multiple platforms, the more that we needed a tool to manage assets, template files, and all the unique scaffolding required to go cross-platform.</p>
+
+<p>These tools grew over time and found their way into Lime. These are the backbone to many OpenFL and Lime projects, making it simple to deploy to web, desktop, mobile and other platforms from one codebase.</p>
+
+<p>Our goal from the very beginning was to try and share our tools. Based on discussions from leading developers at Haxe Summit, we heard from many that there was a desire for many of the features including in the Lime tools, made available more broadly to other frameworks in the Haxe community. One feature specifically that piqued interest specifically was the “*.hxp” file format – a file written in Haxe, executed on the fly for building Haxe based projects.</p>
+
+<p>Today, we would like to share the initial release of a tool called HXP.</p>
+
+<h2 id="what-is-hxp">What is HXP?</h2>
+
+<p>HXP is a library with Haxe 3 and Haxe 4 for turning Haxe source code into script files. You can use HXP as a replacement for Haxe HXML, or for complicated bash and batch file scripts.</p>
+
+<p>We are releasing HXP first using an initial departure from the Lime tools, but hope to gather feedback and work toward a version 2.x API that may continue to build on the promise of the HXP project.</p>
+
+<p>In addition to providing the ability to execute Haxe code on the fly, HXP includes a standard API for making files, creating directories, executing commands, parsing command-line arguments, log output and other features common to command-line scripting. We are also hoping to move as much of the platform-specific utilities (for Xcode, Gradle, Flash, AIR, etc) written in Lime tools and move them to HXP to make them widely available.</p>
+
+<p>HXP is also compatible with being pre-compiled into Neko or other binaries as well, if runtime scripting is not desired.</p>
+
+<h2 id="basic-example">Basic Example</h2>
+
+<p>What does an HXP script look like? Here’s a quick example:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// script.hx</span>
+<span class="kd">class</span> <span class="nx">Script</span> <span class="p">{</span>
+	<span class="kr">public</span> <span class="kd">function</span> <span class="k">new</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="nx">trace</span> <span class="p">(</span><span class="dl">"</span><span class="s2">HELLO FROM HXP</span><span class="dl">"</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Pretty simple.</p>
+
+<p>With <code class="language-plaintext highlighter-rouge">hxp</code> installed from haxelib, open a command-prompt or terminal, and change to the same directory as the script (or optionally, you can pass the directory or file path to the script as the second argument).</p>
+
+<p>Just run <code class="language-plaintext highlighter-rouge">hxp</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hxp
+HELLO FROM HXP
+</code></pre></div></div>
+
+<p>We can spice this up with more commands. For example, this script compiles Haxe code, then runs a local web server for testing HTML5 content. This script assumes there is an “index.html” in the “bin” directory, though larger scripts can copy template files, similar to the Lime tools</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">hxp</span><span class="p">.</span><span class="o">*</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">Script</span> <span class="p">{</span>
+
+    <span class="kr">public</span> <span class="kd">function</span> <span class="k">new</span> <span class="p">()</span> <span class="p">{</span>
+    
+        <span class="kd">var</span> <span class="nx">hxml</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HXML</span> <span class="p">({</span> <span class="na">cp</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">src</span><span class="dl">"</span><span class="p">],</span> <span class="na">main</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Main.hx</span><span class="dl">"</span><span class="p">,</span> <span class="na">js</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bin/index.js</span><span class="dl">"</span> <span class="p">});</span>
+        <span class="nx">hxml</span><span class="p">.</span><span class="nx">build</span> <span class="p">();</span>
+		
+        <span class="nx">PlatformTools</span><span class="p">.</span><span class="nx">launchWebServer</span> <span class="p">(</span><span class="dl">"</span><span class="s2">bin</span><span class="dl">"</span><span class="p">);</span>
+        
+    <span class="p">}</span>
+    
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>For convenience, you can also execute scripts using the <code class="language-plaintext highlighter-rouge">-verbose</code> or <code class="language-plaintext highlighter-rouge">-v</code> flag, to get additional feedback on which directories are created, which commands are executed, and is especially for debugging or getting additional details.</p>
+
+<p>Optionally, you can extend the <code class="language-plaintext highlighter-rouge">hxp.Script</code> class for automatic parsing of arguments. For example, consider this case:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Script</span> <span class="kd">extends</span> <span class="nx">hxp</span><span class="p">.</span><span class="nx">Script</span> <span class="p">{</span>
+
+    <span class="kr">public</span> <span class="kd">function</span> <span class="k">new</span> <span class="p">()</span> <span class="p">{</span>
+    
+        <span class="k">super</span> <span class="p">();</span>
+        
+        <span class="nx">trace</span> <span class="p">(</span><span class="nx">command</span><span class="p">);</span>
+        <span class="nx">trace</span> <span class="p">(</span><span class="nx">commandArgs</span><span class="p">);</span>
+        <span class="nx">trace</span> <span class="p">(</span><span class="nx">flags</span><span class="p">.</span><span class="nx">keys</span> <span class="p">());</span>
+        <span class="nx">trace</span> <span class="p">(</span><span class="nx">defines</span><span class="p">.</span><span class="nx">keys</span> <span class="p">());</span>
+        <span class="nx">trace</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">keys</span> <span class="p">());</span>
+        
+    <span class="p">}</span>
+    
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>When you extend <code class="language-plaintext highlighter-rouge">hxp.Script</code>, default argument parsing is included for you. Arguments which begin with a single dash (such as <code class="language-plaintext highlighter-rouge">-debug</code>) will be treated as a “flag”, starting with <code class="language-plaintext highlighter-rouge">-D</code> is a “define”, and starting with two dashes (such as <code class="language-plaintext highlighter-rouge">--out-dir</code>) is an “option”. All other arguments will be considered a command (first), then command arguments.</p>
+
+<p>For example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hxp <span class="nb">command </span>arg1 arg2 <span class="nt">-debug</span> <span class="nt">-Ddefine</span> <span class="nt">-Ddefine2</span><span class="o">=</span>value <span class="nt">--option</span><span class="o">=</span>value
+</code></pre></div></div>
+
+<h2 id="how-to-get-hxp">How To Get HXP?</h2>
+
+<p>Simple!</p>
+
+<p>Run the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>haxelib <span class="nb">install </span>hxp
+haxelib run hxp <span class="nt">--install-hxp-alias</span>
+</code></pre></div></div>
+
+<h2 id="feedback">Feedback</h2>
+
+<p>We hope that we can start the discussion on building better shared tools between Haxe projects, and that the initial release we’ve put out of HXP will help move things forward in that direction.</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">September 28, 2018 | <a href="/blog/2018/09/28/introducing-the-hxp-project/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

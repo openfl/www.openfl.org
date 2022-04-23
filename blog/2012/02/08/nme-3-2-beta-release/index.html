@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>NME 3.2 Beta Release</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>NME 3.2 Beta Release</h1></div>
+<!-- <p class="meta">08 Feb 2012</p> -->
+
+<div class="post">
+<p>We are very happy to announce the first beta release of NME 3.2!</p>
+
+<p>Here is a quick list with some of the changes which have occurred since our last release:</p>
+<ul>
+	<li>Android applications will install to external storage (SD card) by default</li>
+	<li>Improved support for special directories on all targets</li>
+	<li>Added built-in support for SWF assets (Flash and C++ targets)</li>
+	<li>Created a new "display" command for improved IDE support</li>
+	<li>Revised and improved the NMML file specification</li>
+	<li>Addressed "disappearing object" issues with the software renderer</li>
+	<li>Added support for "template" files, overwriting the default files for each target</li>
+	<li>URLLoader now supports HTTP POST and SSL on C++ targets</li>
+	<li>Added "mobile", "web" and "desktop" defines, for simplicity</li>
+	<li>Tilesheet.drawTiles now includes compatibility for use in Flash</li>
+	<li>Joystick support added for Windows, Mac and Linux</li>
+	<li>Improved tessellation for primitives in the hardware renderer</li>
+	<li>Made it possible to add additional iOS frameworks through NMML</li>
+</ul>
+<p>We have been hard at work improving NME for this release, and are very proud of how the framework is continuing to develop. Please keep your eyes open for any regressions, and if you have feedback on any of the changes (like the new joystick API or the new NMML specification) please let us know so we can consider the changes before the final release.</p>
+<h3><a href="http://www.haxenme.org/files/7613/2865/8153/NME-3.2-Beta.zip">Download</a> (ZIP - 13.6 MB)</h3>
+<p>You can install the beta by running “haxelib test NME-3.2-Beta.zip” using a command-prompt or terminal. You can switch back to the last release at any time by running “haxelib set nme 3.1.1” if you want to.</p>
+
+<p><em>(Continue reading for more details about these changes and improvements.)</em><!--more--></p>
+
+<h3 id="external-storage-on-android">External Storage on Android</h3>
+
+<p>NME applications for Android tend to be larger than pure Java applications, because NDK applications on Android need to include many of their own libraries, and do not benefit from the JRE that is pre-installed on each Android device.</p>
+
+<p>For this reason, we have switched NME to create applications which will install to the user’s SD card by default. Since space is often limited on the actual device, we hope this should lead to a much better experience for your users.</p>
+
+<p>This change required a move from Android API 7 to Android API 8. Applications are still compatible with the same versions of Android, but never versions will benefit from this change. If you have issues compiling applications, make sure you have API 8 installed from the Android SDK Manager.</p>
+
+<h3 id="swf-support">SWF Support</h3>
+
+<p>It’s true, NME 3.2 adds native SWF support!</p>
+
+<p>While Actionscript bytecode is not interpreted, MovieClips, frame labels, tweens, fonts, images, shapes and other features of the SWF format are supported – not only on Flash, but for C++ targets as well.</p>
+
+<p>If you include a “library” tag in your NMML project file, like <code class="language-plaintext highlighter-rouge">&lt;library path="my.swf" /&gt;</code>, NME will generate classes automatically, based on the exported symbol classes found in the SWF, so if your SWF contains “Square” and “com.my.SymbolClass”, these will both be available as Haxe classes you can use to instantiate these symbols.</p>
+
+<p>In order to use this feature, install “swf” from haxelib. If you’d like to check it out, feel free to visit <a href="http://www.joshuagranick.com/blog/2012/01/24/embedding-swfs-makes-nme-meme-friendly/" target="_blank">this blog post</a> for an example project using this feature.</p>
+
+<h3 id="using-the-display-command">Using the “Display” Command</h3>
+
+<p>One of the issues that has faced developers who wish to integrate NME into a new IDE, is knowing which classpaths or other flags an NME project is using. The “display” command is a step forward in providing better support for IDEs and other development tools.</p>
+
+<p>If you run “nme display project.nmml flash”, you will get HXML for the project, if you are targeting Flash. Of course, you can substitute “flash” for any other target. Especially for IDEs which already enjoy Haxe support, which is usually based on HXML file completion, this provides an easy option to get completion for NME projects, without having to write additional files.</p>
+
+<p>You can also pass “-nmml” to receive NMML output instead. Since the NMML specification is relatively robust, this returns a simplified NMML file which does not include any other includes, conditional “if” or “unless” attributes, or other features which may be complicated to perfectly mirror. This is ideal if you need to read which assets, haxelibs, defines or other values may be present for the target NME project.</p>
+<h3>Improved NMML Specification</h3>
+<p>As we approach future releases, and as the command-line tools have grown over the last two releases, it seemed like a good time to visit the NMML specification, and see if there were ways to make improvements, and help make sure the format is clear and concise.</p>
+
+<p>All of the previous names are still supported, so this is not a breaking change, but in the samples, documentation and improvements to come, you’ll begin to see this new format.</p>
+
+<p>For a full overview of the new specification, you can open “tools/command-line/spec.nmml” from the NME directory, or <a href="https://gist.github.com/1763850" target="_blank">check it out online</a>.</p>
+
+<h3 id="template-files">“Template” Files</h3>
+
+<p>There is a new <code class="language-plaintext highlighter-rouge">&lt;template path="" /&gt;</code> node you can use in your NMML project files, which specifies a file or directory to be included as a “template” file. You can also use a standard <code class="language-plaintext highlighter-rouge">&lt;assets /&gt;</code> node, if you prefer, and set the type attribute to “template”.</p>
+
+<p>Template files will be copied last, before compiling a project. Instead of being placed inside an assets directory, depending on the target, it will be placed at an absolute location within the target build directory. Template files will also be processed as templates, similar to the files that used by default when generating projects.</p>
+
+<p>You can use this to override any of the files NME generates for each target, including, but not limited to manifest files on Android, plist files on iOS, or other files you may wish to customize.</p>
+
+<h3 id="mobile-web-and-desktop-defines">“mobile”, “web” and “desktop” Defines</h3>
+
+<p>In order to simplify conditionals in your NMML files, we have added new “mobile”, “web” and “desktop” defines which you can use, instead of having to specify each target by name. For example, if you want your application to be 1024 x 768 on desktop targets, you can use <code class="language-plaintext highlighter-rouge">&lt;window width="1024" height="768" if="desktop" /&gt;</code>, or if you want to use a different frame rate when running on the web, you can specify <code class="language-plaintext highlighter-rouge">&lt;window fps="30" if="web" /&gt;</code></p>
+
+<h3 id="tilesheetdrawtiles">Tilesheet.drawTiles</h3>
+
+<p>One of the drawbacks to using graphics.drawTiles was that it only worked in C++. Even for testing, it was necessary to create a fallback render method when targeting Flash or HTML5. Now there is a new “drawTiles” method on the nme.display.Tilesheet class, which you can use instead of referencing graphics.drawTiles directly.</p>
+
+<p>This includes rendering support for Flash, provided using drawTriangles. It is not as fast as some of the other rendering methods in Flash, but especially during development, it should offer a layer of compatibility for more targets. HTML5 support in Jeash will also be provided in the future through this API.</p>
+
+<h3 id="joystick-support">Joystick Support</h3>
+
+<p>Yes! NME now has support for joystick and gamepad devices when targeting Windows, Mac or Linux. For more information on the new API, be sure to check out <a href="http://www.joshuagranick.com/blog/2012/01/25/joystick-and-gamepad-support-for-nme/" target="_blank">this blog post</a>, which also includes an example project.</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">February 8, 2012 | <a href="/blog/2012/02/08/nme-3-2-beta-release/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>OpenFL Development Update</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>OpenFL Development Update</h1></div>
+<!-- <p class="meta">29 Jul 2014</p> -->
+
+<div class="post">
+<p>The best version of OpenFL ever is in development, as well as a new version of Lime that is very exciting. It would ruin things to spoil all of the surprises, but it is long overdue to share what we are doing, and why we have been working so hard.</p>
+
+<h2 id="lime">Lime</h2>
+
+<p>We went back to the drawing board on Lime “next”, and are excited about the new doors it is opening up.</p>
+
+<p>Lime is now a self-contained library, designed to provide platform support for DOM, Canvas, GL and Flash projects. Historically, getting platform support was handled in OpenFL, but we want to make this more agnostic, and more accessible.</p>
+
+<p>Many parts of the library have been re-written to become more minimal, as well as bringing some of our favorite features from OpenFL over, such as OpenFL assets. We also have built some things that we think are pretty cool, such as seamlessly supporting multiple render environments, planned support for multiple windows, and unified events for each target.</p>
+
+<p>We are now using Lime directly underneath OpenFL, instead of bypassing Lime’s Haxe API in native, and bypassing entirely in Flash or HTML5. In fact, the next OpenFL does not have any C++ code at all.</p>
+
+<h2 id="openfl">OpenFL</h2>
+
+<p>We are planning on unifying OpenFL as a single Haxe-based library, with no native component. This may seem dramatic, but so far, it has had a surprising boost both to productivity, and quality. We believe that Haxe development is much faster than C++ development in general, and as we are all Haxe developers, it exposes OpenFL for more contribution.</p>
+
+<p>Our largest concern was performance, but we have been surprised to find that we have been able to increase the performance over the previous version of OpenFL (as much as nine times for some APIs) and reduce the memory footprint at the same time. The Haxe C++ target has continued to improve over time, and has an increasing amount of “magic” functions we can use to optimize performance critical segments of code.</p>
+
+<p>By combinining OpenFL into a single backend, every fix that is made benefits every target platform. The library is also becoming simpler, as we continue to rely on Lime. For example, we have had difficulty integrating features that do not exist inside the Flash API already. By using Lime, we can add features there immediately, and integrate a Flash metaphor where it makes sense. Otherwise, you will be able to access both layers directly.</p>
+
+<h2 id="aether">Aether</h2>
+
+<p>We would also like to (re)introduce Aether.</p>
+
+<p>Some of you may remember when we used “hxtools” with OpenFL, struggling to find a name that was suitably generic. From the start, the command-line tools we develop have not been designed only for OpenFL, or even Lime. As more projects are emerging which may benefit from our command-line process, we have decided to come up with a new name that properly establishes the tools on their own.</p>
+
+<p>We believe the quality of IDE support improves when each new library does not use its own new command-line tools. Haxe development more than just the Haxe compiler, in order to properly support multiple target platforms, particularly mobile, there is a big benefit to have tools that understand the asset pipeline, project dependencies and other complex relationships.</p>
+
+<p>Why “Aether”? Aether was a word chosen in old cultures to describe the “upper” sky, or heavens. It was also used to describe the mythic “fifth element” that could build powerful other-worldly items. We also realized after choosing the name that “the Aether” plays a central role in the “Thor: The Dark World” movie, as well as appearing as “ether” in many video games, of course.</p>
+
+<h2 id="how-can-i-help">How Can I Help?</h2>
+
+<p>The first thing that you can do to help is to answer the questions of beginners, and help field issues as we work to develop OpenFL “next”.</p>
+
+<p>There are many issues that would be better resolved in the new code than in the old, and some have been resolved already. If there is a truly showstopping bug that is present in the current release, please help us know so we can look at doing a patch release in the meantime.</p>
+
+<p>A huge THANK YOU to all of our Patreon supporters! Your contributions are helping fuel all this work. To help support our work in Lime, OpenFL and Aether, please support us at <a href="http://www.patreon.com/openfl">http://www.patreon.com/openfl</a>, or contact us directly.</p>
+
+<p>If you are developer and are exciting about Lime, OpenFL or Aether, then there are ways that you may be able to help develop new features and bring us closer to release. Contact us if you would like to join the Slack chat community where we collaborate on Lime and OpenFL development.</p>
+
+<h2 id="timeline">Timeline</h2>
+
+<p>The plan is to release limited alpha versions of OpenFL and Lime fairly soon, after a few more development milestones are finished, then a full release will occur likely in the fall, alongside the current release versions as we continue to ensure stability for a full transition. Due to the nature of these changes, the transition officially may occur, but in parallel, expect in-progress releases in the next few months.</p>
+
+<h2 id="what-about-consoles">What About Consoles?</h2>
+
+<p>Console support (Wii U, PS4, XBox One, etc) is one reason for the Lime “next” architecture. In the future, expect a “console” render context that supports the upcoming console platform targets. Aether has already been updated with support for external platform targets, to enable the build code to remain safely under NDA, in accordance with platform-holder agreements.</p>
+
+<p>As we continue to make strides in this area, the flexibility of the Lime API will be essential. For example, 3DS and Wii U support will require multiple windows, and other console features will find their way into Lime, and as appropriate, OpenFL will have Flash metaphors for them (though the Lime API will always be available directly).</p>
+
+<p>The first console platforms may be in the fall release for OpenFL, with more to come. Thanks to the partnership we have for console development, subsequent consoles should be supported quickly after the first one.</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">July 29, 2014 | <a href="/blog/2014/07/29/summer-update/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Winter Update</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>Winter Update</h1></div>
+<!-- <p class="meta">07 Dec 2015</p> -->
+
+<div class="post">
+<p>Hearts warm with Thanksgiving, allow us to take a moment and thank all of our Patreon contributors, every code contribution, the fellowship of friends and developers on Slack and our community forums. There is a brand new release of Lime and OpenFL for you. Thank you for making this a great place to build software together!</p>
+
+<h2 id="new-bytearray">New ByteArray</h2>
+
+<p>A foundational brick that has not been turned in a while is the old ByteArray class. The code was very platform-specific, with a lot of tweaks and workarounds that are not needed for modern Haxe development. Further, conversion between the Lime ByteArray and the Haxe Bytes type was cumbersome – Flash, HTML5, Node.js and C++/Neko all had different methods. It has been a difficult task, but we have a new ByteArray that passes all our tests, and should make things faster, stronger and more stable for our future.</p>
+
+<h3 id="what-changed">What Changed?</h3>
+
+<p>Previously, Lime had a <code class="language-plaintext highlighter-rouge">lime.utils.ByteArray</code> class, and <code class="language-plaintext highlighter-rouge">openfl.utils.ByteArray</code> was a reference back to it. Ultimately, ByteArray is an OpenFL API. Since Haxe 3.2, the Haxe <code class="language-plaintext highlighter-rouge">Bytes</code> class has improved tremendously, both in performance and consistency. As Haxe continues to grow with even more supported platforms, “getting on the bandwagon” with the core Bytes type is of great benefit.</p>
+
+<p>Lime no longer has a <code class="language-plaintext highlighter-rouge">ByteArray</code> class, and uses <code class="language-plaintext highlighter-rouge">Bytes</code> internally. If you would like the <code class="language-plaintext highlighter-rouge">ByteArray</code> sugar on top, you can import OpenFL.</p>
+
+<h3 id="bytearray-abstract">ByteArray Abstract</h3>
+
+<p>The new <code class="language-plaintext highlighter-rouge">ByteArray</code> in OpenFL is an abstract. What does that mean? Simple.</p>
+
+<p>Now we have true cross-platform array access, support for setting <code class="language-plaintext highlighter-rouge">length</code> and simple conversion to/from <code class="language-plaintext highlighter-rouge">Bytes</code>:</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">byteArray</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ByteArray</span> <span class="p">();</span>
+<span class="nx">byteArray</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="nx">byteArray</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1337</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">bytes</span><span class="o">:</span><span class="nx">Bytes</span> <span class="o">=</span> <span class="nx">byteArray</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>By making <code class="language-plaintext highlighter-rouge">ByteArray</code> abstract, we have simplified conversion to and from the Haxe <code class="language-plaintext highlighter-rouge">Bytes</code> type, and improve the use of <code class="language-plaintext highlighter-rouge">ByteArray</code> as one would truly expect. There is one downside to being an abstract, since it is compile-time only, it means that reflection is only possible on a base underlying type. You should be able to check for a <code class="language-plaintext highlighter-rouge">ByteArray</code> like this:</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nb">Std</span><span class="p">.</span><span class="nx">is</span> <span class="p">(</span><span class="nx">byteArray</span><span class="p">,</span> <span class="nx">ByteArrayData</span><span class="p">))</span> <span class="p">{</span>
+</code></pre></div></div>
+
+<p>Similarly, an abstract cannot be extended. It is (unfortunately) necessary to use <code class="language-plaintext highlighter-rouge">ByteArrayData</code> when directly embedding a file:</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@:file</span> <span class="k">class</span> <span class="nx">MyClass</span> <span class="kd">extends</span> <span class="nx">ByteArrayData</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<p>Considering all of the choices we have (and based on a vote in the forums) we have moved in favor of an abstract, which should favor the best API for ByteArray in most all use-cases.</p>
+
+<p>As we focus our support around <code class="language-plaintext highlighter-rouge">haxe.io.Bytes</code>, it is necessary to use Haxe 3.2 or greater to use the new <code class="language-plaintext highlighter-rouge">ByteArray</code>. We are aware that there are no Haxe 3.2 pre-compiled for the Raspberry Pi, please let us know if you are interesting in working together with the Haxe Foundation to create updated binaries for the Pi.</p>
+
+<h2 id="angle-for-windows">ANGLE for Windows</h2>
+
+<p>We are happy to announce we have restored Windows XP support, but as we have focused more intently on keeping broad Windows system support, we have seen some serious gaps in OpenGL driver support on some older systems. The solution appears to be Direct3D, which we are now using in the form of ANGLE. The ANGLE project brings OpenGL ES support to Windows over the top of Direct3D, which has proven to smooth out issues we experienced even in our own hardware, and brings us closer to supporting Windows universal applications for Windows Store or Windows Phone if we choose. ANGLE is used by Chrome, Opera, Firefox, Qt and other large projects. Newer drivers should support OpenGL ES natively without ANGLE, so we have not seen performance regressions on modern hardware, but have only seen improved support across our testing group.</p>
+
+<p>ANGLE adds a couple megabytes of additional size to applications in separate DLLs, but is disabled in Windows <code class="language-plaintext highlighter-rouge">-static</code> builds in order to generate a single binary.</p>
+
+<p><strong>UPDATE</strong>: Although we experienced comparable performance between OpenGL and ANGLE on Windows, we have received reports of performance regressions elsewhere. Until we can perform more testing, we are disabling ANGLE for Windows builds, but it can still be enabled optionally when building from the source.</p>
+
+<p>Use <code class="language-plaintext highlighter-rouge">lime rebuild windows -clean -DLIME_SDL_ANGLE</code> to build for ANGLE on Windows, and use (either) <code class="language-plaintext highlighter-rouge">&lt;set name="angle" /&gt;</code> or <code class="language-plaintext highlighter-rouge">-Dangle</code> in your project to copy the needed DLLs. We appreciate your feedback and input as we seek the best balance of performance and compatibility!</p>
+
+<h2 id="gamepad-support-for-html5">Gamepad Support for HTML5</h2>
+
+<p>The latest Lime includes initial support for the HTML5 Gamepad API, supported by Chrome, Opera and Firefox. In testing with a Logitech gamepad, one browser worked for all buttons and axes (except for the X button, which it thought was constantly depressed) and another browser recognized it as a joystick, but lacked button mappings to support our Gamepad API. More popular gamepads (such as the Xbox One controller) may fare better, and we may see continued support as browsers are updated. Either way, we think it is a promising start to bridging all the features we can across the board for consistent play in many different environments.</p>
+
+<h2 id="openfl-externs">OpenFL Externs</h2>
+
+<p>OpenFL is on its way to supporting a full range of extern classes. As we move toward making OpenFL and Lime more modular, having a set of extern classes for all core types is going to be valuable. In the future, we would like to have separate “lime.js” or “openfl.js” files, allowing for better browser caching and making it possible to more aggressively minify the codebase for JavaScript. This will also help if we make it possible to create modular Neko or C++ applications, and has already helped improve our code completion and documentation.</p>
+
+<p>This change also affects the Flash target, as we create extern classes we are moving the Flash target to using our definitions for each core class instead of the Haxe core files. In practice, this helps brings visibility to missing functions, unimplemented properties and unintentional variations in the core API between each platform. It also gives us the ability to fix some issues in our support of the Flash target, for example, making <code class="language-plaintext highlighter-rouge">SharedObjectFlushStatus</code> a consistent enum on all platforms instead of being only a <code class="language-plaintext highlighter-rouge">String</code> value on Flash.</p>
+
+<p>As Flash Player becomes less important, and “Flash Professional CC” is now being renamed “Animate CC”, we feel that the Flash target becomes more important as a consistent member of the OpenFL runtimes, rather than dodging around Flash-specific quirks we could otherwise smooth over. It is important that OpenFL continues to prove that consistent development is not only possible, but rewarding across multiple distinct environments. We will continue to work to remove any barriers that prevent valid code from working as expected across the board. We are excited about the “new birth” of Adobe Animate, and hope to continue to find ways to accelerate and improve your development workflow to keep things fun and productive!</p>
+
+<h2 id="consistency-fixes">Consistency Fixes</h2>
+
+<p>We have initial support for <code class="language-plaintext highlighter-rouge">sprite.hitArea</code>, ANGLE has greatly helped with OpenGL shader support for filters across Windows systems, the <code class="language-plaintext highlighter-rouge">SimpleButton</code> class has been rewritten to work better (and to properly extend <code class="language-plaintext highlighter-rouge">InteractiveObject</code> like it should). <code class="language-plaintext highlighter-rouge">SharedObject.getLocal</code> now returns a consistent instance when referencing the same ID, and many other minor changes have been made to continue to tighten up the consistency of OpenFL.</p>
+
+<p>We also added a new <code class="language-plaintext highlighter-rouge">openfl.utils.Object</code>, which should work like the ActionScript “Object” type in many ways. Unlike a traditional Haxe <code class="language-plaintext highlighter-rouge">Dynamic</code>, <code class="language-plaintext highlighter-rouge">openfl.utils.Object</code> supports helpful features such as simple array access and loop iteration:</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">object</span><span class="o">:</span><span class="nx">Object</span> <span class="o">=</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="s2">"red"</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mf">100.00</span><span class="p">,</span> <span class="na">fast</span><span class="p">:</span> <span class="k">true</span> <span class="p">};</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nx">field</span> <span class="nx">in</span> <span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="kr">trace</span> <span class="p">(</span><span class="nx">field</span> <span class="o">+</span> <span class="s2">" is "</span> <span class="o">+</span> <span class="nx">object</span><span class="p">[</span><span class="nx">field</span><span class="p">]);</span>
+	
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="wrap-up">Wrap-Up</h2>
+
+<p>We are looking forward to the end of a great year, and thank you for all of your support. Despite all of our tests, there may be some regressions are not aware of, so please let us know if you experience any issues going forward. Step by step, we hope that OpenFL and Lime continue to grow as a “<a href="http://www.bbc.co.uk/science/space/solarsystem/sun_and_planets/earth">Goldilocks Zone</a>” of development – just right. Thank you for helping us make development better for everyone!</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">December 7, 2015 | <a href="/blog/2015/12/07/development-update/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

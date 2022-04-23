@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Using SWF Assets</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    <!-- <script src='/js/openfl.min.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openfl/7.1.2/openfl.min.js"></script>
+    <script src='/js/actuate.min.js'></script>
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<script src='/js/holder.js'></script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-push-4 sidebar-content add-anchors">
+			
+			<div class="page-header">
+				<h1>Using SWF Assets</h1>
+				<div class="page-links"><a href="https://github.com/openfl/openfl.org/edit/master/learn/haxelib/tutorials/using-swf-assets.md">Edit Document<span class="page-links-icon glyphicon glyphicon-pencil"></span></a></div>
+			</div>
+			
+			<h2 id="introduction">Introduction</h2>
+
+<p>OpenFL includes support for decoding many features of SWF assets generated from editors such as Flash Professional and Adobe Animate.</p>
+
+<p>At compile time, OpenFL is able to convert SWF assets into a faster, more optimal format compatible with HTML5 and native platforms, while using the original SWF content if you target Flash Player.</p>
+
+<h2 id="creating-swf-content">Creating SWF Content</h2>
+
+<p>Using any version of Flash Professional or Adobe Animate, you can publish SWF assets to be used by OpenFL. Supported features include Shapes, SimpleButtons, MovieClips, many drawing operations, and where possible, masks, scrollRects, filters and blend modes.</p>
+
+<p>Certain features that rely on ActionScript, such as frame scripts, the Text Layout Framework or inverse kinematics are not supported. The current releases of Flash Professional include an “Export as Bitmap” feature, which is useful for certain types of rendering.</p>
+
+<p>Sounds, shape tweens or new motion tweens (not “classic tweens”) are not currently supported, but some of these features could be supported with contributions. Fonts are supported if they are embedded separately.</p>
+
+<h2 id="embedding-a-swf-library">Embedding a SWF Library</h2>
+
+<p>If you do not already have a project created, you can use a command like the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create project UsingSWFAssets
+</code></pre></div></div>
+
+<p>You can find many of the same concepts in the “SimpleSWFLayout” sample, also, if you prefer:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create SimpleSWFLayout
+</code></pre></div></div>
+
+<p>Once the SWF library is included, you can add assets using the following tag:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;library <span class="nv">path</span><span class="o">=</span><span class="s2">"to/my.swf"</span> /&gt;
+</code></pre></div></div>
+
+<p>This will use a <em>default</em> ID value, matching the file name (in this case “my”).</p>
+
+<p>You can set this yourself using the <code class="language-plaintext highlighter-rouge">id</code> attribute if you prefer:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;library <span class="nv">path</span><span class="o">=</span><span class="s2">"to/my.swf"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"swf-library"</span> /&gt;
+</code></pre></div></div>
+
+<p>There are additional features as well. Adding a <code class="language-plaintext highlighter-rouge">preload</code> attribute can help you automatically load a SWF library as part of the preload process (more on that later), and <code class="language-plaintext highlighter-rouge">generate</code> will attempt to create classes for every “Export for ActionScript” class in the SWF, so you can <code class="language-plaintext highlighter-rouge">new MySymbolClass ()</code> in your code.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;library <span class="nv">path</span><span class="o">=</span><span class="s2">"to/my.swf"</span> <span class="nv">preload</span><span class="o">=</span><span class="s2">"true"</span> <span class="nv">generate</span><span class="o">=</span><span class="s2">"true"</span> /&gt;
+</code></pre></div></div>
+
+<h2 id="loading-a-swf-library">Loading a SWF Library</h2>
+
+<p>Unless you have used <code class="language-plaintext highlighter-rouge">preload="true"</code> in your <code class="language-plaintext highlighter-rouge">&lt;library /&gt;</code> tag, before you are able to use content from a SWF library, you must load the library first:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Assets</span><span class="o">.</span><span class="na">loadLibrary</span> <span class="o">(</span><span class="s">"swf-library"</span><span class="o">).</span><span class="na">onComplete</span> <span class="o">(</span><span class="n">function</span> <span class="o">(</span><span class="n">_</span><span class="o">)</span> <span class="o">{</span>
+	
+	<span class="n">trace</span> <span class="o">(</span><span class="s">"SWF library loaded"</span><span class="o">);</span>
+	
+<span class="o">});</span>
+</code></pre></div></div>
+
+<h2 id="instantiating-a-swf-symbol">Instantiating a SWF Symbol</h2>
+
+<p>Once a library is loaded, you can access named symbols from the library using the following code:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">clip</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getMovieClip</span> <span class="o">(</span><span class="s">"swf-library:MySymbolClass"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>If the <code class="language-plaintext highlighter-rouge">generate</code> attribute was used, each symbol class should be available to instantiate normally:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">clip</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MySymbolClass</span> <span class="o">();</span>
+</code></pre></div></div>
+
+<p>Code completion should be available for all generated classes.</p>
+
+<p>If you want to access symbols from multiple SWF libraries, change the prefix before the colon (“:”) in the <code class="language-plaintext highlighter-rouge">Assets.getMovieClip</code> call. If you would prefer to load the entire SWF timeline, and not a child clip, use an empty value for the symbol name, like this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">clip</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getMovieClip</span> <span class="o">(</span><span class="s">"swf-library:"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h2 id="standard-example">Standard Example</h2>
+
+<p><em>project.xml</em></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>?&gt;
+&lt;project&gt;
+	
+	&lt;meta <span class="nv">title</span><span class="o">=</span><span class="s2">"Using SWF Assets"</span> <span class="nv">package</span><span class="o">=</span><span class="s2">"org.openfl.tutorials.usingswfassets"</span> <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0.0"</span> <span class="nv">company</span><span class="o">=</span><span class="s2">"OpenFL"</span> /&gt;
+	&lt;app <span class="nv">main</span><span class="o">=</span><span class="s2">"Main"</span> <span class="nv">path</span><span class="o">=</span><span class="s2">"Export"</span> <span class="nv">file</span><span class="o">=</span><span class="s2">"UsingSWFAssets"</span> /&gt;
+	
+	&lt;<span class="nb">source </span><span class="nv">path</span><span class="o">=</span><span class="s2">"Source"</span> /&gt;
+	
+	&lt;haxelib <span class="nv">name</span><span class="o">=</span><span class="s2">"openfl"</span> /&gt;
+	
+	&lt;library <span class="nv">path</span><span class="o">=</span><span class="s2">"Assets/library.swf"</span> /&gt;
+	
+	&lt;assets <span class="nv">path</span><span class="o">=</span><span class="s2">"Assets"</span> <span class="nv">rename</span><span class="o">=</span><span class="s2">"assets"</span> <span class="nv">exclude</span><span class="o">=</span><span class="s2">"*.swf"</span> /&gt;
+	
+&lt;/project&gt;
+</code></pre></div></div>
+
+<p><em>Main.hx</em></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+
+<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+	
+	
+	<span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+		
+		<span class="kd">super</span> <span class="o">();</span>
+		
+		<span class="nc">Assets</span><span class="o">.</span><span class="na">loadLibrary</span> <span class="o">(</span><span class="s">"library"</span><span class="o">).</span><span class="na">onComplete</span> <span class="o">(</span><span class="n">function</span> <span class="o">(</span><span class="n">_</span><span class="o">)</span> <span class="o">{</span>
+			
+			<span class="kt">var</span> <span class="n">clip</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getMovieClip</span> <span class="o">(</span><span class="s">"library:MySymbolClass"</span><span class="o">);</span>
+			<span class="n">addChild</span> <span class="o">(</span><span class="n">clip</span><span class="o">);</span>
+			
+		<span class="o">});</span>
+		
+	<span class="o">}</span>
+	
+	
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="using-preload-and-generate">Using “preload” and “generate”</h2>
+
+<p><em>project.xml</em></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>?&gt;
+&lt;project&gt;
+	
+	&lt;meta <span class="nv">title</span><span class="o">=</span><span class="s2">"Using SWF Assets"</span> <span class="nv">package</span><span class="o">=</span><span class="s2">"org.openfl.tutorials.usingswfassets"</span> <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0.0"</span> <span class="nv">company</span><span class="o">=</span><span class="s2">"OpenFL"</span> /&gt;
+	&lt;app <span class="nv">main</span><span class="o">=</span><span class="s2">"Main"</span> <span class="nv">path</span><span class="o">=</span><span class="s2">"Export"</span> <span class="nv">file</span><span class="o">=</span><span class="s2">"UsingSWFAssets"</span> /&gt;
+	
+	&lt;<span class="nb">source </span><span class="nv">path</span><span class="o">=</span><span class="s2">"Source"</span> /&gt;
+	
+	&lt;haxelib <span class="nv">name</span><span class="o">=</span><span class="s2">"openfl"</span> /&gt;
+	
+	&lt;library <span class="nv">path</span><span class="o">=</span><span class="s2">"Assets/library.swf"</span> <span class="nv">preload</span><span class="o">=</span><span class="s2">"true"</span> <span class="nv">generate</span><span class="o">=</span><span class="s2">"true"</span> /&gt;
+	
+	&lt;assets <span class="nv">path</span><span class="o">=</span><span class="s2">"Assets"</span> <span class="nv">rename</span><span class="o">=</span><span class="s2">"assets"</span> <span class="nv">exclude</span><span class="o">=</span><span class="s2">"*.swf"</span> /&gt;
+	
+&lt;/project&gt;
+</code></pre></div></div>
+
+<p><em>Main.hx</em></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+
+<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+	
+	
+	<span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+		
+		<span class="kd">super</span> <span class="o">();</span>
+		
+		<span class="kt">var</span> <span class="n">clip</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MySymbolClass</span> <span class="o">();</span>
+		<span class="n">addChild</span> <span class="o">(</span><span class="n">clip</span><span class="o">);</span>
+		
+	<span class="o">}</span>
+	
+	
+<span class="o">}</span>
+</code></pre></div></div>
+
+			
+		</div>
+		<div class="col-md-4 col-md-pull-8 sidebar add-anchors">
+			
+			
+			
+			
+			
+			
+			
+			
+
+<div class="collapse in" id="nav-sidebar-0">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/" >Introduction</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-1"  data-toggle="collapse">NPM</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-1">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/getting-started/" >Getting Started</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-2"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-2">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/displaying-a-bitmap/" >Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/adding-animation/" >Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/handling-mouse-events/" >Handling Mouse Events</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/api/" >API Reference</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-3"  data-toggle="collapse">Haxelib</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-3">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-4"  data-toggle="collapse">Documentation</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-4">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/core-architecture/" >Core Architecture</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/project-files/" >Project Files</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/tools/" >Tools</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-5"  data-toggle="collapse">Books</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-5">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://books.openfl.org/openfl-developers-guide/" target="_blank" />OpenFL Developer's Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://books.openfl.org/as3-conversion-guide/" target="_blank" />ActionScript 3.0 Conversion Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://www.openflbook.com" target="_blank" />Videojuegos Multiplataforma con OpenFL</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-6"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-6">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/displaying-a-bitmap/" >Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/adding-animation/" >Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/using-swf-assets/" class="active">Using SWF Assets</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://api.openfl.org" target="_blank" />API</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+</ul>
+</div>
+			
+			
+			
+			
+			
+		</div>
+	</div>
+</div>
+<script>
+	anchors.options = {
+		placement: "right",
+		visible: "always",
+		icon: "",
+		class: "glyphicon glyphicon-link"
+	};
+	anchors.add ("div.add-anchors > h1, div.add-anchors > h2");
+</script>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

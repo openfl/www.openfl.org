@@ -1,0 +1,2649 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>BitmapData | openfl</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">openfl</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../index.html">openfl</a>
+				</li>
+				<li>
+					<a href="../modules/openfl.display.html">display</a>
+				</li>
+				<li>
+					<a href="openfl.display.bitmapdata.html">BitmapData</a>
+				</li>
+			</ul>
+			<h1>Class BitmapData</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The BitmapData class lets you work with the data(pixels) of a Bitmap
+							object. You can use the methods of the BitmapData class to create
+							arbitrarily sized transparent or opaque bitmap images and manipulate them
+							in various ways at runtime. You can also access the BitmapData for a bitmap
+							image that you load with the <code>openfl.Assets</code> or
+						<code>openfl.display.Loader</code> classes.</p>
+					</div>
+					<p>This class lets you separate bitmap rendering operations from the
+						internal display updating routines of OpenFL. By manipulating a
+						BitmapData object directly, you can create complex images without incurring
+						the per-frame overhead of constantly redrawing the content from vector
+					data.</p>
+					<p>The methods of the BitmapData class support effects that are not
+					available through the filters available to non-bitmap display objects.</p>
+					<p>A BitmapData object contains an array of pixel data. This data can
+						represent either a fully opaque bitmap or a transparent bitmap that
+						contains alpha channel data. Either type of BitmapData object is stored as
+						a buffer of 32-bit integers. Each 32-bit integer determines the properties
+					of a single pixel in the bitmap.</p>
+					<p>Each 32-bit integer is a combination of four 8-bit channel values(from
+						0 to 255) that describe the alpha transparency and the red, green, and blue
+						(ARGB) values of the pixel.(For ARGB values, the most significant byte
+					represents the alpha channel value, followed by red, green, and blue.)</p>
+					<p>The four channels(alpha, red, green, and blue) are represented as
+						numbers when you use them with the <code>BitmapData.copyChannel()</code>
+						method or the <code>DisplacementMapFilter.componentX</code> and
+						<code>DisplacementMapFilter.componentY</code> properties, and these numbers
+						are represented by the following constants in the BitmapDataChannel
+					class:</p>
+					<ul>
+						<li><code>BitmapDataChannel.ALPHA</code></li>
+						<li><code>BitmapDataChannel.RED</code></li>
+						<li><code>BitmapDataChannel.GREEN</code></li>
+						<li><code>BitmapDataChannel.BLUE</code></li>
+					</ul>
+					<p>You can attach BitmapData objects to a Bitmap object by using the
+					<code>bitmapData</code> property of the Bitmap object.</p>
+					<p>You can use a BitmapData object to fill a Graphics object by using the
+					<code>Graphics.beginBitmapFill()</code> method.</p>
+					<p>You can also use a BitmapData object to perform batch tile rendering
+					using the <code>openfl.display.Tilemap</code> class.</p>
+					<p>In Flash Player 10, the maximum size for a BitmapData object
+						is 8,191 pixels in width or height, and the total number of pixels cannot
+						exceed 16,777,215 pixels.(So, if a BitmapData object is 8,191 pixels wide,
+						it can only be 2,048 pixels high.) In Flash Player 9 and earlier, the limitation
+					is 2,880 pixels in height and 2,880 in width.</p>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">BitmapData</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="openfl.display.ibitmapdrawable.html" class="tsd-signature-type">IBitmapDrawable</a></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#height" class="tsd-kind-icon">height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#image" class="tsd-kind-icon">image</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#readable" class="tsd-kind-icon">readable</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#rect" class="tsd-kind-icon">rect</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#transparent" class="tsd-kind-icon">transparent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#width" class="tsd-kind-icon">width</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#applyfilter" class="tsd-kind-icon">apply<wbr>Filter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#clone" class="tsd-kind-icon">clone</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#colortransform" class="tsd-kind-icon">color<wbr>Transform</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#compare" class="tsd-kind-icon">compare</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#copychannel" class="tsd-kind-icon">copy<wbr>Channel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#copypixels" class="tsd-kind-icon">copy<wbr>Pixels</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#dispose" class="tsd-kind-icon">dispose</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#disposeimage" class="tsd-kind-icon">dispose<wbr>Image</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#draw" class="tsd-kind-icon">draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#drawwithquality" class="tsd-kind-icon">draw<wbr>With<wbr>Quality</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#encode" class="tsd-kind-icon">encode</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#fillrect" class="tsd-kind-icon">fill<wbr>Rect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#floodfill" class="tsd-kind-icon">flood<wbr>Fill</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#generatefilterrect" class="tsd-kind-icon">generate<wbr>Filter<wbr>Rect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#getcolorboundsrect" class="tsd-kind-icon">get<wbr>Color<wbr>Bounds<wbr>Rect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#getpixel" class="tsd-kind-icon">get<wbr>Pixel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#getpixel32" class="tsd-kind-icon">get<wbr>Pixel32</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#getpixels" class="tsd-kind-icon">get<wbr>Pixels</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#getvector" class="tsd-kind-icon">get<wbr>Vector</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#histogram" class="tsd-kind-icon">histogram</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#hittest" class="tsd-kind-icon">hit<wbr>Test</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#lock" class="tsd-kind-icon">lock</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#merge" class="tsd-kind-icon">merge</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#noise" class="tsd-kind-icon">noise</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#palettemap" class="tsd-kind-icon">palette<wbr>Map</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#perlinnoise" class="tsd-kind-icon">perlin<wbr>Noise</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#scroll" class="tsd-kind-icon">scroll</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#setpixel" class="tsd-kind-icon">set<wbr>Pixel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#setpixel32" class="tsd-kind-icon">set<wbr>Pixel32</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#setpixels" class="tsd-kind-icon">set<wbr>Pixels</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#setvector" class="tsd-kind-icon">set<wbr>Vector</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#threshold" class="tsd-kind-icon">threshold</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="openfl.display.bitmapdata.html#unlock" class="tsd-kind-icon">unlock</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="openfl.display.bitmapdata.html#frombase64" class="tsd-kind-icon">from<wbr>Base64</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="openfl.display.bitmapdata.html#frombytes" class="tsd-kind-icon">from<wbr>Bytes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="openfl.display.bitmapdata.html#fromcanvas" class="tsd-kind-icon">from<wbr>Canvas</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="openfl.display.bitmapdata.html#fromfile" class="tsd-kind-icon">from<wbr>File</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="openfl.display.bitmapdata.html#fromimage" class="tsd-kind-icon">from<wbr>Image</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="openfl.display.bitmapdata.html#loadfrombase64" class="tsd-kind-icon">load<wbr>From<wbr>Base64</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="openfl.display.bitmapdata.html#loadfrombytes" class="tsd-kind-icon">load<wbr>From<wbr>Bytes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="openfl.display.bitmapdata.html#loadfromfile" class="tsd-kind-icon">load<wbr>From<wbr>File</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Bitmap<wbr>Data<span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, transparent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, fillColor<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L127">lib/openfl/display/BitmapData.d.ts:127</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a BitmapData object with a specified width and height. If you specify a value for
+									the <code>fillColor</code> parameter, every pixel in the bitmap is set to that color.</p>
+								</div>
+								<p>By default, the bitmap is created as transparent, unless you pass the value <code>false</code>
+									for the transparent parameter. After you create an opaque bitmap, you cannot change it
+									to a transparent bitmap. Every pixel in an opaque bitmap uses only 24 bits of color channel
+									information. If you define the bitmap as transparent, every pixel uses 32 bits of color
+								channel information, including an alpha transparency channel.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>width: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The width of the bitmap image in pixels.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>height: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The height of the bitmap image in pixels.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> transparent: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Specifies whether the bitmap image supports per-pixel transparency. The default value is <code>true</code>(transparent). To create a fully transparent bitmap, set the value of the <code>transparent</code> parameter to <code>true</code> and the value of the <code>fillColor</code> parameter to 0x00000000(or to 0). Setting the <code>transparent</code> property to <code>false</code> can result in minor improvements in rendering performance.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fillColor: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A 32-bit ARGB color value that you use to fill the bitmap image area. The default value is 0xFFFFFFFF(solid white).</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="height" class="tsd-anchor"></a>
+					<h3>height</h3>
+					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L84">lib/openfl/display/BitmapData.d.ts:84</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The height of the bitmap image in pixels.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="image" class="tsd-anchor"></a>
+					<h3>image</h3>
+					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <a href="" class="tsd-signature-type">Image</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L91">lib/openfl/display/BitmapData.d.ts:91</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The Lime image that holds the pixels for the current image.</p>
+						</div>
+						<p>In Flash Player, this property is always <code>null</code>.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="readable" class="tsd-anchor"></a>
+					<h3>readable</h3>
+					<div class="tsd-signature tsd-kind-icon">readable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L105">lib/openfl/display/BitmapData.d.ts:105</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Defines whether the bitmap image is readable. Hardware-only bitmap images
+								do not support <code>getPixels</code>, <code>setPixels</code> and other
+								BitmapData methods, though they can still be used inside a Bitmap object
+							or other display objects that do not need to modify the pixels.</p>
+						</div>
+						<p>As an exception to the rule, <code>bitmapData.draw</code> is supported for
+						non-readable bitmap images.</p>
+						<p>Since non-readable bitmap images do not have a software image buffer, they
+						will need to be recreated if the current hardware rendering context is lost.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="rect" class="tsd-anchor"></a>
+					<h3>rect</h3>
+					<div class="tsd-signature tsd-kind-icon">rect<span class="tsd-signature-symbol">:</span> <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L112">lib/openfl/display/BitmapData.d.ts:112</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The rectangle that defines the size and location of the bitmap image. The
+								top and left of the rectangle are 0; the width and height are equal to the
+							width and height in pixels of the BitmapData object.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="transparent" class="tsd-anchor"></a>
+					<h3>transparent</h3>
+					<div class="tsd-signature tsd-kind-icon">transparent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L122">lib/openfl/display/BitmapData.d.ts:122</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Defines whether the bitmap image supports per-pixel transparency. You can
+								set this value only when you construct a BitmapData object by passing in
+								<code>true</code> for the <code>transparent</code> parameter of the
+								constructor. Then, after you create a BitmapData object, you can check
+								whether it supports per-pixel transparency by determining if the value of
+							the <code>transparent</code> property is <code>true</code>.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="width" class="tsd-anchor"></a>
+					<h3>width</h3>
+					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L127">lib/openfl/display/BitmapData.d.ts:127</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The width of the bitmap image in pixels.</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="applyfilter" class="tsd-anchor"></a>
+					<h3>apply<wbr>Filter</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">apply<wbr>Filter<span class="tsd-signature-symbol">(</span>sourceBitmapData<span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a>, sourceRect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, destPoint<span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a>, filter<span class="tsd-signature-symbol">: </span><a href="openfl.filters.bitmapfilter.html" class="tsd-signature-type">BitmapFilter</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L172">lib/openfl/display/BitmapData.d.ts:172</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes a source image and a filter object and generates the filtered image.</p>
+								</div>
+								<p>This method relies on the behavior of built-in filter objects, which determine the
+								destination rectangle that is affected by an input source rectangle.</p>
+								<p>After a filter is applied, the resulting image can be larger than the input image.
+									For example, if you use a BlurFilter class to blur a source rectangle of(50,50,100,100)
+									and a destination point of(10,10), the area that changes in the destination image is
+									larger than(10,10,60,60) because of the blurring. This happens internally during the
+								applyFilter() call.</p>
+								<p>If the <code>sourceRect</code> parameter of the sourceBitmapData parameter is an
+									interior region, such as(50,50,100,100) in a 200 x 200 image, the filter uses the source
+								pixels outside the <code>sourceRect</code> parameter to generate the destination rectangle.</p>
+								<p>If the BitmapData object and the object specified as the <code>sourceBitmapData</code>
+									parameter are the same object, the application uses a temporary copy of the object to
+								perform the filter. For best performance, avoid this situation.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sourceBitmapData: <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The input bitmap image to use. The source image can be a different BitmapData object or it can refer to the current BitmapData instance.</p>
+									</div>
+								</li>
+								<li>
+									<h5>sourceRect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A rectangle that defines the area of the source image to use as input.</p>
+									</div>
+								</li>
+								<li>
+									<h5>destPoint: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The point within the destination image(the current BitmapData instance) that corresponds to the upper-left corner of the source rectangle.</p>
+									</div>
+								</li>
+								<li>
+									<h5>filter: <a href="openfl.filters.bitmapfilter.html" class="tsd-signature-type">BitmapFilter</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The filter object that you use to perform the filtering operation.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="clone" class="tsd-anchor"></a>
+					<h3>clone</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L179">lib/openfl/display/BitmapData.d.ts:179</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a new BitmapData object that is a clone of the original instance with an exact copy of the contained bitmap.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h4>
+							<p>A new BitmapData object that is identical to the original.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="colortransform" class="tsd-anchor"></a>
+					<h3>color<wbr>Transform</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">color<wbr>Transform<span class="tsd-signature-symbol">(</span>rect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, colorTransform<span class="tsd-signature-symbol">: </span><a href="openfl.geom.colortransform.html" class="tsd-signature-type">ColorTransform</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L189">lib/openfl/display/BitmapData.d.ts:189</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adjusts the color values in a specified area of a bitmap image by using a <code>ColorTransform</code>
+										object. If the rectangle matches the boundaries of the bitmap image, this method transforms the color
+									values of the entire image.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A Rectangle object that defines the area of the image in which the ColorTransform object is applied.</p>
+									</div>
+								</li>
+								<li>
+									<h5>colorTransform: <a href="openfl.geom.colortransform.html" class="tsd-signature-type">ColorTransform</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A ColorTransform object that describes the color transformation values to apply.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="compare" class="tsd-anchor"></a>
+					<h3>compare</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">compare<span class="tsd-signature-symbol">(</span>otherBitmapData<span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L202">lib/openfl/display/BitmapData.d.ts:202</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Compares two BitmapData objects. If the two BitmapData objects have the same dimensions (width and height), the method returns a new BitmapData object, in which each pixel is the &quot;difference&quot; between the pixels in the two source objects:</p>
+								</div>
+								<ul>
+									<li>If two pixels are equal, the difference pixel is 0x00000000.</li>
+									<li>If two pixels have different RGB values (ignoring the alpha value), the difference pixel is 0xFFRRGGBB where RR/GG/BB are the individual difference values between red, green, and blue channels. Alpha channel differences are ignored in this case.</li>
+									<li>If only the alpha channel value is different, the pixel value is 0xZZFFFFFF, where ZZ is the difference in the alpha value.</li>
+								</ul>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>otherBitmapData: <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The BitmapData object to compare with the source BitmapData object.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">number</span>
+							</h4>
+							<p>If the two BitmapData objects have the same dimensions (width and height), the method returns a new BitmapData object that has the difference between the two objects (see the main discussion).If the BitmapData objects are equivalent, the method returns the number 0. If no argument is passed or if the argument is not a BitmapData object, the method returns -1. If either BitmapData object has been disposed of, the method returns -2. If the widths of the BitmapData objects are not equal, the method returns the number -3. If the heights of the BitmapData objects are not equal, the method returns the number -4.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="copychannel" class="tsd-anchor"></a>
+					<h3>copy<wbr>Channel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">copy<wbr>Channel<span class="tsd-signature-symbol">(</span>sourceBitmapData<span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a>, sourceRect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, destPoint<span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a>, sourceChannel<span class="tsd-signature-symbol">: </span><a href="../enums/openfl.display.bitmapdatachannel.html" class="tsd-signature-type">BitmapDataChannel</a>, destChannel<span class="tsd-signature-symbol">: </span><a href="../enums/openfl.display.bitmapdatachannel.html" class="tsd-signature-type">BitmapDataChannel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L248">lib/openfl/display/BitmapData.d.ts:248</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Transfers data from one channel of another BitmapData object or the
+										current BitmapData object into a channel of the current BitmapData object.
+										All of the data in the other channels in the destination BitmapData object
+									are preserved.</p>
+								</div>
+								<p>The source channel value and destination channel value can be one of
+								following values:</p>
+								<ul>
+									<li><code>BitmapDataChannel.RED</code></li>
+									<li><code>BitmapDataChannel.GREEN</code></li>
+									<li><code>BitmapDataChannel.BLUE</code></li>
+									<li><code>BitmapDataChannel.ALPHA</code></li>
+								</ul>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>TypeError The sourceBitmapData, sourceRect or destPoint are null.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sourceBitmapData: <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The input bitmap image to use. The source image
+											can be a different BitmapData object or it can
+										refer to the current BitmapData object.</p>
+									</div>
+								</li>
+								<li>
+									<h5>sourceRect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The source Rectangle object. To copy only channel
+											data from a smaller area within the bitmap,
+											specify a source rectangle that is smaller than
+										the overall size of the BitmapData object.</p>
+									</div>
+								</li>
+								<li>
+									<h5>destPoint: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The destination Point object that represents the
+											upper-left corner of the rectangular area where
+											the new channel data is placed. To copy only
+											channel data from one area to a different area in
+											the destination image, specify a point other than
+										(0,0).</p>
+									</div>
+								</li>
+								<li>
+									<h5>sourceChannel: <a href="../enums/openfl.display.bitmapdatachannel.html" class="tsd-signature-type">BitmapDataChannel</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The source channel. Use a value from the
+											BitmapDataChannel class
+											(<code>BitmapDataChannel.RED</code>,
+											<code>BitmapDataChannel.BLUE</code>,
+											<code>BitmapDataChannel.GREEN</code>,
+										<code>BitmapDataChannel.ALPHA</code>).</p>
+									</div>
+								</li>
+								<li>
+									<h5>destChannel: <a href="../enums/openfl.display.bitmapdatachannel.html" class="tsd-signature-type">BitmapDataChannel</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The destination channel. Use a value from the
+											BitmapDataChannel class
+											(<code>BitmapDataChannel.RED</code>,
+											<code>BitmapDataChannel.BLUE</code>,
+											<code>BitmapDataChannel.GREEN</code>,
+										<code>BitmapDataChannel.ALPHA</code>).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="copypixels" class="tsd-anchor"></a>
+					<h3>copy<wbr>Pixels</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">copy<wbr>Pixels<span class="tsd-signature-symbol">(</span>sourceBitmapData<span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a>, sourceRect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, destPoint<span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a>, alphaBitmapData<span class="tsd-signature-symbol">?: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a>, alphaPoint<span class="tsd-signature-symbol">?: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a>, mergeAlpha<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L290">lib/openfl/display/BitmapData.d.ts:290</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Provides a fast routine to perform pixel manipulation between images with
+										no stretching, rotation, or color effects. This method copies a
+										rectangular area of a source image to a rectangular area of the same size
+									at the destination point of the destination BitmapData object.</p>
+								</div>
+								<p>If you include the <code>alphaBitmap</code> and <code>alphaPoint</code>
+									parameters, you can use a secondary image as an alpha source for the
+									source image. If the source image has alpha data, both sets of alpha data
+									are used to composite pixels from the source image to the destination
+									image. The <code>alphaPoint</code> parameter is the point in the alpha
+									image that corresponds to the upper-left corner of the source rectangle.
+									Any pixels outside the intersection of the source image and alpha image
+								are not copied to the destination image.</p>
+								<p>The <code>mergeAlpha</code> property controls whether or not the alpha
+									channel is used when a transparent image is copied onto another
+									transparent image. To copy pixels with the alpha channel data, set the
+									<code>mergeAlpha</code> property to <code>true</code>. By default, the
+								<code>mergeAlpha</code> property is <code>false</code>.</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>TypeError The sourceBitmapData, sourceRect, destPoint are null.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sourceBitmapData: <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The input bitmap image from which to copy pixels.
+											The source image can be a different BitmapData
+											instance, or it can refer to the current
+										BitmapData instance.</p>
+									</div>
+								</li>
+								<li>
+									<h5>sourceRect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A rectangle that defines the area of the source
+										image to use as input.</p>
+									</div>
+								</li>
+								<li>
+									<h5>destPoint: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The destination point that represents the
+											upper-left corner of the rectangular area where
+										the new pixels are placed.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> alphaBitmapData: <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A secondary, alpha BitmapData object source.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> alphaPoint: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The point in the alpha BitmapData object source
+											that corresponds to the upper-left corner of the
+										<code>sourceRect</code> parameter.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mergeAlpha: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>To use the alpha channel, set the value to
+											<code>true</code>. To copy pixels with no alpha
+										channel, set the value to <code>false</code>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="dispose" class="tsd-anchor"></a>
+					<h3>dispose</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">dispose<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L317">lib/openfl/display/BitmapData.d.ts:317</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Frees memory that is used to store the BitmapData object.</p>
+								</div>
+								<p>When the <code>dispose()</code> method is called on an image, the width
+									and height of the image are set to 0. All subsequent calls to methods or
+								properties of this BitmapData instance fail, and an exception is thrown.</p>
+								<p><code>BitmapData.dispose()</code> releases the memory occupied by the
+									actual bitmap data, immediately(a bitmap can consume up to 64 MB of
+									memory). After using <code>BitmapData.dispose()</code>, the BitmapData
+									object is no longer usable and an exception may be thrown if
+									you call functions on the BitmapData object. However,
+									<code>BitmapData.dispose()</code> does not garbage collect the BitmapData
+									object(approximately 128 bytes); the memory occupied by the actual
+									BitmapData object is released at the time the BitmapData object is
+								collected by the garbage collector.</p>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="disposeimage" class="tsd-anchor"></a>
+					<h3>dispose<wbr>Image</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">dispose<wbr>Image<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L332">lib/openfl/display/BitmapData.d.ts:332</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Frees the backing Lime image buffer, if possible.</p>
+								</div>
+								<p>When using a software renderer, such as Flash Player or desktop targets
+									without OpenGL, the software buffer will be retained so that the BitmapData
+									will work properly. When using a hardware renderer, the Lime image
+									buffer will be available to garbage collection after a hardware texture
+								has been created internally.</p>
+								<p><code>BitmapData.disposeImage()</code> will immediately change the value of
+								the <code>readable</code> property to <code>false</code>.</p>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="draw" class="tsd-anchor"></a>
+					<h3>draw</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">draw<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><a href="openfl.display.ibitmapdrawable.html" class="tsd-signature-type">IBitmapDrawable</a>, matrix<span class="tsd-signature-symbol">?: </span><a href="openfl.geom.matrix.html" class="tsd-signature-type">Matrix</a>, colorTransform<span class="tsd-signature-symbol">?: </span><a href="openfl.geom.colortransform.html" class="tsd-signature-type">ColorTransform</a>, blendMode<span class="tsd-signature-symbol">?: </span><a href="../enums/openfl.display.blendmode.html" class="tsd-signature-type">BlendMode</a>, clipRect<span class="tsd-signature-symbol">?: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, smoothing<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L407">lib/openfl/display/BitmapData.d.ts:407</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Draws the <code>source</code> display object onto the bitmap image, using
+										the OpenFL software renderer. You can specify <code>matrix</code>,
+										<code>colorTransform</code>, <code>blendMode</code>, and a destination
+										<code>clipRect</code> parameter to control how the rendering performs.
+										Optionally, you can specify whether the bitmap should be smoothed when
+									scaled(this works only if the source object is a BitmapData object).</p>
+								</div>
+								<p>The source display object does not use any of its applied
+									transformations for this call. It is treated as it exists in the library
+									or file, with no matrix transform, no color transform, and no blend mode.
+									To draw a display object(such as a movie clip) by using its own transform
+									properties, you can copy its <code>transform</code> property object to the
+									<code>transform</code> property of the Bitmap object that uses the
+								BitmapData object.</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>ArgumentError The <code>source</code> parameter is not a
+										BitmapData or DisplayObject object.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>ArgumentError The source is null or not a valid IBitmapDrawable
+										object.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>SecurityError The <code>source</code> object and(in the case of a
+											Sprite or MovieClip object) all of its child objects
+											do not come from the same domain as the caller, or
+											are not in a content that is accessible to the
+											caller by having called the
+											<code>Security.allowDomain()</code> method. This
+											restriction does not apply to AIR content in the
+										application security sandbox.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>source: <a href="openfl.display.ibitmapdrawable.html" class="tsd-signature-type">IBitmapDrawable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The display object or BitmapData object to draw to
+											the BitmapData object.(The DisplayObject and
+											BitmapData classes implement the IBitmapDrawable
+										interface.)</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> matrix: <a href="openfl.geom.matrix.html" class="tsd-signature-type">Matrix</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A Matrix object used to scale, rotate, or translate
+											the coordinates of the bitmap. If you do not want to
+											apply a matrix transformation to the image, set this
+											parameter to an identity matrix, created with the
+											default <code>new Matrix()</code> constructor, or
+										pass a <code>null</code> value.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> colorTransform: <a href="openfl.geom.colortransform.html" class="tsd-signature-type">ColorTransform</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A ColorTransform object that you use to adjust the
+											color values of the bitmap. If no object is
+											supplied, the bitmap image&#39;s colors are not
+											transformed. If you must pass this parameter but you
+											do not want to transform the image, set this
+											parameter to a ColorTransform object created with
+											the default <code>new ColorTransform()</code>
+										constructor.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> blendMode: <a href="../enums/openfl.display.blendmode.html" class="tsd-signature-type">BlendMode</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A string value, from the openfl.display.BlendMode
+											class, specifying the blend mode to be applied to
+										the resulting bitmap.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> clipRect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A Rectangle object that defines the area of the
+											source object to draw. If you do not supply this
+											value, no clipping occurs and the entire source
+										object is drawn.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> smoothing: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A Boolean value that determines whether a BitmapData
+											object is smoothed when scaled or rotated, due to a
+											scaling or rotation in the <code>matrix</code>
+											parameter. The <code>smoothing</code> parameter only
+											applies if the <code>source</code> parameter is a
+											BitmapData object. With <code>smoothing</code> set
+											to <code>false</code>, the rotated or scaled
+											BitmapData image can appear pixelated or jagged. For
+											example, the following two images use the same
+											BitmapData object for the <code>source</code>
+											parameter, but the <code>smoothing</code> parameter
+											is set to <code>true</code> on the left and
+										<code>false</code> on the right:</p>
+										<pre><code>                  Drawing a bitmap <span class="hljs-keyword">with</span> `smoothing` set
+                  to `true` takes longer than doing so <span class="hljs-keyword">with</span>
+                  `smoothing` set to
+                  `false`.
+</code></pre>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="drawwithquality" class="tsd-anchor"></a>
+					<h3>draw<wbr>With<wbr>Quality</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">draw<wbr>With<wbr>Quality<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><a href="openfl.display.ibitmapdrawable.html" class="tsd-signature-type">IBitmapDrawable</a>, matrix<span class="tsd-signature-symbol">?: </span><a href="openfl.geom.matrix.html" class="tsd-signature-type">Matrix</a>, colorTransform<span class="tsd-signature-symbol">?: </span><a href="openfl.geom.colortransform.html" class="tsd-signature-type">ColorTransform</a>, blendMode<span class="tsd-signature-symbol">?: </span><a href="../enums/openfl.display.blendmode.html" class="tsd-signature-type">BlendMode</a>, clipRect<span class="tsd-signature-symbol">?: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, smoothing<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, quality<span class="tsd-signature-symbol">?: </span><a href="../enums/openfl.display.stagequality.html" class="tsd-signature-type">StageQuality</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L410">lib/openfl/display/BitmapData.d.ts:410</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>source: <a href="openfl.display.ibitmapdrawable.html" class="tsd-signature-type">IBitmapDrawable</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> matrix: <a href="openfl.geom.matrix.html" class="tsd-signature-type">Matrix</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> colorTransform: <a href="openfl.geom.colortransform.html" class="tsd-signature-type">ColorTransform</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> blendMode: <a href="../enums/openfl.display.blendmode.html" class="tsd-signature-type">BlendMode</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> clipRect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> smoothing: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> quality: <a href="../enums/openfl.display.stagequality.html" class="tsd-signature-type">StageQuality</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="encode" class="tsd-anchor"></a>
+					<h3>encode</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">encode<span class="tsd-signature-symbol">(</span>rect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, compressor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, byteArray<span class="tsd-signature-symbol">?: </span><a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L413">lib/openfl/display/BitmapData.d.ts:413</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+								</li>
+								<li>
+									<h5>compressor: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> byteArray: <a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="fillrect" class="tsd-anchor"></a>
+					<h3>fill<wbr>Rect</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">fill<wbr>Rect<span class="tsd-signature-symbol">(</span>rect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, color<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L425">lib/openfl/display/BitmapData.d.ts:425</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fills a rectangular area of pixels with a specified ARGB color.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>TypeError The rect is null.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The rectangular area to fill.</p>
+									</div>
+								</li>
+								<li>
+									<h5>color: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ARGB color value that fills the area. ARGB colors are
+											often specified in hexadecimal format; for example,
+										0xFF336699.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="floodfill" class="tsd-anchor"></a>
+					<h3>flood<wbr>Fill</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">flood<wbr>Fill<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, color<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L439">lib/openfl/display/BitmapData.d.ts:439</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Performs a flood fill operation on an image starting at an(<em>x</em>,
+										<em>y</em>) coordinate and filling with a certain color. The
+										<code>floodFill()</code> method is similar to the paint bucket tool in
+										various paint programs. The color is an ARGB color that contains alpha
+									information and color information.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <em>x</em> coordinate of the image.</p>
+									</div>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <em>y</em> coordinate of the image.</p>
+									</div>
+								</li>
+								<li>
+									<h5>color: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ARGB color to use as a fill.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="generatefilterrect" class="tsd-anchor"></a>
+					<h3>generate<wbr>Filter<wbr>Rect</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">generate<wbr>Filter<wbr>Rect<span class="tsd-signature-symbol">(</span>sourceRect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, filter<span class="tsd-signature-symbol">: </span><a href="openfl.filters.bitmapfilter.html" class="tsd-signature-type">BitmapFilter</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L480">lib/openfl/display/BitmapData.d.ts:480</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determines the destination rectangle that the <code>applyFilter()</code>
+										method call affects, given a BitmapData object, a source rectangle, and a
+									filter object.</p>
+								</div>
+								<p>For example, a blur filter normally affects an area larger than the
+									size of the original image. A 100 x 200 pixel image that is being filtered
+									by a default BlurFilter instance, where <code>blurX = blurY = 4</code>
+									generates a destination rectangle of <code>(-2,-2,104,204)</code>. The
+									<code>generateFilterRect()</code> method lets you find out the size of
+									this destination rectangle in advance so that you can size the destination
+								image appropriately before you perform a filter operation.</p>
+								<p>Some filters clip their destination rectangle based on the source image
+									size. For example, an inner <code>DropShadow</code> does not generate a
+									larger result than its source image. In this API, the BitmapData object is
+									used as the source bounds and not the source <code>rect</code>
+								parameter.</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>TypeError The sourceRect or filter are null.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sourceRect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A rectangle defining the area of the source image to use
+										as input.</p>
+									</div>
+								</li>
+								<li>
+									<h5>filter: <a href="openfl.filters.bitmapfilter.html" class="tsd-signature-type">BitmapFilter</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A filter object that you use to calculate the
+										destination rectangle.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h4>
+							<p>A destination rectangle computed by using an image, the
+							<code>sourceRect</code> parameter, and a filter.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="getcolorboundsrect" class="tsd-anchor"></a>
+					<h3>get<wbr>Color<wbr>Bounds<wbr>Rect</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Color<wbr>Bounds<wbr>Rect<span class="tsd-signature-symbol">(</span>mask<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, color<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, findColor<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L517">lib/openfl/display/BitmapData.d.ts:517</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determines a rectangular region that either fully encloses all pixels of a
+										specified color within the bitmap image(if the <code>findColor</code>
+										parameter is set to <code>true</code>) or fully encloses all pixels that
+										do not include the specified color(if the <code>findColor</code>
+									parameter is set to <code>false</code>).</p>
+								</div>
+								<p>For example, if you have a source image and you want to determine the
+									rectangle of the image that contains a nonzero alpha channel, pass
+									<code>{mask: 0xFF000000, color: 0x00000000}</code> as parameters. If the
+									<code>findColor</code> parameter is set to <code>true</code>, the entire
+									image is searched for the bounds of pixels for which <code>(value &amp; mask)
+== color</code>(where <code>value</code> is the color value of the
+									pixel). If the <code>findColor</code> parameter is set to
+									<code>false</code>, the entire image is searched for the bounds of pixels
+									for which <code>(value &amp; mask) != color</code>(where <code>value</code>
+									is the color value of the pixel). To determine white space around an
+									image, pass <code>{mask: 0xFFFFFFFF, color: 0xFFFFFFFF}</code> to find the
+								bounds of nonwhite pixels.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>mask: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A hexadecimal value, specifying the bits of the ARGB
+											color to consider. The color value is combined with this
+											hexadecimal value, by using the <code>&amp;</code>(bitwise
+										AND) operator.</p>
+									</div>
+								</li>
+								<li>
+									<h5>color: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A hexadecimal value, specifying the ARGB color to match
+											(if <code>findColor</code> is set to <code>true</code>)
+											or <em>not</em> to match(if <code>findColor</code> is set
+										to <code>false</code>).</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> findColor: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If the value is set to <code>true</code>, returns the
+											bounds of a color value in an image. If the value is set
+											to <code>false</code>, returns the bounds of where this
+										color doesn&#39;t exist in an image.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h4>
+							<p>The region of the image that is the specified color.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="getpixel" class="tsd-anchor"></a>
+					<h3>get<wbr>Pixel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Pixel<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L543">lib/openfl/display/BitmapData.d.ts:543</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns an integer that represents an RGB pixel value from a BitmapData
+										object at a specific point(<em>x</em>, <em>y</em>). The
+										<code>getPixel()</code> method returns an unmultiplied pixel value. No
+									alpha information is returned.</p>
+								</div>
+								<p>All pixels in a BitmapData object are stored as premultiplied color
+									values. A premultiplied image pixel has the red, green, and blue color
+									channel values already multiplied by the alpha data. For example, if the
+									alpha value is 0, the values for the RGB channels are also 0, independent
+									of their unmultiplied values. This loss of data can cause some problems
+									when you perform operations. All BitmapData methods take and return
+									unmultiplied values. The internal pixel representation is converted from
+									premultiplied to unmultiplied before it is returned as a value. During a
+									set operation, the pixel value is premultiplied before the raw image pixel
+								is set.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <em>x</em> position of the pixel.</p>
+									</div>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <em>y</em> position of the pixel.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>A number that represents an RGB pixel value. If the(<em>x</em>,
+								<em>y</em>) coordinates are outside the bounds of the image, the
+							method returns 0.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="getpixel32" class="tsd-anchor"></a>
+					<h3>get<wbr>Pixel32</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Pixel32<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L568">lib/openfl/display/BitmapData.d.ts:568</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns an ARGB color value that contains alpha channel data and RGB data.
+										This method is similar to the <code>getPixel()</code> method, which
+									returns an RGB color without alpha channel data.</p>
+								</div>
+								<p>All pixels in a BitmapData object are stored as premultiplied color
+									values. A premultiplied image pixel has the red, green, and blue color
+									channel values already multiplied by the alpha data. For example, if the
+									alpha value is 0, the values for the RGB channels are also 0, independent
+									of their unmultiplied values. This loss of data can cause some problems
+									when you perform operations. All BitmapData methods take and return
+									unmultiplied values. The internal pixel representation is converted from
+									premultiplied to unmultiplied before it is returned as a value. During a
+									set operation, the pixel value is premultiplied before the raw image pixel
+								is set.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <em>x</em> position of the pixel.</p>
+									</div>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <em>y</em> position of the pixel.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>A number representing an ARGB pixel value. If the(<em>x</em>,
+								<em>y</em>) coordinates are outside the bounds of the image, 0 is
+							returned.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="getpixels" class="tsd-anchor"></a>
+					<h3>get<wbr>Pixels</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Pixels<span class="tsd-signature-symbol">(</span>rect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L580">lib/openfl/display/BitmapData.d.ts:580</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Generates a byte array from a rectangular region of pixel data. Writes an
+										unsigned integer(a 32-bit unmultiplied pixel value) for each pixel into
+									the byte array.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>TypeError The rect is null.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A rectangular area in the current BitmapData object.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a></h4>
+							<p>A ByteArray representing the pixels in the given Rectangle.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="getvector" class="tsd-anchor"></a>
+					<h3>get<wbr>Vector</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Vector<span class="tsd-signature-symbol">(</span>rect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L592">lib/openfl/display/BitmapData.d.ts:592</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Generates a vector array from a rectangular region of pixel data. Returns
+										a Vector object of unsigned integers(a 32-bit unmultiplied pixel value)
+									for the specified rectangle.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>TypeError The rect is null.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A rectangular area in the current BitmapData object.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A Vector representing the given Rectangle.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="histogram" class="tsd-anchor"></a>
+					<h3>histogram</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">histogram<span class="tsd-signature-symbol">(</span>hRect<span class="tsd-signature-symbol">?: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">&lt;</span><a href="openfl.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L595">lib/openfl/display/BitmapData.d.ts:595</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> hRect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">&lt;</span><a href="openfl.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="hittest" class="tsd-anchor"></a>
+					<h3>hit<wbr>Test</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">hit<wbr>Test<span class="tsd-signature-symbol">(</span>firstPoint<span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a>, firstAlphaThreshold<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, secondObject<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a><span class="tsd-signature-symbol"> | </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a><span class="tsd-signature-symbol"> | </span><a href="openfl.display.bitmap.html" class="tsd-signature-type">Bitmap</a><span class="tsd-signature-symbol"> | </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a>, secondBitmapDataPoint<span class="tsd-signature-symbol">?: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a>, secondAlphaThreshold<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L598">lib/openfl/display/BitmapData.d.ts:598</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>firstPoint: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+								</li>
+								<li>
+									<h5>firstAlphaThreshold: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>secondObject: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a><span class="tsd-signature-symbol"> | </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a><span class="tsd-signature-symbol"> | </span><a href="openfl.display.bitmap.html" class="tsd-signature-type">Bitmap</a><span class="tsd-signature-symbol"> | </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> secondBitmapDataPoint: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> secondAlphaThreshold: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="lock" class="tsd-anchor"></a>
+					<h3>lock</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">lock<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L613">lib/openfl/display/BitmapData.d.ts:613</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Locks an image so that any objects that reference the BitmapData object,
+										such as Bitmap objects, are not updated when this BitmapData object
+										changes. To improve performance, use this method along with the
+										<code>unlock()</code> method before and after numerous calls to the
+									<code>setPixel()</code> or <code>setPixel32()</code> method.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="merge" class="tsd-anchor"></a>
+					<h3>merge</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">merge<span class="tsd-signature-symbol">(</span>sourceBitmapData<span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a>, sourceRect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, destPoint<span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a>, redMultiplier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, greenMultiplier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, blueMultiplier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, alphaMultiplier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L616">lib/openfl/display/BitmapData.d.ts:616</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sourceBitmapData: <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h5>
+								</li>
+								<li>
+									<h5>sourceRect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+								</li>
+								<li>
+									<h5>destPoint: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+								</li>
+								<li>
+									<h5>redMultiplier: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>greenMultiplier: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>blueMultiplier: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>alphaMultiplier: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="noise" class="tsd-anchor"></a>
+					<h3>noise</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">noise<span class="tsd-signature-symbol">(</span>randomSeed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, low<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, high<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, channelOptions<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, grayScale<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L647">lib/openfl/display/BitmapData.d.ts:647</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Fills an image with pixels representing random noise.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>randomSeed: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The random seed number to use. If you keep all other
+											parameters the same, you can generate different
+											pseudo-random results by varying the random seed
+											value. The noise is a mapping function, not
+											a true random-number generation function, so it
+											creates the same results each time from the same
+										random seed.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> low: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The lowest value to generate for each channel(0 to
+										255).</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> high: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The highest value to generate for each channel(0 to
+										255).</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> channelOptions: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A number that can be a combination of any of the
+											four color channel values
+											(<code>BitmapDataChannel.RED</code>,
+											<code>BitmapDataChannel.BLUE</code>,
+											<code>BitmapDataChannel.GREEN</code>, and
+											<code>BitmapDataChannel.ALPHA</code>). You can use
+											the logical OR operator(<code>|</code>) to combine
+										channel values.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> grayScale: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A Boolean value. If the value is <code>true</code>,
+											a grayscale image is created by setting all of the
+											color channels to the same value. The alpha channel
+											selection is not affected by setting this parameter
+										to <code>true</code>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="palettemap" class="tsd-anchor"></a>
+					<h3>palette<wbr>Map</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">palette<wbr>Map<span class="tsd-signature-symbol">(</span>sourceBitmapData<span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a>, sourceRect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, destPoint<span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a>, redArray<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, greenArray<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, blueArray<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, alphaArray<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L650">lib/openfl/display/BitmapData.d.ts:650</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sourceBitmapData: <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h5>
+								</li>
+								<li>
+									<h5>sourceRect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+								</li>
+								<li>
+									<h5>destPoint: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> redArray: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> greenArray: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> blueArray: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> alphaArray: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="perlinnoise" class="tsd-anchor"></a>
+					<h3>perlin<wbr>Noise</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">perlin<wbr>Noise<span class="tsd-signature-symbol">(</span>baseX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, baseY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, numOctaves<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, randomSeed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, stitch<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, fractalNoise<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, channelOptions<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, grayScale<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, offsets<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L719">lib/openfl/display/BitmapData.d.ts:719</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Generates a Perlin noise image.</p>
+								</div>
+								<p>The Perlin noise generation algorithm interpolates and combines
+									individual random noise functions(called octaves) into a single function
+									that generates more natural-seeming random noise. Like musical octaves,
+									each octave is twice the frequency of the one before it. Perlin
+									noise has been described as a &quot;fractal sum of noise&quot; because it combines
+								multiple sets of noise data with different levels of detail.</p>
+								<p>You can use Perlin noise functions to simulate natural phenomena and
+									landscapes, such as wood grain, clouds, and mountain ranges. In most
+									cases, the output of a Perlin noise is not displayed directly but
+									is used to enhance other images and give them pseudo-random
+								variations.</p>
+								<p>Simple digital random noise functions often produce images with harsh,
+									contrasting points. This kind of harsh contrast is not often found in
+									nature. The Perlin noise algorithm blends multiple noise functions that
+									operate at different levels of detail. This algorithm results in smaller
+								variations among neighboring pixel values.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>baseX: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Frequency to use in the <em>x</em> direction. For
+											example, to generate a noise that is sized for a 64
+											x 128 image, pass 64 for the <code>baseX</code>
+										value.</p>
+									</div>
+								</li>
+								<li>
+									<h5>baseY: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Frequency to use in the <em>y</em> direction. For
+											example, to generate a noise that is sized for a 64
+											x 128 image, pass 128 for the <code>baseY</code>
+										value.</p>
+									</div>
+								</li>
+								<li>
+									<h5>numOctaves: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of octaves or individual noise functions to
+											combine to create this noise. Larger numbers of
+											octaves create images with greater detail. Larger
+											numbers of octaves also require more processing
+										time.</p>
+									</div>
+								</li>
+								<li>
+									<h5>randomSeed: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The random seed number to use. If you keep all other
+											parameters the same, you can generate different
+											pseudo-random results by varying the random seed
+											value. The Perlin noise is a mapping
+											function, not a true random-number generation
+											function, so it creates the same results each time
+										from the same random seed.</p>
+									</div>
+								</li>
+								<li>
+									<h5>stitch: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A Boolean value. If the value is <code>true</code>,
+											the method attempts to smooth the transition edges
+											of the image to create seamless textures for tiling
+										as a bitmap fill.</p>
+									</div>
+								</li>
+								<li>
+									<h5>fractalNoise: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A Boolean value. If the value is <code>true</code>,
+											the method generates fractal noise; otherwise, it
+											generates turbulence. An image with turbulence has
+											visible discontinuities in the gradient that can
+											make it better approximate sharper visual effects
+										like flames and ocean waves.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> channelOptions: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A number that can be a combination of any of the
+											four color channel values
+											(<code>BitmapDataChannel.RED</code>,
+											<code>BitmapDataChannel.BLUE</code>,
+											<code>BitmapDataChannel.GREEN</code>, and
+											<code>BitmapDataChannel.ALPHA</code>). You can use
+											the logical OR operator(<code>|</code>) to combine
+										channel values.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> grayScale: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A Boolean value. If the value is <code>true</code>,
+											a grayscale image is created by setting each of the
+											red, green, and blue color channels to identical
+											values. The alpha channel value is not affected if
+										this value is set to <code>true</code>.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> offsets: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="scroll" class="tsd-anchor"></a>
+					<h3>scroll</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">scroll<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L734">lib/openfl/display/BitmapData.d.ts:734</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Scrolls an image by a certain(<em>x</em>, <em>y</em>) pixel amount. Edge
+									regions outside the scrolling area are left unchanged.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The amount by which to scroll horizontally.</p>
+									</div>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The amount by which to scroll vertically.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="setpixel" class="tsd-anchor"></a>
+					<h3>set<wbr>Pixel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Pixel<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, color<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L754">lib/openfl/display/BitmapData.d.ts:754</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets a single pixel of a BitmapData object. The current alpha channel
+										value of the image pixel is preserved during this operation. The value of
+									the RGB color parameter is treated as an unmultiplied color value.</p>
+								</div>
+								<p><strong>Note:</strong> To increase performance, when you use the
+									<code>setPixel()</code> or <code>setPixel32()</code> method repeatedly,
+									call the <code>lock()</code> method before you call the
+									<code>setPixel()</code> or <code>setPixel32()</code> method, and then call
+									the <code>unlock()</code> method when you have made all pixel changes.
+									This process prevents objects that reference this BitmapData instance from
+								updating until you finish making the pixel changes.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <em>x</em> position of the pixel whose value changes.</p>
+									</div>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <em>y</em> position of the pixel whose value changes.</p>
+									</div>
+								</li>
+								<li>
+									<h5>color: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The resulting RGB color for the pixel.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="setpixel32" class="tsd-anchor"></a>
+					<h3>set<wbr>Pixel32</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Pixel32<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, color<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L788">lib/openfl/display/BitmapData.d.ts:788</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the color and alpha transparency values of a single pixel of a
+										BitmapData object. This method is similar to the <code>setPixel()</code>
+										method; the main difference is that the <code>setPixel32()</code> method
+									takes an ARGB color value that contains alpha channel information.</p>
+								</div>
+								<p>All pixels in a BitmapData object are stored as premultiplied color
+									values. A premultiplied image pixel has the red, green, and blue color
+									channel values already multiplied by the alpha data. For example, if the
+									alpha value is 0, the values for the RGB channels are also 0, independent
+									of their unmultiplied values. This loss of data can cause some problems
+									when you perform operations. All BitmapData methods take and return
+									unmultiplied values. The internal pixel representation is converted from
+									premultiplied to unmultiplied before it is returned as a value. During a
+									set operation, the pixel value is premultiplied before the raw image pixel
+								is set.</p>
+								<p><strong>Note:</strong> To increase performance, when you use the
+									<code>setPixel()</code> or <code>setPixel32()</code> method repeatedly,
+									call the <code>lock()</code> method before you call the
+									<code>setPixel()</code> or <code>setPixel32()</code> method, and then call
+									the <code>unlock()</code> method when you have made all pixel changes.
+									This process prevents objects that reference this BitmapData instance from
+								updating until you finish making the pixel changes.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <em>x</em> position of the pixel whose value changes.</p>
+									</div>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <em>y</em> position of the pixel whose value changes.</p>
+									</div>
+								</li>
+								<li>
+									<h5>color: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The resulting ARGB color for the pixel. If the bitmap is
+											opaque(not transparent), the alpha transparency portion of
+										this color value is ignored.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="setpixels" class="tsd-anchor"></a>
+					<h3>set<wbr>Pixels</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Pixels<span class="tsd-signature-symbol">(</span>rect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, byteArray<span class="tsd-signature-symbol">: </span><a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L810">lib/openfl/display/BitmapData.d.ts:810</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts a byte array into a rectangular region of pixel data. For each
+										pixel, the <code>ByteArray.readUnsignedInt()</code> method is called and
+										the return value is written into the pixel. If the byte array ends before
+										the full rectangle is written, the returns. The data in the byte
+										array is expected to be 32-bit ARGB pixel values. No seeking is performed
+									on the byte array before or after the pixels are read.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>EOFError  The <code>inputByteArray</code> object does not include
+											enough data to fill the area of the <code>rect</code>
+											rectangle. The method fills as many pixels as possible
+										before throwing the exception.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>TypeError The rect or inputByteArray are null.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Specifies the rectangular region of the BitmapData
+										object.</p>
+									</div>
+								</li>
+								<li>
+									<h5>byteArray: <a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="setvector" class="tsd-anchor"></a>
+					<h3>set<wbr>Vector</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Vector<span class="tsd-signature-symbol">(</span>rect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, inputVector<span class="tsd-signature-symbol">: </span><a href="openfl.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L822">lib/openfl/display/BitmapData.d.ts:822</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts a Vector into a rectangular region of pixel data. For each pixel,
+										a Vector element is read and written into the BitmapData pixel. The data
+									in the Vector is expected to be 32-bit ARGB pixel values.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>RangeError The vector array is not large enough to read all the
+										pixel data.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Specifies the rectangular region of the BitmapData object.</p>
+									</div>
+								</li>
+								<li>
+									<h5>inputVector: <a href="openfl.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="threshold" class="tsd-anchor"></a>
+					<h3>threshold</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">threshold<span class="tsd-signature-symbol">(</span>sourceBitmapData<span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a>, sourceRect<span class="tsd-signature-symbol">: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a>, destPoint<span class="tsd-signature-symbol">: </span><a href="openfl.geom.point.html" class="tsd-signature-type">Point</a>, operation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, threshold<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, color<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, mask<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, copySource<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L873">lib/openfl/display/BitmapData.d.ts:873</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Tests pixel values in an image against a specified threshold and sets
+										pixels that pass the test to new color values. Using the
+										<code>threshold()</code> method, you can isolate and replace color ranges
+									in an image and perform other logical operations on image pixels.</p>
+								</div>
+								<p>The <code>threshold()</code> method&#39;s test logic is as follows:</p>
+								<ol>
+									<li>If <code>((pixelValue &amp; mask) operation(threshold &amp; mask))</code>,
+									then set the pixel to <code>color</code>;</li>
+									<li>Otherwise, if <code>copySource == true</code>, then set the pixel to
+									corresponding pixel value from <code>sourceBitmap</code>.</li>
+								</ol>
+								<p>The <code>operation</code> parameter specifies the comparison operator
+									to use for the threshold test. For example, by using &quot;==&quot; as the
+									<code>operation</code> parameter, you can isolate a specific color value
+									in an image. Or by using <code>{operation: &quot;&lt;&quot;, mask: 0xFF000000,
+threshold: 0x7F000000, color: 0x00000000}</code>, you can set all
+									destination pixels to be fully transparent when the source image pixel&#39;s
+									alpha is less than 0x7F. You can use this technique for animated
+								transitions and other effects.</p>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>ArgumentError The operation string is not a valid operation</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>TypeError     The sourceBitmapData, sourceRect destPoint or
+										operation are null.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sourceBitmapData: <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The input bitmap image to use. The source image
+											can be a different BitmapData object or it can
+										refer to the current BitmapData instance.</p>
+									</div>
+								</li>
+								<li>
+									<h5>sourceRect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A rectangle that defines the area of the source
+										image to use as input.</p>
+									</div>
+								</li>
+								<li>
+									<h5>destPoint: <a href="openfl.geom.point.html" class="tsd-signature-type">Point</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The point within the destination image(the
+											current BitmapData instance) that corresponds to
+										the upper-left corner of the source rectangle.</p>
+									</div>
+								</li>
+								<li>
+									<h5>operation: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>One of the following comparison operators, passed
+										as a String: &quot;&lt;&quot;, &quot;&lt;=&quot;, &quot;&gt;&quot;, &quot;&gt;=&quot;, &quot;==&quot;, &quot;!=&quot;</p>
+									</div>
+								</li>
+								<li>
+									<h5>threshold: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value that each pixel is tested against to see
+										if it meets or exceeds the threshhold.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> color: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The color value that a pixel is set to if the
+											threshold test succeeds. The default value is
+										0x00000000.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mask: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The mask to use to isolate a color component.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> copySource: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If the value is <code>true</code>, pixel values
+											from the source image are copied to the
+											destination when the threshold test fails. If the
+											value is <code>false</code>, the source image is
+										not copied when the threshold test fails.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The number of pixels that were changed.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="unlock" class="tsd-anchor"></a>
+					<h3>unlock</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">unlock<span class="tsd-signature-symbol">(</span>changeRect<span class="tsd-signature-symbol">?: </span><a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L888">lib/openfl/display/BitmapData.d.ts:888</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Unlocks an image so that any objects that reference the BitmapData object,
+										such as Bitmap objects, are updated when this BitmapData object changes.
+										To improve performance, use this method along with the <code>lock()</code>
+										method before and after numerous calls to the <code>setPixel()</code> or
+									<code>setPixel32()</code> method.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> changeRect: <a href="openfl.geom.rectangle.html" class="tsd-signature-type">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The area of the BitmapData object that has changed. If
+											you do not specify a value for this parameter, the
+											entire area of the BitmapData object is considered
+										changed.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+					<a name="frombase64" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Base64</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Base64<span class="tsd-signature-symbol">(</span>base64<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L442">lib/openfl/display/BitmapData.d.ts:442</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>base64: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+					<a name="frombytes" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Bytes</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Bytes<span class="tsd-signature-symbol">(</span>bytes<span class="tsd-signature-symbol">: </span><a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a>, rawAlpha<span class="tsd-signature-symbol">?: </span><a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L443">lib/openfl/display/BitmapData.d.ts:443</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bytes: <a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rawAlpha: <a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+					<a name="fromcanvas" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Canvas</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Canvas<span class="tsd-signature-symbol">(</span>canvas<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLCanvasElement</span>, transparent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L446">lib/openfl/display/BitmapData.d.ts:446</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>canvas: <span class="tsd-signature-type">HTMLCanvasElement</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> transparent: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+					<a name="fromfile" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>File</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>File<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L449">lib/openfl/display/BitmapData.d.ts:449</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>path: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+					<a name="fromimage" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Image</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Image<span class="tsd-signature-symbol">(</span>image<span class="tsd-signature-symbol">: </span><a href="" class="tsd-signature-type">Image</a>, transparent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L450">lib/openfl/display/BitmapData.d.ts:450</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>image: <a href="" class="tsd-signature-type">Image</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> transparent: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+					<a name="loadfrombase64" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> load<wbr>From<wbr>Base64</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">load<wbr>From<wbr>Base64<span class="tsd-signature-symbol">(</span>base64<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.utils.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L600">lib/openfl/display/BitmapData.d.ts:600</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>base64: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.utils.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+					<a name="loadfrombytes" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> load<wbr>From<wbr>Bytes</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">load<wbr>From<wbr>Bytes<span class="tsd-signature-symbol">(</span>bytes<span class="tsd-signature-symbol">: </span><a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a>, rawAlpha<span class="tsd-signature-symbol">?: </span><a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.utils.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L601">lib/openfl/display/BitmapData.d.ts:601</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bytes: <a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rawAlpha: <a href="openfl.utils.bytearray.html" class="tsd-signature-type">ByteArray</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.utils.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+					<a name="loadfromfile" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> load<wbr>From<wbr>File</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">load<wbr>From<wbr>File<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.utils.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/display/BitmapData.d.ts#L602">lib/openfl/display/BitmapData.d.ts:602</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>path: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.utils.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="openfl.display.bitmapdata.html" class="tsd-signature-type">BitmapData</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.desktop.html">openfl.desktop</a>
+					</li>
+					<li class="current tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.display.html">openfl.display</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.display3d.html">openfl.display3D</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.errors.html">openfl.errors</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.events.html">openfl.events</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.external.html">openfl.external</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.filters.html">openfl.filters</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.geom.html">openfl.geom</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.media.html">openfl.media</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.net.html">openfl.net</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.profiler.html">openfl.profiler</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.sensors.html">openfl.sensors</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.system.html">openfl.system</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.text.html">openfl.text</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.ui.html">openfl.ui</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.utils.html">openfl.utils</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.display.bitmapdata.html" class="tsd-kind-icon">Bitmap<wbr>Data</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#height" class="tsd-kind-icon">height</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#image" class="tsd-kind-icon">image</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#readable" class="tsd-kind-icon">readable</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#rect" class="tsd-kind-icon">rect</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#transparent" class="tsd-kind-icon">transparent</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#width" class="tsd-kind-icon">width</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#applyfilter" class="tsd-kind-icon">apply<wbr>Filter</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#clone" class="tsd-kind-icon">clone</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#colortransform" class="tsd-kind-icon">color<wbr>Transform</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#compare" class="tsd-kind-icon">compare</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#copychannel" class="tsd-kind-icon">copy<wbr>Channel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#copypixels" class="tsd-kind-icon">copy<wbr>Pixels</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#dispose" class="tsd-kind-icon">dispose</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#disposeimage" class="tsd-kind-icon">dispose<wbr>Image</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#draw" class="tsd-kind-icon">draw</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#drawwithquality" class="tsd-kind-icon">draw<wbr>With<wbr>Quality</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#encode" class="tsd-kind-icon">encode</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#fillrect" class="tsd-kind-icon">fill<wbr>Rect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#floodfill" class="tsd-kind-icon">flood<wbr>Fill</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#generatefilterrect" class="tsd-kind-icon">generate<wbr>Filter<wbr>Rect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#getcolorboundsrect" class="tsd-kind-icon">get<wbr>Color<wbr>Bounds<wbr>Rect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#getpixel" class="tsd-kind-icon">get<wbr>Pixel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#getpixel32" class="tsd-kind-icon">get<wbr>Pixel32</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#getpixels" class="tsd-kind-icon">get<wbr>Pixels</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#getvector" class="tsd-kind-icon">get<wbr>Vector</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#histogram" class="tsd-kind-icon">histogram</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#hittest" class="tsd-kind-icon">hit<wbr>Test</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#lock" class="tsd-kind-icon">lock</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#merge" class="tsd-kind-icon">merge</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#noise" class="tsd-kind-icon">noise</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#palettemap" class="tsd-kind-icon">palette<wbr>Map</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#perlinnoise" class="tsd-kind-icon">perlin<wbr>Noise</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#scroll" class="tsd-kind-icon">scroll</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#setpixel" class="tsd-kind-icon">set<wbr>Pixel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#setpixel32" class="tsd-kind-icon">set<wbr>Pixel32</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#setpixels" class="tsd-kind-icon">set<wbr>Pixels</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#setvector" class="tsd-kind-icon">set<wbr>Vector</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#threshold" class="tsd-kind-icon">threshold</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#unlock" class="tsd-kind-icon">unlock</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#frombase64" class="tsd-kind-icon">from<wbr>Base64</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#frombytes" class="tsd-kind-icon">from<wbr>Bytes</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#fromcanvas" class="tsd-kind-icon">from<wbr>Canvas</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#fromfile" class="tsd-kind-icon">from<wbr>File</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#fromimage" class="tsd-kind-icon">from<wbr>Image</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#loadfrombase64" class="tsd-kind-icon">load<wbr>From<wbr>Base64</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#loadfrombytes" class="tsd-kind-icon">load<wbr>From<wbr>Bytes</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+								<a href="openfl.display.bitmapdata.html#loadfromfile" class="tsd-kind-icon">load<wbr>From<wbr>File</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

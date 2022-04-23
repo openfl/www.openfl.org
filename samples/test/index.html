@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<meta charset="utf-8">
+	<meta property="og:image" content="http://ncannasse.fr/file/ld24/img/screen_final.png"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Evoland Classic</title>
+	
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	
+</head>
+<body style="background-color: #000000; color: #eef">
+	
+	<span style="font-family: webfont-04b03"> </span>
+	
+	<center>
+		
+		<div style="position: relative; width: 600px">
+			
+			<div style="position: absolute; width: 110px; height: 410px; background: url('img/pubBanner2x.png'); margin-left: -120px; display: none" id="banner"></div>
+			
+			<div style="position: absolute; width: 110px; height: 410px; background: url('img/p0Banner2x.png'); margin-left: 610px; display: none" id="p0banner">
+			
+		</div>
+		
+		<div style="border : 1px solid #778;">
+			
+			<div id="openfl-embed" style="position: relative; width: 600px; height: 408px;" />
+			
+		</div>
+		
+		<div style="height:40px; padding-top: 20px; display:none" id="social">
+			
+			<a href="#" onclick="window.open('http://twitter.com/intent/tweet?text=This game is crazy ! '+document.location, 'Twitter', 'width=500,height=400'); return false"><img src="img/twitter.png"/> Tweet-it !</a>
+			<a href="#" onclick="window.open('https://www.facebook.com/sharer.php?u='+document.location, 'Facebook', 'width=500,height=400'); return false"><img src="img/facebook.png"/> Share-it !</a>
+			<a href="#" onclick="window.open('https://plus.google.com/share?url='+document.location, 'Google+', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false"><img src="img/gplus.png"/> Plus-it !</a>
+			
+		</div>
+		
+		<p>
+			Game created for LudumDare #24 in 48 hours by <a href="http://ncannasse.fr">Nicolas Cannasse</a>
+		</p>
+		<p>
+			Sources : <a href="http://github.com/openfl/Evoland">Github</a> | Built with <a href="http://haxe.org">Haxe</a> and <a href="http://openfl.org">OpenFL</a> | Rate <a href="http://www.ludumdare.com/compo/ludum-dare-24/?action=preview&uid=8497">on this page</a>
+		</p>
+		
+	</center>
+	
+	<script type="text/javascript">
+		
+		function show(e,f) {
+			try {
+				document.getElementById(e).style.display = f ? "":"none";
+			} catch( error ) {
+				console.log(e);
+			}
+		}
+		
+	</script>
+	
+	
+	<script type="text/javascript" src="./howler.min.js"></script>
+	<script type="text/javascript" src="./MyApplication.js"></script>
+	
+</body>
+</html>

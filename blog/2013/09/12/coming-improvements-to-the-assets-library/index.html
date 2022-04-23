@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Coming Improvements to the Assets Library</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>Coming Improvements to the Assets Library</h1></div>
+<!-- <p class="meta">12 Sep 2013</p> -->
+
+<div class="post">
+<p>In version 1.1.0 of OpenFL, we have some major changes coming to the way assets are handled, to give you even better control over your files.</p>
+
+<p>First, openfl.Assets is being upgraded to multiple “asset libraries.”</p>
+
+<p>An asset library can provide BitmapData, ByteArray, Font, MovieClip, Sound or String instances, just as openfl.Assets has done to-date. Now you can provide your own implementation of where your files come from.<!--more--><a id="more-188"></a></p>
+
+<p>For example, you could wrap a JSON data file, turning it into an asset library. Now you can use “Assets.getBitmapData (‘mydata:myimage.png’);” instead of doing the loads by hand. Bitmap caching has also been turned into a smarter “asset cache”, allowing simple clearing of a single or all data.</p>
+
+<p>Asset libraries are going to have the ability to access synchronous as well as asynchronous assets, using “load__” versions of the current calls, such as “Assets.loadBitmapData” compared to “Assets.getBitmapData”. This will improve flexibility, where you want the convenience of the integrated asset system, but do not want to preload your assets in advance.</p>
+
+<p>Even further, OpenFL is getting a new system for “library handlers.” Simply put, a library file could be a SWF, XFL, or any other complex data structure. Instead of anticipating each new format, the OpenFL tools are going to support custom third-party handlers, to process and return the asset structure, defines and other data needed to support that data type at runtime.</p>
+
+<p>Here is an example:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;haxelib</span> <span class="na">name=</span><span class="s">"swf"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;library</span> <span class="na">path=</span><span class="s">"assets/library.swf"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>If the “swf” library were to register itself as a handler for *.swf library types, it has an opportunity to be called during the OpenFL tools build process, and tell OpenFL how to handle the file, seamlessly.</p>
+
+<p>Accessing the library in the project would then be this simple:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Assets</span><span class="o">.</span><span class="na">loadLibrary</span> <span class="o">(</span><span class="s">"library"</span><span class="o">,</span> <span class="n">function</span> <span class="o">(</span><span class="n">_</span><span class="o">)</span> <span class="o">{</span>
+<span class="o">&amp;</span><span class="n">nbsp</span><span class="o">;</span> <span class="o">&amp;</span><span class="n">nbsp</span><span class="o">;</span>
+<span class="o">&amp;</span><span class="n">nbsp</span><span class="o">;</span> <span class="o">&amp;</span><span class="n">nbsp</span><span class="o">;</span><span class="n">addChild</span> <span class="o">(</span><span class="nc">Assets</span><span class="o">.</span><span class="na">getMovieClip</span> <span class="o">(</span><span class="s">"library:MySymbol"</span><span class="o">));</span>
+<span class="o">&amp;</span><span class="n">nbsp</span><span class="o">;</span> <span class="o">&amp;</span><span class="n">nbsp</span><span class="o">;</span>
+<span class="o">});</span>
+</code></pre></div></div>
+
+<p>We look forward to finishing these features and sharing them with you soon :)</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">September 12, 2013 | <a href="/blog/2013/09/12/coming-improvements-to-the-assets-library/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

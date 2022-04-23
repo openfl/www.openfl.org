@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Developer Spotlight&#58; Ian Harrigan</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>Developer Spotlight&#58; Ian Harrigan</h1></div>
+<!-- <p class="meta">08 Nov 2015</p> -->
+
+<div class="post">
+<p><em>Today in the Developer Spotlight, we chat with Ian Harrigan, the creator of HaxeUI, a cross-platform user interface toolkit.</em></p>
+
+<p><img src="/images/spotlight/DeveloperSpotlight.png" alt="Developer Spotlight" /></p>
+
+<p><span style="font-size: 120%"><strong>Tell us a bit about yourself Ian. What is your background, what got you started in development?</strong></span></p>
+
+<p>I suppose it all started way back when I was living in Bahrain, there wasn’t a huge amount to do and when we got our first computer the world of programmable logic opened up to me. I’d been building electronic circuits - logic gates and transistor experiments - for a while, and also used to program scientific calculators to draw all types of things – but with programming on a desktop things got a lot easier (for starters I didn’t need a soldering iron or spend 2 hours typing “code” into a calculator on a tiny keyboard!).</p>
+
+<p><a href="https://en.wikipedia.org/wiki/BASIC">BASIC</a> was my starting point, and I quickly fell out of love with it, though changing screen modes and drawing pixels still holds a nostalgic place in my heart!</p>
+
+<p>Fast forward a bit and C++ came onto my radar. The concept of classes instantly appealed to me and was something I felt all other languages (including C) always lacked (though I know a lot of people disagree with me on that one!). And that was that, now a days I mainly develop in C++, Java, and of course Haxe.</p>
+
+<p><span style="font-size: 120%"><strong>Where did you come up with the idea for <em>HaxeUI</em>?</strong></span></p>
+
+<p>I stumbled across Haxe a few years ago whilst looking for a way to compile code from a single code base into multiple native targets, ie, without a virtual machine on the target system. This came about after working on a medical mobile application and having to potentially maintain multiple builds, with either different code bases or by using a framework like PhoneGap, which at the time was not a good solution – it felt and responded like a slow webpage and really didn’t inspire confidence in the users.</p>
+
+<p>Haxe seemed to tick the first box, of being able to maintain a single codebase as well as transpile, and ultimately compile, to fully native targets on a wide range of systems. This was a turning point to me, and to this day I’m not sure how it took me so long time find Haxe.</p>
+
+<p>The second box to tick was to be able to build a visually consistent rich user interface using Haxe, and this is where OpenFL came onto my radar as a way to display content on screen in a pretty consistent manner across platforms. I did find multiple UI libs for Haxe and/or OpenFL but none seemed to match my criteria, were simply incomplete or seemed to focus more on game type UIs rather than rich business applications.</p>
+
+<p>That’s when <a href="http://www.haxeui.org">HaxeUI</a> was born! I don’t have much experience with the Flash API but its pretty straight forward and having the ability to run the same code natively on pretty much all desktops and devices meant that my proof of concept test app quickly grew into a general UI framework.</p>
+
+<p><img src="/blog/assets/haxeui-0.jpg" alt="HaxeUI" /></p>
+
+<p><span style="font-size: 120%"><strong>Are there any funny unintended moments that happened during the course of development?</strong></span></p>
+
+<p>Certainly, quite a lot. I have of course, built user interfaces before, but previously by extending other toolkits, and normally for a single platform type, for example, only desktop, or only mobile – never both at the same time.</p>
+
+<p><img src="/blog/assets/haxeui-1.png" alt="HaxeUI" /></p>
+
+<p>Because of that it was quite challenging to get the UI feeling correct on both mobile and desktop platforms, scrollbars for example are more useful on a desktop app with increment, decrement and thumb buttons, but on mobile platforms they should not pollute the interface by showing and hiding automatically and are generally really only there for feedback rather than functionality (when was the last time you actually clicked – or even saw a “full” scroll bar on a mobile/tablet?).  This lead to some custom css rules and complicated controls (“showButtons”, “autoHide”).</p>
+
+<p>ScrollViews were equally complex for much the same reasons, on a mobile device you normally interact with a ScrollView by actually “moving” the content rather than using a scrollbar, so this had to be incorporated. One interesting side effect of this was that the same method on a desktop is actually pretty nice, and as a result I constantly find myself trying to scroll dropdown boxes and pages on my (non-HaxeUI) desktop apps by dragging the content!</p>
+
+<p>There was also a comical moment when the it became apparent the original name “YAHUI” (Yet Another Haxe UI) meant something quite specific in Russian – but we wont get into that!</p>
+
+<p><img src="/blog/assets/haxeui-2.jpg" alt="HaxeUI" /></p>
+
+<p><span style="font-size: 120%"><strong>What was the best part of creating <em>HaxeUI</em>?</strong></span></p>
+
+<p>I think it was probably simply realising that it was possible and viable. Even having a button or a list that does something working on every device and platform I can think of still impresses me (to a degree!).</p>
+
+<p>Second to that it was probably the reaction and reception. From its inception HaxeUI was really just personal project that was really just created for me streamline my application building. So its great to know that other people use it. I think it’s the main reason I actually decided to make a big push and upgrade the whole thing to the next shiny “version 2”.</p>
+
+<p><img src="/blog/assets/haxeui-5.jpg" alt="HaxeUI" /></p>
+
+<p><span style="font-size: 120%"><strong>What was your biggest challenge?</strong></span></p>
+
+<p>Trying to please all the people all the time - a user interface is quite a personal thing, and everyone has their own opinion of just how it should work, look and feel. Trying to incorporate all of these different viewpoints was something I wanted achieve with HaxeUI by making is as customizable as possible, whilst still maintaining a relatively simple experience for the developer when using it. Essentially it should get out of the way and allow a developer to concentrate on application logic rather than application user interface, but at the same time allow total customization of that user interface (if required).</p>
+
+<p><img src="/blog/assets/haxeui-3.jpg" alt="HaxeUI" /></p>
+
+<p>I know from personal frustration from using other toolkits that an entire application can become “ugly” (visually) if you cant just change that last little bit of a components visual style. With that in mind, I tried to implement a framework based on the idea that whatever visual styles I came up with others (and I include myself in that) would dislike / want to change entirely.</p>
+
+<p>I think the use of a css type language to apply visual styles has gone a long way to achieve this; it means pretty much anyone with a basic understanding of css can manage to drastically alter pretty much everything that appears onscreen.</p>
+
+<p><img src="/blog/assets/haxeui-4.jpg" alt="HaxeUI" /></p>
+
+<p><span style="font-size: 120%"><strong>What is your favorite part of the <em>HaxeUI</em>?</strong></span></p>
+
+<p>The speed it allows you to build things, you can get a decent and functional user interface up and running in minutes, it really does allow you quickly add a user interface to an application with very little boiler plate code, and this is something that has been drastically improved in HaxeUI Version 2.</p>
+
+<p>Add to that using macro driven build helpers to automatically populate model and view classes with typed member variables of named components and you can rapidly build a fairly compelling application across pretty much any platform that is supported.</p>
+
+<p>Even to this day, I do occasionally catch myself when building a new test project with HaxeUI thinking “oh right, yeah, that’s it. Add a button, setup an event listener”.</p>
+
+<p>Another feature I like about HaxeUI is the ability to keep entire “applications” in human readable xml files, including application logic via scripting. Not only does this really help with playing with app logic and styles, it also means entire applications, or application modules can be sent “down the wire”. A good example of this in action would be the <a href="https://github.com/ianharrigan/haxeui-builder/blob/master/assets/data/calc.xml">calculator example</a> and it loaded remotely and run inside the <a href="http://haxeui.org/try.jsp?layoutId=Ra76bjj">haxeui-builder</a>.</p>
+
+<p><span style="font-size: 120%"><strong>What was your experience like with OpenFL?</strong></span></p>
+
+<p>Very positive. It allowed me to hit the ground running and, even though I had little Flash experience it was easy to get things working across platforms. There were, of course, gotchas here and there, and fairly large issues with textfields on native platforms but this is something I have seen massive improvements on in subsequent releases. In fact OpenFL Next seems to have resolved almost all of my previous issues!</p>
+
+<p><span style="font-size: 120%"><strong>What advice would you give a new developer who wants to get started?</strong></span></p>
+
+<p>Have fun! Development is intrinsically complicated and requires, at times, lots of late nights, debug sessions and headaches. But it is also a fundamentally creative and expressive pursuit and its important to not lose sight of that. Whether you are building a game or a stock marker ticker its important to have fun and enjoy what you are doing.</p>
+
+<p>Oh, and sleep, sleep is important (apparently).</p>
+
+<p><em><a href="http://www.haxeui.org">HaxeUI</a> is available to use on Linux, Mac or Windows at <a href="http://www.haxeui.org">http://www.haxeui.org</a> or on <a href="http://lib.haxe.org/p/haxeui/">Haxelib</a>. If you have any questions for Ian, feel free to contact him on Twitter at <a href="https://twitter.com/ianharrigan1982">@IanHarrigan1982</a>. You can also stay up-to-date with HaxeUI by following <a href="https://www.facebook.com/haxeui">facebook.com/haxeui</a>, or on Twitter <a href="https://twitter.com/haxeui">@haxeui</a>, and with Ian on <a href="https://github.com/ianharrigan">github.com/ianharrigan</a>.</em></p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">November 8, 2015 | <a href="/blog/2015/11/08/developer-spotlight-ian-harrigan/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

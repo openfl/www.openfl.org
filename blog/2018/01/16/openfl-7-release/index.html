@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>OpenFL 7.0 Release</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>OpenFL 7.0 Release</h1></div>
+<!-- <p class="meta">16 Jan 2018</p> -->
+
+<div class="post">
+<p>We have been hard at work preparing our seventh major release, but in addition to the ordinary improvements and refinements, this release opens up an entirely new way to use OpenFL.</p>
+
+<h2 id="typescript-es6-javascript-and-es5-javascript">TypeScript, ES6 JavaScript and ES5 JavaScript</h2>
+
+<p>There is now support for using TypeScript and ES5/ES6 JavaScript with OpenFL!</p>
+
+<h3 id="npm-based-workflow">NPM-based Workflow</h3>
+
+<p>OpenFL 7 is the first release that is simultaneously available on NPM and Haxelib. NPM is a hugely popular ecosystem for web development, with over 550,000 packages available, and almost 800 new packages submitted every day. The majority of famous web development tools are all in NPM, from Grunt to UglifyJS to Webpack.</p>
+
+<p>When OpenFL compiles for a native target, it does not go immediately to bytecode, but uses the Haxe compiler to write C++ source files, then relies a native compiler (Visual Studio, Xcode, Android NDK) to create an executable. In a similar fashion, we are compiling OpenFL to an intermediate JavaScript module format, then we can rely on industry-standard tools (such as Webpack) to emit our final application.</p>
+
+<p>As of writing, we have over 15 samples and demos available in TypeScript, Haxe, ES6 JavaScript and ES5 JavaScript for the NPM workflow, in addition to our Haxelib samples. This provides an opportunity to choose new source languages for OpenFL when developing a web-based project, and integration with modern web development workflows.</p>
+
+<p>Already, this workflow has enabled the ability to use hot-reloading, where code is recompiled automatically and browser pages are reloaded once compilation is complete. This and other resources in the ecosystem should be a huge boon to productivity.</p>
+
+<h3 id="yeoman-generator">Yeoman Generator</h3>
+
+<p>There is a new Yeoman generator for OpenFL NPM projects that provides similar functionality to the <code class="language-plaintext highlighter-rouge">openfl create project &lt;name&gt;</code> command, populating a new project with template files for TypeScript, Haxe, ES6 JavaScript or ES5 JavaScript.</p>
+
+<p>Assuming NPM is already installed, you can install the generator using the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g yo generator-openfl
+</code></pre></div></div>
+
+<p>Then you can create a new project like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>NewOpenFLProject
+<span class="nb">cd </span>NewOpenFLProject
+yo openfl
+</code></pre></div></div>
+
+<h3 id="swf-support">SWF Support</h3>
+
+<p>In addition to all of our runtime features in OpenFL, we have also made compile-time SWF processing available for Webpack.</p>
+
+<p>Webpack uses a series of libraries called “loaders” to process different kinds of assets, and in addition to OpenFL and the Yeoman generator, we also created a SWF loader to convert SWF assets into asset library bundles for OpenFL. Both the “NyanCat” and “UsingSWFAssets” samples illustrate how this works, and SWF loading is even compatible with hot-reloading, so when changes are made to a SWF file (such as from Adobe Animate) the SWF will be re-processed and the development page will reload automatically.</p>
+
+<h3 id="minor-additions">Minor Additions</h3>
+
+<p>There are a number of small improvements that have occurred while making OpenFL available for NPM.</p>
+
+<ul>
+  <li>Added <code class="language-plaintext highlighter-rouge">new Stage()</code> support for NPM releases, to simplify initialization</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">openfl.net.navigateToURL</code> and other top-level functions (available under <code class="language-plaintext highlighter-rouge">openfl.Lib</code> on Haxe)</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">openfl.utils.AssetManifest</code> with initial methods to simplify runtime asset manifest creation</li>
+  <li>Added support for DOM rendering without requiring a <code class="language-plaintext highlighter-rouge">-Ddom</code> compile-time flag</li>
+</ul>
+
+<h2 id="recent-features">Recent Features</h2>
+
+<p>Since OpenFL 6.0 was released in August of last year, there are other recent features that are worth mentioning.</p>
+
+<h3 id="adobe-air-target">Adobe AIR Target</h3>
+
+<p>In addition to all of our other targets in the Haxelib version of OpenFL, we added official support for Adobe AIR. That means that in addition to C++ native builds for mobile and desktop, we have made it simpler to compile for Adobe AIR. All Adobe AIR APIs should be supported, and our tooling should help make <code class="language-plaintext highlighter-rouge">openfl test air</code> as simple as every other platform.</p>
+
+<h3 id="beta-support-for-uwp">Beta Support for UWP</h3>
+
+<p>We have added beta Universal Windows Platform (UWP) support, using the HTML5 target. For anyone interested in publishing to the Windows Store, this should help make the process easier, or at least a bit more automatic. We appreciate any developers interested in contributing to help make this more mature.</p>
+
+<h3 id="initial--watch-support">Initial -watch Support</h3>
+
+<p>We have also added initial <code class="language-plaintext highlighter-rouge">-watch</code> support for Haxelib builds, which re-runs the specifed command when any of the *.hx files in the source path changes:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl test windows -watch
+</code></pre></div></div>
+
+<p>The above command will build and run an OpenFL as a native Windows application, and will watch all of the *.hx files located in the project and haxelib sources used. Then if one of those files are changed, the running application is terminated, and the project is built and run again.</p>
+
+<h3 id="packed-asset-library-support">Packed Asset Library Support</h3>
+
+<p>Updates to Lime also include initial packed asset library support, which provides the ability to generate single *.pak files externally as a globbed or compressed file.</p>
+
+<p>This feature has been long-requested on the desktop, where distribution makes asset files more visible to users. Used packed asset libraries enables the use of a single “level1.pak” or “assets.pak” file that makes resources less conspicuous, and can also save space if compression is enabled.</p>
+
+<h3 id="variable-substitution-in-template-filenames">Variable Substitution in Template Filenames</h3>
+
+<p>The Lime command-line tools now have the ability to process template values not only in the contents of files, but also in their names, using `` syntax. There are sometimes template files you may want or need which vary in name, such as due to the name of the project. This feature makes it possible to define a single <code class="language-plaintext highlighter-rouge">-Info.plist</code> file, or other resource, and have it copied accordingly.</p>
+
+<h3 id="openal-effects-extension-support">OpenAL Effects Extension Support</h3>
+
+<p>On OpenAL-Soft platforms (Windows, Linux, Android) we have support for OpenAL Effects in Lime. This will make it easier for sound engineers to create more complex and advanced sound for these projects.</p>
+
+<h3 id="on-going-stability-performance-and-consistency">On-going Stability, Performance and Consistency</h3>
+
+<p>There are many other fixes we have made to improve performance, keep OpenFL stable and to overall improve the consistency of how the OpenFL API supports Flash APIs.</p>
+
+<p>We have made endianness improvements for sockets and <code class="language-plaintext highlighter-rouge">ByteArray</code>, and added missing <code class="language-plaintext highlighter-rouge">openfl.Vector</code> properties. Initial support for compressed texture formats in Stage3D has landed, and improved support for complex text layouts and Unicode in our native font rendering. Capture phase support was added for all display objects, and improved support for multiple input <code class="language-plaintext highlighter-rouge">TextField</code> objects. OpenGL masking now uses a stencil buffer, for complex masking, and improved how we handle web fonts.</p>
+
+<h2 id="download-and-install">Download and Install</h2>
+
+<p>The latest OpenFL release is available on Haxelib or NPM. To install on Haxelib, after installing Haxe, run the following commands:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>haxelib install openfl
+haxelib run openfl setup
+</code></pre></div></div>
+
+<p>Then you can confirm that everything is working by running the <code class="language-plaintext highlighter-rouge">openfl</code> command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl
+</code></pre></div></div>
+
+<p>For NPM, try one of our samples for <a href="https://github.com/openfl/openfl-samples-ts">TypeScript</a>, <a href="https://github.com/openfl/openfl-samples">Haxe</a>, <a href="https://github.com/openfl/openfl-samples-es6">ES5</a> or <a href="https://github.com/openfl/openfl-samples-es5">ES6</a>, like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone (repository path)
+cd (path)/features/display/DisplayingABitmap
+</code></pre></div></div>
+
+<p>Then install and start the demo or sample:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install
+npm start -s
+</code></pre></div></div>
+
+<h2 id="thanks">Thanks</h2>
+
+<p>Over 130 contributors have helped us make nearly 240 OpenFL and Lime releases combined. Our <a href="https://www.patreon.com/openfl">Patreon</a> sponsors have contributed monthly to make OpenFL successful, and OpenFL continues to grow as a valuable library for cross-platform and single-platform development.</p>
+
+<p>Thank you everyone! We are looking forward to a bright 2018, and hope to see you all at <a href="https://summit.haxe.org/us/2018/">Haxe Summit</a> this May in Seattle.</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">January 16, 2018 | <a href="/blog/2018/01/16/openfl-7-release/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

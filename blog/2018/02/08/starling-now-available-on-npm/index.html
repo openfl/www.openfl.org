@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Starling Now Available on NPM</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>Starling Now Available on NPM</h1></div>
+<!-- <p class="meta">08 Feb 2018</p> -->
+
+<div class="post">
+<p>OpenFL 7.1 and Lime 6.1 are now available on Haxelib and NPM!</p>
+
+<p>Among other minor features, OpenFL now properly supports Stage3D on NPM (where it was previously unavailable). We have also resolved showstopper issues when using GL framebuffers with the Xcode 11 SDK. This was the final blocker preventing us from releasing Starling 2 on Haxelib.</p>
+
+<p>Starling is a GPU-accelerated framework that works on top of OpenFL and Flash. Part of the reason why Starling has been so popular for ActionScript developers is because Flash Player does not (ordinarily) support hardware accelerated rendering, but Starling has grown to support additional features and tools for game development.</p>
+
+<p>OpenFL is GPU-accelerated by default, but there are still reasons why developers may choose to use Starling in addition or instead of the ordinary OpenFL features. In addition to bringing the newer Starling 2.x branch to Haxelib, we have invested in making Starling a first-class citizen in the NPM ecosystem, like OpenFL.</p>
+
+<p>This brings TypeScript as well ES6 and ES5 JavaScript support to Starling, in addition the original ActionScript 3.0 and Haxe language support.</p>
+
+<h2 id="running-the-starling-demo-haxelib">Running the Starling Demo (Haxelib)</h2>
+
+<p><a href="http://www.openfl.org/download">Install Haxe</a>, then install OpenFL, Lime and Starling using the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>haxelib <span class="nb">install </span>openfl
+haxelib run openfl setup
+haxelib <span class="nb">install </span>starling
+</code></pre></div></div>
+
+<p>Create a copy of the Starling demo using this command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create starling:demo
+</code></pre></div></div>
+
+<p>You can then test the demo using one of OpenFL’s supported platforms:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>demo
+openfl <span class="nb">test </span>flash
+</code></pre></div></div>
+
+<p>You can also use other supported platforms:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl <span class="nb">test </span>html5
+openfl <span class="nb">test </span>windows
+openfl <span class="nb">test </span>mac
+openfl <span class="nb">test </span>linux
+openfl <span class="nb">test </span>ios
+openfl <span class="nb">test </span>android
+openfl <span class="nb">test </span>air
+</code></pre></div></div>
+
+<h2 id="running-the-starling-demo-npm">Running the Starling Demo (NPM)</h2>
+
+<p>To save on space, the Starling demo is not released on NPM, but you can <a href="https://github.com/openfl/starling/archive/master.zip">download a zip</a> of the repository, or use GIT to clone it.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/openfl/starling
+<span class="nb">cd </span>starling/samples/demo_npm/typescript
+npm <span class="nb">install
+</span>npm start <span class="nt">-s</span>
+</code></pre></div></div>
+
+<p>You can also try “es6”, “es5” or “haxe” for different variations of the Starling demo, written in each language syntax.</p>
+
+<h2 id="creating-an-empty-project-haxelib">Creating an Empty Project (Haxelib)</h2>
+
+<p>You can create a new empty project using the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create starling:project MyNewProject
+</code></pre></div></div>
+
+<h2 id="creating-an-empty-project-npm">Creating an Empty Project (NPM)</h2>
+
+<p>You can use the Yeoman generator we created for Starling to generate a new empty project for TypeScript, ES6, ES5 or Haxe:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-g</span> yo generator-starling-framework
+<span class="nb">mkdir </span>MyNewProject
+<span class="nb">cd </span>MyNewProject
+yo starling-framework
+</code></pre></div></div>
+
+<p>This is similar to our generator for OpenFL:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-g</span> yo generator-openfl
+<span class="nb">mkdir </span>OpenFLTest
+<span class="nb">cd </span>OpenFLTest
+yo openfl
+</code></pre></div></div>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>We have more work to do, but in the meantime, please visit our friendly forums for questions, concerns and feedback at: <a href="http://community.openfl.org">http://community.openfl.org</a>.</p>
+
+<p>Thank you one more time to our awesome <a href="https://www.patreon.com/openfl">Patreon</a> sponsors and contributors. We appreciate your help and support!</p>
+
+<blockquote>In the golden lightning<br />
+Of the sunken sun,<br />
+O'er which clouds are bright'ning,<br />
+Thou dost float and run;<br />
+Like an unbodied joy whose race is just begun.</blockquote>
+
+<p><em>Percy Bysshe Shelley, <a href="https://www.poetryfoundation.org/poems/45146/to-a-skylark">“To a Skylark”</a></em></p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">February 8, 2018 | <a href="/blog/2018/02/08/starling-now-available-on-npm/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

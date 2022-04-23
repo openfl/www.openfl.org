@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>OpenFL 4.5 and Lime 3.5 are Here!</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>OpenFL 4.5 and Lime 3.5 are Here!</h1></div>
+<!-- <p class="meta">16 Dec 2016</p> -->
+
+<div class="post">
+<p>OpenFL 4.5 and Lime 3.5 are available, with quite a long list of changes!</p>
+
+<h2 id="improved-swf-support">Improved SWF Support</h2>
+
+<p>The “swf” library has been merged into OpenFL, which means that OpenFL understands how to process and include SWF-based assets without installing any extra haxelibs. For this release, we have focused on improving the quality and integration of SWF-based assets, resulting in multiple improvements that were not possible before. For example, it is possible to use Haxe-based classes as a “custom base class” from Adobe Animate or older versions of Adobe Flash Professional.</p>
+
+<p>Using a SWF library with the “generate” option enabled (such as <code class="language-plaintext highlighter-rouge">&lt;library path="lib.swf" preload="true" generate="true" /&gt;</code>), classes used in the “Export for ActionScript” option are now strongly typed in generated Haxe classes. Support for strong type references improves performance, and increases the amount of code that can be used without using casting. As a result, we have disabled the <code class="language-plaintext highlighter-rouge">implements Dynamic</code> behavior for <code class="language-plaintext highlighter-rouge">DisplayObject</code>, as dynamic access has performance costs, and made it difficult to debug certain kinds of spelling errors. This option is available now using <code class="language-plaintext highlighter-rouge">-Dopenfl-dynamic</code>, but is disabled by default.</p>
+
+<h2 id="improved-html5--ddom-support">Improved HTML5 -Ddom Support</h2>
+
+<p>In addition to the standard WebGL target and the fallback canvas target, OpenFL has a special “DOM” mode for HTML5 that uses CSS transforms, DIVs, image tags and other HTML elements. Although support has lagged recently, we have brought the DOM target up to parity with our renderers in many ways. There may be a “one size fits all” approach that is ideal for all users on HTML5, so we are excited to better serve your needs by allowing alternatives depending on the project you are creating. Using the DOM output is more ideal for projects that are not constantly changing (such as a web application) or projects that wish to blend their own DOM elements (using <code class="language-plaintext highlighter-rouge">openfl.display.DOMSprite</code>) or weild greater control over the behavior of their project.</p>
+
+<h2 id="experimental-additional-gpu-features">(Experimental) Additional GPU Features</h2>
+
+<p>In this release, we are experimenting with changes to increase support for GPU features. These are only available on OpenGL targets (OpenGL, OpenGL ES, WebGL) and are liable to change in the future. Your feedback is greatly appreciated as we work on these features.</p>
+
+<p>First, we have experimenting with support for dumping the software representation of a <code class="language-plaintext highlighter-rouge">BitmapData</code> object. The compromise means that it is no longer possible to <code class="language-plaintext highlighter-rouge">getPixel</code> or <code class="language-plaintext highlighter-rouge">setPixel</code>, but if no edits are required, this cuts the amount of RAM used for the <code class="language-plaintext highlighter-rouge">BitmapData</code> by 50%. For large projects, this may be a life-saver, so we have added <code class="language-plaintext highlighter-rouge">bitmapData.readable</code> to determine if the object can be used with most <code class="language-plaintext highlighter-rouge">BitmapData</code> APIs, and <code class="language-plaintext highlighter-rouge">bitmapData.disposeImage</code> to delete the software buffer, but retain the hardware texture once it is created. Similarly, we have added support to <code class="language-plaintext highlighter-rouge">bitmapData.draw</code> and <code class="language-plaintext highlighter-rouge">bitmapData.fillRect</code> to use OpenGL framebuffers if the <code class="language-plaintext highlighter-rouge">BitmapData</code> is hardware-only. This may make a very big difference for performance, as <code class="language-plaintext highlighter-rouge">bitmapData.draw</code> would instead go through software.</p>
+
+<p>We are also experimenting with cross-over APIs between <code class="language-plaintext highlighter-rouge">Stage3D</code> and <code class="language-plaintext highlighter-rouge">BitmapData</code>, such as the <code class="language-plaintext highlighter-rouge">BitmapData.fromTexture</code> API, designed to be used for render-to-texture, similar to the above. However, this enables support for using a hardware texture that is already created in <code class="language-plaintext highlighter-rouge">Stage3D</code>, and does not create a software buffer to be deleted later, if the intention is to only use render-to-texture.</p>
+
+<p>We are also considering a default <code class="language-plaintext highlighter-rouge">Context3D</code> on hardware targets, since the hardware context is already initialized as a part of the Lime window creation.</p>
+
+<h2 id="asset-library-and-preloader-improvements">Asset Library and Preloader Improvements</h2>
+
+<p>We have made big changes to how Lime asset libraries are handled, to reduce the amount of special logic that exists in the <code class="language-plaintext highlighter-rouge">DefaultAssetLibrary</code> template, to improve support for custom asset libraries (such as SWF-based libraries) and to prepare the way for more work on asset library improvements. These changes should (ideally) be transparent, and everything should work the same as it did, with the exception that fewer assets are preloaded on HTML5, which is important for large projects.</p>
+
+<p>We received feedback that the custom preloader API was difficult to use, so it has been revised to make it simpler and easier to understand.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.events.Event</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.events.ProgressEvent</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">CustomPreloader</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+	
+	<span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+		
+		<span class="kd">super</span> <span class="o">();</span>
+		
+		<span class="n">addEventListener</span> <span class="o">(</span><span class="nc">ProgressEvent</span><span class="o">.</span><span class="na">PROGRESS</span><span class="o">,</span> <span class="n">this_onProgress</span><span class="o">);</span>
+		<span class="n">addEventListener</span> <span class="o">(</span><span class="nc">Event</span><span class="o">.</span><span class="na">COMPLETE</span><span class="o">,</span> <span class="n">this_onComplete</span><span class="o">);</span>
+		
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="n">function</span> <span class="nf">this_onComplete</span> <span class="o">(</span><span class="nl">event:</span><span class="nc">Event</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+		
+		<span class="c1">//event.preventDefault ();</span>
+		<span class="n">trace</span> <span class="o">(</span><span class="s">"load complete"</span><span class="o">);</span>
+		
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="n">function</span> <span class="nf">this_onProgress</span> <span class="o">(</span><span class="nl">event:</span><span class="nc">ProgressEvent</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+		
+		<span class="kt">var</span> <span class="n">percentLoaded</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">event</span><span class="o">.</span><span class="na">bytesTotal</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="n">percentLoaded</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="na">bytesLoaded</span> <span class="o">/</span> <span class="n">event</span><span class="o">.</span><span class="na">bytesTotal</span><span class="o">;</span>
+		
+		<span class="n">trace</span> <span class="o">(</span><span class="s">"percentLoaded: "</span> <span class="o">+</span> <span class="n">percentLoaded</span><span class="o">);</span>
+		
+	<span class="o">}</span>
+	
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now, a custom preloader can be an ordinary <code class="language-plaintext highlighter-rouge">Sprite</code>, and does not need to inherit from a special class or interface. <code class="language-plaintext highlighter-rouge">PROGRESS</code> and <code class="language-plaintext highlighter-rouge">COMPLETE</code> events are dispatched, and if the <code class="language-plaintext highlighter-rouge">COMPLETE</code> is not canceled, the preloader is removed and the application begins. If preferred, the <code class="language-plaintext highlighter-rouge">COMPLETE</code> event can be canceled, then the preloader should dispatch a <code class="language-plaintext highlighter-rouge">COMPLETE</code> event on its own when it is ready to release control to the document class.</p>
+
+<p>As a marked change from before, the custom preloader occurs on <em>every</em> target, including mobile or desktop platforms. As these platforms do not usually preload, these will often <code class="language-plaintext highlighter-rouge">COMPLETE</code> right away, but it will be up to you whether the preloader relinquishes control, or if you use it to show a “START” button, sponsor logos, or other content. It’s your choice!</p>
+
+<h2 id="ios-build-improvements">iOS Build Improvements</h2>
+
+<p>We have made multiple changes to the default iOS project templates, fixing the “cannot find build target by” error when using Haxe development builds, significantly improving compile-time, fixing issues with compiler cache invalidation and have improved the performance of OpenFL and Lime debug builds for devices. We hope that these quality-of-life improvements will continue to make iOS a friendlier target to use.</p>
+
+<h2 id="other-improvements">Other Improvements</h2>
+
+<p>There are many other minor fixes and improvements, such as a new HTTPRequest class in Lime, better support for high-DPI targets, and hit test and render fixes for OpenFL.</p>
+
+<p>Thank you to all of our <a href="http://patreon.com/openfl">Patreon</a> supporters, and keep making the world a more exciting place with all amazing games and applications you are building! It is humbling to see all that we are helping you create.</p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">openfl upgrade</code> to get the latest, and if you are using development builds, please be sure to do <code class="language-plaintext highlighter-rouge">-clean</code> builds, and <code class="language-plaintext highlighter-rouge">openfl rebuild tools</code> to compile the updated SWF embed tool.</p>
+
+<p>Check out the changelog <a href="https://github.com/openfl/openfl/blob/develop/CHANGELOG.md">here</a> and <a href="https://github.com/openfl/lime/blob/develop/CHANGELOG.md">here</a>.</p>
+
+<p>Merry Christmas!</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">December 16, 2016 | <a href="/blog/2016/12/16/openfl-4-5-and-lime-3-5-are-here/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

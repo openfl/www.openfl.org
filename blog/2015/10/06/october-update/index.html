@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Development Update</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>Development Update</h1></div>
+<!-- <p class="meta">06 Oct 2015</p> -->
+
+<div class="post">
+<p>The past several months have been filled with new updates to Lime and OpenFL, there are so many things to discuss, I will try and choose some of my favorites and some of the highlights since the last development update on the blog.</p>
+
+<h2 id="joystick-and-gamepad-support">Joystick and Gamepad Support</h2>
+
+<p>Previous releases of OpenFL used <code class="language-plaintext highlighter-rouge">JoystickEvent</code> to get access to game devices. This was never a part of the Flash API specification, since it was created years before AIR or Flash Player supported game input publicly.</p>
+
+<p>OpenFL no longer supports <code class="language-plaintext highlighter-rouge">JoystickEvent</code>, but instead benefits from three new APIs designed to provide more (and better!) options for game input support.</p>
+
+<p>Using Lime directly, you have access to either lower-level Joystick or higher-level Gamepad support.</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Gamepad</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">gamepad</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Connected Gamepad: "</span> <span class="o">+</span> <span class="nx">gamepad</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  
+  <span class="nx">gamepad</span><span class="p">.</span><span class="nx">onAxisMove</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">axis</span><span class="o">:</span><span class="nx">GamepadAxis</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span><span class="nb">Float</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Moved Axis "</span> <span class="o">+</span> <span class="nx">axis</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+  <span class="p">});</span>
+  
+  <span class="nx">gamepad</span><span class="p">.</span><span class="nx">onButtonDown</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">button</span><span class="o">:</span><span class="nx">GamepadButton</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Pressed Button: "</span> <span class="o">+</span> <span class="nx">button</span><span class="p">);</span>
+  <span class="p">});</span>
+  
+  <span class="nx">gamepad</span><span class="p">.</span><span class="nx">onButtonUp</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">button</span><span class="o">:</span><span class="nx">GamepadButton</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Released Button: "</span> <span class="o">+</span> <span class="nx">button</span><span class="p">);</span>
+  <span class="p">});</span>
+  
+  <span class="nx">gamepad</span><span class="p">.</span><span class="nx">onDisconnect</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Disconnected Gamepad"</span><span class="p">);</span>
+  <span class="p">});</span>
+  
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Unlike the older API, Lime Joystick and Gamepad support have hot-plugging support. You can connect and disconnect a controller while a project is still running. If a controller already has mappings (and you can include new mappings if Lime does not have one for the controller) the Gamepad API provides unified, named input. Regardless of the device, you can check values such as <code class="language-plaintext highlighter-rouge">GamepadAxis.LEFT_X</code>, or <code class="language-plaintext highlighter-rouge">GamepadButton.START</code>, simplifying support of different types of controllers.</p>
+
+<p>For compatibility with the Flash API, OpenFL provides the Flash “GameInput” API. This is similar to the Lime Gamepad API, but more closely resembles other OpenFL APIs, and shares compatibility with the Flash runtime.</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nx">GameInput</span> <span class="p">().</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">GameInputDevice</span><span class="p">.</span><span class="nx">DEVICE_ADDED</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Connected Device: "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  
+  <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="nx">in</span> <span class="mi">0</span><span class="p">...</span><span class="nx">event</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">numControls</span><span class="p">)</span> <span class="p">{</span>
+    
+    <span class="kd">var</span> <span class="nx">control</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">getControlAt</span> <span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    
+    <span class="nx">control</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">CHANGE</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Control "</span> <span class="o">+</span> <span class="nx">control</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">});</span>
+    
+  <span class="p">}</span>
+  
+  <span class="nx">event</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">enabled</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+  
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Sometimes you may not have gamepad mapping for a certain device, or you are using a real joystick, or prefer the more raw system-level events. Lime now supports standard joystick events as well.</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Joystick</span><span class="p">.</span><span class="nx">onConnect</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">joystick</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Connected Joystick: "</span> <span class="o">+</span> <span class="nx">joystick</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  
+  <span class="nx">joystick</span><span class="p">.</span><span class="nx">onAxisMove</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">axis</span><span class="o">:</span><span class="nb">Int</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span><span class="nb">Float</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Moved Axis "</span> <span class="o">+</span> <span class="nx">axis</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+  <span class="p">});</span>
+  
+  <span class="nx">joystick</span><span class="p">.</span><span class="nx">onButtonDown</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">button</span><span class="o">:</span><span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Pressed Button: "</span> <span class="o">+</span> <span class="nx">button</span><span class="p">);</span>
+  <span class="p">});</span>
+  
+  <span class="nx">joystick</span><span class="p">.</span><span class="nx">onButtonUp</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">button</span><span class="o">:</span><span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Released Button: "</span> <span class="o">+</span> <span class="nx">button</span><span class="p">);</span>
+  <span class="p">});</span>
+  
+  <span class="nx">joystick</span><span class="p">.</span><span class="nx">onDisconnect</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Disconnected Joystick"</span><span class="p">);</span>
+  <span class="p">});</span>
+  
+  <span class="nx">joystick</span><span class="p">.</span><span class="nx">onHatMove</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">hat</span><span class="o">:</span><span class="nb">Int</span><span class="p">,</span> <span class="nx">position</span><span class="o">:</span><span class="nx">JoystickHatPosition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Moved Hat "</span> <span class="o">+</span> <span class="nx">hat</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nx">position</span><span class="p">);</span>
+  <span class="p">});</span>
+  
+  <span class="nx">joystick</span><span class="p">.</span><span class="nx">onTrackballMove</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">trackball</span><span class="o">:</span><span class="nb">Int</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span><span class="nb">Float</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Moved Trackball "</span> <span class="o">+</span> <span class="nx">trackball</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+  <span class="p">});</span>
+  
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>If you are using a real joystick (with a hat or trackball) then <code class="language-plaintext highlighter-rouge">Joystick</code> provides clear access to these features. Also, for other game controllers, <code class="language-plaintext highlighter-rouge">Joystick</code> provides you with the raw hardware event values, buttons and axes are dispatched using the real hardware IDs rather than named axis or button values. This may particularly help with creating or modifying Lime Gamepad mappings.</p>
+
+<p>The old <code class="language-plaintext highlighter-rouge">JoystickEvent</code> has been deprecated, I hope that you enjoy the new <code class="language-plaintext highlighter-rouge">Gamepad</code> or <code class="language-plaintext highlighter-rouge">Joystick</code> API, or use the <code class="language-plaintext highlighter-rouge">GameInput</code> API for Flash compatibility. OpenFL Legacy will continue to use only <code class="language-plaintext highlighter-rouge">JoystickEvent</code>.</p>
+
+<h2 id="more-new-lime-apis">More New Lime APIs</h2>
+
+<p>Over time, Lime has gained additional APIs which may come in handy.</p>
+
+<h3 id="log">Log</h3>
+
+<p>Lime now has a <code class="language-plaintext highlighter-rouge">Log</code> class, with added support for logging levels.</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Log</span><span class="p">.</span><span class="nx">error</span> <span class="p">(</span><span class="s2">"This is an error message"</span><span class="p">);</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">warn</span> <span class="p">(</span><span class="s2">"This is a warning message"</span><span class="p">);</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">info</span> <span class="p">(</span><span class="s2">"This is an informational message"</span><span class="p">);</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">debug</span> <span class="p">(</span><span class="s2">"This is a debug message"</span><span class="p">);</span>
+<span class="nx">Log</span><span class="p">.</span><span class="nx">verbose</span> <span class="p">(</span><span class="s2">"This is a verbose message"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Logging levels are defined automatically, based upon the build time, or whether additional flags (such as <code class="language-plaintext highlighter-rouge">-verbose</code>) exist when run.</p>
+
+<h3 id="clipboard">Clipboard</h3>
+
+<p>Lime has standard clipboard support now.</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">Clipboard</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
+<span class="nx">Clipboard</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="s2">"Hello"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="backgroundworkerthreadpool">BackgroundWorker/ThreadPool</h3>
+
+<p>For simpler use of threads, Lime has added the <code class="language-plaintext highlighter-rouge">BackgroundWorker</code> class. This allows you to start an asynchronous task on another thread, or where threads are not supported, it will operate inline.</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">worker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BackgroundWorker</span> <span class="p">();</span>
+<span class="nx">worker</span><span class="p">.</span><span class="nx">doWork</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">worker</span><span class="p">.</span><span class="nx">sendComplete</span> <span class="p">(</span><span class="s2">"Done!"</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">worker</span><span class="p">.</span><span class="nx">onComplete</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="kr">trace</span> <span class="p">(</span><span class="nx">result</span><span class="p">));</span>
+<span class="nx">worker</span><span class="p">.</span><span class="nx">run</span> <span class="p">();</span>
+</code></pre></div></div>
+
+<p>Workers can support error and progress event types as well.</p>
+
+<p>When there is a task that may benefit from multiple threads, the <code class="language-plaintext highlighter-rouge">ThreadPool</code> class provides support for spinning up (and shutting down) background threads for you.</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ThreadPool</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nx">pool</span><span class="p">.</span><span class="nx">doWork</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">pool</span><span class="p">.</span><span class="nx">sendComplete</span> <span class="p">(</span><span class="s2">"Done!"</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">pool</span><span class="p">.</span><span class="nx">onComplete</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="kr">trace</span> <span class="p">(</span><span class="nx">result</span><span class="p">));</span>
+<span class="nx">pool</span><span class="p">.</span><span class="nx">queue</span> <span class="p">();</span>
+</code></pre></div></div>
+
+<h3 id="futurepromise">Future/Promise</h3>
+
+<p>In order to better support asynchronous loading, Lime has added Future/Promise API support.</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">future</span> <span class="o">=</span> <span class="nx">Assets</span><span class="p">.</span><span class="nx">loadImage</span> <span class="p">(</span><span class="s2">"image.png"</span><span class="p">);</span>
+<span class="nx">future</span><span class="p">.</span><span class="nx">onComplete</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">image</span><span class="p">)</span> <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Loaded"</span><span class="p">));</span>
+<span class="nx">future</span><span class="p">.</span><span class="nx">onProgress</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">progress</span><span class="p">)</span> <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Progress: "</span> <span class="o">+</span> <span class="nx">progress</span><span class="p">));</span>
+<span class="nx">future</span><span class="p">.</span><span class="nx">onError</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Error "</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>This is also exposed in the newer OpenFL <code class="language-plaintext highlighter-rouge">Assets</code> class for “load” methods.</p>
+
+<p>Unlike a standard “loaded” callback, returning a future allows you to handle error and progress callbacks, and allows chains, so that an error earlier in the process will propogate to the final error handler, making things simpler.</p>
+
+<p>A Future has the added benefit (as well) that an <code class="language-plaintext highlighter-rouge">onComplete</code> can be registered even after a Promise has completed a Future. In the case of <code class="language-plaintext highlighter-rouge">Assets</code>, a file may already be available when the Future is returned. Regardless, you can handle complete, progress or error conditions without worry about timing.</p>
+
+<h3 id="sensor">Sensor</h3>
+
+<p>Lime now has support for accelerometer sensors, and the ground-work to help support new types of sensors in the future.</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">sensors</span> <span class="o">=</span> <span class="nx">Sensor</span><span class="p">.</span><span class="nx">getSensors</span> <span class="p">(</span><span class="nx">SensorType</span><span class="p">.</span><span class="nx">ACCELEROMETER</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nx">sensor</span> <span class="nx">in</span> <span class="nx">sensors</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="nx">sensor</span><span class="p">.</span><span class="nx">onUpdate</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">trace</span> <span class="p">(</span><span class="s2">"Sensor Update: "</span> <span class="o">+</span> <span class="nx">x</span> <span class="o">+</span> <span class="s2">", "</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">+</span> <span class="s2">", "</span> <span class="o">+</span> <span class="nx">z</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>OpenFL uses this to provide accelerometer support (internally).</p>
+
+<h2 id="cffi-prime">CFFI Prime</h2>
+
+<p>In the search for better, faster bindings between Haxe and C++ code, Lime now uses “CFFI Prime”, a new format that Hugh Sanderson added to <a href="https://github.com/HaxeFoundation/hxcpp">HXCPP</a> and announced at the last Worldwide Haxe conference.</p>
+
+<p>You may have heard things about new HXCPP extern support, allowing Haxe code to bind directly to C++ (when building to the C++ target) without the overhead cost of using traditial “CFFI” bindings.</p>
+
+<p>This was not a good option for Lime, because it would make our code more complex, push internal header search paths to the user, and it would break (or complicate) support for runtimes that currently support the Lime binary (such as using Neko and Node.js on a desktop)</p>
+
+<p>“CFFI Prime” is a hybrid approach that provide bindings as fast as HXCPP externs when targeting C++, but provide support for other runtimes (such as Neko) as well. In our tests, the new prime bindings are 10x to 42x faster than the original CFFI bindings on C++, and are marginally faster on Node.js and Neko.</p>
+
+<h2 id="tilemap">Tilemap</h2>
+
+<p>One of the faster APIs in OpenFL is <code class="language-plaintext highlighter-rouge">drawTiles</code>. Since the beginning, there have been ideas for creating something that would be easier to use, but also, time has shown a number of reasons why it is important to consider and plan a replacement API.</p>
+
+<ol>
+  <li>
+    <p>The long data array used for <code class="language-plaintext highlighter-rouge">drawTiles</code> calls was made to optimize CFFI performance. Lime has better CFFI support now, but going to the renderer no longer requires CFFI at all. This format is actually more inconvient now to the renderer architecture, and is not really convenient as a user.</p>
+  </li>
+  <li>
+    <p>OpenFL <code class="language-plaintext highlighter-rouge">Graphics</code> is used for curves, lines, fills and other vector operations, which is not a good place to put a hardware batching API. This has added complexity, and has made it hard to support both operations under all circumstances.</p>
+  </li>
+  <li>
+    <p>Without Stage3D, using <code class="language-plaintext highlighter-rouge">bitmapData.copyPixels</code> is usually the fastest on Flash. However, <code class="language-plaintext highlighter-rouge">BitmapData</code> requires an exact size. The nature of <code class="language-plaintext highlighter-rouge">drawTiles</code> makes it difficult to anticipate the render target size. Having an explicit tile render size would also improve performance on other targets that currently have to measure the output of drawTiles.</p>
+  </li>
+  <li>
+    <p>Initial explorations have shown 230% performance improvement on capable hardware, and this could be (likely) improved more.</p>
+  </li>
+</ol>
+
+<p>For these reasons (and others), the goal is to come up with a suitable <code class="language-plaintext highlighter-rouge">drawTiles</code> replacement that is robust and ready for the future.</p>
+
+<p>The goal of OpenFL is not to introduce many new APIs, so this does make things difficult, but Flash has <code class="language-plaintext highlighter-rouge">Graphics</code> for vector shapes, <code class="language-plaintext highlighter-rouge">Bitmap</code> for pixel operations, <code class="language-plaintext highlighter-rouge">TextField</code> for text and <code class="language-plaintext highlighter-rouge">DisplayObject</code> for the display list. In exploring the paradigms that other projects use for batches of many objects that may be larger than a pixel, “particle”, “tile” and “sprite” are the most common I found. Since OpenFL is using the Flash vocabulary, “sprite” is not a good choice, and we have a history of using “tile”.</p>
+
+<p>It would be possible to create an API designed around tilemaps that support common use-cases and editors (such as Tiled) while maintaining fast batch performance. Perhaps the API could support orthogonal or isometric tilemaps. This would support many optimizations <code class="language-plaintext highlighter-rouge">drawTiles</code> cannot do right now, and would be a passive API (like the display list) that improves usage.</p>
+
+<p>The current “openfl-samples” version of BunnyMark uses the beginning of a <code class="language-plaintext highlighter-rouge">Tilemap</code> API, similar to the following:</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">bitmapData</span> <span class="o">=</span> <span class="nx">Assets</span><span class="p">.</span><span class="nx">getBitmapData</span> <span class="p">(</span><span class="s2">"image.png"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">tileset</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Tileset</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+<span class="nx">tileset</span><span class="p">.</span><span class="nx">addRect</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">.</span><span class="nx">rect</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">tilemap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Tilemap</span> <span class="p">(</span><span class="nx">stage</span><span class="p">.</span><span class="nx">stageWidth</span><span class="p">,</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">stageHeight</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TilemapLayer</span> <span class="p">(</span><span class="nx">tileset</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="nx">in</span> <span class="mi">0</span><span class="p">...</span><span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="nx">layer</span><span class="p">.</span><span class="nx">addTile</span> <span class="p">(</span><span class="k">new</span> <span class="nx">Tile</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span> <span class="p">()</span> <span class="o">*</span> <span class="nx">tilemap</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span> <span class="p">()</span> <span class="o">*</span> <span class="nx">tilemap</span><span class="p">.</span><span class="nx">height</span><span class="p">));</span>
+  
+<span class="p">}</span>
+
+<span class="nx">tilemap</span><span class="p">.</span><span class="nx">addLayer</span> <span class="p">(</span><span class="nx">layer</span><span class="p">);</span>
+<span class="nx">addChild</span> <span class="p">(</span><span class="nx">tilemap</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>I would love to discuss input and feedback and creating a powerful, flexible and suitable tile API.</p>
+
+<h2 id="maturing-openfl">Maturing OpenFL</h2>
+
+<p>In the past few months, there have been <a href="https://github.com/openfl/openfl/blob/master/CHANGELOG.md">over 140 changes</a> to OpenFL, too many to discuss! Each step along the way, OpenFL gets more mature, more consistent and more powerful.</p>
+
+<h2 id="swf-improvements">SWF Improvements</h2>
+
+<p>Starting today, a new <a href="https://creative.adobe.com/addons/products/12931">OpenFL plug-in for Flash Professional CC</a> is available from Adobe Add-ons.</p>
+
+<p>Now, you can create a new OpenFL FLA for use with your projects. If you publish your FLA inside of an asset path for your project (such as the “Assets” folder) it will be immediately available without any changes to your project.xml. OpenFL will automatically include the SWF library, and use the options used in the FLA publish settings.</p>
+
+<p>OpenFL supports two SWF types, SWF and SWFLite. Type SWF is used on Flash for the native SWF <code class="language-plaintext highlighter-rouge">Loader</code>, and SWFLite is elsewhere by default. Type SWF uses runtime code to process SWF assets, but type SWFLite processes at compile-time, enjoys better performance and works with HTML5. SWFLite decodes your SWF into meta-data (such as where to <code class="language-plaintext highlighter-rouge">beginFill</code> or <code class="language-plaintext highlighter-rouge">curveTo</code>) and flat images of any JPEG, PNG or JPEG + alpha images from the SWF. Vector types are preserved, though it is expected that you embed any fonts used separately (to use existing font/webfont pipeline in OpenFL).</p>
+
+<p>“Export for ActionScript” symbols create Haxe classes by default. This means that these symbols can be created on-the-fly, or even extended. The generated Haxe classes even make references to named child objects.</p>
+
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nx">Main</span> <span class="kd">extends</span> <span class="nx">SWFSymbol</span> <span class="p">{</span>
+  
+  <span class="k">public</span> <span class="k">function</span> <span class="k">new</span> <span class="p">()</span> <span class="p">{</span>
+    
+    <span class="kr">super</span> <span class="p">();</span>
+    
+    <span class="nx">childObject</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="nx">childObject</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    
+  <span class="p">}</span>
+  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now the SWFLite supports animation, so we expect things to get even more exciting!</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The summer was packed with new improvements, and fall looks to be no exception. We are excited about OpenFL, Lime, SWF and other features that are coming. Let me take a moment again to thank our <a href="https://patreon.com/openfl">Patreon</a> supporters. You are key contributors to supporting of the ongoing development of OpenFL and the costs of the build servers (and other expenses).</p>
+
+<p>Use OpenFL, support us on <a href="https://patreon.com/openfl">Patreon</a> and spread the word!</p>
+
+<p>It is our hope that OpenFL continues to grow and better suit/serve your dreams and your vision.</p>
+
+<p><em>just one more thing…</em></p>
+
+<p>Have you seen the demo videos yet for the upcoming <a href="https://www.youtube.com/watch?v=rnJ3qkwzcqw&amp;list=PLF1S8k0g8YOXhS0d0JnPDg9Cn9CSATudc&amp;index=10">console support</a>? Exciting!</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">October 6, 2015 | <a href="/blog/2015/10/06/october-update/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Handling Mouse Events</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    <!-- <script src='/js/openfl.min.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openfl/7.1.2/openfl.min.js"></script>
+    <script src='/js/actuate.min.js'></script>
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<script src='/js/holder.js'></script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-push-4 sidebar-content add-anchors">
+			
+			<div class="page-header">
+				<h1>Handling Mouse Events</h1>
+				<div class="page-links"><a href="https://github.com/openfl/openfl.org/edit/master/learn/npm/tutorials/handling-mouse-events/index.md">Edit Document<span class="page-links-icon glyphicon glyphicon-pencil"></span></a></div>
+			</div>
+			
+			<h2 id="setup">Setup</h2>
+
+<p><em>You may find a completed “features/events/HandlingMouseEvent” sample project for <a href="https://github.com/openfl/openfl-samples-ts">TypeScript</a>, <a href="https://github.com/openfl/openfl-samples-haxe">Haxe</a>, <a href="https://github.com/openfl/openfl-samples-es6">ES6</a> or <a href="https://github.com/openfl/openfl-samples-es5">ES5</a> online, the following describes how to handle mouse events from an empty project.</em></p>
+
+<p>Run the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>HandlingMouseEvents
+<span class="nb">cd </span>HandlingMouseEvents
+yo openfl
+</code></pre></div></div>
+
+<p>Next, download <a href="/learn/npm/tutorials/handling-mouse-events/openfl.png">openfl.png</a> and save it to the “dist” directory.</p>
+
+<p>Open the “src/app.ts”, “src/app.js” or “src/App.hx” file and add some code to load and display the image.</p>
+
+<div id="tabset0">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset0-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset0-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset0-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset0-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset0-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Bitmap</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Bitmap</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">BitmapData</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/BitmapData</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset0-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Bitmap</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">BitmapData</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset0-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Bitmap</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Bitmap</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">BitmapData</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/BitmapData</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset0-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Bitmap</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/display/Bitmap</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">BitmapData</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/display/BitmapData</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="tabset1">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset1-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset1-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset1-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset1-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset1-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">((</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset1-1" class="tab-pane">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+	<span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset1-2" class="tab-pane">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">((</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset1-3" class="tab-pane">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+	
+<span class="p">}.</span><span class="nx">bind</span> <span class="p">(</span><span class="k">this</span><span class="p">));</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="embed-0" class="openfl-embed" style="max-width: 550px; max-height: 400px;"></div>
+<script type="text/javascript">
+(function () {
+	
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		bitmap.x = 100;
+		bitmap.y = 100;
+		this.addChild (bitmap);
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+	
+	var stage = new Stage (550, 400, 0xFFFFFF, App, { renderer: "dom" });
+	document.getElementById ("embed-0").appendChild (stage.element);
+	
+})();
+</script>
+
+<h2 id="interactive-objects">Interactive Objects</h2>
+
+<p>If you have already completed the <a href="../displaying-a-bitmap">Displaying a Bitmap</a> and <a href="../adding-animation">Adding Animation</a> tutorials, then you should be familiar with creating a <a href="/learn/npm/api/classes/openfl.display.bitmap.html"><code>Bitmap</code></a> objects. Each of these objects is called a <a href="/learn/npm/api/classes/openfl.display.displayobject.html"><code>DisplayObject</code></a>, which is compatible with the “display list”, or scene graphs of objects that will be rendered automatically. <a href="/learn/npm/api/classes/openfl.display.bitmap.html"><code>Bitmap</code></a> objects are not <em>interactive objects</em>, however.</p>
+
+<p>The abstract <a href="/learn/npm/api/classes/openfl.display.interactiveobject.html"><code>InteractiveObject</code></a> base class defines objects that provide interactive events, such as <a href="/learn/npm/api/classes/openfl.events.mouseevent.html"><code>openfl.events.MouseEvent</code></a> and <a href="/learn/npm/api/classes/openfl.events.touchevent.html"><code>openfl.events.TouchEvent</code></a>.</p>
+
+<p>The most common <a href="/learn/npm/api/classes/openfl.display.interactiveobject.html"><code>InteractiveObject</code></a> in OpenFL is called a <a href="/learn/npm/api/classes/openfl.display.sprite.html"><code>Sprite</code></a>. A <a href="/learn/npm/api/classes/openfl.display.sprite.html"><code>Sprite</code></a> is an object container, and is interactive. It is somewhat similar to a <code class="language-plaintext highlighter-rouge">div</code> element. <a href="/learn/npm/api/classes/openfl.display.sprite.html"><code>Sprite</code></a> objects are lightweight and are often used for convenience in positioning objects, or to allow interaction or draw primitive vector shapes.</p>
+
+<p>Our <a href="/learn/npm/api/classes/openfl.display.bitmap.html"><code>Bitmap</code></a> is visible, but not interactive, so we can make it a child of a <a href="/learn/npm/api/classes/openfl.display.sprite.html"><code>Sprite</code></a> in order to start making it interactive. We will also enable the <a href="/learn/npm/api/classes/openfl.display.sprite.html"><code>Sprite</code></a> <a href="/learn/npm/api/classes/openfl.display.sprite.html#buttonmode"><code>buttonMode</code></a> property, which makes the mouse cursor turn into a click cursor when you hover over the object.</p>
+
+<p>Let us change the code so that instead of <code class="language-plaintext highlighter-rouge">bitmap</code> as a child directly, we add it as a child of a new <a href="/learn/npm/api/classes/openfl.display.sprite.html"><code>Sprite</code></a> object instead. While we are at it, we will enable <a href="/learn/npm/api/classes/openfl.display.sprite.html#buttonmode"><code>buttonMode</code></a> to give us an interactive mouse cursor.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">sprite</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span> <span class="p">();</span>
+<span class="nx">sprite</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+<span class="nx">sprite</span><span class="p">.</span><span class="nx">buttonMode</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">sprite</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div id="embed-1" class="openfl-embed" style="max-width: 550px; max-height: 400px;"></div>
+<script type="text/javascript">
+(function () {
+	
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		bitmap.x = 100;
+		bitmap.y = 100;
+		
+		var sprite = new Sprite ();
+		sprite.addChild (bitmap);
+		sprite.buttonMode = true;
+		this.addChild (sprite);
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+	
+	var stage = new Stage (550, 400, 0xFFFFFF, App, { renderer: "dom" });
+	document.getElementById ("embed-1").appendChild (stage.element);
+	
+})();
+</script>
+
+<h2 id="handling-a-mouse_down-event">Handling a <code class="language-plaintext highlighter-rouge">MOUSE_DOWN</code> Event</h2>
+
+<p>First, we can begin handling mouse events by adding an import for <a href="/learn/npm/api/classes/openfl.events.mouseevent.html"><code>openfl.events.MouseEvent</code></a>:</p>
+
+<div id="tabset2">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset2-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset2-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset2-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset2-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset2-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">MouseEvent</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/events/MouseEvent</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset2-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">MouseEvent</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset2-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">MouseEvent</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/events/MouseEvent</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset2-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">MouseEvent</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/events/MouseEvent</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<p>There are multiple events available normally in the browser (such as <code class="language-plaintext highlighter-rouge">"click"</code>, <code class="language-plaintext highlighter-rouge">"mousedown"</code> or <code class="language-plaintext highlighter-rouge">"mouseup"</code>), but these are only available to elements that have been added to the DOM. This is a similar concept to the way events work in OpenFL, but OpenFL events work even when using 2D canvas or WebGL rendering. The names of OpenFL events are similar to the DOM, but use “camel-case”, like <code class="language-plaintext highlighter-rouge">"mouseDown"</code> and <code class="language-plaintext highlighter-rouge">"mouseUp"</code>. For this example, we will use the <a href="/learn/npm/api/classes/openfl.events.mouseevent.html"><code>MouseEvent</code></a> type, but you can also use literal strings.</p>
+
+<p>Below <code class="language-plaintext highlighter-rouge">addChild (sprite)</code> in the code, we can also listen for <a href="/learn/npm/api/classes/openfl.events.mouseevent.html#mouse_down"><code>MouseEvent.MOUSE_DOWN</code></a> event:</p>
+
+<div id="tabset3">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset3-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset3-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset3-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset3-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset3-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_DOWN</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span><span class="nx">MouseEvent</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">alert</span> <span class="p">(</span><span class="dl">"</span><span class="s2">MOUSE DOWN</span><span class="dl">"</span><span class="p">);</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset3-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_DOWN</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">js</span><span class="p">.</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">alert</span> <span class="p">(</span><span class="dl">"</span><span class="s2">MOUSE DOWN</span><span class="dl">"</span><span class="p">);</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset3-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_DOWN</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">alert</span> <span class="p">(</span><span class="dl">"</span><span class="s2">MOUSE DOWN</span><span class="dl">"</span><span class="p">);</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset3-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_DOWN</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">alert</span> <span class="p">(</span><span class="dl">"</span><span class="s2">MOUSE DOWN</span><span class="dl">"</span><span class="p">);</span>
+	
+<span class="p">}.</span><span class="nx">bind</span> <span class="p">(</span><span class="k">this</span><span class="p">));</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<p>Now, if you click on the icon, you should get a browser <code class="language-plaintext highlighter-rouge">alert</code> message that you clicked the object.</p>
+
+<div id="embed-2" class="openfl-embed" style="max-width: 550px; max-height: 400px;"></div>
+<script type="text/javascript">
+(function () {
+	
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+var MouseEvent = openfl.events.MouseEvent;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		bitmap.x = 100;
+		bitmap.y = 100;
+		
+		var sprite = new Sprite ();
+		sprite.addChild (bitmap);
+		sprite.buttonMode = true;
+		this.addChild (sprite);
+		
+		sprite.addEventListener (MouseEvent.MOUSE_DOWN, function (e) {
+			
+			alert ("MOUSE DOWN");
+			
+		}.bind (this));
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+	
+	var stage = new Stage (550, 400, 0xFFFFFF, App, { renderer: "dom" });
+	document.getElementById ("embed-2").appendChild (stage.element);
+	
+})();
+</script>
+
+<h2 id="simple-dragging">Simple Dragging</h2>
+
+<p>OpenFL provides convenience methods for simple drag-and-drop behaviors, called <a href="/learn/npm/api/classes/openfl.display.displayobject.html#startdrag"><code>startDrag</code></a> and <a href="/learn/npm/api/classes/openfl.display.displayobject.html#stopdrag"><code>stopDrag</code></a>. We can use this to add a simple drag-and-drop behavior, in combination with another event listener for <a href="/learn/npm/api/classes/openfl.events.mouseevent.html#mouse_up"><code>MouseEvent.MOUSE_UP</code></a>.</p>
+
+<p>Every <a href="/learn/npm/api/classes/openfl.events.mouseevent.html"><code>MouseEvent</code></a> includes references for both the <a href="/learn/npm/api/classes/openfl.events.event.html#target"><code>target</code></a> and <a href="/learn/npm/api/classes/openfl.events.event.html#currenttarget"><code>currentTarget</code></a> of the <a href="/learn/npm/api/classes/openfl.events.mouseevent.html"><code>MouseEvent</code></a>. In our listener, we could reference <code class="language-plaintext highlighter-rouge">sprite</code> directly, but we will use <a href="/learn/npm/api/classes/openfl.events.event.html#currenttarget"><code>currentTarget</code></a> to illustrate this behavior of mouse events.</p>
+
+<p>The difference between <a href="/learn/npm/api/classes/openfl.events.event.html#target"><code>target</code></a> and <a href="/learn/npm/api/classes/openfl.events.event.html#currenttarget"><code>currentTarget</code></a> is that the <a href="/learn/npm/api/classes/openfl.events.event.html#currenttarget"><code>currentTarget</code></a> property will match the object on which you added an event listener. In our project, the <code class="language-plaintext highlighter-rouge">sprite</code> only contains one non-interactive object. In a larger project, you may have many children that are interactive. The <a href="/learn/npm/api/classes/openfl.events.event.html#target"><code>target</code></a> in that case would be the exact child object that triggered the event. If we expanded our project to include 20 objects that listen to mouse events, using <a href="/learn/npm/api/classes/openfl.events.event.html#currenttarget"><code>currentTarget</code></a> would allow us to share one listener among multiple objects.</p>
+
+<div id="tabset4">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset4-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset4-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset4-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset4-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset4-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_DOWN</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span><span class="nx">MouseEvent</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">startDrag</span> <span class="p">();</span>
+	
+<span class="p">});</span>
+
+<span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_UP</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span><span class="nx">MouseEvent</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">stopDrag</span> <span class="p">();</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset4-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_DOWN</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">startDrag</span> <span class="p">();</span>
+	
+<span class="p">});</span>
+
+<span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_UP</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">stopDrag</span> <span class="p">();</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset4-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_DOWN</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">startDrag</span> <span class="p">();</span>
+	
+<span class="p">});</span>
+
+<span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_UP</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">stopDrag</span> <span class="p">();</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset4-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_DOWN</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">startDrag</span> <span class="p">();</span>
+	
+<span class="p">}.</span><span class="nx">bind</span> <span class="p">(</span><span class="k">this</span><span class="p">));</span>
+
+<span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_UP</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">stopDrag</span> <span class="p">();</span>
+	
+<span class="p">}.</span><span class="nx">bind</span> <span class="p">(</span><span class="k">this</span><span class="p">));</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="embed-3" class="openfl-embed" style="max-width: 550px; max-height: 400px;"></div>
+<script type="text/javascript">
+(function () {
+	
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+var MouseEvent = openfl.events.MouseEvent;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		bitmap.x = 100;
+		bitmap.y = 100;
+		
+		var sprite = new Sprite ();
+		sprite.addChild (bitmap);
+		sprite.buttonMode = true;
+		this.addChild (sprite);
+		
+		sprite.addEventListener (MouseEvent.MOUSE_DOWN, function (e) {
+			
+			e.currentTarget.startDrag ();
+			
+		}.bind (this));
+		
+		sprite.addEventListener (MouseEvent.MOUSE_UP, function (e) {
+			
+			e.currentTarget.stopDrag ();
+			
+		}.bind (this));
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+	
+	var stage = new Stage (550, 400, 0xFFFFFF, App, { renderer: "dom" });
+	document.getElementById ("embed-3").appendChild (stage.element);
+	
+})();
+</script>
+
+<h2 id="adding-animation">Adding Animation</h2>
+
+<p>If you want to make a drag behavior more exciting, you can add a delay between the position of the mouse cursor, and the position of the object you are dragging. This requires listening to both <a href="/learn/npm/api/classes/openfl.events.mouseevent.html#mouse_down"><code>MouseEvent.MOUSE_DOWN</code></a>, <a href="/learn/npm/api/classes/openfl.events.mouseevent.html#mouse_up"><code>MouseEvent.MOUSE_UP</code></a> and to <a href="/learn/npm/api/classes/openfl.events.event.html#enter_frame"><code>Event.ENTER_FRAME</code></a>.</p>
+
+<p>The following is an example of how you could make an object trail behind the mouse cursor. It is important for code like this that you listen to the <code class="language-plaintext highlighter-rouge">stage</code>, or root of your project, for <a href="/learn/npm/api/classes/openfl.events.mouseevent.html#mouse_up"><code>MouseEvent.MOUSE_UP</code></a> events, because trailing the cursor means that is possible that while the user may start by clicking down on the <code class="language-plaintext highlighter-rouge">sprite</code> object, when they release they may be over a different object, or no object. In this case, it is important to catch that the user released the mouse button.</p>
+
+<div id="tabset5">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset5-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset5-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset5-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset5-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset5-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Event</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/events/Event</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset5-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">Event</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset5-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Event</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/events/Event</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset5-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Event</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/events/Event</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="tabset6">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset6-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset6-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset6-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset6-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset6-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">offsetX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">offsetY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">targetX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">targetY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">dragging</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_DOWN</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span><span class="nx">MouseEvent</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">offsetX</span> <span class="o">=</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stageX</span><span class="p">;</span>
+	<span class="nx">offsetY</span> <span class="o">=</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stageY</span><span class="p">;</span>
+	<span class="nx">dragging</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+	
+<span class="p">});</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_UP</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span><span class="nx">MouseEvent</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">dragging</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+	
+<span class="p">});</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span><span class="nx">Event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">dragging</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">targetX</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="p">.</span><span class="nx">mouseX</span> <span class="o">+</span> <span class="nx">offsetX</span><span class="p">;</span>
+		<span class="nx">targetY</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="p">.</span><span class="nx">mouseY</span> <span class="o">+</span> <span class="nx">offsetY</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+	
+	<span class="kd">let</span> <span class="nx">diffX</span> <span class="o">=</span> <span class="nx">targetX</span> <span class="o">-</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+	<span class="kd">let</span> <span class="nx">diffY</span> <span class="o">=</span> <span class="nx">targetY</span> <span class="o">-</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span> <span class="p">(</span><span class="nx">diffX</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">targetX</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">diffX</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">);</span>
+		
+	<span class="p">}</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span> <span class="p">(</span><span class="nx">diffY</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">targetY</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">diffY</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">);</span>
+		
+	<span class="p">}</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset6-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">offsetX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">offsetY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">targetX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">targetY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">dragging</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_DOWN</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">offsetX</span> <span class="o">=</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stageX</span><span class="p">;</span>
+	<span class="nx">offsetY</span> <span class="o">=</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stageY</span><span class="p">;</span>
+	<span class="nx">dragging</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+	
+<span class="p">});</span>
+
+<span class="nx">stage</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_UP</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">dragging</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+	
+<span class="p">});</span>
+
+<span class="nx">stage</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">dragging</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">targetX</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">mouseX</span> <span class="o">+</span> <span class="nx">offsetX</span><span class="p">;</span>
+		<span class="nx">targetY</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">mouseY</span> <span class="o">+</span> <span class="nx">offsetY</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+	
+	<span class="kd">var</span> <span class="nx">diffX</span> <span class="o">=</span> <span class="nx">targetX</span> <span class="o">-</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">diffY</span> <span class="o">=</span> <span class="nx">targetY</span> <span class="o">-</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span> <span class="p">(</span><span class="nx">diffX</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">targetX</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">diffX</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">);</span>
+		
+	<span class="p">}</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span> <span class="p">(</span><span class="nx">diffY</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">targetY</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">diffY</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">);</span>
+		
+	<span class="p">}</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset6-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">offsetX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">offsetY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">targetX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">targetY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">dragging</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_DOWN</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">offsetX</span> <span class="o">=</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stageX</span><span class="p">;</span>
+	<span class="nx">offsetY</span> <span class="o">=</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stageY</span><span class="p">;</span>
+	<span class="nx">dragging</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+	
+<span class="p">});</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_UP</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">dragging</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+	
+<span class="p">});</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">dragging</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">targetX</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="p">.</span><span class="nx">mouseX</span> <span class="o">+</span> <span class="nx">offsetX</span><span class="p">;</span>
+		<span class="nx">targetY</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="p">.</span><span class="nx">mouseY</span> <span class="o">+</span> <span class="nx">offsetY</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+	
+	<span class="kd">let</span> <span class="nx">diffX</span> <span class="o">=</span> <span class="nx">targetX</span> <span class="o">-</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+	<span class="kd">let</span> <span class="nx">diffY</span> <span class="o">=</span> <span class="nx">targetY</span> <span class="o">-</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span> <span class="p">(</span><span class="nx">diffX</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">targetX</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">diffX</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">);</span>
+		
+	<span class="p">}</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span> <span class="p">(</span><span class="nx">diffY</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">targetY</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">diffY</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">);</span>
+		
+	<span class="p">}</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset6-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">offsetX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">offsetY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">targetX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">targetY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">dragging</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="nx">sprite</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_DOWN</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">offsetX</span> <span class="o">=</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stageX</span><span class="p">;</span>
+	<span class="nx">offsetY</span> <span class="o">=</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stageY</span><span class="p">;</span>
+	<span class="nx">dragging</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+	
+<span class="p">}.</span><span class="nx">bind</span> <span class="p">(</span><span class="k">this</span><span class="p">));</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">MouseEvent</span><span class="p">.</span><span class="nx">MOUSE_UP</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">dragging</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+	
+<span class="p">}.</span><span class="nx">bind</span> <span class="p">(</span><span class="k">this</span><span class="p">));</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">dragging</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">targetX</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="p">.</span><span class="nx">mouseX</span> <span class="o">+</span> <span class="nx">offsetX</span><span class="p">;</span>
+		<span class="nx">targetY</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">stage</span><span class="p">.</span><span class="nx">mouseY</span> <span class="o">+</span> <span class="nx">offsetY</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+	
+	<span class="kd">var</span> <span class="nx">diffX</span> <span class="o">=</span> <span class="nx">targetX</span> <span class="o">-</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">diffY</span> <span class="o">=</span> <span class="nx">targetY</span> <span class="o">-</span> <span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span> <span class="p">(</span><span class="nx">diffX</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">targetX</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">diffX</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">);</span>
+		
+	<span class="p">}</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span> <span class="p">(</span><span class="nx">diffY</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">targetY</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		
+		<span class="nx">sprite</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">diffY</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">);</span>
+		
+	<span class="p">}</span>
+	
+<span class="p">}.</span><span class="nx">bind</span> <span class="p">(</span><span class="k">this</span><span class="p">));</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="embed-4" class="openfl-embed" style="max-width: 550px; max-height: 400px;"></div>
+<script type="text/javascript">
+(function () {
+	
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+var MouseEvent = openfl.events.MouseEvent;
+var Event = openfl.events.Event;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		bitmap.x = 100;
+		bitmap.y = 100;
+		
+		var sprite = new Sprite ();
+		sprite.addChild (bitmap);
+		sprite.buttonMode = true;
+		this.addChild (sprite);
+		
+		var offsetX = 0;
+		var offsetY = 0;
+		var targetX = 0;
+		var targetY = 0;
+		var dragging = false;
+		
+		sprite.addEventListener (MouseEvent.MOUSE_DOWN, function (e) {
+			
+			offsetX = sprite.x - e.stageX;
+			offsetY = sprite.y - e.stageY;
+			dragging = true;
+			
+		}.bind (this));
+		
+		this.stage.addEventListener (MouseEvent.MOUSE_UP, function (e) {
+			
+			dragging = false;
+			
+		}.bind (this));
+		
+		this.stage.addEventListener (Event.ENTER_FRAME, function (e) {
+			
+			if (dragging) {
+				
+				targetX = sprite.stage.mouseX + offsetX;
+				targetY = sprite.stage.mouseY + offsetY;
+				
+			}
+			
+			var diffX = targetX - sprite.x;
+			var diffY = targetY - sprite.y;
+			
+			if (Math.abs (diffX) < 1) {
+				
+				sprite.x = targetX;
+				
+			} else {
+				
+				sprite.x += (diffX * 0.2);
+				
+			}
+			
+			if (Math.abs (diffY) < 1) {
+				
+				sprite.y = targetY;
+				
+			} else {
+				
+				sprite.y += (diffY * 0.2);
+				
+			}
+			
+		}.bind (this));
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+	
+	var stage = new Stage (550, 400, 0xFFFFFF, App, { renderer: "dom" });
+	document.getElementById ("embed-4").appendChild (stage.element);
+	
+})();
+</script>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>You can look at our <a href="https://github.com/openfl?utf8=✓&amp;q=openfl-samples&amp;type=&amp;language=">other samples</a>, like the “features/events/HandlingKeyboardEvents” or “features/media/AddingSound” samples.</p>
+
+			
+		</div>
+		<div class="col-md-4 col-md-pull-8 sidebar add-anchors">
+			
+			
+			
+			
+			
+			
+			
+			
+
+<div class="collapse in" id="nav-sidebar-0">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/" >Introduction</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-1"  data-toggle="collapse">NPM</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-1">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/getting-started/" >Getting Started</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-2"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-2">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/displaying-a-bitmap/" >Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/adding-animation/" >Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/handling-mouse-events/" class="active">Handling Mouse Events</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/api/" >API Reference</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-3"  data-toggle="collapse">Haxelib</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-3">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-4"  data-toggle="collapse">Documentation</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-4">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/core-architecture/" >Core Architecture</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/project-files/" >Project Files</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/tools/" >Tools</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-5"  data-toggle="collapse">Books</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-5">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://books.openfl.org/openfl-developers-guide/" target="_blank" />OpenFL Developer's Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://books.openfl.org/as3-conversion-guide/" target="_blank" />ActionScript 3.0 Conversion Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://www.openflbook.com" target="_blank" />Videojuegos Multiplataforma con OpenFL</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-6"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-6">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/displaying-a-bitmap/" >Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/adding-animation/" >Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/using-swf-assets/" >Using SWF Assets</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://api.openfl.org" target="_blank" />API</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+</ul>
+</div>
+			
+			
+			
+			
+			
+		</div>
+	</div>
+</div>
+<script>
+	anchors.options = {
+		placement: "right",
+		visible: "always",
+		icon: "",
+		class: "glyphicon glyphicon-link"
+	};
+	anchors.add ("div.add-anchors > h1, div.add-anchors > h2");
+</script>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

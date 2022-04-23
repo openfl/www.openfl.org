@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Adding Animation</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    <!-- <script src='/js/openfl.min.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openfl/7.1.2/openfl.min.js"></script>
+    <script src='/js/actuate.min.js'></script>
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<script src='/js/holder.js'></script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-push-4 sidebar-content add-anchors">
+			
+			<div class="page-header">
+				<h1>Adding Animation</h1>
+				<div class="page-links"><a href="https://github.com/openfl/openfl.org/edit/master/learn/haxelib/tutorials/adding-animation.md">Edit Document<span class="page-links-icon glyphicon glyphicon-pencil"></span></a></div>
+			</div>
+			
+			<h2 id="introduction">Introduction</h2>
+
+<p>Once you know how to show an image in OpenFL, the next step to move toward building a real project to begin adding some movement and interaction. In this tutorial, we will expand upon the basic concepts in the <a href="../displaying-a-bitmap/">Displaying a Bitmap</a> sample, and begin adding animation, or motion “tweens” to an object.</p>
+
+<p>The concept of a “tweening” is to create all of the inbetween steps for animation. In traditional animation, a head animator may draw the keyframes, and junior animators may draw all the frames inbetween to complete the motion.</p>
+
+<p>As a developer, a tweening library can enable you to act like the head animator, and focus on <em>what</em> animation you wish to show, and not going stuck in the <em>how</em> of all the mechanics. We recommend a library called Actuate, which we will use to create animation in code without a lot of work!</p>
+
+<h2 id="creating-your-project">Creating Your Project</h2>
+
+<p>To create an empty project (and follow along), open a command-prompt (Windows) or terminal (macOS/Linux) and run the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create project AddingAnimation
+</code></pre></div></div>
+
+<p>To fast-forward to the finished result, you can create a copy of the OpenFL sample project:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create AddingAnimation
+</code></pre></div></div>
+
+<h2 id="adding-an-image">Adding an Image</h2>
+
+<p>Similar to the <a href="../displaying-a-bitmap/">Displaying a Bitmap</a> sample, add an image to your “Assets” folder.</p>
+
+<p>Once you have an image available, edit “Source/Main.hx” add it to the stage (substituting “openfl.png” for the name of your PNG or JPEG image):</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Bitmap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+        
+        <span class="kd">super</span> <span class="o">();</span>
+        
+        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">));</span>
+        <span class="n">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="including-actuate-in-your-project">Including Actuate in Your Project</h2>
+
+<p>To begin using Actuate, first you will need to edit the “project.xml” file to include Actuate in your project.</p>
+
+<p>There should be a <code class="language-plaintext highlighter-rouge">&lt;haxelib /&gt;</code> tag already for OpenFL, we will need to add a similar tag for Actuate:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;haxelib</span> <span class="na">name=</span><span class="s">"actuate"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>Once Actuate is in included in the last of haxelibs for your project, next we need to add an <code class="language-plaintext highlighter-rouge">import</code> statement in “Main.hx”</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">motion</span><span class="o">.</span><span class="na">Actuate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Bitmap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+        
+        <span class="kd">super</span> <span class="o">();</span>
+        
+        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">));</span>
+        <span class="n">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="creating-a-simple-tween">Creating a Simple Tween</h2>
+
+<p>Actuate has a <code class="language-plaintext highlighter-rouge">tween</code> method which accepts an <em>object</em> to animate, the <em>duration</em> for the animation and third an object with <em>target values</em> for each property you wish to change over time. To animate the x position of the image to make it move across the screen, for example, we could use the following:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">motion</span><span class="o">.</span><span class="na">Actuate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Bitmap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+        
+        <span class="kd">super</span> <span class="o">();</span>
+        
+        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">));</span>
+        <span class="n">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
+        
+        <span class="nc">Actuate</span><span class="o">.</span><span class="na">tween</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="o">{</span> <span class="nl">x:</span> <span class="mi">200</span> <span class="o">});</span>
+        
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This will animate the object over the course of four seconds, from its original x position (which was the default value of 0) to an x position on-screen of 200. Go ahead and run your project (like we learned in the <a href="../displaying-a-bitmap/">previous tutorial</a>) and see how it looks.</p>
+
+<p>Tweens can be used to animate any numeric value, including the <code class="language-plaintext highlighter-rouge">alpha</code> (or transparency) of an object to make it fade, or the <code class="language-plaintext highlighter-rouge">scaleX</code> or <code class="language-plaintext highlighter-rouge">scaleY</code> to change scale.</p>
+
+<p>To make the image fade in, we would set the <code class="language-plaintext highlighter-rouge">alpha</code> value of the image to 0, then add a tween to increase the <code class="language-plaintext highlighter-rouge">alpha</code> to 1, or fully visible. The following code will animate the image from invisible to visible as well as changing the <code class="language-plaintext highlighter-rouge">x</code> value:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">motion</span><span class="o">.</span><span class="na">Actuate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Bitmap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+        
+        <span class="kd">super</span> <span class="o">();</span>
+        
+        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">));</span>
+        <span class="n">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        
+        <span class="nc">Actuate</span><span class="o">.</span><span class="na">tween</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="o">{</span> <span class="nl">alpha:</span> <span class="mi">1</span><span class="o">,</span> <span class="nl">x:</span> <span class="mi">200</span> <span class="o">});</span>
+        
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="using-tween-modifiers">Using Tween Modifiers</h2>
+
+<p>Actuate has a number of tween modifiers you can use to alter the behavior of a standard tween. You can delay the starting time, or make a callback to other code when an animation is completed. One of the common tween modifiers that is used with Actuate is the <code class="language-plaintext highlighter-rouge">ease</code> modifier.</p>
+
+<p>Actuate uses something that is called an “easing equation” to calculate all of the inbetween positions from the start and end values of an animation. This equation determines the speed or acceleration during an animation. For example, an animation which advances at the same speed the whole time would be a linear equation—comparing the amount of change over time would be constant, like a straight line. At first, this may seem like an obvious choice for the default equation in Actuate, but for most projects, a linear equation may look dull and look the spark of a more exciting animation. For this reason, Actuate defaults to the more “exotic” exponential equation, which accelerates quickly, then slows to a halt near the end, more like a rollercoaster.</p>
+
+<p>However, if you begin to use different easing equations, it may be ideal to separate an animation into multiple tweens. This way, you can use one style of easing for one part of an animation, and a different type of easing for another. An easing that looks great when changing the <code class="language-plaintext highlighter-rouge">x</code> or <code class="language-plaintext highlighter-rouge">y</code> position of an object may behave poorly when used to change the visibility (<code class="language-plaintext highlighter-rouge">alpha</code>) of the same object.</p>
+
+<p>You can use a different easing equation by importing one from the “motion.easing” package, and adding it to your animation. For example, to use an <code class="language-plaintext highlighter-rouge">Elastic.easeOut</code> equation for only the <code class="language-plaintext highlighter-rouge">x</code> value, you can use the following code:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">motion</span><span class="o">.</span><span class="na">easing</span><span class="o">.</span><span class="na">Elastic</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">motion.Actuate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Bitmap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+        
+        <span class="kd">super</span> <span class="o">();</span>
+        
+        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">));</span>
+        <span class="n">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        
+        <span class="nc">Actuate</span><span class="o">.</span><span class="na">tween</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="o">{</span> <span class="nl">alpha:</span> <span class="mi">1</span> <span class="o">});</span>
+        <span class="nc">Actuate</span><span class="o">.</span><span class="na">tween</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="o">{</span> <span class="nl">x:</span> <span class="mi">200</span> <span class="o">}).</span><span class="na">ease</span> <span class="o">(</span><span class="nc">Elastic</span><span class="o">.</span><span class="na">easeOut</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>You can read more about other Actuate tween modifiers <a href="https://github.com/openfl/actuate#tween-modifiers">here</a>.</p>
+
+<h2 id="smoothing-bitmaps">Smoothing Bitmaps</h2>
+
+<p>By default, the OpenFL <code class="language-plaintext highlighter-rouge">Bitmap</code> class is not set for smoothing. When displaying an image that is not scaled or rotated, it will look fine and may have faster performance than when smoothing is enabled. However, if you decide to scale the image, it can begin to look poor and rasterized, so it is often ideal to enable smoothing in these cases.</p>
+
+<p>You can enable smoothing for a <code class="language-plaintext highlighter-rouge">Bitmap</code> using the <code class="language-plaintext highlighter-rouge">smoothing</code> property:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bitmap</span><span class="o">.</span><span class="na">smoothing</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>For example, if we decided to scale our image to make it “pop out” and appear, we could use our previous animation on the <code class="language-plaintext highlighter-rouge">scaleX</code> and <code class="language-plaintext highlighter-rouge">scaleY</code> of the object (rather than the <code class="language-plaintext highlighter-rouge">x</code> value)</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">motion</span><span class="o">.</span><span class="na">easing</span><span class="o">.</span><span class="na">Elastic</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">motion.Actuate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Bitmap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+        
+        <span class="kd">super</span> <span class="o">();</span>
+        
+        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">));</span>
+        <span class="n">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">scaleX</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">scaleY</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">smoothing</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        
+        <span class="nc">Actuate</span><span class="o">.</span><span class="na">tween</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="o">{</span> <span class="nl">alpha:</span> <span class="mi">1</span> <span class="o">});</span>
+        <span class="nc">Actuate</span><span class="o">.</span><span class="na">tween</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="o">{</span> <span class="nl">scaleX:</span> <span class="mi">1</span><span class="o">,</span> <span class="nl">scaleY:</span> <span class="mi">1</span> <span class="o">}).</span><span class="na">ease</span> <span class="o">(</span><span class="nc">Elastic</span><span class="o">.</span><span class="na">easeOut</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="centering-with-a-display-object-container">Centering with a Display Object Container</h2>
+
+<p>OpenFL display objects have an origin in the upper-left corner of the object. For most operations, such as <code class="language-plaintext highlighter-rouge">x</code>, <code class="language-plaintext highlighter-rouge">y</code>, <code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">height</code>, this makes objects easy to deal with. However, sometimes you may want to change the origin point of the object. For example, in the above code we set the object to animate the scale from 0 to 1. This will scale the object from the upper-left corner, which may not be the effect that we want.</p>
+
+<p>It is simple to change the origin point of an object by putting it inside of a display object container. The most common form of display object container is the <code class="language-plaintext highlighter-rouge">Sprite</code> class, so instead of animating our image to the stage directly, we can add our image to a parent <code class="language-plaintext highlighter-rouge">Sprite</code> and animate the parent with a few small changes:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">motion</span><span class="o">.</span><span class="na">easing</span><span class="o">.</span><span class="na">Elastic</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">motion.Actuate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Bitmap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+        
+        <span class="kd">super</span> <span class="o">();</span>
+        
+        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">));</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">-</span> <span class="n">bitmap</span><span class="o">.</span><span class="na">width</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">-</span> <span class="n">bitmap</span><span class="o">.</span><span class="na">height</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">smoothing</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        
+        <span class="kt">var</span> <span class="n">container</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Sprite</span> <span class="o">();</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">scaleX</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">scaleY</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        
+        <span class="n">addChild</span> <span class="o">(</span><span class="n">container</span><span class="o">);</span>
+        
+        <span class="nc">Actuate</span><span class="o">.</span><span class="na">tween</span> <span class="o">(</span><span class="n">container</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="o">{</span> <span class="nl">alpha:</span> <span class="mi">1</span> <span class="o">});</span>
+        <span class="nc">Actuate</span><span class="o">.</span><span class="na">tween</span> <span class="o">(</span><span class="n">container</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="o">{</span> <span class="nl">scaleX:</span> <span class="mi">1</span><span class="o">,</span> <span class="nl">scaleY:</span> <span class="mi">1</span> <span class="o">}).</span><span class="na">ease</span> <span class="o">(</span><span class="nc">Elastic</span><span class="o">.</span><span class="na">easeOut</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="final-steps">Final Steps</h2>
+
+<p>The last code sample centered our image to improve the behavior of the scale animation, but the image is centered to the top-left corner of the window, rather than being centered in the window. The following changes will center the image based on the size of the current stage width and height, and adds a small delay to the animation</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+
+<span class="nn">import</span> <span class="n">motion</span><span class="o">.</span><span class="na">easing</span><span class="o">.</span><span class="na">Elastic</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">motion.Actuate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Bitmap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+        
+        <span class="kd">super</span> <span class="o">();</span>
+        
+        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">));</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">-</span> <span class="n">bitmap</span><span class="o">.</span><span class="na">width</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">-</span> <span class="n">bitmap</span><span class="o">.</span><span class="na">height</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="n">bitmap</span><span class="o">.</span><span class="na">smoothing</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        
+        <span class="kt">var</span> <span class="n">container</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Sprite</span> <span class="o">();</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">scaleX</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">scaleY</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="na">stageWidth</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="na">stageHeight</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+        
+        <span class="n">addChild</span> <span class="o">(</span><span class="n">container</span><span class="o">);</span>
+        
+        <span class="nc">Actuate</span><span class="o">.</span><span class="na">tween</span> <span class="o">(</span><span class="n">container</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="o">{</span> <span class="nl">alpha:</span> <span class="mi">1</span> <span class="o">});</span>
+        <span class="nc">Actuate</span><span class="o">.</span><span class="na">tween</span> <span class="o">(</span><span class="n">container</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="o">{</span> <span class="nl">scaleX:</span> <span class="mi">1</span><span class="o">,</span> <span class="nl">scaleY:</span> <span class="mi">1</span> <span class="o">}).</span><span class="na">delay</span> <span class="o">(</span><span class="mf">0.4</span><span class="o">).</span><span class="na">ease</span> <span class="o">(</span><span class="nc">Elastic</span><span class="o">.</span><span class="na">easeOut</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="issues">Issues</h2>
+
+<p>Any problems? Please visit the <a href="http://community.openfl.org">community forums</a> if you are experiencing trouble!</p>
+
+			
+		</div>
+		<div class="col-md-4 col-md-pull-8 sidebar add-anchors">
+			
+			
+			
+			
+			
+			
+			
+			
+
+<div class="collapse in" id="nav-sidebar-0">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/" >Introduction</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-1"  data-toggle="collapse">NPM</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-1">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/getting-started/" >Getting Started</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-2"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-2">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/displaying-a-bitmap/" >Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/adding-animation/" >Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/handling-mouse-events/" >Handling Mouse Events</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/api/" >API Reference</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-3"  data-toggle="collapse">Haxelib</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-3">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-4"  data-toggle="collapse">Documentation</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-4">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/core-architecture/" >Core Architecture</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/project-files/" >Project Files</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/tools/" >Tools</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-5"  data-toggle="collapse">Books</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-5">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://books.openfl.org/openfl-developers-guide/" target="_blank" />OpenFL Developer's Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://books.openfl.org/as3-conversion-guide/" target="_blank" />ActionScript 3.0 Conversion Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://www.openflbook.com" target="_blank" />Videojuegos Multiplataforma con OpenFL</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-6"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-6">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/displaying-a-bitmap/" >Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/adding-animation/" class="active">Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/using-swf-assets/" >Using SWF Assets</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://api.openfl.org" target="_blank" />API</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+</ul>
+</div>
+			
+			
+			
+			
+			
+		</div>
+	</div>
+</div>
+<script>
+	anchors.options = {
+		placement: "right",
+		visible: "always",
+		icon: "",
+		class: "glyphicon glyphicon-link"
+	};
+	anchors.add ("div.add-anchors > h1, div.add-anchors > h2");
+</script>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

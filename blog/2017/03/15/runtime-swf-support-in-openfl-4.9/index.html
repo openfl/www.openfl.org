@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Runtime SWF Support in OpenFL&nbsp;4.9</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>Runtime SWF Support in OpenFL&nbsp;4.9</h1></div>
+<!-- <p class="meta">15 Mar 2017</p> -->
+
+<div class="post">
+<p>OpenFL 4.9 is out, and the big new feature (among <a href="https://github.com/openfl/openfl/blob/develop/CHANGELOG.md#490-03152017">many other improvements</a>) is support for runtime SWF-based assets on HTML5 or native targets.</p>
+
+<p>In the past, you could include a SWF asset in a project file:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;library</span> <span class="na">path=</span><span class="s">"Assets/NyanCat.swf"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>Then OpenFL would do magic behind the curtains to convert your SWF asset into a format suitable for runtime.</p>
+
+<p>…but what if you want to create these assets separately, and load them at will at runtime?</p>
+
+<p>This is where the paradigm broke down, but thanks to some <a href="https://github.com/openfl/lime/blob/develop/CHANGELOG.md#400-03152017">awesome improvements</a> in Lime 4 (particularly to asset libraries), for the first time, OpenFL can load SWF-based assets at will, at compile-time or runtime!</p>
+
+<p>There is a new “process” command that will convert an existing SWF asset into the “SWFLite” format recognized by OpenFL HTML5 and native:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl process NyanCat.swf
+</code></pre></div></div>
+
+<p>The “process” command accepts an input SWF, and optionally an output directory. It will process the target SWF, and generated a folder based on the name of your input SWF, such as “NyanCat.bundle”, or using a name you choose from the output directory argument.</p>
+
+<p>Once you have created your “.bundle” directory, you’re ready to load at runtime!</p>
+
+<h4 id="using-openfldisplayloader">Using <code class="language-plaintext highlighter-rouge">openfl.display.Loader</code></h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">var</span> <span class="nl">loader:</span><span class="nc">Loader</span><span class="o">;</span>
+
+<span class="o">...</span>
+
+<span class="n">loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Loader</span> <span class="o">();</span>
+<span class="n">loader</span><span class="o">.</span><span class="na">contentLoaderInfo</span><span class="o">.</span><span class="na">addEventListener</span> <span class="o">(</span><span class="nc">ProgressEvent</span><span class="o">.</span><span class="na">PROGRESS</span><span class="o">,</span> <span class="n">loader_onProgress</span><span class="o">);</span>
+<span class="n">loader</span><span class="o">.</span><span class="na">contentLoaderInfo</span><span class="o">.</span><span class="na">addEventListener</span> <span class="o">(</span><span class="nc">IOErrorEvent</span><span class="o">.</span><span class="na">IO_ERROR</span><span class="o">,</span> <span class="n">loader_onError</span><span class="o">);</span>
+<span class="n">loader</span><span class="o">.</span><span class="na">contentLoaderInfo</span><span class="o">.</span><span class="na">addEventListener</span> <span class="o">(</span><span class="nc">Event</span><span class="o">.</span><span class="na">COMPLETE</span><span class="o">,</span> <span class="n">loader_onComplete</span><span class="o">);</span>
+<span class="n">loader</span><span class="o">.</span><span class="na">load</span> <span class="o">(</span><span class="k">new</span> <span class="nc">URLRequest</span> <span class="o">(</span><span class="s">"path/to/NyanCat.bundle"</span><span class="o">));</span>
+
+<span class="o">...</span>
+
+<span class="kd">private</span> <span class="n">function</span> <span class="nf">loader_onComplete</span> <span class="o">(</span><span class="nl">event:</span><span class="nc">Event</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+	
+	<span class="kt">var</span> <span class="n">content</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="na">content</span><span class="o">;</span>
+	<span class="n">addChild</span> <span class="o">(</span><span class="n">content</span><span class="o">);</span>
+	
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>For better control over the loaded asset library, you may choose to use the <code class="language-plaintext highlighter-rouge">AssetLibrary</code> approach instead</p>
+
+<h3 id="using-openflutilsassetlibrary">Using <code class="language-plaintext highlighter-rouge">openfl.utils.AssetLibrary</code></h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">future</span> <span class="o">=</span> <span class="nc">AssetLibrary</span><span class="o">.</span><span class="na">loadFromFile</span> <span class="o">(</span><span class="s">"path/to/NyanCat.bundle"</span><span class="o">);</span>
+<span class="n">future</span><span class="o">.</span><span class="na">onProgress</span> <span class="o">(</span><span class="n">library_onProgress</span><span class="o">);</span>
+<span class="n">future</span><span class="o">.</span><span class="na">onError</span> <span class="o">(</span><span class="n">library_onError</span><span class="o">);</span>
+<span class="n">future</span><span class="o">.</span><span class="na">onComplete</span> <span class="o">(</span><span class="n">library_onComplete</span><span class="o">);</span>
+
+<span class="o">...</span>
+
+<span class="kd">private</span> <span class="n">function</span> <span class="nf">library_onComplete</span> <span class="o">(</span><span class="nl">library:</span><span class="nc">AssetLibrary</span><span class="o">):</span><span class="nc">Void</span> <span class="o">{</span>
+	
+	<span class="kt">var</span> <span class="n">content</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="na">getMovieClip</span> <span class="o">(</span><span class="s">""</span><span class="o">);</span>
+	<span class="n">addChild</span> <span class="o">(</span><span class="n">content</span><span class="o">);</span>
+	
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>You can also use Lime futures in a single-line:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">AssetLibrary</span><span class="o">.</span><span class="na">loadFromFile</span> <span class="o">(</span><span class="s">"path/to/NyanCat.bundle"</span><span class="o">).</span><span class="na">onComplete</span> <span class="o">(</span><span class="n">function</span> <span class="o">(</span><span class="n">library</span><span class="o">)</span> <span class="o">{</span>
+	
+	<span class="kt">var</span> <span class="n">clip</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="na">getMovieClip</span> <span class="o">(</span><span class="s">"SymbolName"</span><span class="o">);</span>
+	<span class="n">addChild</span> <span class="o">(</span><span class="n">clip</span><span class="o">);</span>
+	
+<span class="o">});</span>
+</code></pre></div></div>
+
+<p>Using <code class="language-plaintext highlighter-rouge">openfl.utils.Loader</code> is similar to how you load SWF content on the Flash target, but using the <code class="language-plaintext highlighter-rouge">AssetLibrary</code> approach makes it easier to access child symbols, in addition to the root timeline.</p>
+
+<p>We appreciate your support and feedback! Thank you to our <a href="http://patreon.com/openfl">Patreon</a> supporters, and please keep letting us know on the <a href="http://community.openfl.org">forums</a> and Slack how things are working, and how we can improve OpenFL to better serve you!</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">March 15, 2017 | <a href="/blog/2017/03/15/runtime-swf-support-in-openfl-4.9/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,672 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>URLRequest | openfl</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">openfl</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../index.html">openfl</a>
+				</li>
+				<li>
+					<a href="../modules/openfl.net.html">net</a>
+				</li>
+				<li>
+					<a href="openfl.net.urlrequest.html">URLRequest</a>
+				</li>
+			</ul>
+			<h1>Class URLRequest</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The URLRequest class captures all of the information in a single HTTP
+							request. URLRequest objects are passed to the <code>load()</code> methods
+							of the Loader, URLStream, and URLLoader classes, and to other loading
+							operations, to initiate URL downloads. They are also passed to the
+							<code>upload()</code> and <code>download()</code> methods of the
+						FileReference class.</p>
+					</div>
+					<p>A SWF file in the local-with-filesystem sandbox may not load data from,
+					or provide data to, a resource that is in the network sandbox.</p>
+					<p>By default, the calling SWF file and the URL you load must be in the
+						same domain. For example, a SWF file at www.adobe.com can load data only
+						from sources that are also at www.adobe.com. To load data from a different
+					domain, place a URL policy file on the server hosting the data.</p>
+					<p> However, in Adobe AIR, content in the application security sandbox
+						(content installed with the AIR application) is not restricted by these
+						security limitations. For content running in Adobe AIR, files in the
+						application security sandbox can access URLs using any of the following URL
+					schemes:</p>
+					<ul>
+						<li><code>http</code> and <code>https</code></li>
+						<li><code>file</code></li>
+						<li><code>app-storage</code></li>
+						<li><code>app</code></li>
+					</ul>
+					<p>Content running in Adobe AIR that is not in the application security
+						sandbox observes the same restrictions as content running in the browser
+						(in Flash Player), and loading is governed by the content&#39;s domain and any
+					permissions granted in URL policy files.</p>
+					<p>For more information related to security, see the Flash Player Developer
+					Center Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">URLRequest</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlrequest.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlrequest.html#contenttype" class="tsd-kind-icon">content<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlrequest.html#data" class="tsd-kind-icon">data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlrequest.html#followredirects" class="tsd-kind-icon">follow<wbr>Redirects</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlrequest.html#idletimeout" class="tsd-kind-icon">idle<wbr>Timeout</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlrequest.html#managecookies" class="tsd-kind-icon">manage<wbr>Cookies</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlrequest.html#method" class="tsd-kind-icon">method</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlrequest.html#requestheaders" class="tsd-kind-icon">request<wbr>Headers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlrequest.html#url" class="tsd-kind-icon">url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="openfl.net.urlrequest.html#useragent" class="tsd-kind-icon">user<wbr>Agent</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">new URLRequest<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="openfl.net.urlrequest.html" class="tsd-signature-type">URLRequest</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLRequest.d.ts#L250">lib/openfl/net/URLRequest.d.ts:250</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a URLRequest object. If <code>System.useCodePage</code> is
+										<code>true</code>, the request is encoded using the system code page,
+										rather than Unicode. If <code>System.useCodePage</code> is
+										<code>false</code>, the request is encoded using Unicode, rather than the
+									system code page.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The URL to be requested. You can set the URL later by using the
+											<code>url</code> property.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="openfl.net.urlrequest.html" class="tsd-signature-type">URLRequest</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="contenttype" class="tsd-anchor"></a>
+					<h3>content<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">content<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLRequest.d.ts#L97">lib/openfl/net/URLRequest.d.ts:97</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The MIME content type of the content in the the <code>data</code>
+							property.</p>
+						</div>
+						<p>The default value is
+						<code>application/x-www-form-urlencoded</code>.</p>
+						<p><strong>Note</strong>:The <code>FileReference.upload()</code>,
+							<code>FileReference.download()</code>, and <code>HTMLLoader.load()</code>
+							methods do not support the <code>URLRequest.contentType</code>
+						property.</p>
+						<p>When sending a POST request, the values of the <code>contentType</code>
+							and <code>data</code> properties must correspond properly. The value of
+							the <code>contentType</code> property instructs servers on how to
+						interpret the value of the <code>data</code> property.</p>
+						<ul>
+							<li>If the value of the <code>data</code> property is a URLVariables
+								object, the value of <code>contentType</code> must be
+							<code>application/x-www-form-urlencoded</code>.</li>
+							<li>If the value of the <code>data</code> property is any other type,
+								the value of <code>contentType</code> should indicate the type of the POST
+								data that will be sent(which is the binary or string data contained in
+							the value of the <code>data</code> property).</li>
+							<li>For <code>FileReference.upload()</code>, the Content-Type of the
+								request is set automatically to <code>multipart/form-data</code>, and the
+							value of the <code>contentType</code> property is ignored.</li>
+						</ul>
+						<p> In Flash Player 10 and later, if you use a multipart Content-Type(for
+							example &quot;multipart/form-data&quot;) that contains an upload(indicated by a
+							&quot;filename&quot; parameter in a &quot;content-disposition&quot; header within the POST
+							body), the POST operation is subject to the security rules applied to
+						uploads:</p>
+						<ul>
+							<li>The POST operation must be performed in response to a user-initiated
+							action, such as a mouse click or key press.</li>
+							<li>If the POST operation is cross-domain(the POST target is not on the
+								same server as the SWF file that is sending the POST request), the target
+								server must provide a URL policy file that permits cross-domain
+							access.</li>
+						</ul>
+						<p>Also, for any multipart Content-Type, the syntax must be valid
+							(according to the RFC2046 standards). If the syntax appears to be invalid,
+							the POST operation is subject to the security rules applied to
+						uploads.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="data" class="tsd-anchor"></a>
+					<h3>data</h3>
+					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLRequest.d.ts#L144">lib/openfl/net/URLRequest.d.ts:144</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An object containing data to be transmitted with the URL request.</p>
+						</div>
+						<p>This property is used in conjunction with the <code>method</code>
+							property. When the value of <code>method</code> is <code>GET</code>, the
+							value of <code>data</code> is appended to the value of
+							<code>URLRequest.url</code>, using HTTP query-string syntax. When the
+							<code>method</code> value is <code>POST</code>(or any value other than
+							<code>GET</code>), the value of <code>data</code> is transmitted in the
+						body of the HTTP request.</p>
+						<p>The URLRequest API offers binary <code>POST</code> support and support
+							for URL-encoded variables, as well as support for strings. The data object
+						can be a ByteArray, URLVariables, or String object.</p>
+						<p>The way in which the data is used depends on the type of object
+						used:</p>
+						<ul>
+							<li>If the object is a ByteArray object, the binary data of the
+								ByteArray object is used as <code>POST</code> data. For <code>GET</code>,
+								data of ByteArray type is not supported. Also, data of ByteArray type is
+								not supported for <code>FileReference.upload()</code> and
+							<code>FileReference.download()</code>.</li>
+							<li>If the object is a URLVariables object and the method is
+								<code>POST</code>, the variables are encoded using
+								<em>x-www-form-urlencoded</em> format and the resulting string is used as
+								<code>POST</code> data. An exception is a call to
+								<code>FileReference.upload()</code>, in which the variables are sent as
+							separate fields in a <code>multipart/form-data</code> post.</li>
+							<li>If the object is a URLVariables object and the method is
+								<code>GET</code>, the URLVariables object defines variables to be sent
+							with the URLRequest object.</li>
+							<li>Otherwise, the object is converted to a string, and the string is
+							used as the <code>POST</code> or <code>GET</code> data.</li>
+						</ul>
+						<p>This data is not sent until a method, such as
+							<code>navigateToURL()</code> or <code>FileReference.upload()</code>, uses
+						the URLRequest object.</p>
+						<p><strong>Note</strong>: The value of <code>contentType</code> must correspond to
+							the type of data in the <code>data</code> property. See the note in the
+						description of the <code>contentType</code> property.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="followredirects" class="tsd-anchor"></a>
+					<h3>follow<wbr>Redirects</h3>
+					<div class="tsd-signature tsd-kind-icon">follow<wbr>Redirects<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLRequest.d.ts#L150">lib/openfl/net/URLRequest.d.ts:150</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="idletimeout" class="tsd-anchor"></a>
+					<h3>idle<wbr>Timeout</h3>
+					<div class="tsd-signature tsd-kind-icon">idle<wbr>Timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLRequest.d.ts#L152">lib/openfl/net/URLRequest.d.ts:152</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="managecookies" class="tsd-anchor"></a>
+					<h3>manage<wbr>Cookies</h3>
+					<div class="tsd-signature tsd-kind-icon">manage<wbr>Cookies<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLRequest.d.ts#L154">lib/openfl/net/URLRequest.d.ts:154</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="method" class="tsd-anchor"></a>
+					<h3>method</h3>
+					<div class="tsd-signature tsd-kind-icon">method<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLRequest.d.ts#L185">lib/openfl/net/URLRequest.d.ts:185</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Controls the HTTP form submission method.</p>
+						</div>
+						<p>For SWF content running in Flash Player(in the browser), this property
+							is limited to GET or POST operations, and valid values are
+							<code>URLRequestMethod.GET</code> or
+						<code>URLRequestMethod.POST</code>.</p>
+						<p>For content running in Adobe AIR, you can use any string value if the
+							content is in the application security sandbox. Otherwise, as with content
+							running in Flash Player, you are restricted to using GET or POST
+						operations.</p>
+						<p>For content running in Adobe AIR, when using the
+							<code>navigateToURL()</code> function, the runtime treats a URLRequest
+							that uses the POST method(one that has its <code>method</code> property
+						set to <code>URLRequestMethod.POST</code>) as using the GET method.</p>
+						<p><strong>Note:</strong> If running in Flash Player and the referenced form has no
+							body, Flash Player automatically uses a GET operation, even if the method
+							is set to <code>URLRequestMethod.POST</code>. For this reason, it is
+							recommended to always include a &quot;dummy&quot; body to ensure that the correct
+						method is used.</p>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>URLRequestMethod.GET</p>
+							</dd>
+							<dt>throws</dt>
+							<dd><p>ArgumentError If the <code>value</code> parameter is not
+									<code>URLRequestMethod.GET</code> or
+								<code>URLRequestMethod.POST</code>.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="requestheaders" class="tsd-anchor"></a>
+					<h3>request<wbr>Headers</h3>
+					<div class="tsd-signature tsd-kind-icon">request<wbr>Headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="openfl.net.urlrequestheader.html" class="tsd-signature-type">URLRequestHeader</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLRequest.d.ts#L208">lib/openfl/net/URLRequest.d.ts:208</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The array of HTTP request headers to be appended to the HTTP request. The
+								array is composed of URLRequestHeader objects. Each object in the array
+								must be a URLRequestHeader object that contains a name string and a value
+							string, as follows:</p>
+						</div>
+						<p>Flash Player and the AIR runtime impose certain restrictions on request
+							headers; for more information, see the URLRequestHeader class
+						description.</p>
+						<p>Not all methods that accept URLRequest parameters support the
+							<code>requestHeaders</code> property, consult the documentation for the
+							method you are calling. For example, the
+							<code>FileReference.upload()</code> and
+							<code>FileReference.download()</code> methods do not support the
+						<code>URLRequest.requestHeaders</code> property.</p>
+						<p>Due to browser limitations, custom HTTP request headers are only
+							supported for <code>POST</code> requests, not for <code>GET</code>
+						requests.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="url" class="tsd-anchor"></a>
+					<h3>url</h3>
+					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLRequest.d.ts#L248">lib/openfl/net/URLRequest.d.ts:248</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The URL to be requested.</p>
+						</div>
+						<p>Be sure to encode any characters that are either described as unsafe in
+							the Uniform Resource Locator specification(see
+							<a href="http://www.faqs.org/rfcs/rfc1738.html">http://www.faqs.org/rfcs/rfc1738.html</a>) or that are reserved in the URL
+							scheme of the URLRequest object(when not used for their reserved
+							purpose). For example, use <code>&quot;%25&quot;</code> for the percent(%) symbol
+							and <code>&quot;%23&quot;</code> for the number sign(#), as in
+						<code>&quot;http://www.example.com/orderForm.cfm?item=%23B-3&amp;discount=50%25&quot;</code>.</p>
+						<p>By default, the URL must be in the same domain as the calling file,
+							unless the content is running in the Adobe AIR application security
+							sandbox. If you need to load data from a different domain, put a URL
+							policy file on the server that is hosting the data. For more information,
+						see the description of the URLRequest class.</p>
+						<p>For content running in Adobe AIR, files in the application security
+							sandobx  -  files installed with the AIR application  -  can access URLs
+						using any of the following URL schemes:</p>
+						<ul>
+							<li><code>http</code> and <code>https</code></li>
+							<li><code>file</code></li>
+							<li><code>app-storage</code></li>
+							<li><code>app</code></li>
+						</ul>
+						<p><strong>Note:</strong> IPv6(Internet Protocol version 6) is supported in AIR and
+							in Flash Player 9.0.115.0 and later. IPv6 is a version of Internet
+							Protocol that supports 128-bit addresses(an improvement on the earlier
+							IPv4 protocol that supports 32-bit addresses). You might need to activate
+							IPv6 on your networking interfaces. For more information, see the Help for
+							the operating system hosting the data. If IPv6 is supported on the hosting
+							system, you can specify numeric IPv6 literal addresses in URLs enclosed in
+							brackets([]), as in the following.
+						<code>rtmp://[2001:db8:ccc3:ffff:0:444d:555e:666f]:1935/test</code></p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="useragent" class="tsd-anchor"></a>
+					<h3>user<wbr>Agent</h3>
+					<div class="tsd-signature tsd-kind-icon">user<wbr>Agent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/openfl/openfl/blob/9921d3bf/lib/openfl/net/URLRequest.d.ts#L250">lib/openfl/net/URLRequest.d.ts:250</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.desktop.html">openfl.desktop</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.display.html">openfl.display</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.display3d.html">openfl.display3D</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.errors.html">openfl.errors</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.events.html">openfl.events</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.external.html">openfl.external</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.filters.html">openfl.filters</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.geom.html">openfl.geom</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.media.html">openfl.media</a>
+					</li>
+					<li class="current tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.net.html">openfl.net</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.profiler.html">openfl.profiler</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.sensors.html">openfl.sensors</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.system.html">openfl.system</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.text.html">openfl.text</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.ui.html">openfl.ui</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.utils.html">openfl.utils</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.net.sharedobjectflushstatus.html" class="tsd-kind-icon">Shared<wbr>Object<wbr>Flush<wbr>Status</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.net.urlloaderdataformat.html" class="tsd-kind-icon">URLLoader<wbr>Data<wbr>Format</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-external">
+						<a href="../enums/openfl.net.urlrequestmethod.html" class="tsd-kind-icon">URLRequest<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.filefilter.html" class="tsd-kind-icon">File<wbr>Filter</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.filereference.html" class="tsd-kind-icon">File<wbr>Reference</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.filereferencelist.html" class="tsd-kind-icon">File<wbr>Reference<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.netconnection.html" class="tsd-kind-icon">Net<wbr>Connection</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.netstream.html" class="tsd-kind-icon">Net<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.sharedobject.html" class="tsd-kind-icon">Shared<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.socket.html" class="tsd-kind-icon">Socket</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.urlloader.html" class="tsd-kind-icon">URLLoader</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.urlrequest.html" class="tsd-kind-icon">URLRequest</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlrequest.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlrequest.html#contenttype" class="tsd-kind-icon">content<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlrequest.html#data" class="tsd-kind-icon">data</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlrequest.html#followredirects" class="tsd-kind-icon">follow<wbr>Redirects</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlrequest.html#idletimeout" class="tsd-kind-icon">idle<wbr>Timeout</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlrequest.html#managecookies" class="tsd-kind-icon">manage<wbr>Cookies</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlrequest.html#method" class="tsd-kind-icon">method</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlrequest.html#requestheaders" class="tsd-kind-icon">request<wbr>Headers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlrequest.html#url" class="tsd-kind-icon">url</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="openfl.net.urlrequest.html#useragent" class="tsd-kind-icon">user<wbr>Agent</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.urlrequestdefaults.html" class="tsd-kind-icon">URLRequest<wbr>Defaults</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.urlrequestheader.html" class="tsd-kind-icon">URLRequest<wbr>Header</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.urlstream.html" class="tsd-kind-icon">URLStream</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.urlvariables.html" class="tsd-kind-icon">URLVariables</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="openfl.net.xmlsocket.html" class="tsd-kind-icon">XMLSocket</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.net.html#navigatetourl" class="tsd-kind-icon">navigate<wbr>ToURL</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/openfl.net.html#sendtourl" class="tsd-kind-icon">send<wbr>ToURL</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

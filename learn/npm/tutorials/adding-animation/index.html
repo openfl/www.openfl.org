@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Adding Animation</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    <!-- <script src='/js/openfl.min.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openfl/7.1.2/openfl.min.js"></script>
+    <script src='/js/actuate.min.js'></script>
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<script src='/js/holder.js'></script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-push-4 sidebar-content add-anchors">
+			
+			<div class="page-header">
+				<h1>Adding Animation</h1>
+				<div class="page-links"><a href="https://github.com/openfl/openfl.org/edit/master/learn/npm/tutorials/adding-animation/index.md">Edit Document<span class="page-links-icon glyphicon glyphicon-pencil"></span></a></div>
+			</div>
+			
+			<h2 id="setup">Setup</h2>
+
+<p><em>You may find a completed “features/display/AddingAnimation” sample project for <a href="https://github.com/openfl/openfl-samples-ts">TypeScript</a>, <a href="https://github.com/openfl/openfl-samples-haxe">Haxe</a>, <a href="https://github.com/openfl/openfl-samples-es6">ES6</a> or <a href="https://github.com/openfl/openfl-samples-es5">ES5</a> online, the following describes how to add animation from an empty project or from the previous <a href="../displaying-a-bitmap">Displaying a Bitmap</a>.</em></p>
+
+<p>If you have completed the <a href="../displaying-a-bitmap">Displaying a Bitmap</a> tutorial, you can continue using the same project files. Otherwise you can run the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>AddingAnimation
+<span class="nb">cd </span>AddingAnimation
+yo openfl
+</code></pre></div></div>
+
+<p>If you start fresh, download an image file into your <code class="language-plaintext highlighter-rouge">dist</code> directory, such as <a href="/learn/npm/tutorials/adding-animation/openfl.png">this</a> one.</p>
+
+<h2 id="animating-your-project">Animating Your Project</h2>
+
+<p>In the <a href="../displaying-a-bitmap">Displaying a Bitmap</a> tutorial, we added an image using the <a href="/learn/npm/api/classes/openfl.display.bitmap.html"><code>openfl.display.Bitmap</code></a> class, and made it renderable. We also suggested that you try changing some properties, such as the <a href="/learn/npm/api/classes/openfl.display.displayobject.html#x"><code>x</code></a> or <a href="/learn/npm/api/classes/openfl.display.displayobject.html#y"><code>y</code></a> property of the <a href="/learn/npm/api/classes/openfl.display.bitmap.html"><code>Bitmap</code></a> object to change how it would be rendered.</p>
+
+<p>Although this is a good way to understand some of the fundamental principles of the display list works in OpenFL, interactive projects often benefit by updating these properties <em>over time</em> to create an animation.</p>
+
+<p>In the following steps, we will illustrate how you can create animation using <a href="/learn/npm/api/classes/openfl.events.event.html#enter_frame"><code>Event.ENTER_FRAME</code></a>, using a timer, a combination of both <a href="/learn/npm/api/classes/openfl.events.event.html#enter_frame"><code>Event.ENTER_FRAME</code></a> and time, as well as using an animation library.</p>
+
+<p>Before we continue, your “src/app.ts”, “src/app.js” or “src/App.hx” should be able to load and display a bitmap, similar to the following:</p>
+
+<div id="tabset0">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset0-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset0-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset0-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset0-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset0-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Bitmap</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Bitmap</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">BitmapData</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/BitmapData</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Sprite</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Sprite</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Stage</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Stage</span><span class="dl">"</span><span class="p">;</span>
+
+
+<span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+	
+	
+	<span class="kd">constructor</span> <span class="p">()</span> <span class="p">{</span>
+		
+		<span class="k">super</span> <span class="p">();</span>
+		
+		<span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">((</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+			
+			<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+			
+		<span class="p">});</span>
+		
+	<span class="p">}</span>
+	
+	
+<span class="p">}</span>
+
+
+<span class="kd">var</span> <span class="nx">stage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stage</span> <span class="p">(</span><span class="mi">550</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mh">0xFFFFFF</span><span class="p">,</span> <span class="nx">App</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span> <span class="p">(</span><span class="nx">stage</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset0-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Bitmap</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">BitmapData</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Sprite</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Stage</span><span class="p">;</span>
+
+
+<span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+	
+	
+	<span class="kr">public</span> <span class="kd">function</span> <span class="k">new</span> <span class="p">()</span> <span class="p">{</span>
+		
+		<span class="k">super</span> <span class="p">();</span>
+		
+		<span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="p">{</span>
+			
+			<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+			<span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+			
+		<span class="p">});</span>
+		
+	<span class="p">}</span>
+	
+	
+	<span class="kd">static</span> <span class="kd">function</span> <span class="nx">main</span> <span class="p">()</span> <span class="p">{</span>
+		
+		<span class="kd">var</span> <span class="nx">stage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stage</span> <span class="p">(</span><span class="mi">550</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mh">0xFFFFFF</span><span class="p">,</span> <span class="nx">App</span><span class="p">);</span>
+		<span class="nx">js</span><span class="p">.</span><span class="nx">Browser</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span> <span class="p">(</span><span class="nx">stage</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+		
+	<span class="p">}</span>
+	
+	
+<span class="p">}</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset0-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Bitmap</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Bitmap</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">BitmapData</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/BitmapData</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Sprite</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Sprite</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Stage</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/display/Stage</span><span class="dl">"</span><span class="p">;</span>
+
+
+<span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+	
+	
+	<span class="kd">constructor</span> <span class="p">()</span> <span class="p">{</span>
+		
+		<span class="k">super</span> <span class="p">();</span>
+		
+		<span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">((</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+			
+			<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+			
+		<span class="p">});</span>
+		
+	<span class="p">}</span>
+	
+	
+<span class="p">}</span>
+
+
+<span class="kd">var</span> <span class="nx">stage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stage</span> <span class="p">(</span><span class="mi">550</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mh">0xFFFFFF</span><span class="p">,</span> <span class="nx">App</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span> <span class="p">(</span><span class="nx">stage</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset0-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Bitmap</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/display/Bitmap</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">BitmapData</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/display/BitmapData</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">Sprite</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/display/Sprite</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">Stage</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/display/Stage</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+
+
+<span class="kd">var</span> <span class="nx">App</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+	
+	<span class="nx">Sprite</span><span class="p">.</span><span class="nx">call</span> <span class="p">(</span><span class="k">this</span><span class="p">);</span>
+	
+	<span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+		
+	<span class="p">}.</span><span class="nx">bind</span> <span class="p">(</span><span class="k">this</span><span class="p">));</span>
+	
+<span class="p">}</span>
+
+<span class="nx">App</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">Sprite</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span>
+
+
+<span class="kd">var</span> <span class="nx">stage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stage</span> <span class="p">(</span><span class="mi">550</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mh">0xFFFFFF</span><span class="p">,</span> <span class="nx">App</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span> <span class="p">(</span><span class="nx">stage</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="embed-0" class="openfl-embed" style="max-width: 550px; max-height: 400px;"></div>
+<script type="text/javascript">
+(function () {
+	
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		this.addChild (bitmap);
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+	
+	var stage = new Stage (550, 400, 0xFFFFFF, App, { renderer: "dom" });
+	document.getElementById ("embed-0").appendChild (stage.element);
+	
+})();
+</script>
+
+<h2 id="using-evententer_frame">Using <code class="language-plaintext highlighter-rouge">Event.ENTER_FRAME</code></h2>
+
+<p>One of the ways that you can begin to add animation in OpenFL is by listening to the <a href="/learn/npm/api/classes/openfl.events.event.html#enter_frame"><code>Event.ENTER_FRAME</code></a> event. This event occurs every time that OpenFL enters a new animation frame (which is by default the same as <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame"><code>requestAnimationFrame</code></a>, but is configurable).</p>
+
+<p>First we can add a new import for <a href="/learn/npm/api/classes/openfl.events.event.html"><code>openfl.events.Event</code></a>:</p>
+
+<div id="tabset1">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset1-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset1-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset1-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset1-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset1-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Event</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/events/Event</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset1-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">Event</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset1-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Event</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/events/Event</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset1-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Event</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/events/Event</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<p><em>If you prefer, you can use <code class="language-plaintext highlighter-rouge">"enterFrame"</code> instead of <a href="/learn/npm/api/classes/openfl.events.event.html#enter_frame"><code>Event.ENTER_FRAME</code></a>, but importing <a href="/learn/npm/api/classes/openfl.events.event.html"><code>Event</code></a> is a standard way of accessing event names.</em></p>
+
+<p>Now we can add some code to listen to the <a href="/learn/npm/api/classes/openfl.events.event.html#enter_frame"><code>Event.ENTER_FRAME</code></a> event. Add it below the <code class="language-plaintext highlighter-rouge">new Bitmap</code> declaration in your code, like this:</p>
+
+<div id="tabset2">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset2-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset2-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset2-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset2-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset2-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">((</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+	
+	<span class="c1">// add code here</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset2-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+	<span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+	
+	<span class="c1">// add code here</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset2-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">((</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+	
+	<span class="c1">// add code here</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset2-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">BitmapData</span><span class="p">.</span><span class="nx">loadFromFile</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl.png</span><span class="dl">"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span> <span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">addChild</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+	
+	<span class="c1">// add code here</span>
+	
+<span class="p">}.</span><span class="nx">bind</span> <span class="p">(</span><span class="k">this</span><span class="p">));</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="tabset3">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset3-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset3-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset3-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset3-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset3-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span><span class="nx">Event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="dl">"</span><span class="s2">Enter Frame</span><span class="dl">"</span><span class="p">);</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset3-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">trace</span> <span class="p">(</span><span class="dl">"</span><span class="s2">Enter Frame</span><span class="dl">"</span><span class="p">);</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset3-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="dl">"</span><span class="s2">Enter Frame</span><span class="dl">"</span><span class="p">);</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset3-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="dl">"</span><span class="s2">Enter Frame</span><span class="dl">"</span><span class="p">);</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<p>All we need to do to create an animation is update a property of our <a href="/learn/npm/api/classes/openfl.display.bitmap.html"><code>Bitmap</code></a> object (such as the <a href="/learn/npm/api/classes/openfl.display.displayobject.html#x"><code>x</code></a>, <a href="/learn/npm/api/classes/openfl.display.displayobject.html#y"><code>y</code></a> or <a href="/learn/npm/api/classes/openfl.display.displayobject.html#alpha"><code>alpha</code></a> property) in our listener. This will occur repeatedly over time, making it possible to play an animation.</p>
+
+<p>The following code will animate the image from it’s initial <a href="/learn/npm/api/classes/openfl.display.displayobject.html#y"><code>y</code></a> position of <code class="language-plaintext highlighter-rouge">0</code>, increasing by <code class="language-plaintext highlighter-rouge">1</code> each frame until it reaches <code class="language-plaintext highlighter-rouge">y == 200</code>. Then it changes direction, and moves back toward <code class="language-plaintext highlighter-rouge">y == 0</code> before finally repeating:</p>
+
+<div id="tabset4">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset4-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset4-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset4-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset4-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset4-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">direction</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span><span class="nx">Event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">direction</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">&gt;=</span> <span class="mi">200</span><span class="p">)</span> <span class="nx">direction</span> <span class="o">=</span> <span class="o">!</span><span class="nx">direction</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">direction</span> <span class="o">=</span> <span class="o">!</span><span class="nx">direction</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset4-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">direction</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">direction</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">&gt;=</span> <span class="mi">200</span><span class="p">)</span> <span class="nx">direction</span> <span class="o">=</span> <span class="o">!</span><span class="nx">direction</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">direction</span> <span class="o">=</span> <span class="o">!</span><span class="nx">direction</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset4-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">direction</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">direction</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">&gt;=</span> <span class="mi">200</span><span class="p">)</span> <span class="nx">direction</span> <span class="o">=</span> <span class="o">!</span><span class="nx">direction</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">direction</span> <span class="o">=</span> <span class="o">!</span><span class="nx">direction</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset4-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">direction</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">direction</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">&gt;=</span> <span class="mi">200</span><span class="p">)</span> <span class="nx">direction</span> <span class="o">=</span> <span class="o">!</span><span class="nx">direction</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">direction</span> <span class="o">=</span> <span class="o">!</span><span class="nx">direction</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="embed-1" class="openfl-embed" style="max-width: 550px; max-height: 400px;"></div>
+<script type="text/javascript">
+(function () {
+	
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+var Event = openfl.events.Event;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		this.addChild (bitmap);
+		
+		var direction = true;
+		
+		this.addEventListener (Event.ENTER_FRAME, function (e) {
+			
+			if (direction) {
+				
+				bitmap.y += 1;
+				if (bitmap.y >= 200) direction = !direction;
+				
+			} else {
+				
+				bitmap.y -= 1;
+				if (bitmap.y <= 0) direction = !direction;
+				
+			}
+			
+		});
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+	
+	var stage = new Stage (550, 400, 0xFFFFFF, App, { renderer: "dom" });
+	document.getElementById ("embed-1").appendChild (stage.element);
+	
+})();
+</script>
+
+<h2 id="using-timer">Using <code class="language-plaintext highlighter-rouge">Timer</code></h2>
+
+<p>Sometimes, you may need to update a property based upon time, rather than animation frames. In general, it is recommended that updates are made within an animation frame. In the next section, we will show you can combine <a href="/learn/npm/api/classes/openfl.events.event.html#enter_frame"><code>Event.ENTER_FRAME</code></a> with <a href="/learn/npm/api/modules/openfl.utils.html#gettimer"><code>openfl.utils.getTimer</code></a> to handle time, but in the meantime, this is a short description of <a href="/learn/npm/api/classes/openfl.utils.timer.html"><code>openfl.utils.Timer</code></a> could be used to trigger animation based on time.</p>
+
+<p>Both <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout"><code>setTimeout</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval"><code>setInterval</code></a> could be used to trigger an event repeatedly, as well as a final complete event, but the <a href="/learn/npm/api/classes/openfl.utils.timer.html"><code>Timer</code></a> class combines the two behaviors into a single utility which may be helpful for time-based behaviors.</p>
+
+<div id="tabset5">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset5-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset5-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset5-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset5-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset5-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">TimerEvent</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/events/TimerEvent</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Timer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl.utils/Timer</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset5-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">TimerEvent</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">Timer</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset5-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">TimerEvent</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/events/TimerEvent</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Timer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl.utils/Timer</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset5-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">TimerEvent</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/events/TimerEvent</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">Timer</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/utils/Timer</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="tabset6">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset6-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset6-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset6-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset6-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset6-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">increment</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Timer</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nx">timer</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">TimerEvent</span><span class="p">.</span><span class="nx">TIMER</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span><span class="nx">TimerEvent</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">+=</span> <span class="nx">increment</span><span class="p">;</span>
+	
+<span class="p">});</span>
+<span class="nx">timer</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">TimerEvent</span><span class="p">.</span><span class="nx">TIMER_COMPLETE</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span><span class="nx">TimerEvent</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">increment</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="nx">timer</span><span class="p">.</span><span class="nx">reset</span> <span class="p">();</span>
+	<span class="nx">timer</span><span class="p">.</span><span class="nx">start</span> <span class="p">();</span>
+	
+<span class="p">});</span>
+<span class="nx">timer</span><span class="p">.</span><span class="nx">start</span> <span class="p">();</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset6-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">increment</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Timer</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nx">timer</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">TimerEvent</span><span class="p">.</span><span class="nx">TIMER</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">+=</span> <span class="nx">increment</span><span class="p">;</span>
+	
+<span class="p">});</span>
+<span class="nx">timer</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">TimerEvent</span><span class="p">.</span><span class="nx">TIMER_COMPLETE</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">increment</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="nx">timer</span><span class="p">.</span><span class="nx">reset</span> <span class="p">();</span>
+	<span class="nx">timer</span><span class="p">.</span><span class="nx">start</span> <span class="p">();</span>
+	
+<span class="p">});</span>
+<span class="nx">timer</span><span class="p">.</span><span class="nx">start</span> <span class="p">();</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset6-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">increment</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Timer</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nx">timer</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">TimerEvent</span><span class="p">.</span><span class="nx">TIMER</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">+=</span> <span class="nx">increment</span><span class="p">;</span>
+	
+<span class="p">});</span>
+<span class="nx">timer</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">TimerEvent</span><span class="p">.</span><span class="nx">TIMER_COMPLETE</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="nx">increment</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="nx">timer</span><span class="p">.</span><span class="nx">reset</span> <span class="p">();</span>
+	<span class="nx">timer</span><span class="p">.</span><span class="nx">start</span> <span class="p">();</span>
+	
+<span class="p">});</span>
+<span class="nx">timer</span><span class="p">.</span><span class="nx">start</span> <span class="p">();</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset6-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">increment</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Timer</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nx">timer</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">TimerEvent</span><span class="p">.</span><span class="nx">TIMER</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">+=</span> <span class="nx">increment</span><span class="p">;</span>
+	
+<span class="p">});</span>
+<span class="nx">timer</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">TimerEvent</span><span class="p">.</span><span class="nx">TIMER_COMPLETE</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="nx">increment</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="nx">timer</span><span class="p">.</span><span class="nx">reset</span> <span class="p">();</span>
+	<span class="nx">timer</span><span class="p">.</span><span class="nx">start</span> <span class="p">();</span>
+	
+<span class="p">});</span>
+<span class="nx">timer</span><span class="p">.</span><span class="nx">start</span> <span class="p">();</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="embed-2" class="openfl-embed" style="max-width: 550px; max-height: 400px;"></div>
+<script type="text/javascript">
+(function () {
+	
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+var TimerEvent = openfl.events.TimerEvent;
+var Timer = openfl.utils.Timer;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		this.addChild (bitmap);
+		
+		var increment = -0.005;
+		var timer = new Timer (1000 / 60, 200);
+		timer.addEventListener (TimerEvent.TIMER, function (e) {
+			
+			bitmap.alpha += increment;
+			
+		});
+		timer.addEventListener (TimerEvent.TIMER_COMPLETE, function (e) {
+			
+			increment *= -1;
+			timer.reset ();
+			timer.start ();
+			
+		});
+		timer.start ();
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+	
+	var stage = new Stage (550, 400, 0xFFFFFF, App, { renderer: "dom" });
+	document.getElementById ("embed-2").appendChild (stage.element);
+	
+})();
+</script>
+
+<h2 id="using-evententer_frame-and-gettimer">Using <code class="language-plaintext highlighter-rouge">Event.ENTER_FRAME</code> and <code class="language-plaintext highlighter-rouge">getTimer</code></h2>
+
+<p>When you need to update based on animation frames, but also need to know how much time has elapsed, you could use a combination of both <a href="/learn/npm/api/classes/openfl.events.event.html#enter_frame"><code>Event.ENTER_FRAME</code></a> and <a href="/learn/npm/api/modules/openfl.utils.html#gettimer"><code>openfl.utils.getTimer</code></a>.</p>
+
+<p>This approach is common for many games, which need to know the amount of time that has elapsed since the last frame. It also tends to blend the best elements of both <a href="/learn/npm/api/classes/openfl.events.event.html#enter_frame"><code>Event.ENTER_FRAME</code></a> and time-based animation.</p>
+
+<div id="tabset7">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset7-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset7-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset7-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset7-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset7-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Event</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/events/Event</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">getTimer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/utils/getTimer</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="kd">let</span> <span class="nx">speed</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">cacheTime</span> <span class="o">=</span> <span class="nx">getTimer</span> <span class="p">();</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span><span class="nx">Event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="kd">let</span> <span class="nx">currentTime</span> <span class="o">=</span> <span class="nx">getTimer</span> <span class="p">();</span>
+	<span class="kd">let</span> <span class="nx">deltaTime</span> <span class="o">=</span> <span class="nx">currentTime</span> <span class="o">-</span> <span class="nx">cacheTime</span><span class="p">;</span>
+	
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">speed</span> <span class="o">*</span> <span class="nx">deltaTime</span><span class="p">;</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">speed</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">speed</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+	
+	<span class="nx">cacheTime</span> <span class="o">=</span> <span class="nx">currentTime</span><span class="p">;</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset7-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">Event</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">Lib</span><span class="p">.</span><span class="nx">getTimer</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="kd">var</span> <span class="nx">speed</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">cacheTime</span> <span class="o">=</span> <span class="nx">getTimer</span> <span class="p">();</span>
+
+<span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="kd">var</span> <span class="nx">currentTime</span> <span class="o">=</span> <span class="nx">getTimer</span> <span class="p">();</span>
+	<span class="kd">var</span> <span class="nx">deltaTime</span> <span class="o">=</span> <span class="nx">currentTime</span> <span class="o">-</span> <span class="nx">cacheTime</span><span class="p">;</span>
+	
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">speed</span> <span class="o">*</span> <span class="nx">deltaTime</span><span class="p">;</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">speed</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">speed</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+	
+	<span class="nx">cacheTime</span> <span class="o">=</span> <span class="nx">currentTime</span><span class="p">;</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset7-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Event</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/events/Event</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">getTimer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">openfl/utils/getTimer</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="kd">let</span> <span class="nx">speed</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">cacheTime</span> <span class="o">=</span> <span class="nx">getTimer</span> <span class="p">();</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	
+	<span class="kd">let</span> <span class="nx">currentTime</span> <span class="o">=</span> <span class="nx">getTimer</span> <span class="p">();</span>
+	<span class="kd">let</span> <span class="nx">deltaTime</span> <span class="o">=</span> <span class="nx">currentTime</span> <span class="o">-</span> <span class="nx">cacheTime</span><span class="p">;</span>
+	
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">speed</span> <span class="o">*</span> <span class="nx">deltaTime</span><span class="p">;</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">speed</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">speed</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+	
+	<span class="nx">cacheTime</span> <span class="o">=</span> <span class="nx">currentTime</span><span class="p">;</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset7-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Event</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/events/Event</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">getTimer</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">openfl/utils/getTimer</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="kd">var</span> <span class="nx">speed</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">cacheTime</span> <span class="o">=</span> <span class="nx">getTimer</span> <span class="p">();</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	
+	<span class="kd">var</span> <span class="nx">currentTime</span> <span class="o">=</span> <span class="nx">getTimer</span> <span class="p">();</span>
+	<span class="kd">var</span> <span class="nx">deltaTime</span> <span class="o">=</span> <span class="nx">currentTime</span> <span class="o">-</span> <span class="nx">cacheTime</span><span class="p">;</span>
+	
+	<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">speed</span> <span class="o">*</span> <span class="nx">deltaTime</span><span class="p">;</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">speed</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+		
+	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">speed</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+		<span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		
+	<span class="p">}</span>
+	
+	<span class="nx">cacheTime</span> <span class="o">=</span> <span class="nx">currentTime</span><span class="p">;</span>
+	
+<span class="p">});</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="embed-3" class="openfl-embed" style="max-width: 550px; max-height: 400px;"></div>
+<script type="text/javascript">
+(function () {
+	
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+var Event = openfl.events.Event;
+var getTimer = openfl.utils.getTimer;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		this.addChild (bitmap);
+		
+		var speed = 60 / 1000;
+		var cacheTime = getTimer ();
+		
+		this.addEventListener (Event.ENTER_FRAME, function (e) {
+			
+			var currentTime = getTimer ();
+			var deltaTime = currentTime - cacheTime;
+			
+			bitmap.x += speed * deltaTime;
+			
+			if (bitmap.x > 100) {
+				
+				speed *= -1;
+				bitmap.x = 100;
+				
+			} else if (bitmap.x < 0) {
+				
+				speed *= -1;
+				bitmap.x = 0;
+				
+			}
+			
+			cacheTime = currentTime;
+			
+		});
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+	
+	var stage = new Stage (550, 400, 0xFFFFFF, App, { renderer: "dom" });
+	document.getElementById ("embed-3").appendChild (stage.element);
+	
+})();
+</script>
+
+<h2 id="using-an-animation-library">Using an Animation Library</h2>
+
+<p>When you move beyond a simple illustration, and begin building real interactive projects, use of an animation (or “tween”) library is more productive for expressive animation than animating by hand. In addition to automatically animating based upon <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame"><code>requestAnimationFrame</code></a>, an animation library may make it simpler to combine animation of multiple properties at once, make it simple to receive callbacks when the object has been updated or completes an animation, and often includes multiple “easing” equations in order to animate properties along a quadratic, exponential or elastic animation equation rather than a simple linear equation, similar to the examples above.</p>
+
+<p>In the following example code, we have integrated a tween library called <a href="https://github.com/jgranick/actuate">Actuate</a>. If you wish, you may use the “features/display/AddingAnimation” sample (for <a href="https://github.com/openfl/openfl-samples-ts/tree/master/features/display/AddingAnimation">TypeScript</a>, <a href="https://github.com/openfl/openfl-samples/tree/master/npm/features/display/AddingAnimation">Haxe</a>, <a href="https://github.com/openfl/openfl-samples-es6/tree/master/features/display/AddingAnimation">ES6</a> and <a href="https://github.com/openfl/openfl-samples-es5/tree/master/features/display/AddingAnimation">ES5</a>), which is already configured for use with Actuate, otherwise we can add Actuate to your current project.</p>
+
+<p>First, open a command-prompt or terminal, and change to your project directory and run the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">--save-dev</span> actuate
+</code></pre></div></div>
+
+<p>Next, in order to make it easier to import modules from the Actuate library, edit “webpack.common.js”, and update the <code class="language-plaintext highlighter-rouge">resolve</code> section to include an alias for Actuate:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">alias</span><span class="p">:</span> <span class="p">{</span>
+	<span class="p">...</span>
+	<span class="dl">"</span><span class="s2">motion</span><span class="dl">"</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span> <span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">"</span><span class="s2">node_modules/actuate/lib/motion</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If you are using TypeScript, we will also need to add an alias in “tsconfig.json” so that the TypeScript compiler also knows how to resolve our aliases for Actuate:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"paths"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="err">...</span><span class="w">
+	</span><span class="nl">"motion"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"node_modules/actuate/lib/motion"</span><span class="p">],</span><span class="w">
+	</span><span class="nl">"motion/*"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"node_modules/actuate/lib/motion/*"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<p>If you are using Haxe, we will need to add a new classpath to Actuate in your “build.hxml” file:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-cp</span> node_modules/actuate/lib
+</code></pre></div></div>
+
+<p>Now Actuate should be installed available, importing from “motion” or “motion/Actuate”, rather than a lengthier path.</p>
+
+<p>Here is an example animation using Actuate:</p>
+
+<div id="tabset8">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset8-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset8-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset8-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset8-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset8-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Actuate</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">motion/Actuate</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Elastic</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">motion/easing/Elastic</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Linear</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">motion/easing/Linear</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset8-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">motion</span><span class="p">.</span><span class="nx">Actuate</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">motion</span><span class="p">.</span><span class="nx">easing</span><span class="p">.</span><span class="nx">Elastic</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">motion</span><span class="p">.</span><span class="nx">easing</span><span class="p">.</span><span class="nx">Linear</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset8-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Actuate</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">motion/Actuate</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Elastic</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">motion/easing/Elastic</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Linear</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">motion/easing/Linear</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset8-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Actuate</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">motion/Actuate</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">Elastic</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">motion/easing/Elastic</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">Linear</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="dl">"</span><span class="s2">motion/easing/Linear</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="tabset9">
+	<ul class="nav nav-tabs">
+
+		<li class="active"><a data-toggle="tab" href="#tabset9-0">TypeScript</a></li>
+
+		<li><a data-toggle="tab" href="#tabset9-1">Haxe</a></li>
+
+		<li><a data-toggle="tab" href="#tabset9-2">ES6</a></li>
+
+		<li><a data-toggle="tab" href="#tabset9-3">ES5</a></li>
+
+	</ul>
+	<div class="tab-content">
+
+		<div id="tabset9-0" class="tab-pane active">
+		
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Actuate</span><span class="p">.</span><span class="nx">tween</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span> <span class="na">y</span><span class="p">:</span> <span class="mi">200</span> <span class="p">}).</span><span class="nx">repeat</span> <span class="p">().</span><span class="nx">reflect</span> <span class="p">();</span>
+<span class="nx">Actuate</span><span class="p">.</span><span class="nx">tween</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="mi">100</span> <span class="p">}).</span><span class="nx">ease</span> <span class="p">(</span><span class="nx">Elastic</span><span class="p">.</span><span class="nx">easeOut</span><span class="p">).</span><span class="nx">repeat</span> <span class="p">().</span><span class="nx">reflect</span> <span class="p">();</span>
+<span class="nx">Actuate</span><span class="p">.</span><span class="nx">tween</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span> <span class="na">alpha</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}).</span><span class="nx">ease</span> <span class="p">(</span><span class="nx">Linear</span><span class="p">.</span><span class="nx">easeNone</span><span class="p">).</span><span class="nx">repeat</span> <span class="p">().</span><span class="nx">reflect</span> <span class="p">();</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset9-1" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Actuate</span><span class="p">.</span><span class="nx">tween</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span> <span class="na">y</span><span class="p">:</span> <span class="mi">200</span> <span class="p">}).</span><span class="nx">repeat</span> <span class="p">().</span><span class="nx">reflect</span> <span class="p">();</span>
+<span class="nx">Actuate</span><span class="p">.</span><span class="nx">tween</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="mi">100</span> <span class="p">}).</span><span class="nx">ease</span> <span class="p">(</span><span class="nx">Elastic</span><span class="p">.</span><span class="nx">easeOut</span><span class="p">).</span><span class="nx">repeat</span> <span class="p">().</span><span class="nx">reflect</span> <span class="p">();</span>
+<span class="nx">Actuate</span><span class="p">.</span><span class="nx">tween</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span> <span class="na">alpha</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}).</span><span class="nx">ease</span> <span class="p">(</span><span class="nx">Linear</span><span class="p">.</span><span class="nx">easeNone</span><span class="p">).</span><span class="nx">repeat</span> <span class="p">().</span><span class="nx">reflect</span> <span class="p">();</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset9-2" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Actuate</span><span class="p">.</span><span class="nx">tween</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span> <span class="na">y</span><span class="p">:</span> <span class="mi">200</span> <span class="p">}).</span><span class="nx">repeat</span> <span class="p">().</span><span class="nx">reflect</span> <span class="p">();</span>
+<span class="nx">Actuate</span><span class="p">.</span><span class="nx">tween</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="mi">100</span> <span class="p">}).</span><span class="nx">ease</span> <span class="p">(</span><span class="nx">Elastic</span><span class="p">.</span><span class="nx">easeOut</span><span class="p">).</span><span class="nx">repeat</span> <span class="p">().</span><span class="nx">reflect</span> <span class="p">();</span>
+<span class="nx">Actuate</span><span class="p">.</span><span class="nx">tween</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span> <span class="na">alpha</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}).</span><span class="nx">ease</span> <span class="p">(</span><span class="nx">Linear</span><span class="p">.</span><span class="nx">easeNone</span><span class="p">).</span><span class="nx">repeat</span> <span class="p">().</span><span class="nx">reflect</span> <span class="p">();</span>
+</code></pre></div></div>
+
+		</div>
+
+		<div id="tabset9-3" class="tab-pane">
+		
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Actuate</span><span class="p">.</span><span class="nx">tween</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span> <span class="na">y</span><span class="p">:</span> <span class="mi">200</span> <span class="p">}).</span><span class="nx">repeat</span> <span class="p">().</span><span class="nx">reflect</span> <span class="p">();</span>
+<span class="nx">Actuate</span><span class="p">.</span><span class="nx">tween</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="mi">100</span> <span class="p">}).</span><span class="nx">ease</span> <span class="p">(</span><span class="nx">Elastic</span><span class="p">.</span><span class="nx">easeOut</span><span class="p">).</span><span class="nx">repeat</span> <span class="p">().</span><span class="nx">reflect</span> <span class="p">();</span>
+<span class="nx">Actuate</span><span class="p">.</span><span class="nx">tween</span> <span class="p">(</span><span class="nx">bitmap</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span> <span class="na">alpha</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}).</span><span class="nx">ease</span> <span class="p">(</span><span class="nx">Linear</span><span class="p">.</span><span class="nx">easeNone</span><span class="p">).</span><span class="nx">repeat</span> <span class="p">().</span><span class="nx">reflect</span> <span class="p">();</span>
+</code></pre></div></div>
+
+		</div>
+
+	</div>
+</div>
+
+<div id="embed-4" class="openfl-embed" style="max-width: 550px; max-height: 400px;"></div>
+<script type="text/javascript">
+(function () {
+	
+var Bitmap = openfl.display.Bitmap;
+var BitmapData = openfl.display.BitmapData;
+var Sprite = openfl.display.Sprite;
+var Stage = openfl.display.Stage;
+var Actuate = motion.Actuate;
+var Elastic = motion.easing.Elastic;
+var Linear = motion.easing.Linear;
+
+var App = function () {
+	
+	Sprite.call (this);
+	
+	BitmapData.loadFromFile ("openfl.png").onComplete (function (bitmapData) {
+		
+		var bitmap = new Bitmap (bitmapData);
+		this.addChild (bitmap);
+		
+		Actuate.tween (bitmap, 4, { y: 200 }).repeat ().reflect ();
+		Actuate.tween (bitmap, 4, { x: 100 }).ease (Elastic.easeOut).repeat ().reflect ();
+		Actuate.tween (bitmap, 4, { alpha: 0 }).ease (Linear.easeNone).repeat ().reflect ();
+		
+	}.bind (this));
+	
+}
+
+App.prototype = Sprite.prototype;
+
+	
+	var stage = new Stage (550, 400, 0xFFFFFF, App, { renderer: "dom" });
+	document.getElementById ("embed-4").appendChild (stage.element);
+	
+})();
+</script>
+
+<p>You can read more about the Actuate library <a href="https://github.com/jgranick/actuate">here</a>, or experiment with other tween libraries!</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Keep playing! There is a lot you can do with an animation library. To keep learning, try the <a href="../handling-mouse-events">Handling Mouse Events</a> tutorial to begin making your project interactive.</p>
+
+			
+		</div>
+		<div class="col-md-4 col-md-pull-8 sidebar add-anchors">
+			
+			
+			
+			
+			
+			
+			
+			
+
+<div class="collapse in" id="nav-sidebar-0">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/" >Introduction</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-1"  data-toggle="collapse">NPM</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-1">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/getting-started/" >Getting Started</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-2"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-2">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/displaying-a-bitmap/" >Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/adding-animation/" class="active">Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/handling-mouse-events/" >Handling Mouse Events</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/api/" >API Reference</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-3"  data-toggle="collapse">Haxelib</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-3">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-4"  data-toggle="collapse">Documentation</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-4">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/core-architecture/" >Core Architecture</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/project-files/" >Project Files</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/tools/" >Tools</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-5"  data-toggle="collapse">Books</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-5">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://books.openfl.org/openfl-developers-guide/" target="_blank" />OpenFL Developer's Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://books.openfl.org/as3-conversion-guide/" target="_blank" />ActionScript 3.0 Conversion Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://www.openflbook.com" target="_blank" />Videojuegos Multiplataforma con OpenFL</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-6"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-6">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/displaying-a-bitmap/" >Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/adding-animation/" >Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/using-swf-assets/" >Using SWF Assets</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="http://api.openfl.org" target="_blank" />API</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+</ul>
+</div>
+			
+			
+			
+			
+			
+		</div>
+	</div>
+</div>
+<script>
+	anchors.options = {
+		placement: "right",
+		visible: "always",
+		icon: "",
+		class: "glyphicon glyphicon-link"
+	};
+	anchors.add ("div.add-anchors > h1, div.add-anchors > h2");
+</script>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>Using the Improved OpenGL Bindings in Lime&nbsp;4</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>Using the Improved OpenGL Bindings in Lime&nbsp;4</h1></div>
+<!-- <p class="meta">15 Mar 2017</p> -->
+
+<div class="post">
+<p>Lime 4 has been released, and among <a href="https://github.com/openfl/lime/blob/develop/CHANGELOG.md#400-03152017">other changes</a>, we have improved our support for OpenGL!</p>
+
+<p>OpenGL has a large number of APIs, which may be available on only certain platforms (such as the desktop), or may require recent graphics drivers. This can create problems when seeking simplicity, broad device support or unifying cross-platform APIs. After much thought, we have designed a new system where we believe we can continue to expose new OpenGL APIs, while preserving the same simple cross-platform interoperability of current Lime releases.</p>
+
+<p>Lime OpenGL support begins with a <code class="language-plaintext highlighter-rouge">GLRenderContext</code>. This API more closely resembles the native OpenGL and OpenGL ES APIs, but is designed to operate also in the browser. Optionally, there is a static <code class="language-plaintext highlighter-rouge">GL</code> class which access the last created context, but with multiple windows and future support for multiple OpenGL contexts, it was important that our native platforms move to GL context objects at the core, similar to how WebGL behaves.</p>
+
+<p>The new Lime 4 API includes Haxe abstract types to provide guard rails or a more familiar syntax over the OpenGL context object:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">context</span><span class="p">:</span><span class="nx">GLRenderContext</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="kd">var</span> <span class="nx">gl</span><span class="p">:</span><span class="nx">WebGLContext</span> <span class="o">=</span> <span class="nx">context</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">createBuffer</span> <span class="p">();</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">bindBuffer</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span> <span class="nx">buffer</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">srcData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Float32Array</span> <span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">]);</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">bufferData</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span> <span class="nx">srcData</span><span class="p">,</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">DYNAMIC_DRAW</span><span class="p">);</span>
+
+<span class="p">...</span>
+
+<span class="kd">var</span> <span class="nx">gl</span><span class="p">:</span><span class="nx">GLES2Context</span> <span class="o">=</span> <span class="nx">context</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">createBuffer</span> <span class="p">();</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">bindBuffer</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span> <span class="nx">buffer</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">bytes</span> <span class="o">=</span> <span class="nx">Bytes</span><span class="p">.</span><span class="nx">alloc</span> <span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+<span class="nx">bytes</span><span class="p">.</span><span class="nx">setFloat</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">bytes</span><span class="p">.</span><span class="nx">setFloat</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nx">bytes</span><span class="p">.</span><span class="nx">setFloat</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nx">bytes</span><span class="p">.</span><span class="nx">setFloat</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">bufferData</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">ARRAY_BUFFER</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="nx">bytes</span><span class="p">,</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">DYNAMIC_DRAW</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>In the WebGL API, the <code class="language-plaintext highlighter-rouge">count</code> is determined automatically by the size of the <code class="language-plaintext highlighter-rouge">ArrayBufferView</code> used to upload. In OpenGL and OpenGL ES, however, <code class="language-plaintext highlighter-rouge">bufferData</code> requires a size parameter. The downside is that this is more verbose, but the benefit is that we can create a data pointer from an <code class="language-plaintext highlighter-rouge">ArrayBufferView</code>, a <code class="language-plaintext highlighter-rouge">BytesObject</code>, or even a native pointer provided from a C++ extension library. Long-term, this can make things more flexible.</p>
+
+<p>Although the <code class="language-plaintext highlighter-rouge">Bytes</code> example above is perhaps not as nice as using the <code class="language-plaintext highlighter-rouge">Float32Array</code>, either will work in the GLES2-style API. The benefit of being able to use pointers becomes more clear if you wish to upload multiple values from the same bytes object, such as in the following example:</p>
+
+<div class="language-as3 highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">gl</span><span class="o">:</span><span class="nx">WebGLContext</span> <span class="o">=</span> <span class="nx">context</span><span class="o">;</span>
+<span class="kd">var</span> <span class="nx">subData</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">subarray</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">;</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">uniform4fv</span> <span class="p">(</span><span class="nx">location</span><span class="p">,</span> <span class="nx">subData</span><span class="p">)</span><span class="o">;</span>
+<span class="kd">var</span> <span class="nx">subData</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">subarray</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span><span class="o">;</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">uniform2fv</span> <span class="p">(</span><span class="nx">location2</span><span class="p">,</span> <span class="nx">subData</span><span class="p">)</span><span class="o">;</span>
+<span class="kd">var</span> <span class="nx">subData</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">subarray</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">;</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">uniform4fv</span> <span class="p">(</span><span class="nx">location3</span><span class="p">,</span> <span class="nx">subData</span><span class="p">)</span><span class="o">;</span>
+
+<span class="p">...</span>
+
+<span class="kd">var</span> <span class="nx">gl</span><span class="o">:</span><span class="nx">GLES2Context</span> <span class="o">=</span> <span class="nx">context</span><span class="o">;</span>
+<span class="kd">var</span> <span class="nx">bytePointer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BytePointer</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">;</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">uniform4fv</span> <span class="p">(</span><span class="nx">location</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bytePointer</span><span class="p">)</span><span class="o">;</span>
+<span class="nx">bytePointer</span><span class="p">.</span><span class="nx">offset</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">uniform2fv</span> <span class="p">(</span><span class="nx">location2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bytePointer</span><span class="p">)</span><span class="o">;</span>
+<span class="nx">bytePointer</span><span class="p">.</span><span class="nx">offset</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+<span class="nx">gl</span><span class="p">.</span><span class="nx">uniform4fv</span> <span class="p">(</span><span class="nx">location3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bytePointer</span><span class="p">)</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>In the WebGL API, a new <code class="language-plaintext highlighter-rouge">ArrayBufferView</code> must be created for each upload, which is not ideal due to the garbage objects that will need to be deleted by garbage collection in the future. In the <code class="language-plaintext highlighter-rouge">GLES2Context</code> example code, however, we are able to upload a pointer to the same byte object repeatedly, without allocating new objects.</p>
+
+<p>If a GL context has been lost, Lime 4 will create a new <code class="language-plaintext highlighter-rouge">GLRenderContext</code> object, even if the same OpenGL context object is returned by the native platform. This adds another way to be able to check if an OpenGL object comes from an invalid OpenGL context:</p>
+
+<div class="language-as3 highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">private</span> <span class="kd">function</span> <span class="nx">getBuffer</span> <span class="p">(</span><span class="nx">gl</span><span class="o">:</span><span class="nx">GLRenderContext</span><span class="p">)</span><span class="o">:</span><span class="nx">GLBuffer</span> <span class="p">{</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="nx">buffer</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">bufferContext</span> <span class="o">!=</span> <span class="nx">gl</span><span class="p">)</span> <span class="p">{</span>
+		
+		<span class="nx">buffer</span> <span class="o">=</span> <span class="nx">gl</span><span class="p">.</span><span class="nx">createBuffer</span> <span class="p">()</span><span class="o">;</span>
+		<span class="nx">bufferContext</span> <span class="o">=</span> <span class="nx">gl</span><span class="o">;</span>
+		
+	<span class="p">}</span>
+	
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You can also use <code class="language-plaintext highlighter-rouge">bufferContext.isContextLost ()</code> on a dead context to determine if it is valid.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">GLRenderContext</code> also exposes <code class="language-plaintext highlighter-rouge">type</code> and <code class="language-plaintext highlighter-rouge">version</code> properties, to make it easier to determine the current running environment, and what features may be available:</p>
+
+<div class="language-as3 highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// WebGL</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">version</span><span class="p">)</span><span class="o">;</span> <span class="c1">// 1</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="o">;</span>    <span class="c1">// WEBGL</span>
+
+<span class="c1">// WebGL 2</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">version</span><span class="p">)</span><span class="o">;</span> <span class="c1">// 2</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="o">;</span>    <span class="c1">// WEBGL</span>
+
+<span class="c1">// OpenGL ES 2</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">version</span><span class="p">)</span><span class="o">;</span> <span class="c1">// 2</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="o">;</span>    <span class="c1">// GLES</span>
+
+<span class="c1">// OpenGL ES 3</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">version</span><span class="p">)</span><span class="o">;</span> <span class="c1">// 3</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="o">;</span>    <span class="c1">// GLES</span>
+
+<span class="c1">// OpenGL 4.2</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">version</span><span class="p">)</span><span class="o">;</span> <span class="c1">// 4.2</span>
+<span class="kr">trace</span> <span class="p">(</span><span class="nx">gl</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="o">;</span>    <span class="c1">// OPENGL</span>
+</code></pre></div></div>
+
+<p>You may choose to use the <code class="language-plaintext highlighter-rouge">GLRenderContext</code> directly (being careful which features you use), or you may choose to lock into a limited API, such as <code class="language-plaintext highlighter-rouge">WebGLContext</code> to run on all platform types. Currently, desktop OpenGL should support OpenGL ES 2 APIs that Lime 4 exposes, and both desktop and mobile GL should support WebGL APIs.</p>
+
+<p>We are in the process of adding support for GLES3 APIs, and are considering additional abstract types for varying desktop GL versions. We appreciate your feedback as we continue to evolve support for advanced features, while also preserving cross-platform support.</p>
+
+<p>Lime 4 also introduces many missing typed APIs, for example, <code class="language-plaintext highlighter-rouge">getString</code>, <code class="language-plaintext highlighter-rouge">getBoolean</code> or <code class="language-plaintext highlighter-rouge">getBooleanv</code> as an alternative to the WebGL <code class="language-plaintext highlighter-rouge">getParameter</code>. The goal is to support all of these APIs on all platforms, so HTML5 can have a typed forced on a parameter, while native can return a <code class="language-plaintext highlighter-rouge">Dynamic</code> type using <code class="language-plaintext highlighter-rouge">getParameter</code>, or specific type using a more exact API.</p>
+
+<p>Lime 4 introduces better support for OpenGL extensions, beginning with known OpenGL ES 2 and WebGL extensions. With your feedback, we hope to continue to improve support for advanced features.</p>
+
+<p>Thank you for your support! We are excited to continue to make Lime a better, more useful cross-platform layer!</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">March 15, 2017 | <a href="/blog/2017/03/15/using-the-improved-opengl-bindings-in-lime-4/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>

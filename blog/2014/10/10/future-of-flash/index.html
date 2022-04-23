@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>An Open Letter on the Future of Flash</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1650722782018600911" rel="stylesheet">
+    <link href="/css/syntax.css?1650722782018600911" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a href="http://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon icon-patreon"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+	
+	<div class="row">
+<div class="col-md-8">
+
+<div class="page-header"><h1>An Open Letter on the Future of Flash</h1></div>
+<!-- <p class="meta">10 Oct 2014</p> -->
+
+<div class="post">
+<h2 id="this-week-at-adobe-max">This Week at Adobe MAX</h2>
+
+<p>Ajay Shukla, Senior Product Manager for Flash Professional, let me help present “What’s New and Upcoming in Flash Professional CC”. If you were not able to hear the session, you can stream it <a href="http://max.adobe.com/sessions/max-online/#/video/567">here</a> (I come on at 25:36 if you really want to skip).</p>
+
+<p>Ajay and his team added support for “custom platforms,” which is very exciting! I demonstrated OpenFL publishing Flash assets from Flash Professional to C++, Flash and HTML5 targets.</p>
+
+<p><img src="/blog/assets/Flash-Pakka.png" alt="Flash Professional" /></p>
+
+<p><img src="/blog/assets/FD-Pakka.png" alt="FlashDevelop" /></p>
+
+<p><em>Thanks again to <a href="http://pakkapets.com">Pakka Pets</a> for use of their assets for the demo!</em></p>
+
+<h2 id="flash-is-not-flash-player">Flash is Not Flash Player</h2>
+
+<p>To many users, “Flash” still is a browser plugin, but for designers, developers and creative studios, Flash has always been a rich animation/layout tool, as well as (for us ActionScript developers) a fast development workflow. The <em>method of delivery</em> has changed over time, but our demand for tools has not changed.</p>
+
+<p>With the Flash CC Custom Platform SDK, using Flash for animation, layout and design is going to remain viable. I applaud Adobe for making Flash Professional more useful to everyone, since we cannot use Flash Player for all target environments anymore.</p>
+
+<h2 id="the-promise-of-the-open-screen-project">The Promise of the “Open Screen Project”</h2>
+
+<blockquote>
+  <p>Adobe is committed to enabling developers and designers to deliver the richest experiences to the widest audience. With a consistent runtime environment deployed broadly across all devices, developers and designers will be able to distribute content to consumers worldwide, on any device, much more easily than they can today.</p>
+</blockquote>
+
+<p>The promise of the Open Screen Project remains – imagine delivering the “richest” experience to the “widest” audience. So long as it is “rich” and “wide”, I think most of us would agree that is exciting.</p>
+
+<p>The problem? No single runtime can fully realize the goal. In a supply chain, they use a combination of men, trucks, boats, airplanes and other tools to ship packages across the world. No one mechanism is perfectly suitable for reaching every customer.</p>
+
+<p>This is the same in technology. No one mechanism is perfectly suitable (whether Flash Player, HTML5, native code, virtual machines) because there are limitations – especially if you want to deliver the “richest” experience.</p>
+
+<h2 id="synergy">Synergy</h2>
+
+<p>The other half of the equation is the code. In addition to a unified art pipeline, we need a unified development pipeline to reduce the time to market, and increase the level of innovation in our work. It may sound “out there,” but this is possible.</p>
+
+<p>We can create an API that works on Flash, on JavaScript and C++. Where available, it will utilize all the value Adobe poured into the Flash runtime. When it is not, it runs as fast, minimal JavaScript, and when native, it runs even faster as compiled code. For example, I took a renderer from JavaScript, and tried bringing it to a portable language. After compiling back to JavaScript, it performed 10% faster. Machines like machine code sometimes. The C++ performed <em>much</em> faster.</p>
+
+<p>It makes sense to “take your code with you” when a project demands a new target environment.</p>
+
+<h2 id="what-api-should-we-use">What API Should We Use?</h2>
+
+<p>Personally, I love the Flash API. It is not perfect (nothing would be), but I think the paradigm matches a 2D paradigm well, and it is a perfect fit for Flash Professional as an editor. The Flash API is an industry-standard, and many, many frameworks and libraries are designed for it. Many other libraries even adopt some of the concepts from Flash, such as “DisplayObject”, “Sprite”, “Bitmap” and “EventDispatcher”. It is common language.</p>
+
+<p>Similar to spoken language, we keep a common set of grammar and standard vocabulary, though new words may be added, and sometimes we stop using some of the older words. So it is with Flash.</p>
+
+<h2 id="unite">Unite</h2>
+
+<p>I believe deeply that this should exist. Life is too short to keep rewriting everything, agreed? In Flash, I built projects in hours, not weeks. I believe that in whatever form, we should have an easy, unified (but not “lowest common denominator”) path to development, optimized for 2D. Ideally, this should open doors for us, and not close them.</p>
+
+<p>If I am the only one who feels this way, so be it. However, if other people care as well about having these things, let’s speak up. Let’s take some action. We should love our tools, we should have fun, we should be able to go from concept to execution as quickly as we want to. We should be able to go home, hug our kids, and rest in a job well done.</p>
+
+<h2 id="about-me">About Me</h2>
+
+<p>I am Joshua Granick, the creator of OpenFL. I love my wife and five kids, together we live in Northern California, and try to make other people’s lives better through software and some good old-fashioned friendliness.</p>
+
+<p>I volunteer to work on OpenFL because I want to put it into the hands of people that need it, like I needed it five years ago.</p>
+
+<h2 id="what-now">What Now?</h2>
+
+<p>If you believe in this goal of a unified environment for development, similar to how Adobe has been unifying the art asset pipeline, let me know. If you have other ideas beyond the Flash API, feel free to explain why.</p>
+
+<p>If you like the Flash API, and you believe we should be able to freely distribute to multiple platforms and technologies, OpenFL has been a way of making this a reality, but it isn’t the only way to go about it. I’m open to your thoughts or ideas how we can unify more of the community to help build one great Flash implementation rather than a lot of partial implementations elsewhere.</p>
+
+<p>If you are interested in the OpenFL project, it is quite robust, but not yet perfect. We can use help with documentation, with code, or you can help support the project by giving to us on <a href="http://patreon.com/openfl">Patreon</a>. OpenFL has been used to build the critically-acclaimed, “Game of the Year” <a href="http://www.papersplea.se">Papers, Please</a>. TiVo uses OpenFL to power set-top boxes, Smart TVs and other devices to great user satisfaction, and games using OpenFL have been downloaded millions of times on almost every platform.</p>
+
+<p>We’re on the same team, guys. Let’s do something awesome together.</p>
+
+</div>
+
+
+
+<h5 style="font-size: 120%; margin-top: 12px; margin-bottom: 32px;">October 10, 2014 | <a href="/blog/2014/10/10/future-of-flash/#disqus_thread">View Comments</a></h5>
+
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'haxenme'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</div>
+</div>
+
+	
+	
+</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="http://www.twitter.com/open_fl/" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="http://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook"></span></a>
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github"></span></a>
+          <a href="http://www.patreon.com/openfl" target="_blank"><span class="icon-patreon"></span></a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2022 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>
