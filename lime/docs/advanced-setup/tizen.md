@@ -4,5 +4,5 @@ redirect_from:
  - /learn/docs/advanced-setup/tizen/
  - /learn/resources/advanced-setup/tizen/
  - /documentation/setup/platforms/setup-tizen/
-redirect_to: http://lime.software/docs/
+redirect_to: https://lime.openfl.org/docs/
 ---

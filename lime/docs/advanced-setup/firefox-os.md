@@ -4,5 +4,5 @@ redirect_from:
  - /learn/docs/advanced-setup/firefox-os/
  - /learn/resources/advanced-setup/firefox-os/
  - /documentation/setup/platforms/setup-firefox-os/
-redirect_to: http://lime.software/docs/advanced-setup/html5/
+redirect_to: https://lime.openfl.org/docs/advanced-setup/html5/
 ---

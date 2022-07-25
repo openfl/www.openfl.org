@@ -1,4 +1,4 @@
 ---
 title: Lime
-redirect_to: http://lime.software
+redirect_to: https://lime.openfl.org
 ---
