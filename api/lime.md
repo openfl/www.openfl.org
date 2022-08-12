@@ -1,4 +1,4 @@
 ---
 permalink: api/lime/
-redirect_to: http://api.lime.software
+redirect_to: https://lime.openfl.org/api
 ---

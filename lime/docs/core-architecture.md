@@ -1,11 +1,11 @@
 ---
 title: Core Architecture
-redirect_to: http://lime.software/
+redirect_to: https://lime.openfl.org/
 ---
 
 ## Command-Line Tools
 
- * [Source](https://github.com/lime/lime/tree/master/tools)
+ * [Source](https://github.com/openfl/lime/tree/master/tools)
 
 Building a Lime application relies upon the Lime command-line tools. Whether you are using an `lime` command, a `lime` command, or are using an editor with Lime support built-in, these tools provide the backbone for delivering projects to each target platform.
 
@@ -30,7 +30,7 @@ By default, HXCPP uses g++ to build Linux executables, Visual Studio C++ for Win
 
 ## Lime
 
- * [Source](https://github.com/lime/lime)
+ * [Source](https://github.com/openfl/lime)
 
 Lime is a foundational library, providing a single API for managing windows, receiving system events, accessing the rendering context and playing audio, as well as other system APIs.
 
@@ -40,7 +40,7 @@ Native dependencies include SDL2, Freetype, Harfbuzz, libogg, libvorbis, libjpeg
 
 ## Lime
 
- * [Source](https://github.com/lime/lime)
+ * [Source](https://github.com/openfl/lime)
 
 Lime is a Haxe library, designed to work over Lime. System events, windowing and other features are mapped to Flash-style APIs for convenience. Lime has a renderer designed for use with HTML5 DOM, HTML5 Canvas, a Cairo (a native software renderer) or OpenGL targets (WebGL, OpenGL, OpenGL ES).
 
