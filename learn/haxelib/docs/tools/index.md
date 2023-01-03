@@ -11,7 +11,7 @@ OpenFL includes command-line tools, which can be accessed from a Command-Prompt 
 openfl
 ```
 
-The OpenFL tools act as a front-end for the Lime command-line tools, so all the Lime commands can be used from the `openfl` command:
+The OpenFL tools act as a front-end for the [Lime command-line tools](https://lime.openfl.org/docs/command-line-tools/basic-commands/), so all the Lime commands can be used from the `openfl` command:
 
 ```bash
 openfl help
