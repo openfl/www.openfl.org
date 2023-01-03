@@ -29,19 +29,15 @@ The first thing we will do is add an image. First, copy an image (PNG or JPG for
 
 Open the "Source/Main.hx" file in the editor of your choice. It should look something like this:
 
-```java
+```haxe
 package;
 
 import openfl.display.Sprite;
 
 class Main extends Sprite {
-
-    public function new () {
-
-        super ();
-
+    public function new() {
+        super();
     }
-
 }
 ```
 
@@ -49,22 +45,18 @@ In order to import our image, we will want to import the `openfl.Assets` class, 
 
 You will want to use the name of your image, so if it is called "myimage.png", be sure to replace the example below with the right text to match your file name.
 
-```java
+```haxe
 package;
 
 import openfl.display.Sprite;
 import openfl.Assets;
 
 class Main extends Sprite {
+    public function new() {
+        super();
 
-    public function new () {
-
-        super ();
-
-        var bitmapData = Assets.getBitmapData ("assets/openfl.png");
-
+        var bitmapData = Assets.getBitmapData("assets/openfl.png");
     }
-
 }
 ```
 
@@ -72,7 +64,7 @@ The `openfl.display.BitmapData` type represents the pixel data for an image. You
 
 The easiest to display our data is using the `openfl.display.Bitmap` type, you can use the same `BitmapData` with multiple `Bitmap` instances, however you want it to display.
 
-```java
+```haxe
 package;
 
 import openfl.display.Bitmap;
@@ -80,17 +72,13 @@ import openfl.display.Sprite;
 import openfl.Assets;
 
 class Main extends Sprite {
+    public function new() {
+        super();
 
-    public function new () {
-
-        super ();
-
-        var bitmapData = Assets.getBitmapData ("assets/openfl.png");
-        var bitmap = new Bitmap (bitmapData);
-        addChild (bitmap);
-
+        var bitmapData = Assets.getBitmapData("assets/openfl.png");
+        var bitmap = new Bitmap(bitmapData);
+        addChild(bitmap);
     }
-
 }
 ```
 
@@ -100,7 +88,7 @@ In order to see our `Bitmap` instance, we use `addChild` to make it visible on t
 
 When you use the display list, you can use `x` and `y` properties to control where an object will be drawn.
 
-```java
+```haxe
 package;
 
 import openfl.display.Bitmap;
@@ -108,20 +96,16 @@ import openfl.display.Sprite;
 import openfl.Assets;
 
 class Main extends Sprite {
-
-    public function new () {
-
+    public function new() {
         super ();
 
-        var bitmapData = Assets.getBitmapData ("assets/openfl.png");
-        var bitmap = new Bitmap (bitmapData);
-        addChild (bitmap);
+        var bitmapData = Assets.getBitmapData("assets/openfl.png");
+        var bitmap = new Bitmap(bitmapData);
+        addChild(bitmap);
 
         bitmap.x = 100;
         bitmap.y = 200;
-
     }
-
 }
 ```
 
@@ -133,7 +117,7 @@ Since the `x` and `y` values of a display object use the upper-left corner of th
 
 We can determine the width of our window using the `stage.stageWidth` and `stage.stageHeight` values. We can use the `width` and `height` values of our bitmap to find how large it is. The resulting code looks like this:
 
-```java
+```haxe
 package;
 
 import openfl.display.Bitmap;
@@ -141,20 +125,16 @@ import openfl.display.Sprite;
 import openfl.Assets;
 
 class Main extends Sprite {
+    public function new() {
+        super();
 
-    public function new () {
-
-        super ();
-
-        var bitmapData = Assets.getBitmapData ("assets/openfl.png");
-        var bitmap = new Bitmap (bitmapData);
-        addChild (bitmap);
+        var bitmapData = Assets.getBitmapData("assets/openfl.png");
+        var bitmap = new Bitmap(bitmapData);
+        addChild(bitmap);
 
         bitmap.x = (stage.stageWidth - bitmap.width) / 2;
         bitmap.y = (stage.stageHeight - bitmap.height) / 2;
-
     }
-
 }
 ```
 

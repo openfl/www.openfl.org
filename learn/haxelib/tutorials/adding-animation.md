@@ -31,7 +31,7 @@ Similar to the [Displaying a Bitmap](../displaying-a-bitmap/) sample, add an ima
 
 Once you have an image available, edit "Source/Main.hx" add it to the stage (substituting "openfl.png" for the name of your PNG or JPEG image):
 
-```java
+```haxe
 package;
 
 import openfl.display.Bitmap;
@@ -39,16 +39,12 @@ import openfl.display.Sprite;
 import openfl.Assets;
 
 class Main extends Sprite {
-    
-    public function new () {
+    public function new() {
+        super();
         
-        super ();
-        
-        var bitmap = new Bitmap (Assets.getBitmapData ("assets/openfl.png"));
-        addChild (bitmap);
-        
+        var bitmap = new Bitmap(Assets.getBitmapData("assets/openfl.png"));
+        addChild(bitmap);
     }
-    
 }
 ```
 
@@ -64,7 +60,7 @@ There should be a `<haxelib />` tag already for OpenFL, we will need to add a si
 
 Once Actuate is in included in the last of haxelibs for your project, next we need to add an `import` statement in "Main.hx"
 
-```java
+```haxe
 package;
 
 import motion.Actuate;
@@ -73,16 +69,12 @@ import openfl.display.Sprite;
 import openfl.Assets;
 
 class Main extends Sprite {
-    
-    public function new () {
+    public function new() {
+        super();
         
-        super ();
-        
-        var bitmap = new Bitmap (Assets.getBitmapData ("assets/openfl.png"));
-        addChild (bitmap);
-        
+        var bitmap = new Bitmap(Assets.getBitmapData("assets/openfl.png"));
+        addChild(bitmap);
     }
-    
 }
 ```
 
@@ -90,7 +82,7 @@ class Main extends Sprite {
 
 Actuate has a `tween` method which accepts an _object_ to animate, the _duration_ for the animation and third an object with _target values_ for each property you wish to change over time. To animate the x position of the image to make it move across the screen, for example, we could use the following:
 
-```java
+```haxe
 package;
 
 import motion.Actuate;
@@ -99,18 +91,14 @@ import openfl.display.Sprite;
 import openfl.Assets;
 
 class Main extends Sprite {
-    
-    public function new () {
+    public function new() {
+        super();
         
-        super ();
+        var bitmap = new Bitmap(Assets.getBitmapData("assets/openfl.png"));
+        addChild(bitmap);
         
-        var bitmap = new Bitmap (Assets.getBitmapData ("assets/openfl.png"));
-        addChild (bitmap);
-        
-        Actuate.tween (bitmap, 3, { x: 200 });
-        
+        Actuate.tween(bitmap, 3, { x: 200 });
     }
-    
 }
 ```
 
@@ -120,7 +108,7 @@ Tweens can be used to animate any numeric value, including the `alpha` (or trans
 
 To make the image fade in, we would set the `alpha` value of the image to 0, then add a tween to increase the `alpha` to 1, or fully visible. The following code will animate the image from invisible to visible as well as changing the `x` value:
 
-```java
+```haxe
 package;
 
 import motion.Actuate;
@@ -129,19 +117,15 @@ import openfl.display.Sprite;
 import openfl.Assets;
 
 class Main extends Sprite {
-    
-    public function new () {
+    public function new() {
+        super();
         
-        super ();
-        
-        var bitmap = new Bitmap (Assets.getBitmapData ("assets/openfl.png"));
-        addChild (bitmap);
+        var bitmap = new Bitmap(Assets.getBitmapData("assets/openfl.png"));
+        addChild(bitmap);
         bitmap.alpha = 0;
         
-        Actuate.tween (bitmap, 3, { alpha: 1, x: 200 });
-        
+        Actuate.tween(bitmap, 3, { alpha: 1, x: 200 });
     }
-    
 }
 ```
 
@@ -155,7 +139,7 @@ However, if you begin to use different easing equations, it may be ideal to sepa
 
 You can use a different easing equation by importing one from the "motion.easing" package, and adding it to your animation. For example, to use an `Elastic.easeOut` equation for only the `x` value, you can use the following code:
 
-```java
+```haxe
 package;
 
 import motion.easing.Elastic;
@@ -165,20 +149,16 @@ import openfl.display.Sprite;
 import openfl.Assets;
 
 class Main extends Sprite {
-    
-    public function new () {
+    public function new() {
+        super();
         
-        super ();
-        
-        var bitmap = new Bitmap (Assets.getBitmapData ("assets/openfl.png"));
-        addChild (bitmap);
+        var bitmap = new Bitmap(Assets.getBitmapData("assets/openfl.png"));
+        addChild(bitmap);
         bitmap.alpha = 0;
         
-        Actuate.tween (bitmap, 3, { alpha: 1 });
-        Actuate.tween (bitmap, 3, { x: 200 }).ease (Elastic.easeOut);
-        
+        Actuate.tween(bitmap, 3, { alpha: 1 });
+        Actuate.tween(bitmap, 3, { x: 200 }).ease(Elastic.easeOut);
     }
-    
 }
 ```
 
@@ -190,13 +170,13 @@ By default, the OpenFL `Bitmap` class is not set for smoothing. When displaying 
 
 You can enable smoothing for a `Bitmap` using the `smoothing` property:
 
-```java
+```haxe
 bitmap.smoothing = true;
 ```
 
 For example, if we decided to scale our image to make it "pop out" and appear, we could use our previous animation on the `scaleX` and `scaleY` of the object (rather than the `x` value)
 
-```java
+```haxe
 package;
 
 import motion.easing.Elastic;
@@ -206,23 +186,19 @@ import openfl.display.Sprite;
 import openfl.Assets;
 
 class Main extends Sprite {
-    
-    public function new () {
+    public function new() {
+        super();
         
-        super ();
-        
-        var bitmap = new Bitmap (Assets.getBitmapData ("assets/openfl.png"));
-        addChild (bitmap);
+        var bitmap = new Bitmap(Assets.getBitmapData("assets/openfl.png"));
+        addChild(bitmap);
         bitmap.alpha = 0;
         bitmap.scaleX = 0;
         bitmap.scaleY = 0;
         bitmap.smoothing = true;
         
-        Actuate.tween (bitmap, 3, { alpha: 1 });
-        Actuate.tween (bitmap, 6, { scaleX: 1, scaleY: 1 }).ease (Elastic.easeOut);
-        
+        Actuate.tween(bitmap, 3, { alpha: 1 });
+        Actuate.tween(bitmap, 6, { scaleX: 1, scaleY: 1 }).ease(Elastic.easeOut);
     }
-    
 }
 ```
 
@@ -232,7 +208,7 @@ OpenFL display objects have an origin in the upper-left corner of the object. Fo
 
 It is simple to change the origin point of an object by putting it inside of a display object container. The most common form of display object container is the `Sprite` class, so instead of animating our image to the stage directly, we can add our image to a parent `Sprite` and animate the parent with a few small changes:
 
-```java
+```haxe
 package;
 
 import motion.easing.Elastic;
@@ -242,29 +218,25 @@ import openfl.display.Sprite;
 import openfl.Assets;
 
 class Main extends Sprite {
-    
-    public function new () {
+    public function new() {
+        super();
         
-        super ();
-        
-        var bitmap = new Bitmap (Assets.getBitmapData ("assets/openfl.png"));
-        bitmap.x = - bitmap.width / 2;
-        bitmap.y = - bitmap.height / 2;
+        var bitmap = new Bitmap(Assets.getBitmapData("assets/openfl.png"));
+        bitmap.x = -bitmap.width / 2;
+        bitmap.y = -bitmap.height / 2;
         bitmap.smoothing = true;
         
-        var container = new Sprite ();
-        container.addChild (bitmap);
+        var container = new Sprite();
+        container.addChild(bitmap);
         container.alpha = 0;
         container.scaleX = 0;
         container.scaleY = 0;
         
-        addChild (container);
+        addChild(container);
         
-        Actuate.tween (container, 3, { alpha: 1 });
-        Actuate.tween (container, 6, { scaleX: 1, scaleY: 1 }).ease (Elastic.easeOut);
-        
+        Actuate.tween(container, 3, { alpha: 1 });
+        Actuate.tween(container, 6, { scaleX: 1, scaleY: 1 }).ease(Elastic.easeOut);
     }
-    
 }
 ```
 
@@ -272,7 +244,7 @@ class Main extends Sprite {
 
 The last code sample centered our image to improve the behavior of the scale animation, but the image is centered to the top-left corner of the window, rather than being centered in the window. The following changes will center the image based on the size of the current stage width and height, and adds a small delay to the animation
 
-```java
+```haxe
 package;
 
 import motion.easing.Elastic;
@@ -282,31 +254,27 @@ import openfl.display.Sprite;
 import openfl.Assets;
 
 class Main extends Sprite {
-    
-    public function new () {
+    public function new() {
+        super();
         
-        super ();
-        
-        var bitmap = new Bitmap (Assets.getBitmapData ("assets/openfl.png"));
-        bitmap.x = - bitmap.width / 2;
-        bitmap.y = - bitmap.height / 2;
+        var bitmap = new Bitmap(Assets.getBitmapData ("assets/openfl.png"));
+        bitmap.x = -bitmap.width / 2;
+        bitmap.y = -bitmap.height / 2;
         bitmap.smoothing = true;
         
-        var container = new Sprite ();
-        container.addChild (bitmap);
+        var container = new Sprite();
+        container.addChild(bitmap);
         container.alpha = 0;
         container.scaleX = 0;
         container.scaleY = 0;
         container.x = stage.stageWidth / 2;
         container.y = stage.stageHeight / 2;
         
-        addChild (container);
+        addChild(container);
         
-        Actuate.tween (container, 3, { alpha: 1 });
-        Actuate.tween (container, 6, { scaleX: 1, scaleY: 1 }).delay (0.4).ease (Elastic.easeOut);
-        
+        Actuate.tween(container, 3, { alpha: 1 });
+        Actuate.tween(container, 6, { scaleX: 1, scaleY: 1 }).delay(0.4).ease(Elastic.easeOut);
     }
-    
 }
 ```
 

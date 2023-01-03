@@ -55,7 +55,7 @@ There are additional features as well. Adding a `preload` attribute can help you
 
 Unless you have used `preload="true"` in your `<library />` tag, before you are able to use content from a SWF library, you must load the library first:
 
-```java
+```haxe
 Assets.loadLibrary ("swf-library").onComplete (function (_) {
 	
 	trace ("SWF library loaded");
@@ -67,13 +67,13 @@ Assets.loadLibrary ("swf-library").onComplete (function (_) {
 
 Once a library is loaded, you can access named symbols from the library using the following code:
 
-```java
+```haxe
 var clip = Assets.getMovieClip ("swf-library:MySymbolClass");
 ```
 
 If the `generate` attribute was used, each symbol class should be available to instantiate normally:
 
-```java
+```haxe
 var clip = new MySymbolClass ();
 ```
 
@@ -81,7 +81,7 @@ Code completion should be available for all generated classes.
 
 If you want to access symbols from multiple SWF libraries, change the prefix before the colon (":") in the `Assets.getMovieClip` call. If you would prefer to load the entire SWF timeline, and not a child clip, use an empty value for the symbol name, like this:
 
-```java
+```haxe
 var clip = Assets.getMovieClip ("swf-library:");
 ```
 
@@ -109,31 +109,21 @@ _project.xml_
 
 _Main.hx_
 
-```java
+```haxe
 package;
-
 
 import openfl.display.Sprite;
 import openfl.Assets;
 
-
 class Main extends Sprite {
-	
-	
-	public function new () {
+	public function new() {
+		super();
 		
-		super ();
-		
-		Assets.loadLibrary ("library").onComplete (function (_) {
-			
-			var clip = Assets.getMovieClip ("library:MySymbolClass");
-			addChild (clip);
-			
+		Assets.loadLibrary("library").onComplete(function (_) {
+			var clip = Assets.getMovieClip("library:MySymbolClass");
+			addChild(clip);
 		});
-		
 	}
-	
-	
 }
 ```
 
@@ -161,27 +151,19 @@ _project.xml_
 
 _Main.hx_
 
-```java
+```haxe
 package;
-
 
 import openfl.display.Sprite;
 import openfl.Assets;
 
-
 class Main extends Sprite {
-	
-	
-	public function new () {
+	public function new() {
+		super();
 		
-		super ();
-		
-		var clip = new MySymbolClass ();
-		addChild (clip);
-		
+		var clip = new MySymbolClass();
+		addChild(clip);
 	}
-	
-	
 }
 ```
 
