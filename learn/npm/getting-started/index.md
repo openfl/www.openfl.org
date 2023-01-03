@@ -10,7 +10,7 @@ If you do not have Node.js installed, download and install it [here](https://nod
 
 NPM is included by default with Node.js, but may be out-of-date. Update NPM by running the following command:
 
-```bash
+```sh
 npm install npm -g
 ```
 
@@ -26,7 +26,7 @@ Next, you should make sure that you have a code editor that is designed for Type
 
 The simplest way to get started with OpenFL is to use a generator to make a new project:
 
-```bash
+```sh
 npm install -g yo generator-openfl
 mkdir MyNewProject
 cd MyNewProject

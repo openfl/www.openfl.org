@@ -8,7 +8,7 @@ _You may find a completed "features/events/HandlingMouseEvent" sample project fo
 
 Run the following commands:
 
-```bash
+```sh
 mkdir HandlingMouseEvents
 cd HandlingMouseEvents
 yo openfl

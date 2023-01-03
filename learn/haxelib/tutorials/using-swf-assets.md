@@ -21,19 +21,19 @@ Sounds, shape tweens or new motion tweens (not "classic tweens") are not current
 
 If you do not already have a project created, you can use a command like the following:
 
-```bash
+```sh
 openfl create project UsingSWFAssets
 ```
 
 You can find many of the same concepts in the "SimpleSWFLayout" sample, also, if you prefer:
 
-```bash
+```sh
 openfl create SimpleSWFLayout
 ```
 
 Once the SWF library is included, you can add assets using the following tag:
 
-```bash
+```sh
 <library path="to/my.swf" />
 ```
 
@@ -41,13 +41,13 @@ This will use a _default_ ID value, matching the file name (in this case "my").
 
 You can set this yourself using the `id` attribute if you prefer:
 
-```bash
+```sh
 <library path="to/my.swf" id="swf-library" />
 ```
 
 There are additional features as well. Adding a `preload` attribute can help you automatically load a SWF library as part of the preload process (more on that later), and `generate` will attempt to create classes for every "Export for ActionScript" class in the SWF, so you can `new MySymbolClass ()` in your code.
 
-```bash
+```sh
 <library path="to/my.swf" preload="true" generate="true" />
 ```
 
@@ -89,7 +89,7 @@ var clip = Assets.getMovieClip ("swf-library:");
 
 _project.xml_
 
-```bash
+```sh
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
@@ -141,7 +141,7 @@ class Main extends Sprite {
 
 _project.xml_
 
-```bash
+```sh
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	

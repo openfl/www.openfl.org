@@ -15,11 +15,15 @@ As a developer, a tweening library can enable you to act like the head animator,
 
 To create an empty project (and follow along), open a command-prompt (Windows) or terminal (macOS/Linux) and run the following command:
 
-    openfl create project AddingAnimation
+```sh
+openfl create project AddingAnimation
+```
 
 To fast-forward to the finished result, you can create a copy of the OpenFL sample project:
 
-    openfl create AddingAnimation
+```sh
+openfl create AddingAnimation
+```
 
 ## Adding an Image
 

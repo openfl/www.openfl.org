@@ -11,13 +11,17 @@ OpenFL includes a "create" command that can help generate an empty or sample pro
 
 To create an empty project, open a command-prompt (Windows) or terminal (macOS/Linux) and run the following command:
 
-    openfl create project HelloWorld
+```sh
+openfl create project HelloWorld
+```
 
 You can replace "HelloWorld" with whatever you want to call your project.
 
 OpenFL contains multiple samples for illustrating different features of the platform. One of these samples is called "DisplayingABitmap". As we build our first project, we will quickly walk through the steps to recreate this sample. You can also generate a copy of it yourself using the command:
 
-    openfl create DisplayingABitmap
+```sh
+openfl create DisplayingABitmap
+```
 
 ## Adding an Image
 
@@ -162,21 +166,29 @@ If you open a command-prompt (Windows) or terminal (macOS/Linux), change to the 
 
 If you are using a code editor with OpenFL support built-in, you may be able to compile using a shortcut, such as Ctrl+Enter or a "Run" button in the editor. For sake of consistency, we will go over the steps for how you would build the project yourself from a command-line.
 
-    openfl test neko
+```sh
+openfl test neko
+```
 
 This command should run the project using Neko, a runtime included with the Haxe compiler.
 
-    openfl test html5
+```sh
+openfl test html5
+```
 
-If you use "html5" instead, the "openfl" command will open a local web server, as well as your default web browser.
+If you use `html5` instead, the `openfl` command will open a local web server, as well as your default web browser.
 
-    openfl test flash
+```sh
+openfl test flash
+```
 
-The "flash" target will create a Flash SWF, and will use the default handler on your system for SWF files. You may wish to download a standalone "content debugger" Flash projector and set it to the default for SWF files on your system, as it is the best environment for testing Flash projects.
+The `flash` target will create a Flash SWF, and will use the default handler on your system for SWF files. You may wish to download a standalone "content debugger" Flash projector and set it to the default for SWF files on your system, as it is the best environment for testing Flash projects.
 
-If you would like to run the command from a different folder on your system, you can also add an additional argument to the "test" command:
+If you would like to run the command from a different folder on your system, you can also add an additional argument to the `test` command:
 
-    openfl test ../DisplayingABitmap flash
+```sh
+openfl test ../DisplayingABitmap flash
+```
 
 ## Issues
 

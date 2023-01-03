@@ -7,13 +7,13 @@ redirect_from:
 
 OpenFL includes command-line tools, which can be accessed from a Command-Prompt or Terminal window:
 
-```bash
+```sh
 openfl
 ```
 
 The OpenFL tools act as a front-end for the [Lime command-line tools](https://lime.openfl.org/docs/command-line-tools/basic-commands/), so all the Lime commands can be used from the `openfl` command:
 
-```bash
+```sh
 openfl help
 openfl update flash
 openfl build windows
@@ -28,7 +28,7 @@ You can read more about the Lime command-line tools in the Lime documentation:
 
 The OpenFL tools also include support for processing SWF-based assets, to prepare them for use on the HTML5 and native platform targets. This is performed automatically when using OpenFL (whether you use `lime` or `openfl` to access those commands), or it can be done separately using the `openfl process` command:
 
-```bash
+```sh
 openfl process example.swf
 openfl process example.swf target/path/
 openfl process example.swf target/path/example.bundle

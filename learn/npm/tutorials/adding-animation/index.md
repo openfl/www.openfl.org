@@ -9,7 +9,7 @@ _You may find a completed "features/display/AddingAnimation" sample project for 
 
 If you have completed the [Displaying a Bitmap](../displaying-a-bitmap) tutorial, you can continue using the same project files. Otherwise you can run the following commands:
 
-```bash
+```sh
 mkdir AddingAnimation
 cd AddingAnimation
 yo openfl
@@ -791,7 +791,7 @@ In the following example code, we have integrated a tween library called [Actuat
 
 First, open a command-prompt or terminal, and change to your project directory and run the following command:
 
-```bash
+```sh
 npm install --save-dev actuate
 ```
 
@@ -816,7 +816,7 @@ If you are using TypeScript, we will also need to add an alias in "tsconfig.json
 
 If you are using Haxe, we will need to add a new classpath to Actuate in your "build.hxml" file:
 
-```bash
+```sh
 -cp node_modules/actuate/lib
 ```
 

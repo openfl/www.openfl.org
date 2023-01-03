@@ -8,7 +8,7 @@ _You may find a completed "features/display/DisplayingABitmap" sample project fo
 
 Run the following commands:
 
-```bash
+```sh
 mkdir DisplayingABitmap
 cd DisplayingABitmap
 yo openfl
