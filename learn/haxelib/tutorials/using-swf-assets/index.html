@@ -24,8 +24,8 @@
     
     
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/styles.css?1672782719423887101" rel="stylesheet">
-    <link href="/css/syntax.css?1672782719423887101" rel="stylesheet">
+    <link href="/css/styles.css?1672783857137037972" rel="stylesheet">
+    <link href="/css/syntax.css?1672783857137037972" rel="stylesheet">
     
     <script src="/js/holder.js"></script>
     
@@ -103,29 +103,29 @@
 
 <p>If you do not already have a project created, you can use a command like the following:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create project UsingSWFAssets
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create project UsingSWFAssets
 </code></pre></div></div>
 
 <p>You can find many of the same concepts in the “SimpleSWFLayout” sample, also, if you prefer:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create SimpleSWFLayout
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create SimpleSWFLayout
 </code></pre></div></div>
 
 <p>Once the SWF library is included, you can add assets using the following tag:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;library <span class="nv">path</span><span class="o">=</span><span class="s2">"to/my.swf"</span> /&gt;
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;library <span class="nv">path</span><span class="o">=</span><span class="s2">"to/my.swf"</span> /&gt;
 </code></pre></div></div>
 
 <p>This will use a <em>default</em> ID value, matching the file name (in this case “my”).</p>
 
 <p>You can set this yourself using the <code class="language-plaintext highlighter-rouge">id</code> attribute if you prefer:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;library <span class="nv">path</span><span class="o">=</span><span class="s2">"to/my.swf"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"swf-library"</span> /&gt;
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;library <span class="nv">path</span><span class="o">=</span><span class="s2">"to/my.swf"</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"swf-library"</span> /&gt;
 </code></pre></div></div>
 
 <p>There are additional features as well. Adding a <code class="language-plaintext highlighter-rouge">preload</code> attribute can help you automatically load a SWF library as part of the preload process (more on that later), and <code class="language-plaintext highlighter-rouge">generate</code> will attempt to create classes for every “Export for ActionScript” class in the SWF, so you can <code class="language-plaintext highlighter-rouge">new MySymbolClass ()</code> in your code.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;library <span class="nv">path</span><span class="o">=</span><span class="s2">"to/my.swf"</span> <span class="nv">preload</span><span class="o">=</span><span class="s2">"true"</span> <span class="nv">generate</span><span class="o">=</span><span class="s2">"true"</span> /&gt;
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;library <span class="nv">path</span><span class="o">=</span><span class="s2">"to/my.swf"</span> <span class="nv">preload</span><span class="o">=</span><span class="s2">"true"</span> <span class="nv">generate</span><span class="o">=</span><span class="s2">"true"</span> /&gt;
 </code></pre></div></div>
 
 <h2 id="loading-a-swf-library">Loading a SWF Library</h2>
@@ -162,7 +162,7 @@
 
 <p><em>project.xml</em></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>?&gt;
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>?&gt;
 &lt;project&gt;
 	
 	&lt;meta <span class="nv">title</span><span class="o">=</span><span class="s2">"Using SWF Assets"</span> <span class="nv">package</span><span class="o">=</span><span class="s2">"org.openfl.tutorials.usingswfassets"</span> <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0.0"</span> <span class="nv">company</span><span class="o">=</span><span class="s2">"OpenFL"</span> /&gt;
@@ -212,7 +212,7 @@
 
 <p><em>project.xml</em></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>?&gt;
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>?&gt;
 &lt;project&gt;
 	
 	&lt;meta <span class="nv">title</span><span class="o">=</span><span class="s2">"Using SWF Assets"</span> <span class="nv">package</span><span class="o">=</span><span class="s2">"org.openfl.tutorials.usingswfassets"</span> <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0.0"</span> <span class="nv">company</span><span class="o">=</span><span class="s2">"OpenFL"</span> /&gt;

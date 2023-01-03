@@ -24,8 +24,8 @@
     
     
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/styles.css?1672782719423887101" rel="stylesheet">
-    <link href="/css/syntax.css?1672782719423887101" rel="stylesheet">
+    <link href="/css/styles.css?1672783857137037972" rel="stylesheet">
+    <link href="/css/syntax.css?1672783857137037972" rel="stylesheet">
     
     <script src="/js/holder.js"></script>
     
@@ -91,7 +91,7 @@
 
 <p>If you have completed the <a href="../displaying-a-bitmap">Displaying a Bitmap</a> tutorial, you can continue using the same project files. Otherwise you can run the following commands:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>AddingAnimation
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>AddingAnimation
 <span class="nb">cd </span>AddingAnimation
 yo openfl
 </code></pre></div></div>
@@ -1083,7 +1083,7 @@ App.prototype = Sprite.prototype;
 
 <p>First, open a command-prompt or terminal, and change to your project directory and run the following command:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">--save-dev</span> actuate
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">--save-dev</span> actuate
 </code></pre></div></div>
 
 <p>Next, in order to make it easier to import modules from the Actuate library, edit “webpack.common.js”, and update the <code class="language-plaintext highlighter-rouge">resolve</code> section to include an alias for Actuate:</p>
@@ -1105,7 +1105,7 @@ App.prototype = Sprite.prototype;
 
 <p>If you are using Haxe, we will need to add a new classpath to Actuate in your “build.hxml” file:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-cp</span> node_modules/actuate/lib
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-cp</span> node_modules/actuate/lib
 </code></pre></div></div>
 
 <p>Now Actuate should be installed available, importing from “motion” or “motion/Actuate”, rather than a lengthier path.</p>

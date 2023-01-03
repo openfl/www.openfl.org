@@ -24,8 +24,8 @@
     
     
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/styles.css?1672782719423887101" rel="stylesheet">
-    <link href="/css/syntax.css?1672782719423887101" rel="stylesheet">
+    <link href="/css/styles.css?1672783857137037972" rel="stylesheet">
+    <link href="/css/syntax.css?1672783857137037972" rel="stylesheet">
     
     <script src="/js/holder.js"></script>
     
@@ -91,14 +91,14 @@
 
 <p>To create an empty project, open a command-prompt (Windows) or terminal (macOS/Linux) and run the following command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create project HelloWorld
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create project HelloWorld
 </code></pre></div></div>
 
 <p>You can replace “HelloWorld” with whatever you want to call your project.</p>
 
 <p>OpenFL contains multiple samples for illustrating different features of the platform. One of these samples is called “DisplayingABitmap”. As we build our first project, we will quickly walk through the steps to recreate this sample. You can also generate a copy of it yourself using the command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create DisplayingABitmap
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create DisplayingABitmap
 </code></pre></div></div>
 
 <h2 id="adding-an-image">Adding an Image</h2>
@@ -240,24 +240,24 @@
 
 <p>If you are using a code editor with OpenFL support built-in, you may be able to compile using a shortcut, such as Ctrl+Enter or a “Run” button in the editor. For sake of consistency, we will go over the steps for how you would build the project yourself from a command-line.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl test neko
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl <span class="nb">test </span>neko
 </code></pre></div></div>
 
 <p>This command should run the project using Neko, a runtime included with the Haxe compiler.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl test html5
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl <span class="nb">test </span>html5
 </code></pre></div></div>
 
-<p>If you use “html5” instead, the “openfl” command will open a local web server, as well as your default web browser.</p>
+<p>If you use <code class="language-plaintext highlighter-rouge">html5</code> instead, the <code class="language-plaintext highlighter-rouge">openfl</code> command will open a local web server, as well as your default web browser.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl test flash
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl <span class="nb">test </span>flash
 </code></pre></div></div>
 
-<p>The “flash” target will create a Flash SWF, and will use the default handler on your system for SWF files. You may wish to download a standalone “content debugger” Flash projector and set it to the default for SWF files on your system, as it is the best environment for testing Flash projects.</p>
+<p>The <code class="language-plaintext highlighter-rouge">flash</code> target will create a Flash SWF, and will use the default handler on your system for SWF files. You may wish to download a standalone “content debugger” Flash projector and set it to the default for SWF files on your system, as it is the best environment for testing Flash projects.</p>
 
-<p>If you would like to run the command from a different folder on your system, you can also add an additional argument to the “test” command:</p>
+<p>If you would like to run the command from a different folder on your system, you can also add an additional argument to the <code class="language-plaintext highlighter-rouge">test</code> command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl test ../DisplayingABitmap flash
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl <span class="nb">test</span> ../DisplayingABitmap flash
 </code></pre></div></div>
 
 <h2 id="issues">Issues</h2>
