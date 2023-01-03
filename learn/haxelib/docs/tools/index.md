@@ -34,6 +34,6 @@ openfl process example.swf target/path/
 openfl process example.swf target/path/example.bundle
 ```
 
-This will process the SWF into a "\*.bundle" directory with all of the files used at runtime.
+This will process the SWF into a _.bundle_ directory with all of the files used at runtime.
 
 The `openfl process` command includes an optional second argument with an output path, or an output path and bundle name. If the second argument is omitted, the command will generate a file in the same directory, with the same name by default.
