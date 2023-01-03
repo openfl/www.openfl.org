@@ -456,7 +456,7 @@ import openfl.utils.Timer;
 {% capture es6 %}
 ```js
 import TimerEvent from "openfl/events/TimerEvent";
-import Timer from "openfl.utils/Timer";
+import Timer from "openfl/utils/Timer";
 ```
 {% endcapture %}
 {% capture es5 %}
