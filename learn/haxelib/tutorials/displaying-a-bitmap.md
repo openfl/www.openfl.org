@@ -4,7 +4,7 @@ redirect_from:
  - /learn/tutorials/your-first-project/
  - /learn/tutorials/displaying-a-bitmap/
 ---
-[Full Tutorials List (including external links)](../)
+
 ## Creating a New Project
 
 OpenFL includes a "create" command that can help generate an empty or sample project for you.
@@ -181,3 +181,5 @@ If you would like to run the command from a different folder on your system, you
 ## Issues
 
 Any problems? Please visit our helpful [community forums](http://community.openfl.org) if you are experiencing trouble!
+
+[Return to Tutorials](../)

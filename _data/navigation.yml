@@ -74,14 +74,6 @@
         url: http://www.openflbook.com
     - title: Tutorials
       url: /learn/haxelib/tutorials/
-      folder: true
-      subitems:
-      - title: Displaying a Bitmap
-        url: /learn/haxelib/tutorials/displaying-a-bitmap/
-      - title: Adding Animation
-        url: /learn/haxelib/tutorials/adding-animation/
-      - title: Using SWF Assets
-        url: /learn/haxelib/tutorials/using-swf-assets/
     - title: API
       url: http://api.openfl.org
   - title: NPM
