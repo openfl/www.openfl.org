@@ -444,7 +444,7 @@ Both <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlo
 {% capture typescript %}
 ```ts
 import TimerEvent from "openfl/events/TimerEvent";
-import Timer from "openfl.utils/Timer";
+import Timer from "openfl/utils/Timer";
 ```
 {% endcapture %}
 {% capture haxe %}
