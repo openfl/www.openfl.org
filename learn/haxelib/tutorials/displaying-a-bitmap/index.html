@@ -24,8 +24,8 @@
     
     
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/styles.css?1672784683498261933" rel="stylesheet">
-    <link href="/css/syntax.css?1672784683498261933" rel="stylesheet">
+    <link href="/css/styles.css?1672785381715513368" rel="stylesheet">
+    <link href="/css/syntax.css?1672785381715513368" rel="stylesheet">
     
     <script src="/js/holder.js"></script>
     
@@ -107,66 +107,54 @@
 
 <p>Open the “Source/Main.hx” file in the editor of your choice. It should look something like this:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="p">;</span>
 
-<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Sprite</span><span class="o">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Sprite</span><span class="p">;</span>
 
-<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
-
-        <span class="kd">super</span> <span class="o">();</span>
-
-    <span class="o">}</span>
-
-<span class="o">}</span>
+<span class="k">class</span> <span class="nx">Main</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="k">new</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>In order to import our image, we will want to import the <code class="language-plaintext highlighter-rouge">openfl.Assets</code> class, and add a <code class="language-plaintext highlighter-rouge">getBitmapData</code> call. There is more than one way to load an image in OpenFL, but the <code class="language-plaintext highlighter-rouge">Assets</code> class is designed to make this very simple.</p>
 
 <p>You will want to use the name of your image, so if it is called “myimage.png”, be sure to replace the example below with the right text to match your file name.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="p">;</span>
 
-<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Sprite</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Sprite</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">Assets</span><span class="p">;</span>
 
-<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+<span class="k">class</span> <span class="nx">Main</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="k">new</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">();</span>
 
-    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
-
-        <span class="kd">super</span> <span class="o">();</span>
-
-        <span class="kt">var</span> <span class="n">bitmapData</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">);</span>
-
-    <span class="o">}</span>
-
-<span class="o">}</span>
+        <span class="kd">var</span> <span class="nx">bitmapData</span> <span class="o">=</span> <span class="nx">Assets</span><span class="p">.</span><span class="nx">getBitmapData</span><span class="p">(</span><span class="s2">"assets/openfl.png"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>The <code class="language-plaintext highlighter-rouge">openfl.display.BitmapData</code> type represents the pixel data for an image. You can use this directly to read pixels, perform fills, and multiple other pixel-based effects. Often however, you will load directly from a file, and will not need to modify the data.</p>
 
 <p>The easiest to display our data is using the <code class="language-plaintext highlighter-rouge">openfl.display.Bitmap</code> type, you can use the same <code class="language-plaintext highlighter-rouge">BitmapData</code> with multiple <code class="language-plaintext highlighter-rouge">Bitmap</code> instances, however you want it to display.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="p">;</span>
 
-<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Bitmap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Bitmap</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Sprite</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">Assets</span><span class="p">;</span>
 
-<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+<span class="k">class</span> <span class="nx">Main</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="k">new</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">();</span>
 
-    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
-
-        <span class="kd">super</span> <span class="o">();</span>
-
-        <span class="kt">var</span> <span class="n">bitmapData</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">);</span>
-        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="n">bitmapData</span><span class="o">);</span>
-        <span class="n">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
-
-    <span class="o">}</span>
-
-<span class="o">}</span>
+        <span class="kd">var</span> <span class="nx">bitmapData</span> <span class="o">=</span> <span class="nx">Assets</span><span class="p">.</span><span class="nx">getBitmapData</span><span class="p">(</span><span class="s2">"assets/openfl.png"</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span><span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+        <span class="nx">addChild</span><span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>In order to see our <code class="language-plaintext highlighter-rouge">Bitmap</code> instance, we use <code class="language-plaintext highlighter-rouge">addChild</code> to make it visible on the display list. The “display list” is an easy-to-use method of drawing that is available in OpenFL.</p>
@@ -175,28 +163,24 @@
 
 <p>When you use the display list, you can use <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> properties to control where an object will be drawn.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="p">;</span>
 
-<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Bitmap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Bitmap</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Sprite</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">Assets</span><span class="p">;</span>
 
-<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+<span class="k">class</span> <span class="nx">Main</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="k">new</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kr">super</span> <span class="p">();</span>
 
-    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+        <span class="kd">var</span> <span class="nx">bitmapData</span> <span class="o">=</span> <span class="nx">Assets</span><span class="p">.</span><span class="nx">getBitmapData</span><span class="p">(</span><span class="s2">"assets/openfl.png"</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span><span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+        <span class="nx">addChild</span><span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
 
-        <span class="kd">super</span> <span class="o">();</span>
-
-        <span class="kt">var</span> <span class="n">bitmapData</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">);</span>
-        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="n">bitmapData</span><span class="o">);</span>
-        <span class="n">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
-
-        <span class="n">bitmap</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
-        <span class="n">bitmap</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">200</span><span class="o">;</span>
-
-    <span class="o">}</span>
-
-<span class="o">}</span>
+        <span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+        <span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>If we set the bitmap position to (100, 200), instead of drawing at the upper-left of the window, it will be 100 and 200 pixels away from the corner, respectively. You can use any value you want, but for this sample, we will center the image.</p>
@@ -208,28 +192,24 @@
 
 <p>We can determine the width of our window using the <code class="language-plaintext highlighter-rouge">stage.stageWidth</code> and <code class="language-plaintext highlighter-rouge">stage.stageHeight</code> values. We can use the <code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">height</code> values of our bitmap to find how large it is. The resulting code looks like this:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="p">;</span>
 
-<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Bitmap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">openfl.display.Sprite</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Bitmap</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Sprite</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">Assets</span><span class="p">;</span>
 
-<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
+<span class="k">class</span> <span class="nx">Main</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="k">new</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">();</span>
 
-    <span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+        <span class="kd">var</span> <span class="nx">bitmapData</span> <span class="o">=</span> <span class="nx">Assets</span><span class="p">.</span><span class="nx">getBitmapData</span><span class="p">(</span><span class="s2">"assets/openfl.png"</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bitmap</span><span class="p">(</span><span class="nx">bitmapData</span><span class="p">);</span>
+        <span class="nx">addChild</span><span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
 
-        <span class="kd">super</span> <span class="o">();</span>
-
-        <span class="kt">var</span> <span class="n">bitmapData</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getBitmapData</span> <span class="o">(</span><span class="s">"assets/openfl.png"</span><span class="o">);</span>
-        <span class="kt">var</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bitmap</span> <span class="o">(</span><span class="n">bitmapData</span><span class="o">);</span>
-        <span class="n">addChild</span> <span class="o">(</span><span class="n">bitmap</span><span class="o">);</span>
-
-        <span class="n">bitmap</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">stage</span><span class="o">.</span><span class="na">stageWidth</span> <span class="o">-</span> <span class="n">bitmap</span><span class="o">.</span><span class="na">width</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="n">bitmap</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">stage</span><span class="o">.</span><span class="na">stageHeight</span> <span class="o">-</span> <span class="n">bitmap</span><span class="o">.</span><span class="na">height</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-
-    <span class="o">}</span>
-
-<span class="o">}</span>
+        <span class="nx">bitmap</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="p">(</span><span class="nx">stage</span><span class="p">.</span><span class="nx">stageWidth</span> <span class="o">-</span> <span class="nx">bitmap</span><span class="p">.</span><span class="nx">width</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="nx">bitmap</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="p">(</span><span class="nx">stage</span><span class="p">.</span><span class="nx">stageHeight</span> <span class="o">-</span> <span class="nx">bitmap</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <h2 id="running-the-project">Running the Project</h2>

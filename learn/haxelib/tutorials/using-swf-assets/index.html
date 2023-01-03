@@ -24,8 +24,8 @@
     
     
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/styles.css?1672784683498261933" rel="stylesheet">
-    <link href="/css/syntax.css?1672784683498261933" rel="stylesheet">
+    <link href="/css/styles.css?1672785381715513368" rel="stylesheet">
+    <link href="/css/syntax.css?1672785381715513368" rel="stylesheet">
     
     <script src="/js/holder.js"></script>
     
@@ -132,30 +132,30 @@
 
 <p>Unless you have used <code class="language-plaintext highlighter-rouge">preload="true"</code> in your <code class="language-plaintext highlighter-rouge">&lt;library /&gt;</code> tag, before you are able to use content from a SWF library, you must load the library first:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Assets</span><span class="o">.</span><span class="na">loadLibrary</span> <span class="o">(</span><span class="s">"swf-library"</span><span class="o">).</span><span class="na">onComplete</span> <span class="o">(</span><span class="n">function</span> <span class="o">(</span><span class="n">_</span><span class="o">)</span> <span class="o">{</span>
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Assets</span><span class="p">.</span><span class="nx">loadLibrary</span> <span class="p">(</span><span class="s2">"swf-library"</span><span class="p">).</span><span class="nx">onComplete</span> <span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">_</span><span class="p">)</span> <span class="p">{</span>
 	
-	<span class="n">trace</span> <span class="o">(</span><span class="s">"SWF library loaded"</span><span class="o">);</span>
+	<span class="kr">trace</span> <span class="p">(</span><span class="s2">"SWF library loaded"</span><span class="p">);</span>
 	
-<span class="o">});</span>
+<span class="p">});</span>
 </code></pre></div></div>
 
 <h2 id="instantiating-a-swf-symbol">Instantiating a SWF Symbol</h2>
 
 <p>Once a library is loaded, you can access named symbols from the library using the following code:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">clip</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getMovieClip</span> <span class="o">(</span><span class="s">"swf-library:MySymbolClass"</span><span class="o">);</span>
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">clip</span> <span class="o">=</span> <span class="nx">Assets</span><span class="p">.</span><span class="nx">getMovieClip</span> <span class="p">(</span><span class="s2">"swf-library:MySymbolClass"</span><span class="p">);</span>
 </code></pre></div></div>
 
 <p>If the <code class="language-plaintext highlighter-rouge">generate</code> attribute was used, each symbol class should be available to instantiate normally:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">clip</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MySymbolClass</span> <span class="o">();</span>
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">clip</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MySymbolClass</span> <span class="p">();</span>
 </code></pre></div></div>
 
 <p>Code completion should be available for all generated classes.</p>
 
 <p>If you want to access symbols from multiple SWF libraries, change the prefix before the colon (“:”) in the <code class="language-plaintext highlighter-rouge">Assets.getMovieClip</code> call. If you would prefer to load the entire SWF timeline, and not a child clip, use an empty value for the symbol name, like this:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">clip</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getMovieClip</span> <span class="o">(</span><span class="s">"swf-library:"</span><span class="o">);</span>
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">clip</span> <span class="o">=</span> <span class="nx">Assets</span><span class="p">.</span><span class="nx">getMovieClip</span> <span class="p">(</span><span class="s2">"swf-library:"</span><span class="p">);</span>
 </code></pre></div></div>
 
 <h2 id="standard-example">Standard Example</h2>
@@ -181,31 +181,21 @@
 
 <p><em>Main.hx</em></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="p">;</span>
 
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Sprite</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">Assets</span><span class="p">;</span>
 
-<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Sprite</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
-
-
-<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
-	
-	
-	<span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+<span class="k">class</span> <span class="nx">Main</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="k">new</span><span class="p">()</span> <span class="p">{</span>
+		<span class="kr">super</span><span class="p">();</span>
 		
-		<span class="kd">super</span> <span class="o">();</span>
-		
-		<span class="nc">Assets</span><span class="o">.</span><span class="na">loadLibrary</span> <span class="o">(</span><span class="s">"library"</span><span class="o">).</span><span class="na">onComplete</span> <span class="o">(</span><span class="n">function</span> <span class="o">(</span><span class="n">_</span><span class="o">)</span> <span class="o">{</span>
-			
-			<span class="kt">var</span> <span class="n">clip</span> <span class="o">=</span> <span class="nc">Assets</span><span class="o">.</span><span class="na">getMovieClip</span> <span class="o">(</span><span class="s">"library:MySymbolClass"</span><span class="o">);</span>
-			<span class="n">addChild</span> <span class="o">(</span><span class="n">clip</span><span class="o">);</span>
-			
-		<span class="o">});</span>
-		
-	<span class="o">}</span>
-	
-	
-<span class="o">}</span>
+		<span class="nx">Assets</span><span class="p">.</span><span class="nx">loadLibrary</span><span class="p">(</span><span class="s2">"library"</span><span class="p">).</span><span class="nx">onComplete</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">_</span><span class="p">)</span> <span class="p">{</span>
+			<span class="kd">var</span> <span class="nx">clip</span> <span class="o">=</span> <span class="nx">Assets</span><span class="p">.</span><span class="nx">getMovieClip</span><span class="p">(</span><span class="s2">"library:MySymbolClass"</span><span class="p">);</span>
+			<span class="nx">addChild</span><span class="p">(</span><span class="nx">clip</span><span class="p">);</span>
+		<span class="p">});</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <h2 id="using-preload-and-generate">Using “preload” and “generate”</h2>
@@ -231,27 +221,19 @@
 
 <p><em>Main.hx</em></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span><span class="err">;</span>
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="p">;</span>
 
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nx">Sprite</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">openfl</span><span class="p">.</span><span class="nx">Assets</span><span class="p">;</span>
 
-<span class="nn">import</span> <span class="n">openfl</span><span class="o">.</span><span class="na">display</span><span class="o">.</span><span class="na">Sprite</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">openfl.Assets</span><span class="o">;</span>
-
-
-<span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="nc">Sprite</span> <span class="o">{</span>
-	
-	
-	<span class="kd">public</span> <span class="n">function</span> <span class="nf">new</span> <span class="o">()</span> <span class="o">{</span>
+<span class="k">class</span> <span class="nx">Main</span> <span class="kd">extends</span> <span class="nx">Sprite</span> <span class="p">{</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="k">new</span><span class="p">()</span> <span class="p">{</span>
+		<span class="kr">super</span><span class="p">();</span>
 		
-		<span class="kd">super</span> <span class="o">();</span>
-		
-		<span class="kt">var</span> <span class="n">clip</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MySymbolClass</span> <span class="o">();</span>
-		<span class="n">addChild</span> <span class="o">(</span><span class="n">clip</span><span class="o">);</span>
-		
-	<span class="o">}</span>
-	
-	
-<span class="o">}</span>
+		<span class="kd">var</span> <span class="nx">clip</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MySymbolClass</span><span class="p">();</span>
+		<span class="nx">addChild</span><span class="p">(</span><span class="nx">clip</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p><a href="../">Return to Tutorials</a></p>
