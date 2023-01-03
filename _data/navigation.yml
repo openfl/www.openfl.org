@@ -30,24 +30,6 @@
   subitems:
   - title: Introduction
     url: /learn/
-  - title: NPM
-    url: /learn/npm/
-    folder: true
-    subitems:
-    - title: Getting Started
-      url: /learn/npm/getting-started/
-    - title: Tutorials
-      url: /learn/npm/tutorials/
-      folder: true
-      subitems:
-      - title: Displaying a Bitmap
-        url: /learn/npm/tutorials/displaying-a-bitmap/
-      - title: Adding Animation
-        url: /learn/npm/tutorials/adding-animation/
-      - title: Handling Mouse Events
-        url: /learn/npm/tutorials/handling-mouse-events/
-    - title: API Reference
-      url: /learn/npm/api/
   - title: Haxelib
     url: /learn/haxelib/
     folder: true
@@ -102,6 +84,24 @@
         url: /learn/haxelib/tutorials/using-swf-assets/
     - title: API
       url: http://api.openfl.org
+  - title: NPM
+    url: /learn/npm/
+    folder: true
+    subitems:
+    - title: Getting Started
+      url: /learn/npm/getting-started/
+    - title: Tutorials
+      url: /learn/npm/tutorials/
+      folder: true
+      subitems:
+      - title: Displaying a Bitmap
+        url: /learn/npm/tutorials/displaying-a-bitmap/
+      - title: Adding Animation
+        url: /learn/npm/tutorials/adding-animation/
+      - title: Handling Mouse Events
+        url: /learn/npm/tutorials/handling-mouse-events/
+    - title: API Reference
+      url: /learn/npm/api/
 #- title: Blog
 #  url: /blog/
 - title: Community
