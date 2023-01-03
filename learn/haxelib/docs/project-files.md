@@ -5,7 +5,7 @@ redirect_from: /learn/docs/project-files/
 
 OpenFL uses the Lime project file format.
 
-The most common file name is "project.xml", but valid file extensions include _.xml_, _.lime_ or _.hxp_
+The most common file name is _project.xml_, but valid file extensions include _.xml_, _.lime_ or _.hxp_
 
 For more information on the standard XML format (which includes \*.lime), read more in the Lime documentation:
 

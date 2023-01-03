@@ -50,7 +50,7 @@ class Main extends Sprite {
 
 ## Including Actuate in Your Project
 
-To begin using Actuate, first you will need to edit the "project.xml" file to include Actuate in your project.
+To begin using Actuate, first you will need to edit the [_project.xml_](../../project-files/) file to include Actuate in your project.
 
 There should be a `<haxelib />` tag already for OpenFL, we will need to add a similar tag for Actuate:
 
