@@ -52,14 +52,7 @@ redirect_from: /learn/tutorials/
 
 #### HaxeUI
 
- * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/63_introduction_to_haxeui.html" target="_blank">Introduction to HaxeUI</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/64_using_xml_layouts_in_haxeui.html" target="_blank">Using XML Layouts in HaxeUI</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/65_ids_and_event_listeners_in_haxeui.html" target="_blank">IDs and Event Listeners in HaxeUI</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/66_popups_in_haxeui.html" target="_blank">Popups in HaxeUI</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/67_styling_in_haxeui.html" target="_blank">Styling in HaxeUI</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/68_haxeui_roots.html" target="_blank">HaxeUI Roots</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/69_accordions_in_haxeui.html" target="_blank">Accordions in HaxeUI</a>
- * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/70_listview_in_haxeui.html" target="_blank">ListView in HaxeUI</a>
+ * <span class="glyphicon glyphicon-new-window"></span> <a href="https://github.com/r3d9u11/haxe-basics/tree/master/4_ExtLib/4.4_GuiFrameworks/4.4.2_HaxeUI#contain" target="_blank">HaxeUI Basics</a>
 
 
 ### Video Tutorials
