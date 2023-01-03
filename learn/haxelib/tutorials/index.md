@@ -7,13 +7,13 @@ redirect_from: /learn/tutorials/
 
 ### Beginner
 
- * [Displaying a Bitmap](/learn/tutorials/displaying-a-bitmap/)
- * [Adding Animation](/learn/tutorials/adding-animation/)
+ * [Displaying a Bitmap](/learn/haxelib/tutorials/displaying-a-bitmap/)
+ * [Adding Animation](/learn/haxelib/tutorials/adding-animation/)
+ * [Using SWF Assets](/learn/haxelib/tutorials/using-swf-assets/)
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/02_getting_started_with_haxe.html" target="_blank">Getting Started with Haxe</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/07_how_to_make_a_pong_game_in_haxe_and_openfl_part_1.html" target="_blank">How to Make a Pong Game in Haxe and OpenFL</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/12_keyboard_events_in_haxe_using_openfl.html" target="_blank">Keyboard Events in Haxe using OpenFL</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/13_assets_in_openfl_embedding_images,_sounds_and_more.html" target="_blank">Assets in OpenFL</a>
- * [Using SWF Assets](/learn/tutorials/using-swf-assets/)
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/59_depth_sorting_in_openfl.html" target="_blank">Depth-Sorting in OpenFL</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/60_toggle_fullscreen_in_openfl.html" target="_blank">Toggle Fullscreen in OpenFL</a>
  * <span class="glyphicon glyphicon-new-window"></span> <a href="https://keyreal-code.github.io/haxecoder-tutorials/62_embedding_fonts_in_openfl.html" target="_blank">Embedding Fonts in OpenFL</a>
