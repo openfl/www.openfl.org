@@ -1,4 +1,5 @@
 ---
 title: Getting Started
-redirect_to: /download/
+# redirect because it's a blank page
+redirect_to: /learn/
 ---
