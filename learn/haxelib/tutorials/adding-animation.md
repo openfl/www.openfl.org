@@ -2,7 +2,7 @@
 title: Adding Animation
 redirect_from: /learn/tutorials/adding-animation/
 ---
-
+[Full Tutorials List (including external links)](../)
 ## Introduction
 
 Once you know how to show an image in OpenFL, the next step to move toward building a real project to begin adding some movement and interaction. In this tutorial, we will expand upon the basic concepts in the [Displaying a Bitmap](../displaying-a-bitmap/) sample, and begin adding animation, or motion "tweens" to an object.
