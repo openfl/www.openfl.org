@@ -58,6 +58,8 @@
       #    url: /learn/docs/basics/assets/
       - title: Project Files
         url: /learn/haxelib/docs/project-files/
+      - title: Targets
+        url: /learn/haxelib/docs/targets/
       - title: Tools
         url: /learn/haxelib/docs/tools/
       #- title: Feature Matrix
