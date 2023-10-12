@@ -78,6 +78,8 @@
       url: /learn/haxelib/tutorials/
     - title: API
       url: http://api.openfl.org
+    - title: Samples
+      url: https://github.com/openfl/openfl-samples
   - title: NPM
     url: /learn/npm/
     folder: true
@@ -96,6 +98,17 @@
         url: /learn/npm/tutorials/handling-mouse-events/
     - title: API Reference
       url: /learn/npm/api/
+    - title: Samples
+      folder: true
+      subitems:
+      - title: JavaScript (ES6)
+        url: https://github.com/openfl/openfl-samples-es6
+      - title: JavaScript (ES5)
+        url: https://github.com/openfl/openfl-samples-es5
+      - title: TypeScript
+        url: https://github.com/openfl/openfl-samples-ts
+      - title: AS3/Royale
+        url: https://github.com/openfl/openfl-samples-as3
 #- title: Blog
 #  url: /blog/
 - title: Community
