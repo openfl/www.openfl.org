@@ -107,6 +107,8 @@
         url: https://github.com/openfl/openfl-samples-es5
       - title: TypeScript
         url: https://github.com/openfl/openfl-samples-ts
+      - title: Haxe
+        url: https://github.com/openfl/openfl-samples-haxe
       - title: AS3/Royale
         url: https://github.com/openfl/openfl-samples-as3
 #- title: Blog
