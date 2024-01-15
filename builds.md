@@ -1,4 +1,4 @@
 ---
 permalink: builds/
-redirect_to: http://builds.openfl.org
+redirect_to: https://github.com/openfl/openfl/actions?query=branch%3Adevelop+is%3Asuccess
 ---
