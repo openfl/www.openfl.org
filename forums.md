@@ -1,4 +1,4 @@
 ---
 permalink: forums/
-redirect_to: http://community.openfl.org
+redirect_to: https://community.openfl.org
 ---

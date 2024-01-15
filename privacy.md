@@ -6,7 +6,7 @@ permalink: privacy/
 
 _Effective April 1, 2013_
 
-This page sets forth the privacy policies and practices of OpenFL community site [www.openfl.org](http://www.openfl.org). Please read this Privacy Policy carefully since by visiting this site and sharing information with OpenFL you agree to be bound by the terms and conditions of this Privacy Policy.
+This page sets forth the privacy policies and practices of OpenFL community site [www.openfl.org](https://www.openfl.org). Please read this Privacy Policy carefully since by visiting this site and sharing information with OpenFL you agree to be bound by the terms and conditions of this Privacy Policy.
 
 ## I. Information We Collect, Consumer Choice and Access
 

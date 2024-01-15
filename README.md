@@ -1,9 +1,9 @@
 OpenFL.org
 ==========
 
-This is the source for http://www.openfl.org.
+This is the source for https://www.openfl.org.
 
-You can build the site using [Jekyll](http://www.jekyllrb.com). It should work in a Unix environment, either from Linux, macOS or the Ubuntu Bash Shell for Windows. Make sure that Ruby is installed, and install Bundler (`gem install bundler`), then run the following in the openfl.org directory:
+You can build the site using [Jekyll](https://www.jekyllrb.com). It should work in a Unix environment, either from Linux, macOS or the Ubuntu Bash Shell for Windows. Make sure that Ruby is installed, and install Bundler (`gem install bundler`), then run the following in the openfl.org directory:
 
 	bundle install
 	jekyll serve
