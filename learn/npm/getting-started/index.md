@@ -1,25 +1,23 @@
 ---
 title: Getting Started
-# redirect because it's a blank page
-redirect_to: /learn/
 ---
 
-## Install NPM
+## Install npm
 
-If you do not have Node.js installed, download and install it [here](https://nodejs.org/).
+If you do not have Node.js installed, download and install it [from nodejs.org](https://nodejs.org/).
 
-NPM is included by default with Node.js, but may be out-of-date. Update NPM by running the following command:
+npm is included by default with Node.js, but it may be out-of-date. Update npm by running the following command:
 
 ```sh
 npm install npm -g
 ```
 
-_You may have to run this using `sudo` on Linux or macOS._
+_You may have to run this using `sudo` on Linux or macOS, or you can follow [this guide to resolve npm global permissions](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)_
 
 
 ## Install a Code Editor
 
-Next, you should make sure that you have a code editor that is designed for TypeScript, Haxe or at a minimum, syntax highlighting for JavaScript. There are many choices, but if you are unsure, we recommend you start with [Visual Studio Code](https://code.visualstudio.com).
+Next, you should make sure that you have a code editor that is designed for TypeScript, Haxe or at a minimum, syntax highlighting for JavaScript. There are many choices, but if you are unsure, we recommend starting with [Visual Studio Code](https://code.visualstudio.com).
 
 
 ## Creating a New Project
