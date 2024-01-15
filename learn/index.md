@@ -9,9 +9,9 @@ With OpenFL installed and running, you can get up and going with included [sampl
 
 ## Fundamentals
 
-If you are already familiar with Adobe Flash development with ActionScript 3.0, you should feel right at home with OpenFL! If you have never developed using ActionScript 3.0 or Flash before, we offer the <a href="https://books.openfl.org/openfl-developers-guide/" target="_blank">OpenFL Developer's Guide</a> to introduce you to some of the key concepts, classes and interfaces, and other APIs. You'll learn the fundamentals of working with display objects, listening for events, drawing lines, curves, and shapes, and much more.
+If you are already familiar with Adobe Flash development with ActionScript 3.0, you should feel right at home with OpenFL. If you have never developed using ActionScript 3.0 or Flash before, that's okay because we offer the <a href="https://books.openfl.org/openfl-developers-guide/" target="_blank">OpenFL Developer's Guide</a> to introduce you to some of the key concepts, classes and interfaces, and other APIs. You'll learn the fundamentals of working with display objects, listening for events, drawing lines, curves, and shapes, and much more.
 
-> The <a href="https://books.openfl.org/openfl-developers-guide/" target="_blank">OpenFL Developer's Guide</a> is adapted from the <a href="https://help.adobe.com/en_US/as3/dev/index.html" target="_blank">ActionScript 3.0 Developer’s Guide</a> for Adobe Flash. We're still adapting some of the chapters from the original guide, which is Creative Commons licensed, so you may need to reference the original ActionScript 3.0 version of the guide for a complete overview of OpenFL's capabilities._
+_The <a href="https://books.openfl.org/openfl-developers-guide/" target="_blank">OpenFL Developer's Guide</a> is adapted from the <a href="https://help.adobe.com/en_US/as3/dev/index.html" target="_blank">ActionScript 3.0 Developer’s Guide</a> for Adobe Flash. We're still adapting some of the chapters from the original guide, which is Creative Commons licensed, so you may need to reference the original ActionScript 3.0 version of the guide for a complete overview of OpenFL's capabilities._
 
 ## Resources
 
