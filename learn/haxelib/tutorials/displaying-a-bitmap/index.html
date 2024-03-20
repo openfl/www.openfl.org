@@ -24,8 +24,8 @@
     
     
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/styles.css?1710885078767848489" rel="stylesheet">
-    <link href="/css/syntax.css?1710885078767848489" rel="stylesheet">
+    <link href="/css/styles.css?1710973299281170245" rel="stylesheet">
+    <link href="/css/syntax.css?1710973299281170245" rel="stylesheet">
     
     <script src="/js/holder.js"></script>
     
@@ -51,15 +51,15 @@
               <ul class="nav navbar-nav">
                 
                 
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
                 <li><a  href="/download/">DOWNLOAD</a></li>
                 
                 
                 
                 <li><a  href="/showcase/">SHOWCASE</a></li>
-                
-                
-                
-                <li><a  href="/learn/">LEARN</a></li>
                 
                 
                 
@@ -87,9 +87,9 @@
 			
 			<h2 id="creating-a-new-project">Creating a New Project</h2>
 
-<p>OpenFL includes a “create” command that can help generate an empty or sample project for you.</p>
+<p>OpenFL includes a <a href="https://lime.openfl.org/docs/command-line-tools/samples/"><code class="language-plaintext highlighter-rouge">create</code> command</a> that can help generate an empty or sample project for you.</p>
 
-<p>To create an empty project, open a command-prompt (Windows) or terminal (macOS/Linux) and run the following command:</p>
+<p>To create an empty project, open a command-prompt (Windows) or terminal (macOS/Linux) and run the <a href="https://lime.openfl.org/docs/command-line-tools/samples/"><code class="language-plaintext highlighter-rouge">openfl create</code> command</a> command:</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl create project HelloWorld
 </code></pre></div></div>
@@ -103,7 +103,7 @@
 
 <h2 id="adding-an-image">Adding an Image</h2>
 
-<p>The first thing we will do is add an image. First, copy an image (PNG or JPG format) to the “Assets” folder of the project. We will be using <a href="https://raw.githubusercontent.com/openfl/openfl-samples/master/features/display/DisplayingABitmap/Assets/openfl.png">this image</a>, but you can download or copy any image you like.</p>
+<p>The first thing we will do is add an image. First, copy an image file (PNG or JPG format) to the “Assets” folder of the project. We will be using <a href="https://raw.githubusercontent.com/openfl/openfl-samples/master/features/display/DisplayingABitmap/Assets/openfl.png">this image</a>, but you can download or copy any image you like.</p>
 
 <p>Open the “Source/Main.hx” file in the editor of your choice. It should look something like this:</p>
 
@@ -157,11 +157,11 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>In order to see our <code class="language-plaintext highlighter-rouge">Bitmap</code> instance, we use <code class="language-plaintext highlighter-rouge">addChild</code> to make it visible on the display list. The “display list” is an easy-to-use method of drawing that is available in OpenFL.</p>
+<p>In order to see our <code class="language-plaintext highlighter-rouge">Bitmap</code> instance, we <a href="https://books.openfl.org/openfl-developers-guide/display-programming/working-with-display-objects/adding-display-objects-to-the-display-list.html">use <code class="language-plaintext highlighter-rouge">addChild</code> to make it visible on the display list</a>. The <a href="https://books.openfl.org/openfl-developers-guide/display-programming/basics-of-display-programming.html">“display list”</a> is an easy-to-use method of drawing that is available in OpenFL.</p>
 
 <h2 id="positioning-an-object">Positioning an Object</h2>
 
-<p>When you use the display list, you can use <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> properties to control where an object will be drawn.</p>
+<p>When you use the display list, you can <a href="https://books.openfl.org/openfl-developers-guide/display-programming/manipulating-display-objects/changing-position.html">use <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> properties</a> to control where an object will be drawn.</p>
 
 <div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="p">;</span>
 
@@ -187,7 +187,7 @@
 
 <p>Since the <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> values of a display object use the upper-left corner of the object, the math for centering our object will look something like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var centerValue = (totalWidth - imageWidth) / 2;
+<div class="language-haxe highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">centerValue</span> <span class="o">=</span> <span class="p">(</span><span class="nx">totalWidth</span> <span class="o">-</span> <span class="nx">imageWidth</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
 </code></pre></div></div>
 
 <p>We can determine the width of our window using the <code class="language-plaintext highlighter-rouge">stage.stageWidth</code> and <code class="language-plaintext highlighter-rouge">stage.stageHeight</code> values. We can use the <code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">height</code> values of our bitmap to find how large it is. The resulting code looks like this:</p>
@@ -242,17 +242,13 @@
 
 <h2 id="issues">Issues</h2>
 
-<p>Any problems? Please visit our helpful <a href="http://community.openfl.org">community forums</a> if you are experiencing trouble!</p>
+<p>Any problems? Please visit our helpful <a href="http://community.openfl.org">community forums</a> or <a href="https://discord.gg/tDgq8EE">Discord server</a> if you are experiencing trouble!</p>
 
 <p><a href="../">Return to Tutorials</a></p>
 
 			
 		</div>
 		<div class="col-md-4 col-md-pull-8 sidebar add-anchors">
-			
-			
-			
-			
 			
 			
 			
@@ -704,6 +700,10 @@
 
 </ul>
 </div>
+			
+			
+			
+			
 			
 			
 			
