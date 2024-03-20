@@ -15,7 +15,7 @@ Then, you can get up and running with the included [sample projects](docs/comman
 
 ## Fundamentals
 
-If you are already familiar with Adobe Flash development with ActionScript 3.0, you should feel right at home with OpenFL. If you have never developed using ActionScript 3.0 or Flash before, that's okay because we offer the [OpenFL Developer's Guide](https://books.openfl.org/openfl-developers-guide/) to introduce you to some of the key concepts, classes and interfaces, and other APIs. You'll learn the fundamentals of [working with display objects](https://books.openfl.org/openfl-developers-guide/display-programming/), [listening for events](https://books.openfl.org/openfl-developers-guide/handling-events/), [drawing lines, curves, and shapes](https://books.openfl.org/openfl-developers-guide/using-the-drawing-api/), and much more.
+We offer the [OpenFL Developer's Guide](https://books.openfl.org/openfl-developers-guide/) to introduce you to some of the key concepts, classes and interfaces, and other APIs. You'll learn the fundamentals of [working with display objects](https://books.openfl.org/openfl-developers-guide/display-programming/), [listening for events](https://books.openfl.org/openfl-developers-guide/handling-events/), [drawing lines, curves, and shapes](https://books.openfl.org/openfl-developers-guide/using-the-drawing-api/), and much more.
 
 <p style="text-align:center"><a href="https://books.openfl.org/openfl-developers-guide/" target="_blank" class="btn btn-info" role="button">Read the OpenFL Developer's Guide &raquo;</a></p>
 

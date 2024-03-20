@@ -7,9 +7,9 @@ redirect_from:
 
 ## Creating a New Project
 
-OpenFL includes a "create" command that can help generate an empty or sample project for you.
+OpenFL includes a [`create` command](https://lime.openfl.org/docs/command-line-tools/samples/) that can help generate an empty or sample project for you.
 
-To create an empty project, open a command-prompt (Windows) or terminal (macOS/Linux) and run the following command:
+To create an empty project, open a command-prompt (Windows) or terminal (macOS/Linux) and run the [`openfl create` command](https://lime.openfl.org/docs/command-line-tools/samples/) command:
 
 ```sh
 openfl create project HelloWorld
@@ -25,7 +25,7 @@ openfl create DisplayingABitmap
 
 ## Adding an Image
 
-The first thing we will do is add an image. First, copy an image (PNG or JPG format) to the "Assets" folder of the project. We will be using [this image](https://raw.githubusercontent.com/openfl/openfl-samples/master/features/display/DisplayingABitmap/Assets/openfl.png), but you can download or copy any image you like.
+The first thing we will do is add an image. First, copy an image file (PNG or JPG format) to the "Assets" folder of the project. We will be using [this image](https://raw.githubusercontent.com/openfl/openfl-samples/master/features/display/DisplayingABitmap/Assets/openfl.png), but you can download or copy any image you like.
 
 Open the "Source/Main.hx" file in the editor of your choice. It should look something like this:
 
@@ -82,11 +82,11 @@ class Main extends Sprite {
 }
 ```
 
-In order to see our `Bitmap` instance, we use `addChild` to make it visible on the display list. The "display list" is an easy-to-use method of drawing that is available in OpenFL.
+In order to see our `Bitmap` instance, we [use `addChild` to make it visible on the display list](https://books.openfl.org/openfl-developers-guide/display-programming/working-with-display-objects/adding-display-objects-to-the-display-list.html). The ["display list"](https://books.openfl.org/openfl-developers-guide/display-programming/basics-of-display-programming.html) is an easy-to-use method of drawing that is available in OpenFL.
 
 ## Positioning an Object
 
-When you use the display list, you can use `x` and `y` properties to control where an object will be drawn.
+When you use the display list, you can [use `x` and `y` properties](https://books.openfl.org/openfl-developers-guide/display-programming/manipulating-display-objects/changing-position.html) to control where an object will be drawn.
 
 ```haxe
 package;
@@ -113,7 +113,9 @@ If we set the bitmap position to (100, 200), instead of drawing at the upper-lef
 
 Since the `x` and `y` values of a display object use the upper-left corner of the object, the math for centering our object will look something like this:
 
-    var centerValue = (totalWidth - imageWidth) / 2;
+```haxe
+var centerValue = (totalWidth - imageWidth) / 2;
+```
 
 We can determine the width of our window using the `stage.stageWidth` and `stage.stageHeight` values. We can use the `width` and `height` values of our bitmap to find how large it is. The resulting code looks like this:
 
@@ -172,6 +174,6 @@ openfl test ../DisplayingABitmap flash
 
 ## Issues
 
-Any problems? Please visit our helpful [community forums](http://community.openfl.org) if you are experiencing trouble!
+Any problems? Please visit our helpful [community forums](http://community.openfl.org) or [Discord server](https://discord.gg/tDgq8EE) if you are experiencing trouble!
 
 [Return to Tutorials](../)

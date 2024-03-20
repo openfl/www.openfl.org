@@ -9,11 +9,11 @@ Once you know how to show an image in OpenFL, the next step to move toward build
 
 The concept of a "tweening" is to create all of the inbetween steps for animation. In traditional animation, a head animator may draw the keyframes, and junior animators may draw all the frames inbetween to complete the motion.
 
-As a developer, a tweening library can enable you to act like the head animator, and focus on _what_ animation you wish to show, and not going stuck in the _how_ of all the mechanics. We recommend a library called Actuate, which we will use to create animation in code without a lot of work!
+As a developer, a tweening library can enable you to act like the head animator, and focus on _what_ animation you wish to show, and not going stuck in the _how_ of all the mechanics. We recommend a library called [Actuate](https://lib.haxe.org/p/actuate), which we will use to create animation in code without a lot of work!
 
 ## Creating Your Project
 
-To create an empty project (and follow along), open a command-prompt (Windows) or terminal (macOS/Linux) and run the following command:
+To create an empty project (and follow along), open a command-prompt (Windows) or terminal (macOS/Linux) and run the [`openfl create` command](https://lime.openfl.org/docs/command-line-tools/samples/):
 
 ```sh
 openfl create project AddingAnimation
@@ -50,7 +50,7 @@ class Main extends Sprite {
 
 ## Including Actuate in Your Project
 
-To begin using Actuate, first you will need to edit the [_project.xml_](../../project-files/) file to include Actuate in your project.
+To begin using [Actuate](https://lib.haxe.org/p/actuate), first you will need to edit the [_project.xml_](../../project-files/) file to include Actuate in your project.
 
 There should be a `<haxelib />` tag already for OpenFL, we will need to add a similar tag for Actuate:
 
@@ -280,6 +280,6 @@ class Main extends Sprite {
 
 ## Issues
 
-Any problems? Please visit the [community forums](http://community.openfl.org) if you are experiencing trouble!
+Any problems? Please visit the [community forums](http://community.openfl.org) or [Discord server](https://discord.gg/tDgq8EE) if you are experiencing trouble!
 
 [Return to Tutorials](../)
