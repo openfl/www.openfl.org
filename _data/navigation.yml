@@ -33,7 +33,7 @@
         url: /learn/haxelib/docs/project-files/
       - title: Targets
         url: /learn/haxelib/docs/targets/
-      - title: Tools
+      - title: Command Line Tools
         url: /learn/haxelib/docs/tools/
       #- title: Feature Matrix
       #  url: /learn/docs/feature-matrix/

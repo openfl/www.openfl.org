@@ -1,5 +1,5 @@
 ---
-title: Using SWF Assets
+title: Using SWF Assets with OpenFL
 redirect_from: /learn/tutorials/using-swf-assets/
 ---
 

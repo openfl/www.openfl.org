@@ -1,5 +1,5 @@
 ---
-title: Showcase
+title: OpenFL Showcase
 type: other
 subtitle: Other
 ---

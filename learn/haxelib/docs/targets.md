@@ -1,5 +1,5 @@
 ---
-title: Targets
+title: OpenFL Targets
 redirect_from: /learn/docs/targets/
 ---
 

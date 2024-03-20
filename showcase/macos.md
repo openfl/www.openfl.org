@@ -1,5 +1,5 @@
 ---
-title: Showcase
+title: OpenFL Showcase
 type: mac
 subtitle: macOS
 ---

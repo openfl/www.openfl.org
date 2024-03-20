@@ -1,5 +1,5 @@
 ---
-title: Displaying a Bitmap
+title: Displaying a Bitmap with OpenFL
 redirect_from:
  - /learn/tutorials/your-first-project/
  - /learn/tutorials/displaying-a-bitmap/

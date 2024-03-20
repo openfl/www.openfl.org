@@ -1,5 +1,5 @@
 ---
-title: Project Files
+title: OpenFL Project Files
 redirect_from: /learn/docs/project-files/
 ---
 

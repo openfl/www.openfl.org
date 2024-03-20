@@ -1,5 +1,5 @@
 ---
-title: Core Architecture
+title: OpenFL Core Architecture
 redirect_from:
  - /learn/resources/core-architecture/
  - /learn/docs/core-architecture/
@@ -7,7 +7,7 @@ redirect_from:
 
 ## Command-Line Tools
 
- * [Source](https://github.com/openfl/lime/tree/master/tools)
+ * [Source Code](https://github.com/openfl/lime/tree/master/tools)
 
 Building an OpenFL application relies upon the Lime command-line tools. Whether you are using an `openfl` command, a `lime` command, or are using an editor with OpenFL support built-in, these tools provide the backbone for delivering projects to each target platform.
 
@@ -15,8 +15,8 @@ As needed, the tools will copy asset files, process template files, trigger comp
 
 ## Haxe
 
- * [Website](http://www.haxe.org)
- * [Source](https://github.com/haxefoundation/haxe)
+ * [Website](https://www.haxe.org)
+ * [Source Code](https://github.com/haxefoundation/haxe)
 
 OpenFL developers write code in [Haxe](https://en.wikipedia.org/wiki/Haxe), a powerful language that can compile to _other_ programming languages. This unique (and proven) ability is the cornerstone to OpenFL's cross-platform nature.
 
@@ -24,7 +24,7 @@ Based on your project, the arguments used and the target platform, the command-l
 
 ## HXCPP _(C++ Targets Only)_
 
- * [Source](https://github.com/haxefoundation/hxcpp)
+ * [Source Code](https://github.com/haxefoundation/hxcpp)
 
 After generating C++ source, Haxe calls the HXCPP library, which includes a standard C++ library to enable unique Haxe features, and calls the target compiler toolchain.
 
@@ -32,7 +32,8 @@ By default, HXCPP uses g++ to build Linux executables, Visual Studio C++ for Win
 
 ## Lime
 
- * [Source](https://github.com/openfl/lime)
+ * [Website](https://lime.openfl.org)
+ * [Source Code](https://github.com/openfl/lime)
 
 Lime is a foundational library, providing a single API for managing windows, receiving system events, accessing the rendering context and playing audio, as well as other system APIs.
 
@@ -42,7 +43,8 @@ Native dependencies include SDL2, Freetype, Harfbuzz, libogg, libvorbis, libjpeg
 
 ## OpenFL
 
- * [Source](https://github.com/openfl/openfl)
+ * [Website](https://www.openfl.org)
+ * [Source Code](https://github.com/openfl/openfl)
 
 OpenFL is a Haxe library, designed to work over Lime. System events, windowing and other features are mapped to Flash-style APIs for convenience. OpenFL has a renderer designed for use with HTML5 DOM, HTML5 Canvas, a Cairo (a native software renderer) or OpenGL targets (WebGL, OpenGL, OpenGL ES).
 

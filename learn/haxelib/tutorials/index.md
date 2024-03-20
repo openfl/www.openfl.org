@@ -1,5 +1,5 @@
 ---
-title: Tutorials
+title: OpenFL Tutorials
 redirect_from: /learn/tutorials/
 ---
 

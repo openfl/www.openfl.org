@@ -1,6 +1,6 @@
 ---
 layout: default-header
-title: Download
+title: Download OpenFL
 redirect_from:
  - documentation/getting-started/installing-openfl/
  - documentation/setup/

@@ -1,5 +1,5 @@
 ---
-title: Adding Animation
+title: Adding Animation with OpenFL
 redirect_from: /learn/tutorials/adding-animation/
 ---
 

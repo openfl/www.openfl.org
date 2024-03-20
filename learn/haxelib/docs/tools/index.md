@@ -1,5 +1,5 @@
 ---
-title: Tools
+title: OpenFL Command Line Tools
 redirect_from:
  - /learn/docs/command-line-tools/
  - /learn/docs/tools/
