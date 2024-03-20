@@ -1,19 +1,27 @@
 ---
-title: Learn
-redirect_from: documentation/
+title: Learn OpenFL
+redirect_from:
+ - documentation/
+ - learn/docs/getting-started/
 ---
 
-Welcome! Before getting started, be sure that you [download and install](/download/) OpenFL.
+_Welcome!_ [OpenFL](/) is a library for creative expression on the web, desktop, and mobile that can publish to native C++, JS and WebGL, and run-times like HashLink and Adobe AIR using one seamless toolset.
 
-With OpenFL installed and running, you can get up and going with included [sample projects](docs/command-line-tools/samples/), or create your own project by following a [tutorial](haxelib/tutorials/displaying-a-bitmap/) or using a [blank template](docs/command-line-tools/create-new-project/).
+## First Steps
+
+To get started, be sure that you [download and install OpenFL.](/download/)
+
+Then, you can get up and running with the included [sample projects](docs/command-line-tools/samples/), or you can create your own project by [following a tutorial](http://localhost:4000/learn/haxelib/tutorials/) or by using a [blank project template](docs/command-line-tools/create-new-project/).
 
 ## Fundamentals
 
-If you are already familiar with Adobe Flash development with ActionScript 3.0, you should feel right at home with OpenFL. If you have never developed using ActionScript 3.0 or Flash before, that's okay because we offer the <a href="https://books.openfl.org/openfl-developers-guide/" target="_blank">OpenFL Developer's Guide</a> to introduce you to some of the key concepts, classes and interfaces, and other APIs. You'll learn the fundamentals of working with display objects, listening for events, drawing lines, curves, and shapes, and much more.
+If you are already familiar with Adobe Flash development with ActionScript 3.0, you should feel right at home with OpenFL. If you have never developed using ActionScript 3.0 or Flash before, that's okay because we offer the [OpenFL Developer's Guide](https://books.openfl.org/openfl-developers-guide/) to introduce you to some of the key concepts, classes and interfaces, and other APIs. You'll learn the fundamentals of [working with display objects](https://books.openfl.org/openfl-developers-guide/display-programming/), [listening for events](https://books.openfl.org/openfl-developers-guide/handling-events/), [drawing lines, curves, and shapes](https://books.openfl.org/openfl-developers-guide/using-the-drawing-api/), and much more.
 
-_The <a href="https://books.openfl.org/openfl-developers-guide/" target="_blank">OpenFL Developer's Guide</a> is adapted from the <a href="https://help.adobe.com/en_US/as3/dev/index.html" target="_blank">ActionScript 3.0 Developer’s Guide</a> for Adobe Flash. We're still adapting some of the chapters from the original guide, which is Creative Commons licensed, so you may need to reference the original ActionScript 3.0 version of the guide for a complete overview of OpenFL's capabilities._
+<p style="text-align:center"><a href="https://books.openfl.org/openfl-developers-guide/" target="_blank" class="btn btn-info" role="button">Read the OpenFL Developer's Guide &raquo;</a></p>
 
 ## Resources
+
+There's much more to explore in OpenFL's wide variety of learning resources.
 
 <style>
 a.large-btn {
@@ -51,4 +59,4 @@ a.large-btn .glyphicon {
 
 ## Questions
 
-If you still have questions, or are having trouble with OpenFL, please visit our friendly [community forums](https://community.openfl.org), we'd be happy to help you!
+If you still have questions, or are having trouble with OpenFL, please visit our friendly [community forums](https://community.openfl.org) or [Discord server](https://discord.gg/tDgq8EE), we'd be happy to help you!

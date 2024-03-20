@@ -8,7 +8,6 @@ redirect_from:
  - documentation/setup/install-lime/
  - documentation/setup/install-openfl/
  - documentation/setup/platforms/
- - learn/docs/getting-started/
 ---
 
 <div class="row">
