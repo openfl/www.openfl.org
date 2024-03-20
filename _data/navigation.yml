@@ -1,30 +1,3 @@
-- title: Download
-  url: /download/
-- title: Showcase
-  url: /showcase/
-  subitems:
-  - title: Featured
-    url: /showcase/
-  - title: Windows
-    url: /showcase/windows/
-  - title: macOS
-    url: /showcase/macos/
-  - title: Linux
-    url: /showcase/linux/
-  - title: iOS
-    url: /showcase/ios/
-  - title: Android
-    url: /showcase/android/
-  - title: Flash
-    url: /showcase/flash/
-  - title: HTML5
-    url: /showcase/html5/
-  - title: Console
-    url: /showcase/console/
-  - title: Other
-    url: /showcase/other/
-  #- title: Other
-  #  url: /showcase/other/
 - title: Learn
   url: /learn/
   subitems:
@@ -111,6 +84,33 @@
         url: https://github.com/openfl/openfl-samples-haxe
       - title: AS3/Royale
         url: https://github.com/openfl/openfl-samples-as3
+- title: Download
+  url: /download/
+- title: Showcase
+  url: /showcase/
+  subitems:
+  - title: Featured
+    url: /showcase/
+  - title: Windows
+    url: /showcase/windows/
+  - title: macOS
+    url: /showcase/macos/
+  - title: Linux
+    url: /showcase/linux/
+  - title: iOS
+    url: /showcase/ios/
+  - title: Android
+    url: /showcase/android/
+  - title: Flash
+    url: /showcase/flash/
+  - title: HTML5
+    url: /showcase/html5/
+  - title: Console
+    url: /showcase/console/
+  - title: Other
+    url: /showcase/other/
+  #- title: Other
+  #  url: /showcase/other/
 #- title: Blog
 #  url: /blog/
 - title: Community
