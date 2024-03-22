@@ -11,7 +11,7 @@ _Welcome!_ [OpenFL](/) is a library for creative expression on the web, desktop,
 
 To get started, be sure that you [download and install OpenFL.](/download/)
 
-Then, you can get up and running with the included [sample projects](docs/command-line-tools/samples/), or you can create your own project by [following a tutorial](learn/haxelib/tutorials/) or by using a [blank project template](docs/command-line-tools/create-new-project/).
+Then, you can get up and running with the included [sample projects](docs/command-line-tools/samples/), or you can create your own project by [following a tutorial](/learn/haxelib/tutorials/) or by using a [blank project template](docs/command-line-tools/create-new-project/).
 
 ## Fundamentals
 
