@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en"><!-- use theme color or fallback -->
+<!--use textcolor from settings, otherwise create a contrasting color to theme color-->
+<head><meta charset="utf-8"/><link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-select.min.css" rel="stylesheet"/><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic" rel="stylesheet" type="text/css"/><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,600italic,400" rel="stylesheet" type="text/css"/><link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"/><script src="../../jquery-1.9.1.min.js"></script><script src="../../bootstrap/js/bootstrap.min.js"></script><script src="../../bootstrap/js/bootstrap-select.min.js"></script><link href="../../styles.css" rel="stylesheet"/><link href="../../haxe-nav.css" rel="stylesheet"/><script type="text/javascript">var dox = {rootPath: "../../",platforms: ["Neko","Android","Flash","iOS","macOS","Linux","HTML5","Windows"]};</script><script type="text/javascript" src="../../nav.js"></script><script type="text/javascript" src="../../index.js"></script><link rel="icon" href="../../favicon.ico" type="image/x-icon"></link><title>openfl.display.Sprite - API Reference</title><meta name="description" content="The Sprite class is a basic display list building block: a display list
+node that can display graphics and can also contain children."/></head><body><style>
+a, code .type {
+	color: #24afc4;
+}
+.navbar .brand {
+	display: inline-block;
+	float: none;
+	text-shadow: 0 0 0 transparent;
+}
+.nav-list>.active>a.treeLink, .nav-list>.active>a.treeLink:hover, .nav-list>.active>a.treeLink:focus {
+	background: #24afc4;
+	color: #ffffff;
+	text-shadow: 0 0 0 transparent;
+}
+.navbar .container {
+	width: 940px ;
+}
+@media (max-width: 767px) {
+	.navbar .container {
+		width: auto;
+	}
+}
+@media (max-width: 979px) and (min-width: 768px) {
+	.navbar .container {
+		width: 724px;
+	}
+}
+@media (min-width: 1200px) {
+	.navbar .container {
+		width: 1170px;
+	}
+}
+.navbar .container img {
+	margin: 5px 0 0 4px;
+}
+</style><nav class="nav"><div class="navbar"><div class="navbar-inner" style="background:#FAFAFA; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" href="http://www.openfl.org"><img alt="" src="http://www.openfl.org/images/logo.png"/></a><a class="brand" style="color:#777777" href="../../">API Reference</a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="icon-search"></i></span><input id="search" type="text" placeholder="Search" autocomplete="off"/></div></form><div class="dropdown"><select id="select-platform" class="selectpicker" title="Filter by platform" data-width="100%"><option value="all" selected="true">All Platforms</option><option>Neko</option><option>Android</option><option>Flash</option><option>iOS</option><option>macOS</option><option>Linux</option><option>HTML5</option><option>Windows</option></select></div></div><div class="well sidebar-nav"><div id="nav"></div></div></div><div class="span9"><div class="page-header"><h1><small>class</small> Sprite</h1><h4><small>package <a href="../../openfl/display/index.html">openfl.display</a></small></h4><h4><small>extends <a class="type" title="The DisplayObjectContainer class is the base class for all objects that can serve as display object containers on the display list." href="../../openfl/display/DisplayObjectContainer.html">DisplayObjectContainer</a> &rsaquo; <a class="type" title="The InteractiveObject class is the abstract base class for all display objects with which the user can interact, using the mouse, keyboard, or other user input device." href="../../openfl/display/InteractiveObject.html">InteractiveObject</a> &rsaquo; <a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a> &rsaquo; <a class="type" title="The EventDispatcher class is the base class for all classes that dispatch events." href="../../openfl/events/EventDispatcher.html">EventDispatcher</a></small></h4>    <h4><small><span class="muted">extended by </span><a class="type" title="" href="../../openfl/display/DOMSprite.html">DOMSprite</a>, <a class="type" title="The MovieClip class inherits from the following classes: Sprite, DisplayObjectContainer, InteractiveObject, DisplayObject, and EventDispatcher." href="../../openfl/display/MovieClip.html">MovieClip</a></small></h4><p class="availability"><hr/><em>Available on  all platforms</em></p></div><div class="body"><div class="doc doc-main"><div class="indent"><p>The Sprite class is a basic display list building block: a display list
+node that can display graphics and can also contain children.</p>
+<p>A Sprite object is similar to a movie clip, but does not have a
+timeline. Sprite is an appropriate base class for objects that do not
+require timelines. For example, Sprite would be a logical base class for
+user interface(UI) components that typically do not use the timeline.</p>
+<p>The Sprite class is new in ActionScript 3.0. It provides an alternative
+to the functionality of the MovieClip class, which retains all the
+functionality of previous ActionScript releases to provide backward
+compatibility.</p></div></div><h3 class="section">Constructor</h3><div class="fields"><div class="field "><a name="new"></a><h3><p><code><a href="#new"><span class="identifier">new</span></a> ()</code></p></h3><div class="doc"><p>Creates a new Sprite instance. After you create the Sprite instance, call
+the <code><a href="../../openfl/display/DisplayObjectContainer.html#addChild">DisplayObjectContainer.addChild</a>()</code> or
+<code><a href="../../openfl/display/DisplayObjectContainer.html#addChildAt">DisplayObjectContainer.addChildAt</a>()</code> method to add the Sprite
+to a parent DisplayObjectContainer.</p></div></div></div><h3 class="section">Variables</h3><div class="fields"><div class="field "><a name="buttonMode"></a><h3><p><code><a href="../../openfl/display/Sprite.html#buttonMode"><span class="identifier">buttonMode</span></a>:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Specifies the button mode of this sprite. If <code>true</code>, this
+sprite behaves as a button, which means that it triggers the display of
+the hand cursor when the pointer passes over the sprite and can receive a
+<code>click</code> event if the enter or space keys are pressed when the
+sprite has focus. You can suppress the display of the hand cursor by
+setting the <code>useHandCursor</code> property to <code>false</code>, in
+which case the pointer is displayed.</p>
+<p>Although it is better to use the SimpleButton class to create buttons,
+you can use the <code>buttonMode</code> property to give a sprite some
+button-like functionality. To include a sprite in the tab order, set the
+<code>tabEnabled</code> property(inherited from the InteractiveObject
+class and <code>false</code> by default) to <code>true</code>.
+Additionally, consider whether you want the children of your sprite to be
+user input enabled. Most buttons do not enable user input interactivity
+for their child objects because it confuses the event flow. To disable
+user input interactivity for all child objects, you must set the
+<code>mouseChildren</code> property(inherited from the
+DisplayObjectContainer class) to <code>false</code>.</p>
+<p>If you use the <code>buttonMode</code> property with the MovieClip
+class(which is a subclass of the Sprite class), your button might have
+some added functionality. If you include frames labeled _up, _over, and
+_down, Flash Player provides automatic state changes(functionality
+similar to that provided in previous versions of ActionScript for movie
+clips used as buttons). These automatic state changes are not available
+for sprites, which have no timeline, and thus no frames to label.</p></div></div><div class="field "><a name="dropTarget"></a><h3><p><code><span class="label">read only</span><a href="../../openfl/display/Sprite.html#dropTarget"><span class="identifier">dropTarget</span></a>:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></code></p></h3><div class="doc"><p></p></div></div><div class="field "><a name="graphics"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/Sprite.html#graphics"><span class="identifier">graphics</span></a>:<a class="type" title="The Graphics class contains a set of methods that you can use to create a vector shape." href="../../openfl/display/Graphics.html">Graphics</a></code></p></h3><div class="doc"><p>Specifies the Graphics object that belongs to this sprite where vector
+drawing commands can occur.</p></div></div><div class="field "><a name="hitArea"></a><h3><p><code><a href="../../openfl/display/Sprite.html#hitArea"><span class="identifier">hitArea</span></a>:<a class="type" title="The Sprite class is a basic display list building block: a display list node that can display graphics and can also contain children." href="../../openfl/display/Sprite.html">Sprite</a></code></p></h3><div class="doc"><p></p></div></div><div class="field "><a name="useHandCursor"></a><h3><p><code><a href="../../openfl/display/Sprite.html#useHandCursor"><span class="identifier">useHandCursor</span></a>:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>A Boolean value that indicates whether the pointing hand(hand cursor)
+appears when the pointer rolls over a sprite in which the
+<code>buttonMode</code> property is set to <code>true</code>. The default
+value of the <code>useHandCursor</code> property is <code>true</code>. If
+<code>useHandCursor</code> is set to <code>true</code>, the pointing hand
+used for buttons appears when the pointer rolls over a button sprite. If
+<code>useHandCursor</code> is <code>false</code>, the arrow pointer is
+used instead.</p>
+<p>You can change the <code>useHandCursor</code> property at any time; the
+modified sprite immediately takes on the new cursor appearance. </p>
+<p><strong>Note:</strong> In Flex or Flash Builder, if your sprite has child
+sprites, you might want to set the <code>mouseChildren</code> property to
+<code>false</code>. For example, if you want a hand cursor to appear over
+a Flex <mx:Label> control, set the <code>useHandCursor</code> and
+<code>buttonMode</code> properties to <code>true</code>, and the
+<code>mouseChildren</code> property to <code>false</code>.</p></div></div></div><h3 class="section">Methods</h3><div class="fields"><div class="field "><a name="startDrag"></a><h3><p><code><a href="#startDrag"><span class="identifier">startDrag</span></a> (<span style="white-space:nowrap">lockCenter:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a> = false,</span> <span style="white-space:nowrap">?bounds:<a class="type" title="A Rectangle object is an area defined by its position, as indicated by its top-left corner point(x, y) and by its width and its height." href="../../openfl/geom/Rectangle.html">Rectangle</a></span>):<a class="type" title="The standard Void type." href="../../Void.html">Void</a></code></p></h3><div class="doc"><p>Lets the user drag the specified sprite. The sprite remains draggable
+until explicitly stopped through a call to the
+<code><a href="../../openfl/display/Sprite.html#stopDrag">Sprite.stopDrag</a>()</code> method, or until another sprite is made
+draggable. Only one sprite is draggable at a time.</p>
+<p>Three-dimensional display objects follow the pointer and
+<code><a href="../../openfl/display/Sprite.html#startDrag">Sprite.startDrag</a>()</code> moves the object within the
+three-dimensional plane defined by the display object. Or, if the display
+object is a two-dimensional object and the child of a three-dimensional
+object, the two-dimensional object moves within the three dimensional
+plane defined by the three-dimensional parent object.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>lockCenter</code></th><td><p>Specifies whether the draggable sprite is locked to the
+center of the pointer position(<code>true</code>), or
+locked to the point where the user first clicked the
+sprite(<code>false</code>).</p></td></tr><tr><th width="25%"><code>bounds</code></th><td><p>Value relative to the coordinates of the Sprite's parent
+that specify a constraint rectangle for the Sprite.</p></td></tr></table></div></div><div class="field "><a name="stopDrag"></a><h3><p><code><a href="#stopDrag"><span class="identifier">stopDrag</span></a> ():<a class="type" title="The standard Void type." href="../../Void.html">Void</a></code></p></h3><div class="doc"><p>Ends the <code>startDrag()</code> method. A sprite that was made draggable
+with the <code>startDrag()</code> method remains draggable until a
+<code>stopDrag()</code> method is added, or until another sprite becomes
+draggable. Only one sprite is draggable at a time.</p></div></div></div>  <div class="inherited-fields well"><h3 class="section">Inherited Variables</h3><div class="fields"><h4><a href="#" class="expand-button"><i class="fa fa-arrow-circle-o-right"></i></a> Defined by <a class="type" title="The DisplayObjectContainer class is the base class for all objects that can serve as display object containers on the display list." href="../../openfl/display/DisplayObjectContainer.html">DisplayObjectContainer</a></h4><div style="display:none"><div class="field "><a name="mouseChildren"></a><h3><p><code><a href="../../openfl/display/DisplayObjectContainer.html#mouseChildren"><span class="identifier">mouseChildren</span></a>:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Determines whether or not the children of the object are mouse, or user
+input device, enabled. If an object is enabled, a user can interact with
+it by using a mouse or user input device. The default is
+<code>true</code>.</p>
+<p>This property is useful when you create a button with an instance of
+the Sprite class(instead of using the SimpleButton class). When you use a
+Sprite instance to create a button, you can choose to decorate the button
+by using the <code>addChild()</code> method to add additional Sprite
+instances. This process can cause unexpected behavior with mouse events
+because the Sprite instances you add as children can become the target
+object of a mouse event when you expect the parent instance to be the
+target object. To ensure that the parent instance serves as the target
+objects for mouse events, you can set the <code>mouseChildren</code>
+property of the parent instance to <code>false</code>.</p>
+<p>No event is dispatched by setting this property. You must use the
+<code>addEventListener()</code> method to create interactive
+functionality.</p></div></div><div class="field "><a name="numChildren"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObjectContainer.html#numChildren"><span class="identifier">numChildren</span></a>:<a class="type" title="The standard Int type." href="../../Int.html">Int</a></code></p></h3><div class="doc"><p>Returns the number of children of this object.</p></div></div><div class="field "><a name="tabChildren"></a><h3><p><code><a href="../../openfl/display/DisplayObjectContainer.html#tabChildren"><span class="identifier">tabChildren</span></a>:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Determines whether the children of the object are tab enabled. Enables or
+disables tabbing for the children of the object. The default is
+<code>true</code>.</p>
+<p><strong>Note:</strong> Do not use the <code>tabChildren</code> property with
+Flex. Instead, use the
+<code>mx.core.UIComponent.hasFocusableChildren</code> property.</p><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>IllegalOperationError</code></th><td><p>Calling this property of the Stage object
+throws an exception. The Stage object does
+not implement this property.</p></td></tr></div></table></div></div></div><h4><a href="#" class="expand-button"><i class="fa fa-arrow-circle-o-right"></i></a> Defined by <a class="type" title="The InteractiveObject class is the abstract base class for all display objects with which the user can interact, using the mouse, keyboard, or other user input device." href="../../openfl/display/InteractiveObject.html">InteractiveObject</a></h4><div style="display:none"><div class="field "><a name="doubleClickEnabled"></a><h3><p><code><a href="../../openfl/display/InteractiveObject.html#doubleClickEnabled"><span class="identifier">doubleClickEnabled</span></a>:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Specifies whether the object receives <code>doubleClick</code> events. The
+default value is <code>false</code>, which means that by default an
+InteractiveObject instance does not receive <code>doubleClick</code>
+events. If the <code>doubleClickEnabled</code> property is set to
+<code>true</code>, the instance receives <code>doubleClick</code> events
+within its bounds. The <code>mouseEnabled</code> property of the
+InteractiveObject instance must also be set to <code>true</code> for the
+object to receive <code>doubleClick</code> events.</p>
+<p>No event is dispatched by setting this property. You must use the
+<code>addEventListener()</code> method to add an event listener for the
+<code>doubleClick</code> event.</p></div></div><div class="field "><a name="focusRect"></a><h3><p><code><a href="../../openfl/display/InteractiveObject.html#focusRect"><span class="identifier">focusRect</span></a>:<a class="type" title="Null can be useful in two cases." href="../../Null.html">Null</a>&lt;<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a>&gt;</code></p></h3><div class="doc"><p></p></div></div><div class="field "><a name="mouseEnabled"></a><h3><p><code><a href="../../openfl/display/InteractiveObject.html#mouseEnabled"><span class="identifier">mouseEnabled</span></a>:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Specifies whether this object receives mouse, or other user input,
+messages. The default value is <code>true</code>, which means that by
+default any InteractiveObject instance that is on the display list
+receives mouse events or other user input events. If
+<code>mouseEnabled</code> is set to <code>false</code>, the instance does
+not receive any mouse events(or other user input events like keyboard
+events). Any children of this instance on the display list are not
+affected. To change the <code>mouseEnabled</code> behavior for all
+children of an object on the display list, use
+<code><a href="../../openfl/display/DisplayObjectContainer.html#mouseChildren">openfl.display.DisplayObjectContainer.mouseChildren</a></code>.</p>
+<p>No event is dispatched by setting this property. You must use the
+<code>addEventListener()</code> method to create interactive
+functionality.</p></div></div><div class="field "><a name="needsSoftKeyboard"></a><h3><p><code><a href="../../openfl/display/InteractiveObject.html#needsSoftKeyboard"><span class="identifier">needsSoftKeyboard</span></a>:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Specifies whether a virtual keyboard(an on-screen, software keyboard)
+should display when this InteractiveObject instance receives focus.</p>
+<p>By default, the value is <code>false</code> and focusing an
+InteractiveObject instance does not raise a soft keyboard. If the
+<code>needsSoftKeyboard</code> property is set to <code>true</code>, the
+runtime raises a soft keyboard when the InteractiveObject instance is
+ready to accept user input. An InteractiveObject instance is ready to
+accept user input after a programmatic call to set the Stage
+<code>focus</code> property or a user interaction, such as a "tap." If the
+client system has a hardware keyboard available or does not support
+virtual keyboards, then the soft keyboard is not raised.</p>
+<p>The InteractiveObject instance dispatches
+<code>softKeyboardActivating</code>, <code>softKeyboardActivate</code>,
+and <code>softKeyboardDeactivate</code> events when the soft keyboard
+raises and lowers.</p>
+<p><strong>Note:</strong> This property is not supported in AIR applications on
+iOS.</p></div></div><div class="field "><a name="softKeyboardInputAreaOfInterest"></a><h3><p><code><a href="../../openfl/display/InteractiveObject.html#softKeyboardInputAreaOfInterest"><span class="identifier">softKeyboardInputAreaOfInterest</span></a>:<a class="type" title="A Rectangle object is an area defined by its position, as indicated by its top-left corner point(x, y) and by its width and its height." href="../../openfl/geom/Rectangle.html">Rectangle</a></code></p></h3><div class="doc"><p></p></div></div><div class="field "><a name="tabEnabled"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/InteractiveObject.html#tabEnabled"><span class="identifier">tabEnabled</span></a>:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p></p></div></div><div class="field "><a name="tabIndex"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/InteractiveObject.html#tabIndex"><span class="identifier">tabIndex</span></a>:<a class="type" title="The standard Int type." href="../../Int.html">Int</a></code></p></h3><div class="doc"><p></p></div></div></div><h4><a href="#" class="expand-button"><i class="fa fa-arrow-circle-o-right"></i></a> Defined by <a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></h4><div style="display:none"><div class="field "><a name="alpha"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#alpha"><span class="identifier">alpha</span></a>:<a class="type" title="The standard Float type, this is a double-precision IEEE 64bit float." href="../../Float.html">Float</a></code></p></h3><div class="doc"><p>Indicates the alpha transparency value of the object specified. Valid
+values are 0(fully transparent) to 1(fully opaque). The default value is
+1. Display objects with <code>alpha</code> set to 0 <em>are</em> active,
+even though they are invisible.</p></div></div><div class="field "><a name="blendMode"></a><h3><p><code><span class="label">read only</span><a href="../../openfl/display/DisplayObject.html#blendMode"><span class="identifier">blendMode</span></a>:<a class="type" title="A class that provides constant values for visual blend mode effects." href="../../openfl/display/BlendMode.html">BlendMode</a></code></p></h3><div class="doc"><p>A value from the BlendMode class that specifies which blend mode to use. A
+bitmap can be drawn internally in two ways. If you have a blend mode
+enabled or an external clipping mask, the bitmap is drawn by adding a
+bitmap-filled square shape to the vector render. If you attempt to set
+this property to an invalid value, Flash runtimes set the value to
+<code>BlendMode.NORMAL</code>.</p>
+<p>The <code>blendMode</code> property affects each pixel of the display
+object. Each pixel is composed of three constituent colors(red, green,
+and blue), and each constituent color has a value between 0x00 and 0xFF.
+Flash Player or Adobe AIR compares each constituent color of one pixel in
+the movie clip with the corresponding color of the pixel in the
+background. For example, if <code>blendMode</code> is set to
+<code>BlendMode.LIGHTEN</code>, Flash Player or Adobe AIR compares the red
+value of the display object with the red value of the background, and uses
+the lighter of the two as the value for the red component of the displayed
+color.</p>
+<p>The following table describes the <code>blendMode</code> settings. The
+BlendMode class defines string values you can use. The illustrations in
+the table show <code>blendMode</code> values applied to a circular display
+object(2) superimposed on another display object(1).</p></div></div><div class="field "><a name="cacheAsBitmap"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#cacheAsBitmap"><span class="identifier">cacheAsBitmap</span></a>:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>All vector data for a display object that has a cached bitmap is drawn
+to the bitmap instead of the main display. If
+<code>cacheAsBitmapMatrix</code> is null or unsupported, the bitmap is
+then copied to the main display as unstretched, unrotated pixels snapped
+to the nearest pixel boundaries. Pixels are mapped 1 to 1 with the parent
+object. If the bounds of the bitmap change, the bitmap is recreated
+instead of being stretched.</p>
+<p>If <code>cacheAsBitmapMatrix</code> is non-null and supported, the
+object is drawn to the off-screen bitmap using that matrix and the
+stretched and/or rotated results of that rendering are used to draw the
+object to the main display.</p>
+<p>No internal bitmap is created unless the <code>cacheAsBitmap</code>
+property is set to <code>true</code>.</p>
+<p>After you set the <code>cacheAsBitmap</code> property to
+<code>true</code>, the rendering does not change, however the display
+object performs pixel snapping automatically. The animation speed can be
+significantly faster depending on the complexity of the vector content.</p>
+<p>The <code>cacheAsBitmap</code> property is automatically set to
+<code>true</code> whenever you apply a filter to a display object(when
+its <code>filter</code> array is not empty), and if a display object has a
+filter applied to it, <code>cacheAsBitmap</code> is reported as
+<code>true</code> for that display object, even if you set the property to
+<code>false</code>. If you clear all filters for a display object, the
+<code>cacheAsBitmap</code> setting changes to what it was last set to.</p>
+<p>A display object does not use a bitmap even if the
+<code>cacheAsBitmap</code> property is set to <code>true</code> and
+instead renders from vector data in the following cases:</p><ul><li>The bitmap is too large. In AIR 1.5 and Flash Player 10, the maximum
+size for a bitmap image is 8,191 pixels in width or height, and the total
+number of pixels cannot exceed 16,777,215 pixels.(So, if a bitmap image
+is 8,191 pixels wide, it can only be 2,048 pixels high.) In Flash Player 9
+and earlier, the limitation is is 2880 pixels in height and 2,880 pixels
+in width.</li><li>The bitmap fails to allocate(out of memory error). </li></ul>
+<p>The <code>cacheAsBitmap</code> property is best used with movie clips
+that have mostly static content and that do not scale and rotate
+frequently. With such movie clips, <code>cacheAsBitmap</code> can lead to
+performance increases when the movie clip is translated(when its <em>x</em>
+and <em>y</em> position is changed).</p></div></div><div class="field "><a name="filters"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#filters"><span class="identifier">filters</span></a>:<a class="type" title="An Array is a storage for values." href="../../Array.html">Array</a>&lt;<a class="type" title="The BitmapFilter class is the base class for all image filter effects." href="../../openfl/filters/BitmapFilter.html">BitmapFilter</a>&gt;</code></p></h3><div class="doc"><p>An indexed array that contains each filter object currently associated
+with the display object. The openfl.filters package contains several
+classes that define specific filters you can use.</p>
+<p>Filters can be applied in Flash Professional at design time, or at run
+time by using ActionScript code. To apply a filter by using ActionScript,
+you must make a temporary copy of the entire <code>filters</code> array,
+modify the temporary array, then assign the value of the temporary array
+back to the <code>filters</code> array. You cannot directly add a new
+filter object to the <code>filters</code> array.</p>
+<p>To add a filter by using ActionScript, perform the following steps
+(assume that the target display object is named
+<code>myDisplayObject</code>):</p><ol><li>Create a new filter object by using the constructor method of your
+chosen filter class.</li><li>Assign the value of the <code>myDisplayObject.filters</code> array
+to a temporary array, such as one named <code>myFilters</code>.</li><li>Add the new filter object to the <code>myFilters</code> temporary
+array.</li><li>Assign the value of the temporary array to the
+<code>myDisplayObject.filters</code> array.</li></ol>
+<p>If the <code>filters</code> array is undefined, you do not need to use
+a temporary array. Instead, you can directly assign an array literal that
+contains one or more filter objects that you create. The first example in
+the Examples section adds a drop shadow filter by using code that handles
+both defined and undefined <code>filters</code> arrays.</p>
+<p>To modify an existing filter object, you must use the technique of
+modifying a copy of the <code>filters</code> array:</p><ol><li>Assign the value of the <code>filters</code> array to a temporary
+array, such as one named <code>myFilters</code>.</li><li>Modify the property by using the temporary array,
+<code>myFilters</code>. For example, to set the quality property of the
+first filter in the array, you could use the following code:
+<code>myFilters[0].quality = 1;</code></li><li>Assign the value of the temporary array to the <code>filters</code>
+array.</li></ol>
+<p>At load time, if a display object has an associated filter, it is
+marked to cache itself as a transparent bitmap. From this point forward,
+as long as the display object has a valid filter list, the player caches
+the display object as a bitmap. This source bitmap is used as a source
+image for the filter effects. Each display object usually has two bitmaps:
+one with the original unfiltered source display object and another for the
+final image after filtering. The final image is used when rendering. As
+long as the display object does not change, the final image does not need
+updating.</p>
+<p>The openfl.filters package includes classes for filters. For example, to
+create a DropShadow filter, you would write:</p><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>ArgumentError</code></th><td><p>When <code>filters</code> includes a ShaderFilter
+and the shader output type is not compatible with
+this operation(the shader must specify a
+<code>pixel4</code> output).</p></td></tr></div><div class="indent inline-content"><tr><th width="25%"><code>ArgumentError</code></th><td><p>When <code>filters</code> includes a ShaderFilter
+and the shader doesn't specify any image input or
+the first input is not an <code>image4</code> input.</p></td></tr></div><div class="indent inline-content"><tr><th width="25%"><code>ArgumentError</code></th><td><p>When <code>filters</code> includes a ShaderFilter
+and the shader specifies an image input that isn't
+provided.</p></td></tr></div><div class="indent inline-content"><tr><th width="25%"><code>ArgumentError</code></th><td><p>When <code>filters</code> includes a ShaderFilter, a
+ByteArray or Vector.<Number> instance as a shader
+input, and the <code>width</code> and
+<code>height</code> properties aren't specified for
+the ShaderInput object, or the specified values
+don't match the amount of data in the input data.
+See the <code><a href="../../openfl/display/ShaderInput.html#input">ShaderInput.input</a></code> property for
+more information.</p></td></tr></div></table></div></div><div class="field "><a name="height"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#height"><span class="identifier">height</span></a>:<a class="type" title="The standard Float type, this is a double-precision IEEE 64bit float." href="../../Float.html">Float</a></code></p></h3><div class="doc"><p>Indicates the height of the display object, in pixels. The height is
+calculated based on the bounds of the content of the display object. When
+you set the <code>height</code> property, the <code>scaleY</code> property
+is adjusted accordingly, as shown in the following code:</p>
+<p>Except for TextField and Video objects, a display object with no
+content(such as an empty sprite) has a height of 0, even if you try to
+set <code>height</code> to a different value.</p></div></div><div class="field "><a name="loaderInfo"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#loaderInfo"><span class="identifier">loaderInfo</span></a>:<a class="type" title="The LoaderInfo class provides information about a loaded SWF file or a loaded image file(JPEG, GIF, or PNG)." href="../../openfl/display/LoaderInfo.html">LoaderInfo</a></code></p></h3><div class="doc"><p>Returns a LoaderInfo object containing information about loading the file
+to which this display object belongs. The <code>loaderInfo</code> property
+is defined only for the root display object of a SWF file or for a loaded
+Bitmap(not for a Bitmap that is drawn with ActionScript). To find the
+<code>loaderInfo</code> object associated with the SWF file that contains
+a display object named <code>myDisplayObject</code>, use
+<code>myDisplayObject.root.loaderInfo</code>.</p>
+<p>A large SWF file can monitor its download by calling
+<code>this.<a href="#root">root</a>.loaderInfo.addEventListener(Event.COMPLETE,
+func)</code>.</p></div></div><div class="field "><a name="mask"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#mask"><span class="identifier">mask</span></a>:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></code></p></h3><div class="doc"><p>The calling display object is masked by the specified <code>mask</code>
+object. To ensure that masking works when the Stage is scaled, the
+<code>mask</code> display object must be in an active part of the display
+list. The <code>mask</code> object itself is not drawn. Set
+<code>mask</code> to <code>null</code> to remove the mask.</p>
+<p>To be able to scale a mask object, it must be on the display list. To
+be able to drag a mask Sprite object(by calling its
+<code>startDrag()</code> method), it must be on the display list. To call
+the <code>startDrag()</code> method for a mask sprite based on a
+<code>mouseDown</code> event being dispatched by the sprite, set the
+sprite's <code>buttonMode</code> property to <code>true</code>.</p>
+<p>When display objects are cached by setting the
+<code>cacheAsBitmap</code> property to <code>true</code> an the
+<code>cacheAsBitmapMatrix</code> property to a Matrix object, both the
+mask and the display object being masked must be part of the same cached
+bitmap. Thus, if the display object is cached, then the mask must be a
+child of the display object. If an ancestor of the display object on the
+display list is cached, then the mask must be a child of that ancestor or
+one of its descendents. If more than one ancestor of the masked object is
+cached, then the mask must be a descendent of the cached container closest
+to the masked object in the display list.</p>
+<p><strong>Note:</strong> A single <code>mask</code> object cannot be used to mask
+more than one calling display object. When the <code>mask</code> is
+assigned to a second display object, it is removed as the mask of the
+first object, and that object's <code>mask</code> property becomes
+<code>null</code>.</p></div></div><div class="field "><a name="mouseX"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#mouseX"><span class="identifier">mouseX</span></a>:<a class="type" title="The standard Float type, this is a double-precision IEEE 64bit float." href="../../Float.html">Float</a></code></p></h3><div class="doc"><p>Indicates the x coordinate of the mouse or user input device position, in
+pixels.</p>
+<p><strong>Note</strong>: For a DisplayObject that has been rotated, the returned x
+coordinate will reflect the non-rotated object.</p></div></div><div class="field "><a name="mouseY"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#mouseY"><span class="identifier">mouseY</span></a>:<a class="type" title="The standard Float type, this is a double-precision IEEE 64bit float." href="../../Float.html">Float</a></code></p></h3><div class="doc"><p>Indicates the y coordinate of the mouse or user input device position, in
+pixels.</p>
+<p><strong>Note</strong>: For a DisplayObject that has been rotated, the returned y
+coordinate will reflect the non-rotated object.</p></div></div><div class="field "><a name="name"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#name"><span class="identifier">name</span></a>:<a class="type" title="The basic String class." href="../../String.html">String</a></code></p></h3><div class="doc"><p>Indicates the instance name of the DisplayObject. The object can be
+identified in the child list of its parent display object container by
+calling the <code>getChildByName()</code> method of the display object
+container.</p><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>IllegalOperationError</code></th><td><p>If you are attempting to set this property
+on an object that was placed on the timeline
+in the Flash authoring tool.</p></td></tr></div></table></div></div><div class="field "><a name="opaqueBackground"></a><h3><p><code><a href="../../openfl/display/DisplayObject.html#opaqueBackground"><span class="identifier">opaqueBackground</span></a>:<a class="type" title="Null can be useful in two cases." href="../../Null.html">Null</a>&lt;<a class="type" title="The unsigned Int type is only defined for Flash and C#." href="../../UInt.html">UInt</a>&gt;</code></p></h3><div class="doc"><p>Specifies whether the display object is opaque with a certain background
+color. A transparent bitmap contains alpha channel data and is drawn
+transparently. An opaque bitmap has no alpha channel(and renders faster
+than a transparent bitmap). If the bitmap is opaque, you specify its own
+background color to use.</p>
+<p>If set to a number value, the surface is opaque(not transparent) with
+the RGB background color that the number specifies. If set to
+<code>null</code>(the default value), the display object has a
+transparent background.</p>
+<p>The <code>opaqueBackground</code> property is intended mainly for use
+with the <code>cacheAsBitmap</code> property, for rendering optimization.
+For display objects in which the <code>cacheAsBitmap</code> property is
+set to true, setting <code>opaqueBackground</code> can improve rendering
+performance.</p>
+<p>The opaque background region is <em>not</em> matched when calling the
+<code>hitTestPoint()</code> method with the <code>shapeFlag</code>
+parameter set to <code>true</code>.</p>
+<p>The opaque background region does not respond to mouse events.</p></div></div><div class="field "><a name="parent"></a><h3><p><code><span class="label">read only</span><a href="../../openfl/display/DisplayObject.html#parent"><span class="identifier">parent</span></a>:<a class="type" title="The DisplayObjectContainer class is the base class for all objects that can serve as display object containers on the display list." href="../../openfl/display/DisplayObjectContainer.html">DisplayObjectContainer</a></code></p></h3><div class="doc"><p>Indicates the DisplayObjectContainer object that contains this display
+object. Use the <code>parent</code> property to specify a relative path to
+display objects that are above the current display object in the display
+list hierarchy.</p>
+<p>You can use <code>parent</code> to move up multiple levels in the
+display list as in the following:</p><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>SecurityError</code></th><td><p>The parent display object belongs to a security
+sandbox to which you do not have access. You can
+avoid this situation by having the parent movie call
+the <code><a href="../../openfl/system/Security.html#allowDomain">Security.allowDomain</a>()</code> method.</p></td></tr></div></table></div></div><div class="field "><a name="root"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#root"><span class="identifier">root</span></a>:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></code></p></h3><div class="doc"><p>For a display object in a loaded SWF file, the <code>root</code> property
+is the top-most display object in the portion of the display list's tree
+structure represented by that SWF file. For a Bitmap object representing a
+loaded image file, the <code>root</code> property is the Bitmap object
+itself. For the instance of the main class of the first SWF file loaded,
+the <code>root</code> property is the display object itself. The
+<code>root</code> property of the Stage object is the Stage object itself.
+The <code>root</code> property is set to <code>null</code> for any display
+object that has not been added to the display list, unless it has been
+added to a display object container that is off the display list but that
+is a child of the top-most display object in a loaded SWF file.</p>
+<p>For example, if you create a new Sprite object by calling the
+<code><a href="../../openfl/display/Sprite.html">Sprite</a>()</code> constructor method, its <code>root</code> property
+is <code>null</code> until you add it to the display list(or to a display
+object container that is off the display list but that is a child of the
+top-most display object in a SWF file).</p>
+<p>For a loaded SWF file, even though the Loader object used to load the
+file may not be on the display list, the top-most display object in the
+SWF file has its <code>root</code> property set to itself. The Loader
+object does not have its <code>root</code> property set until it is added
+as a child of a display object for which the <code>root</code> property is
+set.</p></div></div><div class="field "><a name="rotation"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#rotation"><span class="identifier">rotation</span></a>:<a class="type" title="The standard Float type, this is a double-precision IEEE 64bit float." href="../../Float.html">Float</a></code></p></h3><div class="doc"><p>Indicates the rotation of the DisplayObject instance, in degrees, from its
+original orientation. Values from 0 to 180 represent clockwise rotation;
+values from 0 to -180 represent counterclockwise rotation. Values outside
+this range are added to or subtracted from 360 to obtain a value within
+the range. For example, the statement <code>my_video.rotation = 450</code>
+is the same as <code> my_video.rotation = 90</code>.</p></div></div><div class="field "><a name="scale9Grid"></a><h3><p><code><a href="../../openfl/display/DisplayObject.html#scale9Grid"><span class="identifier">scale9Grid</span></a>:<a class="type" title="A Rectangle object is an area defined by its position, as indicated by its top-left corner point(x, y) and by its width and its height." href="../../openfl/geom/Rectangle.html">Rectangle</a></code></p></h3><div class="doc"><p>The current scaling grid that is in effect. If set to <code>null</code>,
+the entire display object is scaled normally when any scale transformation
+is applied.</p>
+<p>When you define the <code>scale9Grid</code> property, the display
+object is divided into a grid with nine regions based on the
+<code>scale9Grid</code> rectangle, which defines the center region of the
+grid. The eight other regions of the grid are the following areas: </p><ul><li>The upper-left corner outside of the rectangle</li><li>The area above the rectangle </li><li>The upper-right corner outside of the rectangle</li><li>The area to the left of the rectangle</li><li>The area to the right of the rectangle</li><li>The lower-left corner outside of the rectangle</li><li>The area below the rectangle</li><li>The lower-right corner outside of the rectangle</li></ul>
+<p>You can think of the eight regions outside of the center(defined by
+the rectangle) as being like a picture frame that has special rules
+applied to it when scaled.</p>
+<p>When the <code>scale9Grid</code> property is set and a display object
+is scaled, all text and gradients are scaled normally; however, for other
+types of objects the following rules apply:</p><ul><li>Content in the center region is scaled normally. </li><li>Content in the corners is not scaled. </li><li>Content in the top and bottom regions is scaled horizontally only.
+Content in the left and right regions is scaled vertically only.</li><li>All fills(including bitmaps, video, and gradients) are stretched to
+fit their shapes.</li></ul>
+<p>If a display object is rotated, all subsequent scaling is normal(and
+the <code>scale9Grid</code> property is ignored).</p>
+<p>For example, consider the following display object and a rectangle that
+is applied as the display object's <code>scale9Grid</code>:</p>
+<p>A common use for setting <code>scale9Grid</code> is to set up a display
+object to be used as a component, in which edge regions retain the same
+width when the component is scaled.</p><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>ArgumentError</code></th><td><p>If you pass an invalid argument to the method.</p></td></tr></div></table></div></div><div class="field "><a name="scaleX"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#scaleX"><span class="identifier">scaleX</span></a>:<a class="type" title="The standard Float type, this is a double-precision IEEE 64bit float." href="../../Float.html">Float</a></code></p></h3><div class="doc"><p>Indicates the horizontal scale(percentage) of the object as applied from
+the registration point. The default registration point is(0,0). 1.0
+equals 100% scale.</p>
+<p>Scaling the local coordinate system changes the <code>x</code> and
+<code>y</code> property values, which are defined in whole pixels.</p></div></div><div class="field "><a name="scaleY"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#scaleY"><span class="identifier">scaleY</span></a>:<a class="type" title="The standard Float type, this is a double-precision IEEE 64bit float." href="../../Float.html">Float</a></code></p></h3><div class="doc"><p>Indicates the vertical scale(percentage) of an object as applied from the
+registration point of the object. The default registration point is(0,0).
+1.0 is 100% scale.</p>
+<p>Scaling the local coordinate system changes the <code>x</code> and
+<code>y</code> property values, which are defined in whole pixels.</p></div></div><div class="field "><a name="scrollRect"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#scrollRect"><span class="identifier">scrollRect</span></a>:<a class="type" title="A Rectangle object is an area defined by its position, as indicated by its top-left corner point(x, y) and by its width and its height." href="../../openfl/geom/Rectangle.html">Rectangle</a></code></p></h3><div class="doc"><p>The scroll rectangle bounds of the display object. The display object is
+cropped to the size defined by the rectangle, and it scrolls within the
+rectangle when you change the <code>x</code> and <code>y</code> properties
+of the <code>scrollRect</code> object.</p>
+<p>The properties of the <code>scrollRect</code> Rectangle object use the
+display object's coordinate space and are scaled just like the overall
+display object. The corner bounds of the cropped window on the scrolling
+display object are the origin of the display object(0,0) and the point
+defined by the width and height of the rectangle. They are not centered
+around the origin, but use the origin to define the upper-left corner of
+the area. A scrolled display object always scrolls in whole pixel
+increments. </p>
+<p>You can scroll an object left and right by setting the <code>x</code>
+property of the <code>scrollRect</code> Rectangle object. You can scroll
+an object up and down by setting the <code>y</code> property of the
+<code>scrollRect</code> Rectangle object. If the display object is rotated
+90° and you scroll it left and right, the display object actually scrolls
+up and down.</p></div></div><div class="field "><a name="stage"></a><h3><p><code><span class="label">read only</span><a href="../../openfl/display/DisplayObject.html#stage"><span class="identifier">stage</span></a>:<a class="type" title="The Stage class represents the main drawing area." href="../../openfl/display/Stage.html">Stage</a></code></p></h3><div class="doc"><p>The Stage of the display object. A Flash runtime application has only one
+Stage object. For example, you can create and load multiple display
+objects into the display list, and the <code>stage</code> property of each
+display object refers to the same Stage object(even if the display object
+belongs to a loaded SWF file).</p>
+<p>If a display object is not added to the display list, its
+<code>stage</code> property is set to <code>null</code>.</p></div></div><div class="field "><a name="transform"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#transform"><span class="identifier">transform</span></a>:<a class="type" title="The Transform class provides access to color adjustment properties and two- or three-dimensional transformation objects that can be applied to a display object." href="../../openfl/geom/Transform.html">Transform</a></code></p></h3><div class="doc"><p>An object with properties pertaining to a display object's matrix, color
+transform, and pixel bounds. The specific properties  -  matrix,
+colorTransform, and three read-only properties
+(<code>concatenatedMatrix</code>, <code>concatenatedColorTransform</code>,
+and <code>pixelBounds</code>)  -  are described in the entry for the
+Transform class.</p>
+<p>Each of the transform object's properties is itself an object. This
+concept is important because the only way to set new values for the matrix
+or colorTransform objects is to create a new object and copy that object
+into the transform.matrix or transform.colorTransform property.</p>
+<p>For example, to increase the <code>tx</code> value of a display
+object's matrix, you must make a copy of the entire matrix object, then
+copy the new object into the matrix property of the transform object:
+<code> var myMatrix:<a href="../../openfl/geom/Matrix.html">Matrix</a> =
+myDisplayObject.transform.matrix; myMatrix.tx += 10;
+myDisplayObject.transform.matrix = myMatrix; </code></p>
+<p>You cannot directly set the <code>tx</code> property. The following
+code has no effect on <code>myDisplayObject</code>: 
+<code> myDisplayObject.transform.matrix.tx +=
+10; </code></p>
+<p>You can also copy an entire transform object and assign it to another
+display object's transform property. For example, the following code
+copies the entire transform object from <code>myOldDisplayObj</code> to
+<code>myNewDisplayObj</code>:
+<code>myNewDisplayObj.transform = myOldDisplayObj.transform;</code></p>
+<p>The resulting display object, <code>myNewDisplayObj</code>, now has the
+same values for its matrix, color transform, and pixel bounds as the old
+display object, <code>myOldDisplayObj</code>.</p>
+<p>Note that AIR for TV devices use hardware acceleration, if it is
+available, for color transforms.</p></div></div><div class="field "><a name="visible"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#visible"><span class="identifier">visible</span></a>:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Whether or not the display object is visible. Display objects that are not
+visible are disabled. For example, if <code>visible=false</code> for an
+InteractiveObject instance, it cannot be clicked.</p></div></div><div class="field "><a name="width"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#width"><span class="identifier">width</span></a>:<a class="type" title="The standard Float type, this is a double-precision IEEE 64bit float." href="../../Float.html">Float</a></code></p></h3><div class="doc"><p>Indicates the width of the display object, in pixels. The width is
+calculated based on the bounds of the content of the display object. When
+you set the <code>width</code> property, the <code>scaleX</code> property
+is adjusted accordingly, as shown in the following code:</p>
+<p>Except for TextField and Video objects, a display object with no
+content(such as an empty sprite) has a width of 0, even if you try to set
+<code>width</code> to a different value.</p></div></div><div class="field "><a name="x"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#x"><span class="identifier">x</span></a>:<a class="type" title="The standard Float type, this is a double-precision IEEE 64bit float." href="../../Float.html">Float</a></code></p></h3><div class="doc"><p>Indicates the <em>x</em> coordinate of the DisplayObject instance relative
+to the local coordinates of the parent DisplayObjectContainer. If the
+object is inside a DisplayObjectContainer that has transformations, it is
+in the local coordinate system of the enclosing DisplayObjectContainer.
+Thus, for a DisplayObjectContainer rotated 90° counterclockwise, the
+DisplayObjectContainer's children inherit a coordinate system that is
+rotated 90° counterclockwise. The object's coordinates refer to the
+registration point position.</p></div></div><div class="field "><a name="y"></a><h3><p><code><span class="label">read only</span><span class="label">write only</span><a href="../../openfl/display/DisplayObject.html#y"><span class="identifier">y</span></a>:<a class="type" title="The standard Float type, this is a double-precision IEEE 64bit float." href="../../Float.html">Float</a></code></p></h3><div class="doc"><p>Indicates the <em>y</em> coordinate of the DisplayObject instance relative
+to the local coordinates of the parent DisplayObjectContainer. If the
+object is inside a DisplayObjectContainer that has transformations, it is
+in the local coordinate system of the enclosing DisplayObjectContainer.
+Thus, for a DisplayObjectContainer rotated 90° counterclockwise, the
+DisplayObjectContainer's children inherit a coordinate system that is
+rotated 90° counterclockwise. The object's coordinates refer to the
+registration point position.</p></div></div></div><div style="display:none"></div></div><h3 class="section">Inherited Methods</h3><div class="fields"><h4><a href="#" class="expand-button"><i class="fa fa-arrow-circle-o-right"></i></a> Defined by <a class="type" title="The DisplayObjectContainer class is the base class for all objects that can serve as display object containers on the display list." href="../../openfl/display/DisplayObjectContainer.html">DisplayObjectContainer</a></h4><div style="display:none"><div class="field "><a name="addChild"></a><h3><p><code><a href="#addChild"><span class="identifier">addChild</span></a> (<span style="white-space:nowrap">child:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></span>):<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></code></p></h3><div class="doc"><p>Adds a child DisplayObject instance to this DisplayObjectContainer
+instance. The child is added to the front(top) of all other children in
+this DisplayObjectContainer instance.(To add a child to a specific index
+position, use the <code>addChildAt()</code> method.)</p>
+<p>If you add a child object that already has a different display object
+container as a parent, the object is removed from the child list of the
+other display object container. </p>
+<p><strong>Note:</strong> The command <code>stage.addChild()</code> can cause
+problems with a published SWF file, including security problems and
+conflicts with other loaded SWF files. There is only one Stage within a
+Flash runtime instance, no matter how many SWF files you load into the
+runtime. So, generally, objects should not be added to the Stage,
+directly, at all. The only object the Stage should contain is the root
+object. Create a DisplayObjectContainer to contain all of the items on the
+display list. Then, if necessary, add that DisplayObjectContainer instance
+to the Stage.</p>
+<p>@event added Dispatched when a display object is added to the display</p>
+<pre><code>         list.
+</code></pre><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>child</code></th><td><p>The DisplayObject instance to add as a child of this
+DisplayObjectContainer instance.</p></td></tr></table><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>ArgumentError</code></th><td><p>Throws if the child is the same as the parent. Also
+throws if the caller is a child(or grandchild etc.)
+of the child being added.</p></td></tr></div></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>The DisplayObject instance that you pass in the <code>child</code>
+parameter.</p></div></div></div><div class="field "><a name="addChildAt"></a><h3><p><code><a href="#addChildAt"><span class="identifier">addChildAt</span></a> (<span style="white-space:nowrap">child:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a>,</span> <span style="white-space:nowrap">index:<a class="type" title="The standard Int type." href="../../Int.html">Int</a></span>):<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></code></p></h3><div class="doc"><p>Adds a child DisplayObject instance to this DisplayObjectContainer
+instance. The child is added at the index position specified. An index of
+0 represents the back(bottom) of the display list for this
+DisplayObjectContainer object.</p>
+<p>For example, the following example shows three display objects, labeled
+a, b, and c, at index positions 0, 2, and 1, respectively:</p>
+<p>If you add a child object that already has a different display object
+container as a parent, the object is removed from the child list of the
+other display object container. </p>
+<p>@event added Dispatched when a display object is added to the display</p>
+<pre><code>         list.
+</code></pre><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>child</code></th><td><p>The DisplayObject instance to add as a child of this
+DisplayObjectContainer instance.</p></td></tr><tr><th width="25%"><code>index</code></th><td><p>The index position to which the child is added. If you
+specify a currently occupied index position, the child object
+that exists at that position and all higher positions are
+moved up one position in the child list.</p></td></tr></table><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>ArgumentError</code></th><td><p>Throws if the child is the same as the parent. Also
+throws if the caller is a child(or grandchild etc.)
+of the child being added.</p></td></tr></div><div class="indent inline-content"><tr><th width="25%"><code>RangeError</code></th><td><p>Throws if the index position does not exist in the
+child list.</p></td></tr></div></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>The DisplayObject instance that you pass in the <code>child</code>
+parameter.</p></div></div></div><div class="field "><a name="areInaccessibleObjectsUnderPoint"></a><h3><p><code><a href="#areInaccessibleObjectsUnderPoint"><span class="identifier">areInaccessibleObjectsUnderPoint</span></a> (<span style="white-space:nowrap">point:<a class="type" title="The Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis." href="../../openfl/geom/Point.html">Point</a></span>):<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Indicates whether the security restrictions would cause any display
+objects to be omitted from the list returned by calling the
+<code><a href="../../openfl/display/DisplayObjectContainer.html#getObjectsUnderPoint">DisplayObjectContainer.getObjectsUnderPoint</a>()</code> method with the
+specified <code>point</code> point. By default, content from one domain
+cannot access objects from another domain unless they are permitted to do
+so with a call to the <code><a href="../../openfl/system/Security.html#allowDomain">Security.allowDomain</a>()</code> method. For more
+information, related to security, see the Flash Player Developer Center
+Topic: <a href="http://www.adobe.com/go/devnet_security_en">Security</a>.</p>
+<p>The <code>point</code> parameter is in the coordinate space of the
+Stage, which may differ from the coordinate space of the display object
+container(unless the display object container is the Stage). You can use
+the <code>globalToLocal()</code> and the <code>localToGlobal()</code>
+methods to convert points between these coordinate spaces.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>point</code></th><td><p>The point under which to look.</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p><code>true</code> if the point contains child display objects with
+security restrictions.</p></div></div></div><div class="field "><a name="contains"></a><h3><p><code><a href="#contains"><span class="identifier">contains</span></a> (<span style="white-space:nowrap">child:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></span>):<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Determines whether the specified display object is a child of the
+DisplayObjectContainer instance or the instance itself. The search
+includes the entire display list including this DisplayObjectContainer
+instance. Grandchildren, great-grandchildren, and so on each return
+<code>true</code>.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>child</code></th><td><p>The child object to test.</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p><code>true</code> if the <code>child</code> object is a child of
+the DisplayObjectContainer or the container itself; otherwise
+<code>false</code>.</p></div></div></div><div class="field "><a name="getChildAt"></a><h3><p><code><a href="#getChildAt"><span class="identifier">getChildAt</span></a> (<span style="white-space:nowrap">index:<a class="type" title="The standard Int type." href="../../Int.html">Int</a></span>):<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></code></p></h3><div class="doc"><p>Returns the child display object instance that exists at the specified
+index.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>index</code></th><td><p>The index position of the child object.</p></td></tr></table><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>RangeError</code></th><td><p>Throws if the index does not exist in the child
+list.</p></td></tr></div><div class="indent inline-content"><tr><th width="25%"><code>SecurityError</code></th><td><p>This child display object belongs to a sandbox to
+which you do not have access. You can avoid this
+situation by having the child movie call
+<code><a href="../../openfl/system/Security.html#allowDomain">Security.allowDomain</a>()</code>.</p></td></tr></div></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>The child display object at the specified index position.</p></div></div></div><div class="field "><a name="getChildByName"></a><h3><p><code><a href="#getChildByName"><span class="identifier">getChildByName</span></a> (<span style="white-space:nowrap">name:<a class="type" title="The basic String class." href="../../String.html">String</a></span>):<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></code></p></h3><div class="doc"><p>Returns the child display object that exists with the specified name. If
+more that one child display object has the specified name, the method
+returns the first object in the child list.</p>
+<p>The <code>getChildAt()</code> method is faster than the
+<code>getChildByName()</code> method. The <code>getChildAt()</code> method
+accesses a child from a cached array, whereas the
+<code>getChildByName()</code> method has to traverse a linked list to
+access a child.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>name</code></th><td><p>The name of the child to return.</p></td></tr></table><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>SecurityError</code></th><td><p>This child display object belongs to a sandbox to
+which you do not have access. You can avoid this
+situation by having the child movie call the
+<code><a href="../../openfl/system/Security.html#allowDomain">Security.allowDomain</a>()</code> method.</p></td></tr></div></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>The child display object with the specified name.</p></div></div></div><div class="field "><a name="getChildIndex"></a><h3><p><code><a href="#getChildIndex"><span class="identifier">getChildIndex</span></a> (<span style="white-space:nowrap">child:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></span>):<a class="type" title="The standard Int type." href="../../Int.html">Int</a></code></p></h3><div class="doc"><p>Returns the index position of a <code>child</code> DisplayObject instance.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>child</code></th><td><p>The DisplayObject instance to identify.</p></td></tr></table><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>ArgumentError</code></th><td><p>Throws if the child parameter is not a child of this
+object.</p></td></tr></div></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>The index position of the child display object to identify.</p></div></div></div><div class="field "><a name="getObjectsUnderPoint"></a><h3><p><code><a href="#getObjectsUnderPoint"><span class="identifier">getObjectsUnderPoint</span></a> (<span style="white-space:nowrap">point:<a class="type" title="The Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis." href="../../openfl/geom/Point.html">Point</a></span>):<a class="type" title="An Array is a storage for values." href="../../Array.html">Array</a>&lt;<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a>&gt;</code></p></h3><div class="doc"><p>Returns an array of objects that lie under the specified point and are
+children(or grandchildren, and so on) of this DisplayObjectContainer
+instance. Any child objects that are inaccessible for security reasons are
+omitted from the returned array. To determine whether this security
+restriction affects the returned array, call the
+<code>areInaccessibleObjectsUnderPoint()</code> method.</p>
+<p>The <code>point</code> parameter is in the coordinate space of the
+Stage, which may differ from the coordinate space of the display object
+container(unless the display object container is the Stage). You can use
+the <code>globalToLocal()</code> and the <code>localToGlobal()</code>
+methods to convert points between these coordinate spaces.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>point</code></th><td><p>The point under which to look.</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>An array of objects that lie under the specified point and are
+children(or grandchildren, and so on) of this
+DisplayObjectContainer instance.</p></div></div></div><div class="field "><a name="removeChild"></a><h3><p><code><a href="#removeChild"><span class="identifier">removeChild</span></a> (<span style="white-space:nowrap">child:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></span>):<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></code></p></h3><div class="doc"><p>Removes the specified <code>child</code> DisplayObject instance from the
+child list of the DisplayObjectContainer instance. The <code>parent</code>
+property of the removed child is set to <code>null</code> , and the object
+is garbage collected if no other references to the child exist. The index
+positions of any display objects above the child in the
+DisplayObjectContainer are decreased by 1.</p>
+<p>The garbage collector reallocates unused memory space. When a variable
+or object is no longer actively referenced or stored somewhere, the
+garbage collector sweeps through and wipes out the memory space it used to
+occupy if no other references to it exist.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>child</code></th><td><p>The DisplayObject instance to remove.</p></td></tr></table><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>ArgumentError</code></th><td><p>Throws if the child parameter is not a child of this
+object.</p></td></tr></div></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>The DisplayObject instance that you pass in the <code>child</code>
+parameter.</p></div></div></div><div class="field "><a name="removeChildAt"></a><h3><p><code><a href="#removeChildAt"><span class="identifier">removeChildAt</span></a> (<span style="white-space:nowrap">index:<a class="type" title="The standard Int type." href="../../Int.html">Int</a></span>):<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></code></p></h3><div class="doc"><p>Removes a child DisplayObject from the specified <code>index</code>
+position in the child list of the DisplayObjectContainer. The
+<code>parent</code> property of the removed child is set to
+<code>null</code>, and the object is garbage collected if no other
+references to the child exist. The index positions of any display objects
+above the child in the DisplayObjectContainer are decreased by 1.</p>
+<p>The garbage collector reallocates unused memory space. When a variable
+or object is no longer actively referenced or stored somewhere, the
+garbage collector sweeps through and wipes out the memory space it used to
+occupy if no other references to it exist.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>index</code></th><td><p>The child index of the DisplayObject to remove.</p></td></tr></table><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>RangeError</code></th><td><p>Throws if the index does not exist in the child
+list.</p></td></tr></div><div class="indent inline-content"><tr><th width="25%"><code>SecurityError</code></th><td><p>This child display object belongs to a sandbox to
+which the calling object does not have access. You
+can avoid this situation by having the child movie
+call the <code><a href="../../openfl/system/Security.html#allowDomain">Security.allowDomain</a>()</code> method.</p></td></tr></div></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>The DisplayObject instance that was removed.</p></div></div></div><div class="field "><a name="removeChildren"></a><h3><p><code><a href="#removeChildren"><span class="identifier">removeChildren</span></a> (<span style="white-space:nowrap">beginIndex:<a class="type" title="The standard Int type." href="../../Int.html">Int</a> = 0,</span> <span style="white-space:nowrap">endIndex:<a class="type" title="The standard Int type." href="../../Int.html">Int</a> = 0x7FFFFFFF</span>):<a class="type" title="The standard Void type." href="../../Void.html">Void</a></code></p></h3><div class="doc"><p></p></div></div><div class="field "><a name="setChildIndex"></a><h3><p><code><a href="#setChildIndex"><span class="identifier">setChildIndex</span></a> (<span style="white-space:nowrap">child:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a>,</span> <span style="white-space:nowrap">index:<a class="type" title="The standard Int type." href="../../Int.html">Int</a></span>):<a class="type" title="The standard Void type." href="../../Void.html">Void</a></code></p></h3><div class="doc"><p>Changes the position of an existing child in the display object container.
+This affects the layering of child objects. For example, the following
+example shows three display objects, labeled a, b, and c, at index
+positions 0, 1, and 2, respectively:</p>
+<p>When you use the <code>setChildIndex()</code> method and specify an
+index position that is already occupied, the only positions that change
+are those in between the display object's former and new position. All
+others will stay the same. If a child is moved to an index LOWER than its
+current index, all children in between will INCREASE by 1 for their index
+reference. If a child is moved to an index HIGHER than its current index,
+all children in between will DECREASE by 1 for their index reference. For
+example, if the display object container in the previous example is named
+<code>container</code>, you can swap the position of the display objects
+labeled a and b by calling the following code:</p>
+<p>This code results in the following arrangement of objects:</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>child</code></th><td><p>The child DisplayObject instance for which you want to change
+the index number.</p></td></tr><tr><th width="25%"><code>index</code></th><td><p>The resulting index number for the <code>child</code> display
+object.</p></td></tr></table><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>ArgumentError</code></th><td><p>Throws if the child parameter is not a child of this
+object.</p></td></tr></div><div class="indent inline-content"><tr><th width="25%"><code>RangeError</code></th><td><p>Throws if the index does not exist in the child
+list.</p></td></tr></div></table></div></div><div class="field "><a name="stopAllMovieClips"></a><h3><p><code><a href="#stopAllMovieClips"><span class="identifier">stopAllMovieClips</span></a> ():<a class="type" title="The standard Void type." href="../../Void.html">Void</a></code></p></h3><div class="doc"><p></p></div></div><div class="field "><a name="swapChildren"></a><h3><p><code><a href="#swapChildren"><span class="identifier">swapChildren</span></a> (<span style="white-space:nowrap">child1:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a>,</span> <span style="white-space:nowrap">child2:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></span>):<a class="type" title="The standard Void type." href="../../Void.html">Void</a></code></p></h3><div class="doc"><p>Swaps the z-order(front-to-back order) of the two specified child
+objects. All other child objects in the display object container remain in
+the same index positions.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>child1</code></th><td><p>The first child object.</p></td></tr><tr><th width="25%"><code>child2</code></th><td><p>The second child object.</p></td></tr></table><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>ArgumentError</code></th><td><p>Throws if either child parameter is not a child of
+this object.</p></td></tr></div></table></div></div><div class="field "><a name="swapChildrenAt"></a><h3><p><code><a href="#swapChildrenAt"><span class="identifier">swapChildrenAt</span></a> (<span style="white-space:nowrap">index1:<a class="type" title="The standard Int type." href="../../Int.html">Int</a>,</span> <span style="white-space:nowrap">index2:<a class="type" title="The standard Int type." href="../../Int.html">Int</a></span>):<a class="type" title="The standard Void type." href="../../Void.html">Void</a></code></p></h3><div class="doc"><p>Swaps the z-order(front-to-back order) of the child objects at the two
+specified index positions in the child list. All other child objects in
+the display object container remain in the same index positions.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>index1</code></th><td><p>The index position of the first child object.</p></td></tr><tr><th width="25%"><code>index2</code></th><td><p>The index position of the second child object.</p></td></tr></table><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>RangeError</code></th><td><p>If either index does not exist in the child list.</p></td></tr></div></table></div></div></div><h4><a href="#" class="expand-button"><i class="fa fa-arrow-circle-o-right"></i></a> Defined by <a class="type" title="The InteractiveObject class is the abstract base class for all display objects with which the user can interact, using the mouse, keyboard, or other user input device." href="../../openfl/display/InteractiveObject.html">InteractiveObject</a></h4><div style="display:none"><div class="field "><a name="requestSoftKeyboard"></a><h3><p><code><a href="#requestSoftKeyboard"><span class="identifier">requestSoftKeyboard</span></a> ():<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Raises a virtual keyboard.</p>
+<p>Calling this method focuses the InteractiveObject instance and raises
+the soft keyboard, if necessary. The <code>needsSoftKeyboard</code> must
+also be <code>true</code>. A keyboard is not raised if a hardware keyboard
+is available, or if the client system does not support virtual
+keyboards.</p>
+<p><strong>Note:</strong> This method is not supported in AIR applications on
+iOS.</p><p class="javadoc">Returns:</p><div class="indent inline-content"><p>A value of <code>true</code> means that the soft keyboard request
+was granted; <code>false</code> means that the soft keyboard was
+not raised.</p></div></div></div></div><h4><a href="#" class="expand-button"><i class="fa fa-arrow-circle-o-right"></i></a> Defined by <a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></h4><div style="display:none"><div class="field "><a name="getBounds"></a><h3><p><code><a href="#getBounds"><span class="identifier">getBounds</span></a> (<span style="white-space:nowrap">targetCoordinateSpace:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></span>):<a class="type" title="A Rectangle object is an area defined by its position, as indicated by its top-left corner point(x, y) and by its width and its height." href="../../openfl/geom/Rectangle.html">Rectangle</a></code></p></h3><div class="doc"><p>Returns a rectangle that defines the area of the display object relative
+to the coordinate system of the <code>targetCoordinateSpace</code> object.
+Consider the following code, which shows how the rectangle returned can
+vary depending on the <code>targetCoordinateSpace</code> parameter that
+you pass to the method:</p>
+<p><strong>Note:</strong> Use the <code>localToGlobal()</code> and
+<code>globalToLocal()</code> methods to convert the display object's local
+coordinates to display coordinates, or display coordinates to local
+coordinates, respectively.</p>
+<p>The <code>getBounds()</code> method is similar to the
+<code>getRect()</code> method; however, the Rectangle returned by the
+<code>getBounds()</code> method includes any strokes on shapes, whereas
+the Rectangle returned by the <code>getRect()</code> method does not. For
+an example, see the description of the <code>getRect()</code> method.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>targetCoordinateSpace</code></th><td><p>The display object that defines the
+coordinate system to use.</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>The rectangle that defines the area of the display object relative
+to the <code>targetCoordinateSpace</code> object's coordinate
+system.</p></div></div></div><div class="field "><a name="getRect"></a><h3><p><code><a href="#getRect"><span class="identifier">getRect</span></a> (<span style="white-space:nowrap">targetCoordinateSpace:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></span>):<a class="type" title="A Rectangle object is an area defined by its position, as indicated by its top-left corner point(x, y) and by its width and its height." href="../../openfl/geom/Rectangle.html">Rectangle</a></code></p></h3><div class="doc"><p>Returns a rectangle that defines the boundary of the display object, based
+on the coordinate system defined by the <code>targetCoordinateSpace</code>
+parameter, excluding any strokes on shapes. The values that the
+<code>getRect()</code> method returns are the same or smaller than those
+returned by the <code>getBounds()</code> method.</p>
+<p><strong>Note:</strong> Use <code>localToGlobal()</code> and
+<code>globalToLocal()</code> methods to convert the display object's local
+coordinates to Stage coordinates, or Stage coordinates to local
+coordinates, respectively.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>targetCoordinateSpace</code></th><td><p>The display object that defines the
+coordinate system to use.</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>The rectangle that defines the area of the display object relative
+to the <code>targetCoordinateSpace</code> object's coordinate
+system.</p></div></div></div><div class="field "><a name="globalToLocal"></a><h3><p><code><a href="#globalToLocal"><span class="identifier">globalToLocal</span></a> (<span style="white-space:nowrap">pos:<a class="type" title="The Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis." href="../../openfl/geom/Point.html">Point</a></span>):<a class="type" title="The Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis." href="../../openfl/geom/Point.html">Point</a></code></p></h3><div class="doc"><p>Converts the <code>point</code> object from the Stage(global) coordinates
+to the display object's(local) coordinates.</p>
+<p>To use this method, first create an instance of the Point class. The
+<em>x</em> and <em>y</em> values that you assign represent global coordinates
+because they relate to the origin(0,0) of the main display area. Then
+pass the Point instance as the parameter to the
+<code>globalToLocal()</code> method. The method returns a new Point object
+with <em>x</em> and <em>y</em> values that relate to the origin of the display
+object instead of the origin of the Stage.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>point</code></th><td><p>An object created with the Point class. The Point object
+specifies the <em>x</em> and <em>y</em> coordinates as
+properties.</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>A Point object with coordinates relative to the display object.</p></div></div></div><div class="field "><a name="hitTestObject"></a><h3><p><code><a href="#hitTestObject"><span class="identifier">hitTestObject</span></a> (<span style="white-space:nowrap">obj:<a class="type" title="The DisplayObject class is the base class for all objects that can be placed on the display list." href="../../openfl/display/DisplayObject.html">DisplayObject</a></span>):<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Evaluates the bounding box of the display object to see if it overlaps or
+intersects with the bounding box of the <code>obj</code> display object.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>obj</code></th><td><p>The display object to test against.</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p><code>true</code> if the bounding boxes of the display objects
+intersect; <code>false</code> if not.</p></div></div></div><div class="field "><a name="hitTestPoint"></a><h3><p><code><a href="#hitTestPoint"><span class="identifier">hitTestPoint</span></a> (<span style="white-space:nowrap">x:<a class="type" title="The standard Float type, this is a double-precision IEEE 64bit float." href="../../Float.html">Float</a>,</span> <span style="white-space:nowrap">y:<a class="type" title="The standard Float type, this is a double-precision IEEE 64bit float." href="../../Float.html">Float</a>,</span> <span style="white-space:nowrap">shapeFlag:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a> = false</span>):<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Evaluates the display object to see if it overlaps or intersects with the
+point specified by the <code>x</code> and <code>y</code> parameters. The
+<code>x</code> and <code>y</code> parameters specify a point in the
+coordinate space of the Stage, not the display object container that
+contains the display object(unless that display object container is the
+Stage).</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>x</code></th><td><p>The <em>x</em> coordinate to test against this object.</p></td></tr><tr><th width="25%"><code>y</code></th><td><p>The <em>y</em> coordinate to test against this object.</p></td></tr><tr><th width="25%"><code>shapeFlag</code></th><td><p>Whether to check against the actual pixels of the object
+(<code>true</code>) or the bounding box
+(<code>false</code>).</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p><code>true</code> if the display object overlaps or intersects
+with the specified point; <code>false</code> otherwise.</p></div></div></div><div class="field "><a name="localToGlobal"></a><h3><p><code><a href="#localToGlobal"><span class="identifier">localToGlobal</span></a> (<span style="white-space:nowrap">point:<a class="type" title="The Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis." href="../../openfl/geom/Point.html">Point</a></span>):<a class="type" title="The Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis." href="../../openfl/geom/Point.html">Point</a></code></p></h3><div class="doc"><p>Converts the <code>point</code> object from the display object's(local)
+coordinates to the Stage(global) coordinates.</p>
+<p>This method allows you to convert any given <em>x</em> and <em>y</em>
+coordinates from values that are relative to the origin(0,0) of a
+specific display object(local coordinates) to values that are relative to
+the origin of the Stage(global coordinates).</p>
+<p>To use this method, first create an instance of the Point class. The
+<em>x</em> and <em>y</em> values that you assign represent local coordinates
+because they relate to the origin of the display object.</p>
+<p>You then pass the Point instance that you created as the parameter to
+the <code>localToGlobal()</code> method. The method returns a new Point
+object with <em>x</em> and <em>y</em> values that relate to the origin of the
+Stage instead of the origin of the display object.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>point</code></th><td><p>The name or identifier of a point created with the Point
+class, specifying the <em>x</em> and <em>y</em> coordinates as
+properties.</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>A Point object with coordinates relative to the Stage.</p></div></div></div></div><h4><a href="#" class="expand-button"><i class="fa fa-arrow-circle-o-right"></i></a> Defined by <a class="type" title="The EventDispatcher class is the base class for all classes that dispatch events." href="../../openfl/events/EventDispatcher.html">EventDispatcher</a></h4><div style="display:none"><div class="field "><a name="addEventListener"></a><h3><p><code><a href="#addEventListener"><span class="identifier">addEventListener</span></a> (<span style="white-space:nowrap">type:<a class="type" title="The basic String class." href="../../String.html">String</a>,</span> <span style="white-space:nowrap">listener:<a class="type" title="Dynamic is a special type which is compatible with all other types." href="../../Dynamic.html">Dynamic</a>&nbsp;&#8209;&gt;&nbsp;<a class="type" title="The standard Void type." href="../../Void.html">Void</a>,</span> <span style="white-space:nowrap">useCapture:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a> = false,</span> <span style="white-space:nowrap">priority:<a class="type" title="The standard Int type." href="../../Int.html">Int</a> = 0,</span> <span style="white-space:nowrap">useWeakReference:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a> = false</span>):<a class="type" title="The standard Void type." href="../../Void.html">Void</a></code></p></h3><div class="doc"><p>Registers an event listener object with an EventDispatcher object so that
+the listener receives notification of an event. You can register event
+listeners on all nodes in the display list for a specific type of event,
+phase, and priority.</p>
+<p>After you successfully register an event listener, you cannot change
+its priority through additional calls to <code>addEventListener()</code>.
+To change a listener's priority, you must first call
+<code>removeListener()</code>. Then you can register the listener again
+with the new priority level. </p>
+<p>Keep in mind that after the listener is registered, subsequent calls to
+<code>addEventListener()</code> with a different <code>type</code> or
+<code>useCapture</code> value result in the creation of a separate
+listener registration. For example, if you first register a listener with
+<code>useCapture</code> set to <code>true</code>, it listens only during
+the capture phase. If you call <code>addEventListener()</code> again using
+the same listener object, but with <code>useCapture</code> set to
+<code>false</code>, you have two separate listeners: one that listens
+during the capture phase and another that listens during the target and
+bubbling phases. </p>
+<p>You cannot register an event listener for only the target phase or the
+bubbling phase. Those phases are coupled during registration because
+bubbling applies only to the ancestors of the target node.</p>
+<p>If you no longer need an event listener, remove it by calling
+<code>removeEventListener()</code>, or memory problems could result. Event
+listeners are not automatically removed from memory because the garbage
+collector does not remove the listener as long as the dispatching object
+exists(unless the <code>useWeakReference</code> parameter is set to
+<code>true</code>).</p>
+<p>Copying an EventDispatcher instance does not copy the event listeners
+attached to it.(If your newly created node needs an event listener, you
+must attach the listener after creating the node.) However, if you move an
+EventDispatcher instance, the event listeners attached to it move along
+with it.</p>
+<p>If the event listener is being registered on a node while an event is
+being processed on this node, the event listener is not triggered during
+the current phase but can be triggered during a later phase in the event
+flow, such as the bubbling phase.</p>
+<p>If an event listener is removed from a node while an event is being
+processed on the node, it is still triggered by the current actions. After
+it is removed, the event listener is never invoked again(unless
+registered again for future processing). </p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>type</code></th><td><p>The type of event.</p></td></tr><tr><th width="25%"><code>useCapture</code></th><td><p>Determines whether the listener works in the
+capture phase or the target and bubbling phases.
+If <code>useCapture</code> is set to
+<code>true</code>, the listener processes the
+event only during the capture phase and not in the
+target or bubbling phase. If
+<code>useCapture</code> is <code>false</code>, the
+listener processes the event only during the
+target or bubbling phase. To listen for the event
+in all three phases, call
+<code>addEventListener</code> twice, once with
+<code>useCapture</code> set to <code>true</code>,
+then again with <code>useCapture</code> set to
+<code>false</code>.</p></td></tr><tr><th width="25%"><code>priority</code></th><td><p>The priority level of the event listener. The
+priority is designated by a signed 32-bit integer.
+The higher the number, the higher the priority.
+All listeners with priority <em>n</em> are processed
+before listeners of priority <em>n</em>-1. If two or
+more listeners share the same priority, they are
+processed in the order in which they were added.
+The default priority is 0.</p></td></tr><tr><th width="25%"><code>useWeakReference</code></th><td><p>Determines whether the reference to the listener
+is strong or weak. A strong reference(the
+default) prevents your listener from being
+garbage-collected. A weak reference does not.</p>
+<p>Class-level member functions are not subject to
+garbage collection, so you can set
+<code>useWeakReference</code> to <code>true</code>
+for class-level member functions without
+subjecting them to garbage collection. If you set
+<code>useWeakReference</code> to <code>true</code>
+for a listener that is a nested inner function,
+the function will be garbage-collected and no
+longer persistent. If you create references to the
+inner function(save it in another variable) then
+it is not garbage-collected and stays
+persistent.</p></td></tr></table><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>ArgumentError</code></th><td><p>The <code>listener</code> specified is not a
+function.</p></td></tr></div></table></div></div><div class="field "><a name="dispatchEvent"></a><h3><p><code><a href="#dispatchEvent"><span class="identifier">dispatchEvent</span></a> (<span style="white-space:nowrap">event:<a class="type" title="The Event class is used as the base class for the creation of Event objects, which are passed as parameters to event listeners when an event occurs." href="../../openfl/events/Event.html">Event</a></span>):<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Dispatches an event into the event flow. The event target is the
+EventDispatcher object upon which the <code>dispatchEvent()</code> method
+is called.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>event</code></th><td><p>The Event object that is dispatched into the event flow. If
+the event is being redispatched, a clone of the event is
+created automatically. After an event is dispatched, its
+<code>target</code> property cannot be changed, so you must
+create a new copy of the event for redispatching to work.</p></td></tr></table><p class="javadoc">Throws:</p><table class="table table-bordered params"><div class="indent inline-content"><tr><th width="25%"><code>Error</code></th><td><p>The event dispatch recursion limit has been reached.</p></td></tr></div></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>A value of <code>true</code> if the event was successfully
+dispatched. A value of <code>false</code> indicates failure or
+that <code>preventDefault()</code> was called on the event.</p></div></div></div><div class="field "><a name="hasEventListener"></a><h3><p><code><a href="#hasEventListener"><span class="identifier">hasEventListener</span></a> (<span style="white-space:nowrap">type:<a class="type" title="The basic String class." href="../../String.html">String</a></span>):<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Checks whether the EventDispatcher object has any listeners registered for
+a specific type of event. This allows you to determine where an
+EventDispatcher object has altered handling of an event type in the event
+flow hierarchy. To determine whether a specific event type actually
+triggers an event listener, use <code>willTrigger()</code>.</p>
+<p>The difference between <code>hasEventListener()</code> and
+<code>willTrigger()</code> is that <code>hasEventListener()</code>
+examines only the object to which it belongs, whereas
+<code>willTrigger()</code> examines the entire event flow for the event
+specified by the <code>type</code> parameter. </p>
+<p>When <code>hasEventListener()</code> is called from a LoaderInfo
+object, only the listeners that the caller can access are considered.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>type</code></th><td><p>The type of event.</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>A value of <code>true</code> if a listener of the specified type
+is registered; <code>false</code> otherwise.</p></div></div></div><div class="field "><a name="removeEventListener"></a><h3><p><code><a href="#removeEventListener"><span class="identifier">removeEventListener</span></a> (<span style="white-space:nowrap">type:<a class="type" title="The basic String class." href="../../String.html">String</a>,</span> <span style="white-space:nowrap">listener:<a class="type" title="Dynamic is a special type which is compatible with all other types." href="../../Dynamic.html">Dynamic</a>&nbsp;&#8209;&gt;&nbsp;<a class="type" title="The standard Void type." href="../../Void.html">Void</a>,</span> <span style="white-space:nowrap">useCapture:<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a> = false</span>):<a class="type" title="The standard Void type." href="../../Void.html">Void</a></code></p></h3><div class="doc"><p>Removes a listener from the EventDispatcher object. If there is no
+matching listener registered with the EventDispatcher object, a call to
+this method has no effect.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>type</code></th><td><p>The type of event.</p></td></tr><tr><th width="25%"><code>useCapture</code></th><td><p>Specifies whether the listener was registered for the
+capture phase or the target and bubbling phases. If the
+listener was registered for both the capture phase and
+the target and bubbling phases, two calls to
+<code>removeEventListener()</code> are required to
+remove both, one call with <code>useCapture()</code> set
+to <code>true</code>, and another call with
+<code>useCapture()</code> set to <code>false</code>.</p></td></tr></table></div></div><div class="field "><a name="toString"></a><h3><p><code><a href="#toString"><span class="identifier">toString</span></a> ():<a class="type" title="The basic String class." href="../../String.html">String</a></code></p></h3><div class="doc"><p></p></div></div><div class="field "><a name="willTrigger"></a><h3><p><code><a href="#willTrigger"><span class="identifier">willTrigger</span></a> (<span style="white-space:nowrap">type:<a class="type" title="The basic String class." href="../../String.html">String</a></span>):<a class="type" title="The standard Boolean type, which can either be true or false." href="../../Bool.html">Bool</a></code></p></h3><div class="doc"><p>Checks whether an event listener is registered with this EventDispatcher
+object or any of its ancestors for the specified event type. This method
+returns <code>true</code> if an event listener is triggered during any
+phase of the event flow when an event of the specified type is dispatched
+to this EventDispatcher object or any of its descendants.</p>
+<p>The difference between the <code>hasEventListener()</code> and the
+<code>willTrigger()</code> methods is that <code>hasEventListener()</code>
+examines only the object to which it belongs, whereas the
+<code>willTrigger()</code> method examines the entire event flow for the
+event specified by the <code>type</code> parameter. </p>
+<p>When <code>willTrigger()</code> is called from a LoaderInfo object,
+only the listeners that the caller can access are considered.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th width="25%"><code>type</code></th><td><p>The type of event.</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>A value of <code>true</code> if a listener of the specified type
+will be triggered; <code>false</code> otherwise.</p></div></div></div></div></div></div></div></div></div></div><footer class="section site-footer" style="background:#FAFAFA"><div class="container"><div class="copyright"><p style="color:#777777">&copy; 2017 &nbsp;<a style="color:#777777" href="http://www.openfl.org">http://www.openfl.org</a></p></div></div></footer><script src="../..//highlighter.js"></script><link href="../../highlighter.css" rel="stylesheet"/></body></html>
