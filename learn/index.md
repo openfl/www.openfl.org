@@ -2,10 +2,13 @@
 title: Learn OpenFL
 redirect_from:
  - documentation/
+ - documentation/technical-overview/
+ - documentation/technical-overview/feature-matrix/
  - learn/docs/getting-started/
  - archive/
  - archive/developer/
  - archive/developer/documentation/
+ - archive/developer/documentation/key-concepts/
 ---
 
 _Welcome!_ [OpenFL](/) is a library for creative expression on the web, desktop, and mobile that can publish to native C++, JS and WebGL, and run-times like HashLink and Adobe AIR using one seamless toolset.
