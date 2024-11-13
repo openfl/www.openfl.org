@@ -1,6 +1,5 @@
 _site
 .DS_Store
-documentation
 import.n
 Gemfile.lock
 node_modules
