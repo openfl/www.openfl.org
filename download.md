@@ -75,4 +75,4 @@ npm start
 
 ## Problems?
 
-If you have any questions or concerns when you are installing OpenFL, do not hesitate to visit our friendly [community forums](https://community.openfl.org/c/help). Thank you for trying OpenFL, and please let us help if you have any problems at all.
+If you have any questions or concerns when you are installing OpenFL, do not hesitate to visit our friendly [community forums](https://community.openfl.org/c/help) or [Discord server](https://discord.gg/tDgq8EE). Thank you for trying OpenFL, and please let us help if you have any problems at all.
