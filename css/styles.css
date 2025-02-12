@@ -383,6 +383,15 @@ ul.nav-sidebar > li > ul.nav-sidebar {
   content: "\e61b";
   font-family: "FontAwesomeBrands" !important;
 }
+.icon-facebook-b:before {
+  content: "\f39e";
+  font-family: "FontAwesomeBrands" !important;
+}
+
+.icon-github-b:before {
+  content: "\f09b";
+  font-family: "FontAwesomeBrands" !important;
+}
 
 /* PLatform-Font */
 .icon-apple:before {
