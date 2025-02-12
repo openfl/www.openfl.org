@@ -374,11 +374,17 @@ ul.nav-sidebar > li > ul.nav-sidebar {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Font Awesome */
 .icon-discord:before {
-  content: "\f392"; /* Font Awesome Discord Unicode */
+  content: "\f392";
+  font-family: "FontAwesomeBrands" !important;
+}
+.icon-x:before {
+  content: "\e61b";
   font-family: "FontAwesomeBrands" !important;
 }
 
+/* PLatform-Font */
 .icon-apple:before {
   content: "\61";
 }
