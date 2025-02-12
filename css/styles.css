@@ -340,6 +340,14 @@ ul.nav-sidebar > li > ul.nav-sidebar {
 
 }
 
+@font-face {
+  font-family: "FontAwesomeBrands";
+  src: url("../fonts/fa-brands-400.woff2") format("woff2"),
+       url("../fonts/fa-brands-400.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 [data-icon]:before {
   font-family: "platform-icons" !important;
   content: attr(data-icon);
@@ -364,6 +372,11 @@ ul.nav-sidebar > li > ul.nav-sidebar {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-discord:before {
+  content: "\f392"; /* Font Awesome Discord Unicode */
+  font-family: "FontAwesomeBrands" !important;
 }
 
 .icon-apple:before {
