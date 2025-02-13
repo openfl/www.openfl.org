@@ -19,7 +19,7 @@ Because OpenFL is cross-platform, you can cross-compile to native C++, JS and We
 
 To get started, be sure that you [download and install OpenFL](/download/). Depending on which platforms you want to target, the OpenFL library is available for [different programming languages](/learn/languages), including Haxe, JavaScript, and TypeScript.
 
-<p style="text-align:center"><a href="/download/" target="_blank" class="btn btn-info" role="button">Download OpenFL &raquo;</a></p>
+<p style="text-align:center"><a href="/download/" target="_blank" class="btn btn-info" role="button">Download OpenFL</a></p>
 
 ## First Steps
 
@@ -33,7 +33,7 @@ Then, you can get up and running with your first project in one of several ways:
 
 We offer the [OpenFL Developer's Guide](https://books.openfl.org/openfl-developers-guide/) to introduce you to some of the key concepts, classes and interfaces, and other APIs. You'll learn the fundamentals of [working with display objects](https://books.openfl.org/openfl-developers-guide/display-programming/), [listening for events](https://books.openfl.org/openfl-developers-guide/handling-events/), [drawing lines, curves, and shapes](https://books.openfl.org/openfl-developers-guide/using-the-drawing-api/), and much more.
 
-<p style="text-align:center"><a href="https://books.openfl.org/openfl-developers-guide/" target="_blank" class="btn btn-info" role="button">Read the OpenFL Developer's Guide &raquo;</a></p>
+<p style="text-align:center"><a href="https://books.openfl.org/openfl-developers-guide/" target="_blank" class="btn btn-info" role="button">Read the OpenFL Developer's Guide</a></p>
 
 ## Resources
 
