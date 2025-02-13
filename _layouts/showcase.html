@@ -16,7 +16,7 @@
 			<div class="col-md-6 showcase-listing">
 				<h3 class="showcase-title">{{ showcase.title }}</h3>
 				<a href="{{ showcase.url }}">
-					<img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}" alt="[ {{ showcase.title }} ]" class="showcase-image" />
+					<img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}"{%if showcase.image2x %} srcset="{{ site.baseurl }}/images/showcase/xlarge/{{ showcase.image2x }} 2x"{% endif %} alt="[ {{ showcase.title }} ]" class="showcase-image" />
 				</a>
 			</div>
 			{% cycle '', '</div>' %}
@@ -32,7 +32,7 @@
 			<div class="col-md-6 showcase-listing">
 				<h3 class="showcase-title">{{ showcase.title }}</h3>
 				<a href="{{ showcase.url }}">
-					<img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}" alt="[ {{ showcase.title }} ]" class="showcase-image" />
+					<img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}"{%if showcase.image2x %} srcset="{{ site.baseurl }}/images/showcase/xlarge/{{ showcase.image2x }} 2x"{% endif %} alt="[ {{ showcase.title }} ]" class="showcase-image" />
 				</a>
 			</div>
 			{% cycle '', '</div>' %}
@@ -48,7 +48,7 @@
 			<div class="col-md-6 showcase-listing">
 				<h3 class="showcase-title">{{ showcase.title }}</h3>
 				<a href="{{ showcase.url }}">
-					<img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}" alt="[ {{ showcase.title }} ]" class="showcase-image" />
+					<img src="{{ site.baseurl }}/images/showcase/large/{{ showcase.image }}"{%if showcase.image2x %} srcset="{{ site.baseurl }}/images/showcase/xlarge/{{ showcase.image2x }} 2x"{% endif %} alt="[ {{ showcase.title }} ]" class="showcase-image" />
 				</a>
 			</div>
 			{% cycle '', '</div>' %}

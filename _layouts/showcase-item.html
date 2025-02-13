@@ -7,7 +7,7 @@ h1:first { padding-top: 20px; }
 		<div class="col-md-8 col-md-push-4 sidebar-content">
 			
 				<div class="page-header"><h1>{{ page.title }}</h2></div>
-				<p class="showcase-image-container"><a href="{{ page.link }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/large/{{ page.image }}" alt="[ {{ page.title }} ]" class="showcase-image" /></a></p>
+				<p class="showcase-image-container"><a href="{{ page.link }}" target="_blank"><img src="{{ site.baseurl }}/images/showcase/large/{{ page.image }}"{%if page.image2x %} srcset="{{ site.baseurl }}/images/showcase/xlarge/{{ page.image2x }} 2x"{% endif %} alt="[ {{ page.title }} ]" class="showcase-image" /></a></p>
 				<p class="showcase-icons">
 					{% if page.windows %}<a href="{{ page.windows }}" target="_blank">{% endif %}<span class="icon-windows"></span>{% if page.windows %}</a>{% endif %}
 					{% if page.mac %}<a href="{{ page.mac }}" target="_blank">{% endif %}<span class="icon-apple"></span>{% if page.mac %}</a>{% endif %}
