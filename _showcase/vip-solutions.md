@@ -5,5 +5,6 @@ description: With this platform for managing interactive touchscreen kiosks, ins
 image: vipsolutions.jpg
 image2x: vipsolutions.jpg
 link: https://vipinteract.com/
+html5: https://demo.vipinteract.com/
 other: https://vipinteract.com/
 ---
