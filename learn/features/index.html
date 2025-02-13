@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>OpenFL Features</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    <!-- <script src='/js/openfl.min.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openfl/7.1.2/openfl.min.js"></script>
+    <script src='/js/actuate.min.js'></script>
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1739406635223518715" rel="stylesheet">
+    <link href="/css/syntax.css?1739406635223518715" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" srcset="/images/logo@2x.png 2x" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a href="https://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon glyphicon-wrench"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<script src='/js/holder.js'></script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-push-4 sidebar-content add-anchors">
+			
+			<div class="page-header">
+				<h1>OpenFL Features</h1>
+				<div class="page-links"><a href="https://github.com/openfl/openfl.org/edit/master/learn/features.md">Edit Document<span class="page-links-icon glyphicon glyphicon-pencil"></span></a></div>
+			</div>
+			
+			<h2 id="2d-graphics">2D Graphics</h2>
+
+<ul>
+  <li>Draw vector lines, curves, and fills</li>
+  <li>Render bitmaps, and manipulate their pixels</li>
+  <li>Display text with custom fonts and formatting</li>
+  <li>Scale, rotation, and translation transformations</li>
+  <li>Opacity / alpha blending</li>
+  <li>Solid, gradient, and bitmap line and fill styles</li>
+  <li>Masking</li>
+  <li>Filters, like drop shadow, glow, and blur</li>
+  <li>Blend modes, like multiply, screen, darken, lighten, and difference</li>
+</ul>
+
+<h2 id="stage-3d-gpu-graphics">Stage 3D GPU Graphics</h2>
+
+<ul>
+  <li>Programmable 3D graphics pipeline similar to OpenGL ES 2</li>
+  <li>Vertex and pixel fragment shader programs</li>
+  <li>Draw triangles</li>
+  <li>Create textures from bitmaps or raw byte arrays</li>
+  <li>Render to texture</li>
+  <li>Mipmapping</li>
+  <li>Scissor rects</li>
+  <li>Blend factors</li>
+  <li>Culling and depth testing</li>
+</ul>
+
+<p>If you prefer, you can also use high-level libraries that are built on top of Stage 3D, like <a href="https://github.com/openfl/away3d">Away3D</a> (for 3D) and <a href="https://github.com/openfl/starling">Starling</a> (for 2D), that abstract away some of the lower level details.</p>
+
+<h2 id="text-fields">Text Fields</h2>
+
+<ul>
+  <li>Adjust font family, size, color, alignment, and letter-spacing</li>
+  <li>Use bold, italic, and underline styles</li>
+  <li>Embed custom fonts from TTF or OTF files</li>
+  <li>Multi-line with optional word wrapping</li>
+  <li>Horizontal and vertical scrolling</li>
+  <li>Apply different styles to specific ranges of text</li>
+  <li>Optional simplified HTML formatting</li>
+  <li>Capture text input from keyboard</li>
+  <li>Select ranges of text with mouse and keyboard, or even programmatically</li>
+  <li>Copy and paste strings with keyboard shortcuts</li>
+  <li>Restrict text input to specific characters or ranges of characters</li>
+</ul>
+
+<h2 id="sound--audio">Sound / Audio</h2>
+
+<ul>
+  <li>MP3, OGG Vorbis, and WAV formats (support depends on target)</li>
+  <li>Adjust volume on individual sounds</li>
+  <li>Adjust left and right panning</li>
+  <li>Stop and resume a sound</li>
+  <li>Seek to a specific position</li>
+  <li>Embed sounds at compile-time, load them from external files, or from WWW URLs</li>
+</ul>
+
+<h2 id="user-input">User input</h2>
+
+<h3 id="mouse">Mouse</h3>
+
+<ul>
+  <li>Mouse button down, move, and up events</li>
+  <li>Click and double-click events</li>
+  <li>Middle and right mouse button events</li>
+  <li>Vertical mouse wheel events</li>
+  <li>Roll over and roll out events</li>
+</ul>
+
+<h3 id="touch">Touch</h3>
+
+<ul>
+  <li>Multi-touch with tracking of touch point IDs</li>
+  <li>Touch begin, move, and end events</li>
+  <li>Tap event</li>
+  <li>Primary touch point can optionally trigger mouse events as fallback</li>
+</ul>
+
+<h3 id="gamepads">Gamepads</h3>
+
+<ul>
+  <li>Connect and disconnect events</li>
+  <li>Button up and down events</li>
+  <li>Axis move events</li>
+  <li>Custom mappings</li>
+</ul>
+
+<h3 id="keyboard">Keyboard</h3>
+
+<ul>
+  <li>Both physical keyboards and touchscreen soft keyboards</li>
+  <li>Key up and down events</li>
+  <li>Mouse wheel events</li>
+  <li>Modifier keys, including ctrl, command, alt, and shift</li>
+  <li>Use Tab and Shift+Tab to change focus between interactive display objects</li>
+</ul>
+
+<h3 id="accelerometer">Accelerometer</h3>
+
+<ul>
+  <li>Measure the physical motion of a mobile device</li>
+  <li>X, Y, and Z axes</li>
+  <li>Request a specific update interval in milliseconds</li>
+</ul>
+
+<h2 id="network-communications">Network communications</h2>
+
+<ul>
+  <li>Load text or byte data from HTTP URLs</li>
+  <li>GET and POST HTTP requests</li>
+  <li>Session cookies</li>
+  <li>TCP sockets</li>
+  <li>UDP sockets</li>
+  <li>Server sockets</li>
+</ul>
+
+<h2 id="the-display-list">The display list</h2>
+
+<ul>
+  <li>A 2D scene graph with a hierarchy of nodes, called display objects</li>
+  <li>Supports various types of display objects:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Bitmap</code> displays bitmap/raster graphics</li>
+      <li><code class="language-plaintext highlighter-rouge">Shape</code> renders scalable vector graphics</li>
+      <li><code class="language-plaintext highlighter-rouge">Sprite</code> is a container that can add other display objects as children</li>
+      <li><code class="language-plaintext highlighter-rouge">MovieClip</code> contains multiple frames that can play as an animation</li>
+      <li><code class="language-plaintext highlighter-rouge">TextField</code> renders text with formatting</li>
+      <li><code class="language-plaintext highlighter-rouge">SimpleButton</code> supports multiple states based on user input (up, over, down)</li>
+      <li><code class="language-plaintext highlighter-rouge">Stage</code> is the root of the display list</li>
+    </ul>
+  </li>
+  <li>Add, remove, and reorder children in a container</li>
+  <li>Assign names to specific display objects to access them easily later</li>
+  <li>Tranforming a container’s scale, rotation, and position automatically transforms its children too</li>
+  <li>Listen for user input events, like mouse, touch, and keyboard</li>
+  <li>Cache vectors or a container and all of its children as a bitmap for faster rendering</li>
+  <li>Fast batched rendering with tilemaps</li>
+</ul>
+
+<h2 id="events">Events</h2>
+
+<ul>
+  <li>Dispatch and listen for events</li>
+  <li>Supports adding multiple listeners for same event</li>
+  <li>Set priorities on event listeners to change calling order</li>
+  <li>Weak event listeners allows objects to be garbage collected (on supported targets)</li>
+  <li>Events may optionally be cancelable with <code class="language-plaintext highlighter-rouge">preventDefault()</code></li>
+  <li>Bubbling events climb up the display list from the target, to its parent, and continue to the stage</li>
+  <li>A capture phase allows catching events before they reach their target</li>
+  <li>Based on the W3C Document Object Model (DOM) Level 3 Events Specification</li>
+</ul>
+
+<h2 id="assets">Assets</h2>
+
+<ul>
+  <li>Embed bitmaps, audio files, fonts, byte arrays, movie clips, and text data</li>
+  <li>Preload assets before starting app, or load and unload assets on demand</li>
+  <li>Package sets of assets into libraries, which can be loaded separately</li>
+  <li>Import assets from SWF files exported by Adobe Animate (formerly called Adobe Flash Pro)</li>
+</ul>
+
+<h2 id="animation">Animation</h2>
+
+<ul>
+  <li>Dynamically adjustable frame rate</li>
+  <li>A <code class="language-plaintext highlighter-rouge">MovieClip</code> display object may include multiple distinct frames that play in sequence</li>
+  <li>Listen for <code class="language-plaintext highlighter-rouge">Event.ENTER_FRAME</code> to programatically update your scene every frame</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">Timer</code> or <code class="language-plaintext highlighter-rouge">Lib.setInterval()</code> to programmatically update your scene on a specific time inverval (in milliseconds)</li>
+</ul>
+
+<p>If you prefer, libraries like <a href="https://github.com/openfl/actuate">Actuate</a> provide higher level APIs for time-based programmatic animation (sometimes called tweens)</p>
+
+<h2 id="file-system-access-on-native-targets">File system access (on native targets)</h2>
+
+<ul>
+  <li>System open and save dialogs</li>
+  <li>Create or delete files and directories</li>
+  <li>Load or save text or byte data from files</li>
+  <li>Copy, move, and rename files</li>
+  <li>List files in a directory</li>
+  <li>Access system directory paths (user, documents, desktop, app, app storage)</li>
+  <li>Access current working directory path</li>
+  <li>Check if file exists, is a directory, or is hidden</li>
+  <li>Create temporary files and directories</li>
+  <li>Read size, last modified, and canonical path</li>
+  <li>Query system line endings and path separators</li>
+</ul>
+
+<h2 id="manage-windows-on-desktop-native-targets">Manage windows (on desktop native targets)</h2>
+
+<ul>
+  <li>Open multiple windows, each with a separate stage</li>
+  <li>Resize and position windows with mouse, or programmaticaly</li>
+  <li>Reorder windows by depth programmatically</li>
+  <li>Activate window on demand</li>
+  <li>Configure user’s ability to resize, minimize, and maximize</li>
+</ul>
+
+<h2 id="miscellaneous">Miscellaneous</h2>
+
+<ul>
+  <li>Copy and paste text from system clipboard</li>
+  <li>Full-screen or windowed rendering</li>
+  <li>Customize mouse cursors</li>
+  <li>Run executable processes, and read their output and exit codes, on native targets</li>
+  <li>Object pooling for performance and memory optimization</li>
+</ul>
+
+<blockquote>
+  <h2 id="want-to-give-openfl-a-try">Want to give OpenFL a try?</h2>
+
+  <p>Get started by <a href="/download/">downloading OpenFL</a> and diving into the <a href="https://books.openfl.org/openfl-developers-guide/">OpenFL Developer’s Guide</a>.</p>
+</blockquote>
+
+			
+		</div>
+		<div class="col-md-4 col-md-pull-8 sidebar add-anchors">
+			
+			
+			
+			
+
+<div class="collapse in" id="nav-sidebar-0">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/" >Introduction</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/features/" class="active">Features</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/languages/" >Supported Languages</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-1"  data-toggle="collapse">Haxelib</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-1">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-2"  data-toggle="collapse">Documentation</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-2">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/core-architecture/" >Core Architecture</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/project-files/" >Project Files</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/targets/" >Targets</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/tools/" >Command Line Tools</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-3"  data-toggle="collapse">Books</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-3">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://books.openfl.org/openfl-developers-guide/" target="_blank" />OpenFL Developer's Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://books.openfl.org/as3-conversion-guide/" target="_blank" />ActionScript 3.0 Conversion Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://www.openflbook.com" target="_blank" />Videojuegos Multiplataforma con OpenFL</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/" >Tutorials</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://api.openfl.org" target="_blank" />API</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/openfl-samples" target="_blank" />Samples</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-4"  data-toggle="collapse">NPM</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-4">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/getting-started/" >Getting Started</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-5"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-5">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/displaying-a-bitmap/" >Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/adding-animation/" >Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/handling-mouse-events/" >Handling Mouse Events</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/api/" >API Reference</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-6"  data-toggle="collapse">Samples</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-6">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/openfl-samples-es6" target="_blank" />JavaScript (ES6)</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/openfl-samples-es5" target="_blank" />JavaScript (ES5)</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/openfl-samples-ts" target="_blank" />TypeScript</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/openfl-samples-haxe" target="_blank" />Haxe</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/openfl-samples-as3" target="_blank" />AS3/Royale</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+</ul>
+</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	</div>
+</div>
+<script>
+	anchors.options = {
+		placement: "right",
+		visible: "always",
+		icon: "",
+		class: "glyphicon glyphicon-link"
+	};
+	anchors.add ("div.add-anchors > h1, div.add-anchors > h2");
+</script>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github-b"></span></a>
+          <a href="https://discord.gg/tDgq8EE" target="_blank"><span class="icon-discord"></span></a>
+          <a href="https://www.x.com/open_fl/" target="_blank"><span class="icon-x"></span></a>
+          <a href="https://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook-b"></span></a>
+          <a href="/get-involved/">
+            <span class="glyphicon glyphicon-wrench" style="position: relative; top: 4px;"></span>
+          </a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2025 OPENFL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+    
+  </body>
+</html>
