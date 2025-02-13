@@ -1,6 +1,7 @@
 ---
 title: Pin-Town
 developer: Fail Safe Games
+description: Home of the Pin Pals and Gals! Help them in their wacky adventures across Town in this unique physics puzzle game based on Pachinko.
 image: Pin-Town.jpg
 link: https://www.pin-town.com
 windows: https://www.microsoft.com/en-ca/store/p/pin-town/9pp0jgb593gw

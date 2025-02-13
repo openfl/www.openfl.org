@@ -1,6 +1,7 @@
 ---
 title: A Good Snowman is Hard to Build
 developer: Draknek
+description: A puzzle game about being a monster and making snowmen.
 image: AGoodSnowmanIsHardToBuild.jpg
 link: http://agoodsnowman.com
 windows: http://store.steampowered.com/app/316610/

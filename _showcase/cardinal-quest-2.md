@@ -1,6 +1,7 @@
 ---
 title: Cardinal Quest 2
 developer: randomnine
+description: Hack, slash and rush the forces of darkness. Assault castles and mountain lairs to liberate all in this super-sleek modernization of the classic roguelike formula! Will you play a crafting Alchemist, a sneaky backstabbing Thief… or something else?
 image: CardinalQuest2.jpg
 link: http://cardinalquest2.com/
 windows: http://store.steampowered.com/app/378030/

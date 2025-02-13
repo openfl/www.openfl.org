@@ -1,6 +1,7 @@
 ---
 title: "Defender's Quest: Valley of the Forgotten DX"
 developer: Level Up Labs
+description: "Defender's Quest is a Tower-Defense/RPG Hybrid (Think Final Fantasy Tactics meets Tower Defense). It focuses on three things: tactical depth, customization, and story. That means no random encounters, no spikey-haired emo kids, no forced time sinks, and no tedious, repetitive battles."
 image: DefendersQuest.jpg
 link: http://www.defendersquest.com
 windows: http://www.defendersquest.com/1/#buy

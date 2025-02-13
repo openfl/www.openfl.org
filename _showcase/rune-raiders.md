@@ -1,6 +1,7 @@
 ---
 title: Rune Raiders
 developer: Retro64
+description: Move your guys, then watch them COME ALIVE AND FIGHT! Rune Raiders a simple adventure game that takes SECONDS TO LEARN, but provides hilarious action for all!
 image: RuneRaiders.jpg
 link: http://www.retro64.com/runeraiders.php
 ios: https://itunes.apple.com/app/rune-raiders/id497702195
