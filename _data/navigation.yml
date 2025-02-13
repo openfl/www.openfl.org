@@ -3,6 +3,10 @@
   subitems:
   - title: Introduction
     url: /learn/
+  - title: Features
+    url: /learn/features/
+  - title: Supported Languages
+    url: /learn/languages/
   - title: Haxelib
     url: /learn/haxelib/
     folder: true

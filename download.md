@@ -10,6 +10,8 @@ redirect_from:
  - documentation/setup/platforms/
 ---
 
+[OpenFL](/) is a cross-platform library that supports [multiple programming languages](/learn/languages). To access all compilation targets supported by OpenFL, including native C++, choose **Haxelib (Option 1)** below. For projects targeting the web browsers only, consider **npm (Option 2)** instead to be able to use additional languages — including JavaScript or TypeScript.
+
 <div class="row">
 	<div class="col-md-6 nopadding">
 		<h2>Haxelib <small><i>(Option 1)</i></small></h2>

@@ -11,13 +11,23 @@ redirect_from:
  - archive/developer/documentation/key-concepts/
 ---
 
-_Welcome!_ [OpenFL](/) is a library for creative expression on the web, desktop, and mobile that can publish to native C++, JS and WebGL, and run-times like HashLink and Adobe AIR using one seamless toolset.
+_Welcome!_ [OpenFL](/) is a library for creative expression on the web, desktop, and mobile. Developers gain access to a [tons of features](/learn/features) with OpenFL, including 2D and 3D graphics rendering, audio playback, network loading, file system access, user input (mouse, touch, keyboard, and gamepads), asset management, and [a whole lot more…](/learn/features)
+
+Because OpenFL is cross-platform, you can cross-compile to native C++, JS and WebGL, or runtimes like HashLink and Adobe AIR — all using one seamless toolset. Publish to a variety of app stores, or simply tell your users launch their favorite web browser. With OpenFL, your project can run on pretty much any modern device.
+
+## Download
+
+To get started, be sure that you [download and install OpenFL](/download/). Depending on which platforms you want to target, the OpenFL library is available for [different programming languages](/learn/languages), including Haxe, JavaScript, and TypeScript.
+
+<p style="text-align:center"><a href="/download/" target="_blank" class="btn btn-info" role="button">Download OpenFL &raquo;</a></p>
 
 ## First Steps
 
-To get started, be sure that you [download and install OpenFL.](/download/)
+Then, you can get up and running with your first project in one of several ways:
 
-Then, you can get up and running with the included [sample projects](docs/command-line-tools/samples/), or you can create your own project by [following a tutorial](/learn/haxelib/tutorials/) or by using a [blank project template](docs/command-line-tools/create-new-project/).
+- [Follow along with a tutorial](/learn/haxelib/tutorials/)
+- [Use a blank project template](docs/command-line-tools/create-new-project/)
+- [Build and run the included sample projects](docs/command-line-tools/samples/)
 
 ## Fundamentals
 
