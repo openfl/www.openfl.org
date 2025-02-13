@@ -103,6 +103,10 @@ pre { background-color: #333; border: 3px solid #555; border-radius: 4px; color:
   gap: 0.25em;
 }
 
+.btn-set.centered {
+  justify-content: center;
+}
+
 .pagination>li>a,
 .pagination>li>span {
   color: #24afc4;
@@ -152,18 +156,25 @@ pre { background-color: #333; border: 3px solid #555; border-radius: 4px; color:
   letter-spacing: -1px;
 }
 
+.featurette-image {
+  max-height: 250px;
+}
+
 @media (min-width: 768px) {
   .featurette-heading {
     font-size: 50px;
   }
   .featurette-divider {
-    margin: 80px 0; /* Space out the Bootstrap <hr> more */
+    margin: 60px 0; /* Space out the Bootstrap <hr> more */
+  }
+  .featurette-image {
+    max-height: unset;
   }
 }
 
 @media (min-width: 992px) {
   .featurette-heading {
-    margin-top: 120px;
+    margin-top: 80px;
   }
 }
 
