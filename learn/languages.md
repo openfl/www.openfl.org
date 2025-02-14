@@ -18,7 +18,7 @@ With Haxe, OpenFL projects can be cross-compiled to the following targets:
 
 ### JavaScript, TypeScript, and more (Web targets only)
 
-Developers targeting the web only can install the [OpenFL npm package](https://npmjs.com/package/openfl). This package contains the OpenFL library pre-compiled from Haxe into JavaScript modules, and it includes type definitions (sometimes called externs) for various compile-to-JS languages, including [TypeScript](https://typescriptlang.org/), [ActionScript 3.0 with Apache Royale](https://royale.apache.org/), and [Haxe](https://haxe.org/). Supports bundlers like [Webpack](https://webpack.js.org/) and [Vite](https://vite.dev/).
+Developers targeting the web only can install the [OpenFL npm package](https://npmjs.com/package/openfl), if they have [Node.js](https://nodejs.org/) installed. This package contains the OpenFL library pre-compiled from Haxe into JavaScript modules, and it includes type definitions (sometimes called externs) for various compile-to-JS languages, including [TypeScript](https://typescriptlang.org/), [ActionScript 3.0 with Apache Royale](https://royale.apache.org/), and [Haxe](https://haxe.org/). Supports bundlers like [Webpack](https://webpack.js.org/) and [Vite](https://vite.dev/).
 
 With the OpenFL npm package, projects can be integrated anywhere that supports HTML and JavaScript:
 
