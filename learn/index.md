@@ -13,7 +13,7 @@ redirect_from:
 
 _Welcome!_ [OpenFL](/) is a library for creative expression on the web, desktop, and mobile. Developers gain access to a [tons of features](/learn/features) with OpenFL, including 2D and 3D graphics rendering, audio playback, network loading, file system access, user input (mouse, touch, keyboard, and gamepads), asset management, and [a whole lot more…](/learn/features)
 
-Because OpenFL is cross-platform, you can cross-compile to native C++, JS and WebGL, or runtimes like HashLink and Adobe AIR — all using one seamless toolset. Publish to a variety of app stores, or simply tell your users launch their favorite web browser. With OpenFL, your project can run on pretty much any modern device.
+Because OpenFL is cross-platform, you can cross-compile your projects to native C++ on mobile and desktop, JS and WebGL on the web, or even app runtimes like [HashLink](https://hashlink.haxe.org/), [Electron](https://www.electronjs.org/), and [Adobe AIR](https://airsdk.dev/) — all using one seamless toolset. Publish to a variety of app stores, or simply tell your users launch their favorite web browser. With OpenFL, your project can run on pretty much any modern device.
 
 ## Download
 
