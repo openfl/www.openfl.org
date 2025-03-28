@@ -594,7 +594,7 @@ ul.nav-sidebar > li > ul.nav-sidebar {
 /* Made with OpenFL
 ------------------------- */
 
-.made-with {
+.full-width-highlight-section {
   margin: 40px auto;
   background-color: #f8f8f8; 
   border-top: solid 1px #e7e7e7;
@@ -604,26 +604,35 @@ ul.nav-sidebar > li > ul.nav-sidebar {
 }
 
 @media (min-width: 768px) {
-  .made-with {
+  .full-width-highlight-section {
     margin-top: 80px;
   }
 }
 
 @media (min-width: 992px) {
-  .made-with {
+  .full-width-highlight-section {
     margin-top: 120px;
   }
 }
 
-.made-with-heading {
+.thumbs-section-heading {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
 }
 
-.made-with .made-with-thumbs {
+.thumbs-group {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.thumbs-group .thumb {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.thumbs-group p {
+  text-align: left;
 }
 
 .footer-nav {
