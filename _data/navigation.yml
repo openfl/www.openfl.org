@@ -58,7 +58,15 @@
     - title: API
       url: https://api.openfl.org
     - title: Samples
-      url: https://github.com/openfl/openfl-samples
+      url: /learn/haxelib/samples/
+      folder: true
+      subitems:
+        - title: OpenFL Samples
+          url: https://github.com/openfl/openfl-samples
+        - title: Starling Samples
+          url: https://github.com/openfl/starling/tree/master/samples
+        - title: Away3D Samples
+          url: https://github.com/openfl/away3d-samples
   - title: NPM
     url: /learn/npm/
     folder: true
