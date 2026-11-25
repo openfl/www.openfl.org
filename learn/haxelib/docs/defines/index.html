@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <title>OpenFL Defines</title>
+    
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/anchor.min.js"></script>
+    
+    
+    
+    <!-- <script src='/js/openfl.min.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openfl/7.1.2/openfl.min.js"></script>
+    <script src='/js/actuate.min.js'></script>
+    
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css?1795646662139477453" rel="stylesheet">
+    <link href="/css/syntax.css?1795646662139477453" rel="stylesheet">
+    
+    <script src="/js/holder.js"></script>
+    
+  </head>
+
+  <body class="">
+    
+    <div id="wrap">
+      <div id="main" class="clear-top">
+        
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-logo" href="/"><img src="/images/logo.png" srcset="/images/logo@2x.png 2x" alt="OpenFL" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                
+                <li><a  href="/learn/">LEARN</a></li>
+                
+                
+                
+                <li><a  href="/download/">DOWNLOAD</a></li>
+                
+                
+                
+                <li><a  href="/showcase/">SHOWCASE</a></li>
+                
+                
+                
+                <li><a href="https://community.openfl.org">COMMUNITY</a></li>
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/get-involved/"><button type="button" class="btn btn-info"><span class="glyphicon glyphicon-wrench"></span> CONTRIBUTE</button></a></li>
+                <!-- <li><a href="/learn/docs/getting-started/"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> DOWNLOAD</button></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+<script src='/js/holder.js'></script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-push-4 sidebar-content add-anchors">
+			
+			<div class="page-header">
+				<h1>OpenFL Defines</h1>
+				<div class="page-links"><a href="https://github.com/openfl/openfl.org/edit/master/learn/haxelib/docs/defines.md">Edit Document<span class="page-links-icon glyphicon glyphicon-pencil"></span></a></div>
+			</div>
+			
+			<p>OpenFL reads a number of defines for <a href="https://haxe.org/manual/lf-condition-compilation.html">conditional compilation</a>. Most of them change how OpenFL renders, or turn off a behavior that some projects do not want.</p>
+
+<p>To add a define, use the <code class="language-plaintext highlighter-rouge">-D</code> option on the command line, or add a <code class="language-plaintext highlighter-rouge">&lt;haxedef /&gt;</code> to your <a href="../project-files/">project file</a>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openfl <span class="nb">test </span>html5 <span class="nt">-Dopenfl_disable_hdpi</span>
+</code></pre></div></div>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;haxedef</span> <span class="na">name=</span><span class="s">"openfl_pool_events"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>Haxe treats hyphens and underscores in a define’s name as the same, so <code class="language-plaintext highlighter-rouge">-Dopenfl-disable-hdpi</code> and <code class="language-plaintext highlighter-rouge">-Dopenfl_disable_hdpi</code> are equivalent.</p>
+
+<p>OpenFL runs on Lime, so Lime’s defines apply too. For example, <code class="language-plaintext highlighter-rouge">-Dcanvas</code> and <code class="language-plaintext highlighter-rouge">-Ddom</code> choose a renderer on HTML5, and <code class="language-plaintext highlighter-rouge">-Dcairo</code> forces software rendering on native targets. For those, and for more about setting defines in a project file, read the Lime documentation:</p>
+
+<ul>
+  <li><a href="https://lime.openfl.org/docs/project-files/defines/">Defines</a> (Lime)</li>
+</ul>
+
+<h2 id="set-by-openfl">Set by OpenFL</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Define</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl</code></td>
+      <td>OpenFL is in use. In Haxe code it holds the OpenFL version.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl-native</code></td>
+      <td>OpenFL’s native backend, for C++, HashLink and Neko.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl-html5</code></td>
+      <td>OpenFL’s HTML5 backend.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl-flash</code></td>
+      <td>Flash Player and Adobe AIR, where OpenFL uses the Flash API directly.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl-disable-handle-error</code></td>
+      <td>Set for debug builds. See <a href="#errors-and-debugging">Errors and debugging</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="rendering">Rendering</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Define</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_disable_hdpi</code></td>
+      <td>Draw at the stage’s own resolution on HiDPI screens, instead of at the window’s scale. Content looks softer, but uses less memory.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_disable_hdpi_graphics</code></td>
+      <td>The same, for vector graphics drawn in software only.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_disable_hdpi_textfield</code></td>
+      <td>The same, for text fields drawn in software only.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_disable_hdpi_cacheasbitmap</code></td>
+      <td>The same, for cached bitmaps only.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_dpi_aware</code></td>
+      <td>On HiDPI screens, size the stage in physical pixels: <code class="language-plaintext highlighter-rouge">stageWidth</code> and <code class="language-plaintext highlighter-rouge">stageHeight</code> match the window’s size in pixels, and content is not scaled up. By default the stage is measured in logical pixels and scaled to the screen.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_always_render</code></td>
+      <td>Render every frame, even when nothing on the stage has changed.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_disable_display_render</code></td>
+      <td>Do not render the display list, for applications that draw everything with Stage3D.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_force_sw_graphics</code></td>
+      <td>OpenGL: draw all vector graphics in software first, then upload them as a texture. <code class="language-plaintext highlighter-rouge">force_sw_graphics</code> does the same.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_force_hw_graphics</code></td>
+      <td>OpenGL: draw all vector graphics directly on the GPU, even shapes that would otherwise be drawn in software first. Lines, and shapes drawn with <code class="language-plaintext highlighter-rouge">lineTo()</code> or <code class="language-plaintext highlighter-rouge">curveTo()</code>, are left out. <code class="language-plaintext highlighter-rouge">force_hw_graphics</code> does the same.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_disable_graphics_upscaling</code></td>
+      <td>When vector graphics drawn in software are scaled up, stretch the existing image instead of drawing it again at the larger size.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_disable_graphics_pixel_snapping</code></td>
+      <td>Do not round the position of vector graphics to the nearest pixel, or to the nearest device pixel on HiDPI screens.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_legacy_scale9grid</code></td>
+      <td>Use the <code class="language-plaintext highlighter-rouge">scale9Grid</code> implementation for <code class="language-plaintext highlighter-rouge">Graphics</code> from before OpenFL 9.5.0.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_force_gl_cacheasbitmap_for_scale9grid</code></td>
+      <td>With <code class="language-plaintext highlighter-rouge">openfl_legacy_scale9grid</code>, cache objects that have a <code class="language-plaintext highlighter-rouge">scale9Grid</code> as bitmaps when rendering with OpenGL, as older versions did.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_power_of_two</code></td>
+      <td>Round texture sizes up to a power of two, for hardware that needs it.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_share_context</code></td>
+      <td>Give every <code class="language-plaintext highlighter-rouge">Stage3D</code> the stage’s own <code class="language-plaintext highlighter-rouge">Context3D</code>, instead of a <code class="language-plaintext highlighter-rouge">Context3D</code> of its own.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_disable_context_cache</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Context3D</code> sets the OpenGL state every time, instead of skipping state that has not changed. Useful when other code makes OpenGL calls of its own.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">gl_debug</code></td>
+      <td>Turn on the OpenGL driver’s debug output, where the <code class="language-plaintext highlighter-rouge">KHR_debug</code> extension is available.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">gl_stats</code></td>
+      <td>Count draw calls. <code class="language-plaintext highlighter-rouge">openfl.display.FPS</code> shows the totals.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cacheasbitmap-and-filters">cacheAsBitmap and filters</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Define</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_disable_cacheasbitmap</code></td>
+      <td>Ignore <code class="language-plaintext highlighter-rouge">cacheAsBitmap</code>, and always draw objects directly.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_enable_cacheasbitmap</code></td>
+      <td>DOM rendering: honor <code class="language-plaintext highlighter-rouge">cacheAsBitmap</code> for objects without filters, which DOM rendering otherwise ignores.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_disable_gl_cacheasbitmap</code></td>
+      <td>OpenGL: draw cached bitmaps in software.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_force_gl_cacheasbitmap</code></td>
+      <td>OpenGL: draw cached bitmaps on the GPU, even for content that would otherwise be cached in software.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_disable_filters</code></td>
+      <td>Do not draw <code class="language-plaintext highlighter-rouge">filters</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="text">Text</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Define</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_disable_text_measurement_cache</code></td>
+      <td>HTML5: measure text every time it is laid out, instead of caching the measurements.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_hack_fix_chrome_text</code></td>
+      <td>HTML5: work around a bug in Chrome that garbles text drawn on a canvas.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_measuretext_div</code></td>
+      <td>HTML5: also apply each font that is measured to a hidden HTML element.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_cairo_show_text</code></td>
+      <td>Cairo: draw text with Cairo’s own text drawing, instead of drawing the glyphs placed by OpenFL’s text layout.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">notextselectscroll</code></td>
+      <td>Do not scroll a text field when a selection is dragged past its edge.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_trace_text_layout_groups</code></td>
+      <td>Log the layout groups of each text field as it is laid out.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="events-and-input">Events and input</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Define</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_pool_events</code></td>
+      <td>Reuse event objects for events that are dispatched often, such as mouse, touch and render events, so they make less garbage. A listener must not keep a reference to one of these events after it returns.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_always_dispatch_mouse_events</code></td>
+      <td>Dispatch <code class="language-plaintext highlighter-rouge">MouseEvent.MOUSE_MOVE</code> for every movement the system reports, instead of at most once per frame.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_numpad_enter</code></td>
+      <td>Report the Enter key on the number pad as <code class="language-plaintext highlighter-rouge">Keyboard.NUMPAD_ENTER</code> instead of <code class="language-plaintext highlighter-rouge">Keyboard.ENTER</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_enable_experimental_update_queue</code></td>
+      <td>Each frame, update only the display objects that changed, instead of the whole display list. Experimental, and not used with DOM rendering.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="errors-and-debugging">Errors and debugging</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Define</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl-disable-handle-error</code></td>
+      <td>Let an error thrown by an event listener stop the application, so a debugger shows where it happened, instead of dispatching it as an <code class="language-plaintext highlighter-rouge">UncaughtErrorEvent</code>. OpenFL sets this for debug builds.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl-enable-handle-error</code></td>
+      <td>Dispatch errors as an <code class="language-plaintext highlighter-rouge">UncaughtErrorEvent</code>, even in debug builds.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_debug</code></td>
+      <td>C++: build OpenFL’s own classes as debug code in debug builds. Otherwise they are built as release code, which keeps debug builds fast, and the debugger does not step into them.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_strict</code></td>
+      <td>Leave out Flash APIs that OpenFL does not implement, such as <code class="language-plaintext highlighter-rouge">System.pause()</code>, <code class="language-plaintext highlighter-rouge">Loader.close()</code> and <code class="language-plaintext highlighter-rouge">InteractiveObject.requestSoftKeyboard()</code>, so code that calls them does not compile.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="profiling">Profiling</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Define</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">telemetry</code></td>
+      <td>Native: profile with HxScout through the <code class="language-plaintext highlighter-rouge">hxtelemetry</code> haxelib, which OpenFL adds to the build. Flash: turn on Adobe Scout’s advanced telemetry.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl-telemetry</code></td>
+      <td>The same as <code class="language-plaintext highlighter-rouge">telemetry</code> on native targets, and also builds OpenFL and Lime’s classes as debug code, so they show up in the profile.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">advanced-telemetry</code></td>
+      <td>The same as <code class="language-plaintext highlighter-rouge">telemetry</code> on native targets. On Flash, this is the Haxe define that <code class="language-plaintext highlighter-rouge">telemetry</code> sets.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">HXCPP_TRACY</code></td>
+      <td>When profiling with hxcpp’s support for Tracy, OpenFL marks the end of each frame.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="other-defines">Other defines</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Define</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_big_endian</code></td>
+      <td>Make <code class="language-plaintext highlighter-rouge">BIG_ENDIAN</code> the default for new <code class="language-plaintext highlighter-rouge">ByteArray</code> objects, as in Flash. Otherwise the default matches the system.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_capabilities_version</code></td>
+      <td>Report this Flash or AIR runtime version in <code class="language-plaintext highlighter-rouge">Capabilities.version</code>, such as <code class="language-plaintext highlighter-rouge">-Dopenfl_capabilities_version=51,1,3,0</code>, for code that checks it, such as Starling. Requires a build of OpenFL newer than 9.5.2.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mute</code>, <code class="language-plaintext highlighter-rouge">mute_sound</code></td>
+      <td>Start with all sound muted.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl_dynamic</code></td>
+      <td>Haxe 3 only: allow any field to be read from a <code class="language-plaintext highlighter-rouge">DisplayObject</code> or <code class="language-plaintext highlighter-rouge">MovieClip</code>, as in ActionScript.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="project-file">Project file</h2>
+
+<p>These are read in the project file, rather than in Haxe code.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Define</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lime-version</code></td>
+      <td>The version of Lime to use, such as <code class="language-plaintext highlighter-rouge">&lt;set name="lime-version" value="8.3.2" /&gt;</code>, placed before <code class="language-plaintext highlighter-rouge">&lt;haxelib name="openfl" /&gt;</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">disable-version-check</code></td>
+      <td>Do not check whether the version of Lime in use is compatible with OpenFL.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">draft</code></td>
+      <td>Add OpenFL’s draft APIs, which are experimental, such as <code class="language-plaintext highlighter-rouge">SQLConnection</code> and <code class="language-plaintext highlighter-rouge">NativeMenu</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">openfl-no-default-fonts</code></td>
+      <td>Do not package OpenFL’s fallback fonts on targets that have no system fonts of their own.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>OpenFL also checks a few defines while building its documentation, its npm package and its tests. They are not meant for applications, and may change without notice: <code class="language-plaintext highlighter-rouge">openfl_doc_gen</code>, <code class="language-plaintext highlighter-rouge">flash_doc_gen</code>, <code class="language-plaintext highlighter-rouge">air_doc_gen</code>, <code class="language-plaintext highlighter-rouge">doc_gen</code>, <code class="language-plaintext highlighter-rouge">openfljs</code>, <code class="language-plaintext highlighter-rouge">openfl-html5-extern</code>, <code class="language-plaintext highlighter-rouge">commonjs</code>, <code class="language-plaintext highlighter-rouge">openfl_unit_testing</code>, <code class="language-plaintext highlighter-rouge">openfl_enable_utest_legacy_mode</code> and <code class="language-plaintext highlighter-rouge">no_openfl_entry_point</code>.</p>
+
+			
+		</div>
+		<div class="col-md-4 col-md-pull-8 sidebar add-anchors">
+			
+			
+			
+			
+
+<div class="collapse in" id="nav-sidebar-0">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/" >Introduction</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/features/" >Features</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/languages/" >Supported Languages</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-1"  data-toggle="collapse">Haxelib</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-1">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-2"  data-toggle="collapse">Documentation</a>
+		
+		
+		
+		
+			
+
+<div class="collapse in" id="nav-sidebar-2">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/core-architecture/" >Core Architecture</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/project-files/" >Project Files</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/targets/" >Targets</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/tools/" >Command Line Tools</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/docs/defines/" class="active">Defines</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-3"  data-toggle="collapse">Books</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-3">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://books.openfl.org/openfl-developers-guide/" target="_blank" />OpenFL Developer's Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://books.openfl.org/as3-conversion-guide/" target="_blank" />ActionScript 3.0 Conversion Guide</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://books.openfl.org/starling-manual/" target="_blank" />The Starling Manual for OpenFL</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://www.openflbook.com" target="_blank" />Videojuegos Multiplataforma con OpenFL</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/haxelib/tutorials/" >Tutorials</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://api.openfl.org" target="_blank" />API</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-4"  data-toggle="collapse">Samples</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-4">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/openfl-samples" target="_blank" />OpenFL Samples</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/starling/tree/master/samples" target="_blank" />Starling Samples</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/away3d-samples" target="_blank" />Away3D Samples</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-5"  data-toggle="collapse">NPM</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-5">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/getting-started/" >Getting Started</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-6"  data-toggle="collapse">Tutorials</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-6">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/displaying-a-bitmap/" >Displaying a Bitmap</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/adding-animation/" >Adding Animation</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/tutorials/handling-mouse-events/" >Handling Mouse Events</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="/learn/npm/api/" >API Reference</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		<a href="#nav-sidebar-7"  data-toggle="collapse">Samples</a>
+		
+		
+		
+		
+			
+
+<div class="collapse " id="nav-sidebar-7">
+<ul class="nav nav-sidebar">
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/openfl-samples-es6" target="_blank" />JavaScript (ES6)</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/openfl-samples-es5" target="_blank" />JavaScript (ES5)</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/openfl-samples-ts" target="_blank" />TypeScript</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/openfl-samples-haxe" target="_blank" />Haxe</a>
+		
+		
+		
+		
+		
+	</li>
+
+	<li class="nav-sidebar-item">
+		
+		
+		
+		
+		
+		
+		<a href="https://github.com/openfl/openfl-samples-as3" target="_blank" />AS3/Royale</a>
+		
+		
+		
+		
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+</ul>
+</div>
+		
+	</li>
+
+</ul>
+</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	</div>
+</div>
+<script>
+	anchors.options = {
+		placement: "right",
+		visible: "always",
+		icon: "",
+		class: "glyphicon glyphicon-link"
+	};
+	anchors.add ("div.add-anchors > h1, div.add-anchors > h2");
+</script>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="logos">
+        <div class="container">
+          <img class="img-responsive" src="/images/logos.png" usemap="#logos"/>
+          <map name="logos">
+            <area shape="rect" coords="0,0,140,69" href="https://www.haxe.org" target="_blank" />
+            <area shape="rect" coords="140,0,1000,69" href="/sponsors/">
+          </map>
+        </div>
+      </div>
+      <div class="container" style="">
+        <div class="icons pull-right">
+          <a href="https://github.com/openfl/" target="_blank"><span class="icon-github-b"></span></a>
+          <a href="https://discord.gg/tDgq8EE" target="_blank"><span class="icon-discord"></span></a>
+          <a href="https://www.x.com/open_fl/" target="_blank"><span class="icon-x"></span></a>
+          <a href="https://www.facebook.com/openfl/" target="_blank"><span class="icon-facebook-b"></span></a>
+          <a href="/get-involved/">
+            <span class="glyphicon glyphicon-wrench" style="position: relative; top: 4px;"></span>
+          </a>
+        </div>
+        <p><a href="/privacy/" style="padding-right: 12px;">PRIVACY POLICY</a> © 2013&ndash;2026 OPENFL. ALL RIGHTS RESERVED.</p>
+        <ul class="footer-nav">
+          <li><a href="/download/">Download</a></li>
+          <li><a href="/learn/">Learn</a></li>
+          <li><a href="/showcase/">Showcase</a></li>
+          <li><a href="https://community.openfl.org//">Community</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  </body>
+</html>
