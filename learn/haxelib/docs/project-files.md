@@ -14,3 +14,5 @@ For more information on the standard XML format (which includes _.lime_), read m
 The HXP file format is a special format which is written using Haxe code, rather than XML. It is very powerful, but may be less reliable than XML project files. For more information, read more in the Lime documentation:
 
  * [HXP Format](https://lime.openfl.org/docs/project-files/hxp-format/) (Lime)
+
+For the defines that OpenFL reads, which you can set in a project file or on the command line, see [OpenFL Defines](../defines/).

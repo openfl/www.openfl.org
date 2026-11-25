@@ -39,6 +39,8 @@
         url: /learn/haxelib/docs/targets/
       - title: Command Line Tools
         url: /learn/haxelib/docs/tools/
+      - title: Defines
+        url: /learn/haxelib/docs/defines/
       #- title: Feature Matrix
       #  url: /learn/docs/feature-matrix/
     - title: Books
