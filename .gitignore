@@ -7,3 +7,5 @@ learn/npm/api
 _openfl
 js/openfl.min.js
 _deploy
+# Written by _scripts/releases.py during the build
+_data/releases.json

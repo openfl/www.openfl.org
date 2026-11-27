@@ -1,6 +1,12 @@
 name: Build & Deploy
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  # Daily, so the landing page shows a release made without a change to this site
+  schedule:
+    - cron: "30 7 * * *"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,6 +24,12 @@ jobs:
       run: |
         _scripts/install.sh
     
+    - name: Fetch latest releases
+      run: |
+        python3 _scripts/releases.py _data/releases.json
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Build site
       run: |
         _scripts/build.sh

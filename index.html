@@ -16,6 +16,27 @@ title: "OpenFL - Creative expression for desktop, mobile, web and console platfo
    </div>
 </div>
 
+{% assign releases = site.data.releases %}
+{% if releases.openfl and releases.lime %}
+<div class="releases-section">
+	<div class="container">
+		<div class="row centered">
+			<h2 class="thumbs-section-heading">Latest Releases</h2>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				{% assign release = releases.openfl %}
+				{% include release-card.html %}
+			</div>
+			<div class="col-sm-6">
+				{% assign release = releases.lime %}
+				{% include release-card.html %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
 <!-- <div class="container cta">
 	<div class="row">
 		<div class="col-sm-6 centered">
